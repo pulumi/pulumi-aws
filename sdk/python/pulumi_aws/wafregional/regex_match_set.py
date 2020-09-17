@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class RegexMatchSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regex_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]]] = None,
+                 regex_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,7 +48,7 @@ class RegexMatchSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Regex Match Set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
                the location in requests that you want AWS WAF to search, and other settings. See below.
         """
         if __name__ is not None:
@@ -81,7 +81,7 @@ class RegexMatchSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            regex_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]]] = None) -> 'RegexMatchSet':
+            regex_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]]] = None) -> 'RegexMatchSet':
         """
         Get an existing RegexMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,7 +90,7 @@ class RegexMatchSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Regex Match Set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
                the location in requests that you want AWS WAF to search, and other settings. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -111,7 +111,7 @@ class RegexMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regexMatchTuples")
-    def regex_match_tuples(self) -> pulumi.Output[Optional[List['outputs.RegexMatchSetRegexMatchTuple']]]:
+    def regex_match_tuples(self) -> pulumi.Output[Optional[Sequence['outputs.RegexMatchSetRegexMatchTuple']]]:
         """
         The regular expression pattern that you want AWS WAF to search for in web requests,
         the location in requests that you want AWS WAF to search, and other settings. See below.

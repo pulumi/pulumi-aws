@@ -17,17 +17,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const cloudwatch = new aws.ses.EventDestination("cloudwatch", {
- *     cloudwatchDestinations: [{
- *         defaultValue: "default",
- *         dimensionName: "dimension",
- *         valueSource: "emailHeader",
- *     }],
- *     configurationSetName: aws_ses_configuration_set_example.name,
+ *     configurationSetName: aws_ses_configuration_set.example.name,
  *     enabled: true,
  *     matchingTypes: [
  *         "bounce",
  *         "send",
  *     ],
+ *     cloudwatchDestinations: [{
+ *         defaultValue: "default",
+ *         dimensionName: "dimension",
+ *         valueSource: "emailHeader",
+ *     }],
  * });
  * ```
  * ### Kinesis Destination
@@ -37,16 +37,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const kinesis = new aws.ses.EventDestination("kinesis", {
- *     configurationSetName: aws_ses_configuration_set_example.name,
+ *     configurationSetName: aws_ses_configuration_set.example.name,
  *     enabled: true,
- *     kinesisDestination: {
- *         roleArn: aws_iam_role_example.arn,
- *         streamArn: aws_kinesis_firehose_delivery_stream_example.arn,
- *     },
  *     matchingTypes: [
  *         "bounce",
  *         "send",
  *     ],
+ *     kinesisDestination: {
+ *         streamArn: aws_kinesis_firehose_delivery_stream.example.arn,
+ *         roleArn: aws_iam_role.example.arn,
+ *     },
  * });
  * ```
  * ### SNS Destination
@@ -56,14 +56,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sns = new aws.ses.EventDestination("sns", {
- *     configurationSetName: aws_ses_configuration_set_example.name,
+ *     configurationSetName: aws_ses_configuration_set.example.name,
  *     enabled: true,
  *     matchingTypes: [
  *         "bounce",
  *         "send",
  *     ],
  *     snsDestination: {
- *         topicArn: aws_sns_topic_example.arn,
+ *         topicArn: aws_sns_topic.example.arn,
  *     },
  * });
  * ```

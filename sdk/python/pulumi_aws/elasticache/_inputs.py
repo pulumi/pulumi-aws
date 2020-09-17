@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -20,10 +20,10 @@ class ClusterCacheNodeArgs:
                  address: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None):
+                 port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
-        :param pulumi.Input[float] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -66,14 +66,14 @@ class ClusterCacheNodeArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
 
@@ -117,37 +117,37 @@ class ParameterGroupParameterArgs:
 @pulumi.input_type
 class ReplicationGroupClusterModeArgs:
     def __init__(__self__, *,
-                 num_node_groups: pulumi.Input[float],
-                 replicas_per_node_group: pulumi.Input[float]):
+                 num_node_groups: pulumi.Input[int],
+                 replicas_per_node_group: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] num_node_groups: Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-        :param pulumi.Input[float] replicas_per_node_group: Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+        :param pulumi.Input[int] num_node_groups: Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+        :param pulumi.Input[int] replicas_per_node_group: Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
         """
         pulumi.set(__self__, "num_node_groups", num_node_groups)
         pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
 
     @property
     @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> pulumi.Input[float]:
+    def num_node_groups(self) -> pulumi.Input[int]:
         """
         Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
         """
         return pulumi.get(self, "num_node_groups")
 
     @num_node_groups.setter
-    def num_node_groups(self, value: pulumi.Input[float]):
+    def num_node_groups(self, value: pulumi.Input[int]):
         pulumi.set(self, "num_node_groups", value)
 
     @property
     @pulumi.getter(name="replicasPerNodeGroup")
-    def replicas_per_node_group(self) -> pulumi.Input[float]:
+    def replicas_per_node_group(self) -> pulumi.Input[int]:
         """
         Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
         """
         return pulumi.get(self, "replicas_per_node_group")
 
     @replicas_per_node_group.setter
-    def replicas_per_node_group(self, value: pulumi.Input[float]):
+    def replicas_per_node_group(self, value: pulumi.Input[int]):
         pulumi.set(self, "replicas_per_node_group", value)
 
 

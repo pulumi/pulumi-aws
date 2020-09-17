@@ -39,7 +39,6 @@ namespace Pulumi.Aws.Iam
     ///         }
     ///       ]
     ///     }
-    /// 
     /// ",
     ///         });
     ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
@@ -57,13 +56,12 @@ namespace Pulumi.Aws.Iam
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var test_attach = new Aws.Iam.RolePolicyAttachment("test-attach", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {
-    ///             PolicyArn = policy.Arn,
     ///             Role = role.Name,
+    ///             PolicyArn = policy.Arn,
     ///         });
     ///     }
     /// 

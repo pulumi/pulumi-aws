@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['LoadBalancerBackendServerPolicy']
@@ -19,9 +19,9 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_port: Optional[pulumi.Input[float]] = None,
+                 instance_port: Optional[pulumi.Input[int]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
-                 policy_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -78,9 +78,9 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] instance_port: The instance port to apply the policy to.
+        :param pulumi.Input[int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
-        :param pulumi.Input[List[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
         pulumi.log.warn("LoadBalancerBackendServerPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy")
         if __name__ is not None:
@@ -117,9 +117,9 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            instance_port: Optional[pulumi.Input[float]] = None,
+            instance_port: Optional[pulumi.Input[int]] = None,
             load_balancer_name: Optional[pulumi.Input[str]] = None,
-            policy_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'LoadBalancerBackendServerPolicy':
+            policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'LoadBalancerBackendServerPolicy':
         """
         Get an existing LoadBalancerBackendServerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -127,9 +127,9 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] instance_port: The instance port to apply the policy to.
+        :param pulumi.Input[int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
-        :param pulumi.Input[List[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,7 +142,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instancePort")
-    def instance_port(self) -> pulumi.Output[float]:
+    def instance_port(self) -> pulumi.Output[int]:
         """
         The instance port to apply the policy to.
         """
@@ -158,7 +158,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyNames")
-    def policy_names(self) -> pulumi.Output[Optional[List[str]]]:
+    def policy_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Policy Names to apply to the backend server.
         """

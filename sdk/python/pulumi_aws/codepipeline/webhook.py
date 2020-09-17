@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']]] = None,
-                 filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_action: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         :param pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
@@ -158,7 +158,7 @@ class Webhook(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             authentication: Optional[pulumi.Input[str]] = None,
             authentication_configuration: Optional[pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']]] = None,
-            filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_action: Optional[pulumi.Input[str]] = None,
@@ -173,7 +173,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         :param pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
@@ -212,7 +212,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[List['outputs.WebhookFilter']]:
+    def filters(self) -> pulumi.Output[Sequence['outputs.WebhookFilter']]:
         """
         One or more `filter` blocks. Filter blocks are documented below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -57,8 +57,8 @@ class GetFunctionResult:
         if layers and not isinstance(layers, list):
             raise TypeError("Expected argument 'layers' to be a list")
         pulumi.set(__self__, "layers", layers)
-        if memory_size and not isinstance(memory_size, float):
-            raise TypeError("Expected argument 'memory_size' to be a float")
+        if memory_size and not isinstance(memory_size, int):
+            raise TypeError("Expected argument 'memory_size' to be a int")
         pulumi.set(__self__, "memory_size", memory_size)
         if qualified_arn and not isinstance(qualified_arn, str):
             raise TypeError("Expected argument 'qualified_arn' to be a str")
@@ -66,8 +66,8 @@ class GetFunctionResult:
         if qualifier and not isinstance(qualifier, str):
             raise TypeError("Expected argument 'qualifier' to be a str")
         pulumi.set(__self__, "qualifier", qualifier)
-        if reserved_concurrent_executions and not isinstance(reserved_concurrent_executions, float):
-            raise TypeError("Expected argument 'reserved_concurrent_executions' to be a float")
+        if reserved_concurrent_executions and not isinstance(reserved_concurrent_executions, int):
+            raise TypeError("Expected argument 'reserved_concurrent_executions' to be a int")
         pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
         if role and not isinstance(role, str):
             raise TypeError("Expected argument 'role' to be a str")
@@ -78,14 +78,14 @@ class GetFunctionResult:
         if source_code_hash and not isinstance(source_code_hash, str):
             raise TypeError("Expected argument 'source_code_hash' to be a str")
         pulumi.set(__self__, "source_code_hash", source_code_hash)
-        if source_code_size and not isinstance(source_code_size, float):
-            raise TypeError("Expected argument 'source_code_size' to be a float")
+        if source_code_size and not isinstance(source_code_size, int):
+            raise TypeError("Expected argument 'source_code_size' to be a int")
         pulumi.set(__self__, "source_code_size", source_code_size)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if timeout and not isinstance(timeout, float):
-            raise TypeError("Expected argument 'timeout' to be a float")
+        if timeout and not isinstance(timeout, int):
+            raise TypeError("Expected argument 'timeout' to be a int")
         pulumi.set(__self__, "timeout", timeout)
         if tracing_config and not isinstance(tracing_config, dict):
             raise TypeError("Expected argument 'tracing_config' to be a dict")
@@ -131,7 +131,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="fileSystemConfigs")
-    def file_system_configs(self) -> List['outputs.GetFunctionFileSystemConfigResult']:
+    def file_system_configs(self) -> Sequence['outputs.GetFunctionFileSystemConfigResult']:
         """
         The connection settings for an Amazon EFS file system.
         """
@@ -184,7 +184,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def layers(self) -> List[str]:
+    def layers(self) -> Sequence[str]:
         """
         A list of Lambda Layer ARNs attached to your Lambda Function.
         """
@@ -192,7 +192,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="memorySize")
-    def memory_size(self) -> float:
+    def memory_size(self) -> int:
         """
         Amount of memory in MB your Lambda Function can use at runtime.
         """
@@ -213,7 +213,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="reservedConcurrentExecutions")
-    def reserved_concurrent_executions(self) -> float:
+    def reserved_concurrent_executions(self) -> int:
         """
         The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
         """
@@ -245,7 +245,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="sourceCodeSize")
-    def source_code_size(self) -> float:
+    def source_code_size(self) -> int:
         """
         The size in bytes of the function .zip file.
         """
@@ -258,7 +258,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def timeout(self) -> float:
+    def timeout(self) -> int:
         """
         The function execution time at which Lambda should terminate the function.
         """

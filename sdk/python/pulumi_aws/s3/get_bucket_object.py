@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetBucketObjectResult:
         if content_language and not isinstance(content_language, str):
             raise TypeError("Expected argument 'content_language' to be a str")
         pulumi.set(__self__, "content_language", content_language)
-        if content_length and not isinstance(content_length, float):
-            raise TypeError("Expected argument 'content_length' to be a float")
+        if content_length and not isinstance(content_length, int):
+            raise TypeError("Expected argument 'content_length' to be a int")
         pulumi.set(__self__, "content_length", content_length)
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
@@ -143,7 +143,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter(name="contentLength")
-    def content_length(self) -> float:
+    def content_length(self) -> int:
         """
         Size of the body in bytes.
         """

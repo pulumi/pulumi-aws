@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -53,7 +53,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="additionalArtifacts")
-    def additional_artifacts(self) -> List[str]:
+    def additional_artifacts(self) -> Sequence[str]:
         """
         A list of additional artifacts.
         """
@@ -61,7 +61,7 @@ class GetReportDefinitionResult:
 
     @property
     @pulumi.getter(name="additionalSchemaElements")
-    def additional_schema_elements(self) -> List[str]:
+    def additional_schema_elements(self) -> Sequence[str]:
         """
         A list of schema elements.
         """

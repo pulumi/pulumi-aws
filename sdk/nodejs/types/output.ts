@@ -447,7 +447,8 @@ export namespace alb {
     }
 
     export interface GetLoadBalancerSubnetMapping {
-        allocationId?: string;
+        allocationId: string;
+        privateIpv4Address: string;
         subnetId: string;
     }
 
@@ -1474,7 +1475,8 @@ export namespace applicationloadbalancing {
     }
 
     export interface GetLoadBalancerSubnetMapping {
-        allocationId?: string;
+        allocationId: string;
+        privateIpv4Address: string;
         subnetId: string;
     }
 
@@ -6032,32 +6034,80 @@ export namespace ec2 {
     }
 
     export interface DefaultSecurityGroupEgress {
+        /**
+         * List of CIDR blocks.
+         */
         cidrBlocks?: string[];
         /**
-         * The description of the security group
+         * Description of this egress rule.
          */
         description?: string;
+        /**
+         * The start port (or ICMP type number if protocol is "icmp")
+         */
         fromPort: number;
+        /**
+         * List of IPv6 CIDR blocks.
+         */
         ipv6CidrBlocks?: string[];
+        /**
+         * List of prefix list IDs (for allowing access to VPC endpoints)
+         */
         prefixListIds?: string[];
+        /**
+         * The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+         */
         protocol: string;
+        /**
+         * List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         */
         securityGroups?: string[];
+        /**
+         * If true, the security group itself will be added as a source to this egress rule.
+         */
         self?: boolean;
+        /**
+         * The end range port (or ICMP code if protocol is "icmp").
+         */
         toPort: number;
     }
 
     export interface DefaultSecurityGroupIngress {
+        /**
+         * List of CIDR blocks.
+         */
         cidrBlocks?: string[];
         /**
-         * The description of the security group
+         * Description of this egress rule.
          */
         description?: string;
+        /**
+         * The start port (or ICMP type number if protocol is "icmp")
+         */
         fromPort: number;
+        /**
+         * List of IPv6 CIDR blocks.
+         */
         ipv6CidrBlocks?: string[];
+        /**
+         * List of prefix list IDs (for allowing access to VPC endpoints)
+         */
         prefixListIds?: string[];
+        /**
+         * The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+         */
         protocol: string;
+        /**
+         * List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         */
         securityGroups?: string[];
+        /**
+         * If true, the security group itself will be added as a source to this egress rule.
+         */
         self?: boolean;
+        /**
+         * The end range port (or ICMP code if protocol is "icmp").
+         */
         toPort: number;
     }
 
@@ -6356,6 +6406,10 @@ export namespace ec2 {
          */
         iops: number;
         /**
+         * Whether the device in the block device mapping of the AMI is suppressed.
+         */
+        noDevice: boolean;
+        /**
          * The Snapshot ID of the mount.
          */
         snapshotId: string;
@@ -6488,7 +6542,7 @@ export namespace ec2 {
 
     export interface GetLaunchTemplateNetworkInterface {
         associatePublicIpAddress?: boolean;
-        deleteOnTermination: boolean;
+        deleteOnTermination?: boolean;
         /**
          * Description of the launch template.
          */
@@ -9012,7 +9066,8 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface GetLoadBalancerSubnetMapping {
-        allocationId?: string;
+        allocationId: string;
+        privateIpv4Address: string;
         subnetId: string;
     }
 
@@ -13119,7 +13174,8 @@ export namespace lb {
     }
 
     export interface GetLoadBalancerSubnetMapping {
-        allocationId?: string;
+        allocationId: string;
+        privateIpv4Address: string;
         subnetId: string;
     }
 

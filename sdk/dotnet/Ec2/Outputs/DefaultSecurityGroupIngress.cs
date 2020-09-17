@@ -13,17 +13,41 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class DefaultSecurityGroupIngress
     {
+        /// <summary>
+        /// List of CIDR blocks.
+        /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
         /// <summary>
-        /// The description of the security group
+        /// Description of this egress rule.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The start port (or ICMP type number if protocol is "icmp")
+        /// </summary>
         public readonly int FromPort;
+        /// <summary>
+        /// List of IPv6 CIDR blocks.
+        /// </summary>
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
+        /// <summary>
+        /// List of prefix list IDs (for allowing access to VPC endpoints)
+        /// </summary>
         public readonly ImmutableArray<string> PrefixListIds;
+        /// <summary>
+        /// The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// If true, the security group itself will be added as a source to this egress rule.
+        /// </summary>
         public readonly bool? Self;
+        /// <summary>
+        /// The end range port (or ICMP code if protocol is "icmp").
+        /// </summary>
         public readonly int ToPort;
 
         [OutputConstructor]

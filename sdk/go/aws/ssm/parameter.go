@@ -11,6 +11,78 @@ import (
 )
 
 // Provides an SSM Parameter resource.
+//
+// ## Example Usage
+//
+// To store a basic string parameter:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
+// 			Type:  pulumi.String("String"),
+// 			Value: pulumi.String("bar"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// To store an encrypted string using the default SSM KMS key:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := rds.NewInstance(ctx, "_default", &rds.InstanceArgs{
+// 			AllocatedStorage:   pulumi.Int(10),
+// 			StorageType:        pulumi.String("gp2"),
+// 			Engine:             pulumi.String("mysql"),
+// 			EngineVersion:      pulumi.String("5.7.16"),
+// 			InstanceClass:      pulumi.String("db.t2.micro"),
+// 			Name:               pulumi.String("mydb"),
+// 			Username:           pulumi.String("foo"),
+// 			Password:           pulumi.Any(_var.Database_master_password),
+// 			DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
+// 			ParameterGroupName: pulumi.String("default.mysql5.7"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ssm.NewParameter(ctx, "secret", &ssm.ParameterArgs{
+// 			Description: pulumi.String("The parameter description"),
+// 			Type:        pulumi.String("SecureString"),
+// 			Value:       pulumi.Any(_var.Database_master_password),
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 type Parameter struct {
 	pulumi.CustomResourceState
 

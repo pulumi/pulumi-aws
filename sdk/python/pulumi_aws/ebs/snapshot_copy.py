@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SnapshotCopy']
@@ -115,7 +115,7 @@ class SnapshotCopy(pulumi.CustomResource):
             source_snapshot_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             volume_id: Optional[pulumi.Input[str]] = None,
-            volume_size: Optional[pulumi.Input[float]] = None) -> 'SnapshotCopy':
+            volume_size: Optional[pulumi.Input[int]] = None) -> 'SnapshotCopy':
         """
         Get an existing SnapshotCopy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -135,7 +135,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
-        :param pulumi.Input[float] volume_size: The size of the drive in GiBs.
+        :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -244,7 +244,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> pulumi.Output[float]:
+    def volume_size(self) -> pulumi.Output[int]:
         """
         The size of the drive in GiBs.
         """

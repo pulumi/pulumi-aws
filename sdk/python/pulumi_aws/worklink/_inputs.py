@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -53,12 +53,12 @@ class FleetIdentityProviderArgs:
 @pulumi.input_type
 class FleetNetworkArgs:
     def __init__(__self__, *,
-                 security_group_ids: pulumi.Input[List[pulumi.Input[str]]],
-                 subnet_ids: pulumi.Input[List[pulumi.Input[str]]],
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: A list of security group IDs associated with access to the provided subnets.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs associated with access to the provided subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
         :param pulumi.Input[str] vpc_id: The VPC ID with connectivity to associated websites.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -67,26 +67,26 @@ class FleetNetworkArgs:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of security group IDs associated with access to the provided subnets.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @property

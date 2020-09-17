@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -147,7 +147,7 @@ class GetMountTargetResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> Sequence[str]:
         """
         List of VPC security group IDs attached to the mount target.
         """

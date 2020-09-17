@@ -24,14 +24,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var test = new Aws.Ec2.NetworkInterface("test", new Aws.Ec2.NetworkInterfaceArgs
     ///         {
-    ///             Attachments = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
-    ///                 {
-    ///                     DeviceIndex = 1,
-    ///                     Instance = aws_instance.Test.Id,
-    ///                 },
-    ///             },
+    ///             SubnetId = aws_subnet.Public_a.Id,
     ///             PrivateIps = 
     ///             {
     ///                 "10.0.0.50",
@@ -40,7 +33,14 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 aws_security_group.Web.Id,
     ///             },
-    ///             SubnetId = aws_subnet.Public_a.Id,
+    ///             Attachments = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
+    ///                 {
+    ///                     Instance = aws_instance.Test.Id,
+    ///                     DeviceIndex = 1,
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -21,13 +21,13 @@ class EndpointElasticsearchSettings(dict):
     def __init__(__self__, *,
                  endpoint_uri: str,
                  service_access_role_arn: str,
-                 error_retry_duration: Optional[float] = None,
-                 full_load_error_percentage: Optional[float] = None):
+                 error_retry_duration: Optional[int] = None,
+                 full_load_error_percentage: Optional[int] = None):
         """
         :param str endpoint_uri: Endpoint for the Elasticsearch cluster.
         :param str service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
-        :param float error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
-        :param float full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
+        :param int error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
+        :param int full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
         """
         pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
@@ -54,7 +54,7 @@ class EndpointElasticsearchSettings(dict):
 
     @property
     @pulumi.getter(name="errorRetryDuration")
-    def error_retry_duration(self) -> Optional[float]:
+    def error_retry_duration(self) -> Optional[int]:
         """
         Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
         """
@@ -62,7 +62,7 @@ class EndpointElasticsearchSettings(dict):
 
     @property
     @pulumi.getter(name="fullLoadErrorPercentage")
-    def full_load_error_percentage(self) -> Optional[float]:
+    def full_load_error_percentage(self) -> Optional[int]:
         """
         Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
         """

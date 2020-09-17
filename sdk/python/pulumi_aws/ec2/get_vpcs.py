@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -37,7 +37,7 @@ class GetVpcsResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetVpcsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetVpcsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -50,7 +50,7 @@ class GetVpcsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> List[str]:
+    def ids(self) -> Sequence[str]:
         """
         A list of all the VPC Ids found. This data source will fail if none are found.
         """
@@ -74,7 +74,7 @@ class AwaitableGetVpcsResult(GetVpcsResult):
             tags=self.tags)
 
 
-def get_vpcs(filters: Optional[List[pulumi.InputType['GetVpcsFilterArgs']]] = None,
+def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] = None,
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcsResult:
     """
@@ -83,7 +83,7 @@ def get_vpcs(filters: Optional[List[pulumi.InputType['GetVpcsFilterArgs']]] = No
     The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 
 
-    :param List[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
            a pair on the desired vpcs.
     """

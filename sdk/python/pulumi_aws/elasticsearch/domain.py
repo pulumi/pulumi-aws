@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -27,7 +27,7 @@ class Domain(pulumi.CustomResource):
                  ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
                  elasticsearch_version: Optional[pulumi.Input[str]] = None,
                  encrypt_at_rest: Optional[pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']]] = None,
-                 log_publishing_options: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
+                 log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']]] = None,
                  snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -200,7 +200,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
         :param pulumi.Input[str] elasticsearch_version: The version of Elasticsearch to deploy. Defaults to `1.5`
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']] node_to_node_encryption: Node-to-node encryption options. See below.
         :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
@@ -266,7 +266,7 @@ class Domain(pulumi.CustomResource):
             encrypt_at_rest: Optional[pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             kibana_endpoint: Optional[pulumi.Input[str]] = None,
-            log_publishing_options: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
+            log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
             node_to_node_encryption: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']]] = None,
             snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -296,7 +296,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
                * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
                * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']] node_to_node_encryption: Node-to-node encryption options. See below.
         :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
@@ -443,7 +443,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logPublishingOptions")
-    def log_publishing_options(self) -> pulumi.Output[Optional[List['outputs.DomainLogPublishingOption']]]:
+    def log_publishing_options(self) -> pulumi.Output[Optional[Sequence['outputs.DomainLogPublishingOption']]]:
         """
         Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         """

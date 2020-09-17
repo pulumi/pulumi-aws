@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -22,12 +22,12 @@ class LoadBalancerAccessLogsArgs:
                  bucket: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 interval: Optional[pulumi.Input[float]] = None):
+                 interval: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] bucket: The S3 bucket name to store the logs in.
         :param pulumi.Input[str] bucket_prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
         :param pulumi.Input[bool] enabled: Boolean to enable / disable `access_logs`. Default is `true`
-        :param pulumi.Input[float] interval: The publishing interval in minutes. Default: 60 minutes.
+        :param pulumi.Input[int] interval: The publishing interval in minutes. Default: 60 minutes.
         """
         pulumi.set(__self__, "bucket", bucket)
         if bucket_prefix is not None:
@@ -75,34 +75,34 @@ class LoadBalancerAccessLogsArgs:
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[float]]:
+    def interval(self) -> Optional[pulumi.Input[int]]:
         """
         The publishing interval in minutes. Default: 60 minutes.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[float]]):
+    def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
 
 
 @pulumi.input_type
 class LoadBalancerHealthCheckArgs:
     def __init__(__self__, *,
-                 healthy_threshold: pulumi.Input[float],
-                 interval: pulumi.Input[float],
+                 healthy_threshold: pulumi.Input[int],
+                 interval: pulumi.Input[int],
                  target: pulumi.Input[str],
-                 timeout: pulumi.Input[float],
-                 unhealthy_threshold: pulumi.Input[float]):
+                 timeout: pulumi.Input[int],
+                 unhealthy_threshold: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] healthy_threshold: The number of checks before the instance is declared healthy.
-        :param pulumi.Input[float] interval: The interval between checks.
+        :param pulumi.Input[int] healthy_threshold: The number of checks before the instance is declared healthy.
+        :param pulumi.Input[int] interval: The interval between checks.
         :param pulumi.Input[str] target: The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
                values are:
                * `HTTP`, `HTTPS` - PORT and PATH are required
                * `TCP`, `SSL` - PORT is required, PATH is not supported
-        :param pulumi.Input[float] timeout: The length of time before the check times out.
-        :param pulumi.Input[float] unhealthy_threshold: The number of checks before the instance is declared unhealthy.
+        :param pulumi.Input[int] timeout: The length of time before the check times out.
+        :param pulumi.Input[int] unhealthy_threshold: The number of checks before the instance is declared unhealthy.
         """
         pulumi.set(__self__, "healthy_threshold", healthy_threshold)
         pulumi.set(__self__, "interval", interval)
@@ -112,26 +112,26 @@ class LoadBalancerHealthCheckArgs:
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> pulumi.Input[float]:
+    def healthy_threshold(self) -> pulumi.Input[int]:
         """
         The number of checks before the instance is declared healthy.
         """
         return pulumi.get(self, "healthy_threshold")
 
     @healthy_threshold.setter
-    def healthy_threshold(self, value: pulumi.Input[float]):
+    def healthy_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "healthy_threshold", value)
 
     @property
     @pulumi.getter
-    def interval(self) -> pulumi.Input[float]:
+    def interval(self) -> pulumi.Input[int]:
         """
         The interval between checks.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: pulumi.Input[float]):
+    def interval(self, value: pulumi.Input[int]):
         pulumi.set(self, "interval", value)
 
     @property
@@ -151,42 +151,42 @@ class LoadBalancerHealthCheckArgs:
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Input[float]:
+    def timeout(self) -> pulumi.Input[int]:
         """
         The length of time before the check times out.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: pulumi.Input[float]):
+    def timeout(self, value: pulumi.Input[int]):
         pulumi.set(self, "timeout", value)
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> pulumi.Input[float]:
+    def unhealthy_threshold(self) -> pulumi.Input[int]:
         """
         The number of checks before the instance is declared unhealthy.
         """
         return pulumi.get(self, "unhealthy_threshold")
 
     @unhealthy_threshold.setter
-    def unhealthy_threshold(self, value: pulumi.Input[float]):
+    def unhealthy_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "unhealthy_threshold", value)
 
 
 @pulumi.input_type
 class LoadBalancerListenerArgs:
     def __init__(__self__, *,
-                 instance_port: pulumi.Input[float],
+                 instance_port: pulumi.Input[int],
                  instance_protocol: pulumi.Input[str],
-                 lb_port: pulumi.Input[float],
+                 lb_port: pulumi.Input[int],
                  lb_protocol: pulumi.Input[str],
                  ssl_certificate_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] instance_port: The port on the instance to route to
+        :param pulumi.Input[int] instance_port: The port on the instance to route to
         :param pulumi.Input[str] instance_protocol: The protocol to use to the instance. Valid
                values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-        :param pulumi.Input[float] lb_port: The port to listen on for the load balancer
+        :param pulumi.Input[int] lb_port: The port to listen on for the load balancer
         :param pulumi.Input[str] lb_protocol: The protocol to listen on. Valid values are `HTTP`,
                `HTTPS`, `TCP`, or `SSL`
         :param pulumi.Input[str] ssl_certificate_id: The ARN of an SSL certificate you have
@@ -201,14 +201,14 @@ class LoadBalancerListenerArgs:
 
     @property
     @pulumi.getter(name="instancePort")
-    def instance_port(self) -> pulumi.Input[float]:
+    def instance_port(self) -> pulumi.Input[int]:
         """
         The port on the instance to route to
         """
         return pulumi.get(self, "instance_port")
 
     @instance_port.setter
-    def instance_port(self, value: pulumi.Input[float]):
+    def instance_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "instance_port", value)
 
     @property
@@ -226,14 +226,14 @@ class LoadBalancerListenerArgs:
 
     @property
     @pulumi.getter(name="lbPort")
-    def lb_port(self) -> pulumi.Input[float]:
+    def lb_port(self) -> pulumi.Input[int]:
         """
         The port to listen on for the load balancer
         """
         return pulumi.get(self, "lb_port")
 
     @lb_port.setter
-    def lb_port(self, value: pulumi.Input[float]):
+    def lb_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "lb_port", value)
 
     @property

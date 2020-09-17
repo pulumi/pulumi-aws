@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -82,7 +82,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def associations(self) -> List['outputs.GetNetworkInterfaceAssociationResult']:
+    def associations(self) -> Sequence['outputs.GetNetworkInterfaceAssociationResult']:
         """
         The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
         """
@@ -90,7 +90,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def attachments(self) -> List['outputs.GetNetworkInterfaceAttachmentResult']:
+    def attachments(self) -> Sequence['outputs.GetNetworkInterfaceAttachmentResult']:
         return pulumi.get(self, "attachments")
 
     @property
@@ -111,7 +111,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetNetworkInterfaceFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetNetworkInterfaceFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -129,7 +129,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> List[str]:
+    def ipv6_addresses(self) -> Sequence[str]:
         """
         List of IPv6 addresses to assign to the ENI.
         """
@@ -177,7 +177,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="privateIps")
-    def private_ips(self) -> List[str]:
+    def private_ips(self) -> Sequence[str]:
         """
         The private IPv4 addresses associated with the network interface.
         """
@@ -193,7 +193,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> Sequence[str]:
         """
         The list of security groups for the network interface.
         """
@@ -251,7 +251,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             vpc_id=self.vpc_id)
 
 
-def get_network_interface(filters: Optional[List[pulumi.InputType['GetNetworkInterfaceFilterArgs']]] = None,
+def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']]] = None,
                           id: Optional[str] = None,
                           tags: Optional[Mapping[str, str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
@@ -268,7 +268,7 @@ def get_network_interface(filters: Optional[List[pulumi.InputType['GetNetworkInt
     ```
 
 
-    :param List[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
     :param str id: The identifier for the network interface.
     :param Mapping[str, str] tags: Any tags assigned to the network interface.
     """

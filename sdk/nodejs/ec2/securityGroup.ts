@@ -59,8 +59,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
+ * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
+ * // ... other configuration ...
+ * // ... other configuration ...
+ * const example = new aws.ec2.SecurityGroup("example", {egress: [{
+ *     fromPort: 0,
+ *     toPort: 0,
+ *     protocol: "-1",
+ *     prefixListIds: [myEndpoint.prefixListId],
+ * }]});
  * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {

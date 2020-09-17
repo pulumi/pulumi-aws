@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -51,7 +51,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if __name__ is not None:
@@ -91,7 +91,7 @@ class Rule(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            predicates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]]] = None,
+            predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
@@ -103,7 +103,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the WAF rule.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -143,7 +143,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def predicates(self) -> pulumi.Output[Optional[List['outputs.RulePredicate']]]:
+    def predicates(self) -> pulumi.Output[Optional[Sequence['outputs.RulePredicate']]]:
         """
         The objects to include in a rule (documented below).
         """

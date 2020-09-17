@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -57,7 +57,7 @@ class GetResourceShareResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetResourceShareFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetResourceShareFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -119,7 +119,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             tags=self.tags)
 
 
-def get_resource_share(filters: Optional[List[pulumi.InputType['GetResourceShareFilterArgs']]] = None,
+def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceShareFilterArgs']]] = None,
                        name: Optional[str] = None,
                        resource_owner: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
@@ -151,7 +151,7 @@ def get_resource_share(filters: Optional[List[pulumi.InputType['GetResourceShare
     ```
 
 
-    :param List[pulumi.InputType['GetResourceShareFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: The name of the tag key to filter on.
     :param str resource_owner: The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
     :param Mapping[str, str] tags: The Tags attached to the RAM share

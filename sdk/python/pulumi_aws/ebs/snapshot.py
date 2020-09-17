@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Snapshot']
@@ -97,7 +97,7 @@ class Snapshot(pulumi.CustomResource):
             owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             volume_id: Optional[pulumi.Input[str]] = None,
-            volume_size: Optional[pulumi.Input[float]] = None) -> 'Snapshot':
+            volume_size: Optional[pulumi.Input[int]] = None) -> 'Snapshot':
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,7 +114,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
-        :param pulumi.Input[float] volume_size: The size of the drive in GiBs.
+        :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -206,7 +206,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> pulumi.Output[float]:
+    def volume_size(self) -> pulumi.Output[int]:
         """
         The size of the drive in GiBs.
         """

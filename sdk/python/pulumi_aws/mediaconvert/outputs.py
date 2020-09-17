@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -17,11 +17,11 @@ class QueueReservationPlanSettings(dict):
     def __init__(__self__, *,
                  commitment: str,
                  renewal_type: str,
-                 reserved_slots: float):
+                 reserved_slots: int):
         """
         :param str commitment: The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
         :param str renewal_type: Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-        :param float reserved_slots: Specifies the number of reserved transcode slots (RTS) for queue.
+        :param int reserved_slots: Specifies the number of reserved transcode slots (RTS) for queue.
         """
         pulumi.set(__self__, "commitment", commitment)
         pulumi.set(__self__, "renewal_type", renewal_type)
@@ -45,7 +45,7 @@ class QueueReservationPlanSettings(dict):
 
     @property
     @pulumi.getter(name="reservedSlots")
-    def reserved_slots(self) -> float:
+    def reserved_slots(self) -> int:
         """
         Specifies the number of reserved transcode slots (RTS) for queue.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -43,7 +43,7 @@ class GetCoipPoolResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetCoipPoolFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetCoipPoolFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -61,7 +61,7 @@ class GetCoipPoolResult:
 
     @property
     @pulumi.getter(name="poolCidrs")
-    def pool_cidrs(self) -> List[str]:
+    def pool_cidrs(self) -> Sequence[str]:
         """
         Set of CIDR blocks in pool
         """
@@ -92,7 +92,7 @@ class AwaitableGetCoipPoolResult(GetCoipPoolResult):
             tags=self.tags)
 
 
-def get_coip_pool(filters: Optional[List[pulumi.InputType['GetCoipPoolFilterArgs']]] = None,
+def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilterArgs']]] = None,
                   local_gateway_route_table_id: Optional[str] = None,
                   pool_id: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,

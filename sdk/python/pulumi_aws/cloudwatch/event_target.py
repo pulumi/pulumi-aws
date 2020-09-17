@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class EventTarget(pulumi.CustomResource):
                  kinesis_target: Optional[pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  rule: Optional[pulumi.Input[str]] = None,
-                 run_command_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]]] = None,
+                 run_command_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]]] = None,
                  sqs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -167,7 +167,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
         """
@@ -223,7 +223,7 @@ class EventTarget(pulumi.CustomResource):
             kinesis_target: Optional[pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             rule: Optional[pulumi.Input[str]] = None,
-            run_command_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]]] = None,
+            run_command_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]]] = None,
             sqs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']]] = None,
             target_id: Optional[pulumi.Input[str]] = None) -> 'EventTarget':
         """
@@ -243,7 +243,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
         """
@@ -340,7 +340,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runCommandTargets")
-    def run_command_targets(self) -> pulumi.Output[Optional[List['outputs.EventTargetRunCommandTarget']]]:
+    def run_command_targets(self) -> pulumi.Output[Optional[Sequence['outputs.EventTargetRunCommandTarget']]]:
         """
         Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -68,7 +68,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="keyTypes")
-    def key_types(self) -> Optional[List[str]]:
+    def key_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "key_types")
 
     @property
@@ -78,7 +78,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List[str]]:
+    def statuses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "statuses")
 
     @property
@@ -91,7 +91,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def types(self) -> Optional[List[str]]:
+    def types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "types")
 
 
@@ -112,11 +112,11 @@ class AwaitableGetCertificateResult(GetCertificateResult):
 
 
 def get_certificate(domain: Optional[str] = None,
-                    key_types: Optional[List[str]] = None,
+                    key_types: Optional[Sequence[str]] = None,
                     most_recent: Optional[bool] = None,
-                    statuses: Optional[List[str]] = None,
+                    statuses: Optional[Sequence[str]] = None,
                     tags: Optional[Mapping[str, str]] = None,
-                    types: Optional[List[str]] = None,
+                    types: Optional[Sequence[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Use this data source to get the ARN of a certificate in AWS Certificate
@@ -129,19 +129,24 @@ def get_certificate(domain: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.acm.get_certificate(domain="tf.example.com",
+    issued = aws.acm.get_certificate(domain="tf.example.com",
+        statuses=["ISSUED"])
+    amazon_issued = aws.acm.get_certificate(domain="tf.example.com",
+        most_recent=True,
+        types=["AMAZON_ISSUED"])
+    rsa4096 = aws.acm.get_certificate(domain="tf.example.com",
         key_types=["RSA_4096"])
     ```
 
 
     :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-    :param List[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+    :param Sequence[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-    :param List[str] statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+    :param Sequence[str] statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
     :param Mapping[str, str] tags: A mapping of tags for the resource.
-    :param List[str] types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+    :param Sequence[str] types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
     """
     __args__ = dict()
     __args__['domain'] = domain

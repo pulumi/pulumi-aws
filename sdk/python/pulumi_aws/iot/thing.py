@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Thing']
@@ -79,7 +79,7 @@ class Thing(pulumi.CustomResource):
             default_client_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             thing_type_name: Optional[pulumi.Input[str]] = None,
-            version: Optional[pulumi.Input[float]] = None) -> 'Thing':
+            version: Optional[pulumi.Input[int]] = None) -> 'Thing':
         """
         Get an existing Thing resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,7 +92,7 @@ class Thing(pulumi.CustomResource):
         :param pulumi.Input[str] default_client_id: The default client ID.
         :param pulumi.Input[str] name: The name of the thing.
         :param pulumi.Input[str] thing_type_name: The thing type name.
-        :param pulumi.Input[float] version: The current version of the thing record in the registry.
+        :param pulumi.Input[int] version: The current version of the thing record in the registry.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -148,7 +148,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[float]:
+    def version(self) -> pulumi.Output[int]:
         """
         The current version of the thing record in the registry.
         """

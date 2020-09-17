@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -54,12 +54,12 @@ class GetInternetGatewayResult:
 
     @property
     @pulumi.getter
-    def attachments(self) -> List['outputs.GetInternetGatewayAttachmentResult']:
+    def attachments(self) -> Sequence['outputs.GetInternetGatewayAttachmentResult']:
         return pulumi.get(self, "attachments")
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetInternetGatewayFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetInternetGatewayFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -104,7 +104,7 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
             tags=self.tags)
 
 
-def get_internet_gateway(filters: Optional[List[pulumi.InputType['GetInternetGatewayFilterArgs']]] = None,
+def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']]] = None,
                          internet_gateway_id: Optional[str] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayResult:
@@ -126,7 +126,7 @@ def get_internet_gateway(filters: Optional[List[pulumi.InputType['GetInternetGat
     ```
 
 
-    :param List[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
     :param str internet_gateway_id: The id of the specific Internet Gateway to retrieve.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.

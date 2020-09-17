@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -18,14 +18,14 @@ __all__ = [
 @pulumi.input_type
 class EndpointConfigurationProductionVariantArgs:
     def __init__(__self__, *,
-                 initial_instance_count: pulumi.Input[float],
+                 initial_instance_count: pulumi.Input[int],
                  instance_type: pulumi.Input[str],
                  model_name: pulumi.Input[str],
                  accelerator_type: Optional[pulumi.Input[str]] = None,
                  initial_variant_weight: Optional[pulumi.Input[float]] = None,
                  variant_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] initial_instance_count: Initial number of instances used for auto-scaling.
+        :param pulumi.Input[int] initial_instance_count: Initial number of instances used for auto-scaling.
         :param pulumi.Input[str] instance_type: The type of instance to start.
         :param pulumi.Input[str] model_name: The name of the model to use.
         :param pulumi.Input[str] accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
@@ -44,14 +44,14 @@ class EndpointConfigurationProductionVariantArgs:
 
     @property
     @pulumi.getter(name="initialInstanceCount")
-    def initial_instance_count(self) -> pulumi.Input[float]:
+    def initial_instance_count(self) -> pulumi.Input[int]:
         """
         Initial number of instances used for auto-scaling.
         """
         return pulumi.get(self, "initial_instance_count")
 
     @initial_instance_count.setter
-    def initial_instance_count(self, value: pulumi.Input[float]):
+    def initial_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "initial_instance_count", value)
 
     @property
@@ -262,27 +262,27 @@ class ModelPrimaryContainerArgs:
 @pulumi.input_type
 class ModelVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: pulumi.Input[List[pulumi.Input[str]]],
-                 subnets: pulumi.Input[List[pulumi.Input[str]]]):
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
 

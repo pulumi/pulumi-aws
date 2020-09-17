@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['IdentityNotificationTopic']
@@ -32,10 +32,10 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ses.IdentityNotificationTopic("test",
-            identity=aws_ses_domain_identity["example"]["domain"],
-            include_original_headers=True,
+            topic_arn=aws_sns_topic["example"]["arn"],
             notification_type="Bounce",
-            topic_arn=aws_sns_topic["example"]["arn"])
+            identity=aws_ses_domain_identity["example"]["domain"],
+            include_original_headers=True)
         ```
 
         :param str resource_name: The name of the resource.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -126,10 +126,10 @@ class PipelineArtifactStoreEncryptionKeyArgs:
 @pulumi.input_type
 class PipelineStageArgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[List[pulumi.Input['PipelineStageActionArgs']]],
+                 actions: pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[List[pulumi.Input['PipelineStageActionArgs']]] actions: The action(s) to include in the stage. Defined as an `action` block below
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]] actions: The action(s) to include in the stage. Defined as an `action` block below
         :param pulumi.Input[str] name: The name of the stage.
         """
         pulumi.set(__self__, "actions", actions)
@@ -137,14 +137,14 @@ class PipelineStageArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[List[pulumi.Input['PipelineStageActionArgs']]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]]:
         """
         The action(s) to include in the stage. Defined as an `action` block below
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[List[pulumi.Input['PipelineStageActionArgs']]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -169,12 +169,12 @@ class PipelineStageActionArgs:
                  provider: pulumi.Input[str],
                  version: pulumi.Input[str],
                  configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 input_artifacts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 input_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 output_artifacts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 output_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 run_order: Optional[pulumi.Input[float]] = None):
+                 run_order: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
         :param pulumi.Input[str] name: The action declaration's name.
@@ -182,12 +182,12 @@ class PipelineStageActionArgs:
         :param pulumi.Input[str] provider: The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
         :param pulumi.Input[str] version: A string that identifies the action type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration: A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-        :param pulumi.Input[List[pulumi.Input[str]]] input_artifacts: A list of artifact names to be worked on.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_artifacts: A list of artifact names to be worked on.
         :param pulumi.Input[str] namespace: The namespace all output variables will be accessed from.
-        :param pulumi.Input[List[pulumi.Input[str]]] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline.
         :param pulumi.Input[str] region: The region in which to run the action.
         :param pulumi.Input[str] role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
-        :param pulumi.Input[float] run_order: The order in which actions are run.
+        :param pulumi.Input[int] run_order: The order in which actions are run.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "name", name)
@@ -283,14 +283,14 @@ class PipelineStageActionArgs:
 
     @property
     @pulumi.getter(name="inputArtifacts")
-    def input_artifacts(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def input_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of artifact names to be worked on.
         """
         return pulumi.get(self, "input_artifacts")
 
     @input_artifacts.setter
-    def input_artifacts(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def input_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "input_artifacts", value)
 
     @property
@@ -307,14 +307,14 @@ class PipelineStageActionArgs:
 
     @property
     @pulumi.getter(name="outputArtifacts")
-    def output_artifacts(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def output_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of artifact names to output. Output artifact names must be unique within a pipeline.
         """
         return pulumi.get(self, "output_artifacts")
 
     @output_artifacts.setter
-    def output_artifacts(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def output_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "output_artifacts", value)
 
     @property
@@ -343,14 +343,14 @@ class PipelineStageActionArgs:
 
     @property
     @pulumi.getter(name="runOrder")
-    def run_order(self) -> Optional[pulumi.Input[float]]:
+    def run_order(self) -> Optional[pulumi.Input[int]]:
         """
         The order in which actions are run.
         """
         return pulumi.get(self, "run_order")
 
     @run_order.setter
-    def run_order(self, value: Optional[pulumi.Input[float]]):
+    def run_order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "run_order", value)
 
 

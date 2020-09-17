@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,15 +16,15 @@ __all__ = [
 class TriggerTrigger(dict):
     def __init__(__self__, *,
                  destination_arn: str,
-                 events: List[str],
+                 events: Sequence[str],
                  name: str,
-                 branches: Optional[List[str]] = None,
+                 branches: Optional[Sequence[str]] = None,
                  custom_data: Optional[str] = None):
         """
         :param str destination_arn: The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-        :param List[str] events: The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
+        :param Sequence[str] events: The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
         :param str name: The name of the trigger.
-        :param List[str] branches: The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+        :param Sequence[str] branches: The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
         :param str custom_data: Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
@@ -45,7 +45,7 @@ class TriggerTrigger(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> List[str]:
+    def events(self) -> Sequence[str]:
         """
         The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
         """
@@ -61,7 +61,7 @@ class TriggerTrigger(dict):
 
     @property
     @pulumi.getter
-    def branches(self) -> Optional[List[str]]:
+    def branches(self) -> Optional[Sequence[str]]:
         """
         The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
         """

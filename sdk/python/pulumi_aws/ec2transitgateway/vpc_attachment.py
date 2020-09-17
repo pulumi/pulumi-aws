@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['VpcAttachment']
@@ -17,7 +17,7 @@ class VpcAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  ipv6_support: Optional[pulumi.Input[str]] = None,
-                 subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None,
@@ -47,7 +47,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -98,7 +98,7 @@ class VpcAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             dns_support: Optional[pulumi.Input[str]] = None,
             ipv6_support: Optional[pulumi.Input[str]] = None,
-            subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
             transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None,
@@ -114,7 +114,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -155,7 +155,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[List[str]]:
+    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         Identifiers of EC2 Subnets.
         """

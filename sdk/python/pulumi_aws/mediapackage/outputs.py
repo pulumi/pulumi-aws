@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -17,16 +17,16 @@ __all__ = [
 @pulumi.output_type
 class ChannelHlsIngest(dict):
     def __init__(__self__, *,
-                 ingest_endpoints: Optional[List['outputs.ChannelHlsIngestIngestEndpoint']] = None):
+                 ingest_endpoints: Optional[Sequence['outputs.ChannelHlsIngestIngestEndpoint']] = None):
         """
-        :param List['ChannelHlsIngestIngestEndpointArgs'] ingest_endpoints: A list of the ingest endpoints
+        :param Sequence['ChannelHlsIngestIngestEndpointArgs'] ingest_endpoints: A list of the ingest endpoints
         """
         if ingest_endpoints is not None:
             pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
 
     @property
     @pulumi.getter(name="ingestEndpoints")
-    def ingest_endpoints(self) -> Optional[List['outputs.ChannelHlsIngestIngestEndpoint']]:
+    def ingest_endpoints(self) -> Optional[Sequence['outputs.ChannelHlsIngestIngestEndpoint']]:
         """
         A list of the ingest endpoints
         """

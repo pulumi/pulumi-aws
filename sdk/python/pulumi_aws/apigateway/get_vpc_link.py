@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -89,7 +89,7 @@ class GetVpcLinkResult:
 
     @property
     @pulumi.getter(name="targetArns")
-    def target_arns(self) -> List[str]:
+    def target_arns(self) -> Sequence[str]:
         """
         The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """

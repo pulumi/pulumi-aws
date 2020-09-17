@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -40,7 +40,7 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetLocalGatewayVirtualInterfaceGroupsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetLocalGatewayVirtualInterfaceGroupsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -53,7 +53,7 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> List[str]:
+    def ids(self) -> Sequence[str]:
         """
         Set of EC2 Local Gateway Virtual Interface Group identifiers.
         """
@@ -61,7 +61,7 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
 
     @property
     @pulumi.getter(name="localGatewayVirtualInterfaceIds")
-    def local_gateway_virtual_interface_ids(self) -> List[str]:
+    def local_gateway_virtual_interface_ids(self) -> Sequence[str]:
         """
         Set of EC2 Local Gateway Virtual Interface identifiers.
         """
@@ -86,7 +86,7 @@ class AwaitableGetLocalGatewayVirtualInterfaceGroupsResult(GetLocalGatewayVirtua
             tags=self.tags)
 
 
-def get_local_gateway_virtual_interface_groups(filters: Optional[List[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupsFilterArgs']]] = None,
+def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupsFilterArgs']]] = None,
                                                tags: Optional[Mapping[str, str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayVirtualInterfaceGroupsResult:
     """
@@ -102,7 +102,7 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[List[pulumi.Inp
     ```
 
 
-    :param List[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupsFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupsFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
     :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """
     __args__ = dict()

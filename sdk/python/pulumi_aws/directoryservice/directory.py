@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -190,7 +190,7 @@ class Directory(pulumi.CustomResource):
             alias: Optional[pulumi.Input[str]] = None,
             connect_settings: Optional[pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            dns_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             edition: Optional[pulumi.Input[str]] = None,
             enable_sso: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -212,7 +212,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         :param pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']] connect_settings: Connector related information about the directory. Fields documented below.
         :param pulumi.Input[str] description: A textual description for the directory.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
         :param pulumi.Input[str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
         :param pulumi.Input[bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[str] name: The fully qualified name for the directory, such as `corp.example.com`
@@ -279,7 +279,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def dns_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of IP addresses of the DNS servers for the directory or connector.
         """

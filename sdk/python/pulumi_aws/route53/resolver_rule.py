@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class ResolverRule(pulumi.CustomResource):
                  resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
                  rule_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_ips: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]]] = None,
+                 target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -66,7 +66,7 @@ class ResolverRule(pulumi.CustomResource):
                This argument should only be specified for `FORWARD` type rules.
         :param pulumi.Input[str] rule_type: The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
                This argument should only be specified for `FORWARD` type rules.
         """
         if __name__ is not None:
@@ -117,7 +117,7 @@ class ResolverRule(pulumi.CustomResource):
             rule_type: Optional[pulumi.Input[str]] = None,
             share_status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            target_ips: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]]] = None) -> 'ResolverRule':
+            target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]]] = None) -> 'ResolverRule':
         """
         Get an existing ResolverRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -135,7 +135,7 @@ class ResolverRule(pulumi.CustomResource):
         :param pulumi.Input[str] share_status: Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
                Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverRuleTargetIpArgs']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
                This argument should only be specified for `FORWARD` type rules.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -221,7 +221,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetIps")
-    def target_ips(self) -> pulumi.Output[Optional[List['outputs.ResolverRuleTargetIp']]]:
+    def target_ips(self) -> pulumi.Output[Optional[Sequence['outputs.ResolverRuleTargetIp']]]:
         """
         Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         This argument should only be specified for `FORWARD` type rules.

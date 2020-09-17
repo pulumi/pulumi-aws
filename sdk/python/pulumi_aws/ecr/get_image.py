@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -26,11 +26,11 @@ class GetImageResult:
         if image_digest and not isinstance(image_digest, str):
             raise TypeError("Expected argument 'image_digest' to be a str")
         pulumi.set(__self__, "image_digest", image_digest)
-        if image_pushed_at and not isinstance(image_pushed_at, float):
-            raise TypeError("Expected argument 'image_pushed_at' to be a float")
+        if image_pushed_at and not isinstance(image_pushed_at, int):
+            raise TypeError("Expected argument 'image_pushed_at' to be a int")
         pulumi.set(__self__, "image_pushed_at", image_pushed_at)
-        if image_size_in_bytes and not isinstance(image_size_in_bytes, float):
-            raise TypeError("Expected argument 'image_size_in_bytes' to be a float")
+        if image_size_in_bytes and not isinstance(image_size_in_bytes, int):
+            raise TypeError("Expected argument 'image_size_in_bytes' to be a int")
         pulumi.set(__self__, "image_size_in_bytes", image_size_in_bytes)
         if image_tag and not isinstance(image_tag, str):
             raise TypeError("Expected argument 'image_tag' to be a str")
@@ -60,7 +60,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="imagePushedAt")
-    def image_pushed_at(self) -> float:
+    def image_pushed_at(self) -> int:
         """
         The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
         """
@@ -68,7 +68,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="imageSizeInBytes")
-    def image_size_in_bytes(self) -> float:
+    def image_size_in_bytes(self) -> int:
         """
         The size, in bytes, of the image in the repository.
         """
@@ -81,7 +81,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="imageTags")
-    def image_tags(self) -> List[str]:
+    def image_tags(self) -> Sequence[str]:
         """
         The list of tags associated with this image.
         """

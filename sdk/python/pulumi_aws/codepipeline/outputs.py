@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -109,10 +109,10 @@ class PipelineArtifactStoreEncryptionKey(dict):
 @pulumi.output_type
 class PipelineStage(dict):
     def __init__(__self__, *,
-                 actions: List['outputs.PipelineStageAction'],
+                 actions: Sequence['outputs.PipelineStageAction'],
                  name: str):
         """
-        :param List['PipelineStageActionArgs'] actions: The action(s) to include in the stage. Defined as an `action` block below
+        :param Sequence['PipelineStageActionArgs'] actions: The action(s) to include in the stage. Defined as an `action` block below
         :param str name: The name of the stage.
         """
         pulumi.set(__self__, "actions", actions)
@@ -120,7 +120,7 @@ class PipelineStage(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> List['outputs.PipelineStageAction']:
+    def actions(self) -> Sequence['outputs.PipelineStageAction']:
         """
         The action(s) to include in the stage. Defined as an `action` block below
         """
@@ -147,12 +147,12 @@ class PipelineStageAction(dict):
                  provider: str,
                  version: str,
                  configuration: Optional[Mapping[str, str]] = None,
-                 input_artifacts: Optional[List[str]] = None,
+                 input_artifacts: Optional[Sequence[str]] = None,
                  namespace: Optional[str] = None,
-                 output_artifacts: Optional[List[str]] = None,
+                 output_artifacts: Optional[Sequence[str]] = None,
                  region: Optional[str] = None,
                  role_arn: Optional[str] = None,
-                 run_order: Optional[float] = None):
+                 run_order: Optional[int] = None):
         """
         :param str category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
         :param str name: The action declaration's name.
@@ -160,12 +160,12 @@ class PipelineStageAction(dict):
         :param str provider: The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
         :param str version: A string that identifies the action type.
         :param Mapping[str, str] configuration: A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-        :param List[str] input_artifacts: A list of artifact names to be worked on.
+        :param Sequence[str] input_artifacts: A list of artifact names to be worked on.
         :param str namespace: The namespace all output variables will be accessed from.
-        :param List[str] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        :param Sequence[str] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline.
         :param str region: The region in which to run the action.
         :param str role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
-        :param float run_order: The order in which actions are run.
+        :param int run_order: The order in which actions are run.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "name", name)
@@ -237,7 +237,7 @@ class PipelineStageAction(dict):
 
     @property
     @pulumi.getter(name="inputArtifacts")
-    def input_artifacts(self) -> Optional[List[str]]:
+    def input_artifacts(self) -> Optional[Sequence[str]]:
         """
         A list of artifact names to be worked on.
         """
@@ -253,7 +253,7 @@ class PipelineStageAction(dict):
 
     @property
     @pulumi.getter(name="outputArtifacts")
-    def output_artifacts(self) -> Optional[List[str]]:
+    def output_artifacts(self) -> Optional[Sequence[str]]:
         """
         A list of artifact names to output. Output artifact names must be unique within a pipeline.
         """
@@ -277,7 +277,7 @@ class PipelineStageAction(dict):
 
     @property
     @pulumi.getter(name="runOrder")
-    def run_order(self) -> Optional[float]:
+    def run_order(self) -> Optional[int]:
         """
         The order in which actions are run.
         """

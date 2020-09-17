@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,16 +26,16 @@ class Cluster(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
-                 num_cache_nodes: Optional[pulumi.Input[float]] = None,
+                 num_cache_nodes: Optional[pulumi.Input[int]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
-                 preferred_availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
-                 security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[float]] = None,
+                 snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -117,24 +117,24 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-        :param pulumi.Input[float] num_cache_nodes: The initial number of cache nodes that the
+        :param pulumi.Input[int] num_cache_nodes: The initial number of cache nodes that the
                cache cluster will have. For Redis, this value must be 1. For Memcache, this
                value must be between 1 and 20. If this number is reduced on subsequent runs,
                the highest numbered nodes will be removed.
         :param pulumi.Input[str] parameter_group_name: Name of the parameter group to associate
                with this cache cluster
-        :param pulumi.Input[float] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
-        :param pulumi.Input[List[pulumi.Input[str]]] preferred_availability_zones: A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[str] replication_group_id: The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
                with the cache cluster
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_names: List of security group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group
                names to associate with this cache cluster
-        :param pulumi.Input[List[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an
                Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
                Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
-        :param pulumi.Input[float] snapshot_retention_limit: The number of days for which ElastiCache will
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
                SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
                before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
@@ -202,7 +202,7 @@ class Cluster(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             az_mode: Optional[pulumi.Input[str]] = None,
-            cache_nodes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]]] = None,
+            cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]]] = None,
             cluster_address: Optional[pulumi.Input[str]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
             configuration_endpoint: Optional[pulumi.Input[str]] = None,
@@ -211,16 +211,16 @@ class Cluster(pulumi.CustomResource):
             maintenance_window: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
             notification_topic_arn: Optional[pulumi.Input[str]] = None,
-            num_cache_nodes: Optional[pulumi.Input[float]] = None,
+            num_cache_nodes: Optional[pulumi.Input[int]] = None,
             parameter_group_name: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
-            preferred_availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            port: Optional[pulumi.Input[int]] = None,
+            preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             replication_group_id: Optional[pulumi.Input[str]] = None,
-            security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            security_group_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            snapshot_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_name: Optional[pulumi.Input[str]] = None,
-            snapshot_retention_limit: Optional[pulumi.Input[float]] = None,
+            snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
             snapshot_window: Optional[pulumi.Input[str]] = None,
             subnet_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Cluster':
@@ -237,7 +237,7 @@ class Cluster(pulumi.CustomResource):
                (Available since v0.6.0)
         :param pulumi.Input[str] availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
         :param pulumi.Input[str] az_mode: Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
                Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
         :param pulumi.Input[str] cluster_address: (Memcached only) The DNS name of the cache cluster without the port appended.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts
@@ -257,24 +257,24 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-        :param pulumi.Input[float] num_cache_nodes: The initial number of cache nodes that the
+        :param pulumi.Input[int] num_cache_nodes: The initial number of cache nodes that the
                cache cluster will have. For Redis, this value must be 1. For Memcache, this
                value must be between 1 and 20. If this number is reduced on subsequent runs,
                the highest numbered nodes will be removed.
         :param pulumi.Input[str] parameter_group_name: Name of the parameter group to associate
                with this cache cluster
-        :param pulumi.Input[float] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
-        :param pulumi.Input[List[pulumi.Input[str]]] preferred_availability_zones: A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[str] replication_group_id: The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
                with the cache cluster
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_names: List of security group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group
                names to associate with this cache cluster
-        :param pulumi.Input[List[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: A single-element string list containing an
                Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
                Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
-        :param pulumi.Input[float] snapshot_retention_limit: The number of days for which ElastiCache will
+        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
                SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
                before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
@@ -351,7 +351,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheNodes")
-    def cache_nodes(self) -> pulumi.Output[List['outputs.ClusterCacheNode']]:
+    def cache_nodes(self) -> pulumi.Output[Sequence['outputs.ClusterCacheNode']]:
         """
         List of node objects including `id`, `address`, `port` and `availability_zone`.
         Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
@@ -434,7 +434,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numCacheNodes")
-    def num_cache_nodes(self) -> pulumi.Output[float]:
+    def num_cache_nodes(self) -> pulumi.Output[int]:
         """
         The initial number of cache nodes that the
         cache cluster will have. For Redis, this value must be 1. For Memcache, this
@@ -454,7 +454,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         """
         The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
         """
@@ -462,7 +462,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredAvailabilityZones")
-    def preferred_availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def preferred_availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         """
@@ -478,7 +478,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[List[str]]:
+    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         One or more VPC security groups associated
         with the cache cluster
@@ -487,7 +487,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> pulumi.Output[List[str]]:
+    def security_group_names(self) -> pulumi.Output[Sequence[str]]:
         """
         List of security group
         names to associate with this cache cluster
@@ -496,7 +496,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> pulumi.Output[Optional[List[str]]]:
+    def snapshot_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A single-element string list containing an
         Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
@@ -514,7 +514,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> pulumi.Output[Optional[float]]:
+    def snapshot_retention_limit(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days for which ElastiCache will
         retain automatic cache cluster snapshots before deleting them. For example, if you set

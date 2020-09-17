@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Stack']
@@ -15,11 +15,11 @@ class Stack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disable_rollback: Optional[pulumi.Input[bool]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  on_failure: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  policy_body: Optional[pulumi.Input[str]] = None,
@@ -27,7 +27,7 @@ class Stack(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
-                 timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -70,13 +70,13 @@ class Stack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] capabilities: A list of capabilities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities.
                Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
                Conflicts with `on_failure`.
         :param pulumi.Input[str] iam_role_arn: The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         :param pulumi.Input[str] name: Stack name.
-        :param pulumi.Input[List[pulumi.Input[str]]] notification_arns: A list of SNS topic ARNs to publish stack related events.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: A list of SNS topic ARNs to publish stack related events.
         :param pulumi.Input[str] on_failure: Action to be taken if stack creation fails. This must be
                one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
@@ -87,7 +87,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack.
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
-        :param pulumi.Input[float] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
+        :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,11 +130,11 @@ class Stack(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capabilities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             disable_rollback: Optional[pulumi.Input[bool]] = None,
             iam_role_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notification_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             on_failure: Optional[pulumi.Input[str]] = None,
             outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -143,7 +143,7 @@ class Stack(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             template_body: Optional[pulumi.Input[str]] = None,
             template_url: Optional[pulumi.Input[str]] = None,
-            timeout_in_minutes: Optional[pulumi.Input[float]] = None) -> 'Stack':
+            timeout_in_minutes: Optional[pulumi.Input[int]] = None) -> 'Stack':
         """
         Get an existing Stack resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -151,13 +151,13 @@ class Stack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] capabilities: A list of capabilities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities.
                Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
                Conflicts with `on_failure`.
         :param pulumi.Input[str] iam_role_arn: The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         :param pulumi.Input[str] name: Stack name.
-        :param pulumi.Input[List[pulumi.Input[str]]] notification_arns: A list of SNS topic ARNs to publish stack related events.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: A list of SNS topic ARNs to publish stack related events.
         :param pulumi.Input[str] on_failure: Action to be taken if stack creation fails. This must be
                one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: A map of outputs from the stack.
@@ -169,7 +169,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack.
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
-        :param pulumi.Input[float] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
+        :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -193,7 +193,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> pulumi.Output[Optional[List[str]]]:
+    def capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of capabilities.
         Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
@@ -227,7 +227,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationArns")
-    def notification_arns(self) -> pulumi.Output[Optional[List[str]]]:
+    def notification_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of SNS topic ARNs to publish stack related events.
         """
@@ -302,7 +302,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeoutInMinutes")
-    def timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
+    def timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """

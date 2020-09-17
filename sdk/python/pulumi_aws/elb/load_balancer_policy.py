@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
-                 policy_attributes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]]] = None,
+                 policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -104,7 +104,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer on which the policy is defined.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]] policy_attributes: Policy attribute to apply to the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
         """
@@ -148,7 +148,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             load_balancer_name: Optional[pulumi.Input[str]] = None,
-            policy_attributes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]]] = None,
+            policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]]] = None,
             policy_name: Optional[pulumi.Input[str]] = None,
             policy_type_name: Optional[pulumi.Input[str]] = None) -> 'LoadBalancerPolicy':
         """
@@ -159,7 +159,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer on which the policy is defined.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]] policy_attributes: Policy attribute to apply to the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPolicyPolicyAttributeArgs']]]] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
         """
@@ -183,7 +183,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyAttributes")
-    def policy_attributes(self) -> pulumi.Output[Optional[List['outputs.LoadBalancerPolicyPolicyAttribute']]]:
+    def policy_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerPolicyPolicyAttribute']]]:
         """
         Policy attribute to apply to the policy.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -92,7 +92,7 @@ def get_export(name: Optional[str] = None,
     subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
     web = aws.ec2.Instance("web",
         ami="ami-abb07bcb",
-        instance_type="t1.micro",
+        instance_type="t2.micro",
         subnet_id=subnet_id.value)
     ```
 

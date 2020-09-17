@@ -89,9 +89,26 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         // ...
     ///         var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint", new Aws.Ec2.VpcEndpointArgs
     ///         {
+    ///         });
+    ///         // ... other configuration ...
+    ///         // ... other configuration ...
+    ///         var example = new Aws.Ec2.SecurityGroup("example", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     PrefixListIds = 
+    ///                     {
+    ///                         myEndpoint.PrefixListId,
+    ///                     },
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 

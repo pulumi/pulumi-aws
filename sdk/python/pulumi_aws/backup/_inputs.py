@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -21,21 +21,21 @@ class PlanRuleArgs:
     def __init__(__self__, *,
                  rule_name: pulumi.Input[str],
                  target_vault_name: pulumi.Input[str],
-                 completion_window: Optional[pulumi.Input[float]] = None,
-                 copy_actions: Optional[pulumi.Input[List[pulumi.Input['PlanRuleCopyActionArgs']]]] = None,
+                 completion_window: Optional[pulumi.Input[int]] = None,
+                 copy_actions: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]]] = None,
                  lifecycle: Optional[pulumi.Input['PlanRuleLifecycleArgs']] = None,
                  recovery_point_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
-                 start_window: Optional[pulumi.Input[float]] = None):
+                 start_window: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] rule_name: An display name for a backup rule.
         :param pulumi.Input[str] target_vault_name: The name of a logical container where backups are stored.
-        :param pulumi.Input[float] completion_window: The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
-        :param pulumi.Input[List[pulumi.Input['PlanRuleCopyActionArgs']]] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
+        :param pulumi.Input[int] completion_window: The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
         :param pulumi.Input['PlanRuleLifecycleArgs'] lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
         :param pulumi.Input[str] schedule: A CRON expression specifying when AWS Backup initiates a backup job.
-        :param pulumi.Input[float] start_window: The amount of time in minutes before beginning a backup.
+        :param pulumi.Input[int] start_window: The amount of time in minutes before beginning a backup.
         """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "target_vault_name", target_vault_name)
@@ -78,26 +78,26 @@ class PlanRuleArgs:
 
     @property
     @pulumi.getter(name="completionWindow")
-    def completion_window(self) -> Optional[pulumi.Input[float]]:
+    def completion_window(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
         """
         return pulumi.get(self, "completion_window")
 
     @completion_window.setter
-    def completion_window(self, value: Optional[pulumi.Input[float]]):
+    def completion_window(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "completion_window", value)
 
     @property
     @pulumi.getter(name="copyActions")
-    def copy_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['PlanRuleCopyActionArgs']]]]:
+    def copy_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]]]:
         """
         Configuration block(s) with copy operation settings. Detailed below.
         """
         return pulumi.get(self, "copy_actions")
 
     @copy_actions.setter
-    def copy_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['PlanRuleCopyActionArgs']]]]):
+    def copy_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]]]):
         pulumi.set(self, "copy_actions", value)
 
     @property
@@ -138,14 +138,14 @@ class PlanRuleArgs:
 
     @property
     @pulumi.getter(name="startWindow")
-    def start_window(self) -> Optional[pulumi.Input[float]]:
+    def start_window(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of time in minutes before beginning a backup.
         """
         return pulumi.get(self, "start_window")
 
     @start_window.setter
-    def start_window(self, value: Optional[pulumi.Input[float]]):
+    def start_window(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_window", value)
 
 
@@ -190,11 +190,11 @@ class PlanRuleCopyActionArgs:
 @pulumi.input_type
 class PlanRuleCopyActionLifecycleArgs:
     def __init__(__self__, *,
-                 cold_storage_after: Optional[pulumi.Input[float]] = None,
-                 delete_after: Optional[pulumi.Input[float]] = None):
+                 cold_storage_after: Optional[pulumi.Input[int]] = None,
+                 delete_after: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
-        :param pulumi.Input[float] delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        :param pulumi.Input[int] cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
+        :param pulumi.Input[int] delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         if cold_storage_after is not None:
             pulumi.set(__self__, "cold_storage_after", cold_storage_after)
@@ -203,37 +203,37 @@ class PlanRuleCopyActionLifecycleArgs:
 
     @property
     @pulumi.getter(name="coldStorageAfter")
-    def cold_storage_after(self) -> Optional[pulumi.Input[float]]:
+    def cold_storage_after(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of days after creation that a recovery point is moved to cold storage.
         """
         return pulumi.get(self, "cold_storage_after")
 
     @cold_storage_after.setter
-    def cold_storage_after(self, value: Optional[pulumi.Input[float]]):
+    def cold_storage_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cold_storage_after", value)
 
     @property
     @pulumi.getter(name="deleteAfter")
-    def delete_after(self) -> Optional[pulumi.Input[float]]:
+    def delete_after(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         return pulumi.get(self, "delete_after")
 
     @delete_after.setter
-    def delete_after(self, value: Optional[pulumi.Input[float]]):
+    def delete_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "delete_after", value)
 
 
 @pulumi.input_type
 class PlanRuleLifecycleArgs:
     def __init__(__self__, *,
-                 cold_storage_after: Optional[pulumi.Input[float]] = None,
-                 delete_after: Optional[pulumi.Input[float]] = None):
+                 cold_storage_after: Optional[pulumi.Input[int]] = None,
+                 delete_after: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
-        :param pulumi.Input[float] delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        :param pulumi.Input[int] cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
+        :param pulumi.Input[int] delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         if cold_storage_after is not None:
             pulumi.set(__self__, "cold_storage_after", cold_storage_after)
@@ -242,26 +242,26 @@ class PlanRuleLifecycleArgs:
 
     @property
     @pulumi.getter(name="coldStorageAfter")
-    def cold_storage_after(self) -> Optional[pulumi.Input[float]]:
+    def cold_storage_after(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of days after creation that a recovery point is moved to cold storage.
         """
         return pulumi.get(self, "cold_storage_after")
 
     @cold_storage_after.setter
-    def cold_storage_after(self, value: Optional[pulumi.Input[float]]):
+    def cold_storage_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cold_storage_after", value)
 
     @property
     @pulumi.getter(name="deleteAfter")
-    def delete_after(self) -> Optional[pulumi.Input[float]]:
+    def delete_after(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         return pulumi.get(self, "delete_after")
 
     @delete_after.setter
-    def delete_after(self, value: Optional[pulumi.Input[float]]):
+    def delete_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "delete_after", value)
 
 

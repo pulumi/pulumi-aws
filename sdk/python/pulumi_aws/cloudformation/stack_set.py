@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['StackSet']
@@ -16,7 +16,7 @@ class StackSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -88,7 +88,7 @@ class StackSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account.
-        :param pulumi.Input[List[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
@@ -139,7 +139,7 @@ class StackSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administration_role_arn: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            capabilities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_role_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -157,7 +157,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the StackSet.
-        :param pulumi.Input[List[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
@@ -202,7 +202,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> pulumi.Output[Optional[List[str]]]:
+    def capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform_arn: Optional[pulumi.Input[str]] = None,
                  poll_interval: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class Environment(pulumi.CustomResource):
                check if changes have been applied. Use this to adjust the rate of API calls
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
@@ -172,27 +172,27 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            all_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentAllSettingArgs']]]]] = None,
+            all_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentAllSettingArgs']]]]] = None,
             application: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            autoscaling_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cname: Optional[pulumi.Input[str]] = None,
             cname_prefix: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             endpoint_url: Optional[pulumi.Input[str]] = None,
-            instances: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            launch_configurations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            load_balancers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            launch_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             platform_arn: Optional[pulumi.Input[str]] = None,
             poll_interval: Optional[pulumi.Input[str]] = None,
-            queues: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
+            queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
             solution_stack_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             template_name: Optional[pulumi.Input[str]] = None,
             tier: Optional[pulumi.Input[str]] = None,
-            triggers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
             wait_for_ready_timeout: Optional[pulumi.Input[str]] = None) -> 'Environment':
         """
@@ -202,20 +202,20 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentAllSettingArgs']]]] all_settings: List of all option settings configured in this Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentAllSettingArgs']]]] all_settings: List of all option settings configured in this Environment. These
                are a combination of default settings and their overrides from `setting` in
                the configuration.
         :param pulumi.Input[str] application: Name of the application that contains the version
                to be deployed
-        :param pulumi.Input[List[pulumi.Input[str]]] autoscaling_groups: The autoscaling groups used by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] autoscaling_groups: The autoscaling groups used by this Environment.
         :param pulumi.Input[str] cname: Fully qualified DNS name for this Environment.
         :param pulumi.Input[str] cname_prefix: Prefix to use for the fully qualified DNS name of
                the Environment.
         :param pulumi.Input[str] description: Short description of the Environment
         :param pulumi.Input[str] endpoint_url: The URL to the Load Balancer for this Environment
-        :param pulumi.Input[List[pulumi.Input[str]]] instances: Instances used by this Environment.
-        :param pulumi.Input[List[pulumi.Input[str]]] launch_configurations: Launch configurations in use by this Environment.
-        :param pulumi.Input[List[pulumi.Input[str]]] load_balancers: Elastic load balancers in use by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: Instances used by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_configurations: Launch configurations in use by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: Elastic load balancers in use by this Environment.
         :param pulumi.Input[str] name: A unique name for this Environment. This name is used
                in the application URL
         :param pulumi.Input[str] platform_arn: The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
@@ -224,8 +224,8 @@ class Environment(pulumi.CustomResource):
                check if changes have been applied. Use this to adjust the rate of API calls
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
-        :param pulumi.Input[List[pulumi.Input[str]]] queues: SQS queues in use by this Environment.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: SQS queues in use by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
@@ -235,7 +235,7 @@ class Environment(pulumi.CustomResource):
                template to use in deployment
         :param pulumi.Input[str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
                or `WebServer`. If tier is left blank `WebServer` will be used.
-        :param pulumi.Input[List[pulumi.Input[str]]] triggers: Autoscaling triggers in use by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] triggers: Autoscaling triggers in use by this Environment.
         :param pulumi.Input[str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
         :param pulumi.Input[str] wait_for_ready_timeout: The maximum
@@ -274,7 +274,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allSettings")
-    def all_settings(self) -> pulumi.Output[List['outputs.EnvironmentAllSetting']]:
+    def all_settings(self) -> pulumi.Output[Sequence['outputs.EnvironmentAllSetting']]:
         """
         List of all option settings configured in this Environment. These
         are a combination of default settings and their overrides from `setting` in
@@ -298,7 +298,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoscalingGroups")
-    def autoscaling_groups(self) -> pulumi.Output[List[str]]:
+    def autoscaling_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         The autoscaling groups used by this Environment.
         """
@@ -339,7 +339,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> pulumi.Output[List[str]]:
+    def instances(self) -> pulumi.Output[Sequence[str]]:
         """
         Instances used by this Environment.
         """
@@ -347,7 +347,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchConfigurations")
-    def launch_configurations(self) -> pulumi.Output[List[str]]:
+    def launch_configurations(self) -> pulumi.Output[Sequence[str]]:
         """
         Launch configurations in use by this Environment.
         """
@@ -355,7 +355,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> pulumi.Output[List[str]]:
+    def load_balancers(self) -> pulumi.Output[Sequence[str]]:
         """
         Elastic load balancers in use by this Environment.
         """
@@ -392,7 +392,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def queues(self) -> pulumi.Output[List[str]]:
+    def queues(self) -> pulumi.Output[Sequence[str]]:
         """
         SQS queues in use by this Environment.
         """
@@ -400,7 +400,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> pulumi.Output[Optional[List['outputs.EnvironmentSetting']]]:
+    def settings(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentSetting']]]:
         """
         Option settings to configure the new Environment. These
         override specific values that are set as defaults. The format is detailed
@@ -445,7 +445,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Output[List[str]]:
+    def triggers(self) -> pulumi.Output[Sequence[str]]:
         """
         Autoscaling triggers in use by this Environment.
         """

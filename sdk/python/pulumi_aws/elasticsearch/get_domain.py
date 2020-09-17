@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -106,7 +106,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="advancedSecurityOptions")
-    def advanced_security_options(self) -> List['outputs.GetDomainAdvancedSecurityOptionResult']:
+    def advanced_security_options(self) -> Sequence['outputs.GetDomainAdvancedSecurityOptionResult']:
         """
         Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
         """
@@ -122,7 +122,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="clusterConfigs")
-    def cluster_configs(self) -> List['outputs.GetDomainClusterConfigResult']:
+    def cluster_configs(self) -> Sequence['outputs.GetDomainClusterConfigResult']:
         """
         Cluster configuration of the domain.
         """
@@ -130,7 +130,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="cognitoOptions")
-    def cognito_options(self) -> List['outputs.GetDomainCognitoOptionResult']:
+    def cognito_options(self) -> Sequence['outputs.GetDomainCognitoOptionResult']:
         """
         Domain Amazon Cognito Authentication options for Kibana.
         """
@@ -167,7 +167,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> List['outputs.GetDomainEbsOptionResult']:
+    def ebs_options(self) -> Sequence['outputs.GetDomainEbsOptionResult']:
         """
         EBS Options for the instances in the domain.
         """
@@ -183,7 +183,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="encryptionAtRests")
-    def encryption_at_rests(self) -> List['outputs.GetDomainEncryptionAtRestResult']:
+    def encryption_at_rests(self) -> Sequence['outputs.GetDomainEncryptionAtRestResult']:
         """
         Domain encryption at rest related options.
         """
@@ -215,7 +215,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="logPublishingOptions")
-    def log_publishing_options(self) -> List['outputs.GetDomainLogPublishingOptionResult']:
+    def log_publishing_options(self) -> Sequence['outputs.GetDomainLogPublishingOptionResult']:
         """
         Domain log publishing related options.
         """
@@ -223,7 +223,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="nodeToNodeEncryptions")
-    def node_to_node_encryptions(self) -> List['outputs.GetDomainNodeToNodeEncryptionResult']:
+    def node_to_node_encryptions(self) -> Sequence['outputs.GetDomainNodeToNodeEncryptionResult']:
         """
         Domain in transit encryption related options.
         """
@@ -240,7 +240,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="snapshotOptions")
-    def snapshot_options(self) -> List['outputs.GetDomainSnapshotOptionResult']:
+    def snapshot_options(self) -> Sequence['outputs.GetDomainSnapshotOptionResult']:
         return pulumi.get(self, "snapshot_options")
 
     @property
@@ -253,7 +253,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="vpcOptions")
-    def vpc_options(self) -> List['outputs.GetDomainVpcOptionResult']:
+    def vpc_options(self) -> Sequence['outputs.GetDomainVpcOptionResult']:
         """
         VPC Options for private Elasticsearch domains.
         """

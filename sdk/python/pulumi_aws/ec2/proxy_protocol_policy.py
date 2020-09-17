@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ProxyProtocolPolicy']
@@ -15,7 +15,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_ports: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -55,7 +55,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] instance_ports: List of instance ports to which the policy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_ports: List of instance ports to which the policy
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
@@ -93,7 +93,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            instance_ports: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             load_balancer: Optional[pulumi.Input[str]] = None) -> 'ProxyProtocolPolicy':
         """
         Get an existing ProxyProtocolPolicy resource's state with the given name, id, and optional extra
@@ -102,7 +102,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] instance_ports: List of instance ports to which the policy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_ports: List of instance ports to which the policy
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
@@ -117,7 +117,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instancePorts")
-    def instance_ports(self) -> pulumi.Output[List[str]]:
+    def instance_ports(self) -> pulumi.Output[Sequence[str]]:
         """
         List of instance ports to which the policy
         should be applied. This can be specified if the protocol is SSL or TCP.

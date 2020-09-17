@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -21,10 +21,10 @@ class ClusterCacheNode(dict):
                  address: Optional[str] = None,
                  availability_zone: Optional[str] = None,
                  id: Optional[str] = None,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
         :param str availability_zone: The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
-        :param float port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+        :param int port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -55,7 +55,7 @@ class ClusterCacheNode(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
         """
@@ -100,18 +100,18 @@ class ParameterGroupParameter(dict):
 @pulumi.output_type
 class ReplicationGroupClusterMode(dict):
     def __init__(__self__, *,
-                 num_node_groups: float,
-                 replicas_per_node_group: float):
+                 num_node_groups: int,
+                 replicas_per_node_group: int):
         """
-        :param float num_node_groups: Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-        :param float replicas_per_node_group: Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+        :param int num_node_groups: Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+        :param int replicas_per_node_group: Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
         """
         pulumi.set(__self__, "num_node_groups", num_node_groups)
         pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
 
     @property
     @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> float:
+    def num_node_groups(self) -> int:
         """
         Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
         """
@@ -119,7 +119,7 @@ class ReplicationGroupClusterMode(dict):
 
     @property
     @pulumi.getter(name="replicasPerNodeGroup")
-    def replicas_per_node_group(self) -> float:
+    def replicas_per_node_group(self) -> int:
         """
         Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
         """
@@ -135,10 +135,10 @@ class GetClusterCacheNodeResult(dict):
                  address: str,
                  availability_zone: str,
                  id: str,
-                 port: float):
+                 port: int):
         """
         :param str availability_zone: The Availability Zone for the cache cluster.
-        :param float port: The port number on which each of the cache nodes will
+        :param int port: The port number on which each of the cache nodes will
                accept connections.
         """
         pulumi.set(__self__, "address", address)
@@ -166,7 +166,7 @@ class GetClusterCacheNodeResult(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port number on which each of the cache nodes will
         accept connections.

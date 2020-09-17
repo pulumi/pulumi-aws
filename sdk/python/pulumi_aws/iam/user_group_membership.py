@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['UserGroupMembership']
@@ -15,7 +15,7 @@ class UserGroupMembership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -51,7 +51,7 @@ class UserGroupMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
         :param pulumi.Input[str] user: The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
         """
         if __name__ is not None:
@@ -87,7 +87,7 @@ class UserGroupMembership(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             user: Optional[pulumi.Input[str]] = None) -> 'UserGroupMembership':
         """
         Get an existing UserGroupMembership resource's state with the given name, id, and optional extra
@@ -96,7 +96,7 @@ class UserGroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
         :param pulumi.Input[str] user: The name of the [IAM User](https://www.terraform.io/docs/providers/aws/r/iam_user.html) to add to groups
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -109,7 +109,7 @@ class UserGroupMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[List[str]]:
+    def groups(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -42,8 +42,8 @@ class GetRestApiResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if minimum_compression_size and not isinstance(minimum_compression_size, float):
-            raise TypeError("Expected argument 'minimum_compression_size' to be a float")
+        if minimum_compression_size and not isinstance(minimum_compression_size, int):
+            raise TypeError("Expected argument 'minimum_compression_size' to be a int")
         pulumi.set(__self__, "minimum_compression_size", minimum_compression_size)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -76,7 +76,7 @@ class GetRestApiResult:
 
     @property
     @pulumi.getter(name="binaryMediaTypes")
-    def binary_media_types(self) -> List[str]:
+    def binary_media_types(self) -> Sequence[str]:
         """
         The list of binary media types supported by the REST API.
         """
@@ -92,7 +92,7 @@ class GetRestApiResult:
 
     @property
     @pulumi.getter(name="endpointConfigurations")
-    def endpoint_configurations(self) -> List['outputs.GetRestApiEndpointConfigurationResult']:
+    def endpoint_configurations(self) -> Sequence['outputs.GetRestApiEndpointConfigurationResult']:
         """
         The endpoint configuration of this RestApi showing the endpoint types of the API.
         """
@@ -116,7 +116,7 @@ class GetRestApiResult:
 
     @property
     @pulumi.getter(name="minimumCompressionSize")
-    def minimum_compression_size(self) -> float:
+    def minimum_compression_size(self) -> int:
         """
         Minimum response size to compress for the REST API.
         """

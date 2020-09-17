@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class OptionGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -75,7 +75,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The Name of the setting.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: The description of the option group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: A list of Options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: A list of Options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -125,7 +125,7 @@ class OptionGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             option_group_description: Optional[pulumi.Input[str]] = None,
-            options: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+            options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'OptionGroup':
         """
         Get an existing OptionGroup resource's state with the given name, id, and optional extra
@@ -140,7 +140,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The Name of the setting.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: The description of the option group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: A list of Options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: A list of Options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -207,7 +207,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Output[Optional[List['outputs.OptionGroupOption']]]:
+    def options(self) -> pulumi.Output[Optional[Sequence['outputs.OptionGroupOption']]]:
         """
         A list of Options to apply.
         """

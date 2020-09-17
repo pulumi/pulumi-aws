@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetLoadBalancerResult:
         if connection_draining and not isinstance(connection_draining, bool):
             raise TypeError("Expected argument 'connection_draining' to be a bool")
         pulumi.set(__self__, "connection_draining", connection_draining)
-        if connection_draining_timeout and not isinstance(connection_draining_timeout, float):
-            raise TypeError("Expected argument 'connection_draining_timeout' to be a float")
+        if connection_draining_timeout and not isinstance(connection_draining_timeout, int):
+            raise TypeError("Expected argument 'connection_draining_timeout' to be a int")
         pulumi.set(__self__, "connection_draining_timeout", connection_draining_timeout)
         if cross_zone_load_balancing and not isinstance(cross_zone_load_balancing, bool):
             raise TypeError("Expected argument 'cross_zone_load_balancing' to be a bool")
@@ -48,8 +48,8 @@ class GetLoadBalancerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if idle_timeout and not isinstance(idle_timeout, float):
-            raise TypeError("Expected argument 'idle_timeout' to be a float")
+        if idle_timeout and not isinstance(idle_timeout, int):
+            raise TypeError("Expected argument 'idle_timeout' to be a int")
         pulumi.set(__self__, "idle_timeout", idle_timeout)
         if instances and not isinstance(instances, list):
             raise TypeError("Expected argument 'instances' to be a list")
@@ -94,7 +94,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> List[str]:
+    def availability_zones(self) -> Sequence[str]:
         return pulumi.get(self, "availability_zones")
 
     @property
@@ -104,7 +104,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="connectionDrainingTimeout")
-    def connection_draining_timeout(self) -> float:
+    def connection_draining_timeout(self) -> int:
         return pulumi.get(self, "connection_draining_timeout")
 
     @property
@@ -132,12 +132,12 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> float:
+    def idle_timeout(self) -> int:
         return pulumi.get(self, "idle_timeout")
 
     @property
     @pulumi.getter
-    def instances(self) -> List[str]:
+    def instances(self) -> Sequence[str]:
         return pulumi.get(self, "instances")
 
     @property
@@ -147,7 +147,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def listeners(self) -> List['outputs.GetLoadBalancerListenerResult']:
+    def listeners(self) -> Sequence['outputs.GetLoadBalancerListenerResult']:
         return pulumi.get(self, "listeners")
 
     @property
@@ -157,7 +157,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> Sequence[str]:
         return pulumi.get(self, "security_groups")
 
     @property
@@ -172,7 +172,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> List[str]:
+    def subnets(self) -> Sequence[str]:
         return pulumi.get(self, "subnets")
 
     @property

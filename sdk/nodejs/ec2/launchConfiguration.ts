@@ -150,6 +150,7 @@ import {InstanceProfile} from "../iam";
  * * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
  *   on instance termination (Default: `true`).
  * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshotId` as the encrypted flag will be determined by the snapshot. (Default: `false`).
+ * * `noDevice` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
  *
  * Modifying any `ebsBlockDevice` currently requires resource replacement.
  *

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -52,12 +52,12 @@ class DatabaseEncryptionConfiguration(dict):
 @pulumi.output_type
 class WorkgroupConfiguration(dict):
     def __init__(__self__, *,
-                 bytes_scanned_cutoff_per_query: Optional[float] = None,
+                 bytes_scanned_cutoff_per_query: Optional[int] = None,
                  enforce_workgroup_configuration: Optional[bool] = None,
                  publish_cloudwatch_metrics_enabled: Optional[bool] = None,
                  result_configuration: Optional['outputs.WorkgroupConfigurationResultConfiguration'] = None):
         """
-        :param float bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
+        :param int bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         :param bool enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
         :param bool publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param 'WorkgroupConfigurationResultConfigurationArgs' result_configuration: Configuration block with result settings. Documented below.
@@ -73,7 +73,7 @@ class WorkgroupConfiguration(dict):
 
     @property
     @pulumi.getter(name="bytesScannedCutoffPerQuery")
-    def bytes_scanned_cutoff_per_query(self) -> Optional[float]:
+    def bytes_scanned_cutoff_per_query(self) -> Optional[int]:
         """
         Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         """

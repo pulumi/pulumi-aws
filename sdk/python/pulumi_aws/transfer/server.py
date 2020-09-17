@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -36,7 +36,7 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_role = aws.iam.Role("fooRole", assume_role_policy=\"\"\"{
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
         	"Version": "2012-10-17",
         	"Statement": [
         		{
@@ -49,8 +49,15 @@ class Server(pulumi.CustomResource):
         	]
         }
         \"\"\")
-        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
-            role=foo_role.id,
+        example_server = aws.transfer.Server("exampleServer",
+            identity_provider_type="SERVICE_MANAGED",
+            logging_role=example_role.arn,
+            tags={
+                "NAME": "tf-acc-test-transfer-server",
+                "ENV": "test",
+            })
+        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+            role=example_role.id,
             policy=\"\"\"{
         	"Version": "2012-10-17",
         	"Statement": [
@@ -65,13 +72,6 @@ class Server(pulumi.CustomResource):
         	]
         }
         \"\"\")
-        foo_server = aws.transfer.Server("fooServer",
-            identity_provider_type="SERVICE_MANAGED",
-            logging_role=foo_role.arn,
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-                "ENV": "test",
-            })
         ```
 
         :param str resource_name: The name of the resource.

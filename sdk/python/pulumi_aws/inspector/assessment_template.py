@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AssessmentTemplate']
@@ -15,9 +15,9 @@ class AssessmentTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 duration: Optional[pulumi.Input[float]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules_package_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -45,9 +45,9 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] duration: The duration of the inspector run.
+        :param pulumi.Input[int] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
-        :param pulumi.Input[List[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
@@ -91,9 +91,9 @@ class AssessmentTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            duration: Optional[pulumi.Input[float]] = None,
+            duration: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            rules_package_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_arn: Optional[pulumi.Input[str]] = None) -> 'AssessmentTemplate':
         """
@@ -104,9 +104,9 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The template assessment ARN.
-        :param pulumi.Input[float] duration: The duration of the inspector run.
+        :param pulumi.Input[int] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
-        :param pulumi.Input[List[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
@@ -132,7 +132,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Output[float]:
+    def duration(self) -> pulumi.Output[int]:
         """
         The duration of the inspector run.
         """
@@ -148,7 +148,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rulesPackageArns")
-    def rules_package_arns(self) -> pulumi.Output[List[str]]:
+    def rules_package_arns(self) -> pulumi.Output[Sequence[str]]:
         """
         The rules to be used during the run.
         """

@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.TransitGatewayPeeringAttachmentAccepter("example", {
+ *     transitGatewayAttachmentId: aws_ec2_transit_gateway_peering_attachment.example.id,
  *     tags: {
  *         Name: "Example cross-account attachment",
  *     },
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_peering_attachment_example.id,
  * });
  * ```
  */

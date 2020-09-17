@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -67,11 +67,11 @@ class ClusterSnapshotCopy(dict):
     def __init__(__self__, *,
                  destination_region: str,
                  grant_name: Optional[str] = None,
-                 retention_period: Optional[float] = None):
+                 retention_period: Optional[int] = None):
         """
         :param str destination_region: The destination region that you want to copy snapshots to.
         :param str grant_name: The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-        :param float retention_period: The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+        :param int retention_period: The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         """
         pulumi.set(__self__, "destination_region", destination_region)
         if grant_name is not None:
@@ -97,7 +97,7 @@ class ClusterSnapshotCopy(dict):
 
     @property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[float]:
+    def retention_period(self) -> Optional[int]:
         """
         The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         """

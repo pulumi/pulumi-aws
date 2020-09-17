@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 permanent_deletion_time_in_days: Optional[pulumi.Input[float]] = None,
+                 permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-        :param pulumi.Input[float] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+        :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         :param pulumi.Input[str] type: The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
@@ -153,7 +153,7 @@ class CertificateAuthority(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             not_after: Optional[pulumi.Input[str]] = None,
             not_before: Optional[pulumi.Input[str]] = None,
-            permanent_deletion_time_in_days: Optional[pulumi.Input[float]] = None,
+            permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
             revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
             serial: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -174,7 +174,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         :param pulumi.Input[str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        :param pulumi.Input[float] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+        :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[str] serial: Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] status: Status of the certificate authority.
@@ -267,7 +267,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="permanentDeletionTimeInDays")
-    def permanent_deletion_time_in_days(self) -> pulumi.Output[Optional[float]]:
+    def permanent_deletion_time_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         """

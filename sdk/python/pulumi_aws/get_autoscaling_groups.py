@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -37,7 +37,7 @@ class GetAutoscalingGroupsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> List[str]:
+    def arns(self) -> Sequence[str]:
         """
         A list of the Autoscaling Groups Arns in the current region.
         """
@@ -45,7 +45,7 @@ class GetAutoscalingGroupsResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetAutoscalingGroupsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetAutoscalingGroupsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -58,7 +58,7 @@ class GetAutoscalingGroupsResult:
 
     @property
     @pulumi.getter
-    def names(self) -> List[str]:
+    def names(self) -> Sequence[str]:
         """
         A list of the Autoscaling Groups in the current region.
         """
@@ -77,7 +77,7 @@ class AwaitableGetAutoscalingGroupsResult(GetAutoscalingGroupsResult):
             names=self.names)
 
 
-def get_autoscaling_groups(filters: Optional[List[pulumi.InputType['GetAutoscalingGroupsFilterArgs']]] = None,
+def get_autoscaling_groups(filters: Optional[Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoscalingGroupsResult:
     """
     The Autoscaling Groups data source allows access to the list of AWS
@@ -111,7 +111,7 @@ def get_autoscaling_groups(filters: Optional[List[pulumi.InputType['GetAutoscali
     ```
 
 
-    :param List[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     """
     __args__ = dict()
     __args__['filters'] = filters

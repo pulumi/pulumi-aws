@@ -56,11 +56,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
+// 			UserPoolId:     pool.ID(),
+// 			GenerateSecret: pulumi.Bool(true),
 // 			ExplicitAuthFlows: pulumi.StringArray{
 // 				pulumi.String("ADMIN_NO_SRP_AUTH"),
 // 			},
-// 			GenerateSecret: pulumi.Bool(true),
-// 			UserPoolId:     pool.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -99,28 +99,28 @@ import (
 // 			return err
 // 		}
 // 		testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"cognito-idp.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n", "\n")),
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"cognito-idp.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "testRolePolicy", &iam.RolePolicyArgs{
-// 			Policy: testApp.ApplicationId.ApplyT(func(applicationId string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"mobiletargeting:UpdateEndpoint\",\n", "        \"mobiletargeting:PutItems\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:mobiletargeting:*:", current.AccountId, ":apps/", applicationId, "*\"\n", "    }\n", "  ]\n", "}\n", "\n"), nil
-// 			}).(pulumi.StringOutput),
 // 			Role: testRole.ID(),
+// 			Policy: testApp.ApplicationId.ApplyT(func(applicationId string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"mobiletargeting:UpdateEndpoint\",\n", "        \"mobiletargeting:PutItems\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:mobiletargeting:*:", current.AccountId, ":apps/", applicationId, "*\"\n", "    }\n", "  ]\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = cognito.NewUserPoolClient(ctx, "testUserPoolClient", &cognito.UserPoolClientArgs{
+// 			UserPoolId: testUserPool.ID(),
 // 			AnalyticsConfiguration: &cognito.UserPoolClientAnalyticsConfigurationArgs{
 // 				ApplicationId:  testApp.ApplicationId,
 // 				ExternalId:     pulumi.String("some_id"),
 // 				RoleArn:        testRole.Arn,
 // 				UserDataShared: pulumi.Bool(true),
 // 			},
-// 			UserPoolId: testUserPool.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

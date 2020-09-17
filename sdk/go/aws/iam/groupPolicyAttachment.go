@@ -32,7 +32,7 @@ import (
 // 		}
 // 		policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
 // 			Description: pulumi.String("A test policy"),
-// 			Policy:      pulumi.String(""),
+// 			Policy:      pulumi.String("{ ... policy JSON ... }"),
 // 		})
 // 		if err != nil {
 // 			return err

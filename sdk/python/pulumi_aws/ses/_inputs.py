@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -137,11 +137,11 @@ class ReceiptRuleAddHeaderActionArgs:
     def __init__(__self__, *,
                  header_name: pulumi.Input[str],
                  header_value: pulumi.Input[str],
-                 position: pulumi.Input[float]):
+                 position: pulumi.Input[int]):
         """
         :param pulumi.Input[str] header_name: The name of the header to add
         :param pulumi.Input[str] header_value: The value of the header to add
-        :param pulumi.Input[float] position: The position of the action in the receipt rule
+        :param pulumi.Input[int] position: The position of the action in the receipt rule
         """
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "header_value", header_value)
@@ -173,14 +173,14 @@ class ReceiptRuleAddHeaderActionArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input[float]:
+    def position(self) -> pulumi.Input[int]:
         """
         The position of the action in the receipt rule
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: pulumi.Input[float]):
+    def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
 
 
@@ -188,14 +188,14 @@ class ReceiptRuleAddHeaderActionArgs:
 class ReceiptRuleBounceActionArgs:
     def __init__(__self__, *,
                  message: pulumi.Input[str],
-                 position: pulumi.Input[float],
+                 position: pulumi.Input[int],
                  sender: pulumi.Input[str],
                  smtp_reply_code: pulumi.Input[str],
                  status_code: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] message: The message to send
-        :param pulumi.Input[float] position: The position of the action in the receipt rule
+        :param pulumi.Input[int] position: The position of the action in the receipt rule
         :param pulumi.Input[str] sender: The email address of the sender
         :param pulumi.Input[str] smtp_reply_code: The RFC 5321 SMTP reply code
         :param pulumi.Input[str] status_code: The RFC 3463 SMTP enhanced status code
@@ -224,14 +224,14 @@ class ReceiptRuleBounceActionArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input[float]:
+    def position(self) -> pulumi.Input[int]:
         """
         The position of the action in the receipt rule
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: pulumi.Input[float]):
+    def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
 
     @property
@@ -287,12 +287,12 @@ class ReceiptRuleBounceActionArgs:
 class ReceiptRuleLambdaActionArgs:
     def __init__(__self__, *,
                  function_arn: pulumi.Input[str],
-                 position: pulumi.Input[float],
+                 position: pulumi.Input[int],
                  invocation_type: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] function_arn: The ARN of the Lambda function to invoke
-        :param pulumi.Input[float] position: The position of the action in the receipt rule
+        :param pulumi.Input[int] position: The position of the action in the receipt rule
         :param pulumi.Input[str] invocation_type: Event or RequestResponse
         :param pulumi.Input[str] topic_arn: The ARN of an SNS topic to notify
         """
@@ -317,14 +317,14 @@ class ReceiptRuleLambdaActionArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input[float]:
+    def position(self) -> pulumi.Input[int]:
         """
         The position of the action in the receipt rule
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: pulumi.Input[float]):
+    def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
 
     @property
@@ -356,13 +356,13 @@ class ReceiptRuleLambdaActionArgs:
 class ReceiptRuleS3ActionArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
-                 position: pulumi.Input[float],
+                 position: pulumi.Input[int],
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  object_key_prefix: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket
-        :param pulumi.Input[float] position: The position of the action in the receipt rule
+        :param pulumi.Input[int] position: The position of the action in the receipt rule
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key
         :param pulumi.Input[str] object_key_prefix: The key prefix of the S3 bucket
         :param pulumi.Input[str] topic_arn: The ARN of an SNS topic to notify
@@ -390,14 +390,14 @@ class ReceiptRuleS3ActionArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input[float]:
+    def position(self) -> pulumi.Input[int]:
         """
         The position of the action in the receipt rule
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: pulumi.Input[float]):
+    def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
 
     @property
@@ -440,10 +440,10 @@ class ReceiptRuleS3ActionArgs:
 @pulumi.input_type
 class ReceiptRuleSnsActionArgs:
     def __init__(__self__, *,
-                 position: pulumi.Input[float],
+                 position: pulumi.Input[int],
                  topic_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[float] position: The position of the action in the receipt rule
+        :param pulumi.Input[int] position: The position of the action in the receipt rule
         :param pulumi.Input[str] topic_arn: The ARN of an SNS topic to notify
         """
         pulumi.set(__self__, "position", position)
@@ -451,14 +451,14 @@ class ReceiptRuleSnsActionArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input[float]:
+    def position(self) -> pulumi.Input[int]:
         """
         The position of the action in the receipt rule
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: pulumi.Input[float]):
+    def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
 
     @property
@@ -477,11 +477,11 @@ class ReceiptRuleSnsActionArgs:
 @pulumi.input_type
 class ReceiptRuleStopActionArgs:
     def __init__(__self__, *,
-                 position: pulumi.Input[float],
+                 position: pulumi.Input[int],
                  scope: pulumi.Input[str],
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] position: The position of the action in the receipt rule
+        :param pulumi.Input[int] position: The position of the action in the receipt rule
         :param pulumi.Input[str] scope: The scope to apply
         :param pulumi.Input[str] topic_arn: The ARN of an SNS topic to notify
         """
@@ -492,14 +492,14 @@ class ReceiptRuleStopActionArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input[float]:
+    def position(self) -> pulumi.Input[int]:
         """
         The position of the action in the receipt rule
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: pulumi.Input[float]):
+    def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
 
     @property
@@ -531,11 +531,11 @@ class ReceiptRuleStopActionArgs:
 class ReceiptRuleWorkmailActionArgs:
     def __init__(__self__, *,
                  organization_arn: pulumi.Input[str],
-                 position: pulumi.Input[float],
+                 position: pulumi.Input[int],
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] organization_arn: The ARN of the WorkMail organization
-        :param pulumi.Input[float] position: The position of the action in the receipt rule
+        :param pulumi.Input[int] position: The position of the action in the receipt rule
         :param pulumi.Input[str] topic_arn: The ARN of an SNS topic to notify
         """
         pulumi.set(__self__, "organization_arn", organization_arn)
@@ -557,14 +557,14 @@ class ReceiptRuleWorkmailActionArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input[float]:
+    def position(self) -> pulumi.Input[int]:
         """
         The position of the action in the receipt rule
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: pulumi.Input[float]):
+    def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
 
     @property

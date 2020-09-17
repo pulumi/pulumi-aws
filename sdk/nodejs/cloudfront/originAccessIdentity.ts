@@ -34,6 +34,14 @@ import * as utilities from "../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configuration ...
+ * const example = new aws.cloudfront.Distribution("example", {origins: [{
+ *     s3OriginConfig: {
+ *         originAccessIdentity: aws_cloudfront_origin_access_identity.example.cloudfront_access_identity_path,
+ *     },
+ * }]});
  * ```
  *
  * ### Updating your bucket policy

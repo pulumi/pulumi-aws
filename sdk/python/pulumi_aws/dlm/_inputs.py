@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -18,12 +18,12 @@ __all__ = [
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsArgs:
     def __init__(__self__, *,
-                 resource_types: pulumi.Input[List[pulumi.Input[str]]],
-                 schedules: pulumi.Input[List[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]],
+                 resource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 schedules: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]],
                  target_tags: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] resource_types: A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
-        :param pulumi.Input[List[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]] schedules: See the `schedule` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]] schedules: See the `schedule` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_tags: A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         """
         pulumi.set(__self__, "resource_types", resource_types)
@@ -32,26 +32,26 @@ class LifecyclePolicyPolicyDetailsArgs:
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def resource_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "resource_types", value)
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Input[List[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]:
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]:
         """
         See the `schedule` configuration block.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: pulumi.Input[List[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]):
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]):
         pulumi.set(self, "schedules", value)
 
     @property
@@ -154,11 +154,11 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
     def __init__(__self__, *,
-                 interval: pulumi.Input[float],
+                 interval: pulumi.Input[int],
                  interval_unit: Optional[pulumi.Input[str]] = None,
                  times: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        :param pulumi.Input[int] interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
         :param pulumi.Input[str] interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
         :param pulumi.Input[str] times: A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
         """
@@ -170,14 +170,14 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
 
     @property
     @pulumi.getter
-    def interval(self) -> pulumi.Input[float]:
+    def interval(self) -> pulumi.Input[int]:
         """
         How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: pulumi.Input[float]):
+    def interval(self, value: pulumi.Input[int]):
         pulumi.set(self, "interval", value)
 
     @property
@@ -208,22 +208,22 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[float]):
+                 count: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] count: How many snapshots to keep. Must be an integer between 1 and 1000.
+        :param pulumi.Input[int] count: How many snapshots to keep. Must be an integer between 1 and 1000.
         """
         pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[float]:
+    def count(self) -> pulumi.Input[int]:
         """
         How many snapshots to keep. Must be an integer between 1 and 1000.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[float]):
+    def count(self, value: pulumi.Input[int]):
         pulumi.set(self, "count", value)
 
 

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooRole = new aws.iam.Role("fooRole", {assumeRolePolicy: `{
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -26,8 +26,16 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `});
- * const fooRolePolicy = new aws.iam.RolePolicy("fooRolePolicy", {
- *     role: fooRole.id,
+ * const exampleServer = new aws.transfer.Server("exampleServer", {
+ *     identityProviderType: "SERVICE_MANAGED",
+ *     loggingRole: exampleRole.arn,
+ *     tags: {
+ *         NAME: "tf-acc-test-transfer-server",
+ *         ENV: "test",
+ *     },
+ * });
+ * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ *     role: exampleRole.id,
  *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
@@ -42,14 +50,6 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
- * });
- * const fooServer = new aws.transfer.Server("fooServer", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     loggingRole: fooRole.arn,
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *         ENV: "test",
- *     },
  * });
  * ```
  */

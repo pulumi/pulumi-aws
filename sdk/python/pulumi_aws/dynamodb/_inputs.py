@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -85,10 +85,10 @@ class TableGlobalSecondaryIndexArgs:
                  hash_key: pulumi.Input[str],
                  name: pulumi.Input[str],
                  projection_type: pulumi.Input[str],
-                 non_key_attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  range_key: Optional[pulumi.Input[str]] = None,
-                 read_capacity: Optional[pulumi.Input[float]] = None,
-                 write_capacity: Optional[pulumi.Input[float]] = None):
+                 read_capacity: Optional[pulumi.Input[int]] = None,
+                 write_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
                defined as an attribute in the resource.
@@ -98,12 +98,12 @@ class TableGlobalSecondaryIndexArgs:
                projects just the hash and range key into the index, and `INCLUDE`
                projects only the keys specified in the _non_key_attributes_
                parameter.
-        :param pulumi.Input[List[pulumi.Input[str]]] non_key_attributes: Only required with `INCLUDE` as a
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: Only required with `INCLUDE` as a
                projection type; a list of attributes to project into the index. These
                do not need to be defined as attributes on the table.
         :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[float] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param pulumi.Input[float] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         pulumi.set(__self__, "hash_key", hash_key)
         pulumi.set(__self__, "name", name)
@@ -160,7 +160,7 @@ class TableGlobalSecondaryIndexArgs:
 
     @property
     @pulumi.getter(name="nonKeyAttributes")
-    def non_key_attributes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Only required with `INCLUDE` as a
         projection type; a list of attributes to project into the index. These
@@ -169,7 +169,7 @@ class TableGlobalSecondaryIndexArgs:
         return pulumi.get(self, "non_key_attributes")
 
     @non_key_attributes.setter
-    def non_key_attributes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def non_key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "non_key_attributes", value)
 
     @property
@@ -186,26 +186,26 @@ class TableGlobalSecondaryIndexArgs:
 
     @property
     @pulumi.getter(name="readCapacity")
-    def read_capacity(self) -> Optional[pulumi.Input[float]]:
+    def read_capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "read_capacity")
 
     @read_capacity.setter
-    def read_capacity(self, value: Optional[pulumi.Input[float]]):
+    def read_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "read_capacity", value)
 
     @property
     @pulumi.getter(name="writeCapacity")
-    def write_capacity(self) -> Optional[pulumi.Input[float]]:
+    def write_capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "write_capacity")
 
     @write_capacity.setter
-    def write_capacity(self, value: Optional[pulumi.Input[float]]):
+    def write_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "write_capacity", value)
 
 
@@ -215,7 +215,7 @@ class TableLocalSecondaryIndexArgs:
                  name: pulumi.Input[str],
                  projection_type: pulumi.Input[str],
                  range_key: pulumi.Input[str],
-                 non_key_attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The name of the index
         :param pulumi.Input[str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY`
@@ -224,7 +224,7 @@ class TableLocalSecondaryIndexArgs:
                projects only the keys specified in the _non_key_attributes_
                parameter.
         :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[List[pulumi.Input[str]]] non_key_attributes: Only required with `INCLUDE` as a
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: Only required with `INCLUDE` as a
                projection type; a list of attributes to project into the index. These
                do not need to be defined as attributes on the table.
         """
@@ -276,7 +276,7 @@ class TableLocalSecondaryIndexArgs:
 
     @property
     @pulumi.getter(name="nonKeyAttributes")
-    def non_key_attributes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Only required with `INCLUDE` as a
         projection type; a list of attributes to project into the index. These
@@ -285,7 +285,7 @@ class TableLocalSecondaryIndexArgs:
         return pulumi.get(self, "non_key_attributes")
 
     @non_key_attributes.setter
-    def non_key_attributes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def non_key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "non_key_attributes", value)
 
 

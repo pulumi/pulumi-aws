@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -70,7 +70,7 @@ class GetSelectionResult:
 
     @property
     @pulumi.getter
-    def resources(self) -> List[str]:
+    def resources(self) -> Sequence[str]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
         """

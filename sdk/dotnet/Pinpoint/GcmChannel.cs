@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Pinpoint
     ///         });
     ///         var gcm = new Aws.Pinpoint.GcmChannel("gcm", new Aws.Pinpoint.GcmChannelArgs
     ///         {
-    ///             ApiKey = "api_key",
     ///             ApplicationId = app.ApplicationId,
+    ///             ApiKey = "api_key",
     ///         });
     ///     }
     /// 

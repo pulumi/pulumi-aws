@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class ByteMatchSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 byte_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]]] = None,
+                 byte_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -44,7 +44,7 @@ class ByteMatchSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         :param pulumi.Input[str] name: The name or description of the ByteMatchSet.
         """
         if __name__ is not None:
@@ -76,7 +76,7 @@ class ByteMatchSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            byte_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]]] = None,
+            byte_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ByteMatchSet':
         """
         Get an existing ByteMatchSet resource's state with the given name, id, and optional extra
@@ -85,7 +85,7 @@ class ByteMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         :param pulumi.Input[str] name: The name or description of the ByteMatchSet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -98,7 +98,7 @@ class ByteMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="byteMatchTuples")
-    def byte_match_tuples(self) -> pulumi.Output[Optional[List['outputs.ByteMatchSetByteMatchTuple']]]:
+    def byte_match_tuples(self) -> pulumi.Output[Optional[Sequence['outputs.ByteMatchSetByteMatchTuple']]]:
         """
         Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         """

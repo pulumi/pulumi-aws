@@ -24,11 +24,11 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var example = new Aws.Ec2.TransitGatewayPeeringAttachmentAccepter("example", new Aws.Ec2.TransitGatewayPeeringAttachmentAccepterArgs
     ///         {
+    ///             TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
     ///             Tags = 
     ///             {
     ///                 { "Name", "Example cross-account attachment" },
     ///             },
-    ///             TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
     ///         });
     ///     }
     /// 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -21,10 +21,10 @@ __all__ = [
 class GetDirectConnectGatewayAttachmentFilterArgs:
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        :param List[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -43,14 +43,14 @@ class GetDirectConnectGatewayAttachmentFilterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: List[str]):
+    def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
 
@@ -58,11 +58,11 @@ class GetDirectConnectGatewayAttachmentFilterArgs:
 class GetPeeringAttachmentFilterArgs:
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
-        :param List[str] values: Set of values that are accepted for the given field.
+        :param Sequence[str] values: Set of values that are accepted for the given field.
                An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
@@ -83,7 +83,7 @@ class GetPeeringAttachmentFilterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given field.
         An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
@@ -91,7 +91,7 @@ class GetPeeringAttachmentFilterArgs:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: List[str]):
+    def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
 
@@ -99,10 +99,10 @@ class GetPeeringAttachmentFilterArgs:
 class GetRouteTableFilterArgs:
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: Name of the filter.
-        :param List[str] values: List of one or more values for the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -121,14 +121,14 @@ class GetRouteTableFilterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of one or more values for the filter.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: List[str]):
+    def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
 
@@ -136,10 +136,10 @@ class GetRouteTableFilterArgs:
 class GetTransitGatewayFilterArgs:
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: Name of the filter.
-        :param List[str] values: List of one or more values for the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -158,14 +158,14 @@ class GetTransitGatewayFilterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of one or more values for the filter.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: List[str]):
+    def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
 
@@ -173,10 +173,10 @@ class GetTransitGatewayFilterArgs:
 class GetVpcAttachmentFilterArgs:
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: Name of the filter.
-        :param List[str] values: List of one or more values for the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -195,14 +195,14 @@ class GetVpcAttachmentFilterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of one or more values for the filter.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: List[str]):
+    def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
 
@@ -210,10 +210,10 @@ class GetVpcAttachmentFilterArgs:
 class GetVpnAttachmentFilterArgs:
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        :param List[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -232,14 +232,14 @@ class GetVpnAttachmentFilterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: List[str]):
+    def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
 

@@ -49,12 +49,12 @@ namespace Pulumi.Aws.Cognito
     ///         });
     ///         var client = new Aws.Cognito.UserPoolClient("client", new Aws.Cognito.UserPoolClientArgs
     ///         {
+    ///             UserPoolId = pool.Id,
+    ///             GenerateSecret = true,
     ///             ExplicitAuthFlows = 
     ///             {
     ///                 "ADMIN_NO_SRP_AUTH",
     ///             },
-    ///             GenerateSecret = true,
-    ///             UserPoolId = pool.Id,
     ///         });
     ///     }
     /// 
@@ -92,11 +92,11 @@ namespace Pulumi.Aws.Cognito
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = testRole.Id,
     ///             Policy = Output.Tuple(current, testApp.ApplicationId).Apply(values =&gt;
     ///             {
     ///                 var current = values.Item1;
@@ -114,13 +114,12 @@ namespace Pulumi.Aws.Cognito
     ///     }}
     ///   ]
     /// }}
-    /// 
     /// ";
     ///             }),
-    ///             Role = testRole.Id,
     ///         });
     ///         var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new Aws.Cognito.UserPoolClientArgs
     ///         {
+    ///             UserPoolId = testUserPool.Id,
     ///             AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
     ///             {
     ///                 ApplicationId = testApp.ApplicationId,
@@ -128,7 +127,6 @@ namespace Pulumi.Aws.Cognito
     ///                 RoleArn = testRole.Arn,
     ///                 UserDataShared = true,
     ///             },
-    ///             UserPoolId = testUserPool.Id,
     ///         });
     ///     }
     /// 

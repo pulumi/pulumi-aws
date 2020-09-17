@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,23 +20,23 @@ class NodejsAppLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 custom_configure_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 custom_deploy_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
                  custom_json: Optional[pulumi.Input[str]] = None,
-                 custom_security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 custom_setup_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 custom_shutdown_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 custom_undeploy_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_setup_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
-                 instance_shutdown_timeout: Optional[pulumi.Input[float]] = None,
+                 instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
-                 system_packages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -61,16 +61,16 @@ class NodejsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
-        :param pulumi.Input[List[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
-        :param pulumi.Input[float] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] nodejs_version: The version of NodeJS to use. Defaults to "0.10.38".
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
-        :param pulumi.Input[List[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
@@ -130,23 +130,23 @@ class NodejsAppLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
-            custom_configure_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            custom_deploy_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
             custom_json: Optional[pulumi.Input[str]] = None,
-            custom_security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            custom_setup_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            custom_shutdown_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            custom_undeploy_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            custom_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            custom_setup_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-            ebs_volumes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]]] = None,
+            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]]] = None,
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
-            instance_shutdown_timeout: Optional[pulumi.Input[float]] = None,
+            instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             nodejs_version: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
-            system_packages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None) -> 'NodejsAppLayer':
         """
@@ -162,16 +162,16 @@ class NodejsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
-        :param pulumi.Input[List[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
-        :param pulumi.Input[float] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] nodejs_version: The version of NodeJS to use. Defaults to "0.10.38".
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
-        :param pulumi.Input[List[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
@@ -238,12 +238,12 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
-    def custom_configure_recipes(self) -> pulumi.Output[Optional[List[str]]]:
+    def custom_configure_recipes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "custom_configure_recipes")
 
     @property
     @pulumi.getter(name="customDeployRecipes")
-    def custom_deploy_recipes(self) -> pulumi.Output[Optional[List[str]]]:
+    def custom_deploy_recipes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "custom_deploy_recipes")
 
     @property
@@ -264,7 +264,7 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customSecurityGroupIds")
-    def custom_security_group_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def custom_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Ids for a set of security groups to apply to the layer's instances.
         """
@@ -272,17 +272,17 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customSetupRecipes")
-    def custom_setup_recipes(self) -> pulumi.Output[Optional[List[str]]]:
+    def custom_setup_recipes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "custom_setup_recipes")
 
     @property
     @pulumi.getter(name="customShutdownRecipes")
-    def custom_shutdown_recipes(self) -> pulumi.Output[Optional[List[str]]]:
+    def custom_shutdown_recipes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "custom_shutdown_recipes")
 
     @property
     @pulumi.getter(name="customUndeployRecipes")
-    def custom_undeploy_recipes(self) -> pulumi.Output[Optional[List[str]]]:
+    def custom_undeploy_recipes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "custom_undeploy_recipes")
 
     @property
@@ -295,7 +295,7 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> pulumi.Output[Optional[List['outputs.NodejsAppLayerEbsVolume']]]:
+    def ebs_volumes(self) -> pulumi.Output[Optional[Sequence['outputs.NodejsAppLayerEbsVolume']]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
@@ -319,7 +319,7 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceShutdownTimeout")
-    def instance_shutdown_timeout(self) -> pulumi.Output[Optional[float]]:
+    def instance_shutdown_timeout(self) -> pulumi.Output[Optional[int]]:
         """
         The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         """
@@ -351,7 +351,7 @@ class NodejsAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemPackages")
-    def system_packages(self) -> pulumi.Output[Optional[List[str]]]:
+    def system_packages(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Names of a set of system packages to install on the layer's instances.
         """

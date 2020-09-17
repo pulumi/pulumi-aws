@@ -123,64 +123,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// ### CloudWatch Logging and Permissions
-    /// 
-    /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
-    ///         // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-    ///         var example = new Aws.CloudWatch.LogGroup("example", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///             RetentionInDays = 14,
-    ///         });
-    ///         // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
-    ///         var lambdaLogging = new Aws.Iam.Policy("lambdaLogging", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             Path = "/",
-    ///             Description = "IAM policy for logging from a lambda",
-    ///             Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""logs:CreateLogGroup"",
-    ///         ""logs:CreateLogStream"",
-    ///         ""logs:PutLogEvents""
-    ///       ],
-    ///       ""Resource"": ""arn:aws:logs:*:*:*"",
-    ///       ""Effect"": ""Allow""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///         });
-    ///         var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambdaLogs", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = aws_iam_role.Iam_for_lambda.Name,
-    ///             PolicyArn = lambdaLogging.Arn,
-    ///         });
-    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 lambdaLogs,
-    ///                 example,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use.

@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Ec2
         ///                     Name = "instance-type",
         ///                     Values = 
         ///                     {
-        ///                         "t1.micro",
         ///                         "t2.micro",
         ///                         "t3.micro",
         ///                     },
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.Ec2
         ///             {
         ///                 "t3.micro",
         ///                 "t2.micro",
-        ///                 "t1.micro",
         ///             },
         ///         }));
         ///     }

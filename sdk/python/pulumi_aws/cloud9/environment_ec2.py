@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['EnvironmentEC2']
@@ -15,7 +15,7 @@ class EnvironmentEC2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_stop_time_minutes: Optional[pulumi.Input[float]] = None,
+                 automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
+        :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
@@ -86,7 +86,7 @@ class EnvironmentEC2(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            automatic_stop_time_minutes: Optional[pulumi.Input[float]] = None,
+            automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the environment.
-        :param pulumi.Input[float] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
+        :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
@@ -136,7 +136,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticStopTimeMinutes")
-    def automatic_stop_time_minutes(self) -> pulumi.Output[Optional[float]]:
+    def automatic_stop_time_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         The number of minutes until the running instance is shut down after the environment has last been used.
         """

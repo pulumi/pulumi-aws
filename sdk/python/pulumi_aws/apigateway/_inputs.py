@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -23,10 +23,10 @@ __all__ = [
 @pulumi.input_type
 class AccountThrottleSettingsArgs:
     def __init__(__self__, *,
-                 burst_limit: Optional[pulumi.Input[float]] = None,
+                 burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] burst_limit: The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+        :param pulumi.Input[int] burst_limit: The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         :param pulumi.Input[float] rate_limit: The number of times API Gateway allows the API to be called per second on average (RPS).
         """
         if burst_limit is not None:
@@ -36,14 +36,14 @@ class AccountThrottleSettingsArgs:
 
     @property
     @pulumi.getter(name="burstLimit")
-    def burst_limit(self) -> Optional[pulumi.Input[float]]:
+    def burst_limit(self) -> Optional[pulumi.Input[int]]:
         """
         The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
-    def burst_limit(self, value: Optional[pulumi.Input[float]]):
+    def burst_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "burst_limit", value)
 
     @property
@@ -171,24 +171,24 @@ class DomainNameEndpointConfigurationArgs:
 class MethodSettingsSettingsArgs:
     def __init__(__self__, *,
                  cache_data_encrypted: Optional[pulumi.Input[bool]] = None,
-                 cache_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
+                 cache_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  caching_enabled: Optional[pulumi.Input[bool]] = None,
                  data_trace_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  require_authorization_for_cache_control: Optional[pulumi.Input[bool]] = None,
-                 throttling_burst_limit: Optional[pulumi.Input[float]] = None,
+                 throttling_burst_limit: Optional[pulumi.Input[int]] = None,
                  throttling_rate_limit: Optional[pulumi.Input[float]] = None,
                  unauthorized_cache_control_header_strategy: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] cache_data_encrypted: Specifies whether the cached responses are encrypted.
-        :param pulumi.Input[float] cache_ttl_in_seconds: Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+        :param pulumi.Input[int] cache_ttl_in_seconds: Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         :param pulumi.Input[bool] caching_enabled: Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         :param pulumi.Input[bool] data_trace_enabled: Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
         :param pulumi.Input[str] logging_level: Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
         :param pulumi.Input[bool] metrics_enabled: Specifies whether Amazon CloudWatch metrics are enabled for this method.
         :param pulumi.Input[bool] require_authorization_for_cache_control: Specifies whether authorization is required for a cache invalidation request.
-        :param pulumi.Input[float] throttling_burst_limit: Specifies the throttling burst limit. Default: `-1` (throttling disabled).
+        :param pulumi.Input[int] throttling_burst_limit: Specifies the throttling burst limit. Default: `-1` (throttling disabled).
         :param pulumi.Input[float] throttling_rate_limit: Specifies the throttling rate limit. Default: `-1` (throttling disabled).
         :param pulumi.Input[str] unauthorized_cache_control_header_strategy: Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
         """
@@ -227,14 +227,14 @@ class MethodSettingsSettingsArgs:
 
     @property
     @pulumi.getter(name="cacheTtlInSeconds")
-    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
     @cache_ttl_in_seconds.setter
-    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cache_ttl_in_seconds", value)
 
     @property
@@ -299,14 +299,14 @@ class MethodSettingsSettingsArgs:
 
     @property
     @pulumi.getter(name="throttlingBurstLimit")
-    def throttling_burst_limit(self) -> Optional[pulumi.Input[float]]:
+    def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the throttling burst limit. Default: `-1` (throttling disabled).
         """
         return pulumi.get(self, "throttling_burst_limit")
 
     @throttling_burst_limit.setter
-    def throttling_burst_limit(self, value: Optional[pulumi.Input[float]]):
+    def throttling_burst_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "throttling_burst_limit", value)
 
     @property
@@ -338,10 +338,10 @@ class MethodSettingsSettingsArgs:
 class RestApiEndpointConfigurationArgs:
     def __init__(__self__, *,
                  types: pulumi.Input[str],
-                 vpc_endpoint_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] types: A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
-        :param pulumi.Input[List[pulumi.Input[str]]] vpc_endpoint_ids: A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_endpoint_ids: A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
         """
         pulumi.set(__self__, "types", types)
         if vpc_endpoint_ids is not None:
@@ -361,14 +361,14 @@ class RestApiEndpointConfigurationArgs:
 
     @property
     @pulumi.getter(name="vpcEndpointIds")
-    def vpc_endpoint_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def vpc_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
         """
         return pulumi.get(self, "vpc_endpoint_ids")
 
     @vpc_endpoint_ids.setter
-    def vpc_endpoint_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def vpc_endpoint_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vpc_endpoint_ids", value)
 
 
@@ -451,13 +451,13 @@ class UsagePlanApiStageArgs:
 @pulumi.input_type
 class UsagePlanQuotaSettingsArgs:
     def __init__(__self__, *,
-                 limit: pulumi.Input[float],
+                 limit: pulumi.Input[int],
                  period: pulumi.Input[str],
-                 offset: Optional[pulumi.Input[float]] = None):
+                 offset: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] limit: The maximum number of requests that can be made in a given time period.
+        :param pulumi.Input[int] limit: The maximum number of requests that can be made in a given time period.
         :param pulumi.Input[str] period: The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-        :param pulumi.Input[float] offset: The number of requests subtracted from the given limit in the initial time period.
+        :param pulumi.Input[int] offset: The number of requests subtracted from the given limit in the initial time period.
         """
         pulumi.set(__self__, "limit", limit)
         pulumi.set(__self__, "period", period)
@@ -466,14 +466,14 @@ class UsagePlanQuotaSettingsArgs:
 
     @property
     @pulumi.getter
-    def limit(self) -> pulumi.Input[float]:
+    def limit(self) -> pulumi.Input[int]:
         """
         The maximum number of requests that can be made in a given time period.
         """
         return pulumi.get(self, "limit")
 
     @limit.setter
-    def limit(self, value: pulumi.Input[float]):
+    def limit(self, value: pulumi.Input[int]):
         pulumi.set(self, "limit", value)
 
     @property
@@ -490,24 +490,24 @@ class UsagePlanQuotaSettingsArgs:
 
     @property
     @pulumi.getter
-    def offset(self) -> Optional[pulumi.Input[float]]:
+    def offset(self) -> Optional[pulumi.Input[int]]:
         """
         The number of requests subtracted from the given limit in the initial time period.
         """
         return pulumi.get(self, "offset")
 
     @offset.setter
-    def offset(self, value: Optional[pulumi.Input[float]]):
+    def offset(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "offset", value)
 
 
 @pulumi.input_type
 class UsagePlanThrottleSettingsArgs:
     def __init__(__self__, *,
-                 burst_limit: Optional[pulumi.Input[float]] = None,
+                 burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] burst_limit: The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        :param pulumi.Input[int] burst_limit: The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
         :param pulumi.Input[float] rate_limit: The API request steady-state rate limit.
         """
         if burst_limit is not None:
@@ -517,14 +517,14 @@ class UsagePlanThrottleSettingsArgs:
 
     @property
     @pulumi.getter(name="burstLimit")
-    def burst_limit(self) -> Optional[pulumi.Input[float]]:
+    def burst_limit(self) -> Optional[pulumi.Input[int]]:
         """
         The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
         """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
-    def burst_limit(self, value: Optional[pulumi.Input[float]]):
+    def burst_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "burst_limit", value)
 
     @property

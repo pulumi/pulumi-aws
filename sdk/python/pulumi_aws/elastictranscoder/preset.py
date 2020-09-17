@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class Preset(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  video: Optional[pulumi.Input[pulumi.InputType['PresetVideoArgs']]] = None,
                  video_codec_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 video_watermarks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]]] = None,
+                 video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -104,7 +104,7 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PresetThumbnailsArgs']] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input[pulumi.InputType['PresetVideoArgs']] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] video_codec_options: Codec options for the video parameters
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]] video_watermarks: Watermark parameters for the video parameters (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]] video_watermarks: Watermark parameters for the video parameters (documented below)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -156,7 +156,7 @@ class Preset(pulumi.CustomResource):
             type: Optional[pulumi.Input[str]] = None,
             video: Optional[pulumi.Input[pulumi.InputType['PresetVideoArgs']]] = None,
             video_codec_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            video_watermarks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]]] = None) -> 'Preset':
+            video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]]] = None) -> 'Preset':
         """
         Get an existing Preset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -172,7 +172,7 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PresetThumbnailsArgs']] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input[pulumi.InputType['PresetVideoArgs']] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] video_codec_options: Codec options for the video parameters
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]] video_watermarks: Watermark parameters for the video parameters (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PresetVideoWatermarkArgs']]]] video_watermarks: Watermark parameters for the video parameters (documented below)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -267,7 +267,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="videoWatermarks")
-    def video_watermarks(self) -> pulumi.Output[Optional[List['outputs.PresetVideoWatermark']]]:
+    def video_watermarks(self) -> pulumi.Output[Optional[Sequence['outputs.PresetVideoWatermark']]]:
         """
         Watermark parameters for the video parameters (documented below)
         """

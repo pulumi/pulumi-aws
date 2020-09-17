@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Authorizer']
@@ -16,12 +16,12 @@ class Authorizer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizer_credentials: Optional[pulumi.Input[str]] = None,
-                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
+                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  identity_source: Optional[pulumi.Input[str]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provider_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -34,7 +34,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorizer_credentials: The credentials required for the authorizer.
                To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
-        :param pulumi.Input[float] authorizer_result_ttl_in_seconds: The TTL of cached authorizer results in seconds.
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL of cached authorizer results in seconds.
                Defaults to `300`.
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI).
                This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
@@ -46,7 +46,7 @@ class Authorizer(pulumi.CustomResource):
                against this expression, and will proceed if the token matches. If the token doesn't match,
                the client receives a 401 Unauthorized response.
         :param pulumi.Input[str] name: The name of the authorizer
-        :param pulumi.Input[List[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs.
                Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] type: The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
@@ -91,12 +91,12 @@ class Authorizer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorizer_credentials: Optional[pulumi.Input[str]] = None,
-            authorizer_result_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
+            authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
             authorizer_uri: Optional[pulumi.Input[str]] = None,
             identity_source: Optional[pulumi.Input[str]] = None,
             identity_validation_expression: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            provider_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             rest_api: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Authorizer':
         """
@@ -108,7 +108,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorizer_credentials: The credentials required for the authorizer.
                To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
-        :param pulumi.Input[float] authorizer_result_ttl_in_seconds: The TTL of cached authorizer results in seconds.
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL of cached authorizer results in seconds.
                Defaults to `300`.
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI).
                This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
@@ -120,7 +120,7 @@ class Authorizer(pulumi.CustomResource):
                against this expression, and will proceed if the token matches. If the token doesn't match,
                the client receives a 401 Unauthorized response.
         :param pulumi.Input[str] name: The name of the authorizer
-        :param pulumi.Input[List[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs.
                Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] type: The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
@@ -152,7 +152,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
-    def authorizer_result_ttl_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def authorizer_result_ttl_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The TTL of cached authorizer results in seconds.
         Defaults to `300`.
@@ -199,7 +199,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerArns")
-    def provider_arns(self) -> pulumi.Output[Optional[List[str]]]:
+    def provider_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of the Amazon Cognito user pool ARNs.
         Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.

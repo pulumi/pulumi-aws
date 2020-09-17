@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,8 +19,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_config: Optional[pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
-                 maximum_event_age_in_seconds: Optional[pulumi.Input[float]] = None,
-                 maximum_retry_attempts: Optional[pulumi.Input[float]] = None,
+                 maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -97,8 +97,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
-        :param pulumi.Input[float] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-        :param pulumi.Input[float] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+        :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
+        :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
         """
         if __name__ is not None:
@@ -137,8 +137,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             destination_config: Optional[pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']]] = None,
             function_name: Optional[pulumi.Input[str]] = None,
-            maximum_event_age_in_seconds: Optional[pulumi.Input[float]] = None,
-            maximum_retry_attempts: Optional[pulumi.Input[float]] = None,
+            maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+            maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
             qualifier: Optional[pulumi.Input[str]] = None) -> 'FunctionEventInvokeConfig':
         """
         Get an existing FunctionEventInvokeConfig resource's state with the given name, id, and optional extra
@@ -149,8 +149,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
-        :param pulumi.Input[float] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-        :param pulumi.Input[float] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+        :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
+        :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -182,7 +182,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
-    def maximum_event_age_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def maximum_event_age_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         """
@@ -190,7 +190,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumRetryAttempts")
-    def maximum_retry_attempts(self) -> pulumi.Output[Optional[float]]:
+    def maximum_retry_attempts(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         """

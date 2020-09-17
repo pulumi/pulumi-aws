@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SamplingRule']
@@ -19,14 +19,14 @@ class SamplingRule(pulumi.CustomResource):
                  fixed_rate: Optional[pulumi.Input[float]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
-                 reservoir_size: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 reservoir_size: Optional[pulumi.Input[int]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_type: Optional[pulumi.Input[str]] = None,
                  url_path: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[float]] = None,
+                 version: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -62,14 +62,14 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
         :param pulumi.Input[str] host: Matches the hostname from a request URL.
         :param pulumi.Input[str] http_method: Matches the HTTP method of a request.
-        :param pulumi.Input[float] priority: The priority of the sampling rule.
-        :param pulumi.Input[float] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        :param pulumi.Input[int] priority: The priority of the sampling rule.
+        :param pulumi.Input[int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         :param pulumi.Input[str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
         :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
-        :param pulumi.Input[float] version: The version of the sampling rule format (`1` )
+        :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -136,14 +136,14 @@ class SamplingRule(pulumi.CustomResource):
             fixed_rate: Optional[pulumi.Input[float]] = None,
             host: Optional[pulumi.Input[str]] = None,
             http_method: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
-            reservoir_size: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
+            reservoir_size: Optional[pulumi.Input[int]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None,
             rule_name: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             service_type: Optional[pulumi.Input[str]] = None,
             url_path: Optional[pulumi.Input[str]] = None,
-            version: Optional[pulumi.Input[float]] = None) -> 'SamplingRule':
+            version: Optional[pulumi.Input[int]] = None) -> 'SamplingRule':
         """
         Get an existing SamplingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -156,14 +156,14 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
         :param pulumi.Input[str] host: Matches the hostname from a request URL.
         :param pulumi.Input[str] http_method: Matches the HTTP method of a request.
-        :param pulumi.Input[float] priority: The priority of the sampling rule.
-        :param pulumi.Input[float] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        :param pulumi.Input[int] priority: The priority of the sampling rule.
+        :param pulumi.Input[int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         :param pulumi.Input[str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
         :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
-        :param pulumi.Input[float] version: The version of the sampling rule format (`1` )
+        :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -226,7 +226,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[float]:
+    def priority(self) -> pulumi.Output[int]:
         """
         The priority of the sampling rule.
         """
@@ -234,7 +234,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reservoirSize")
-    def reservoir_size(self) -> pulumi.Output[float]:
+    def reservoir_size(self) -> pulumi.Output[int]:
         """
         A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         """
@@ -282,7 +282,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[float]:
+    def version(self) -> pulumi.Output[int]:
         """
         The version of the sampling rule format (`1` )
         """

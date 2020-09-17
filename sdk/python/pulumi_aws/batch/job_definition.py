@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -125,7 +125,7 @@ class JobDefinition(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
-            revision: Optional[pulumi.Input[float]] = None,
+            revision: Optional[pulumi.Input[int]] = None,
             timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'JobDefinition':
         """
@@ -142,7 +142,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the parameter substitution placeholders to set in the job definition.
         :param pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']] retry_strategy: Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
                Maximum number of `retry_strategy` is `1`.  Defined below.
-        :param pulumi.Input[float] revision: The revision of the job definition.
+        :param pulumi.Input[int] revision: The revision of the job definition.
         :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition.  Must be `container`
         """
@@ -204,7 +204,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def revision(self) -> pulumi.Output[float]:
+    def revision(self) -> pulumi.Output[int]:
         """
         The revision of the job definition.
         """

@@ -21,11 +21,11 @@ import {User} from "./index";
  * const user = new aws.iam.User("user", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
- *     policy: "", // insert policy here
+ *     policy: "{ ... policy JSON ... }",
  * });
  * const test_attach = new aws.iam.UserPolicyAttachment("test-attach", {
- *     policyArn: policy.arn,
  *     user: user.name,
+ *     policyArn: policy.arn,
  * });
  * ```
  */

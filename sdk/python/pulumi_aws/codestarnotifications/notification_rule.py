@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,12 +18,12 @@ class NotificationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detail_type: Optional[pulumi.Input[str]] = None,
-                 event_type_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -61,13 +61,13 @@ class NotificationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] detail_type: The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
-        :param pulumi.Input[List[pulumi.Input[str]]] event_type_ids: A list of event types associated with this notification rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_type_ids: A list of event types associated with this notification rule.
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,12 +112,12 @@ class NotificationRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             detail_type: Optional[pulumi.Input[str]] = None,
-            event_type_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None) -> 'NotificationRule':
+            targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None) -> 'NotificationRule':
         """
         Get an existing NotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -127,13 +127,13 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The codestar notification rule ARN.
         :param pulumi.Input[str] detail_type: The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
-        :param pulumi.Input[List[pulumi.Input[str]]] event_type_ids: A list of event types associated with this notification rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_type_ids: A list of event types associated with this notification rule.
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -167,7 +167,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventTypeIds")
-    def event_type_ids(self) -> pulumi.Output[List[str]]:
+    def event_type_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of event types associated with this notification rule.
         For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
@@ -208,7 +208,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Output[Optional[List['outputs.NotificationRuleTarget']]]:
+    def targets(self) -> pulumi.Output[Optional[Sequence['outputs.NotificationRuleTarget']]]:
         """
         Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """

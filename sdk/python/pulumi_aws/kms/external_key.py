@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ExternalKey']
@@ -15,7 +15,7 @@ class ExternalKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[float]] = None,
+                 deletion_window_in_days: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key_material_base64: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class ExternalKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
+        :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         :param pulumi.Input[str] description: Description of the key.
         :param pulumi.Input[bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         :param pulumi.Input[str] key_material_base64: Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
@@ -88,7 +88,7 @@ class ExternalKey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            deletion_window_in_days: Optional[pulumi.Input[float]] = None,
+            deletion_window_in_days: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             expiration_model: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class ExternalKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key.
-        :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
+        :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         :param pulumi.Input[str] description: Description of the key.
         :param pulumi.Input[bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         :param pulumi.Input[str] expiration_model: Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
@@ -144,7 +144,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> pulumi.Output[Optional[float]]:
+    def deletion_window_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         """

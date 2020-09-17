@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['TrafficMirrorFilter']
@@ -16,7 +16,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 network_services: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 network_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -41,7 +41,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the filter.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         if __name__ is not None:
@@ -75,7 +75,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            network_services: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            network_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TrafficMirrorFilter':
         """
         Get an existing TrafficMirrorFilter resource's state with the given name, id, and optional extra
@@ -85,7 +85,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the filter.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -107,7 +107,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkServices")
-    def network_services(self) -> pulumi.Output[Optional[List[str]]]:
+    def network_services(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         """

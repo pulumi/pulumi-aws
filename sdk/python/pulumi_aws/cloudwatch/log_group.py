@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['LogGroup']
@@ -18,7 +18,7 @@ class LogGroup(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 retention_in_days: Optional[pulumi.Input[float]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,7 +45,7 @@ class LogGroup(pulumi.CustomResource):
                permissions for the CMK whenever the encrypted data is requested.
         :param pulumi.Input[str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[float] retention_in_days: Specifies the number of days
+        :param pulumi.Input[int] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -86,7 +86,7 @@ class LogGroup(pulumi.CustomResource):
             kms_key_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
-            retention_in_days: Optional[pulumi.Input[float]] = None,
+            retention_in_days: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LogGroup':
         """
         Get an existing LogGroup resource's state with the given name, id, and optional extra
@@ -101,7 +101,7 @@ class LogGroup(pulumi.CustomResource):
                permissions for the CMK whenever the encrypted data is requested.
         :param pulumi.Input[str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[float] retention_in_days: Specifies the number of days
+        :param pulumi.Input[int] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -153,7 +153,7 @@ class LogGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Output[Optional[float]]:
+    def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the number of days
         you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.

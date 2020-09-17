@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -45,7 +45,7 @@ class GetOutpostInstanceTypesResult:
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> List[str]:
+    def instance_types(self) -> Sequence[str]:
         """
         Set of instance types.
         """

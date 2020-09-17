@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -112,7 +112,7 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter(name="encryptionOptions")
-    def encryption_options(self) -> List['outputs.GetBrokerEncryptionOptionResult']:
+    def encryption_options(self) -> Sequence['outputs.GetBrokerEncryptionOptionResult']:
         return pulumi.get(self, "encryption_options")
 
     @property
@@ -140,7 +140,7 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter
-    def instances(self) -> List['outputs.GetBrokerInstanceResult']:
+    def instances(self) -> Sequence['outputs.GetBrokerInstanceResult']:
         return pulumi.get(self, "instances")
 
     @property
@@ -160,12 +160,12 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> Sequence[str]:
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> Sequence[str]:
         return pulumi.get(self, "subnet_ids")
 
     @property
@@ -175,7 +175,7 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter
-    def users(self) -> List['outputs.GetBrokerUserResult']:
+    def users(self) -> Sequence['outputs.GetBrokerUserResult']:
         return pulumi.get(self, "users")
 
 

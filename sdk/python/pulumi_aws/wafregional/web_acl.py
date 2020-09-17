@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class WebAcl(pulumi.CustomResource):
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -112,7 +112,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if __name__ is not None:
@@ -158,7 +158,7 @@ class WebAcl(pulumi.CustomResource):
             logging_configuration: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'WebAcl':
         """
         Get an existing WebAcl resource's state with the given name, id, and optional extra
@@ -172,7 +172,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -230,7 +230,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Optional[List['outputs.WebAclRule']]]:
+    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.WebAclRule']]]:
         """
         Set of configuration blocks containing rules for the web ACL. Detailed below.
         """

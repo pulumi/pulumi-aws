@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         var mainIdentityPool = new Aws.Cognito.IdentityPool("mainIdentityPool", new Aws.Cognito.IdentityPoolArgs
     ///         {
-    ///             AllowUnauthenticatedIdentities = false,
     ///             IdentityPoolName = "identity pool",
+    ///             AllowUnauthenticatedIdentities = false,
     ///             SupportedLoginProviders = 
     ///             {
     ///                 { "graph.facebook.com", "7346241598935555" },
@@ -53,11 +53,11 @@ namespace Pulumi.Aws.Cognito
     ///     }}
     ///   ]
     /// }}
-    /// 
     /// "),
     ///         });
     ///         var authenticatedRolePolicy = new Aws.Iam.RolePolicy("authenticatedRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = authenticatedRole.Id,
     ///             Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -74,9 +74,7 @@ namespace Pulumi.Aws.Cognito
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
-    ///             Role = authenticatedRole.Id,
     ///         });
     ///         var mainIdentityPoolRoleAttachment = new Aws.Cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment", new Aws.Cognito.IdentityPoolRoleAttachmentArgs
     ///         {
@@ -85,8 +83,9 @@ namespace Pulumi.Aws.Cognito
     ///             {
     ///                 new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingArgs
     ///                 {
-    ///                     AmbiguousRoleResolution = "AuthenticatedRole",
     ///                     IdentityProvider = "graph.facebook.com",
+    ///                     AmbiguousRoleResolution = "AuthenticatedRole",
+    ///                     Type = "Rules",
     ///                     MappingRules = 
     ///                     {
     ///                         new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs
@@ -97,7 +96,6 @@ namespace Pulumi.Aws.Cognito
     ///                             Value = "paid",
     ///                         },
     ///                     },
-    ///                     Type = "Rules",
     ///                 },
     ///             },
     ///             Roles = 

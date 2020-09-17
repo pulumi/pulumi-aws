@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -31,8 +31,8 @@ class GetLaunchTemplateResult:
         if credit_specifications and not isinstance(credit_specifications, list):
             raise TypeError("Expected argument 'credit_specifications' to be a list")
         pulumi.set(__self__, "credit_specifications", credit_specifications)
-        if default_version and not isinstance(default_version, float):
-            raise TypeError("Expected argument 'default_version' to be a float")
+        if default_version and not isinstance(default_version, int):
+            raise TypeError("Expected argument 'default_version' to be a int")
         pulumi.set(__self__, "default_version", default_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -76,8 +76,8 @@ class GetLaunchTemplateResult:
         if key_name and not isinstance(key_name, str):
             raise TypeError("Expected argument 'key_name' to be a str")
         pulumi.set(__self__, "key_name", key_name)
-        if latest_version and not isinstance(latest_version, float):
-            raise TypeError("Expected argument 'latest_version' to be a float")
+        if latest_version and not isinstance(latest_version, int):
+            raise TypeError("Expected argument 'latest_version' to be a int")
         pulumi.set(__self__, "latest_version", latest_version)
         if metadata_options and not isinstance(metadata_options, list):
             raise TypeError("Expected argument 'metadata_options' to be a list")
@@ -123,7 +123,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> List['outputs.GetLaunchTemplateBlockDeviceMappingResult']:
+    def block_device_mappings(self) -> Sequence['outputs.GetLaunchTemplateBlockDeviceMappingResult']:
         """
         Specify volumes to attach to the instance besides the volumes specified by the AMI.
         """
@@ -131,7 +131,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="creditSpecifications")
-    def credit_specifications(self) -> List['outputs.GetLaunchTemplateCreditSpecificationResult']:
+    def credit_specifications(self) -> Sequence['outputs.GetLaunchTemplateCreditSpecificationResult']:
         """
         Customize the credit specification of the instance. See Credit
         Specification below for more details.
@@ -140,7 +140,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> float:
+    def default_version(self) -> int:
         """
         The default version of the launch template.
         """
@@ -173,7 +173,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
-    def elastic_gpu_specifications(self) -> List['outputs.GetLaunchTemplateElasticGpuSpecificationResult']:
+    def elastic_gpu_specifications(self) -> Sequence['outputs.GetLaunchTemplateElasticGpuSpecificationResult']:
         """
         The elastic GPU to attach to the instance. See Elastic GPU
         below for more details.
@@ -182,12 +182,12 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetLaunchTemplateFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetLaunchTemplateFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> List['outputs.GetLaunchTemplateHibernationOptionResult']:
+    def hibernation_options(self) -> Sequence['outputs.GetLaunchTemplateHibernationOptionResult']:
         """
         The hibernation options for the instance.
         """
@@ -195,7 +195,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="iamInstanceProfiles")
-    def iam_instance_profiles(self) -> List['outputs.GetLaunchTemplateIamInstanceProfileResult']:
+    def iam_instance_profiles(self) -> Sequence['outputs.GetLaunchTemplateIamInstanceProfileResult']:
         """
         The IAM Instance Profile to launch the instance with. See Instance Profile
         below for more details.
@@ -229,7 +229,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="instanceMarketOptions")
-    def instance_market_options(self) -> List['outputs.GetLaunchTemplateInstanceMarketOptionResult']:
+    def instance_market_options(self) -> Sequence['outputs.GetLaunchTemplateInstanceMarketOptionResult']:
         """
         The market (purchasing) option for the instance.
         below for details.
@@ -262,7 +262,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="latestVersion")
-    def latest_version(self) -> float:
+    def latest_version(self) -> int:
         """
         The latest version of the launch template.
         """
@@ -270,7 +270,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> List['outputs.GetLaunchTemplateMetadataOptionResult']:
+    def metadata_options(self) -> Sequence['outputs.GetLaunchTemplateMetadataOptionResult']:
         """
         The metadata options for the instance.
         """
@@ -278,7 +278,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter
-    def monitorings(self) -> List['outputs.GetLaunchTemplateMonitoringResult']:
+    def monitorings(self) -> Sequence['outputs.GetLaunchTemplateMonitoringResult']:
         """
         The monitoring option for the instance.
         """
@@ -291,7 +291,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.GetLaunchTemplateNetworkInterfaceResult']:
+    def network_interfaces(self) -> Sequence['outputs.GetLaunchTemplateNetworkInterfaceResult']:
         """
         Customize network interfaces to be attached at instance boot time. See Network
         Interfaces below for more details.
@@ -300,7 +300,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter
-    def placements(self) -> List['outputs.GetLaunchTemplatePlacementResult']:
+    def placements(self) -> Sequence['outputs.GetLaunchTemplatePlacementResult']:
         """
         The placement of the instance.
         """
@@ -316,7 +316,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> List[str]:
+    def security_group_names(self) -> Sequence[str]:
         """
         A list of security group names to associate with. If you are creating Instances in a VPC, use
         `vpc_security_group_ids` instead.
@@ -325,7 +325,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> List['outputs.GetLaunchTemplateTagSpecificationResult']:
+    def tag_specifications(self) -> Sequence['outputs.GetLaunchTemplateTagSpecificationResult']:
         """
         The tags to apply to the resources during launch.
         """
@@ -349,7 +349,7 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> List[str]:
+    def vpc_security_group_ids(self) -> Sequence[str]:
         """
         A list of security group IDs to associate with.
         """
@@ -394,7 +394,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_launch_template(filters: Optional[List[pulumi.InputType['GetLaunchTemplateFilterArgs']]] = None,
+def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']]] = None,
                         name: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchTemplateResult:
@@ -422,7 +422,7 @@ def get_launch_template(filters: Optional[List[pulumi.InputType['GetLaunchTempla
     ```
 
 
-    :param List[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """

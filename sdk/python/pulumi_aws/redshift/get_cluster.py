@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetClusterResult:
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
-        if automated_snapshot_retention_period and not isinstance(automated_snapshot_retention_period, float):
-            raise TypeError("Expected argument 'automated_snapshot_retention_period' to be a float")
+        if automated_snapshot_retention_period and not isinstance(automated_snapshot_retention_period, int):
+            raise TypeError("Expected argument 'automated_snapshot_retention_period' to be a int")
         pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
@@ -89,11 +89,11 @@ class GetClusterResult:
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
-        if number_of_nodes and not isinstance(number_of_nodes, float):
-            raise TypeError("Expected argument 'number_of_nodes' to be a float")
+        if number_of_nodes and not isinstance(number_of_nodes, int):
+            raise TypeError("Expected argument 'number_of_nodes' to be a int")
         pulumi.set(__self__, "number_of_nodes", number_of_nodes)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
             raise TypeError("Expected argument 'preferred_maintenance_window' to be a str")
@@ -124,7 +124,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
-    def automated_snapshot_retention_period(self) -> float:
+    def automated_snapshot_retention_period(self) -> int:
         """
         The backup retention period
         """
@@ -180,7 +180,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterSecurityGroups")
-    def cluster_security_groups(self) -> List[str]:
+    def cluster_security_groups(self) -> Sequence[str]:
         """
         The security groups associated with the cluster
         """
@@ -257,7 +257,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> List[str]:
+    def iam_roles(self) -> Sequence[str]:
         """
         The IAM roles associated to the cluster
         """
@@ -297,7 +297,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> float:
+    def number_of_nodes(self) -> int:
         """
         The number of nodes in the cluster
         """
@@ -305,7 +305,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port the cluster responds on
         """
@@ -353,7 +353,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> List[str]:
+    def vpc_security_group_ids(self) -> Sequence[str]:
         """
         The VPC security group Ids associated with the cluster
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ProvisionedConcurrencyConfig']
@@ -16,7 +16,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
-                 provisioned_concurrent_executions: Optional[pulumi.Input[float]] = None,
+                 provisioned_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  qualifier: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -51,7 +51,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
-        :param pulumi.Input[float] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to `1`.
+        :param pulumi.Input[int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to `1`.
         :param pulumi.Input[str] qualifier: Lambda Function version or Lambda Alias name.
         """
         if __name__ is not None:
@@ -91,7 +91,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             function_name: Optional[pulumi.Input[str]] = None,
-            provisioned_concurrent_executions: Optional[pulumi.Input[float]] = None,
+            provisioned_concurrent_executions: Optional[pulumi.Input[int]] = None,
             qualifier: Optional[pulumi.Input[str]] = None) -> 'ProvisionedConcurrencyConfig':
         """
         Get an existing ProvisionedConcurrencyConfig resource's state with the given name, id, and optional extra
@@ -101,7 +101,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
-        :param pulumi.Input[float] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to `1`.
+        :param pulumi.Input[int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to `1`.
         :param pulumi.Input[str] qualifier: Lambda Function version or Lambda Alias name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -123,7 +123,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedConcurrentExecutions")
-    def provisioned_concurrent_executions(self) -> pulumi.Output[float]:
+    def provisioned_concurrent_executions(self) -> pulumi.Output[int]:
         """
         Amount of capacity to allocate. Must be greater than or equal to `1`.
         """

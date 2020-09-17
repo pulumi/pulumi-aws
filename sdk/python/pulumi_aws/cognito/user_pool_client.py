@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,22 +17,22 @@ class UserPoolClient(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_oauth_flows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_oauth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
-                 allowed_oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
-                 callback_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
-                 explicit_auth_flows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  generate_secret: Optional[pulumi.Input[bool]] = None,
-                 logout_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[str]] = None,
-                 read_attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 refresh_token_validity: Optional[pulumi.Input[float]] = None,
-                 supported_identity_providers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 refresh_token_validity: Optional[pulumi.Input[int]] = None,
+                 supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
-                 write_attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -57,9 +57,9 @@ class UserPoolClient(pulumi.CustomResource):
 
         pool = aws.cognito.UserPool("pool")
         client = aws.cognito.UserPoolClient("client",
-            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"],
+            user_pool_id=pool.id,
             generate_secret=True,
-            user_pool_id=pool.id)
+            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
         ### Create a user pool client with pinpoint analytics
 
@@ -83,9 +83,9 @@ class UserPoolClient(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         test_role_policy = aws.iam.RolePolicy("testRolePolicy",
+            role=test_role.id,
             policy=test_app.application_id.apply(lambda application_id: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -99,37 +99,35 @@ class UserPoolClient(pulumi.CustomResource):
             }}
           ]
         }}
-
-        \"\"\"),
-            role=test_role.id)
+        \"\"\"))
         test_user_pool_client = aws.cognito.UserPoolClient("testUserPoolClient",
+            user_pool_id=test_user_pool.id,
             analytics_configuration=aws.cognito.UserPoolClientAnalyticsConfigurationArgs(
                 application_id=test_app.application_id,
                 external_id="some_id",
                 role_arn=test_role.arn,
                 user_data_shared=True,
-            ),
-            user_pool_id=test_user_pool.id)
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         :param pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']] analytics_configuration: The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] default_redirect_uri: The default redirect URI. Must be in the list of callback URLs.
-        :param pulumi.Input[List[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[List[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: The name of the application client.
         :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[float] refresh_token_validity: The time limit in days refresh tokens are valid for.
-        :param pulumi.Input[List[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
+        :param pulumi.Input[int] refresh_token_validity: The time limit in days refresh tokens are valid for.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client.
         :param pulumi.Input[str] user_pool_id: The user pool the client belongs to.
-        :param pulumi.Input[List[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -177,23 +175,23 @@ class UserPoolClient(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_oauth_flows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            allowed_oauth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
-            allowed_oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
-            callback_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
             default_redirect_uri: Optional[pulumi.Input[str]] = None,
-            explicit_auth_flows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             generate_secret: Optional[pulumi.Input[bool]] = None,
-            logout_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             prevent_user_existence_errors: Optional[pulumi.Input[str]] = None,
-            read_attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            refresh_token_validity: Optional[pulumi.Input[float]] = None,
-            supported_identity_providers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            refresh_token_validity: Optional[pulumi.Input[int]] = None,
+            supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             user_pool_id: Optional[pulumi.Input[str]] = None,
-            write_attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'UserPoolClient':
+            write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'UserPoolClient':
         """
         Get an existing UserPoolClient resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -201,23 +199,23 @@ class UserPoolClient(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         :param pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']] analytics_configuration: The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] client_secret: The client secret of the user pool client.
         :param pulumi.Input[str] default_redirect_uri: The default redirect URI. Must be in the list of callback URLs.
-        :param pulumi.Input[List[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[List[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: The name of the application client.
         :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[float] refresh_token_validity: The time limit in days refresh tokens are valid for.
-        :param pulumi.Input[List[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
+        :param pulumi.Input[int] refresh_token_validity: The time limit in days refresh tokens are valid for.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client.
         :param pulumi.Input[str] user_pool_id: The user pool the client belongs to.
-        :param pulumi.Input[List[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -244,7 +242,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthFlows")
-    def allowed_oauth_flows(self) -> pulumi.Output[Optional[List[str]]]:
+    def allowed_oauth_flows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of allowed OAuth flows (code, implicit, client_credentials).
         """
@@ -260,7 +258,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthScopes")
-    def allowed_oauth_scopes(self) -> pulumi.Output[Optional[List[str]]]:
+    def allowed_oauth_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         """
@@ -276,7 +274,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callbackUrls")
-    def callback_urls(self) -> pulumi.Output[Optional[List[str]]]:
+    def callback_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of allowed callback URLs for the identity providers.
         """
@@ -300,7 +298,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="explicitAuthFlows")
-    def explicit_auth_flows(self) -> pulumi.Output[Optional[List[str]]]:
+    def explicit_auth_flows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         """
@@ -316,7 +314,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logoutUrls")
-    def logout_urls(self) -> pulumi.Output[Optional[List[str]]]:
+    def logout_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of allowed logout URLs for the identity providers.
         """
@@ -340,7 +338,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readAttributes")
-    def read_attributes(self) -> pulumi.Output[Optional[List[str]]]:
+    def read_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of user pool attributes the application client can read from.
         """
@@ -348,7 +346,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenValidity")
-    def refresh_token_validity(self) -> pulumi.Output[Optional[float]]:
+    def refresh_token_validity(self) -> pulumi.Output[Optional[int]]:
         """
         The time limit in days refresh tokens are valid for.
         """
@@ -356,7 +354,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportedIdentityProviders")
-    def supported_identity_providers(self) -> pulumi.Output[Optional[List[str]]]:
+    def supported_identity_providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of provider names for the identity providers that are supported on this client.
         """
@@ -372,7 +370,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeAttributes")
-    def write_attributes(self) -> pulumi.Output[Optional[List[str]]]:
+    def write_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of user pool attributes the application client can write to.
         """

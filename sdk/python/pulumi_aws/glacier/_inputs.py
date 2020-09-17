@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -15,10 +15,10 @@ __all__ = [
 @pulumi.input_type
 class VaultNotificationArgs:
     def __init__(__self__, *,
-                 events: pulumi.Input[List[pulumi.Input[str]]],
+                 events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  sns_topic: pulumi.Input[str]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] events: You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
         :param pulumi.Input[str] sns_topic: The SNS Topic ARN.
         """
         pulumi.set(__self__, "events", events)
@@ -26,14 +26,14 @@ class VaultNotificationArgs:
 
     @property
     @pulumi.getter
-    def events(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
         """
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "events", value)
 
     @property

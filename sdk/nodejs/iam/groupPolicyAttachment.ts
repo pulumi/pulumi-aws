@@ -21,7 +21,7 @@ import {Group} from "./index";
  * const group = new aws.iam.Group("group", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
- *     policy: "", // insert policy here
+ *     policy: "{ ... policy JSON ... }",
  * });
  * const test_attach = new aws.iam.GroupPolicyAttachment("test-attach", {
  *     group: group.name,

@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     public MyStack()
     ///     {
-    ///         var fooRole = new Aws.Iam.Role("fooRole", new Aws.Iam.RoleArgs
+    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
     ///         {
     ///             AssumeRolePolicy = @"{
     /// 	""Version"": ""2012-10-17"",
@@ -36,9 +36,19 @@ namespace Pulumi.Aws.Transfer
     /// }
     /// ",
     ///         });
-    ///         var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         var exampleServer = new Aws.Transfer.Server("exampleServer", new Aws.Transfer.ServerArgs
     ///         {
-    ///             Role = fooRole.Id,
+    ///             IdentityProviderType = "SERVICE_MANAGED",
+    ///             LoggingRole = exampleRole.Arn,
+    ///             Tags = 
+    ///             {
+    ///                 { "NAME", "tf-acc-test-transfer-server" },
+    ///                 { "ENV", "test" },
+    ///             },
+    ///         });
+    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = exampleRole.Id,
     ///             Policy = @"{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
@@ -53,16 +63,6 @@ namespace Pulumi.Aws.Transfer
     /// 	]
     /// }
     /// ",
-    ///         });
-    ///         var fooServer = new Aws.Transfer.Server("fooServer", new Aws.Transfer.ServerArgs
-    ///         {
-    ///             IdentityProviderType = "SERVICE_MANAGED",
-    ///             LoggingRole = fooRole.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "NAME", "tf-acc-test-transfer-server" },
-    ///                 { "ENV", "test" },
-    ///             },
     ///         });
     ///     }
     /// 

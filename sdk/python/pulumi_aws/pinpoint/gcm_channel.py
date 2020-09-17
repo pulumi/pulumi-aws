@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['GcmChannel']
@@ -34,8 +34,8 @@ class GcmChannel(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         gcm = aws.pinpoint.GcmChannel("gcm",
-            api_key="api_key",
-            application_id=app.application_id)
+            application_id=app.application_id,
+            api_key="api_key")
         ```
 
         :param str resource_name: The name of the resource.

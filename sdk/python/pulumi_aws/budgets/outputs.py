@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -162,15 +162,15 @@ class BudgetNotification(dict):
                  notification_type: str,
                  threshold: float,
                  threshold_type: str,
-                 subscriber_email_addresses: Optional[List[str]] = None,
-                 subscriber_sns_topic_arns: Optional[List[str]] = None):
+                 subscriber_email_addresses: Optional[Sequence[str]] = None,
+                 subscriber_sns_topic_arns: Optional[Sequence[str]] = None):
         """
         :param str comparison_operator: (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
         :param str notification_type: (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
         :param float threshold: (Required) Threshold when the notification should be sent.
         :param str threshold_type: (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        :param List[str] subscriber_email_addresses: (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        :param List[str] subscriber_sns_topic_arns: (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+        :param Sequence[str] subscriber_email_addresses: (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+        :param Sequence[str] subscriber_sns_topic_arns: (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "notification_type", notification_type)
@@ -215,7 +215,7 @@ class BudgetNotification(dict):
 
     @property
     @pulumi.getter(name="subscriberEmailAddresses")
-    def subscriber_email_addresses(self) -> Optional[List[str]]:
+    def subscriber_email_addresses(self) -> Optional[Sequence[str]]:
         """
         (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
         """
@@ -223,7 +223,7 @@ class BudgetNotification(dict):
 
     @property
     @pulumi.getter(name="subscriberSnsTopicArns")
-    def subscriber_sns_topic_arns(self) -> Optional[List[str]]:
+    def subscriber_sns_topic_arns(self) -> Optional[Sequence[str]]:
         """
         (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """

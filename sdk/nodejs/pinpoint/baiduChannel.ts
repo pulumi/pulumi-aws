@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  *
  * const app = new aws.pinpoint.App("app", {});
  * const channel = new aws.pinpoint.BaiduChannel("channel", {
- *     apiKey: "",
  *     applicationId: app.applicationId,
+ *     apiKey: "",
  *     secretKey: "",
  * });
  * ```

@@ -62,12 +62,12 @@ import (
 // 			LoadBalancerType: pulumi.String("network"),
 // 			SubnetMappings: lb.LoadBalancerSubnetMappingArray{
 // 				&lb.LoadBalancerSubnetMappingArgs{
-// 					PrivateIpv4Address: pulumi.String("10.0.1.15"),
 // 					SubnetId:           pulumi.Any(aws_subnet.Example1.Id),
+// 					PrivateIpv4Address: pulumi.String("10.0.1.15"),
 // 				},
 // 				&lb.LoadBalancerSubnetMappingArgs{
-// 					PrivateIpv4Address: pulumi.String("10.0.2.15"),
 // 					SubnetId:           pulumi.Any(aws_subnet.Example2.Id),
+// 					PrivateIpv4Address: pulumi.String("10.0.2.15"),
 // 				},
 // 			},
 // 		})

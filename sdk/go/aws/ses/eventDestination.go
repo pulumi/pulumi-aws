@@ -26,18 +26,18 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
+// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
+// 			Enabled:              pulumi.Bool(true),
+// 			MatchingTypes: pulumi.StringArray{
+// 				pulumi.String("bounce"),
+// 				pulumi.String("send"),
+// 			},
 // 			CloudwatchDestinations: ses.EventDestinationCloudwatchDestinationArray{
 // 				&ses.EventDestinationCloudwatchDestinationArgs{
 // 					DefaultValue:  pulumi.String("default"),
 // 					DimensionName: pulumi.String("dimension"),
 // 					ValueSource:   pulumi.String("emailHeader"),
 // 				},
-// 			},
-// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
-// 			Enabled:              pulumi.Bool(true),
-// 			MatchingTypes: pulumi.StringArray{
-// 				pulumi.String("bounce"),
-// 				pulumi.String("send"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -62,13 +62,13 @@ import (
 // 		_, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
 // 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
 // 			Enabled:              pulumi.Bool(true),
-// 			KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
-// 				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
-// 				StreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
-// 			},
 // 			MatchingTypes: pulumi.StringArray{
 // 				pulumi.String("bounce"),
 // 				pulumi.String("send"),
+// 			},
+// 			KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
+// 				StreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
 // 			},
 // 		})
 // 		if err != nil {

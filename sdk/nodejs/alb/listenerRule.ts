@@ -132,7 +132,7 @@ import * as utilities from "../utilities";
  * // ...
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
  * // ...
- * const adminListenerRule = new aws.lb.ListenerRule("adminListenerRule", {
+ * const admin = new aws.lb.ListenerRule("admin", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [
  *         {
@@ -150,7 +150,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * // Authenticate-oidc Action
- * const adminLb_listenerRuleListenerRule = new aws.lb.ListenerRule("adminLb/listenerRuleListenerRule", {
+ * const oidc = new aws.lb.ListenerRule("oidc", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [
  *         {

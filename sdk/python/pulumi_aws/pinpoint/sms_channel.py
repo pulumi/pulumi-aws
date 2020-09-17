@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SmsChannel']
@@ -79,10 +79,10 @@ class SmsChannel(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_id: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            promotional_messages_per_second: Optional[pulumi.Input[float]] = None,
+            promotional_messages_per_second: Optional[pulumi.Input[int]] = None,
             sender_id: Optional[pulumi.Input[str]] = None,
             short_code: Optional[pulumi.Input[str]] = None,
-            transactional_messages_per_second: Optional[pulumi.Input[float]] = None) -> 'SmsChannel':
+            transactional_messages_per_second: Optional[pulumi.Input[int]] = None) -> 'SmsChannel':
         """
         Get an existing SmsChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,10 +92,10 @@ class SmsChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[float] promotional_messages_per_second: Promotional messages per second that can be sent.
+        :param pulumi.Input[int] promotional_messages_per_second: Promotional messages per second that can be sent.
         :param pulumi.Input[str] sender_id: Sender identifier of your messages.
         :param pulumi.Input[str] short_code: The Short Code registered with the phone provider.
-        :param pulumi.Input[float] transactional_messages_per_second: Transactional messages per second that can be sent.
+        :param pulumi.Input[int] transactional_messages_per_second: Transactional messages per second that can be sent.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -127,7 +127,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="promotionalMessagesPerSecond")
-    def promotional_messages_per_second(self) -> pulumi.Output[float]:
+    def promotional_messages_per_second(self) -> pulumi.Output[int]:
         """
         Promotional messages per second that can be sent.
         """
@@ -151,7 +151,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transactionalMessagesPerSecond")
-    def transactional_messages_per_second(self) -> pulumi.Output[float]:
+    def transactional_messages_per_second(self) -> pulumi.Output[int]:
         """
         Transactional messages per second that can be sent.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class ParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,7 +48,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,7 +82,7 @@ class ParameterGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None) -> 'ParameterGroup':
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None) -> 'ParameterGroup':
         """
         Get an existing ParameterGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,7 +92,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -121,7 +121,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[List['outputs.ParameterGroupParameter']]:
+    def parameters(self) -> pulumi.Output[Sequence['outputs.ParameterGroupParameter']]:
         """
         The parameters of the parameter group.
         """

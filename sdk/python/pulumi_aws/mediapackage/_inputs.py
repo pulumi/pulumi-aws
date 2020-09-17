@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,23 +16,23 @@ __all__ = [
 @pulumi.input_type
 class ChannelHlsIngestArgs:
     def __init__(__self__, *,
-                 ingest_endpoints: Optional[pulumi.Input[List[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]] = None):
+                 ingest_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]] ingest_endpoints: A list of the ingest endpoints
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]] ingest_endpoints: A list of the ingest endpoints
         """
         if ingest_endpoints is not None:
             pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
 
     @property
     @pulumi.getter(name="ingestEndpoints")
-    def ingest_endpoints(self) -> Optional[pulumi.Input[List[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]:
+    def ingest_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]:
         """
         A list of the ingest endpoints
         """
         return pulumi.get(self, "ingest_endpoints")
 
     @ingest_endpoints.setter
-    def ingest_endpoints(self, value: Optional[pulumi.Input[List[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]):
+    def ingest_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]):
         pulumi.set(self, "ingest_endpoints", value)
 
 

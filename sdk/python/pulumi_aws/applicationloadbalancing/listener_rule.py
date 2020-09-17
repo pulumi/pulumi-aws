@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,10 +21,10 @@ class ListenerRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]]] = None,
-                 conditions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]]] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -149,7 +149,7 @@ class ListenerRule(pulumi.CustomResource):
         # ...
         domain = aws.cognito.UserPoolDomain("domain")
         # ...
-        admin_listener_rule = aws.lb.ListenerRule("adminListenerRule",
+        admin = aws.lb.ListenerRule("admin",
             listener_arn=front_end_listener.arn,
             actions=[
                 aws.lb.ListenerRuleActionArgs(
@@ -166,7 +166,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ])
         # Authenticate-oidc Action
-        admin_lb_listener_rule_listener_rule = aws.lb.ListenerRule("adminLb/listenerRuleListenerRule",
+        oidc = aws.lb.ListenerRule("oidc",
             listener_arn=front_end_listener.arn,
             actions=[
                 aws.lb.ListenerRuleActionArgs(
@@ -189,10 +189,10 @@ class ListenerRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]] actions: An Action block. Action blocks are documented below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]] actions: An Action block. Action blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
-        :param pulumi.Input[float] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+        :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         """
         pulumi.log.warn("ListenerRule is deprecated: aws.applicationloadbalancing.ListenerRule has been deprecated in favor of aws.alb.ListenerRule")
         if __name__ is not None:
@@ -233,11 +233,11 @@ class ListenerRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]]] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            conditions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]]] = None,
+            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]]] = None,
             listener_arn: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None) -> 'ListenerRule':
+            priority: Optional[pulumi.Input[int]] = None) -> 'ListenerRule':
         """
         Get an existing ListenerRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -245,11 +245,11 @@ class ListenerRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]] actions: An Action block. Action blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]] actions: An Action block. Action blocks are documented below.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
-        :param pulumi.Input[float] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+        :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -264,7 +264,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[List['outputs.ListenerRuleAction']]:
+    def actions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleAction']]:
         """
         An Action block. Action blocks are documented below.
         """
@@ -280,7 +280,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Output[List['outputs.ListenerRuleCondition']]:
+    def conditions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleCondition']]:
         """
         A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         """
@@ -296,7 +296,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[float]:
+    def priority(self) -> pulumi.Output[int]:
         """
         The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         """

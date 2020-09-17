@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *     filters: [{
  *         name: "instance-type",
  *         values: [
- *             "t1.micro",
  *             "t2.micro",
  *             "t3.micro",
  *         ],
@@ -27,7 +26,6 @@ import * as utilities from "../utilities";
  *     preferredInstanceTypes: [
  *         "t3.micro",
  *         "t2.micro",
- *         "t1.micro",
  *     ],
  * }, { async: true }));
  * ```

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -111,7 +111,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="grantTokens")
-    def grant_tokens(self) -> Optional[List[str]]:
+    def grant_tokens(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "grant_tokens")
 
     @property
@@ -177,7 +177,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             valid_to=self.valid_to)
 
 
-def get_key(grant_tokens: Optional[List[str]] = None,
+def get_key(grant_tokens: Optional[Sequence[str]] = None,
             key_id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
@@ -192,11 +192,14 @@ def get_key(grant_tokens: Optional[List[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    foo = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
+    by_alias = aws.kms.get_key(key_id="alias/my-key")
+    by_id = aws.kms.get_key(key_id="1234abcd-12ab-34cd-56ef-1234567890ab")
+    by_alias_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
+    by_key_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
     ```
 
 
-    :param List[str] grant_tokens: List of grant tokens
+    :param Sequence[str] grant_tokens: List of grant tokens
     :param str key_id: Key identifier which can be one of the following format:
            * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
            * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`

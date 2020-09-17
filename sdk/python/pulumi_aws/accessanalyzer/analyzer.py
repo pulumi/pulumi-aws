@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Analyzer']
@@ -25,6 +25,7 @@ class Analyzer(pulumi.CustomResource):
         Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
 
         ## Example Usage
+        ### Account Analyzer
 
         ```python
         import pulumi
@@ -32,12 +33,24 @@ class Analyzer(pulumi.CustomResource):
 
         example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
         ```
+        ### Organization Analyzer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_organization = aws.organizations.Organization("exampleOrganization", aws_service_access_principals=["access-analyzer.amazonaws.com"])
+        example_analyzer = aws.accessanalyzer.Analyzer("exampleAnalyzer",
+            analyzer_name="example",
+            type="ORGANIZATION",
+            opts=ResourceOptions(depends_on=[example_organization]))
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
-        :param pulumi.Input[str] type: Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+        :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,7 +98,7 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
-        :param pulumi.Input[str] type: Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+        :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -122,7 +135,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+        Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
         return pulumi.get(self, "type")
 

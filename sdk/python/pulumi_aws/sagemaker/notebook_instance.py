@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['NotebookInstance']
@@ -21,7 +21,7 @@ class NotebookInstance(pulumi.CustomResource):
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -54,7 +54,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: The associated security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -106,7 +106,7 @@ class NotebookInstance(pulumi.CustomResource):
             lifecycle_config_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NotebookInstance':
         """
@@ -123,7 +123,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: The associated security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -201,7 +201,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> pulumi.Output[List[str]]:
+    def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         The associated security groups.
         """

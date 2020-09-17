@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class UsagePlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_stages: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
+                 api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product_code: Optional[pulumi.Input[str]] = None,
@@ -70,7 +70,7 @@ class UsagePlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of the usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of the usage plan.
         :param pulumi.Input[str] description: The description of a usage plan.
         :param pulumi.Input[str] name: The name of the usage plan.
         :param pulumi.Input[str] product_code: The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
@@ -113,7 +113,7 @@ class UsagePlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_stages: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
+            api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class UsagePlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of the usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of the usage plan.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[str] description: The description of a usage plan.
         :param pulumi.Input[str] name: The name of the usage plan.
@@ -153,7 +153,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiStages")
-    def api_stages(self) -> pulumi.Output[Optional[List['outputs.UsagePlanApiStage']]]:
+    def api_stages(self) -> pulumi.Output[Optional[Sequence['outputs.UsagePlanApiStage']]]:
         """
         The associated API stages of the usage plan.
         """

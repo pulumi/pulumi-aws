@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -72,7 +72,7 @@ class OrganizationalUnit(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OrganizationalUnitAccountArgs']]]]] = None,
+            accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationalUnitAccountArgs']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parent_id: Optional[pulumi.Input[str]] = None) -> 'OrganizationalUnit':
@@ -83,7 +83,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OrganizationalUnitAccountArgs']]]] accounts: List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationalUnitAccountArgs']]]] accounts: List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         :param pulumi.Input[str] arn: ARN of the organizational unit
         :param pulumi.Input[str] name: The name for the organizational unit
         :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
@@ -100,7 +100,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accounts(self) -> pulumi.Output[List['outputs.OrganizationalUnitAccount']]:
+    def accounts(self) -> pulumi.Output[Sequence['outputs.OrganizationalUnitAccount']]:
         """
         List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         """

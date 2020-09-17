@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class Trigger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. Defined below.
         :param pulumi.Input[str] description: A description of the new trigger.
         :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
         :param pulumi.Input[str] name: The name of the trigger.
@@ -170,7 +170,7 @@ class Trigger(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -187,7 +187,7 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. Defined below.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Trigger
         :param pulumi.Input[str] description: A description of the new trigger.
         :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
@@ -216,7 +216,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[List['outputs.TriggerAction']]:
+    def actions(self) -> pulumi.Output[Sequence['outputs.TriggerAction']]:
         """
         List of actions initiated by this trigger when it fires. Defined below.
         """

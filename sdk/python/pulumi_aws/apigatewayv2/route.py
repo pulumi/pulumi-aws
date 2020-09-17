@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Route']
@@ -17,7 +17,7 @@ class Route(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  api_key_required: Optional[pulumi.Input[bool]] = None,
-                 authorization_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
@@ -49,7 +49,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[bool] api_key_required: Boolean whether an API key is required for the route. Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorization_scopes: The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
         :param pulumi.Input[str] authorization_type: The authorization type for the route.
                For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
                For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
@@ -106,7 +106,7 @@ class Route(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_id: Optional[pulumi.Input[str]] = None,
             api_key_required: Optional[pulumi.Input[bool]] = None,
-            authorization_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             authorization_type: Optional[pulumi.Input[str]] = None,
             authorizer_id: Optional[pulumi.Input[str]] = None,
             model_selection_expression: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[bool] api_key_required: Boolean whether an API key is required for the route. Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorization_scopes: The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
         :param pulumi.Input[str] authorization_type: The authorization type for the route.
                For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
                For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
@@ -172,7 +172,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationScopes")
-    def authorization_scopes(self) -> pulumi.Output[Optional[List[str]]]:
+    def authorization_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
         """

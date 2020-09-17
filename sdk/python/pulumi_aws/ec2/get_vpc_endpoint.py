@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -90,7 +90,7 @@ class GetVpcEndpointResult:
 
     @property
     @pulumi.getter(name="cidrBlocks")
-    def cidr_blocks(self) -> List[str]:
+    def cidr_blocks(self) -> Sequence[str]:
         """
         The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
@@ -98,7 +98,7 @@ class GetVpcEndpointResult:
 
     @property
     @pulumi.getter(name="dnsEntries")
-    def dns_entries(self) -> List['outputs.GetVpcEndpointDnsEntryResult']:
+    def dns_entries(self) -> Sequence['outputs.GetVpcEndpointDnsEntryResult']:
         """
         The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         """
@@ -106,7 +106,7 @@ class GetVpcEndpointResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetVpcEndpointFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetVpcEndpointFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -116,7 +116,7 @@ class GetVpcEndpointResult:
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> List[str]:
+    def network_interface_ids(self) -> Sequence[str]:
         """
         One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         """
@@ -164,7 +164,7 @@ class GetVpcEndpointResult:
 
     @property
     @pulumi.getter(name="routeTableIds")
-    def route_table_ids(self) -> List[str]:
+    def route_table_ids(self) -> Sequence[str]:
         """
         One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
         """
@@ -172,7 +172,7 @@ class GetVpcEndpointResult:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> Sequence[str]:
         """
         One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
         """
@@ -190,7 +190,7 @@ class GetVpcEndpointResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> Sequence[str]:
         """
         One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
         """
@@ -242,7 +242,7 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             vpc_id=self.vpc_id)
 
 
-def get_vpc_endpoint(filters: Optional[List[pulumi.InputType['GetVpcEndpointFilterArgs']]] = None,
+def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']]] = None,
                      id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      state: Optional[str] = None,
@@ -267,7 +267,7 @@ def get_vpc_endpoint(filters: Optional[List[pulumi.InputType['GetVpcEndpointFilt
     ```
 
 
-    :param List[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Endpoint to retrieve.
     :param str service_name: The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str state: The state of the specific VPC Endpoint to retrieve.

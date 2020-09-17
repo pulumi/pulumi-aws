@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,16 +21,16 @@ class TargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deregistration_delay: Optional[pulumi.Input[float]] = None,
+                 deregistration_delay: Optional[pulumi.Input[int]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
-                 slow_start: Optional[pulumi.Input[float]] = None,
+                 slow_start: Optional[pulumi.Input[int]] = None,
                  stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
@@ -80,16 +80,16 @@ class TargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+        :param pulumi.Input[int] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: A Health Check block. Health Check blocks are documented below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: The name of the target group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[float] port: The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        :param pulumi.Input[int] port: The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[bool] proxy_protocol_v2: Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
-        :param pulumi.Input[float] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+        :param pulumi.Input[int] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group.
@@ -146,16 +146,16 @@ class TargetGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             arn_suffix: Optional[pulumi.Input[str]] = None,
-            deregistration_delay: Optional[pulumi.Input[float]] = None,
+            deregistration_delay: Optional[pulumi.Input[int]] = None,
             health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
             lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
             load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
             proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
-            slow_start: Optional[pulumi.Input[float]] = None,
+            slow_start: Optional[pulumi.Input[int]] = None,
             stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_type: Optional[pulumi.Input[str]] = None,
@@ -169,16 +169,16 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Target Group (matches `id`)
         :param pulumi.Input[str] arn_suffix: The ARN suffix for use with CloudWatch Metrics.
-        :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+        :param pulumi.Input[int] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: A Health Check block. Health Check blocks are documented below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: The name of the target group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        :param pulumi.Input[float] port: The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        :param pulumi.Input[int] port: The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[bool] proxy_protocol_v2: Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
-        :param pulumi.Input[float] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+        :param pulumi.Input[int] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group.
@@ -229,7 +229,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deregistrationDelay")
-    def deregistration_delay(self) -> pulumi.Output[Optional[float]]:
+    def deregistration_delay(self) -> pulumi.Output[Optional[int]]:
         """
         The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         """
@@ -277,7 +277,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[float]]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """
@@ -301,7 +301,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="slowStart")
-    def slow_start(self) -> pulumi.Output[Optional[float]]:
+    def slow_start(self) -> pulumi.Output[Optional[int]]:
         """
         The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         """

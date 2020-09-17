@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -310,12 +310,12 @@ class CertificateAuthorityRevocationConfigurationArgs:
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     def __init__(__self__, *,
-                 expiration_in_days: pulumi.Input[float],
+                 expiration_in_days: pulumi.Input[int],
                  custom_cname: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
+        :param pulumi.Input[int] expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
         :param pulumi.Input[str] custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
         :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
@@ -330,14 +330,14 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
 
     @property
     @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> pulumi.Input[float]:
+    def expiration_in_days(self) -> pulumi.Input[int]:
         """
         Number of days until a certificate expires. Must be between 1 and 5000.
         """
         return pulumi.get(self, "expiration_in_days")
 
     @expiration_in_days.setter
-    def expiration_in_days(self, value: pulumi.Input[float]):
+    def expiration_in_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "expiration_in_days", value)
 
     @property
@@ -380,16 +380,16 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
 @pulumi.input_type
 class GetCertificateAuthorityRevocationConfigurationArgs:
     def __init__(__self__, *,
-                 crl_configurations: List['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs']):
+                 crl_configurations: Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs']):
         pulumi.set(__self__, "crl_configurations", crl_configurations)
 
     @property
     @pulumi.getter(name="crlConfigurations")
-    def crl_configurations(self) -> List['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs']:
+    def crl_configurations(self) -> Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs']:
         return pulumi.get(self, "crl_configurations")
 
     @crl_configurations.setter
-    def crl_configurations(self, value: List['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs']):
+    def crl_configurations(self, value: Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs']):
         pulumi.set(self, "crl_configurations", value)
 
 
@@ -398,7 +398,7 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     def __init__(__self__, *,
                  custom_cname: str,
                  enabled: bool,
-                 expiration_in_days: float,
+                 expiration_in_days: int,
                  s3_bucket_name: str):
         pulumi.set(__self__, "custom_cname", custom_cname)
         pulumi.set(__self__, "enabled", enabled)
@@ -425,11 +425,11 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
 
     @property
     @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> float:
+    def expiration_in_days(self) -> int:
         return pulumi.get(self, "expiration_in_days")
 
     @expiration_in_days.setter
-    def expiration_in_days(self, value: float):
+    def expiration_in_days(self, value: int):
         pulumi.set(self, "expiration_in_days", value)
 
     @property

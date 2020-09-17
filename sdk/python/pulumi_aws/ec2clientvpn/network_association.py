@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['NetworkAssociation']
@@ -77,7 +77,7 @@ class NetworkAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
-            security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'NetworkAssociation':
@@ -89,7 +89,7 @@ class NetworkAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: The IDs of the security groups applied to the target network association.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The IDs of the security groups applied to the target network association.
         :param pulumi.Input[str] status: The current state of the target network association.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the target network (subnet) is located.
@@ -115,7 +115,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> pulumi.Output[List[str]]:
+    def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         The IDs of the security groups applied to the target network association.
         """

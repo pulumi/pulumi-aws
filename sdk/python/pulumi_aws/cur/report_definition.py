@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ReportDefinition']
@@ -15,8 +15,8 @@ class ReportDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_artifacts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 additional_schema_elements: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
@@ -56,8 +56,8 @@ class ReportDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
-        :param pulumi.Input[List[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: RESOURCES.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: RESOURCES.
         :param pulumi.Input[str] compression: Compression format for report. Valid values are: GZIP, ZIP.
         :param pulumi.Input[str] format: Format for report. Valid values are: textORcsv.
         :param pulumi.Input[str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
@@ -116,8 +116,8 @@ class ReportDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_artifacts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            additional_schema_elements: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             compression: Optional[pulumi.Input[str]] = None,
             format: Optional[pulumi.Input[str]] = None,
             report_name: Optional[pulumi.Input[str]] = None,
@@ -132,8 +132,8 @@ class ReportDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
-        :param pulumi.Input[List[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: RESOURCES.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: RESOURCES.
         :param pulumi.Input[str] compression: Compression format for report. Valid values are: GZIP, ZIP.
         :param pulumi.Input[str] format: Format for report. Valid values are: textORcsv.
         :param pulumi.Input[str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
@@ -159,7 +159,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalArtifacts")
-    def additional_artifacts(self) -> pulumi.Output[Optional[List[str]]]:
+    def additional_artifacts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
         """
@@ -167,7 +167,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalSchemaElements")
-    def additional_schema_elements(self) -> pulumi.Output[List[str]]:
+    def additional_schema_elements(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of schema elements. Valid values are: RESOURCES.
         """

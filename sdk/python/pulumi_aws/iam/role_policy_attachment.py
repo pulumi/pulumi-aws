@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['RolePolicyAttachment']
@@ -44,7 +44,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
                 }
               ]
             }
-
         \"\"\")
         policy = aws.iam.Policy("policy",
             description="A test policy",
@@ -60,11 +59,10 @@ class RolePolicyAttachment(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         test_attach = aws.iam.RolePolicyAttachment("test-attach",
-            policy_arn=policy.arn,
-            role=role.name)
+            role=role.name,
+            policy_arn=policy.arn)
         ```
 
         :param str resource_name: The name of the resource.

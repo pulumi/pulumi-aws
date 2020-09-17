@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -31,8 +31,8 @@ class GetLocalGatewayVirtualInterfaceResult:
         if local_address and not isinstance(local_address, str):
             raise TypeError("Expected argument 'local_address' to be a str")
         pulumi.set(__self__, "local_address", local_address)
-        if local_bgp_asn and not isinstance(local_bgp_asn, float):
-            raise TypeError("Expected argument 'local_bgp_asn' to be a float")
+        if local_bgp_asn and not isinstance(local_bgp_asn, int):
+            raise TypeError("Expected argument 'local_bgp_asn' to be a int")
         pulumi.set(__self__, "local_bgp_asn", local_bgp_asn)
         if local_gateway_id and not isinstance(local_gateway_id, str):
             raise TypeError("Expected argument 'local_gateway_id' to be a str")
@@ -43,19 +43,19 @@ class GetLocalGatewayVirtualInterfaceResult:
         if peer_address and not isinstance(peer_address, str):
             raise TypeError("Expected argument 'peer_address' to be a str")
         pulumi.set(__self__, "peer_address", peer_address)
-        if peer_bgp_asn and not isinstance(peer_bgp_asn, float):
-            raise TypeError("Expected argument 'peer_bgp_asn' to be a float")
+        if peer_bgp_asn and not isinstance(peer_bgp_asn, int):
+            raise TypeError("Expected argument 'peer_bgp_asn' to be a int")
         pulumi.set(__self__, "peer_bgp_asn", peer_bgp_asn)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if vlan and not isinstance(vlan, float):
-            raise TypeError("Expected argument 'vlan' to be a float")
+        if vlan and not isinstance(vlan, int):
+            raise TypeError("Expected argument 'vlan' to be a int")
         pulumi.set(__self__, "vlan", vlan)
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetLocalGatewayVirtualInterfaceFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetLocalGatewayVirtualInterfaceFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -73,7 +73,7 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter(name="localBgpAsn")
-    def local_bgp_asn(self) -> float:
+    def local_bgp_asn(self) -> int:
         """
         Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
         """
@@ -89,7 +89,7 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter(name="localGatewayVirtualInterfaceIds")
-    def local_gateway_virtual_interface_ids(self) -> List[str]:
+    def local_gateway_virtual_interface_ids(self) -> Sequence[str]:
         return pulumi.get(self, "local_gateway_virtual_interface_ids")
 
     @property
@@ -102,7 +102,7 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter(name="peerBgpAsn")
-    def peer_bgp_asn(self) -> float:
+    def peer_bgp_asn(self) -> int:
         """
         Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
         """
@@ -115,7 +115,7 @@ class GetLocalGatewayVirtualInterfaceResult:
 
     @property
     @pulumi.getter
-    def vlan(self) -> float:
+    def vlan(self) -> int:
         """
         Virtual Local Area Network.
         """
@@ -140,7 +140,7 @@ class AwaitableGetLocalGatewayVirtualInterfaceResult(GetLocalGatewayVirtualInter
             vlan=self.vlan)
 
 
-def get_local_gateway_virtual_interface(filters: Optional[List[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']]] = None,
+def get_local_gateway_virtual_interface(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']]] = None,
                                         id: Optional[str] = None,
                                         tags: Optional[Mapping[str, str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayVirtualInterfaceResult:
@@ -157,7 +157,7 @@ def get_local_gateway_virtual_interface(filters: Optional[List[pulumi.InputType[
     ```
 
 
-    :param List[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
     :param str id: Identifier of EC2 Local Gateway Virtual Interface.
     :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """

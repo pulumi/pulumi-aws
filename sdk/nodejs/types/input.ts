@@ -5603,32 +5603,80 @@ export namespace ec2 {
     }
 
     export interface DefaultSecurityGroupEgress {
+        /**
+         * List of CIDR blocks.
+         */
         cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The description of the security group
+         * Description of this egress rule.
          */
         description?: pulumi.Input<string>;
+        /**
+         * The start port (or ICMP type number if protocol is "icmp")
+         */
         fromPort: pulumi.Input<number>;
+        /**
+         * List of IPv6 CIDR blocks.
+         */
         ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of prefix list IDs (for allowing access to VPC endpoints)
+         */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+         */
         protocol: pulumi.Input<string>;
+        /**
+         * List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * If true, the security group itself will be added as a source to this egress rule.
+         */
         self?: pulumi.Input<boolean>;
+        /**
+         * The end range port (or ICMP code if protocol is "icmp").
+         */
         toPort: pulumi.Input<number>;
     }
 
     export interface DefaultSecurityGroupIngress {
+        /**
+         * List of CIDR blocks.
+         */
         cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The description of the security group
+         * Description of this egress rule.
          */
         description?: pulumi.Input<string>;
+        /**
+         * The start port (or ICMP type number if protocol is "icmp")
+         */
         fromPort: pulumi.Input<number>;
+        /**
+         * List of IPv6 CIDR blocks.
+         */
         ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of prefix list IDs (for allowing access to VPC endpoints)
+         */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The protocol. If you select a protocol of "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+         */
         protocol: pulumi.Input<string>;
+        /**
+         * List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * If true, the security group itself will be added as a source to this egress rule.
+         */
         self?: pulumi.Input<boolean>;
+        /**
+         * The end range port (or ICMP code if protocol is "icmp").
+         */
         toPort: pulumi.Input<number>;
     }
 

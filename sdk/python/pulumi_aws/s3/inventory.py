@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Inventory(pulumi.CustomResource):
                  filter: Optional[pulumi.Input[pulumi.InputType['InventoryFilterArgs']]] = None,
                  included_object_versions: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 optional_fields: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['InventoryScheduleArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -87,7 +87,7 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InventoryFilterArgs']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
-        :param pulumi.Input[List[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results.
                Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
         :param pulumi.Input[pulumi.InputType['InventoryScheduleArgs']] schedule: Specifies the schedule for generating inventory results (documented below).
         """
@@ -140,7 +140,7 @@ class Inventory(pulumi.CustomResource):
             filter: Optional[pulumi.Input[pulumi.InputType['InventoryFilterArgs']]] = None,
             included_object_versions: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            optional_fields: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             schedule: Optional[pulumi.Input[pulumi.InputType['InventoryScheduleArgs']]] = None) -> 'Inventory':
         """
         Get an existing Inventory resource's state with the given name, id, and optional extra
@@ -155,7 +155,7 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InventoryFilterArgs']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
-        :param pulumi.Input[List[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results.
                Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
         :param pulumi.Input[pulumi.InputType['InventoryScheduleArgs']] schedule: Specifies the schedule for generating inventory results (documented below).
         """
@@ -223,7 +223,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optionalFields")
-    def optional_fields(self) -> pulumi.Output[Optional[List[str]]]:
+    def optional_fields(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of optional fields that are included in the inventory results.
         Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.

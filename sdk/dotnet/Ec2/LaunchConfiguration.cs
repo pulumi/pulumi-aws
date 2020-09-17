@@ -218,6 +218,7 @@ namespace Pulumi.Aws.Ec2
     /// * `delete_on_termination` - (Optional) Whether the volume should be destroyed
     ///   on instance termination (Default: `true`).
     /// * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
+    /// * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
     /// 
     /// Modifying any `ebs_block_device` currently requires resource replacement.
     /// 

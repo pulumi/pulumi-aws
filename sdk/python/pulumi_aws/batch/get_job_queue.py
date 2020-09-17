@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetJobQueueResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
@@ -56,7 +56,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter(name="computeEnvironmentOrders")
-    def compute_environment_orders(self) -> List['outputs.GetJobQueueComputeEnvironmentOrderResult']:
+    def compute_environment_orders(self) -> Sequence['outputs.GetJobQueueComputeEnvironmentOrderResult']:
         """
         The compute environments that are attached to the job queue and the order in
         which job placement is preferred. Compute environments are selected for job placement in ascending order.
@@ -80,7 +80,7 @@ class GetJobQueueResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         """
         The priority of the job queue. Job queues with a higher priority are evaluated first when
         associated with the same compute environment.

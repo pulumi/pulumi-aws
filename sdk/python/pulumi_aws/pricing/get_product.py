@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -37,7 +37,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> List['outputs.GetProductFilterResult']:
+    def filters(self) -> Sequence['outputs.GetProductFilterResult']:
         return pulumi.get(self, "filters")
 
     @property
@@ -74,7 +74,7 @@ class AwaitableGetProductResult(GetProductResult):
             service_code=self.service_code)
 
 
-def get_product(filters: Optional[List[pulumi.InputType['GetProductFilterArgs']]] = None,
+def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArgs']]] = None,
                 service_code: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
@@ -138,7 +138,7 @@ def get_product(filters: Optional[List[pulumi.InputType['GetProductFilterArgs']]
     ```
 
 
-    :param List[pulumi.InputType['GetProductFilterArgs']] filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[pulumi.InputType['GetProductFilterArgs']] filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     __args__ = dict()

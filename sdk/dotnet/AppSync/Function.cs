@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testGraphQLApi = new Aws.AppSync.GraphQLApi("testGraphQLApi", new Aws.AppSync.GraphQLApiArgs
+    ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
     ///         {
     ///             AuthenticationType = "API_KEY",
     ///             Schema = @"type Mutation {
@@ -44,21 +44,21 @@ namespace Pulumi.Aws.AppSync
     /// }
     /// ",
     ///         });
-    ///         var testDataSource = new Aws.AppSync.DataSource("testDataSource", new Aws.AppSync.DataSourceArgs
+    ///         var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new Aws.AppSync.DataSourceArgs
     ///         {
-    ///             ApiId = testGraphQLApi.Id,
-    ///             Name = "tf-example",
+    ///             ApiId = exampleGraphQLApi.Id,
+    ///             Name = "example",
     ///             Type = "HTTP",
     ///             HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
     ///             {
     ///                 Endpoint = "http://example.com",
     ///             },
     ///         });
-    ///         var testFunction = new Aws.AppSync.Function("testFunction", new Aws.AppSync.FunctionArgs
+    ///         var exampleFunction = new Aws.AppSync.Function("exampleFunction", new Aws.AppSync.FunctionArgs
     ///         {
-    ///             ApiId = testGraphQLApi.Id,
-    ///             DataSource = testDataSource.Name,
-    ///             Name = "tf_example",
+    ///             ApiId = exampleGraphQLApi.Id,
+    ///             DataSource = exampleDataSource.Name,
+    ///             Name = "example",
     ///             RequestMappingTemplate = @"{
     ///     ""version"": ""2018-05-29"",
     ///     ""method"": ""GET"",

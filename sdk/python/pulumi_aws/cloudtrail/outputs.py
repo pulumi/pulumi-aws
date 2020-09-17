@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -17,11 +17,11 @@ __all__ = [
 @pulumi.output_type
 class TrailEventSelector(dict):
     def __init__(__self__, *,
-                 data_resources: Optional[List['outputs.TrailEventSelectorDataResource']] = None,
+                 data_resources: Optional[Sequence['outputs.TrailEventSelectorDataResource']] = None,
                  include_management_events: Optional[bool] = None,
                  read_write_type: Optional[str] = None):
         """
-        :param List['TrailEventSelectorDataResourceArgs'] data_resources: Specifies logging data events. Fields documented below.
+        :param Sequence['TrailEventSelectorDataResourceArgs'] data_resources: Specifies logging data events. Fields documented below.
         :param bool include_management_events: Specify if you want your event selector to include management events for your trail.
         :param str read_write_type: Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
         """
@@ -34,7 +34,7 @@ class TrailEventSelector(dict):
 
     @property
     @pulumi.getter(name="dataResources")
-    def data_resources(self) -> Optional[List['outputs.TrailEventSelectorDataResource']]:
+    def data_resources(self) -> Optional[Sequence['outputs.TrailEventSelectorDataResource']]:
         """
         Specifies logging data events. Fields documented below.
         """
@@ -64,10 +64,10 @@ class TrailEventSelector(dict):
 class TrailEventSelectorDataResource(dict):
     def __init__(__self__, *,
                  type: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str type: The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
-        :param List[str] values: A list of ARN for the specified S3 buckets and object prefixes..
+        :param Sequence[str] values: A list of ARN for the specified S3 buckets and object prefixes..
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "values", values)
@@ -82,7 +82,7 @@ class TrailEventSelectorDataResource(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         A list of ARN for the specified S3 buckets and object prefixes..
         """

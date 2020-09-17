@@ -30,6 +30,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int Iops;
         /// <summary>
+        /// Whether the device in the block device mapping of the AMI is suppressed.
+        /// </summary>
+        public readonly bool NoDevice;
+        /// <summary>
         /// The Snapshot ID of the mount.
         /// </summary>
         public readonly string SnapshotId;
@@ -52,6 +56,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int iops,
 
+            bool noDevice,
+
             string snapshotId,
 
             int volumeSize,
@@ -62,6 +68,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             DeviceName = deviceName;
             Encrypted = encrypted;
             Iops = iops;
+            NoDevice = noDevice;
             SnapshotId = snapshotId;
             VolumeSize = volumeSize;
             VolumeType = volumeType;

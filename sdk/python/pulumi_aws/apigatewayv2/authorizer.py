@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_credentials_arn: Optional[pulumi.Input[str]] = None,
                  authorizer_type: Optional[pulumi.Input[str]] = None,
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
-                 identity_sources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -71,7 +71,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI).
                For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
                Supported only for `REQUEST` authorizers.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_sources: The identity sources for which authorization is requested.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: The identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
         :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
@@ -122,7 +122,7 @@ class Authorizer(pulumi.CustomResource):
             authorizer_credentials_arn: Optional[pulumi.Input[str]] = None,
             authorizer_type: Optional[pulumi.Input[str]] = None,
             authorizer_uri: Optional[pulumi.Input[str]] = None,
-            identity_sources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Authorizer':
         """
@@ -141,7 +141,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI).
                For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
                Supported only for `REQUEST` authorizers.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_sources: The identity sources for which authorization is requested.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: The identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
         :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
@@ -200,7 +200,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> pulumi.Output[List[str]]:
+    def identity_sources(self) -> pulumi.Output[Sequence[str]]:
         """
         The identity sources for which authorization is requested.
         For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.

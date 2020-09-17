@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {});
- * // Other arguments
+ * // ... other configuration ...
  * const testInstance = new aws.ec2.Instance("testInstance", {});
- * // Other arguments
+ * // ... other configuration ...
  * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
  *     targetGroupArn: testTargetGroup.arn,
  *     targetId: testInstance.id,
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {targetType: "lambda"});
  * const testFunction = new aws.lambda.Function("testFunction", {});
- * // Other arguments
+ * // ... other configuration ...
  * const withLb = new aws.lambda.Permission("withLb", {
  *     action: "lambda:InvokeFunction",
  *     "function": testFunction.arn,

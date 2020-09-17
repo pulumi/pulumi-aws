@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -97,7 +97,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> List['outputs.GetLaunchConfigurationEbsBlockDeviceResult']:
+    def ebs_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEbsBlockDeviceResult']:
         """
         The EBS Block Devices attached to the instance.
         """
@@ -121,7 +121,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> List['outputs.GetLaunchConfigurationEphemeralBlockDeviceResult']:
+    def ephemeral_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationEphemeralBlockDeviceResult']:
         """
         The Ephemeral volumes on the instance.
         """
@@ -185,7 +185,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="rootBlockDevices")
-    def root_block_devices(self) -> List['outputs.GetLaunchConfigurationRootBlockDeviceResult']:
+    def root_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationRootBlockDeviceResult']:
         """
         The Root Block Device of the instance.
         """
@@ -193,7 +193,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> Sequence[str]:
         """
         A list of associated Security Group IDS.
         """
@@ -225,7 +225,7 @@ class GetLaunchConfigurationResult:
 
     @property
     @pulumi.getter(name="vpcClassicLinkSecurityGroups")
-    def vpc_classic_link_security_groups(self) -> List[str]:
+    def vpc_classic_link_security_groups(self) -> Sequence[str]:
         """
         The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
         """

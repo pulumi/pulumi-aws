@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -93,7 +93,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter(name="posixUsers")
-    def posix_users(self) -> List['outputs.GetAccessPointPosixUserResult']:
+    def posix_users(self) -> Sequence['outputs.GetAccessPointPosixUserResult']:
         """
         Single element list containing operating system user and group applied to all file system requests made using the access point.
         """
@@ -101,7 +101,7 @@ class GetAccessPointResult:
 
     @property
     @pulumi.getter(name="rootDirectories")
-    def root_directories(self) -> List['outputs.GetAccessPointRootDirectoryResult']:
+    def root_directories(self) -> Sequence['outputs.GetAccessPointRootDirectoryResult']:
         return pulumi.get(self, "root_directories")
 
     @property

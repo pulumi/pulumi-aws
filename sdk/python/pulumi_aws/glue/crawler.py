@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,16 +17,16 @@ class Crawler(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerCatalogTargetArgs']]]]] = None,
-                 classifiers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerCatalogTargetArgs']]]]] = None,
+                 classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  configuration: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamodb_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
-                 jdbc_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
+                 dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
+                 jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 s3_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]]] = None,
+                 s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  schema_change_policy: Optional[pulumi.Input[pulumi.InputType['CrawlerSchemaChangePolicyArgs']]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -106,15 +106,15 @@ class Crawler(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information.
         :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] description: Description of the crawler.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See below.
         :param pulumi.Input[str] name: Name of the crawler.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List nested Amazon S3 target arguments. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List nested Amazon S3 target arguments. See below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         :param pulumi.Input[pulumi.InputType['CrawlerSchemaChangePolicyArgs']] schema_change_policy: Policy for the crawler's update and deletion behavior.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
@@ -169,16 +169,16 @@ class Crawler(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            catalog_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerCatalogTargetArgs']]]]] = None,
-            classifiers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerCatalogTargetArgs']]]]] = None,
+            classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             configuration: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            dynamodb_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
-            jdbc_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
+            dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
+            jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
-            s3_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]]] = None,
+            s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
             schema_change_policy: Optional[pulumi.Input[pulumi.InputType['CrawlerSchemaChangePolicyArgs']]] = None,
             security_configuration: Optional[pulumi.Input[str]] = None,
@@ -192,15 +192,15 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the crawler
-        :param pulumi.Input[List[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information.
         :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] description: Description of the crawler.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See below.
         :param pulumi.Input[str] name: Name of the crawler.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List nested Amazon S3 target arguments. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List nested Amazon S3 target arguments. See below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         :param pulumi.Input[pulumi.InputType['CrawlerSchemaChangePolicyArgs']] schema_change_policy: Policy for the crawler's update and deletion behavior.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
@@ -239,12 +239,12 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogTargets")
-    def catalog_targets(self) -> pulumi.Output[Optional[List['outputs.CrawlerCatalogTarget']]]:
+    def catalog_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerCatalogTarget']]]:
         return pulumi.get(self, "catalog_targets")
 
     @property
     @pulumi.getter
-    def classifiers(self) -> pulumi.Output[Optional[List[str]]]:
+    def classifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         """
@@ -276,7 +276,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamodbTargets")
-    def dynamodb_targets(self) -> pulumi.Output[Optional[List['outputs.CrawlerDynamodbTarget']]]:
+    def dynamodb_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerDynamodbTarget']]]:
         """
         List of nested DynamoDB target arguments. See below.
         """
@@ -284,7 +284,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jdbcTargets")
-    def jdbc_targets(self) -> pulumi.Output[Optional[List['outputs.CrawlerJdbcTarget']]]:
+    def jdbc_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerJdbcTarget']]]:
         """
         List of nested JBDC target arguments. See below.
         """
@@ -308,7 +308,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Targets")
-    def s3_targets(self) -> pulumi.Output[Optional[List['outputs.CrawlerS3Target']]]:
+    def s3_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerS3Target']]]:
         """
         List nested Amazon S3 target arguments. See below.
         """

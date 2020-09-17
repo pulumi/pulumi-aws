@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -127,7 +127,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> List['outputs.GetSecretRotationRuleResult']:
+    def rotation_rules(self) -> Sequence['outputs.GetSecretRotationRuleResult']:
         """
         Rotation rules if rotation is enabled.
         """

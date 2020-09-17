@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     public MyStack()
     ///     {
-    ///         var fooServer = new Aws.Transfer.Server("fooServer", new Aws.Transfer.ServerArgs
+    ///         var exampleServer = new Aws.Transfer.Server("exampleServer", new Aws.Transfer.ServerArgs
     ///         {
     ///             IdentityProviderType = "SERVICE_MANAGED",
     ///             Tags = 
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Transfer
     ///                 { "NAME", "tf-acc-test-transfer-server" },
     ///             },
     ///         });
-    ///         var fooRole = new Aws.Iam.Role("fooRole", new Aws.Iam.RoleArgs
+    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
     ///         {
     ///             AssumeRolePolicy = @"{
     /// 	""Version"": ""2012-10-17"",
@@ -44,9 +44,25 @@ namespace Pulumi.Aws.Transfer
     /// }
     /// ",
     ///         });
-    ///         var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         var exampleUser = new Aws.Transfer.User("exampleUser", new Aws.Transfer.UserArgs
     ///         {
-    ///             Role = fooRole.Id,
+    ///             ServerId = exampleServer.Id,
+    ///             UserName = "tftestuser",
+    ///             Role = exampleRole.Arn,
+    ///             Tags = 
+    ///             {
+    ///                 { "NAME", "tftestuser" },
+    ///             },
+    ///         });
+    ///         var exampleSshKey = new Aws.Transfer.SshKey("exampleSshKey", new Aws.Transfer.SshKeyArgs
+    ///         {
+    ///             ServerId = exampleServer.Id,
+    ///             UserName = exampleUser.UserName,
+    ///             Body = "... SSH key ...",
+    ///         });
+    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = exampleRole.Id,
     ///             Policy = @"{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
@@ -61,22 +77,6 @@ namespace Pulumi.Aws.Transfer
     /// 	]
     /// }
     /// ",
-    ///         });
-    ///         var fooUser = new Aws.Transfer.User("fooUser", new Aws.Transfer.UserArgs
-    ///         {
-    ///             ServerId = fooServer.Id,
-    ///             UserName = "tftestuser",
-    ///             Role = fooRole.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "NAME", "tftestuser" },
-    ///             },
-    ///         });
-    ///         var fooSshKey = new Aws.Transfer.SshKey("fooSshKey", new Aws.Transfer.SshKeyArgs
-    ///         {
-    ///             ServerId = fooServer.Id,
-    ///             UserName = fooUser.UserName,
-    ///             Body = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
     ///         });
     ///     }
     /// 

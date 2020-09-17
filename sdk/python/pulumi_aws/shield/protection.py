@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Protection']
@@ -34,8 +34,8 @@ class Protection(pulumi.CustomResource):
         available = aws.get_availability_zones()
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        foo_eip = aws.ec2.Eip("fooEip", vpc=True)
-        foo_protection = aws.shield.Protection("fooProtection", resource_arn=foo_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
+        example_eip = aws.ec2.Eip("exampleEip", vpc=True)
+        example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
         ```
 
         :param str resource_name: The name of the resource.

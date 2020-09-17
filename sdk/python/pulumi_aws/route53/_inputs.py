@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -173,22 +173,22 @@ class RecordLatencyRoutingPolicyArgs:
 @pulumi.input_type
 class RecordWeightedRoutingPolicyArgs:
     def __init__(__self__, *,
-                 weight: pulumi.Input[float]):
+                 weight: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] weight: A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
+        :param pulumi.Input[int] weight: A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
         """
         pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
-    def weight(self) -> pulumi.Input[float]:
+    def weight(self) -> pulumi.Input[int]:
         """
         A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: pulumi.Input[float]):
+    def weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "weight", value)
 
 
@@ -246,10 +246,10 @@ class ResolverEndpointIpAddressArgs:
 class ResolverRuleTargetIpArgs:
     def __init__(__self__, *,
                  ip: pulumi.Input[str],
-                 port: Optional[pulumi.Input[float]] = None):
+                 port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-        :param pulumi.Input[float] port: The port at `ip` that you want to forward DNS queries to. Default value is `53`
+        :param pulumi.Input[int] port: The port at `ip` that you want to forward DNS queries to. Default value is `53`
         """
         pulumi.set(__self__, "ip", ip)
         if port is not None:
@@ -269,14 +269,14 @@ class ResolverRuleTargetIpArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         The port at `ip` that you want to forward DNS queries to. Default value is `53`
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
 

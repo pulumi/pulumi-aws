@@ -14,9 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const app = new aws.pinpoint.App("app", {});
- * const sms = new aws.pinpoint.SmsChannel("sms", {
- *     applicationId: app.applicationId,
- * });
+ * const sms = new aws.pinpoint.SmsChannel("sms", {applicationId: app.applicationId});
  * ```
  */
 export class SmsChannel extends pulumi.CustomResource {

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['PrivateVirtualInterface']
@@ -17,15 +17,15 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
-                 bgp_asn: Optional[pulumi.Input[float]] = None,
+                 bgp_asn: Optional[pulumi.Input[int]] = None,
                  bgp_auth_key: Optional[pulumi.Input[str]] = None,
                  connection_id: Optional[pulumi.Input[str]] = None,
                  customer_address: Optional[pulumi.Input[str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[str]] = None,
-                 mtu: Optional[pulumi.Input[float]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vlan: Optional[pulumi.Input[float]] = None,
+                 vlan: Optional[pulumi.Input[int]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -50,16 +50,16 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-        :param pulumi.Input[float] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
-        :param pulumi.Input[float] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+        :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[float] vlan: The VLAN ID.
+        :param pulumi.Input[int] vlan: The VLAN ID.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         if __name__ is not None:
@@ -118,16 +118,16 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             amazon_side_asn: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             aws_device: Optional[pulumi.Input[str]] = None,
-            bgp_asn: Optional[pulumi.Input[float]] = None,
+            bgp_asn: Optional[pulumi.Input[int]] = None,
             bgp_auth_key: Optional[pulumi.Input[str]] = None,
             connection_id: Optional[pulumi.Input[str]] = None,
             customer_address: Optional[pulumi.Input[str]] = None,
             dx_gateway_id: Optional[pulumi.Input[str]] = None,
             jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
-            mtu: Optional[pulumi.Input[float]] = None,
+            mtu: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vlan: Optional[pulumi.Input[float]] = None,
+            vlan: Optional[pulumi.Input[int]] = None,
             vpn_gateway_id: Optional[pulumi.Input[str]] = None) -> 'PrivateVirtualInterface':
         """
         Get an existing PrivateVirtualInterface resource's state with the given name, id, and optional extra
@@ -140,17 +140,17 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[str] arn: The ARN of the virtual interface.
         :param pulumi.Input[str] aws_device: The Direct Connect endpoint on which the virtual interface terminates.
-        :param pulumi.Input[float] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
         :param pulumi.Input[bool] jumbo_frame_capable: Indicates whether jumbo frames (9001 MTU) are supported.
-        :param pulumi.Input[float] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+        :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[float] vlan: The VLAN ID.
+        :param pulumi.Input[int] vlan: The VLAN ID.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -214,7 +214,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> pulumi.Output[float]:
+    def bgp_asn(self) -> pulumi.Output[int]:
         """
         The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         """
@@ -262,7 +262,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mtu(self) -> pulumi.Output[Optional[float]]:
+    def mtu(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
         The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
@@ -287,7 +287,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vlan(self) -> pulumi.Output[float]:
+    def vlan(self) -> pulumi.Output[int]:
         """
         The VLAN ID.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -89,7 +89,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter(name="cidrBlockAssociations")
-    def cidr_block_associations(self) -> List['outputs.GetVpcCidrBlockAssociationResult']:
+    def cidr_block_associations(self) -> Sequence['outputs.GetVpcCidrBlockAssociationResult']:
         return pulumi.get(self, "cidr_block_associations")
 
     @property
@@ -120,7 +120,7 @@ class GetVpcResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetVpcFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetVpcFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -210,7 +210,7 @@ class AwaitableGetVpcResult(GetVpcResult):
 def get_vpc(cidr_block: Optional[str] = None,
             default: Optional[bool] = None,
             dhcp_options_id: Optional[str] = None,
-            filters: Optional[List[pulumi.InputType['GetVpcFilterArgs']]] = None,
+            filters: Optional[Sequence[pulumi.InputType['GetVpcFilterArgs']]] = None,
             id: Optional[str] = None,
             state: Optional[str] = None,
             tags: Optional[Mapping[str, str]] = None,
@@ -227,7 +227,7 @@ def get_vpc(cidr_block: Optional[str] = None,
     :param bool default: Boolean constraint on whether the desired VPC is
            the default VPC for the region.
     :param str dhcp_options_id: The DHCP options id of the desired VPC.
-    :param List[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
     :param str id: The id of the specific VPC to retrieve.
     :param str state: The current state of the desired VPC.
            Can be either `"pending"` or `"available"`.

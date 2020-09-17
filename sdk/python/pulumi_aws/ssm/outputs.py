@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -67,10 +67,10 @@ class AssociationOutputLocation(dict):
 class AssociationTarget(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str key: Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        :param List[str] values: A list of instance IDs or tag values. AWS currently limits this list size to one value.
+        :param Sequence[str] values: A list of instance IDs or tag values. AWS currently limits this list size to one value.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -85,7 +85,7 @@ class AssociationTarget(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         A list of instance IDs or tag values. AWS currently limits this list size to one value.
         """
@@ -99,11 +99,11 @@ class AssociationTarget(dict):
 class DocumentAttachmentsSource(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str],
+                 values: Sequence[str],
                  name: Optional[str] = None):
         """
         :param str key: The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
-        :param List[str] values: The value describing the location of an attachment to a document
+        :param Sequence[str] values: The value describing the location of an attachment to a document
         :param str name: The name of the document attachment file
         """
         pulumi.set(__self__, "key", key)
@@ -121,7 +121,7 @@ class DocumentAttachmentsSource(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         The value describing the location of an attachment to a document
         """
@@ -193,7 +193,7 @@ class DocumentParameter(dict):
 class MaintenanceWindowTargetTarget(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
@@ -204,7 +204,7 @@ class MaintenanceWindowTargetTarget(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
     def _translate_property(self, prop):
@@ -215,9 +215,9 @@ class MaintenanceWindowTargetTarget(dict):
 class MaintenanceWindowTaskTarget(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
-        :param List[str] values: The array of strings.
+        :param Sequence[str] values: The array of strings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -229,7 +229,7 @@ class MaintenanceWindowTaskTarget(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         The array of strings.
         """
@@ -301,10 +301,10 @@ class MaintenanceWindowTaskTaskInvocationParameters(dict):
 class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
     def __init__(__self__, *,
                  document_version: Optional[str] = None,
-                 parameters: Optional[List['outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter']] = None):
+                 parameters: Optional[Sequence['outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter']] = None):
         """
         :param str document_version: The version of an Automation document to use during task execution.
-        :param List['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
+        :param Sequence['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
         """
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
@@ -321,7 +321,7 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter']]:
+    def parameters(self) -> Optional[Sequence['outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter']]:
         """
         The parameters for the RUN_COMMAND task execution. Documented below.
         """
@@ -335,10 +335,10 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
 class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The parameter name.
-        :param List[str] values: The array of strings.
+        :param Sequence[str] values: The array of strings.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -353,7 +353,7 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         The array of strings.
         """
@@ -418,9 +418,9 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
                  notification_config: Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig'] = None,
                  output_s3_bucket: Optional[str] = None,
                  output_s3_key_prefix: Optional[str] = None,
-                 parameters: Optional[List['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter']] = None,
+                 parameters: Optional[Sequence['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter']] = None,
                  service_role_arn: Optional[str] = None,
-                 timeout_seconds: Optional[float] = None):
+                 timeout_seconds: Optional[int] = None):
         """
         :param str comment: Information about the command(s) to execute.
         :param str document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
@@ -428,9 +428,9 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs' notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param str output_s3_bucket: The name of the Amazon S3 bucket.
         :param str output_s3_key_prefix: The Amazon S3 bucket subfolder.
-        :param List['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
+        :param Sequence['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
         :param str service_role_arn: The IAM service role to assume during task execution.
-        :param float timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
+        :param int timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -501,7 +501,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter']]:
+    def parameters(self) -> Optional[Sequence['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter']]:
         """
         The parameters for the RUN_COMMAND task execution. Documented below.
         """
@@ -517,7 +517,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
 
     @property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[float]:
+    def timeout_seconds(self) -> Optional[int]:
         """
         If this time is reached and the command has not already started executing, it doesn't run.
         """
@@ -531,11 +531,11 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig(dict):
     def __init__(__self__, *,
                  notification_arn: Optional[str] = None,
-                 notification_events: Optional[List[str]] = None,
+                 notification_events: Optional[Sequence[str]] = None,
                  notification_type: Optional[str] = None):
         """
         :param str notification_arn: An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-        :param List[str] notification_events: The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
+        :param Sequence[str] notification_events: The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
         :param str notification_type: When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
         """
         if notification_arn is not None:
@@ -555,7 +555,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
 
     @property
     @pulumi.getter(name="notificationEvents")
-    def notification_events(self) -> Optional[List[str]]:
+    def notification_events(self) -> Optional[Sequence[str]]:
         """
         The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
         """
@@ -577,10 +577,10 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The parameter name.
-        :param List[str] values: The array of strings.
+        :param Sequence[str] values: The array of strings.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -595,7 +595,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         The array of strings.
         """
@@ -642,13 +642,13 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(dict)
 @pulumi.output_type
 class PatchBaselineApprovalRule(dict):
     def __init__(__self__, *,
-                 approve_after_days: float,
-                 patch_filters: List['outputs.PatchBaselineApprovalRulePatchFilter'],
+                 approve_after_days: int,
+                 patch_filters: Sequence['outputs.PatchBaselineApprovalRulePatchFilter'],
                  compliance_level: Optional[str] = None,
                  enable_non_security: Optional[bool] = None):
         """
-        :param float approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-        :param List['PatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+        :param int approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
+        :param Sequence['PatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         :param str compliance_level: Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param bool enable_non_security: Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
         """
@@ -661,7 +661,7 @@ class PatchBaselineApprovalRule(dict):
 
     @property
     @pulumi.getter(name="approveAfterDays")
-    def approve_after_days(self) -> float:
+    def approve_after_days(self) -> int:
         """
         The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
         """
@@ -669,7 +669,7 @@ class PatchBaselineApprovalRule(dict):
 
     @property
     @pulumi.getter(name="patchFilters")
-    def patch_filters(self) -> List['outputs.PatchBaselineApprovalRulePatchFilter']:
+    def patch_filters(self) -> Sequence['outputs.PatchBaselineApprovalRulePatchFilter']:
         """
         The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         """
@@ -699,7 +699,7 @@ class PatchBaselineApprovalRule(dict):
 class PatchBaselineApprovalRulePatchFilter(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
@@ -710,7 +710,7 @@ class PatchBaselineApprovalRulePatchFilter(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
     def _translate_property(self, prop):
@@ -721,7 +721,7 @@ class PatchBaselineApprovalRulePatchFilter(dict):
 class PatchBaselineGlobalFilter(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
@@ -732,7 +732,7 @@ class PatchBaselineGlobalFilter(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
     def _translate_property(self, prop):

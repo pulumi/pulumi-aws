@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -29,8 +29,8 @@ class GetTargetGroupResult:
         if arn_suffix and not isinstance(arn_suffix, str):
             raise TypeError("Expected argument 'arn_suffix' to be a str")
         pulumi.set(__self__, "arn_suffix", arn_suffix)
-        if deregistration_delay and not isinstance(deregistration_delay, float):
-            raise TypeError("Expected argument 'deregistration_delay' to be a float")
+        if deregistration_delay and not isinstance(deregistration_delay, int):
+            raise TypeError("Expected argument 'deregistration_delay' to be a int")
         pulumi.set(__self__, "deregistration_delay", deregistration_delay)
         if health_check and not isinstance(health_check, dict):
             raise TypeError("Expected argument 'health_check' to be a dict")
@@ -47,8 +47,8 @@ class GetTargetGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
@@ -56,8 +56,8 @@ class GetTargetGroupResult:
         if proxy_protocol_v2 and not isinstance(proxy_protocol_v2, bool):
             raise TypeError("Expected argument 'proxy_protocol_v2' to be a bool")
         pulumi.set(__self__, "proxy_protocol_v2", proxy_protocol_v2)
-        if slow_start and not isinstance(slow_start, float):
-            raise TypeError("Expected argument 'slow_start' to be a float")
+        if slow_start and not isinstance(slow_start, int):
+            raise TypeError("Expected argument 'slow_start' to be a int")
         pulumi.set(__self__, "slow_start", slow_start)
         if stickiness and not isinstance(stickiness, dict):
             raise TypeError("Expected argument 'stickiness' to be a dict")
@@ -84,7 +84,7 @@ class GetTargetGroupResult:
 
     @property
     @pulumi.getter(name="deregistrationDelay")
-    def deregistration_delay(self) -> float:
+    def deregistration_delay(self) -> int:
         return pulumi.get(self, "deregistration_delay")
 
     @property
@@ -117,7 +117,7 @@ class GetTargetGroupResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         return pulumi.get(self, "port")
 
     @property
@@ -132,7 +132,7 @@ class GetTargetGroupResult:
 
     @property
     @pulumi.getter(name="slowStart")
-    def slow_start(self) -> float:
+    def slow_start(self) -> int:
         return pulumi.get(self, "slow_start")
 
     @property

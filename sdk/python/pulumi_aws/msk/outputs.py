@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -30,16 +30,16 @@ __all__ = [
 @pulumi.output_type
 class ClusterBrokerNodeGroupInfo(dict):
     def __init__(__self__, *,
-                 client_subnets: List[str],
-                 ebs_volume_size: float,
+                 client_subnets: Sequence[str],
+                 ebs_volume_size: int,
                  instance_type: str,
-                 security_groups: List[str],
+                 security_groups: Sequence[str],
                  az_distribution: Optional[str] = None):
         """
-        :param List[str] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        :param float ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
+        :param Sequence[str] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+        :param int ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
         :param str instance_type: Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        :param List[str] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+        :param Sequence[str] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param str az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
@@ -51,7 +51,7 @@ class ClusterBrokerNodeGroupInfo(dict):
 
     @property
     @pulumi.getter(name="clientSubnets")
-    def client_subnets(self) -> List[str]:
+    def client_subnets(self) -> Sequence[str]:
         """
         A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
         """
@@ -59,7 +59,7 @@ class ClusterBrokerNodeGroupInfo(dict):
 
     @property
     @pulumi.getter(name="ebsVolumeSize")
-    def ebs_volume_size(self) -> float:
+    def ebs_volume_size(self) -> int:
         """
         The size in GiB of the EBS volume for the data drive on each broker node.
         """
@@ -75,7 +75,7 @@ class ClusterBrokerNodeGroupInfo(dict):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> Sequence[str]:
         """
         A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         """
@@ -118,16 +118,16 @@ class ClusterClientAuthentication(dict):
 @pulumi.output_type
 class ClusterClientAuthenticationTls(dict):
     def __init__(__self__, *,
-                 certificate_authority_arns: Optional[List[str]] = None):
+                 certificate_authority_arns: Optional[Sequence[str]] = None):
         """
-        :param List[str] certificate_authority_arns: List of ACM Certificate Authority Amazon Resource Names (ARNs).
+        :param Sequence[str] certificate_authority_arns: List of ACM Certificate Authority Amazon Resource Names (ARNs).
         """
         if certificate_authority_arns is not None:
             pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
-    def certificate_authority_arns(self) -> Optional[List[str]]:
+    def certificate_authority_arns(self) -> Optional[Sequence[str]]:
         """
         List of ACM Certificate Authority Amazon Resource Names (ARNs).
         """
@@ -141,10 +141,10 @@ class ClusterClientAuthenticationTls(dict):
 class ClusterConfigurationInfo(dict):
     def __init__(__self__, *,
                  arn: str,
-                 revision: float):
+                 revision: int):
         """
         :param str arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        :param float revision: Revision of the MSK Configuration to use in the cluster.
+        :param int revision: Revision of the MSK Configuration to use in the cluster.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "revision", revision)
@@ -159,7 +159,7 @@ class ClusterConfigurationInfo(dict):
 
     @property
     @pulumi.getter
-    def revision(self) -> float:
+    def revision(self) -> int:
         """
         Revision of the MSK Configuration to use in the cluster.
         """

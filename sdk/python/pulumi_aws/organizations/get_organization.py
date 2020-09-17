@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -57,7 +57,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter
-    def accounts(self) -> List['outputs.GetOrganizationAccountResult']:
+    def accounts(self) -> Sequence['outputs.GetOrganizationAccountResult']:
         """
         List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         """
@@ -73,7 +73,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="awsServiceAccessPrincipals")
-    def aws_service_access_principals(self) -> List[str]:
+    def aws_service_access_principals(self) -> Sequence[str]:
         """
         A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
         """
@@ -81,7 +81,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="enabledPolicyTypes")
-    def enabled_policy_types(self) -> List[str]:
+    def enabled_policy_types(self) -> Sequence[str]:
         """
         A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         """
@@ -129,7 +129,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="nonMasterAccounts")
-    def non_master_accounts(self) -> List['outputs.GetOrganizationNonMasterAccountResult']:
+    def non_master_accounts(self) -> Sequence['outputs.GetOrganizationNonMasterAccountResult']:
         """
         List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         """
@@ -137,7 +137,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter
-    def roots(self) -> List['outputs.GetOrganizationRootResult']:
+    def roots(self) -> Sequence['outputs.GetOrganizationRootResult']:
         """
         List of organization roots. All elements have these attributes:
         """

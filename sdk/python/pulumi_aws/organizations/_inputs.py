@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -196,12 +196,12 @@ class OrganizationRootArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_types: Optional[pulumi.Input[List[pulumi.Input['OrganizationRootPolicyTypeArgs']]]] = None):
+                 policy_types: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]] = None):
         """
         :param pulumi.Input[str] arn: ARN of the root
         :param pulumi.Input[str] id: Identifier of the root
         :param pulumi.Input[str] name: The name of the policy type
-        :param pulumi.Input[List[pulumi.Input['OrganizationRootPolicyTypeArgs']]] policy_types: List of policy types enabled for this root. All elements have these attributes:
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -250,14 +250,14 @@ class OrganizationRootArgs:
 
     @property
     @pulumi.getter(name="policyTypes")
-    def policy_types(self) -> Optional[pulumi.Input[List[pulumi.Input['OrganizationRootPolicyTypeArgs']]]]:
+    def policy_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]]:
         """
         List of policy types enabled for this root. All elements have these attributes:
         """
         return pulumi.get(self, "policy_types")
 
     @policy_types.setter
-    def policy_types(self, value: Optional[pulumi.Input[List[pulumi.Input['OrganizationRootPolicyTypeArgs']]]]):
+    def policy_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]]):
         pulumi.set(self, "policy_types", value)
 
 

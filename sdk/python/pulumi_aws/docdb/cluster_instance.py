@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ClusterInstance']
@@ -25,7 +25,7 @@ class ClusterInstance(pulumi.CustomResource):
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
                  instance_class: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-                 promotion_tier: Optional[pulumi.Input[float]] = None,
+                 promotion_tier: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -84,7 +84,7 @@ class ClusterInstance(pulumi.CustomResource):
                - db.r4.16xlarge
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance.
         """
         if __name__ is not None:
@@ -156,10 +156,10 @@ class ClusterInstance(pulumi.CustomResource):
             identifier_prefix: Optional[pulumi.Input[str]] = None,
             instance_class: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             preferred_backup_window: Optional[pulumi.Input[str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-            promotion_tier: Optional[pulumi.Input[float]] = None,
+            promotion_tier: Optional[pulumi.Input[int]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
             storage_encrypted: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -194,11 +194,11 @@ class ClusterInstance(pulumi.CustomResource):
                - db.r4.8xlarge
                - db.r4.16xlarge
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
-        :param pulumi.Input[float] port: The database port
+        :param pulumi.Input[int] port: The database port
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
@@ -362,7 +362,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         """
         The database port
         """
@@ -387,7 +387,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="promotionTier")
-    def promotion_tier(self) -> pulumi.Output[Optional[float]]:
+    def promotion_tier(self) -> pulumi.Output[Optional[int]]:
         """
         Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         """

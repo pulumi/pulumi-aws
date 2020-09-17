@@ -42,14 +42,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		fooEip, err := ec2.NewEip(ctx, "fooEip", &ec2.EipArgs{
+// 		exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
 // 			Vpc: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = shield.NewProtection(ctx, "fooProtection", &shield.ProtectionArgs{
-// 			ResourceArn: fooEip.ID().ApplyT(func(id string) (string, error) {
+// 		_, err = shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
+// 			ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
 // 				return fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:ec2:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":eip-allocation/", id), nil
 // 			}).(pulumi.StringOutput),
 // 		})

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -64,10 +64,10 @@ class AcceleratorAttributes(dict):
 @pulumi.output_type
 class AcceleratorIpSet(dict):
     def __init__(__self__, *,
-                 ip_addresses: Optional[List[str]] = None,
+                 ip_addresses: Optional[Sequence[str]] = None,
                  ip_family: Optional[str] = None):
         """
-        :param List[str] ip_addresses: A list of IP addresses in the IP address set.
+        :param Sequence[str] ip_addresses: A list of IP addresses in the IP address set.
         :param str ip_family: The types of IP addresses included in this IP set.
         """
         if ip_addresses is not None:
@@ -77,7 +77,7 @@ class AcceleratorIpSet(dict):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[List[str]]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         """
         A list of IP addresses in the IP address set.
         """
@@ -99,10 +99,10 @@ class AcceleratorIpSet(dict):
 class EndpointGroupEndpointConfiguration(dict):
     def __init__(__self__, *,
                  endpoint_id: Optional[str] = None,
-                 weight: Optional[float] = None):
+                 weight: Optional[int] = None):
         """
         :param str endpoint_id: An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        :param float weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+        :param int weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
@@ -119,7 +119,7 @@ class EndpointGroupEndpointConfiguration(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> Optional[int]:
         """
         The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
@@ -132,11 +132,11 @@ class EndpointGroupEndpointConfiguration(dict):
 @pulumi.output_type
 class ListenerPortRange(dict):
     def __init__(__self__, *,
-                 from_port: Optional[float] = None,
-                 to_port: Optional[float] = None):
+                 from_port: Optional[int] = None,
+                 to_port: Optional[int] = None):
         """
-        :param float from_port: The first port in the range of ports, inclusive.
-        :param float to_port: The last port in the range of ports, inclusive.
+        :param int from_port: The first port in the range of ports, inclusive.
+        :param int to_port: The last port in the range of ports, inclusive.
         """
         if from_port is not None:
             pulumi.set(__self__, "from_port", from_port)
@@ -145,7 +145,7 @@ class ListenerPortRange(dict):
 
     @property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[float]:
+    def from_port(self) -> Optional[int]:
         """
         The first port in the range of ports, inclusive.
         """
@@ -153,7 +153,7 @@ class ListenerPortRange(dict):
 
     @property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[float]:
+    def to_port(self) -> Optional[int]:
         """
         The last port in the range of ports, inclusive.
         """

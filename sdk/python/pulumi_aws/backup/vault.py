@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Vault']
@@ -74,7 +74,7 @@ class Vault(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            recovery_points: Optional[pulumi.Input[float]] = None,
+            recovery_points: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Vault':
         """
         Get an existing Vault resource's state with the given name, id, and optional extra
@@ -86,7 +86,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the vault.
         :param pulumi.Input[str] kms_key_arn: The server-side encryption key that is used to protect your backups.
         :param pulumi.Input[str] name: Name of the backup vault to create.
-        :param pulumi.Input[float] recovery_points: The number of recovery points that are stored in a backup vault.
+        :param pulumi.Input[int] recovery_points: The number of recovery points that are stored in a backup vault.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the resources that you create.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -126,7 +126,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> pulumi.Output[float]:
+    def recovery_points(self) -> pulumi.Output[int]:
         """
         The number of recovery points that are stored in a backup vault.
         """

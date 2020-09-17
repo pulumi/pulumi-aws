@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -43,7 +43,7 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
         :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
@@ -85,7 +85,7 @@ class Repository(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            encryption_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
+            encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
             image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
             image_tag_mutability: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Full ARN of the repository.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
         :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
@@ -132,7 +132,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> pulumi.Output[Optional[List['outputs.RepositoryEncryptionConfiguration']]]:
+    def encryption_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryEncryptionConfiguration']]]:
         """
         Encryption configuration for the repository. See below for schema.
         """

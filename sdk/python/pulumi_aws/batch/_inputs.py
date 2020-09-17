@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -19,15 +19,15 @@ __all__ = [
 class ComputeEnvironmentComputeResourcesArgs:
     def __init__(__self__, *,
                  instance_role: pulumi.Input[str],
-                 instance_types: pulumi.Input[List[pulumi.Input[str]]],
-                 max_vcpus: pulumi.Input[float],
-                 min_vcpus: pulumi.Input[float],
-                 security_group_ids: pulumi.Input[List[pulumi.Input[str]]],
-                 subnets: pulumi.Input[List[pulumi.Input[str]]],
+                 instance_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 max_vcpus: pulumi.Input[int],
+                 min_vcpus: pulumi.Input[int],
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str],
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
-                 bid_percentage: Optional[pulumi.Input[float]] = None,
-                 desired_vcpus: Optional[pulumi.Input[float]] = None,
+                 bid_percentage: Optional[pulumi.Input[int]] = None,
+                 desired_vcpus: Optional[pulumi.Input[int]] = None,
                  ec2_key_pair: Optional[pulumi.Input[str]] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs']] = None,
@@ -35,15 +35,15 @@ class ComputeEnvironmentComputeResourcesArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-        :param pulumi.Input[List[pulumi.Input[str]]] instance_types: A list of instance types that may be launched.
-        :param pulumi.Input[float] max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
-        :param pulumi.Input[float] min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnets: A list of VPC subnets into which the compute resources are launched.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: A list of instance types that may be launched.
+        :param pulumi.Input[int] max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
+        :param pulumi.Input[int] min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of VPC subnets into which the compute resources are launched.
         :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
         :param pulumi.Input[str] allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
-        :param pulumi.Input[float] bid_percentage: Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
-        :param pulumi.Input[float] desired_vcpus: The desired number of EC2 vCPUS in the compute environment.
+        :param pulumi.Input[int] bid_percentage: Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+        :param pulumi.Input[int] desired_vcpus: The desired number of EC2 vCPUS in the compute environment.
         :param pulumi.Input[str] ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment.
         :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs'] launch_template: The launch template to use for your compute resources. See details below.
@@ -88,62 +88,62 @@ class ComputeEnvironmentComputeResourcesArgs:
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of instance types that may be launched.
         """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
-    def instance_types(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def instance_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "instance_types", value)
 
     @property
     @pulumi.getter(name="maxVcpus")
-    def max_vcpus(self) -> pulumi.Input[float]:
+    def max_vcpus(self) -> pulumi.Input[int]:
         """
         The maximum number of EC2 vCPUs that an environment can reach.
         """
         return pulumi.get(self, "max_vcpus")
 
     @max_vcpus.setter
-    def max_vcpus(self, value: pulumi.Input[float]):
+    def max_vcpus(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_vcpus", value)
 
     @property
     @pulumi.getter(name="minVcpus")
-    def min_vcpus(self) -> pulumi.Input[float]:
+    def min_vcpus(self) -> pulumi.Input[int]:
         """
         The minimum number of EC2 vCPUs that an environment should maintain.
         """
         return pulumi.get(self, "min_vcpus")
 
     @min_vcpus.setter
-    def min_vcpus(self, value: pulumi.Input[float]):
+    def min_vcpus(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_vcpus", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of EC2 security group that are associated with instances launched in the compute environment.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of VPC subnets into which the compute resources are launched.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
     @property
@@ -172,26 +172,26 @@ class ComputeEnvironmentComputeResourcesArgs:
 
     @property
     @pulumi.getter(name="bidPercentage")
-    def bid_percentage(self) -> Optional[pulumi.Input[float]]:
+    def bid_percentage(self) -> Optional[pulumi.Input[int]]:
         """
         Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
         """
         return pulumi.get(self, "bid_percentage")
 
     @bid_percentage.setter
-    def bid_percentage(self, value: Optional[pulumi.Input[float]]):
+    def bid_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bid_percentage", value)
 
     @property
     @pulumi.getter(name="desiredVcpus")
-    def desired_vcpus(self) -> Optional[pulumi.Input[float]]:
+    def desired_vcpus(self) -> Optional[pulumi.Input[int]]:
         """
         The desired number of EC2 vCPUS in the compute environment.
         """
         return pulumi.get(self, "desired_vcpus")
 
     @desired_vcpus.setter
-    def desired_vcpus(self, value: Optional[pulumi.Input[float]]):
+    def desired_vcpus(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "desired_vcpus", value)
 
     @property
@@ -313,46 +313,46 @@ class ComputeEnvironmentComputeResourcesLaunchTemplateArgs:
 @pulumi.input_type
 class JobDefinitionRetryStrategyArgs:
     def __init__(__self__, *,
-                 attempts: Optional[pulumi.Input[float]] = None):
+                 attempts: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+        :param pulumi.Input[int] attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
 
     @property
     @pulumi.getter
-    def attempts(self) -> Optional[pulumi.Input[float]]:
+    def attempts(self) -> Optional[pulumi.Input[int]]:
         """
         The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         """
         return pulumi.get(self, "attempts")
 
     @attempts.setter
-    def attempts(self, value: Optional[pulumi.Input[float]]):
+    def attempts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "attempts", value)
 
 
 @pulumi.input_type
 class JobDefinitionTimeoutArgs:
     def __init__(__self__, *,
-                 attempt_duration_seconds: Optional[pulumi.Input[float]] = None):
+                 attempt_duration_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] attempt_duration_seconds: The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+        :param pulumi.Input[int] attempt_duration_seconds: The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         if attempt_duration_seconds is not None:
             pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
 
     @property
     @pulumi.getter(name="attemptDurationSeconds")
-    def attempt_duration_seconds(self) -> Optional[pulumi.Input[float]]:
+    def attempt_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         return pulumi.get(self, "attempt_duration_seconds")
 
     @attempt_duration_seconds.setter
-    def attempt_duration_seconds(self, value: Optional[pulumi.Input[float]]):
+    def attempt_duration_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "attempt_duration_seconds", value)
 
 

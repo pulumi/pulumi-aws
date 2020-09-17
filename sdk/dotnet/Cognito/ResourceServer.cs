@@ -55,8 +55,8 @@ namespace Pulumi.Aws.Cognito
     ///             {
     ///                 new Aws.Cognito.Inputs.ResourceServerScopeArgs
     ///                 {
-    ///                     ScopeDescription = "a Sample Scope Description",
     ///                     ScopeName = "sample-scope",
+    ///                     ScopeDescription = "a Sample Scope Description",
     ///                 },
     ///             },
     ///             UserPoolId = pool.Id,

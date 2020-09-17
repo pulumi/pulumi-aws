@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Configuration']
@@ -108,7 +108,7 @@ class Configuration(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             engine_type: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
-            latest_revision: Optional[pulumi.Input[float]] = None,
+            latest_revision: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Configuration':
         """
@@ -125,7 +125,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the configuration.
         :param pulumi.Input[str] engine_type: The type of broker engine.
         :param pulumi.Input[str] engine_version: The version of the broker engine.
-        :param pulumi.Input[float] latest_revision: The latest revision of the configuration.
+        :param pulumi.Input[int] latest_revision: The latest revision of the configuration.
         :param pulumi.Input[str] name: The name of the configuration
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -187,7 +187,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> pulumi.Output[float]:
+    def latest_revision(self) -> pulumi.Output[int]:
         """
         The latest revision of the configuration.
         """

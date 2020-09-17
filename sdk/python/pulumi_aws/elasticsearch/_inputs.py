@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -135,23 +135,23 @@ class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
 @pulumi.input_type
 class DomainClusterConfigArgs:
     def __init__(__self__, *,
-                 dedicated_master_count: Optional[pulumi.Input[float]] = None,
+                 dedicated_master_count: Optional[pulumi.Input[int]] = None,
                  dedicated_master_enabled: Optional[pulumi.Input[bool]] = None,
                  dedicated_master_type: Optional[pulumi.Input[str]] = None,
-                 instance_count: Optional[pulumi.Input[float]] = None,
+                 instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 warm_count: Optional[pulumi.Input[float]] = None,
+                 warm_count: Optional[pulumi.Input[int]] = None,
                  warm_enabled: Optional[pulumi.Input[bool]] = None,
                  warm_type: Optional[pulumi.Input[str]] = None,
                  zone_awareness_config: Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs']] = None,
                  zone_awareness_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[float] dedicated_master_count: Number of dedicated master nodes in the cluster
+        :param pulumi.Input[int] dedicated_master_count: Number of dedicated master nodes in the cluster
         :param pulumi.Input[bool] dedicated_master_enabled: Indicates whether dedicated master nodes are enabled for the cluster.
         :param pulumi.Input[str] dedicated_master_type: Instance type of the dedicated master nodes in the cluster.
-        :param pulumi.Input[float] instance_count: Number of instances in the cluster.
+        :param pulumi.Input[int] instance_count: Number of instances in the cluster.
         :param pulumi.Input[str] instance_type: Instance type of data nodes in the cluster.
-        :param pulumi.Input[float] warm_count: The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+        :param pulumi.Input[int] warm_count: The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         :param pulumi.Input[bool] warm_enabled: Indicates whether to enable warm storage.
         :param pulumi.Input[str] warm_type: The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
         :param pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_config: Configuration block containing zone awareness settings. Documented below.
@@ -180,14 +180,14 @@ class DomainClusterConfigArgs:
 
     @property
     @pulumi.getter(name="dedicatedMasterCount")
-    def dedicated_master_count(self) -> Optional[pulumi.Input[float]]:
+    def dedicated_master_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of dedicated master nodes in the cluster
         """
         return pulumi.get(self, "dedicated_master_count")
 
     @dedicated_master_count.setter
-    def dedicated_master_count(self, value: Optional[pulumi.Input[float]]):
+    def dedicated_master_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "dedicated_master_count", value)
 
     @property
@@ -216,14 +216,14 @@ class DomainClusterConfigArgs:
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[float]]:
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of instances in the cluster.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[float]]):
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "instance_count", value)
 
     @property
@@ -240,14 +240,14 @@ class DomainClusterConfigArgs:
 
     @property
     @pulumi.getter(name="warmCount")
-    def warm_count(self) -> Optional[pulumi.Input[float]]:
+    def warm_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         """
         return pulumi.get(self, "warm_count")
 
     @warm_count.setter
-    def warm_count(self, value: Optional[pulumi.Input[float]]):
+    def warm_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "warm_count", value)
 
     @property
@@ -302,23 +302,23 @@ class DomainClusterConfigArgs:
 @pulumi.input_type
 class DomainClusterConfigZoneAwarenessConfigArgs:
     def __init__(__self__, *,
-                 availability_zone_count: Optional[pulumi.Input[float]] = None):
+                 availability_zone_count: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] availability_zone_count: Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+        :param pulumi.Input[int] availability_zone_count: Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
         """
         if availability_zone_count is not None:
             pulumi.set(__self__, "availability_zone_count", availability_zone_count)
 
     @property
     @pulumi.getter(name="availabilityZoneCount")
-    def availability_zone_count(self) -> Optional[pulumi.Input[float]]:
+    def availability_zone_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
         """
         return pulumi.get(self, "availability_zone_count")
 
     @availability_zone_count.setter
-    def availability_zone_count(self, value: Optional[pulumi.Input[float]]):
+    def availability_zone_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "availability_zone_count", value)
 
 
@@ -432,14 +432,14 @@ class DomainDomainEndpointOptionsArgs:
 class DomainEbsOptionsArgs:
     def __init__(__self__, *,
                  ebs_enabled: pulumi.Input[bool],
-                 iops: Optional[pulumi.Input[float]] = None,
-                 volume_size: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
-        :param pulumi.Input[float] iops: The baseline input/output (I/O) performance of EBS volumes
+        :param pulumi.Input[int] iops: The baseline input/output (I/O) performance of EBS volumes
                attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
-        :param pulumi.Input[float] volume_size: The size of EBS volumes attached to data nodes (in GB).
+        :param pulumi.Input[int] volume_size: The size of EBS volumes attached to data nodes (in GB).
                **Required** if `ebs_enabled` is set to `true`.
         :param pulumi.Input[str] volume_type: The type of EBS volumes attached to data nodes.
         """
@@ -465,7 +465,7 @@ class DomainEbsOptionsArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         The baseline input/output (I/O) performance of EBS volumes
         attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
@@ -473,12 +473,12 @@ class DomainEbsOptionsArgs:
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> Optional[pulumi.Input[float]]:
+    def volume_size(self) -> Optional[pulumi.Input[int]]:
         """
         The size of EBS volumes attached to data nodes (in GB).
         **Required** if `ebs_enabled` is set to `true`.
@@ -486,7 +486,7 @@ class DomainEbsOptionsArgs:
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
-    def volume_size(self, value: Optional[pulumi.Input[float]]):
+    def volume_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "volume_size", value)
 
     @property
@@ -618,16 +618,16 @@ class DomainNodeToNodeEncryptionArgs:
 @pulumi.input_type
 class DomainSnapshotOptionsArgs:
     def __init__(__self__, *,
-                 automated_snapshot_start_hour: pulumi.Input[float]):
+                 automated_snapshot_start_hour: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] automated_snapshot_start_hour: Hour during which the service takes an automated daily
+        :param pulumi.Input[int] automated_snapshot_start_hour: Hour during which the service takes an automated daily
                snapshot of the indices in the domain.
         """
         pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
     @property
     @pulumi.getter(name="automatedSnapshotStartHour")
-    def automated_snapshot_start_hour(self) -> pulumi.Input[float]:
+    def automated_snapshot_start_hour(self) -> pulumi.Input[int]:
         """
         Hour during which the service takes an automated daily
         snapshot of the indices in the domain.
@@ -635,20 +635,20 @@ class DomainSnapshotOptionsArgs:
         return pulumi.get(self, "automated_snapshot_start_hour")
 
     @automated_snapshot_start_hour.setter
-    def automated_snapshot_start_hour(self, value: pulumi.Input[float]):
+    def automated_snapshot_start_hour(self, value: pulumi.Input[int]):
         pulumi.set(self, "automated_snapshot_start_hour", value)
 
 
 @pulumi.input_type
 class DomainVpcOptionsArgs:
     def __init__(__self__, *,
-                 availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
         """
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
@@ -661,35 +661,35 @@ class DomainVpcOptionsArgs:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @property

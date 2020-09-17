@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetSnapshotResult:
     A collection of values returned by getSnapshot.
     """
     def __init__(__self__, allocated_storage=None, availability_zone=None, db_instance_identifier=None, db_snapshot_arn=None, db_snapshot_identifier=None, encrypted=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, iops=None, kms_key_id=None, license_model=None, most_recent=None, option_group_name=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_snapshot_identifier=None, source_region=None, status=None, storage_type=None, vpc_id=None):
-        if allocated_storage and not isinstance(allocated_storage, float):
-            raise TypeError("Expected argument 'allocated_storage' to be a float")
+        if allocated_storage and not isinstance(allocated_storage, int):
+            raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
@@ -53,8 +53,8 @@ class GetSnapshotResult:
         if include_shared and not isinstance(include_shared, bool):
             raise TypeError("Expected argument 'include_shared' to be a bool")
         pulumi.set(__self__, "include_shared", include_shared)
-        if iops and not isinstance(iops, float):
-            raise TypeError("Expected argument 'iops' to be a float")
+        if iops and not isinstance(iops, int):
+            raise TypeError("Expected argument 'iops' to be a int")
         pulumi.set(__self__, "iops", iops)
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
@@ -68,8 +68,8 @@ class GetSnapshotResult:
         if option_group_name and not isinstance(option_group_name, str):
             raise TypeError("Expected argument 'option_group_name' to be a str")
         pulumi.set(__self__, "option_group_name", option_group_name)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if snapshot_create_time and not isinstance(snapshot_create_time, str):
             raise TypeError("Expected argument 'snapshot_create_time' to be a str")
@@ -95,7 +95,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> float:
+    def allocated_storage(self) -> int:
         """
         Specifies the allocated storage size in gigabytes (GB).
         """
@@ -171,7 +171,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def iops(self) -> float:
+    def iops(self) -> int:
         """
         Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
@@ -208,7 +208,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         return pulumi.get(self, "port")
 
     @property

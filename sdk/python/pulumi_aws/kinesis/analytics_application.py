@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  inputs: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
                  reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -76,7 +76,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the application.
         :param pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
         :param pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Kinesis Analytics Application.
@@ -129,11 +129,11 @@ class AnalyticsApplication(pulumi.CustomResource):
             inputs: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']]] = None,
             last_update_timestamp: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
+            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
             reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            version: Optional[pulumi.Input[float]] = None) -> 'AnalyticsApplication':
+            version: Optional[pulumi.Input[int]] = None) -> 'AnalyticsApplication':
         """
         Get an existing AnalyticsApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -150,12 +150,12 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[str] last_update_timestamp: The Timestamp when the application was last updated.
         :param pulumi.Input[str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
         :param pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[str] status: The Status of the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Kinesis Analytics Application.
-        :param pulumi.Input[float] version: The Version of the application.
+        :param pulumi.Input[int] version: The Version of the application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -243,7 +243,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[Optional[List['outputs.AnalyticsApplicationOutput']]]:
+    def outputs(self) -> pulumi.Output[Optional[Sequence['outputs.AnalyticsApplicationOutput']]]:
         """
         Output destination configuration of the application. See Outputs below for more details.
         """
@@ -276,7 +276,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[float]:
+    def version(self) -> pulumi.Output[int]:
         """
         The Version of the application.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,12 +22,12 @@ class Bucket(pulumi.CustomResource):
                  arn: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
-                 cors_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]]] = None,
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
-                 grants: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]]] = None,
+                 grants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
-                 lifecycle_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketLifecycleRuleArgs']]]]] = None,
-                 loggings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketLoggingArgs']]]]] = None,
+                 lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleRuleArgs']]]]] = None,
+                 loggings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingArgs']]]]] = None,
                  object_lock_configuration: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']]] = None,
@@ -319,12 +319,12 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[str] bucket: The name of the bucket. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketLifecycleRuleArgs']]]] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketLoggingArgs']]]] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleRuleArgs']]]] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingArgs']]]] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
         :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
         :param pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
@@ -397,12 +397,12 @@ class Bucket(pulumi.CustomResource):
             bucket_domain_name: Optional[pulumi.Input[str]] = None,
             bucket_prefix: Optional[pulumi.Input[str]] = None,
             bucket_regional_domain_name: Optional[pulumi.Input[str]] = None,
-            cors_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]]] = None,
+            cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
-            grants: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]]] = None,
+            grants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]]] = None,
             hosted_zone_id: Optional[pulumi.Input[str]] = None,
-            lifecycle_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketLifecycleRuleArgs']]]]] = None,
-            loggings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketLoggingArgs']]]]] = None,
+            lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleRuleArgs']]]]] = None,
+            loggings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingArgs']]]]] = None,
             object_lock_configuration: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']]] = None,
             policy: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
@@ -428,12 +428,12 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_domain_name: The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
         :param pulumi.Input[str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketLifecycleRuleArgs']]]] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketLoggingArgs']]]] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleRuleArgs']]]] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingArgs']]]] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
         :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
         :param pulumi.Input[str] region: The AWS region this bucket resides in.
@@ -537,7 +537,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> pulumi.Output[Optional[List['outputs.BucketCorsRule']]]:
+    def cors_rules(self) -> pulumi.Output[Optional[Sequence['outputs.BucketCorsRule']]]:
         """
         A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         """
@@ -553,7 +553,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def grants(self) -> pulumi.Output[Optional[List['outputs.BucketGrant']]]:
+    def grants(self) -> pulumi.Output[Optional[Sequence['outputs.BucketGrant']]]:
         """
         An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         """
@@ -569,7 +569,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lifecycleRules")
-    def lifecycle_rules(self) -> pulumi.Output[Optional[List['outputs.BucketLifecycleRule']]]:
+    def lifecycle_rules(self) -> pulumi.Output[Optional[Sequence['outputs.BucketLifecycleRule']]]:
         """
         A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         """
@@ -577,7 +577,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def loggings(self) -> pulumi.Output[Optional[List['outputs.BucketLogging']]]:
+    def loggings(self) -> pulumi.Output[Optional[Sequence['outputs.BucketLogging']]]:
         """
         A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         """

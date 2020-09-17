@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -61,7 +61,7 @@ class GetAmiBlockDeviceMappingResult(dict):
 class GetAmiFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the AMI that was provided during image creation.
         """
@@ -78,7 +78,7 @@ class GetAmiFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
 
@@ -86,7 +86,7 @@ class GetAmiFilterResult(dict):
 class GetAmiIdsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
@@ -97,7 +97,7 @@ class GetAmiIdsFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
 
@@ -124,10 +124,10 @@ class GetAmiProductCodeResult(dict):
 class GetAutoscalingGroupsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
-        :param List[str] values: The value of the filter.
+        :param Sequence[str] values: The value of the filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -142,7 +142,7 @@ class GetAutoscalingGroupsFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         The value of the filter.
         """
@@ -153,10 +153,10 @@ class GetAutoscalingGroupsFilterResult(dict):
 class GetAvailabilityZoneFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        :param List[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -171,7 +171,7 @@ class GetAvailabilityZoneFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
@@ -182,10 +182,10 @@ class GetAvailabilityZoneFilterResult(dict):
 class GetAvailabilityZonesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        :param List[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -200,7 +200,7 @@ class GetAvailabilityZonesFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
@@ -211,7 +211,7 @@ class GetAvailabilityZonesFilterResult(dict):
 class GetElasticIpFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
@@ -222,7 +222,7 @@ class GetElasticIpFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
 
@@ -230,10 +230,10 @@ class GetElasticIpFilterResult(dict):
 class GetPrefixListFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
-        :param List[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -248,7 +248,7 @@ class GetPrefixListFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
@@ -259,10 +259,10 @@ class GetPrefixListFilterResult(dict):
 class GetRegionsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        :param List[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -277,7 +277,7 @@ class GetRegionsFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
@@ -287,14 +287,14 @@ class GetRegionsFilterResult(dict):
 @pulumi.output_type
 class ProviderAssumeRole(dict):
     def __init__(__self__, *,
-                 duration_seconds: Optional[float] = None,
+                 duration_seconds: Optional[int] = None,
                  external_id: Optional[str] = None,
                  policy: Optional[str] = None,
-                 policy_arns: Optional[List[str]] = None,
+                 policy_arns: Optional[Sequence[str]] = None,
                  role_arn: Optional[str] = None,
                  session_name: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
-                 transitive_tag_keys: Optional[List[str]] = None):
+                 transitive_tag_keys: Optional[Sequence[str]] = None):
         if duration_seconds is not None:
             pulumi.set(__self__, "duration_seconds", duration_seconds)
         if external_id is not None:
@@ -314,7 +314,7 @@ class ProviderAssumeRole(dict):
 
     @property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[float]:
+    def duration_seconds(self) -> Optional[int]:
         return pulumi.get(self, "duration_seconds")
 
     @property
@@ -329,7 +329,7 @@ class ProviderAssumeRole(dict):
 
     @property
     @pulumi.getter(name="policyArns")
-    def policy_arns(self) -> Optional[List[str]]:
+    def policy_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "policy_arns")
 
     @property
@@ -349,7 +349,7 @@ class ProviderAssumeRole(dict):
 
     @property
     @pulumi.getter(name="transitiveTagKeys")
-    def transitive_tag_keys(self) -> Optional[List[str]]:
+    def transitive_tag_keys(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "transitive_tag_keys")
 
     def _translate_property(self, prop):
@@ -1479,8 +1479,8 @@ class ProviderEndpoint(dict):
 @pulumi.output_type
 class ProviderIgnoreTags(dict):
     def __init__(__self__, *,
-                 key_prefixes: Optional[List[str]] = None,
-                 keys: Optional[List[str]] = None):
+                 key_prefixes: Optional[Sequence[str]] = None,
+                 keys: Optional[Sequence[str]] = None):
         if key_prefixes is not None:
             pulumi.set(__self__, "key_prefixes", key_prefixes)
         if keys is not None:
@@ -1488,12 +1488,12 @@ class ProviderIgnoreTags(dict):
 
     @property
     @pulumi.getter(name="keyPrefixes")
-    def key_prefixes(self) -> Optional[List[str]]:
+    def key_prefixes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "key_prefixes")
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[List[str]]:
+    def keys(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "keys")
 
     def _translate_property(self, prop):

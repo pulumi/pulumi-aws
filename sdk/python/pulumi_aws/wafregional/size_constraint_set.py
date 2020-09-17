@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class SizeConstraintSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 size_constraints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]]] = None,
+                 size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,7 +44,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Size Constraint Set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,7 +78,7 @@ class SizeConstraintSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            size_constraints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]]] = None) -> 'SizeConstraintSet':
+            size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]]] = None) -> 'SizeConstraintSet':
         """
         Get an existing SizeConstraintSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -87,7 +87,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Size Constraint Set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -113,7 +113,7 @@ class SizeConstraintSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeConstraints")
-    def size_constraints(self) -> pulumi.Output[Optional[List['outputs.SizeConstraintSetSizeConstraint']]]:
+    def size_constraints(self) -> pulumi.Output[Optional[Sequence['outputs.SizeConstraintSetSizeConstraint']]]:
         """
         Specifies the parts of web requests that you want to inspect the size of.
         """

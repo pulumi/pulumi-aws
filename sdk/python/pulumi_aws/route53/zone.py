@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class Zone(pulumi.CustomResource):
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpcs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -81,7 +81,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         :param pulumi.Input[str] name: This is the name of the hosted zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the zone.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -124,9 +124,9 @@ class Zone(pulumi.CustomResource):
             delegation_set_id: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpcs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]]] = None,
+            vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]]] = None,
             zone_id: Optional[pulumi.Input[str]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
@@ -139,10 +139,10 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         :param pulumi.Input[bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         :param pulumi.Input[str] name: This is the name of the hosted zone.
-        :param pulumi.Input[List[pulumi.Input[str]]] name_servers: A list of name servers in associated (or default) delegation set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: A list of name servers in associated (or default) delegation set.
                Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the zone.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneVpcArgs']]]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         :param pulumi.Input[str] zone_id: The Hosted Zone ID. This can be referenced by zone records.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -193,7 +193,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[List[str]]:
+    def name_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of name servers in associated (or default) delegation set.
         Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
@@ -210,7 +210,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vpcs(self) -> pulumi.Output[Optional[List['outputs.ZoneVpc']]]:
+    def vpcs(self) -> pulumi.Output[Optional[Sequence['outputs.ZoneVpc']]]:
         """
         Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         """

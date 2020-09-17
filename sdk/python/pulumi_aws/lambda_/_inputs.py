@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -294,12 +294,12 @@ class FunctionTracingConfigArgs:
 @pulumi.input_type
 class FunctionVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: pulumi.Input[List[pulumi.Input[str]]],
-                 subnet_ids: pulumi.Input[List[pulumi.Input[str]]],
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: A list of security group IDs associated with the Lambda function.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: A list of subnet IDs associated with the Lambda function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs associated with the Lambda function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs associated with the Lambda function.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -308,26 +308,26 @@ class FunctionVpcConfigArgs:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of security group IDs associated with the Lambda function.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of subnet IDs associated with the Lambda function.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @property

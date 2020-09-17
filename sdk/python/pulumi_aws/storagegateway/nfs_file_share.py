@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class NfsFileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_lists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
@@ -52,7 +52,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
@@ -120,7 +120,7 @@ class NfsFileShare(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            client_lists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
             fileshare_id: Optional[pulumi.Input[str]] = None,
             gateway_arn: Optional[pulumi.Input[str]] = None,
@@ -144,7 +144,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the NFS File Share.
-        :param pulumi.Input[List[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         :param pulumi.Input[str] fileshare_id: ID of the NFS File Share.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
@@ -194,7 +194,7 @@ class NfsFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientLists")
-    def client_lists(self) -> pulumi.Output[List[str]]:
+    def client_lists(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         """

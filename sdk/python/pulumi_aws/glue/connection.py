@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class Connection(pulumi.CustomResource):
                  connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 match_criterias: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
                  __props__=None,
@@ -70,7 +70,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
         :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
         :param pulumi.Input[str] description: Description of the connection.
-        :param pulumi.Input[List[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         """
@@ -116,7 +116,7 @@ class Connection(pulumi.CustomResource):
             connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             connection_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            match_criterias: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None) -> 'Connection':
         """
@@ -131,7 +131,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
         :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
         :param pulumi.Input[str] description: Description of the connection.
-        :param pulumi.Input[List[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         """
@@ -191,7 +191,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchCriterias")
-    def match_criterias(self) -> pulumi.Output[Optional[List[str]]]:
+    def match_criterias(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of criteria that can be used in selecting this connection.
         """

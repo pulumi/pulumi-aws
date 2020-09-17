@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -193,14 +193,14 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
 class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(dict):
     def __init__(__self__, *,
                  issuer: str,
-                 auth_ttl: Optional[float] = None,
+                 auth_ttl: Optional[int] = None,
                  client_id: Optional[str] = None,
-                 iat_ttl: Optional[float] = None):
+                 iat_ttl: Optional[int] = None):
         """
         :param str issuer: Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-        :param float auth_ttl: Number of milliseconds a token is valid after being authenticated.
+        :param int auth_ttl: Number of milliseconds a token is valid after being authenticated.
         :param str client_id: Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
-        :param float iat_ttl: Number of milliseconds a token is valid after being issued to a user.
+        :param int iat_ttl: Number of milliseconds a token is valid after being issued to a user.
         """
         pulumi.set(__self__, "issuer", issuer)
         if auth_ttl is not None:
@@ -220,7 +220,7 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(dict):
 
     @property
     @pulumi.getter(name="authTtl")
-    def auth_ttl(self) -> Optional[float]:
+    def auth_ttl(self) -> Optional[int]:
         """
         Number of milliseconds a token is valid after being authenticated.
         """
@@ -236,7 +236,7 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(dict):
 
     @property
     @pulumi.getter(name="iatTtl")
-    def iat_ttl(self) -> Optional[float]:
+    def iat_ttl(self) -> Optional[int]:
         """
         Number of milliseconds a token is valid after being issued to a user.
         """
@@ -339,14 +339,14 @@ class GraphQLApiLogConfig(dict):
 class GraphQLApiOpenidConnectConfig(dict):
     def __init__(__self__, *,
                  issuer: str,
-                 auth_ttl: Optional[float] = None,
+                 auth_ttl: Optional[int] = None,
                  client_id: Optional[str] = None,
-                 iat_ttl: Optional[float] = None):
+                 iat_ttl: Optional[int] = None):
         """
         :param str issuer: Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-        :param float auth_ttl: Number of milliseconds a token is valid after being authenticated.
+        :param int auth_ttl: Number of milliseconds a token is valid after being authenticated.
         :param str client_id: Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
-        :param float iat_ttl: Number of milliseconds a token is valid after being issued to a user.
+        :param int iat_ttl: Number of milliseconds a token is valid after being issued to a user.
         """
         pulumi.set(__self__, "issuer", issuer)
         if auth_ttl is not None:
@@ -366,7 +366,7 @@ class GraphQLApiOpenidConnectConfig(dict):
 
     @property
     @pulumi.getter(name="authTtl")
-    def auth_ttl(self) -> Optional[float]:
+    def auth_ttl(self) -> Optional[int]:
         """
         Number of milliseconds a token is valid after being authenticated.
         """
@@ -382,7 +382,7 @@ class GraphQLApiOpenidConnectConfig(dict):
 
     @property
     @pulumi.getter(name="iatTtl")
-    def iat_ttl(self) -> Optional[float]:
+    def iat_ttl(self) -> Optional[int]:
         """
         Number of milliseconds a token is valid after being issued to a user.
         """
@@ -451,11 +451,11 @@ class GraphQLApiUserPoolConfig(dict):
 @pulumi.output_type
 class ResolverCachingConfig(dict):
     def __init__(__self__, *,
-                 caching_keys: Optional[List[str]] = None,
-                 ttl: Optional[float] = None):
+                 caching_keys: Optional[Sequence[str]] = None,
+                 ttl: Optional[int] = None):
         """
-        :param List[str] caching_keys: The list of caching key.
-        :param float ttl: The TTL in seconds.
+        :param Sequence[str] caching_keys: The list of caching key.
+        :param int ttl: The TTL in seconds.
         """
         if caching_keys is not None:
             pulumi.set(__self__, "caching_keys", caching_keys)
@@ -464,7 +464,7 @@ class ResolverCachingConfig(dict):
 
     @property
     @pulumi.getter(name="cachingKeys")
-    def caching_keys(self) -> Optional[List[str]]:
+    def caching_keys(self) -> Optional[Sequence[str]]:
         """
         The list of caching key.
         """
@@ -472,7 +472,7 @@ class ResolverCachingConfig(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[float]:
+    def ttl(self) -> Optional[int]:
         """
         The TTL in seconds.
         """
@@ -485,16 +485,16 @@ class ResolverCachingConfig(dict):
 @pulumi.output_type
 class ResolverPipelineConfig(dict):
     def __init__(__self__, *,
-                 functions: Optional[List[str]] = None):
+                 functions: Optional[Sequence[str]] = None):
         """
-        :param List[str] functions: The list of Function ID.
+        :param Sequence[str] functions: The list of Function ID.
         """
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
 
     @property
     @pulumi.getter
-    def functions(self) -> Optional[List[str]]:
+    def functions(self) -> Optional[Sequence[str]]:
         """
         The list of Function ID.
         """

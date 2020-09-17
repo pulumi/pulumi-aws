@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Method']
@@ -17,7 +17,7 @@ class Method(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_required: Optional[pulumi.Input[bool]] = None,
                  authorization: Optional[pulumi.Input[str]] = None,
-                 authorization_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -81,7 +81,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] api_key_required: Specify if the method requires an API key
         :param pulumi.Input[str] authorization: The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
-        :param pulumi.Input[List[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
@@ -140,7 +140,7 @@ class Method(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key_required: Optional[pulumi.Input[bool]] = None,
             authorization: Optional[pulumi.Input[str]] = None,
-            authorization_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             authorizer_id: Optional[pulumi.Input[str]] = None,
             http_method: Optional[pulumi.Input[str]] = None,
             request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -157,7 +157,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] api_key_required: Specify if the method requires an API key
         :param pulumi.Input[str] authorization: The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
-        :param pulumi.Input[List[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
@@ -203,7 +203,7 @@ class Method(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationScopes")
-    def authorization_scopes(self) -> pulumi.Output[Optional[List[str]]]:
+    def authorization_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         """

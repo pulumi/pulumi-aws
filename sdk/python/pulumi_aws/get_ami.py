@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -134,7 +134,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> List['outputs.GetAmiBlockDeviceMappingResult']:
+    def block_device_mappings(self) -> Sequence['outputs.GetAmiBlockDeviceMappingResult']:
         """
         The block device mappings of the AMI.
         * `block_device_mappings.#.device_name` - The physical name of the device.
@@ -173,12 +173,12 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="executableUsers")
-    def executable_users(self) -> Optional[List[str]]:
+    def executable_users(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "executable_users")
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetAmiFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetAmiFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -267,7 +267,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def owners(self) -> List[str]:
+    def owners(self) -> Sequence[str]:
         return pulumi.get(self, "owners")
 
     @property
@@ -280,7 +280,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter(name="productCodes")
-    def product_codes(self) -> List['outputs.GetAmiProductCodeResult']:
+    def product_codes(self) -> Sequence['outputs.GetAmiProductCodeResult']:
         """
         Any product codes associated with the AMI.
         * `product_codes.#.product_code_id` - The product code.
@@ -416,11 +416,11 @@ class AwaitableGetAmiResult(GetAmiResult):
             virtualization_type=self.virtualization_type)
 
 
-def get_ami(executable_users: Optional[List[str]] = None,
-            filters: Optional[List[pulumi.InputType['GetAmiFilterArgs']]] = None,
+def get_ami(executable_users: Optional[Sequence[str]] = None,
+            filters: Optional[Sequence[pulumi.InputType['GetAmiFilterArgs']]] = None,
             most_recent: Optional[bool] = None,
             name_regex: Optional[str] = None,
-            owners: Optional[List[str]] = None,
+            owners: Optional[Sequence[str]] = None,
             tags: Optional[Mapping[str, str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiResult:
     """
@@ -454,9 +454,9 @@ def get_ami(executable_users: Optional[List[str]] = None,
     ```
 
 
-    :param List[str] executable_users: Limit search to users with *explicit* launch permission on
+    :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
-    :param List[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most
@@ -466,7 +466,7 @@ def get_ami(executable_users: Optional[List[str]] = None,
            filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. It is recommended to combine this with other
            options to narrow down the list AWS returns.
-    :param List[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - The key name of the tag.
            * `tags.#.value` - The value of the tag.

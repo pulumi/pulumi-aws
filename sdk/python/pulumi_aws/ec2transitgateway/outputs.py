@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -21,10 +21,10 @@ __all__ = [
 class GetDirectConnectGatewayAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        :param List[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -39,7 +39,7 @@ class GetDirectConnectGatewayAttachmentFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
@@ -50,11 +50,11 @@ class GetDirectConnectGatewayAttachmentFilterResult(dict):
 class GetPeeringAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
-        :param List[str] values: Set of values that are accepted for the given field.
+        :param Sequence[str] values: Set of values that are accepted for the given field.
                An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
@@ -71,7 +71,7 @@ class GetPeeringAttachmentFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given field.
         An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
@@ -83,10 +83,10 @@ class GetPeeringAttachmentFilterResult(dict):
 class GetRouteTableFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: Name of the filter.
-        :param List[str] values: List of one or more values for the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -101,7 +101,7 @@ class GetRouteTableFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of one or more values for the filter.
         """
@@ -112,10 +112,10 @@ class GetRouteTableFilterResult(dict):
 class GetTransitGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: Name of the filter.
-        :param List[str] values: List of one or more values for the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -130,7 +130,7 @@ class GetTransitGatewayFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of one or more values for the filter.
         """
@@ -141,10 +141,10 @@ class GetTransitGatewayFilterResult(dict):
 class GetVpcAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: Name of the filter.
-        :param List[str] values: List of one or more values for the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -159,7 +159,7 @@ class GetVpcAttachmentFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         List of one or more values for the filter.
         """
@@ -170,10 +170,10 @@ class GetVpcAttachmentFilterResult(dict):
 class GetVpnAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        :param List[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -188,7 +188,7 @@ class GetVpnAttachmentFilterResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """

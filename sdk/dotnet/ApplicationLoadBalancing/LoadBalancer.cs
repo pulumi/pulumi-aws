@@ -131,13 +131,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///             {
     ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///                 {
-    ///                     PrivateIpv4Address = "10.0.1.15",
     ///                     SubnetId = aws_subnet.Example1.Id,
+    ///                     PrivateIpv4Address = "10.0.1.15",
     ///                 },
     ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///                 {
-    ///                     PrivateIpv4Address = "10.0.2.15",
     ///                     SubnetId = aws_subnet.Example2.Id,
+    ///                     PrivateIpv4Address = "10.0.2.15",
     ///                 },
     ///             },
     ///         });

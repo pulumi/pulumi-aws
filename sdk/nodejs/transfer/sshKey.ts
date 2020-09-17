@@ -11,13 +11,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooServer = new aws.transfer.Server("fooServer", {
+ * const exampleServer = new aws.transfer.Server("exampleServer", {
  *     identityProviderType: "SERVICE_MANAGED",
  *     tags: {
  *         NAME: "tf-acc-test-transfer-server",
  *     },
  * });
- * const fooRole = new aws.iam.Role("fooRole", {assumeRolePolicy: `{
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -30,8 +30,21 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `});
- * const fooRolePolicy = new aws.iam.RolePolicy("fooRolePolicy", {
- *     role: fooRole.id,
+ * const exampleUser = new aws.transfer.User("exampleUser", {
+ *     serverId: exampleServer.id,
+ *     userName: "tftestuser",
+ *     role: exampleRole.arn,
+ *     tags: {
+ *         NAME: "tftestuser",
+ *     },
+ * });
+ * const exampleSshKey = new aws.transfer.SshKey("exampleSshKey", {
+ *     serverId: exampleServer.id,
+ *     userName: exampleUser.userName,
+ *     body: "... SSH key ...",
+ * });
+ * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
+ *     role: exampleRole.id,
  *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
@@ -46,19 +59,6 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
- * });
- * const fooUser = new aws.transfer.User("fooUser", {
- *     serverId: fooServer.id,
- *     userName: "tftestuser",
- *     role: fooRole.arn,
- *     tags: {
- *         NAME: "tftestuser",
- *     },
- * });
- * const fooSshKey = new aws.transfer.SshKey("fooSshKey", {
- *     serverId: fooServer.id,
- *     userName: fooUser.userName,
- *     body: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
  * });
  * ```
  */

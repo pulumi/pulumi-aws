@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccelerator = new aws.globalaccelerator.Accelerator("example", {
+ * const exampleAccelerator = new aws.globalaccelerator.Accelerator("exampleAccelerator", {
+ *     ipAddressType: "IPV4",
+ *     enabled: true,
  *     attributes: {
  *         flowLogsEnabled: true,
  *         flowLogsS3Bucket: "example-bucket",
  *         flowLogsS3Prefix: "flow-logs/",
  *     },
- *     enabled: true,
- *     ipAddressType: "IPV4",
  * });
- * const exampleListener = new aws.globalaccelerator.Listener("example", {
+ * const exampleListener = new aws.globalaccelerator.Listener("exampleListener", {
  *     acceleratorArn: exampleAccelerator.id,
  *     clientAffinity: "SOURCE_IP",
+ *     protocol: "TCP",
  *     portRanges: [{
  *         fromPort: 80,
  *         toPort: 80,
  *     }],
- *     protocol: "TCP",
  * });
  * ```
  */
