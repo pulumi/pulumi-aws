@@ -16,6 +16,7 @@ class ReplicationInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[int]] = None,
+                 allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -83,6 +84,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version upgrades are allowed.
         :param pulumi.Input[bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
@@ -115,6 +117,7 @@ class ReplicationInstance(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allocated_storage'] = allocated_storage
+            __props__['allow_major_version_upgrade'] = allow_major_version_upgrade
             __props__['apply_immediately'] = apply_immediately
             __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
             __props__['availability_zone'] = availability_zone
@@ -146,6 +149,7 @@ class ReplicationInstance(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allocated_storage: Optional[pulumi.Input[int]] = None,
+            allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
             apply_immediately: Optional[pulumi.Input[bool]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
@@ -170,6 +174,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version upgrades are allowed.
         :param pulumi.Input[bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
@@ -192,6 +197,7 @@ class ReplicationInstance(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["allocated_storage"] = allocated_storage
+        __props__["allow_major_version_upgrade"] = allow_major_version_upgrade
         __props__["apply_immediately"] = apply_immediately
         __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__["availability_zone"] = availability_zone
@@ -217,6 +223,14 @@ class ReplicationInstance(pulumi.CustomResource):
         The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         """
         return pulumi.get(self, "allocated_storage")
+
+    @property
+    @pulumi.getter(name="allowMajorVersionUpgrade")
+    def allow_major_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates that major version upgrades are allowed.
+        """
+        return pulumi.get(self, "allow_major_version_upgrade")
 
     @property
     @pulumi.getter(name="applyImmediately")

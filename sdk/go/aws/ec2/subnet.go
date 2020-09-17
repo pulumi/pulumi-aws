@@ -91,7 +91,7 @@ type Subnet struct {
 	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
-	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId pulumi.StringOutput `pulumi:"ipv6CidrBlockAssociationId"`
 	// Specify true to indicate

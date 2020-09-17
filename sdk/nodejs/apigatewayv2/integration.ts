@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     code: new pulumi.asset.FileArchive("example.zip"),
  *     role: aws_iam_role.example.arn,
  *     handler: "index.handler",
- *     runtime: "nodejs10.x",
+ *     runtime: "nodejs12.x",
  * });
  * const exampleIntegration = new aws.apigatewayv2.Integration("exampleIntegration", {
  *     apiId: aws_apigatewayv2_api.example.id,

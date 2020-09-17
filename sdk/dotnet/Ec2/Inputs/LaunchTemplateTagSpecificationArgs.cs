@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class LaunchTemplateTagSpecificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of resource to tag. Valid values are `instance` and `volume`.
+        /// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }

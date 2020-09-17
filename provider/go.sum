@@ -166,6 +166,8 @@ github.com/aws/aws-sdk-go v1.32.12 h1:l/djCeLI4ggBFWLlYUGTqkHraoLnVMubNlLXPdEtoY
 github.com/aws/aws-sdk-go v1.32.12/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
 github.com/aws/aws-sdk-go v1.33.21 h1:ziUemjajvLABlnJFe+8sM3fpqlg/DNA4944rUZ05PhY=
 github.com/aws/aws-sdk-go v1.33.21/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
+github.com/aws/aws-sdk-go v1.34.4 h1:Yx49/+ZMCD9YqIVsO3CsiMs4hnUnokd9otKvWYFjnYw=
+github.com/aws/aws-sdk-go v1.34.4/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
 github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f/go.mod h1:AuiFmCCPBSrqvVMvuqFuk0qogytodnVFVSN5CeJB8Gc=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
@@ -177,6 +179,7 @@ github.com/bflad/tfproviderdocs v0.7.0/go.mod h1:W6wVZPtBa6V5bpjaK1eJAoVCL/7B4Am
 github.com/bflad/tfproviderlint v0.14.0/go.mod h1:1Jtjs6DPKoyqPrbPyMiy33h0ViO2h831uzoOuikCA60=
 github.com/bflad/tfproviderlint v0.15.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
 github.com/bflad/tfproviderlint v0.17.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
+github.com/bflad/tfproviderlint v0.18.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d h1:xDfNPAt8lFiC1UJrqV3uuy861HCTo708pDMbjHHdCas=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d/go.mod h1:6QX/PXZ00z/TKoufEY6K/a0k6AhaJrQKdFe6OfVXsa4=
 github.com/bgentry/speakeasy v0.1.0 h1:ByYyxL9InA1OWqxJqqp2A5pYHUrCiAL6K3J+LKSsQkY=
@@ -464,6 +467,8 @@ github.com/hashicorp/aws-sdk-go-base v0.4.0 h1:zH9hNUdsS+2G0zJaU85ul8D59BGnZBaKM
 github.com/hashicorp/aws-sdk-go-base v0.4.0/go.mod h1:eRhlz3c4nhqxFZJAahJEFL7gh6Jyj5rQmQc7F9eHFyQ=
 github.com/hashicorp/aws-sdk-go-base v0.5.0 h1:fk7ID0v3PWL/KNL8FvkBPu8Sm93EPUCCmtZCiTXLySE=
 github.com/hashicorp/aws-sdk-go-base v0.5.0/go.mod h1:2fRjWDv3jJBeN6mVWFHV6hFTNeFBx2gpDLQaZNxUVAY=
+github.com/hashicorp/aws-sdk-go-base v0.6.0 h1:qmUbzM36msbBF59YctwuO5w0M2oNXjlilgKpnEhx1uw=
+github.com/hashicorp/aws-sdk-go-base v0.6.0/go.mod h1:2fRjWDv3jJBeN6mVWFHV6hFTNeFBx2gpDLQaZNxUVAY=
 github.com/hashicorp/consul/api v1.0.1/go.mod h1:LQlewHPiuaRhn1mP2XE4RrjnlRgOeWa/ZM0xWLCen2M=
 github.com/hashicorp/consul/api v1.1.0/go.mod h1:VmuI/Lkw1nC05EYQWNKwWGbkg+FbDBtguAZLlVdkD9Q=
 github.com/hashicorp/consul/sdk v0.1.0/go.mod h1:VKf9jXwCTEY1QZP2MOLRhb5i/I/ssyNV1vwHyQBF0x8=
@@ -945,6 +950,10 @@ github.com/pulumi/terraform-provider-aws v1.38.1-0.20200811114406-442cad19496b h
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200811114406-442cad19496b/go.mod h1:6maj14kbPlYXJM9jjerOLaPXOUxLDML5i0YGqXj5X4A=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200814102553-13169b427d8d h1:8KKW2mtg0/AcXY+ikfX+l6flPI1SDXp0SINKWluUhaw=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200814102553-13169b427d8d/go.mod h1:FOGh5NzGokvhJGfejk6B3ZXMaVaaFZy7NxerPYCRzfs=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200917113916-7b319fbb69da h1:XRU0jfWKwTSElEkmyNnufF1lbSAcUooRUdHPcSdAoQg=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200917113916-7b319fbb69da/go.mod h1:ttheJZ00I3Onq1r/HdjZHDV4B3mwOgytFgC28efE5fA=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200917202236-5a95535ebcfa h1:MtHW6OYj0BuqnQC1ZOpd4hFZM7lvYbdM4XJ50hl1Ht4=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200917202236-5a95535ebcfa/go.mod h1:ttheJZ00I3Onq1r/HdjZHDV4B3mwOgytFgC28efE5fA=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a h1:CUbap8oEhlXRiqVBcAGiW63iXuDY7iIwQLM4r7y8lw8=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200630203740-1846524be4ec h1:C0l29EHsfhH+reeRSmqr0sIzJipQpXssof3YZurRrVo=

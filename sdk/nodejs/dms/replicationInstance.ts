@@ -91,6 +91,10 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     public readonly allocatedStorage!: pulumi.Output<number>;
     /**
+     * Indicates that major version upgrades are allowed.
+     */
+    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
     public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
@@ -168,6 +172,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ReplicationInstanceState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
+            inputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
@@ -193,6 +198,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'replicationInstanceId'");
             }
             inputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
+            inputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -229,6 +235,10 @@ export interface ReplicationInstanceState {
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
+    /**
+     * Indicates that major version upgrades are allowed.
+     */
+    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
@@ -303,6 +313,10 @@ export interface ReplicationInstanceArgs {
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
+    /**
+     * Indicates that major version upgrades are allowed.
+     */
+    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */

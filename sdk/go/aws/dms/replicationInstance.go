@@ -116,6 +116,8 @@ type ReplicationInstance struct {
 
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowMajorVersionUpgrade"`
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -186,6 +188,8 @@ func GetReplicationInstance(ctx *pulumi.Context,
 type replicationInstanceState struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -223,6 +227,8 @@ type replicationInstanceState struct {
 type ReplicationInstanceState struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage pulumi.IntPtrInput
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade pulumi.BoolPtrInput
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately pulumi.BoolPtrInput
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -264,6 +270,8 @@ func (ReplicationInstanceState) ElementType() reflect.Type {
 type replicationInstanceArgs struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
@@ -296,6 +304,8 @@ type replicationInstanceArgs struct {
 type ReplicationInstanceArgs struct {
 	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage pulumi.IntPtrInput
+	// Indicates that major version upgrades are allowed.
+	AllowMajorVersionUpgrade pulumi.BoolPtrInput
 	// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
 	ApplyImmediately pulumi.BoolPtrInput
 	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Lambda
     ///             Code = new FileArchive("lambdatest.zip"),
     ///             Role = iamForLambda.Arn,
     ///             Handler = "exports.handler",
-    ///             Runtime = "nodejs8.10",
+    ///             Runtime = "nodejs12.x",
     ///         });
     ///         var testAlias = new Aws.Lambda.Alias("testAlias", new Aws.Lambda.AliasArgs
     ///         {

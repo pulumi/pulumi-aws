@@ -72,6 +72,8 @@ type SmbFileShare struct {
 
 	// Amazon Resource Name (ARN) of the SMB File Share.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrOutput `pulumi:"authentication"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -100,6 +102,8 @@ type SmbFileShare struct {
 	RequesterPays pulumi.BoolPtrOutput `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+	SmbAclEnabled pulumi.BoolPtrOutput `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
@@ -145,6 +149,8 @@ func GetSmbFileShare(ctx *pulumi.Context,
 type smbFileShareState struct {
 	// Amazon Resource Name (ARN) of the SMB File Share.
 	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication *string `pulumi:"authentication"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -173,6 +179,8 @@ type smbFileShareState struct {
 	RequesterPays *bool `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn *string `pulumi:"roleArn"`
+	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+	SmbAclEnabled *bool `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
@@ -182,6 +190,8 @@ type smbFileShareState struct {
 type SmbFileShareState struct {
 	// Amazon Resource Name (ARN) of the SMB File Share.
 	Arn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrInput
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -210,6 +220,8 @@ type SmbFileShareState struct {
 	RequesterPays pulumi.BoolPtrInput
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn pulumi.StringPtrInput
+	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+	SmbAclEnabled pulumi.BoolPtrInput
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
@@ -221,6 +233,8 @@ func (SmbFileShareState) ElementType() reflect.Type {
 }
 
 type smbFileShareArgs struct {
+	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication *string `pulumi:"authentication"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -245,6 +259,8 @@ type smbFileShareArgs struct {
 	RequesterPays *bool `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn string `pulumi:"roleArn"`
+	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+	SmbAclEnabled *bool `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
@@ -253,6 +269,8 @@ type smbFileShareArgs struct {
 
 // The set of arguments for constructing a SmbFileShare resource.
 type SmbFileShareArgs struct {
+	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrInput
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -277,6 +295,8 @@ type SmbFileShareArgs struct {
 	RequesterPays pulumi.BoolPtrInput
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn pulumi.StringInput
+	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+	SmbAclEnabled pulumi.BoolPtrInput
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.

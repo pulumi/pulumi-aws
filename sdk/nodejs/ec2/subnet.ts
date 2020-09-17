@@ -97,7 +97,7 @@ export class Subnet extends pulumi.CustomResource {
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
      */

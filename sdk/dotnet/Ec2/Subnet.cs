@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Ec2
         /// in CIDR notation. The subnet size must use a /64 prefix length.
         /// </summary>
         [Output("ipv6CidrBlock")]
-        public Output<string> Ipv6CidrBlock { get; private set; } = null!;
+        public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// The association ID for the IPv6 CIDR block.

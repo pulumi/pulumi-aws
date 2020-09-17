@@ -137,11 +137,21 @@ class Trail(pulumi.CustomResource):
             read_write_type="All",
         )])
         ```
+        ### Sending Events to CloudWatch Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_trail = aws.cloudtrail.Trail("exampleTrail", cloud_watch_logs_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"))
+        # CloudTrail requires the Log Stream wildcard
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_watch_logs_group_arn: Specifies a log group name using an Amazon Resource Name (ARN),
-               that represents the log group to which CloudTrail logs will be delivered.
+               that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[str] cloud_watch_logs_role_arn: Specifies the role for the CloudWatch Logs
                endpoint to assume to write to a user’s log group.
         :param pulumi.Input[bool] enable_log_file_validation: Specifies whether log file integrity validation is enabled.
@@ -233,7 +243,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the trail.
         :param pulumi.Input[str] cloud_watch_logs_group_arn: Specifies a log group name using an Amazon Resource Name (ARN),
-               that represents the log group to which CloudTrail logs will be delivered.
+               that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[str] cloud_watch_logs_role_arn: Specifies the role for the CloudWatch Logs
                endpoint to assume to write to a user’s log group.
         :param pulumi.Input[bool] enable_log_file_validation: Specifies whether log file integrity validation is enabled.
@@ -291,7 +301,7 @@ class Trail(pulumi.CustomResource):
     def cloud_watch_logs_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies a log group name using an Amazon Resource Name (ARN),
-        that represents the log group to which CloudTrail logs will be delivered.
+        that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         """
         return pulumi.get(self, "cloud_watch_logs_group_arn")
 

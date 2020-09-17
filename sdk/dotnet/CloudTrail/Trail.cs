@@ -189,6 +189,28 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// }
     /// ```
+    /// ### Sending Events to CloudWatch Logs
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///         });
+    ///         var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new Aws.CloudTrail.TrailArgs
+    ///         {
+    ///             CloudWatchLogsGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///         });
+    ///         // CloudTrail requires the Log Stream wildcard
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Trail : Pulumi.CustomResource
     {
@@ -200,7 +222,7 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Specifies a log group name using an Amazon Resource Name (ARN),
-        /// that represents the log group to which CloudTrail logs will be delivered.
+        /// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         /// </summary>
         [Output("cloudWatchLogsGroupArn")]
         public Output<string?> CloudWatchLogsGroupArn { get; private set; } = null!;
@@ -344,7 +366,7 @@ namespace Pulumi.Aws.CloudTrail
     {
         /// <summary>
         /// Specifies a log group name using an Amazon Resource Name (ARN),
-        /// that represents the log group to which CloudTrail logs will be delivered.
+        /// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         /// </summary>
         [Input("cloudWatchLogsGroupArn")]
         public Input<string>? CloudWatchLogsGroupArn { get; set; }
@@ -461,7 +483,7 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Specifies a log group name using an Amazon Resource Name (ARN),
-        /// that represents the log group to which CloudTrail logs will be delivered.
+        /// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         /// </summary>
         [Input("cloudWatchLogsGroupArn")]
         public Input<string>? CloudWatchLogsGroupArn { get; set; }

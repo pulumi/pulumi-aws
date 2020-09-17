@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Dms
         public Output<int> AllocatedStorage { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates that major version upgrades are allowed.
+        /// </summary>
+        [Output("allowMajorVersionUpgrade")]
+        public Output<bool?> AllowMajorVersionUpgrade { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         /// </summary>
         [Output("applyImmediately")]
@@ -259,6 +265,12 @@ namespace Pulumi.Aws.Dms
         public Input<int>? AllocatedStorage { get; set; }
 
         /// <summary>
+        /// Indicates that major version upgrades are allowed.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
+
+        /// <summary>
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         /// </summary>
         [Input("applyImmediately")]
@@ -360,6 +372,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
+
+        /// <summary>
+        /// Indicates that major version upgrades are allowed.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.

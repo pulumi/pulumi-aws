@@ -17,6 +17,7 @@ __all__ = [
     'ClusterIdentityOidc',
     'ClusterVpcConfig',
     'FargateProfileSelector',
+    'NodeGroupLaunchTemplate',
     'NodeGroupRemoteAccess',
     'NodeGroupResource',
     'NodeGroupResourceAutoscalingGroup',
@@ -273,6 +274,47 @@ class FargateProfileSelector(dict):
 
 
 @pulumi.output_type
+class NodeGroupLaunchTemplate(dict):
+    def __init__(__self__, *,
+                 version: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str id: Identifier of the EC2 Launch Template. Conflicts with `name`.
+        :param str name: Name of the EC2 Launch Template. Conflicts with `id`.
+        """
+        pulumi.set(__self__, "version", version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Identifier of the EC2 Launch Template. Conflicts with `name`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the EC2 Launch Template. Conflicts with `id`.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class NodeGroupRemoteAccess(dict):
     def __init__(__self__, *,
                  ec2_ssh_key: Optional[str] = None,
@@ -345,7 +387,7 @@ class NodeGroupResourceAutoscalingGroup(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
-        :param str name: Name of the AutoScaling Group.
+        :param str name: Name of the EC2 Launch Template. Conflicts with `id`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -354,7 +396,7 @@ class NodeGroupResourceAutoscalingGroup(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the AutoScaling Group.
+        Name of the EC2 Launch Template. Conflicts with `id`.
         """
         return pulumi.get(self, "name")
 
