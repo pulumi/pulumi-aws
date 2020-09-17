@@ -7422,7 +7422,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateTagSpecification {
         /**
-         * The type of resource to tag. Valid values are `instance` and `volume`.
+         * The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
          */
         resourceType?: string;
         /**
@@ -8725,6 +8725,18 @@ export namespace eks {
         vpcId: string;
     }
 
+    export interface NodeGroupLaunchTemplate {
+        /**
+         * Identifier of the EC2 Launch Template. Conflicts with `name`.
+         */
+        id: string;
+        /**
+         * Name of the EC2 Launch Template. Conflicts with `id`.
+         */
+        name: string;
+        version: string;
+    }
+
     export interface NodeGroupRemoteAccess {
         /**
          * EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
@@ -8749,7 +8761,7 @@ export namespace eks {
 
     export interface NodeGroupResourceAutoscalingGroup {
         /**
-         * Name of the AutoScaling Group.
+         * Name of the EC2 Launch Template. Conflicts with `id`.
          */
         name: string;
     }
@@ -17162,6 +17174,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -17606,6 +17633,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementIpSetReferenceStatement {
@@ -17748,6 +17790,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -18230,6 +18287,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -19014,6 +19086,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementIpSetReferenceStatement {
@@ -19206,6 +19293,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -19650,6 +19752,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement {
@@ -19792,6 +19909,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -20274,6 +20406,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -21146,6 +21293,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -21590,6 +21752,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatement {
@@ -21732,6 +21909,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -22214,6 +22406,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -23292,31 +23499,31 @@ export namespace wafv2 {
 
     export interface WebAclLoggingConfigurationRedactedField {
         /**
-         * Inspect all query arguments.
+         * Redact all query arguments.
          */
         allQueryArguments?: outputs.wafv2.WebAclLoggingConfigurationRedactedFieldAllQueryArguments;
         /**
-         * Inspect the request body, which immediately follows the request headers.
+         * Redact the request body, which immediately follows the request headers.
          */
         body?: outputs.wafv2.WebAclLoggingConfigurationRedactedFieldBody;
         /**
-         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         * Redact the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
          */
         method?: outputs.wafv2.WebAclLoggingConfigurationRedactedFieldMethod;
         /**
-         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         * Redact the query string. This is the part of a URL that appears after a `?` character, if any.
          */
         queryString?: outputs.wafv2.WebAclLoggingConfigurationRedactedFieldQueryString;
         /**
-         * Inspect a single header. See Single Header below for details.
+         * Redact a single header. See Single Header below for details.
          */
         singleHeader?: outputs.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeader;
         /**
-         * Inspect a single query argument. See Single Query Argument below for details.
+         * Redact a single query argument. See Single Query Argument below for details.
          */
         singleQueryArgument?: outputs.wafv2.WebAclLoggingConfigurationRedactedFieldSingleQueryArgument;
         /**
-         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * Redact the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
          */
         uriPath?: outputs.wafv2.WebAclLoggingConfigurationRedactedFieldUriPath;
     }
@@ -23335,14 +23542,14 @@ export namespace wafv2 {
 
     export interface WebAclLoggingConfigurationRedactedFieldSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query header to redact. This setting must be provided as lower case characters.
          */
         name: string;
     }
 
     export interface WebAclLoggingConfigurationRedactedFieldSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query header to redact. This setting must be provided as lower case characters.
          */
         name: string;
     }
@@ -23706,6 +23913,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -24150,6 +24372,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -24292,6 +24529,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -24774,6 +25026,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -25558,6 +25825,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementIpSetReferenceStatement {
@@ -25750,6 +26032,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -26194,6 +26491,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -26336,6 +26648,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -26818,6 +27145,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -27690,6 +28032,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -28134,6 +28491,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -28276,6 +28648,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -28758,6 +29145,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -29882,6 +30284,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementIpSetReferenceStatement {
@@ -30146,6 +30563,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -30590,6 +31022,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -30732,6 +31179,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -31214,6 +31676,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -31998,6 +32475,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementIpSetReferenceStatement {
@@ -32190,6 +32682,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -32634,6 +33141,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -32776,6 +33298,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -33258,6 +33795,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -34130,6 +34682,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -34574,6 +35141,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -34716,6 +35298,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -35198,6 +35795,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -36460,6 +37072,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -36904,6 +37531,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -37046,6 +37688,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -37528,6 +38185,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -38312,6 +38984,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementIpSetReferenceStatement {
@@ -38504,6 +39191,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -38948,6 +39650,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -39090,6 +39807,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -39572,6 +40304,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -40444,6 +41191,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -40888,6 +41650,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -41030,6 +41807,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -41512,6 +42304,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -42543,9 +43350,13 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatement {
         /**
-         * Setting that indicates how to aggregate the request counts. Currently the only supported value is `IP` which is set as the default.
+         * Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
          */
         aggregateKeyType?: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementForwardedIpConfig;
         /**
          * The limit on requests per 5-minute period for a single originating IP address.
          */
@@ -42554,6 +43365,17 @@ export namespace wafv2 {
          * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
          */
         scopeDownStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatement {
@@ -42782,6 +43604,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -43226,6 +44063,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementIpSetReferenceStatement {
@@ -43368,6 +44220,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -43850,6 +44717,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -44634,6 +45516,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement {
@@ -44826,6 +45723,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -45270,6 +46182,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementIpSetReferenceStatement {
@@ -45412,6 +46339,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -45894,6 +46836,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement {
@@ -46766,6 +47723,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement {
@@ -47210,6 +48182,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementIpSetReferenceStatement {
@@ -47352,6 +48339,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement {
@@ -47834,6 +48836,21 @@ export namespace wafv2 {
          * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement {

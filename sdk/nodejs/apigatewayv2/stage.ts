@@ -83,10 +83,9 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+     * The ARN prefix to be used in an `aws.lambda.Permission` `sourceArn` attribute.
+     * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-     * Set only for WebSocket APIs.
      */
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
@@ -207,10 +206,9 @@ export interface StageState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+     * The ARN prefix to be used in an `aws.lambda.Permission` `sourceArn` attribute.
+     * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-     * Set only for WebSocket APIs.
      */
     readonly executionArn?: pulumi.Input<string>;
     /**

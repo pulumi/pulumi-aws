@@ -73,6 +73,8 @@ type Api struct {
 	ApiKeySelectionExpression pulumi.StringPtrOutput `pulumi:"apiKeySelectionExpression"`
 	// The ARN of the API.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+	Body pulumi.StringPtrOutput `pulumi:"body"`
 	// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
 	CorsConfiguration ApiCorsConfigurationPtrOutput `pulumi:"corsConfiguration"`
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
@@ -141,6 +143,8 @@ type apiState struct {
 	ApiKeySelectionExpression *string `pulumi:"apiKeySelectionExpression"`
 	// The ARN of the API.
 	Arn *string `pulumi:"arn"`
+	// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+	Body *string `pulumi:"body"`
 	// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
 	CorsConfiguration *ApiCorsConfiguration `pulumi:"corsConfiguration"`
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
@@ -179,6 +183,8 @@ type ApiState struct {
 	ApiKeySelectionExpression pulumi.StringPtrInput
 	// The ARN of the API.
 	Arn pulumi.StringPtrInput
+	// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+	Body pulumi.StringPtrInput
 	// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
 	CorsConfiguration ApiCorsConfigurationPtrInput
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
@@ -217,6 +223,8 @@ type apiArgs struct {
 	// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
 	// Applicable for WebSocket APIs.
 	ApiKeySelectionExpression *string `pulumi:"apiKeySelectionExpression"`
+	// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+	Body *string `pulumi:"body"`
 	// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
 	CorsConfiguration *ApiCorsConfiguration `pulumi:"corsConfiguration"`
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
@@ -248,6 +256,8 @@ type ApiArgs struct {
 	// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
 	// Applicable for WebSocket APIs.
 	ApiKeySelectionExpression pulumi.StringPtrInput
+	// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+	Body pulumi.StringPtrInput
 	// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
 	CorsConfiguration ApiCorsConfigurationPtrInput
 	// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.

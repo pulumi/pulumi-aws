@@ -135,10 +135,9 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']] default_route_settings: The default route settings for the stage.
         :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
         :param pulumi.Input[str] description: The description for the stage.
-        :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
-               or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+        :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an `lambda.Permission` `source_arn` attribute.
+               For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-               Set only for WebSocket APIs.
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
                e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         :param pulumi.Input[str] name: The name of the stage.
@@ -236,10 +235,9 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> pulumi.Output[str]:
         """
-        The ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
-        or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+        The ARN prefix to be used in an `lambda.Permission` `source_arn` attribute.
+        For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-        Set only for WebSocket APIs.
         """
         return pulumi.get(self, "execution_arn")
 

@@ -967,6 +967,171 @@ func (o FargateProfileSelectorArrayOutput) Index(i pulumi.IntInput) FargateProfi
 	}).(FargateProfileSelectorOutput)
 }
 
+type NodeGroupLaunchTemplate struct {
+	// Identifier of the EC2 Launch Template. Conflicts with `name`.
+	Id *string `pulumi:"id"`
+	// Name of the EC2 Launch Template. Conflicts with `id`.
+	Name    *string `pulumi:"name"`
+	Version string  `pulumi:"version"`
+}
+
+// NodeGroupLaunchTemplateInput is an input type that accepts NodeGroupLaunchTemplateArgs and NodeGroupLaunchTemplateOutput values.
+// You can construct a concrete instance of `NodeGroupLaunchTemplateInput` via:
+//
+//          NodeGroupLaunchTemplateArgs{...}
+type NodeGroupLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToNodeGroupLaunchTemplateOutput() NodeGroupLaunchTemplateOutput
+	ToNodeGroupLaunchTemplateOutputWithContext(context.Context) NodeGroupLaunchTemplateOutput
+}
+
+type NodeGroupLaunchTemplateArgs struct {
+	// Identifier of the EC2 Launch Template. Conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the EC2 Launch Template. Conflicts with `id`.
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Version pulumi.StringInput    `pulumi:"version"`
+}
+
+func (NodeGroupLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i NodeGroupLaunchTemplateArgs) ToNodeGroupLaunchTemplateOutput() NodeGroupLaunchTemplateOutput {
+	return i.ToNodeGroupLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i NodeGroupLaunchTemplateArgs) ToNodeGroupLaunchTemplateOutputWithContext(ctx context.Context) NodeGroupLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupLaunchTemplateOutput)
+}
+
+func (i NodeGroupLaunchTemplateArgs) ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput {
+	return i.ToNodeGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i NodeGroupLaunchTemplateArgs) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupLaunchTemplateOutput).ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// NodeGroupLaunchTemplatePtrInput is an input type that accepts NodeGroupLaunchTemplateArgs, NodeGroupLaunchTemplatePtr and NodeGroupLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `NodeGroupLaunchTemplatePtrInput` via:
+//
+//          NodeGroupLaunchTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type NodeGroupLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput
+	ToNodeGroupLaunchTemplatePtrOutputWithContext(context.Context) NodeGroupLaunchTemplatePtrOutput
+}
+
+type nodeGroupLaunchTemplatePtrType NodeGroupLaunchTemplateArgs
+
+func NodeGroupLaunchTemplatePtr(v *NodeGroupLaunchTemplateArgs) NodeGroupLaunchTemplatePtrInput {
+	return (*nodeGroupLaunchTemplatePtrType)(v)
+}
+
+func (*nodeGroupLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i *nodeGroupLaunchTemplatePtrType) ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput {
+	return i.ToNodeGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *nodeGroupLaunchTemplatePtrType) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupLaunchTemplatePtrOutput)
+}
+
+type NodeGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplateOutput() NodeGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplateOutputWithContext(ctx context.Context) NodeGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput {
+	return o.ToNodeGroupLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v NodeGroupLaunchTemplate) *NodeGroupLaunchTemplate {
+		return &v
+	}).(NodeGroupLaunchTemplatePtrOutput)
+}
+
+// Identifier of the EC2 Launch Template. Conflicts with `name`.
+func (o NodeGroupLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeGroupLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the EC2 Launch Template. Conflicts with `id`.
+func (o NodeGroupLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeGroupLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o NodeGroupLaunchTemplateOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeGroupLaunchTemplate) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type NodeGroupLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o NodeGroupLaunchTemplatePtrOutput) ToNodeGroupLaunchTemplatePtrOutput() NodeGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o NodeGroupLaunchTemplatePtrOutput) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o NodeGroupLaunchTemplatePtrOutput) Elem() NodeGroupLaunchTemplateOutput {
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) NodeGroupLaunchTemplate { return *v }).(NodeGroupLaunchTemplateOutput)
+}
+
+// Identifier of the EC2 Launch Template. Conflicts with `name`.
+func (o NodeGroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the EC2 Launch Template. Conflicts with `id`.
+func (o NodeGroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NodeGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type NodeGroupRemoteAccess struct {
 	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
 	Ec2SshKey *string `pulumi:"ec2SshKey"`
@@ -1224,7 +1389,7 @@ func (o NodeGroupResourceArrayOutput) Index(i pulumi.IntInput) NodeGroupResource
 }
 
 type NodeGroupResourceAutoscalingGroup struct {
-	// Name of the AutoScaling Group.
+	// Name of the EC2 Launch Template. Conflicts with `id`.
 	Name *string `pulumi:"name"`
 }
 
@@ -1240,7 +1405,7 @@ type NodeGroupResourceAutoscalingGroupInput interface {
 }
 
 type NodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the AutoScaling Group.
+	// Name of the EC2 Launch Template. Conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1295,7 +1460,7 @@ func (o NodeGroupResourceAutoscalingGroupOutput) ToNodeGroupResourceAutoscalingG
 	return o
 }
 
-// Name of the AutoScaling Group.
+// Name of the EC2 Launch Template. Conflicts with `id`.
 func (o NodeGroupResourceAutoscalingGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupResourceAutoscalingGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1856,6 +2021,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorArrayOutput{})
+	pulumi.RegisterOutputType(NodeGroupLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(NodeGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupResourceOutput{})

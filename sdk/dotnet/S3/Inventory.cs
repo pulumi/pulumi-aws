@@ -96,7 +96,7 @@ namespace Pulumi.Aws.S3
     public partial class Inventory : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket where the inventory configuration will be stored.
+        /// The name of the source bucket that inventory lists the objects for.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket where the inventory configuration will be stored.
+        /// The name of the source bucket that inventory lists the objects for.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket where the inventory configuration will be stored.
+        /// The name of the source bucket that inventory lists the objects for.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

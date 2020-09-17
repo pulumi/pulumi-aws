@@ -77,6 +77,10 @@ export class Api extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+     */
+    public readonly body!: pulumi.Output<string | undefined>;
+    /**
      * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
     public readonly corsConfiguration!: pulumi.Output<outputs.apigatewayv2.ApiCorsConfiguration | undefined>;
@@ -141,6 +145,7 @@ export class Api extends pulumi.CustomResource {
             inputs["apiEndpoint"] = state ? state.apiEndpoint : undefined;
             inputs["apiKeySelectionExpression"] = state ? state.apiKeySelectionExpression : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["body"] = state ? state.body : undefined;
             inputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
             inputs["credentialsArn"] = state ? state.credentialsArn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -158,6 +163,7 @@ export class Api extends pulumi.CustomResource {
                 throw new Error("Missing required property 'protocolType'");
             }
             inputs["apiKeySelectionExpression"] = args ? args.apiKeySelectionExpression : undefined;
+            inputs["body"] = args ? args.body : undefined;
             inputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
             inputs["credentialsArn"] = args ? args.credentialsArn : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -201,6 +207,10 @@ export interface ApiState {
      * The ARN of the API.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+     */
+    readonly body?: pulumi.Input<string>;
     /**
      * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
@@ -262,6 +272,10 @@ export interface ApiArgs {
      * Applicable for WebSocket APIs.
      */
     readonly apiKeySelectionExpression?: pulumi.Input<string>;
+    /**
+     * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+     */
+    readonly body?: pulumi.Input<string>;
     /**
      * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */

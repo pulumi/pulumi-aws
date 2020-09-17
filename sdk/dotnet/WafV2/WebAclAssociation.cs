@@ -12,6 +12,11 @@ namespace Pulumi.Aws.WafV2
     /// <summary>
     /// Creates a WAFv2 Web ACL Association.
     /// 
+    /// &gt; **NOTE on associating a WAFv2 Web ACL with a Cloudfront distribution:** Do not use this resource to associate a WAFv2 Web ACL with a Cloudfront Distribution. The [AWS API call backing this resource](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html) notes that you should use the [`web_acl_id`][2] property on the [`cloudfront_distribution`][2] instead.
+    /// 
+    /// [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
+    /// [2]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html#web_acl_id
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

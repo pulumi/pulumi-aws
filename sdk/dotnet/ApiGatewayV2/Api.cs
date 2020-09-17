@@ -76,6 +76,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+        /// </summary>
+        [Output("body")]
+        public Output<string?> Body { get; private set; } = null!;
+
+        /// <summary>
         /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         /// </summary>
         [Output("corsConfiguration")]
@@ -201,6 +207,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiKeySelectionExpression { get; set; }
 
         /// <summary>
+        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+        /// </summary>
+        [Input("body")]
+        public Input<string>? Body { get; set; }
+
+        /// <summary>
         /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         /// </summary>
         [Input("corsConfiguration")]
@@ -295,6 +307,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+        /// </summary>
+        [Input("body")]
+        public Input<string>? Body { get; set; }
 
         /// <summary>
         /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.

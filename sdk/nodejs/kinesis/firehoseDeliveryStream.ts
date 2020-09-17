@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
  *     role: lambdaIam.arn,
  *     handler: "exports.handler",
- *     runtime: "nodejs8.10",
+ *     runtime: "nodejs12.x",
  * });
  * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extendedS3Stream", {
  *     destination: "extended_s3",

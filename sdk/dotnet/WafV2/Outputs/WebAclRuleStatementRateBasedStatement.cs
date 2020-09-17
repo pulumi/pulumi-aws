@@ -14,9 +14,13 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatement
     {
         /// <summary>
-        /// Setting that indicates how to aggregate the request counts. Currently the only supported value is `IP` which is set as the default.
+        /// Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
         /// </summary>
         public readonly string? AggregateKeyType;
+        /// <summary>
+        /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig? ForwardedIpConfig;
         /// <summary>
         /// The limit on requests per 5-minute period for a single originating IP address.
         /// </summary>
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         private WebAclRuleStatementRateBasedStatement(
             string? aggregateKeyType,
 
+            Outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig? forwardedIpConfig,
+
             int limit,
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement? scopeDownStatement)
         {
             AggregateKeyType = aggregateKeyType;
+            ForwardedIpConfig = forwardedIpConfig;
             Limit = limit;
             ScopeDownStatement = scopeDownStatement;
         }

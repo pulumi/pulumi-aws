@@ -104,7 +104,7 @@ export class NodeGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
      */
     public readonly amiType!: pulumi.Output<string>;
     /**
@@ -131,6 +131,10 @@ export class NodeGroup extends pulumi.CustomResource {
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Configuration block with Launch Template settings. Detailed below.
+     */
+    public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
     /**
      * Name of the EKS Node Group.
      */
@@ -167,9 +171,6 @@ export class NodeGroup extends pulumi.CustomResource {
      * Key-value mapping of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
-     */
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -191,6 +192,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["forceUpdateVersion"] = state ? state.forceUpdateVersion : undefined;
             inputs["instanceTypes"] = state ? state.instanceTypes : undefined;
             inputs["labels"] = state ? state.labels : undefined;
+            inputs["launchTemplate"] = state ? state.launchTemplate : undefined;
             inputs["nodeGroupName"] = state ? state.nodeGroupName : undefined;
             inputs["nodeRoleArn"] = state ? state.nodeRoleArn : undefined;
             inputs["releaseVersion"] = state ? state.releaseVersion : undefined;
@@ -221,6 +223,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
             inputs["instanceTypes"] = args ? args.instanceTypes : undefined;
             inputs["labels"] = args ? args.labels : undefined;
+            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             inputs["nodeGroupName"] = args ? args.nodeGroupName : undefined;
             inputs["nodeRoleArn"] = args ? args.nodeRoleArn : undefined;
             inputs["releaseVersion"] = args ? args.releaseVersion : undefined;
@@ -249,7 +252,7 @@ export class NodeGroup extends pulumi.CustomResource {
  */
 export interface NodeGroupState {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
      */
     readonly amiType?: pulumi.Input<string>;
     /**
@@ -276,6 +279,10 @@ export interface NodeGroupState {
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     readonly labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block with Launch Template settings. Detailed below.
+     */
+    readonly launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
      * Name of the EKS Node Group.
      */
@@ -312,9 +319,6 @@ export interface NodeGroupState {
      * Key-value mapping of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
-     */
     readonly version?: pulumi.Input<string>;
 }
 
@@ -323,7 +327,7 @@ export interface NodeGroupState {
  */
 export interface NodeGroupArgs {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.
      */
     readonly amiType?: pulumi.Input<string>;
     /**
@@ -346,6 +350,10 @@ export interface NodeGroupArgs {
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     readonly labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block with Launch Template settings. Detailed below.
+     */
+    readonly launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
      * Name of the EKS Node Group.
      */
@@ -374,8 +382,5 @@ export interface NodeGroupArgs {
      * Key-value mapping of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
-     */
     readonly version?: pulumi.Input<string>;
 }

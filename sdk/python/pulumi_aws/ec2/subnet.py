@@ -222,7 +222,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> pulumi.Output[str]:
+    def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv6 network range for the subnet,
         in CIDR notation. The subnet size must use a /64 prefix length.

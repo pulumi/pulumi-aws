@@ -69,6 +69,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        /// </summary>
+        [Output("auditDestinationArn")]
+        public Output<string?> AuditDestinationArn { get; private set; } = null!;
+
+        /// <summary>
         /// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         /// </summary>
         [Output("authentication")]
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+        /// </summary>
+        [Output("smbAclEnabled")]
+        public Output<bool?> SmbAclEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
@@ -210,6 +222,12 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class SmbFileShareArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        /// </summary>
+        [Input("auditDestinationArn")]
+        public Input<string>? AuditDestinationArn { get; set; }
+
         /// <summary>
         /// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         /// </summary>
@@ -288,6 +306,12 @@ namespace Pulumi.Aws.StorageGateway
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+        /// </summary>
+        [Input("smbAclEnabled")]
+        public Input<bool>? SmbAclEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -324,6 +348,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        /// </summary>
+        [Input("auditDestinationArn")]
+        public Input<string>? AuditDestinationArn { get; set; }
 
         /// <summary>
         /// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
@@ -414,6 +444,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+        /// </summary>
+        [Input("smbAclEnabled")]
+        public Input<bool>? SmbAclEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

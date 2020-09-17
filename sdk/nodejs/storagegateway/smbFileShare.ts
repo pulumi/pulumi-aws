@@ -72,6 +72,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     */
+    public readonly auditDestinationArn!: pulumi.Output<string | undefined>;
+    /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
     public readonly authentication!: pulumi.Output<string | undefined>;
@@ -128,6 +132,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
+     * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+     */
+    public readonly smbAclEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -149,6 +157,7 @@ export class SmbFileShare extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as SmbFileShareState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
             inputs["authentication"] = state ? state.authentication : undefined;
             inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
             inputs["fileshareId"] = state ? state.fileshareId : undefined;
@@ -163,6 +172,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["readOnly"] = state ? state.readOnly : undefined;
             inputs["requesterPays"] = state ? state.requesterPays : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
+            inputs["smbAclEnabled"] = state ? state.smbAclEnabled : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["validUserLists"] = state ? state.validUserLists : undefined;
         } else {
@@ -176,6 +186,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
             inputs["authentication"] = args ? args.authentication : undefined;
             inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
@@ -188,6 +199,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["readOnly"] = args ? args.readOnly : undefined;
             inputs["requesterPays"] = args ? args.requesterPays : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["smbAclEnabled"] = args ? args.smbAclEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["validUserLists"] = args ? args.validUserLists : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -213,6 +225,10 @@ export interface SmbFileShareState {
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     */
+    readonly auditDestinationArn?: pulumi.Input<string>;
     /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
@@ -270,6 +286,10 @@ export interface SmbFileShareState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
+     * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+     */
+    readonly smbAclEnabled?: pulumi.Input<boolean>;
+    /**
      * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -283,6 +303,10 @@ export interface SmbFileShareState {
  * The set of arguments for constructing a SmbFileShare resource.
  */
 export interface SmbFileShareArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     */
+    readonly auditDestinationArn?: pulumi.Input<string>;
     /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
@@ -331,6 +355,10 @@ export interface SmbFileShareArgs {
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+     */
+    readonly smbAclEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags
      */

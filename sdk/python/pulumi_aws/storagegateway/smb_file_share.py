@@ -15,6 +15,7 @@ class SmbFileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class SmbFileShare(pulumi.CustomResource):
                  read_only: Optional[pulumi.Input[bool]] = None,
                  requester_pays: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -67,6 +69,7 @@ class SmbFileShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
@@ -79,6 +82,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        :param pulumi.Input[bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         """
@@ -99,6 +103,7 @@ class SmbFileShare(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['audit_destination_arn'] = audit_destination_arn
             __props__['authentication'] = authentication
             __props__['default_storage_class'] = default_storage_class
             if gateway_arn is None:
@@ -117,6 +122,7 @@ class SmbFileShare(pulumi.CustomResource):
             if role_arn is None:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
+            __props__['smb_acl_enabled'] = smb_acl_enabled
             __props__['tags'] = tags
             __props__['valid_user_lists'] = valid_user_lists
             __props__['arn'] = None
@@ -133,6 +139,7 @@ class SmbFileShare(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            audit_destination_arn: Optional[pulumi.Input[str]] = None,
             authentication: Optional[pulumi.Input[str]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
             fileshare_id: Optional[pulumi.Input[str]] = None,
@@ -147,6 +154,7 @@ class SmbFileShare(pulumi.CustomResource):
             read_only: Optional[pulumi.Input[bool]] = None,
             requester_pays: Optional[pulumi.Input[bool]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
+            smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'SmbFileShare':
         """
@@ -157,6 +165,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SMB File Share.
+        :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         :param pulumi.Input[str] fileshare_id: ID of the SMB File Share.
@@ -171,6 +180,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        :param pulumi.Input[bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         """
@@ -179,6 +189,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["arn"] = arn
+        __props__["audit_destination_arn"] = audit_destination_arn
         __props__["authentication"] = authentication
         __props__["default_storage_class"] = default_storage_class
         __props__["fileshare_id"] = fileshare_id
@@ -193,6 +204,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__["read_only"] = read_only
         __props__["requester_pays"] = requester_pays
         __props__["role_arn"] = role_arn
+        __props__["smb_acl_enabled"] = smb_acl_enabled
         __props__["tags"] = tags
         __props__["valid_user_lists"] = valid_user_lists
         return SmbFileShare(resource_name, opts=opts, __props__=__props__)
@@ -204,6 +216,14 @@ class SmbFileShare(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the SMB File Share.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="auditDestinationArn")
+    def audit_destination_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        """
+        return pulumi.get(self, "audit_destination_arn")
 
     @property
     @pulumi.getter
@@ -316,6 +336,14 @@ class SmbFileShare(pulumi.CustomResource):
         The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="smbAclEnabled")
+    def smb_acl_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
+        """
+        return pulumi.get(self, "smb_acl_enabled")
 
     @property
     @pulumi.getter

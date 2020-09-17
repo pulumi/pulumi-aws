@@ -13,6 +13,41 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Information about most recent Spot Price for a given EC2 instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetSpotPrice.InvokeAsync(new Aws.Ec2.GetSpotPriceArgs
+        ///         {
+        ///             AvailabilityZone = "us-west-2a",
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetSpotPriceFilterArgs
+        ///                 {
+        ///                     Name = "product-description",
+        ///                     Values = 
+        ///                     {
+        ///                         "Linux/UNIX",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             InstanceType = "t3.medium",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSpotPriceResult> InvokeAsync(GetSpotPriceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSpotPriceResult>("aws:ec2/getSpotPrice:getSpotPrice", args ?? new GetSpotPriceArgs(), options.WithVersion());

@@ -14,31 +14,31 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclLoggingConfigurationRedactedField
     {
         /// <summary>
-        /// Inspect all query arguments.
+        /// Redact all query arguments.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldAllQueryArguments? AllQueryArguments;
         /// <summary>
-        /// Inspect the request body, which immediately follows the request headers.
+        /// Redact the request body, which immediately follows the request headers.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldBody? Body;
         /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        /// Redact the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldMethod? Method;
         /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        /// Redact the query string. This is the part of a URL that appears after a `?` character, if any.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldQueryString? QueryString;
         /// <summary>
-        /// Inspect a single header. See Single Header below for details.
+        /// Redact a single header. See Single Header below for details.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader? SingleHeader;
         /// <summary>
-        /// Inspect a single query argument. See Single Query Argument below for details.
+        /// Redact a single query argument. See Single Query Argument below for details.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldSingleQueryArgument? SingleQueryArgument;
         /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// Redact the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldUriPath? UriPath;
 

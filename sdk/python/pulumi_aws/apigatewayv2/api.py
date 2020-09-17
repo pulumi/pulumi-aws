@@ -18,6 +18,7 @@ class Api(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
+                 body: Optional[pulumi.Input[str]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -61,6 +62,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] api_key_selection_expression: An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
                Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
                Applicable for WebSocket APIs.
+        :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         :param pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']] cors_configuration: The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: The description of the API.
@@ -93,6 +95,7 @@ class Api(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['api_key_selection_expression'] = api_key_selection_expression
+            __props__['body'] = body
             __props__['cors_configuration'] = cors_configuration
             __props__['credentials_arn'] = credentials_arn
             __props__['description'] = description
@@ -121,6 +124,7 @@ class Api(pulumi.CustomResource):
             api_endpoint: Optional[pulumi.Input[str]] = None,
             api_key_selection_expression: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            body: Optional[pulumi.Input[str]] = None,
             cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
             credentials_arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -144,6 +148,7 @@ class Api(pulumi.CustomResource):
                Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
                Applicable for WebSocket APIs.
         :param pulumi.Input[str] arn: The ARN of the API.
+        :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         :param pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']] cors_configuration: The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: The description of the API.
@@ -168,6 +173,7 @@ class Api(pulumi.CustomResource):
         __props__["api_endpoint"] = api_endpoint
         __props__["api_key_selection_expression"] = api_key_selection_expression
         __props__["arn"] = arn
+        __props__["body"] = body
         __props__["cors_configuration"] = cors_configuration
         __props__["credentials_arn"] = credentials_arn
         __props__["description"] = description
@@ -206,6 +212,14 @@ class Api(pulumi.CustomResource):
         The ARN of the API.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def body(self) -> pulumi.Output[Optional[str]]:
+        """
+        An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+        """
+        return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="corsConfiguration")

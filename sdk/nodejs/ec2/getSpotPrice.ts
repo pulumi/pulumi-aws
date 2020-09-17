@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.Ec2InstanceSpotPrice({
+ * const example = pulumi.output(aws.ec2.getSpotPrice({
  *     availabilityZone: "us-west-2a",
- *     filter: [{
+ *     filters: [{
  *         name: "product-description",
  *         values: ["Linux/UNIX"],
  *     }],

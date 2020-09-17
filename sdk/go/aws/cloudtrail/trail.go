@@ -176,13 +176,44 @@ import (
 // 	})
 // }
 // ```
+// ### Sending Events to CloudWatch Logs
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudtrail"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
+// 			CloudWatchLogsGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+// 				return fmt.Sprintf("%v%v", arn, ":*"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Trail struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of the trail.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN),
-	// that represents the log group to which CloudTrail logs will be delivered.
+	// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
 	CloudWatchLogsGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogsGroupArn"`
 	// Specifies the role for the CloudWatch Logs
 	// endpoint to assume to write to a user’s log group.
@@ -255,7 +286,7 @@ type trailState struct {
 	// The Amazon Resource Name of the trail.
 	Arn *string `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN),
-	// that represents the log group to which CloudTrail logs will be delivered.
+	// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
 	CloudWatchLogsGroupArn *string `pulumi:"cloudWatchLogsGroupArn"`
 	// Specifies the role for the CloudWatch Logs
 	// endpoint to assume to write to a user’s log group.
@@ -298,7 +329,7 @@ type TrailState struct {
 	// The Amazon Resource Name of the trail.
 	Arn pulumi.StringPtrInput
 	// Specifies a log group name using an Amazon Resource Name (ARN),
-	// that represents the log group to which CloudTrail logs will be delivered.
+	// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
 	CloudWatchLogsGroupArn pulumi.StringPtrInput
 	// Specifies the role for the CloudWatch Logs
 	// endpoint to assume to write to a user’s log group.
@@ -343,7 +374,7 @@ func (TrailState) ElementType() reflect.Type {
 
 type trailArgs struct {
 	// Specifies a log group name using an Amazon Resource Name (ARN),
-	// that represents the log group to which CloudTrail logs will be delivered.
+	// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
 	CloudWatchLogsGroupArn *string `pulumi:"cloudWatchLogsGroupArn"`
 	// Specifies the role for the CloudWatch Logs
 	// endpoint to assume to write to a user’s log group.
@@ -383,7 +414,7 @@ type trailArgs struct {
 // The set of arguments for constructing a Trail resource.
 type TrailArgs struct {
 	// Specifies a log group name using an Amazon Resource Name (ARN),
-	// that represents the log group to which CloudTrail logs will be delivered.
+	// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
 	CloudWatchLogsGroupArn pulumi.StringPtrInput
 	// Specifies the role for the CloudWatch Logs
 	// endpoint to assume to write to a user’s log group.

@@ -121,6 +121,17 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Sending Events to CloudWatch Logs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
+ * const exampleTrail = new aws.cloudtrail.Trail("example", {
+ *     cloudWatchLogsGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
+ * });
+ * ```
  */
 export class Trail extends pulumi.CustomResource {
     /**
@@ -156,7 +167,7 @@ export class Trail extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN),
-     * that represents the log group to which CloudTrail logs will be delivered.
+     * that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      */
     public readonly cloudWatchLogsGroupArn!: pulumi.Output<string | undefined>;
     /**
@@ -294,7 +305,7 @@ export interface TrailState {
     readonly arn?: pulumi.Input<string>;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN),
-     * that represents the log group to which CloudTrail logs will be delivered.
+     * that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      */
     readonly cloudWatchLogsGroupArn?: pulumi.Input<string>;
     /**
@@ -368,7 +379,7 @@ export interface TrailState {
 export interface TrailArgs {
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN),
-     * that represents the log group to which CloudTrail logs will be delivered.
+     * that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      */
     readonly cloudWatchLogsGroupArn?: pulumi.Input<string>;
     /**

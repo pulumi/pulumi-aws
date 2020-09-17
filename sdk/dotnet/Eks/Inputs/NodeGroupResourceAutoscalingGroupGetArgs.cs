@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Eks.Inputs
     public sealed class NodeGroupResourceAutoscalingGroupGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the AutoScaling Group.
+        /// Name of the EC2 Launch Template. Conflicts with `id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

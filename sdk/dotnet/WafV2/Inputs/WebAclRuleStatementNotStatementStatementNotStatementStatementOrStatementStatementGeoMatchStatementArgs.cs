@@ -24,6 +24,12 @@ namespace Pulumi.Aws.WafV2.Inputs
             set => _countryCodes = value;
         }
 
+        /// <summary>
+        /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+        /// </summary>
+        [Input("forwardedIpConfig")]
+        public Input<Inputs.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigArgs>? ForwardedIpConfig { get; set; }
+
         public WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementArgs()
         {
         }
