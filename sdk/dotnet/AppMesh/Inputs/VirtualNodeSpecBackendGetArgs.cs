@@ -15,8 +15,8 @@ namespace Pulumi.Aws.AppMesh.Inputs
         /// <summary>
         /// Specifies a virtual service to use as a backend for a virtual node.
         /// </summary>
-        [Input("virtualService")]
-        public Input<Inputs.VirtualNodeSpecBackendVirtualServiceGetArgs>? VirtualService { get; set; }
+        [Input("virtualService", required: true)]
+        public Input<Inputs.VirtualNodeSpecBackendVirtualServiceGetArgs> VirtualService { get; set; } = null!;
 
         public VirtualNodeSpecBackendGetArgs()
         {

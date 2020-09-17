@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SmbFileShare']
 
@@ -17,6 +19,8 @@ class SmbFileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
+                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
+                 case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
@@ -71,6 +75,8 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
+        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
@@ -105,6 +111,8 @@ class SmbFileShare(pulumi.CustomResource):
 
             __props__['audit_destination_arn'] = audit_destination_arn
             __props__['authentication'] = authentication
+            __props__['cache_attributes'] = cache_attributes
+            __props__['case_sensitivity'] = case_sensitivity
             __props__['default_storage_class'] = default_storage_class
             if gateway_arn is None:
                 raise TypeError("Missing required property 'gateway_arn'")
@@ -141,6 +149,8 @@ class SmbFileShare(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
             authentication: Optional[pulumi.Input[str]] = None,
+            cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
+            case_sensitivity: Optional[pulumi.Input[str]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
             fileshare_id: Optional[pulumi.Input[str]] = None,
             gateway_arn: Optional[pulumi.Input[str]] = None,
@@ -167,6 +177,8 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SMB File Share.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
+        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         :param pulumi.Input[str] fileshare_id: ID of the SMB File Share.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
@@ -191,6 +203,8 @@ class SmbFileShare(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["audit_destination_arn"] = audit_destination_arn
         __props__["authentication"] = authentication
+        __props__["cache_attributes"] = cache_attributes
+        __props__["case_sensitivity"] = case_sensitivity
         __props__["default_storage_class"] = default_storage_class
         __props__["fileshare_id"] = fileshare_id
         __props__["gateway_arn"] = gateway_arn
@@ -232,6 +246,22 @@ class SmbFileShare(pulumi.CustomResource):
         The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         """
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="cacheAttributes")
+    def cache_attributes(self) -> pulumi.Output[Optional['outputs.SmbFileShareCacheAttributes']]:
+        """
+        Refresh cache information. see Cache Attributes for more details.
+        """
+        return pulumi.get(self, "cache_attributes")
+
+    @property
+    @pulumi.getter(name="caseSensitivity")
+    def case_sensitivity(self) -> pulumi.Output[Optional[str]]:
+        """
+        The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+        """
+        return pulumi.get(self, "case_sensitivity")
 
     @property
     @pulumi.getter(name="defaultStorageClass")

@@ -1633,6 +1633,139 @@ func (o InstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) InstanceGrou
 	}).(InstanceGroupEbsConfigOutput)
 }
 
+type ManagedScalingPolicyComputeLimit struct {
+	// The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MaximumCapacityUnits int `pulumi:"maximumCapacityUnits"`
+	// The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+	MaximumCoreCapacityUnits *int `pulumi:"maximumCoreCapacityUnits"`
+	// The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
+	MaximumOndemandCapacityUnits *int `pulumi:"maximumOndemandCapacityUnits"`
+	// The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MinimumCapacityUnits int `pulumi:"minimumCapacityUnits"`
+	// The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+	UnitType string `pulumi:"unitType"`
+}
+
+// ManagedScalingPolicyComputeLimitInput is an input type that accepts ManagedScalingPolicyComputeLimitArgs and ManagedScalingPolicyComputeLimitOutput values.
+// You can construct a concrete instance of `ManagedScalingPolicyComputeLimitInput` via:
+//
+//          ManagedScalingPolicyComputeLimitArgs{...}
+type ManagedScalingPolicyComputeLimitInput interface {
+	pulumi.Input
+
+	ToManagedScalingPolicyComputeLimitOutput() ManagedScalingPolicyComputeLimitOutput
+	ToManagedScalingPolicyComputeLimitOutputWithContext(context.Context) ManagedScalingPolicyComputeLimitOutput
+}
+
+type ManagedScalingPolicyComputeLimitArgs struct {
+	// The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MaximumCapacityUnits pulumi.IntInput `pulumi:"maximumCapacityUnits"`
+	// The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+	MaximumCoreCapacityUnits pulumi.IntPtrInput `pulumi:"maximumCoreCapacityUnits"`
+	// The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
+	MaximumOndemandCapacityUnits pulumi.IntPtrInput `pulumi:"maximumOndemandCapacityUnits"`
+	// The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+	MinimumCapacityUnits pulumi.IntInput `pulumi:"minimumCapacityUnits"`
+	// The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+	UnitType pulumi.StringInput `pulumi:"unitType"`
+}
+
+func (ManagedScalingPolicyComputeLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedScalingPolicyComputeLimit)(nil)).Elem()
+}
+
+func (i ManagedScalingPolicyComputeLimitArgs) ToManagedScalingPolicyComputeLimitOutput() ManagedScalingPolicyComputeLimitOutput {
+	return i.ToManagedScalingPolicyComputeLimitOutputWithContext(context.Background())
+}
+
+func (i ManagedScalingPolicyComputeLimitArgs) ToManagedScalingPolicyComputeLimitOutputWithContext(ctx context.Context) ManagedScalingPolicyComputeLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyComputeLimitOutput)
+}
+
+// ManagedScalingPolicyComputeLimitArrayInput is an input type that accepts ManagedScalingPolicyComputeLimitArray and ManagedScalingPolicyComputeLimitArrayOutput values.
+// You can construct a concrete instance of `ManagedScalingPolicyComputeLimitArrayInput` via:
+//
+//          ManagedScalingPolicyComputeLimitArray{ ManagedScalingPolicyComputeLimitArgs{...} }
+type ManagedScalingPolicyComputeLimitArrayInput interface {
+	pulumi.Input
+
+	ToManagedScalingPolicyComputeLimitArrayOutput() ManagedScalingPolicyComputeLimitArrayOutput
+	ToManagedScalingPolicyComputeLimitArrayOutputWithContext(context.Context) ManagedScalingPolicyComputeLimitArrayOutput
+}
+
+type ManagedScalingPolicyComputeLimitArray []ManagedScalingPolicyComputeLimitInput
+
+func (ManagedScalingPolicyComputeLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedScalingPolicyComputeLimit)(nil)).Elem()
+}
+
+func (i ManagedScalingPolicyComputeLimitArray) ToManagedScalingPolicyComputeLimitArrayOutput() ManagedScalingPolicyComputeLimitArrayOutput {
+	return i.ToManagedScalingPolicyComputeLimitArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedScalingPolicyComputeLimitArray) ToManagedScalingPolicyComputeLimitArrayOutputWithContext(ctx context.Context) ManagedScalingPolicyComputeLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyComputeLimitArrayOutput)
+}
+
+type ManagedScalingPolicyComputeLimitOutput struct{ *pulumi.OutputState }
+
+func (ManagedScalingPolicyComputeLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedScalingPolicyComputeLimit)(nil)).Elem()
+}
+
+func (o ManagedScalingPolicyComputeLimitOutput) ToManagedScalingPolicyComputeLimitOutput() ManagedScalingPolicyComputeLimitOutput {
+	return o
+}
+
+func (o ManagedScalingPolicyComputeLimitOutput) ToManagedScalingPolicyComputeLimitOutputWithContext(ctx context.Context) ManagedScalingPolicyComputeLimitOutput {
+	return o
+}
+
+// The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+func (o ManagedScalingPolicyComputeLimitOutput) MaximumCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) int { return v.MaximumCapacityUnits }).(pulumi.IntOutput)
+}
+
+// The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+func (o ManagedScalingPolicyComputeLimitOutput) MaximumCoreCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) *int { return v.MaximumCoreCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
+func (o ManagedScalingPolicyComputeLimitOutput) MaximumOndemandCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) *int { return v.MaximumOndemandCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+func (o ManagedScalingPolicyComputeLimitOutput) MinimumCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) int { return v.MinimumCapacityUnits }).(pulumi.IntOutput)
+}
+
+// The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+func (o ManagedScalingPolicyComputeLimitOutput) UnitType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedScalingPolicyComputeLimit) string { return v.UnitType }).(pulumi.StringOutput)
+}
+
+type ManagedScalingPolicyComputeLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedScalingPolicyComputeLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedScalingPolicyComputeLimit)(nil)).Elem()
+}
+
+func (o ManagedScalingPolicyComputeLimitArrayOutput) ToManagedScalingPolicyComputeLimitArrayOutput() ManagedScalingPolicyComputeLimitArrayOutput {
+	return o
+}
+
+func (o ManagedScalingPolicyComputeLimitArrayOutput) ToManagedScalingPolicyComputeLimitArrayOutputWithContext(ctx context.Context) ManagedScalingPolicyComputeLimitArrayOutput {
+	return o
+}
+
+func (o ManagedScalingPolicyComputeLimitArrayOutput) Index(i pulumi.IntInput) ManagedScalingPolicyComputeLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedScalingPolicyComputeLimit {
+		return vs[0].([]ManagedScalingPolicyComputeLimit)[vs[1].(int)]
+	}).(ManagedScalingPolicyComputeLimitOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterBootstrapActionOutput{})
 	pulumi.RegisterOutputType(ClusterBootstrapActionArrayOutput{})
@@ -1653,4 +1786,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterStepHadoopJarStepOutput{})
 	pulumi.RegisterOutputType(InstanceGroupEbsConfigOutput{})
 	pulumi.RegisterOutputType(InstanceGroupEbsConfigArrayOutput{})
+	pulumi.RegisterOutputType(ManagedScalingPolicyComputeLimitOutput{})
+	pulumi.RegisterOutputType(ManagedScalingPolicyComputeLimitArrayOutput{})
 }

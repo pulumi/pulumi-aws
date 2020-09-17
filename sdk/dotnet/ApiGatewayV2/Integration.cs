@@ -65,6 +65,33 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// }
     /// ```
+    /// ### AWS Service Integration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.Integration("example", new Aws.ApiGatewayV2.IntegrationArgs
+    ///         {
+    ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             CredentialsArn = aws_iam_role.Example.Arn,
+    ///             Description = "SQS example",
+    ///             IntegrationType = "AWS_PROXY",
+    ///             IntegrationSubtype = "SQS-SendMessage",
+    ///             RequestParameters = 
+    ///             {
+    ///                 { "QueueUrl", "$request.header.queueUrl" },
+    ///                 { "MessageBody", "$request.body.message" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
@@ -115,6 +142,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Output("integrationResponseSelectionExpression")]
         public Output<string> IntegrationResponseSelectionExpression { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        /// </summary>
+        [Output("integrationSubtype")]
+        public Output<string?> IntegrationSubtype { get; private set; } = null!;
 
         /// <summary>
         /// The integration type of an integration.
@@ -263,6 +296,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? IntegrationMethod { get; set; }
 
         /// <summary>
+        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        /// </summary>
+        [Input("integrationSubtype")]
+        public Input<string>? IntegrationSubtype { get; set; }
+
+        /// <summary>
         /// The integration type of an integration.
         /// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
         /// </summary>
@@ -386,6 +425,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("integrationResponseSelectionExpression")]
         public Input<string>? IntegrationResponseSelectionExpression { get; set; }
+
+        /// <summary>
+        /// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        /// </summary>
+        [Input("integrationSubtype")]
+        public Input<string>? IntegrationSubtype { get; set; }
 
         /// <summary>
         /// The integration type of an integration.

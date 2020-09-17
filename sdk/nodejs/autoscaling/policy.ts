@@ -90,6 +90,9 @@ export class Policy extends pulumi.CustomResource {
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     public readonly metricAggregationType!: pulumi.Output<string>;
+    /**
+     * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     */
     public readonly minAdjustmentMagnitude!: pulumi.Output<number | undefined>;
     /**
      * The name of the dimension.
@@ -196,6 +199,9 @@ export interface PolicyState {
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     readonly metricAggregationType?: pulumi.Input<string>;
+    /**
+     * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     */
     readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * The name of the dimension.
@@ -246,6 +252,9 @@ export interface PolicyArgs {
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     readonly metricAggregationType?: pulumi.Input<string>;
+    /**
+     * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+     */
     readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * The name of the dimension.

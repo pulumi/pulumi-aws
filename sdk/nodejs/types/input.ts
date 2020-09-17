@@ -2030,7 +2030,7 @@ export namespace appmesh {
         /**
          * Specifies a virtual service to use as a backend for a virtual node.
          */
-        virtualService?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualService>;
+        virtualService: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualService>;
     }
 
     export interface VirtualNodeSpecBackendVirtualService {
@@ -6286,7 +6286,7 @@ export namespace ec2 {
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -7100,7 +7100,7 @@ export namespace ec2 {
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -9290,6 +9290,29 @@ export namespace emr {
          */
         volumesPerInstance?: pulumi.Input<number>;
     }
+
+    export interface ManagedScalingPolicyComputeLimit {
+        /**
+         * The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+         */
+        maximumCapacityUnits: pulumi.Input<number>;
+        /**
+         * The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+         */
+        maximumCoreCapacityUnits?: pulumi.Input<number>;
+        /**
+         * The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
+         */
+        maximumOndemandCapacityUnits?: pulumi.Input<number>;
+        /**
+         * The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+         */
+        minimumCapacityUnits: pulumi.Input<number>;
+        /**
+         * The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+         */
+        unitType: pulumi.Input<string>;
+    }
 }
 
 export namespace fsx {
@@ -9465,6 +9488,7 @@ export namespace globalaccelerator {
     }
 
     export interface EndpointGroupEndpointConfiguration {
+        clientIpPreservationEnabled?: pulumi.Input<boolean>;
         /**
          * An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
          */
@@ -14684,6 +14708,15 @@ export namespace storagegateway {
         username: pulumi.Input<string>;
     }
 
+    export interface NfsFileShareCacheAttributes {
+        /**
+         * Refreshes a file share's cache by using Time To Live (TTL).
+         * TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+         * to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+         */
+        cacheStaleTimeoutInSeconds?: pulumi.Input<number>;
+    }
+
     export interface NfsFileShareNfsFileShareDefaults {
         /**
          * The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
@@ -14701,6 +14734,15 @@ export namespace storagegateway {
          * The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
          */
         ownerId?: pulumi.Input<number>;
+    }
+
+    export interface SmbFileShareCacheAttributes {
+        /**
+         * Refreshes a file share's cache by using Time To Live (TTL).
+         * TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+         * to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+         */
+        cacheStaleTimeoutInSeconds?: pulumi.Input<number>;
     }
 }
 

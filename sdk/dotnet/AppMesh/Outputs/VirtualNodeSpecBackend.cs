@@ -16,10 +16,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// <summary>
         /// Specifies a virtual service to use as a backend for a virtual node.
         /// </summary>
-        public readonly Outputs.VirtualNodeSpecBackendVirtualService? VirtualService;
+        public readonly Outputs.VirtualNodeSpecBackendVirtualService VirtualService;
 
         [OutputConstructor]
-        private VirtualNodeSpecBackend(Outputs.VirtualNodeSpecBackendVirtualService? virtualService)
+        private VirtualNodeSpecBackend(Outputs.VirtualNodeSpecBackendVirtualService virtualService)
         {
             VirtualService = virtualService;
         }

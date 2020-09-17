@@ -15,6 +15,7 @@ export * from "./getClusterSnapshot";
 export * from "./getEventCategories";
 export * from "./getInstance";
 export * from "./getSnapshot";
+export * from "./getSubnetGroup";
 export * from "./globalCluster";
 export * from "./instance";
 export * from "./instanceType";

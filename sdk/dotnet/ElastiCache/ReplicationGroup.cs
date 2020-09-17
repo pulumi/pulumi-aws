@@ -313,7 +313,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> SubnetGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource
+        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource
+        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -793,7 +793,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource
+        /// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         /// </summary>
         public InputMap<string> Tags
         {

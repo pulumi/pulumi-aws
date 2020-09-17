@@ -170,7 +170,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
                begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
         """
         if __name__ is not None:
@@ -308,7 +308,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
                begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -586,7 +586,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource
+        A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
         """
         return pulumi.get(self, "tags")
 

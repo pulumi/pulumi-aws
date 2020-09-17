@@ -124,6 +124,10 @@ type Gateway struct {
 	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageDownloadRateLimitInBitsPerSec pulumi.IntPtrOutput `pulumi:"averageDownloadRateLimitInBitsPerSec"`
+	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageUploadRateLimitInBitsPerSec pulumi.IntPtrOutput `pulumi:"averageUploadRateLimitInBitsPerSec"`
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
 	// Identifier of the gateway.
@@ -144,6 +148,8 @@ type Gateway struct {
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrOutput `pulumi:"smbActiveDirectorySettings"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword pulumi.StringPtrOutput `pulumi:"smbGuestPassword"`
+	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+	SmbSecurityStrategy pulumi.StringOutput `pulumi:"smbSecurityStrategy"`
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
@@ -188,6 +194,10 @@ type gatewayState struct {
 	ActivationKey *string `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn *string `pulumi:"arn"`
+	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageDownloadRateLimitInBitsPerSec *int `pulumi:"averageDownloadRateLimitInBitsPerSec"`
+	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageUploadRateLimitInBitsPerSec *int `pulumi:"averageUploadRateLimitInBitsPerSec"`
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Identifier of the gateway.
@@ -208,6 +218,8 @@ type gatewayState struct {
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword *string `pulumi:"smbGuestPassword"`
+	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
 	// Key-value mapping of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
@@ -219,6 +231,10 @@ type GatewayState struct {
 	ActivationKey pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn pulumi.StringPtrInput
+	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageDownloadRateLimitInBitsPerSec pulumi.IntPtrInput
+	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageUploadRateLimitInBitsPerSec pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Identifier of the gateway.
@@ -239,6 +255,8 @@ type GatewayState struct {
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword pulumi.StringPtrInput
+	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+	SmbSecurityStrategy pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapInput
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
@@ -252,6 +270,10 @@ func (GatewayState) ElementType() reflect.Type {
 type gatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey *string `pulumi:"activationKey"`
+	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageDownloadRateLimitInBitsPerSec *int `pulumi:"averageDownloadRateLimitInBitsPerSec"`
+	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageUploadRateLimitInBitsPerSec *int `pulumi:"averageUploadRateLimitInBitsPerSec"`
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -270,6 +292,8 @@ type gatewayArgs struct {
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword *string `pulumi:"smbGuestPassword"`
+	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
 	// Key-value mapping of resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
@@ -280,6 +304,10 @@ type gatewayArgs struct {
 type GatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey pulumi.StringPtrInput
+	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageDownloadRateLimitInBitsPerSec pulumi.IntPtrInput
+	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+	AverageUploadRateLimitInBitsPerSec pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -298,6 +326,8 @@ type GatewayArgs struct {
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword pulumi.StringPtrInput
+	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+	SmbSecurityStrategy pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapInput
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.

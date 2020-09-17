@@ -1255,6 +1255,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
+			"aws_emr_managed_scaling_policy": {Tok: awsResource(emrMod, "ManagedScalingPolicy")},
 			// FSX
 			"aws_fsx_lustre_file_system":  {Tok: awsResource(fsxMod, "LustreFileSystem")},
 			"aws_fsx_windows_file_system": {Tok: awsResource(fsxMod, "WindowsFileSystem")},
@@ -1320,6 +1321,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_guardduty_threatintelset":             {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
 			"aws_guardduty_organization_admin_account": {Tok: awsResource(guarddutyMod, "OrganizationAdminAccount")},
 			"aws_guardduty_organization_configuration": {Tok: awsResource(guarddutyMod, "OrganizationConfiguration")},
+			"aws_guardduty_publishing_destination":     {Tok: awsResource(guarddutyMod, "PublishingDestination")},
 			// Identity and Access Management (IAM)
 			"aws_iam_access_key": {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias": {
@@ -1877,6 +1879,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_securityhub_product_subscription":   {Tok: awsResource(securityhubMod, "ProductSubscription")},
 			"aws_securityhub_standards_subscription": {Tok: awsResource(securityhubMod, "StandardsSubscription")},
 			"aws_securityhub_member":                 {Tok: awsResource(securityhubMod, "Member")},
+			"aws_securityhub_action_target":          {Tok: awsResource(securityhubMod, "ActionTarget")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
@@ -2107,7 +2110,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_worklink_website_certificate_authority_association": {
 				Tok: awsResource(worklinkMod, "WebsiteCertificateAuthorityAssociation"),
 			},
-			"aws_xray_sampling_rule": {Tok: awsResource(xrayMod, "SamplingRule")},
+			// Xray
+			"aws_xray_sampling_rule":     {Tok: awsResource(xrayMod, "SamplingRule")},
+			"aws_xray_encryption_config": {Tok: awsResource(xrayMod, "EncryptionConfig")},
+			"aws_xray_group":             {Tok: awsResource(xrayMod, "Group")},
 			// MSK
 			"aws_msk_cluster":       {Tok: awsResource(mskMod, "Cluster")},
 			"aws_msk_configuration": {Tok: awsResource(mskMod, "Configuration")},
@@ -2391,6 +2397,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_event_categories": {Tok: awsDataSource(rdsMod, "getEventCategories")},
 			"aws_db_instance":         {Tok: awsDataSource(rdsMod, "getInstance")},
 			"aws_db_snapshot":         {Tok: awsDataSource(rdsMod, "getSnapshot")},
+			"aws_db_subnet_group":     {Tok: awsDataSource(rdsMod, "getSubnetGroup")},
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift

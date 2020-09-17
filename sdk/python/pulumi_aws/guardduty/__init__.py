@@ -10,4 +10,5 @@ from .ip_set import *
 from .member import *
 from .organization_admin_account import *
 from .organization_configuration import *
+from .publishing_destination import *
 from .threat_intel_set import *

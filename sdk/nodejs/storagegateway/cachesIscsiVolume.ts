@@ -98,6 +98,14 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     public readonly gatewayArn!: pulumi.Output<string>;
     /**
+     * Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+     */
+    public readonly kmsEncrypted!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+     */
+    public readonly kmsKey!: pulumi.Output<string | undefined>;
+    /**
      * Logical disk number.
      */
     public /*out*/ readonly lunNumber!: pulumi.Output<number>;
@@ -157,6 +165,8 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["chapEnabled"] = state ? state.chapEnabled : undefined;
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            inputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
+            inputs["kmsKey"] = state ? state.kmsKey : undefined;
             inputs["lunNumber"] = state ? state.lunNumber : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
@@ -183,6 +193,8 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
                 throw new Error("Missing required property 'volumeSizeInBytes'");
             }
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            inputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
+            inputs["kmsKey"] = args ? args.kmsKey : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
@@ -224,6 +236,14 @@ export interface CachesIscsiVolumeState {
      * The Amazon Resource Name (ARN) of the gateway.
      */
     readonly gatewayArn?: pulumi.Input<string>;
+    /**
+     * Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+     */
+    readonly kmsEncrypted?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+     */
+    readonly kmsKey?: pulumi.Input<string>;
     /**
      * Logical disk number.
      */
@@ -278,6 +298,14 @@ export interface CachesIscsiVolumeArgs {
      * The Amazon Resource Name (ARN) of the gateway.
      */
     readonly gatewayArn: pulumi.Input<string>;
+    /**
+     * Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+     */
+    readonly kmsEncrypted?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+     */
+    readonly kmsKey?: pulumi.Input<string>;
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */

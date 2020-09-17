@@ -9,4 +9,5 @@ export * from "./ipset";
 export * from "./member";
 export * from "./organizationAdminAccount";
 export * from "./organizationConfiguration";
+export * from "./publishingDestination";
 export * from "./threatIntelSet";

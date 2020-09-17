@@ -10,7 +10,9 @@ from .. import _utilities, _tables
 
 __all__ = [
     'GatewaySmbActiveDirectorySettingsArgs',
+    'NfsFileShareCacheAttributesArgs',
     'NfsFileShareNfsFileShareDefaultsArgs',
+    'SmbFileShareCacheAttributesArgs',
 ]
 
 @pulumi.input_type
@@ -63,6 +65,33 @@ class GatewaySmbActiveDirectorySettingsArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class NfsFileShareCacheAttributesArgs:
+    def __init__(__self__, *,
+                 cache_stale_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
+               TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+               to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+        if cache_stale_timeout_in_seconds is not None:
+            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="cacheStaleTimeoutInSeconds")
+    def cache_stale_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+        return pulumi.get(self, "cache_stale_timeout_in_seconds")
+
+    @cache_stale_timeout_in_seconds.setter
+    def cache_stale_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_stale_timeout_in_seconds", value)
 
 
 @pulumi.input_type
@@ -134,5 +163,32 @@ class NfsFileShareNfsFileShareDefaultsArgs:
     @owner_id.setter
     def owner_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "owner_id", value)
+
+
+@pulumi.input_type
+class SmbFileShareCacheAttributesArgs:
+    def __init__(__self__, *,
+                 cache_stale_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
+               TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+               to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+        if cache_stale_timeout_in_seconds is not None:
+            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="cacheStaleTimeoutInSeconds")
+    def cache_stale_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+        return pulumi.get(self, "cache_stale_timeout_in_seconds")
+
+    @cache_stale_timeout_in_seconds.setter
+    def cache_stale_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_stale_timeout_in_seconds", value)
 
 

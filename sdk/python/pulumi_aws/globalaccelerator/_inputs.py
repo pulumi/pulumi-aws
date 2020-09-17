@@ -112,16 +112,28 @@ class AcceleratorIpSetArgs:
 @pulumi.input_type
 class EndpointGroupEndpointConfigurationArgs:
     def __init__(__self__, *,
+                 client_ip_preservation_enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_id: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] endpoint_id: An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         :param pulumi.Input[int] weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
+        if client_ip_preservation_enabled is not None:
+            pulumi.set(__self__, "client_ip_preservation_enabled", client_ip_preservation_enabled)
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="clientIpPreservationEnabled")
+    def client_ip_preservation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "client_ip_preservation_enabled")
+
+    @client_ip_preservation_enabled.setter
+    def client_ip_preservation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_ip_preservation_enabled", value)
 
     @property
     @pulumi.getter(name="endpointId")

@@ -76,6 +76,10 @@ type SmbFileShare struct {
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrOutput `pulumi:"authentication"`
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes SmbFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
+	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+	CaseSensitivity pulumi.StringPtrOutput `pulumi:"caseSensitivity"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass pulumi.StringPtrOutput `pulumi:"defaultStorageClass"`
 	// ID of the SMB File Share.
@@ -153,6 +157,10 @@ type smbFileShareState struct {
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication *string `pulumi:"authentication"`
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
+	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+	CaseSensitivity *string `pulumi:"caseSensitivity"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
 	// ID of the SMB File Share.
@@ -194,6 +202,10 @@ type SmbFileShareState struct {
 	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrInput
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes SmbFileShareCacheAttributesPtrInput
+	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+	CaseSensitivity pulumi.StringPtrInput
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass pulumi.StringPtrInput
 	// ID of the SMB File Share.
@@ -237,6 +249,10 @@ type smbFileShareArgs struct {
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication *string `pulumi:"authentication"`
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
+	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+	CaseSensitivity *string `pulumi:"caseSensitivity"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
 	// Amazon Resource Name (ARN) of the file gateway.
@@ -273,6 +289,10 @@ type SmbFileShareArgs struct {
 	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrInput
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes SmbFileShareCacheAttributesPtrInput
+	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+	CaseSensitivity pulumi.StringPtrInput
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
 	DefaultStorageClass pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the file gateway.

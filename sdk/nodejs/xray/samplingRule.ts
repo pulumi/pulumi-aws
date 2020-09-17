@@ -104,6 +104,10 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     public readonly serviceType!: pulumi.Output<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Matches the path from a request URL.
      */
     public readonly urlPath!: pulumi.Output<string>;
@@ -135,6 +139,7 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["ruleName"] = state ? state.ruleName : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
             inputs["serviceType"] = state ? state.serviceType : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["urlPath"] = state ? state.urlPath : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
@@ -179,6 +184,7 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["serviceType"] = args ? args.serviceType : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["urlPath"] = args ? args.urlPath : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -243,6 +249,10 @@ export interface SamplingRuleState {
      */
     readonly serviceType?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Matches the path from a request URL.
      */
     readonly urlPath?: pulumi.Input<string>;
@@ -296,6 +306,10 @@ export interface SamplingRuleArgs {
      * Matches the `origin` that the service uses to identify its type in segments.
      */
     readonly serviceType: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Matches the path from a request URL.
      */

@@ -2070,7 +2070,7 @@ func (o VirtualNodeSpecPtrOutput) ServiceDiscovery() VirtualNodeSpecServiceDisco
 
 type VirtualNodeSpecBackend struct {
 	// Specifies a virtual service to use as a backend for a virtual node.
-	VirtualService *VirtualNodeSpecBackendVirtualService `pulumi:"virtualService"`
+	VirtualService VirtualNodeSpecBackendVirtualService `pulumi:"virtualService"`
 }
 
 // VirtualNodeSpecBackendInput is an input type that accepts VirtualNodeSpecBackendArgs and VirtualNodeSpecBackendOutput values.
@@ -2086,7 +2086,7 @@ type VirtualNodeSpecBackendInput interface {
 
 type VirtualNodeSpecBackendArgs struct {
 	// Specifies a virtual service to use as a backend for a virtual node.
-	VirtualService VirtualNodeSpecBackendVirtualServicePtrInput `pulumi:"virtualService"`
+	VirtualService VirtualNodeSpecBackendVirtualServiceInput `pulumi:"virtualService"`
 }
 
 func (VirtualNodeSpecBackendArgs) ElementType() reflect.Type {
@@ -2141,8 +2141,8 @@ func (o VirtualNodeSpecBackendOutput) ToVirtualNodeSpecBackendOutputWithContext(
 }
 
 // Specifies a virtual service to use as a backend for a virtual node.
-func (o VirtualNodeSpecBackendOutput) VirtualService() VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackend) *VirtualNodeSpecBackendVirtualService { return v.VirtualService }).(VirtualNodeSpecBackendVirtualServicePtrOutput)
+func (o VirtualNodeSpecBackendOutput) VirtualService() VirtualNodeSpecBackendVirtualServiceOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackend) VirtualNodeSpecBackendVirtualService { return v.VirtualService }).(VirtualNodeSpecBackendVirtualServiceOutput)
 }
 
 type VirtualNodeSpecBackendArrayOutput struct{ *pulumi.OutputState }
@@ -2198,47 +2198,6 @@ func (i VirtualNodeSpecBackendVirtualServiceArgs) ToVirtualNodeSpecBackendVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceOutput)
 }
 
-func (i VirtualNodeSpecBackendVirtualServiceArgs) ToVirtualNodeSpecBackendVirtualServicePtrOutput() VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return i.ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeSpecBackendVirtualServiceArgs) ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceOutput).ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(ctx)
-}
-
-// VirtualNodeSpecBackendVirtualServicePtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceArgs, VirtualNodeSpecBackendVirtualServicePtr and VirtualNodeSpecBackendVirtualServicePtrOutput values.
-// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServicePtrInput` via:
-//
-//          VirtualNodeSpecBackendVirtualServiceArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNodeSpecBackendVirtualServicePtrInput interface {
-	pulumi.Input
-
-	ToVirtualNodeSpecBackendVirtualServicePtrOutput() VirtualNodeSpecBackendVirtualServicePtrOutput
-	ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServicePtrOutput
-}
-
-type virtualNodeSpecBackendVirtualServicePtrType VirtualNodeSpecBackendVirtualServiceArgs
-
-func VirtualNodeSpecBackendVirtualServicePtr(v *VirtualNodeSpecBackendVirtualServiceArgs) VirtualNodeSpecBackendVirtualServicePtrInput {
-	return (*virtualNodeSpecBackendVirtualServicePtrType)(v)
-}
-
-func (*virtualNodeSpecBackendVirtualServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualService)(nil)).Elem()
-}
-
-func (i *virtualNodeSpecBackendVirtualServicePtrType) ToVirtualNodeSpecBackendVirtualServicePtrOutput() VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return i.ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeSpecBackendVirtualServicePtrType) ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServicePtrOutput)
-}
-
 type VirtualNodeSpecBackendVirtualServiceOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecBackendVirtualServiceOutput) ElementType() reflect.Type {
@@ -2253,47 +2212,9 @@ func (o VirtualNodeSpecBackendVirtualServiceOutput) ToVirtualNodeSpecBackendVirt
 	return o
 }
 
-func (o VirtualNodeSpecBackendVirtualServiceOutput) ToVirtualNodeSpecBackendVirtualServicePtrOutput() VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return o.ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeSpecBackendVirtualServiceOutput) ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) *VirtualNodeSpecBackendVirtualService {
-		return &v
-	}).(VirtualNodeSpecBackendVirtualServicePtrOutput)
-}
-
 // The name of the virtual service that is acting as a virtual node backend.
 func (o VirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
-}
-
-type VirtualNodeSpecBackendVirtualServicePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeSpecBackendVirtualServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualService)(nil)).Elem()
-}
-
-func (o VirtualNodeSpecBackendVirtualServicePtrOutput) ToVirtualNodeSpecBackendVirtualServicePtrOutput() VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return o
-}
-
-func (o VirtualNodeSpecBackendVirtualServicePtrOutput) ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return o
-}
-
-func (o VirtualNodeSpecBackendVirtualServicePtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualService) VirtualNodeSpecBackendVirtualService { return *v }).(VirtualNodeSpecBackendVirtualServiceOutput)
-}
-
-// The name of the virtual service that is acting as a virtual node backend.
-func (o VirtualNodeSpecBackendVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualService) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VirtualServiceName
-	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualNodeSpecListener struct {
@@ -4683,7 +4604,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceOutput{})
-	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServicePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckOutput{})

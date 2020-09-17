@@ -91,6 +91,9 @@ namespace Pulumi.Aws.AutoScaling
         [Output("metricAggregationType")]
         public Output<string> MetricAggregationType { get; private set; } = null!;
 
+        /// <summary>
+        /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// </summary>
         [Output("minAdjustmentMagnitude")]
         public Output<int?> MinAdjustmentMagnitude { get; private set; } = null!;
 
@@ -203,6 +206,9 @@ namespace Pulumi.Aws.AutoScaling
         [Input("metricAggregationType")]
         public Input<string>? MetricAggregationType { get; set; }
 
+        /// <summary>
+        /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// </summary>
         [Input("minAdjustmentMagnitude")]
         public Input<int>? MinAdjustmentMagnitude { get; set; }
 
@@ -288,6 +294,9 @@ namespace Pulumi.Aws.AutoScaling
         [Input("metricAggregationType")]
         public Input<string>? MetricAggregationType { get; set; }
 
+        /// <summary>
+        /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// </summary>
         [Input("minAdjustmentMagnitude")]
         public Input<int>? MinAdjustmentMagnitude { get; set; }
 

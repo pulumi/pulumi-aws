@@ -10,7 +10,9 @@ from .. import _utilities, _tables
 
 __all__ = [
     'GatewaySmbActiveDirectorySettings',
+    'NfsFileShareCacheAttributes',
     'NfsFileShareNfsFileShareDefaults',
+    'SmbFileShareCacheAttributes',
 ]
 
 @pulumi.output_type
@@ -51,6 +53,32 @@ class GatewaySmbActiveDirectorySettings(dict):
         The user name of user who has permission to add the gateway to the Active Directory domain.
         """
         return pulumi.get(self, "username")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NfsFileShareCacheAttributes(dict):
+    def __init__(__self__, *,
+                 cache_stale_timeout_in_seconds: Optional[int] = None):
+        """
+        :param int cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
+               TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+               to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+        if cache_stale_timeout_in_seconds is not None:
+            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="cacheStaleTimeoutInSeconds")
+    def cache_stale_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+        return pulumi.get(self, "cache_stale_timeout_in_seconds")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -109,6 +137,32 @@ class NfsFileShareNfsFileShareDefaults(dict):
         The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         """
         return pulumi.get(self, "owner_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SmbFileShareCacheAttributes(dict):
+    def __init__(__self__, *,
+                 cache_stale_timeout_in_seconds: Optional[int] = None):
+        """
+        :param int cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
+               TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+               to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+        if cache_stale_timeout_in_seconds is not None:
+            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="cacheStaleTimeoutInSeconds")
+    def cache_stale_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+        return pulumi.get(self, "cache_stale_timeout_in_seconds")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

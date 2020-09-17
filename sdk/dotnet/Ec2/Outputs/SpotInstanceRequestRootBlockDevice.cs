@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? VolumeSize;
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         /// </summary>
         public readonly string? VolumeType;
 

@@ -46,6 +46,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
+        [Output("cacheAttributes")]
+        public Output<Outputs.NfsFileShareCacheAttributes?> CacheAttributes { get; private set; } = null!;
+
+        /// <summary>
         /// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         /// </summary>
         [Output("clientLists")]
@@ -94,7 +100,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> LocationArn { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument with file share default values. More information below.
+        /// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         /// </summary>
         [Output("nfsFileShareDefaults")]
         public Output<Outputs.NfsFileShareNfsFileShareDefaults?> NfsFileShareDefaults { get; private set; } = null!;
@@ -187,6 +193,12 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class NfsFileShareArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
+        [Input("cacheAttributes")]
+        public Input<Inputs.NfsFileShareCacheAttributesArgs>? CacheAttributes { get; set; }
+
         [Input("clientLists", required: true)]
         private InputList<string>? _clientLists;
 
@@ -236,7 +248,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> LocationArn { get; set; } = null!;
 
         /// <summary>
-        /// Nested argument with file share default values. More information below.
+        /// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         /// </summary>
         [Input("nfsFileShareDefaults")]
         public Input<Inputs.NfsFileShareNfsFileShareDefaultsArgs>? NfsFileShareDefaults { get; set; }
@@ -296,6 +308,12 @@ namespace Pulumi.Aws.StorageGateway
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
+        [Input("cacheAttributes")]
+        public Input<Inputs.NfsFileShareCacheAttributesGetArgs>? CacheAttributes { get; set; }
+
         [Input("clientLists")]
         private InputList<string>? _clientLists;
 
@@ -351,7 +369,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? LocationArn { get; set; }
 
         /// <summary>
-        /// Nested argument with file share default values. More information below.
+        /// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         /// </summary>
         [Input("nfsFileShareDefaults")]
         public Input<Inputs.NfsFileShareNfsFileShareDefaultsGetArgs>? NfsFileShareDefaults { get; set; }

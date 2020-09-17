@@ -37,6 +37,38 @@ import (
 // 	})
 // }
 // ```
+// ### AWS Service Integration
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigatewayv2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
+// 			ApiId:              pulumi.Any(aws_apigatewayv2_api.Example.Id),
+// 			CredentialsArn:     pulumi.Any(aws_iam_role.Example.Arn),
+// 			Description:        pulumi.String("SQS example"),
+// 			IntegrationType:    pulumi.String("AWS_PROXY"),
+// 			IntegrationSubtype: pulumi.String("SQS-SendMessage"),
+// 			RequestParameters: pulumi.StringMap{
+// 				"QueueUrl":    pulumi.String(fmt.Sprintf("%v%v", "$", "request.header.queueUrl")),
+// 				"MessageBody": pulumi.String(fmt.Sprintf("%v%v", "$", "request.body.message")),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Integration struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +88,8 @@ type Integration struct {
 	IntegrationMethod pulumi.StringPtrOutput `pulumi:"integrationMethod"`
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression pulumi.StringOutput `pulumi:"integrationResponseSelectionExpression"`
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	IntegrationSubtype pulumi.StringPtrOutput `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
 	IntegrationType pulumi.StringOutput `pulumi:"integrationType"`
@@ -130,6 +164,8 @@ type integrationState struct {
 	IntegrationMethod *string `pulumi:"integrationMethod"`
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression *string `pulumi:"integrationResponseSelectionExpression"`
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	IntegrationSubtype *string `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
 	IntegrationType *string `pulumi:"integrationType"`
@@ -171,6 +207,8 @@ type IntegrationState struct {
 	IntegrationMethod pulumi.StringPtrInput
 	// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
 	IntegrationResponseSelectionExpression pulumi.StringPtrInput
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	IntegrationSubtype pulumi.StringPtrInput
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
 	IntegrationType pulumi.StringPtrInput
@@ -214,6 +252,8 @@ type integrationArgs struct {
 	Description *string `pulumi:"description"`
 	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod *string `pulumi:"integrationMethod"`
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	IntegrationSubtype *string `pulumi:"integrationSubtype"`
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
 	IntegrationType string `pulumi:"integrationType"`
@@ -254,6 +294,8 @@ type IntegrationArgs struct {
 	Description pulumi.StringPtrInput
 	// The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
 	IntegrationMethod pulumi.StringPtrInput
+	// Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+	IntegrationSubtype pulumi.StringPtrInput
 	// The integration type of an integration.
 	// Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
 	IntegrationType pulumi.StringInput

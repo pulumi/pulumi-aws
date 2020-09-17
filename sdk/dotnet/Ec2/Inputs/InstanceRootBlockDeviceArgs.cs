@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? VolumeSize { get; set; }
 
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
+        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
