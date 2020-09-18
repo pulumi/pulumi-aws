@@ -26,9 +26,13 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
-        /// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
+        /// The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
         /// </summary>
-        public readonly string DomainArn;
+        public readonly string? ClusterEndpoint;
+        /// <summary>
+        /// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+        /// </summary>
+        public readonly string? DomainArn;
         /// <summary>
         /// The Elasticsearch index name.
         /// </summary>
@@ -57,6 +61,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// The Elasticsearch type name with maximum length of 100 characters.
         /// </summary>
         public readonly string? TypeName;
+        /// <summary>
+        /// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+        /// </summary>
+        public readonly Outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig? VpcConfig;
 
         [OutputConstructor]
         private FirehoseDeliveryStreamElasticsearchConfiguration(
@@ -66,7 +74,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             Outputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions? cloudwatchLoggingOptions,
 
-            string domainArn,
+            string? clusterEndpoint,
+
+            string? domainArn,
 
             string indexName,
 
@@ -80,11 +90,14 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string? s3BackupMode,
 
-            string? typeName)
+            string? typeName,
+
+            Outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig? vpcConfig)
         {
             BufferingInterval = bufferingInterval;
             BufferingSize = bufferingSize;
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            ClusterEndpoint = clusterEndpoint;
             DomainArn = domainArn;
             IndexName = indexName;
             IndexRotationPeriod = indexRotationPeriod;
@@ -93,6 +106,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
             TypeName = typeName;
+            VpcConfig = vpcConfig;
         }
     }
 }

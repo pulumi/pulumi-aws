@@ -94,6 +94,7 @@ from . import (
     kms,
     lambda_,
     lb,
+    lex,
     licensemanager,
     lightsail,
     macie,

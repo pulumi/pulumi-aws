@@ -157,7 +157,7 @@ type Instance struct {
 	PrivateIpAddress pulumi.StringOutput  `pulumi:"privateIpAddress"`
 	PublicIpAddress  pulumi.StringOutput  `pulumi:"publicIpAddress"`
 	RamSize          pulumi.Float64Output `pulumi:"ramSize"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
@@ -229,7 +229,7 @@ type instanceState struct {
 	PrivateIpAddress *string  `pulumi:"privateIpAddress"`
 	PublicIpAddress  *string  `pulumi:"publicIpAddress"`
 	RamSize          *float64 `pulumi:"ramSize"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
 	Tags map[string]string `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData *string `pulumi:"userData"`
@@ -265,7 +265,7 @@ type InstanceState struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	PublicIpAddress  pulumi.StringPtrInput
 	RamSize          pulumi.Float64PtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
 	Tags pulumi.StringMapInput
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrInput
@@ -290,7 +290,7 @@ type instanceArgs struct {
 	KeyPairName *string `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
 	Tags map[string]string `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData *string `pulumi:"userData"`
@@ -311,7 +311,7 @@ type InstanceArgs struct {
 	KeyPairName pulumi.StringPtrInput
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource.
+	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
 	Tags pulumi.StringMapInput
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrInput

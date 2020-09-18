@@ -75,6 +75,8 @@ type LookupRouteArgs struct {
 	GatewayId *string `pulumi:"gatewayId"`
 	// The Instance ID of the Route belonging to the Route Table.
 	InstanceId *string `pulumi:"instanceId"`
+	// The Local Gateway ID of the Route belonging to the Route Table.
+	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// The NAT Gateway ID of the Route belonging to the Route Table.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// The Network Interface ID of the Route belonging to the Route Table.
@@ -96,6 +98,7 @@ type LookupRouteResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                     string `pulumi:"id"`
 	InstanceId             string `pulumi:"instanceId"`
+	LocalGatewayId         string `pulumi:"localGatewayId"`
 	NatGatewayId           string `pulumi:"natGatewayId"`
 	NetworkInterfaceId     string `pulumi:"networkInterfaceId"`
 	RouteTableId           string `pulumi:"routeTableId"`

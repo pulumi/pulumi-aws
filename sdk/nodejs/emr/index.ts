@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./cluster";
+export * from "./instanceFleet";
 export * from "./instanceGroup";
 export * from "./managedScalingPolicy";
 export * from "./securityConfiguration";

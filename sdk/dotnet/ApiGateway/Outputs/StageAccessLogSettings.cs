@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// </summary>
         public readonly string DestinationArn;
         /// <summary>
-        /// The formatting and values recorded in the logs. 
+        /// The formatting and values recorded in the logs.
         /// For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         /// </summary>
         public readonly string Format;

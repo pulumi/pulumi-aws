@@ -61,13 +61,6 @@ import (
 // 	})
 // }
 // ```
-// ## Attribute Reference
-//
-// In addition to all arguments above, the following attributes are exported:
-//
-// * `id` - The ID of the Client VPN endpoint.
-// * `origin` - Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-// * `type` - The type of the route.
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -77,10 +70,12 @@ type Route struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
-	Origin               pulumi.StringOutput `pulumi:"origin"`
+	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+	Origin pulumi.StringOutput `pulumi:"origin"`
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId pulumi.StringOutput `pulumi:"targetVpcSubnetId"`
-	Type              pulumi.StringOutput `pulumi:"type"`
+	// The type of the route.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -126,10 +121,12 @@ type routeState struct {
 	Description *string `pulumi:"description"`
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
-	Origin               *string `pulumi:"origin"`
+	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+	Origin *string `pulumi:"origin"`
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId *string `pulumi:"targetVpcSubnetId"`
-	Type              *string `pulumi:"type"`
+	// The type of the route.
+	Type *string `pulumi:"type"`
 }
 
 type RouteState struct {
@@ -139,10 +136,12 @@ type RouteState struct {
 	Description pulumi.StringPtrInput
 	// The IPv4 address range, in CIDR notation, of the route destination.
 	DestinationCidrBlock pulumi.StringPtrInput
-	Origin               pulumi.StringPtrInput
+	// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+	Origin pulumi.StringPtrInput
 	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
 	TargetVpcSubnetId pulumi.StringPtrInput
-	Type              pulumi.StringPtrInput
+	// The type of the route.
+	Type pulumi.StringPtrInput
 }
 
 func (RouteState) ElementType() reflect.Type {

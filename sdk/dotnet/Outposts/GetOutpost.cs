@@ -45,6 +45,12 @@ namespace Pulumi.Aws.Outposts
     public sealed class GetOutpostArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Amazon Resource Name (ARN).
+        /// </summary>
+        [Input("arn")]
+        public string? Arn { get; set; }
+
+        /// <summary>
         /// Identifier of the Outpost.
         /// </summary>
         [Input("id")]
@@ -65,9 +71,6 @@ namespace Pulumi.Aws.Outposts
     [OutputType]
     public sealed class GetOutpostResult
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN).
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// Availability Zone name.

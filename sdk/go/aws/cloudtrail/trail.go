@@ -231,6 +231,8 @@ type Trail struct {
 	// Specifies whether the trail is publishing events
 	// from global services such as IAM to the log files. Defaults to `true`.
 	IncludeGlobalServiceEvents pulumi.BoolPtrOutput `pulumi:"includeGlobalServiceEvents"`
+	// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+	InsightSelectors TrailInsightSelectorArrayOutput `pulumi:"insightSelectors"`
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail pulumi.BoolPtrOutput `pulumi:"isMultiRegionTrail"`
@@ -304,6 +306,8 @@ type trailState struct {
 	// Specifies whether the trail is publishing events
 	// from global services such as IAM to the log files. Defaults to `true`.
 	IncludeGlobalServiceEvents *bool `pulumi:"includeGlobalServiceEvents"`
+	// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+	InsightSelectors []TrailInsightSelector `pulumi:"insightSelectors"`
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail *bool `pulumi:"isMultiRegionTrail"`
@@ -347,6 +351,8 @@ type TrailState struct {
 	// Specifies whether the trail is publishing events
 	// from global services such as IAM to the log files. Defaults to `true`.
 	IncludeGlobalServiceEvents pulumi.BoolPtrInput
+	// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+	InsightSelectors TrailInsightSelectorArrayInput
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail pulumi.BoolPtrInput
@@ -390,6 +396,8 @@ type trailArgs struct {
 	// Specifies whether the trail is publishing events
 	// from global services such as IAM to the log files. Defaults to `true`.
 	IncludeGlobalServiceEvents *bool `pulumi:"includeGlobalServiceEvents"`
+	// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+	InsightSelectors []TrailInsightSelector `pulumi:"insightSelectors"`
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail *bool `pulumi:"isMultiRegionTrail"`
@@ -430,6 +438,8 @@ type TrailArgs struct {
 	// Specifies whether the trail is publishing events
 	// from global services such as IAM to the log files. Defaults to `true`.
 	IncludeGlobalServiceEvents pulumi.BoolPtrInput
+	// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+	InsightSelectors TrailInsightSelectorArrayInput
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail pulumi.BoolPtrInput

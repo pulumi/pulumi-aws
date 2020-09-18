@@ -20,6 +20,7 @@ class Route(pulumi.CustomResource):
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 local_gateway_id: Optional[pulumi.Input[str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  route_table_id: Optional[pulumi.Input[str]] = None,
@@ -72,6 +73,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
+        :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
@@ -100,6 +102,7 @@ class Route(pulumi.CustomResource):
             __props__['egress_only_gateway_id'] = egress_only_gateway_id
             __props__['gateway_id'] = gateway_id
             __props__['instance_id'] = instance_id
+            __props__['local_gateway_id'] = local_gateway_id
             __props__['nat_gateway_id'] = nat_gateway_id
             __props__['network_interface_id'] = network_interface_id
             if route_table_id is None:
@@ -128,6 +131,7 @@ class Route(pulumi.CustomResource):
             gateway_id: Optional[pulumi.Input[str]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
             instance_owner_id: Optional[pulumi.Input[str]] = None,
+            local_gateway_id: Optional[pulumi.Input[str]] = None,
             nat_gateway_id: Optional[pulumi.Input[str]] = None,
             network_interface_id: Optional[pulumi.Input[str]] = None,
             origin: Optional[pulumi.Input[str]] = None,
@@ -147,6 +151,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
+        :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
@@ -164,6 +169,7 @@ class Route(pulumi.CustomResource):
         __props__["gateway_id"] = gateway_id
         __props__["instance_id"] = instance_id
         __props__["instance_owner_id"] = instance_owner_id
+        __props__["local_gateway_id"] = local_gateway_id
         __props__["nat_gateway_id"] = nat_gateway_id
         __props__["network_interface_id"] = network_interface_id
         __props__["origin"] = origin
@@ -222,6 +228,14 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="instanceOwnerId")
     def instance_owner_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "instance_owner_id")
+
+    @property
+    @pulumi.getter(name="localGatewayId")
+    def local_gateway_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of a Outpost local gateway.
+        """
+        return pulumi.get(self, "local_gateway_id")
 
     @property
     @pulumi.getter(name="natGatewayId")

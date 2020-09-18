@@ -63,12 +63,13 @@ class TaskDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] container_definitions: A list of valid [container definitions]
-               (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-               single valid JSON document. Please note that you should only provide values that are part of the container
-               definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-               (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-               official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+        :param pulumi.Input[str] container_definitions: A list of valid [container
+               definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+               provided as a single valid JSON document. Please note that you should only
+               provide values that are part of the container definition document. For a
+               detailed description of what parameters are available, see the [Task Definition
+               Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+               section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] cpu: The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
@@ -157,12 +158,13 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Full ARN of the Task Definition (including both `family` and `revision`).
-        :param pulumi.Input[str] container_definitions: A list of valid [container definitions]
-               (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-               single valid JSON document. Please note that you should only provide values that are part of the container
-               definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-               (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-               official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+        :param pulumi.Input[str] container_definitions: A list of valid [container
+               definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+               provided as a single valid JSON document. Please note that you should only
+               provide values that are part of the container definition document. For a
+               detailed description of what parameters are available, see the [Task Definition
+               Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+               section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] cpu: The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
@@ -214,12 +216,13 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="containerDefinitions")
     def container_definitions(self) -> pulumi.Output[str]:
         """
-        A list of valid [container definitions]
-        (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-        single valid JSON document. Please note that you should only provide values that are part of the container
-        definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-        (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-        official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+        A list of valid [container
+        definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+        provided as a single valid JSON document. Please note that you should only
+        provide values that are part of the container definition document. For a
+        detailed description of what parameters are available, see the [Task Definition
+        Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+        section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         """
         return pulumi.get(self, "container_definitions")
 

@@ -25,7 +25,13 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
         public Input<string>? RootCertificateChainArn { get; set; }
 
         /// <summary>
-        /// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+        /// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+        /// </summary>
+        [Input("samlProviderArn")]
+        public Input<string>? SamlProviderArn { get; set; }
+
+        /// <summary>
+        /// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

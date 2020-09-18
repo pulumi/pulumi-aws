@@ -23,6 +23,7 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]]] = None,
                  configurations: Optional[pulumi.Input[str]] = None,
                  configurations_json: Optional[pulumi.Input[str]] = None,
+                 core_instance_fleet: Optional[pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']]] = None,
                  core_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterCoreInstanceGroupArgs']]] = None,
                  custom_ami_id: Optional[pulumi.Input[str]] = None,
                  ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
@@ -30,6 +31,7 @@ class Cluster(pulumi.CustomResource):
                  keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[bool]] = None,
                  kerberos_attributes: Optional[pulumi.Input[pulumi.InputType['ClusterKerberosAttributesArgs']]] = None,
                  log_uri: Optional[pulumi.Input[str]] = None,
+                 master_instance_fleet: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']]] = None,
                  master_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
@@ -50,8 +52,6 @@ class Cluster(pulumi.CustomResource):
         for more information.
 
         To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the `emr.InstanceGroup` resource.
-
-        > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
 
         ## Example Usage
 
@@ -172,6 +172,100 @@ class Cluster(pulumi.CustomResource):
         Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
         guide for more information on these IAM roles. There is also a fully-bootable
         example this provider configuration at the bottom of this page.
+        ## Instance Fleet
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emr.Cluster("example",
+            master_instance_fleet=aws.emr.ClusterMasterInstanceFleetArgs(
+                instance_type_configs=[{
+                    "instance_type": "m4.xlarge",
+                }],
+                target_on_demand_capacity=1,
+            ),
+            core_instance_fleet=aws.emr.ClusterCoreInstanceFleetArgs(
+                instance_type_configs=[
+                    {
+                        "bidPriceAsPercentageOfOnDemandPrice": 80,
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumesPerInstance": 1,
+                        }],
+                        "instance_type": "m3.xlarge",
+                        "weightedCapacity": 1,
+                    },
+                    {
+                        "bidPriceAsPercentageOfOnDemandPrice": 100,
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumesPerInstance": 1,
+                        }],
+                        "instance_type": "m4.xlarge",
+                        "weightedCapacity": 1,
+                    },
+                    {
+                        "bidPriceAsPercentageOfOnDemandPrice": 100,
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumesPerInstance": 1,
+                        }],
+                        "instance_type": "m4.2xlarge",
+                        "weightedCapacity": 2,
+                    },
+                ],
+                launch_specifications={
+                    "spotSpecifications": [{
+                        "allocation_strategy": "capacity-optimized",
+                        "block_duration_minutes": 0,
+                        "timeoutAction": "SWITCH_TO_ON_DEMAND",
+                        "timeoutDurationMinutes": 10,
+                    }],
+                },
+                name="core fleet",
+                target_on_demand_capacity=2,
+                target_spot_capacity=2,
+            ))
+        task = aws.emr.InstanceFleet("task",
+            cluster_id=example.id,
+            instance_type_configs=[
+                aws.emr.InstanceFleetInstanceTypeConfigArgs(
+                    bid_price_as_percentage_of_on_demand_price=100,
+                    ebs_configs=[{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    instance_type="m4.xlarge",
+                    weighted_capacity=1,
+                ),
+                aws.emr.InstanceFleetInstanceTypeConfigArgs(
+                    bid_price_as_percentage_of_on_demand_price=100,
+                    ebs_configs=[{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    instance_type="m4.2xlarge",
+                    weighted_capacity=2,
+                ),
+            ],
+            launch_specifications=aws.emr.InstanceFleetLaunchSpecificationsArgs(
+                spot_specifications=[aws.emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs(
+                    allocation_strategy="capacity-optimized",
+                    block_duration_minutes=0,
+                    timeout_action="TERMINATE_CLUSTER",
+                    timeout_duration_minutes=10,
+                )],
+            ),
+            target_on_demand_capacity=1,
+            target_spot_capacity=1)
+        ```
+
         ### Enable Debug Logging
 
         [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)
@@ -192,6 +286,7 @@ class Cluster(pulumi.CustomResource):
             ),
         )])
         ```
+
         ### Multiple Node Master Instance Group
 
         Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
@@ -217,6 +312,7 @@ class Cluster(pulumi.CustomResource):
             ),
             core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs())
         ```
+
         ## Example bootable config
 
         **NOTE:** This configuration demonstrates a minimal configuration needed to
@@ -465,8 +561,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
         :param pulumi.Input[str] autoscaling_role: An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
-        :param pulumi.Input[str] configurations: List of configurations supplied for the EMR cluster you are creating
+        :param pulumi.Input[str] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations for the EMR cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceGroupArgs']] core_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         :param pulumi.Input[str] custom_ami_id: A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
         :param pulumi.Input[int] ebs_root_volume_size: Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
@@ -474,8 +571,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)
         :param pulumi.Input[pulumi.InputType['ClusterKerberosAttributesArgs']] kerberos_attributes: Kerberos configuration for the cluster. Defined below
         :param pulumi.Input[str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
+        :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
-        :param pulumi.Input[str] name: The name of the step.
+        :param pulumi.Input[str] name: Friendly name given to the instance fleet.
         :param pulumi.Input[str] release_label: The release label for the Amazon EMR release
         :param pulumi.Input[str] scale_down_behavior: The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
@@ -509,6 +607,7 @@ class Cluster(pulumi.CustomResource):
             __props__['bootstrap_actions'] = bootstrap_actions
             __props__['configurations'] = configurations
             __props__['configurations_json'] = configurations_json
+            __props__['core_instance_fleet'] = core_instance_fleet
             __props__['core_instance_group'] = core_instance_group
             __props__['custom_ami_id'] = custom_ami_id
             __props__['ebs_root_volume_size'] = ebs_root_volume_size
@@ -516,6 +615,7 @@ class Cluster(pulumi.CustomResource):
             __props__['keep_job_flow_alive_when_no_steps'] = keep_job_flow_alive_when_no_steps
             __props__['kerberos_attributes'] = kerberos_attributes
             __props__['log_uri'] = log_uri
+            __props__['master_instance_fleet'] = master_instance_fleet
             __props__['master_instance_group'] = master_instance_group
             __props__['name'] = name
             if release_label is None:
@@ -552,6 +652,7 @@ class Cluster(pulumi.CustomResource):
             cluster_state: Optional[pulumi.Input[str]] = None,
             configurations: Optional[pulumi.Input[str]] = None,
             configurations_json: Optional[pulumi.Input[str]] = None,
+            core_instance_fleet: Optional[pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']]] = None,
             core_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterCoreInstanceGroupArgs']]] = None,
             custom_ami_id: Optional[pulumi.Input[str]] = None,
             ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
@@ -559,6 +660,7 @@ class Cluster(pulumi.CustomResource):
             keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[bool]] = None,
             kerberos_attributes: Optional[pulumi.Input[pulumi.InputType['ClusterKerberosAttributesArgs']]] = None,
             log_uri: Optional[pulumi.Input[str]] = None,
+            master_instance_fleet: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']]] = None,
             master_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']]] = None,
             master_public_dns: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -582,8 +684,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
         :param pulumi.Input[str] autoscaling_role: An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
-        :param pulumi.Input[str] configurations: List of configurations supplied for the EMR cluster you are creating
+        :param pulumi.Input[str] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations for the EMR cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceFleetArgs']] core_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterCoreInstanceGroupArgs']] core_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         :param pulumi.Input[str] custom_ami_id: A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
         :param pulumi.Input[int] ebs_root_volume_size: Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
@@ -591,10 +694,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)
         :param pulumi.Input[pulumi.InputType['ClusterKerberosAttributesArgs']] kerberos_attributes: Kerberos configuration for the cluster. Defined below
         :param pulumi.Input[str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
+        :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[str] master_public_dns: The public DNS name of the master EC2 instance.
                * `core_instance_group.0.id` - Core node type Instance Group ID, if using Instance Group for this node type.
-        :param pulumi.Input[str] name: The name of the step.
+        :param pulumi.Input[str] name: Friendly name given to the instance fleet.
         :param pulumi.Input[str] release_label: The release label for the Amazon EMR release
         :param pulumi.Input[str] scale_down_behavior: The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
@@ -617,6 +721,7 @@ class Cluster(pulumi.CustomResource):
         __props__["cluster_state"] = cluster_state
         __props__["configurations"] = configurations
         __props__["configurations_json"] = configurations_json
+        __props__["core_instance_fleet"] = core_instance_fleet
         __props__["core_instance_group"] = core_instance_group
         __props__["custom_ami_id"] = custom_ami_id
         __props__["ebs_root_volume_size"] = ebs_root_volume_size
@@ -624,6 +729,7 @@ class Cluster(pulumi.CustomResource):
         __props__["keep_job_flow_alive_when_no_steps"] = keep_job_flow_alive_when_no_steps
         __props__["kerberos_attributes"] = kerberos_attributes
         __props__["log_uri"] = log_uri
+        __props__["master_instance_fleet"] = master_instance_fleet
         __props__["master_instance_group"] = master_instance_group
         __props__["master_public_dns"] = master_public_dns
         __props__["name"] = name
@@ -684,7 +790,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def configurations(self) -> pulumi.Output[Optional[str]]:
         """
-        List of configurations supplied for the EMR cluster you are creating
+        A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         """
         return pulumi.get(self, "configurations")
 
@@ -695,6 +801,14 @@ class Cluster(pulumi.CustomResource):
         A JSON string for supplying list of configurations for the EMR cluster.
         """
         return pulumi.get(self, "configurations_json")
+
+    @property
+    @pulumi.getter(name="coreInstanceFleet")
+    def core_instance_fleet(self) -> pulumi.Output['outputs.ClusterCoreInstanceFleet']:
+        """
+        Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
+        """
+        return pulumi.get(self, "core_instance_fleet")
 
     @property
     @pulumi.getter(name="coreInstanceGroup")
@@ -753,6 +867,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "log_uri")
 
     @property
+    @pulumi.getter(name="masterInstanceFleet")
+    def master_instance_fleet(self) -> pulumi.Output['outputs.ClusterMasterInstanceFleet']:
+        """
+        Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        """
+        return pulumi.get(self, "master_instance_fleet")
+
+    @property
     @pulumi.getter(name="masterInstanceGroup")
     def master_instance_group(self) -> pulumi.Output['outputs.ClusterMasterInstanceGroup']:
         """
@@ -773,7 +895,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the step.
+        Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 

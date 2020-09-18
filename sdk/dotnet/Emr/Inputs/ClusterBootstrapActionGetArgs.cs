@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Emr.Inputs
         }
 
         /// <summary>
-        /// The name of the step.
+        /// Friendly name given to the instance fleet.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -131,7 +131,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_cluster = aws.redshift.Cluster("testCluster",
-            cluster_identifier="tf-redshift-cluster-%d",
+            cluster_identifier="tf-redshift-cluster",
             database_name="test",
             master_username="testuser",
             master_password="T3stPass",
@@ -196,6 +196,85 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     )],
                 ),
             ))
+        ```
+        ### Elasticsearch Destination With VPC
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_cluster = aws.elasticsearch.Domain("testCluster",
+            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
+                instance_count=2,
+                zone_awareness_enabled=True,
+                instance_type="t2.small.elasticsearch",
+            ),
+            ebs_options=aws.elasticsearch.DomainEbsOptionsArgs(
+                ebs_enabled=True,
+                volume_size=10,
+            ),
+            vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
+                security_group_ids=[aws_security_group["first"]["id"]],
+                subnet_ids=[
+                    aws_subnet["first"]["id"],
+                    aws_subnet["second"]["id"],
+                ],
+            ))
+        firehose_elasticsearch = aws.iam.RolePolicy("firehose-elasticsearch",
+            role=aws_iam_role["firehose"]["id"],
+            policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Effect": "Allow",
+              "Action": [
+                "es:*"
+              ],
+              "Resource": [
+                "{test_cluster_arn}",
+                "{test_cluster_arn1}/*"
+              ]
+                }},
+                {{
+                  "Effect": "Allow",
+                  "Action": [
+                    "ec2:DescribeVpcs",
+                    "ec2:DescribeVpcAttribute",
+                    "ec2:DescribeSubnets",
+                    "ec2:DescribeSecurityGroups",
+                    "ec2:DescribeNetworkInterfaces",
+                    "ec2:CreateNetworkInterface",
+                    "ec2:CreateNetworkInterfacePermission",
+                    "ec2:DeleteNetworkInterface"
+                  ],
+                  "Resource": [
+                    "*"
+                  ]
+                }}
+          ]
+        }}
+        \"\"\"))
+        test = aws.kinesis.FirehoseDeliveryStream("test",
+            destination="elasticsearch",
+            s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
+            ),
+            elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
+                domain_arn=test_cluster.arn,
+                role_arn=aws_iam_role["firehose"]["arn"],
+                index_name="test",
+                type_name="test",
+                vpc_config={
+                    "subnet_ids": [
+                        aws_subnet["first"]["id"],
+                        aws_subnet["second"]["id"],
+                    ],
+                    "security_group_ids": [aws_security_group["first"]["id"]],
+                    "role_arn": aws_iam_role["firehose"]["arn"],
+                },
+            ),
+            opts=ResourceOptions(depends_on=[firehose_elasticsearch]))
         ```
         ### Splunk Destination
 

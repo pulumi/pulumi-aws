@@ -16,12 +16,13 @@ type TaskDefinition struct {
 
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringOutput `pulumi:"containerDefinitions"`
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
@@ -91,12 +92,13 @@ func GetTaskDefinition(ctx *pulumi.Context,
 type taskDefinitionState struct {
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn *string `pulumi:"arn"`
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions *string `pulumi:"containerDefinitions"`
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
@@ -133,12 +135,13 @@ type taskDefinitionState struct {
 type TaskDefinitionState struct {
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn pulumi.StringPtrInput
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringPtrInput
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
@@ -177,12 +180,13 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 }
 
 type taskDefinitionArgs struct {
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions string `pulumi:"containerDefinitions"`
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
@@ -216,12 +220,13 @@ type taskDefinitionArgs struct {
 
 // The set of arguments for constructing a TaskDefinition resource.
 type TaskDefinitionArgs struct {
-	// A list of valid [container definitions]
-	// (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
-	// single valid JSON document. Please note that you should only provide values that are part of the container
-	// definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
-	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
-	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// A list of valid [container
+	// definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html)
+	// provided as a single valid JSON document. Please note that you should only
+	// provide values that are part of the container definition document. For a
+	// detailed description of what parameters are available, see the [Task Definition
+	// Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+	// section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringInput
 	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput

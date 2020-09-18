@@ -1111,7 +1111,7 @@ export namespace apigateway {
          */
         destinationArn: string;
         /**
-         * The formatting and values recorded in the logs. 
+         * The formatting and values recorded in the logs.
          * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
          */
         format: string;
@@ -3279,7 +3279,7 @@ export namespace cloudfront {
          */
         targetOriginId: string;
         /**
-         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
          * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
         trustedSigners?: string[];
@@ -3439,7 +3439,7 @@ export namespace cloudfront {
          */
         targetOriginId: string;
         /**
-         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
          * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
         trustedSigners?: string[];
@@ -3741,6 +3741,13 @@ export namespace cloudtrail {
          * A list of ARN for the specified S3 buckets and object prefixes..
          */
         values: string[];
+    }
+
+    export interface TrailInsightSelector {
+        /**
+         * The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+         */
+        insightType: string;
     }
 }
 
@@ -4249,6 +4256,41 @@ export namespace codebuild {
          * The ID of the VPC within which to run builds.
          */
         vpcId: string;
+    }
+
+    export interface ReportGroupExportConfig {
+        /**
+         * contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+         */
+        s3Destination?: outputs.codebuild.ReportGroupExportConfigS3Destination;
+        /**
+         * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+         */
+        type: string;
+    }
+
+    export interface ReportGroupExportConfigS3Destination {
+        /**
+         * The name of the S3 bucket where the raw data of a report are exported.
+         */
+        bucket: string;
+        /**
+         * A boolean value that specifies if the results of a report are encrypted.
+         * **Note: the API does not currently allow setting encryption as disabled**
+         */
+        encryptionDisabled?: boolean;
+        /**
+         * The encryption key for the report's encrypted raw data. The KMS key ARN.
+         */
+        encryptionKey: string;
+        /**
+         * The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
+         */
+        packaging?: string;
+        /**
+         * The path to the exported report's raw data results.
+         */
+        path?: string;
     }
 
     export interface WebhookFilterGroup {
@@ -5795,7 +5837,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1" or "gp2".
+         * default), "io1", "io2" or "gp2".
          */
         volumeType: string;
     }
@@ -5845,7 +5887,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1" or "gp2".
+         * default), "io1", "io2" or "gp2".
          */
         volumeType?: string;
     }
@@ -5895,7 +5937,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of EBS volume to create. Can be one of "standard" (the
-         * default), "io1" or "gp2".
+         * default), "io1", "io2" or "gp2".
          */
         volumeType: string;
     }
@@ -6792,6 +6834,10 @@ export namespace ec2 {
          */
         ipv6CidrBlock: string;
         /**
+         * The Local Gateway ID.
+         */
+        localGatewayId: string;
+        /**
          * The NAT Gateway ID.
          */
         natGatewayId: string;
@@ -6967,6 +7013,19 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetVpcPeeringConnectionsFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A VPC Peering Connection will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
     export interface GetVpcsFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -7019,7 +7078,7 @@ export namespace ec2 {
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This must be set with a `volumeType` of `"io1"`.
+         * This must be set with a `volumeType` of `"io1/io2"`.
          */
         iops: number;
         /**
@@ -7036,8 +7095,8 @@ export namespace ec2 {
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"gp2"`).
+         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+         * or `"io2"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -7106,7 +7165,7 @@ export namespace ec2 {
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This is only valid for `volumeType` of `"io1"`, and must be specified if
+         * This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
          * using that type
          */
         iops: number;
@@ -7120,7 +7179,7 @@ export namespace ec2 {
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -7183,7 +7242,7 @@ export namespace ec2 {
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This must be set with a `volumeType` of `"io1"`.
+         * This must be set with a `volumeType` of `"io1/io2"`.
          */
         iops: number;
         /**
@@ -7200,7 +7259,7 @@ export namespace ec2 {
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
          */
         volumeType: string;
     }
@@ -7587,6 +7646,10 @@ export namespace ec2 {
          */
         ipv6CidrBlock?: string;
         /**
+         * Identifier of a Outpost local gateway.
+         */
+        localGatewayId?: string;
+        /**
          * Identifier of a VPC NAT gateway.
          */
         natGatewayId?: string;
@@ -7833,7 +7896,7 @@ export namespace ec2 {
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This must be set with a `volumeType` of `"io1"`.
+         * This must be set with a `volumeType` of `"io1/io2"`.
          */
         iops: number;
         /**
@@ -7850,8 +7913,8 @@ export namespace ec2 {
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"gp2"`).
+         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+         * or `"io2"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -7920,7 +7983,7 @@ export namespace ec2 {
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This is only valid for `volumeType` of `"io1"`, and must be specified if
+         * This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
          * using that type
          */
         iops: number;
@@ -7934,7 +7997,7 @@ export namespace ec2 {
          */
         volumeSize: number;
         /**
-         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+         * The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -8078,7 +8141,11 @@ export namespace ec2clientvpn {
          */
         rootCertificateChainArn?: string;
         /**
-         * The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+         * The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+         */
+        samlProviderArn?: string;
+        /**
+         * The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
          */
         type: string;
     }
@@ -10349,7 +10416,7 @@ export namespace emr {
          */
         args?: string[];
         /**
-         * The name of the step.
+         * Friendly name given to the instance fleet.
          */
         name: string;
         /**
@@ -10358,13 +10425,136 @@ export namespace emr {
         path: string;
     }
 
+    export interface ClusterCoreInstanceFleet {
+        /**
+         * The ID of the EMR Cluster
+         */
+        id: string;
+        /**
+         * Configuration block for instance fleet
+         */
+        instanceTypeConfigs?: outputs.emr.ClusterCoreInstanceFleetInstanceTypeConfig[];
+        /**
+         * Configuration block for launch specification
+         */
+        launchSpecifications?: outputs.emr.ClusterCoreInstanceFleetLaunchSpecifications;
+        /**
+         * Friendly name given to the instance fleet.
+         */
+        name?: string;
+        provisionedOnDemandCapacity: number;
+        provisionedSpotCapacity: number;
+        /**
+         * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+         */
+        targetOnDemandCapacity?: number;
+        /**
+         * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+         */
+        targetSpotCapacity?: number;
+    }
+
+    export interface ClusterCoreInstanceFleetInstanceTypeConfig {
+        /**
+         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         */
+        bidPrice?: string;
+        /**
+         * The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         */
+        bidPriceAsPercentageOfOnDemandPrice?: number;
+        /**
+         * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+         */
+        configurations?: outputs.emr.ClusterCoreInstanceFleetInstanceTypeConfigConfiguration[];
+        /**
+         * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+         */
+        ebsConfigs: outputs.emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig[];
+        /**
+         * An EC2 instance type, such as m4.xlarge.
+         */
+        instanceType: string;
+        /**
+         * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
+         */
+        weightedCapacity?: number;
+    }
+
+    export interface ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
+        /**
+         * The classification within a configuration.
+         */
+        classification?: string;
+        /**
+         * A map of properties specified within a configuration classification
+         */
+        properties?: {[key: string]: any};
+    }
+
+    export interface ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports
+         */
+        iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB).
+         */
+        size: number;
+        /**
+         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         */
+        type: string;
+        /**
+         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         */
+        volumesPerInstance?: number;
+    }
+
+    export interface ClusterCoreInstanceFleetLaunchSpecifications {
+        /**
+         * Configuration block for on demand instances launch specifications
+         */
+        onDemandSpecifications?: outputs.emr.ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification[];
+        /**
+         * Configuration block for spot instances launch specifications
+         */
+        spotSpecifications?: outputs.emr.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification[];
+    }
+
+    export interface ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification {
+        /**
+         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         */
+        allocationStrategy: string;
+    }
+
+    export interface ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification {
+        /**
+         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         */
+        allocationStrategy: string;
+        /**
+         * The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+         */
+        blockDurationMinutes?: number;
+        /**
+         * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+         */
+        timeoutAction: string;
+        /**
+         * The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+         */
+        timeoutDurationMinutes: number;
+    }
+
     export interface ClusterCoreInstanceGroup {
         /**
          * String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
          */
         autoscalingPolicy?: string;
         /**
-         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
          */
         bidPrice?: string;
         /**
@@ -10380,11 +10570,11 @@ export namespace emr {
          */
         instanceCount?: number;
         /**
-         * EC2 instance type for all instances in the instance group.
+         * An EC2 instance type, such as m4.xlarge.
          */
         instanceType: string;
         /**
-         * The name of the step.
+         * Friendly name given to the instance fleet.
          */
         name?: string;
     }
@@ -10466,9 +10656,132 @@ export namespace emr {
         realm: string;
     }
 
+    export interface ClusterMasterInstanceFleet {
+        /**
+         * The ID of the EMR Cluster
+         */
+        id: string;
+        /**
+         * Configuration block for instance fleet
+         */
+        instanceTypeConfigs?: outputs.emr.ClusterMasterInstanceFleetInstanceTypeConfig[];
+        /**
+         * Configuration block for launch specification
+         */
+        launchSpecifications?: outputs.emr.ClusterMasterInstanceFleetLaunchSpecifications;
+        /**
+         * Friendly name given to the instance fleet.
+         */
+        name?: string;
+        provisionedOnDemandCapacity: number;
+        provisionedSpotCapacity: number;
+        /**
+         * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+         */
+        targetOnDemandCapacity?: number;
+        /**
+         * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+         */
+        targetSpotCapacity?: number;
+    }
+
+    export interface ClusterMasterInstanceFleetInstanceTypeConfig {
+        /**
+         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         */
+        bidPrice?: string;
+        /**
+         * The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         */
+        bidPriceAsPercentageOfOnDemandPrice?: number;
+        /**
+         * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+         */
+        configurations?: outputs.emr.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration[];
+        /**
+         * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+         */
+        ebsConfigs: outputs.emr.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig[];
+        /**
+         * An EC2 instance type, such as m4.xlarge.
+         */
+        instanceType: string;
+        /**
+         * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
+         */
+        weightedCapacity?: number;
+    }
+
+    export interface ClusterMasterInstanceFleetInstanceTypeConfigConfiguration {
+        /**
+         * The classification within a configuration.
+         */
+        classification?: string;
+        /**
+         * A map of properties specified within a configuration classification
+         */
+        properties?: {[key: string]: any};
+    }
+
+    export interface ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports
+         */
+        iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB).
+         */
+        size: number;
+        /**
+         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         */
+        type: string;
+        /**
+         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         */
+        volumesPerInstance?: number;
+    }
+
+    export interface ClusterMasterInstanceFleetLaunchSpecifications {
+        /**
+         * Configuration block for on demand instances launch specifications
+         */
+        onDemandSpecifications?: outputs.emr.ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification[];
+        /**
+         * Configuration block for spot instances launch specifications
+         */
+        spotSpecifications?: outputs.emr.ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification[];
+    }
+
+    export interface ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification {
+        /**
+         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         */
+        allocationStrategy: string;
+    }
+
+    export interface ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification {
+        /**
+         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         */
+        allocationStrategy: string;
+        /**
+         * The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+         */
+        blockDurationMinutes?: number;
+        /**
+         * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+         */
+        timeoutAction: string;
+        /**
+         * The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+         */
+        timeoutDurationMinutes: number;
+    }
+
     export interface ClusterMasterInstanceGroup {
         /**
-         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
          */
         bidPrice?: string;
         /**
@@ -10484,11 +10797,11 @@ export namespace emr {
          */
         instanceCount?: number;
         /**
-         * EC2 instance type for all instances in the instance group.
+         * An EC2 instance type, such as m4.xlarge.
          */
         instanceType: string;
         /**
-         * The name of the step.
+         * Friendly name given to the instance fleet.
          */
         name?: string;
     }
@@ -10522,7 +10835,7 @@ export namespace emr {
          */
         hadoopJarStep: outputs.emr.ClusterStepHadoopJarStep;
         /**
-         * The name of the step.
+         * Friendly name given to the instance fleet.
          */
         name: string;
     }
@@ -10541,9 +10854,103 @@ export namespace emr {
          */
         mainClass?: string;
         /**
-         * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+         * A map of properties specified within a configuration classification
          */
         properties?: {[key: string]: string};
+    }
+
+    export interface InstanceFleetInstanceTypeConfig {
+        /**
+         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         */
+        bidPrice?: string;
+        /**
+         * The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         */
+        bidPriceAsPercentageOfOnDemandPrice?: number;
+        /**
+         * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+         */
+        configurations?: outputs.emr.InstanceFleetInstanceTypeConfigConfiguration[];
+        /**
+         * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+         */
+        ebsConfigs: outputs.emr.InstanceFleetInstanceTypeConfigEbsConfig[];
+        /**
+         * An EC2 instance type, such as m4.xlarge.
+         */
+        instanceType: string;
+        /**
+         * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
+         */
+        weightedCapacity?: number;
+    }
+
+    export interface InstanceFleetInstanceTypeConfigConfiguration {
+        /**
+         * The classification within a configuration.
+         */
+        classification?: string;
+        /**
+         * A map of properties specified within a configuration classification
+         */
+        properties?: {[key: string]: any};
+    }
+
+    export interface InstanceFleetInstanceTypeConfigEbsConfig {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports
+         */
+        iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB).
+         */
+        size: number;
+        /**
+         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         */
+        type: string;
+        /**
+         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         */
+        volumesPerInstance?: number;
+    }
+
+    export interface InstanceFleetLaunchSpecifications {
+        /**
+         * Configuration block for on demand instances launch specifications
+         */
+        onDemandSpecifications?: outputs.emr.InstanceFleetLaunchSpecificationsOnDemandSpecification[];
+        /**
+         * Configuration block for spot instances launch specifications
+         */
+        spotSpecifications?: outputs.emr.InstanceFleetLaunchSpecificationsSpotSpecification[];
+    }
+
+    export interface InstanceFleetLaunchSpecificationsOnDemandSpecification {
+        /**
+         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         */
+        allocationStrategy: string;
+    }
+
+    export interface InstanceFleetLaunchSpecificationsSpotSpecification {
+        /**
+         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         */
+        allocationStrategy: string;
+        /**
+         * The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+         */
+        blockDurationMinutes?: number;
+        /**
+         * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+         */
+        timeoutAction: string;
+        /**
+         * The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+         */
+        timeoutDurationMinutes: number;
     }
 
     export interface InstanceGroupEbsConfig {
@@ -11209,6 +11616,54 @@ export namespace glue {
          * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
          */
         state?: string;
+    }
+
+    export interface UserDefinedFunctionResourceUri {
+        /**
+         * The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+         */
+        resourceType: string;
+        /**
+         * The URI for accessing the resource.
+         */
+        uri: string;
+    }
+}
+
+export namespace guardduty {
+    export interface FilterFindingCriteria {
+        criterions: outputs.guardduty.FilterFindingCriteriaCriterion[];
+    }
+
+    export interface FilterFindingCriteriaCriterion {
+        /**
+         * List of string values to be evaluated.
+         */
+        equals?: string[];
+        /**
+         * The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
+         */
+        field: string;
+        /**
+         * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        greaterThan?: string;
+        /**
+         * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        greaterThanOrEqual?: string;
+        /**
+         * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        lessThan?: string;
+        /**
+         * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        lessThanOrEqual?: string;
+        /**
+         * List of string values to be evaluated.
+         */
+        notEquals?: string[];
     }
 }
 
@@ -12268,9 +12723,13 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions;
         /**
-         * The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
+         * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          */
-        domainArn: string;
+        clusterEndpoint?: string;
+        /**
+         * The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
+         */
+        domainArn?: string;
         /**
          * The Elasticsearch index name.
          */
@@ -12299,6 +12758,10 @@ export namespace kinesis {
          * The Elasticsearch type name with maximum length of 100 characters.
          */
         typeName?: string;
+        /**
+         * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+         */
+        vpcConfig?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions {
@@ -12347,6 +12810,22 @@ export namespace kinesis {
          * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
          */
         parameterValue: string;
+    }
+
+    export interface FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
+        /**
+         * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+         */
+        roleArn: string;
+        /**
+         * A list of security group IDs to associate with Kinesis Firehose.
+         */
+        securityGroupIds: string[];
+        /**
+         * A list of subnet IDs to associate with Kinesis Firehose.
+         */
+        subnetIds: string[];
+        vpcId: string;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3Configuration {
@@ -13767,6 +14246,24 @@ export namespace lb {
     }
 }
 
+export namespace lex {
+    export interface GetSlotTypeEnumerationValue {
+        synonyms: string[];
+        value: string;
+    }
+
+    export interface SlotTypeEnumerationValue {
+        /**
+         * Additional values related to the slot type value.
+         */
+        synonyms?: string[];
+        /**
+         * The value of the slot type.
+         */
+        value: string;
+    }
+}
+
 export namespace macie {
     export interface S3BucketAssociationClassificationType {
         /**
@@ -14913,6 +15410,25 @@ export namespace rds {
          * The value of the DB parameter.
          */
         value: string;
+    }
+
+    export interface ProxyAuth {
+        /**
+         * The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+         */
+        authScheme?: string;
+        /**
+         * A user-specified description about the authentication used by a proxy to log in as a specific database user.
+         */
+        description?: string;
+        /**
+         * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+         */
+        iamAuth?: string;
+        /**
+         * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+         */
+        secretArn?: string;
     }
 
     export interface SecurityGroupIngress {
@@ -17238,6 +17754,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -17697,6 +18232,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementNotStatement {
@@ -17854,6 +18408,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -18351,6 +18924,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -19150,6 +19742,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementNotStatement {
@@ -19357,6 +19968,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -19816,6 +20446,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementNotStatement {
@@ -19973,6 +20622,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -20470,6 +21138,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -21357,6 +22044,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -21816,6 +22522,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementNotStatement {
@@ -21973,6 +22698,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -22470,6 +23214,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -23977,6 +24740,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -24436,6 +25218,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatement {
@@ -24593,6 +25394,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -25090,6 +25910,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -25889,6 +26728,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatement {
@@ -26096,6 +26954,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -26555,6 +27432,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatement {
@@ -26712,6 +27608,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -27209,6 +28124,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -28096,6 +29030,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -28555,6 +29508,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatement {
@@ -28712,6 +29684,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -29209,6 +30200,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -30348,6 +31358,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatement {
@@ -30627,6 +31656,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -31086,6 +32134,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatement {
@@ -31243,6 +32310,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -31740,6 +32826,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -32539,6 +33644,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatement {
@@ -32746,6 +33870,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -33205,6 +34348,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatement {
@@ -33362,6 +34524,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -33859,6 +35040,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -34746,6 +35946,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -35205,6 +36424,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatement {
@@ -35362,6 +36600,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -35859,6 +37116,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -37136,6 +38412,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -37595,6 +38890,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatement {
@@ -37752,6 +39066,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -38249,6 +39582,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -39048,6 +40400,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatement {
@@ -39255,6 +40626,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -39714,6 +41104,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatement {
@@ -39871,6 +41280,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -40368,6 +41796,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -41255,6 +42702,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -41714,6 +43180,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement {
@@ -41871,6 +43356,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -42368,6 +43872,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -43668,6 +45191,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -44127,6 +45669,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatement {
@@ -44284,6 +45845,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -44781,6 +46361,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -45580,6 +47179,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
@@ -45787,6 +47405,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -46246,6 +47883,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatement {
@@ -46403,6 +48059,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -46900,6 +48575,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -47787,6 +49481,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -48246,6 +49959,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatement {
@@ -48403,6 +50135,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -48900,6 +50651,25 @@ export namespace wafv2 {
          * The Amazon Resource Name (ARN) of the IP Set that this statement references.
          */
         arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {

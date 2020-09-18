@@ -26,6 +26,8 @@ __all__ = [
     'ProjectSourceAuth',
     'ProjectSourceGitSubmodulesConfig',
     'ProjectVpcConfig',
+    'ReportGroupExportConfig',
+    'ReportGroupExportConfigS3Destination',
     'WebhookFilterGroup',
     'WebhookFilterGroupFilter',
 ]
@@ -981,6 +983,109 @@ class ProjectVpcConfig(dict):
         The ID of the VPC within which to run builds.
         """
         return pulumi.get(self, "vpc_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReportGroupExportConfig(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 s3_destination: Optional['outputs.ReportGroupExportConfigS3Destination'] = None):
+        """
+        :param str type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        :param 'ReportGroupExportConfigS3DestinationArgs' s3_destination: contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+        """
+        pulumi.set(__self__, "type", type)
+        if s3_destination is not None:
+            pulumi.set(__self__, "s3_destination", s3_destination)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="s3Destination")
+    def s3_destination(self) -> Optional['outputs.ReportGroupExportConfigS3Destination']:
+        """
+        contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+        """
+        return pulumi.get(self, "s3_destination")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReportGroupExportConfigS3Destination(dict):
+    def __init__(__self__, *,
+                 bucket: str,
+                 encryption_key: str,
+                 encryption_disabled: Optional[bool] = None,
+                 packaging: Optional[str] = None,
+                 path: Optional[str] = None):
+        """
+        :param str bucket: The name of the S3 bucket where the raw data of a report are exported.
+        :param str encryption_key: The encryption key for the report's encrypted raw data. The KMS key ARN.
+        :param bool encryption_disabled: A boolean value that specifies if the results of a report are encrypted.
+               **Note: the API does not currently allow setting encryption as disabled**
+        :param str packaging: The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
+        :param str path: The path to the exported report's raw data results.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "encryption_key", encryption_key)
+        if encryption_disabled is not None:
+            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
+        if packaging is not None:
+            pulumi.set(__self__, "packaging", packaging)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        The name of the S3 bucket where the raw data of a report are exported.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> str:
+        """
+        The encryption key for the report's encrypted raw data. The KMS key ARN.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @property
+    @pulumi.getter(name="encryptionDisabled")
+    def encryption_disabled(self) -> Optional[bool]:
+        """
+        A boolean value that specifies if the results of a report are encrypted.
+        **Note: the API does not currently allow setting encryption as disabled**
+        """
+        return pulumi.get(self, "encryption_disabled")
+
+    @property
+    @pulumi.getter
+    def packaging(self) -> Optional[str]:
+        """
+        The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
+        """
+        return pulumi.get(self, "packaging")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to the exported report's raw data results.
+        """
+        return pulumi.get(self, "path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

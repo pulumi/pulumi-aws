@@ -49,10 +49,6 @@ import (
 // 	})
 // }
 // ```
-// ## Import
-//
-// The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn.
-// It will not retrieve the private key which is not available through the AWS API.
 func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateArgs, opts ...pulumi.InvokeOption) (*LookupServerCertificateResult, error) {
 	var rv LookupServerCertificateResult
 	err := ctx.Invoke("aws:iam/getServerCertificate:getServerCertificate", args, &rv, opts...)

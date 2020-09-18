@@ -19,7 +19,9 @@ class ReportDefinition(pulumi.CustomResource):
                  additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None,
+                 refresh_closed_reports: Optional[pulumi.Input[bool]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
+                 report_versioning: Optional[pulumi.Input[str]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
                  s3_region: Optional[pulumi.Input[str]] = None,
@@ -56,11 +58,13 @@ class ReportDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: RESOURCES.
-        :param pulumi.Input[str] compression: Compression format for report. Valid values are: GZIP, ZIP.
-        :param pulumi.Input[str] format: Format for report. Valid values are: textORcsv.
+        :param pulumi.Input[str] compression: Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
+        :param pulumi.Input[str] format: Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
+        :param pulumi.Input[bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         :param pulumi.Input[str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+        :param pulumi.Input[str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
@@ -93,9 +97,11 @@ class ReportDefinition(pulumi.CustomResource):
             if format is None:
                 raise TypeError("Missing required property 'format'")
             __props__['format'] = format
+            __props__['refresh_closed_reports'] = refresh_closed_reports
             if report_name is None:
                 raise TypeError("Missing required property 'report_name'")
             __props__['report_name'] = report_name
+            __props__['report_versioning'] = report_versioning
             if s3_bucket is None:
                 raise TypeError("Missing required property 's3_bucket'")
             __props__['s3_bucket'] = s3_bucket
@@ -120,7 +126,9 @@ class ReportDefinition(pulumi.CustomResource):
             additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             compression: Optional[pulumi.Input[str]] = None,
             format: Optional[pulumi.Input[str]] = None,
+            refresh_closed_reports: Optional[pulumi.Input[bool]] = None,
             report_name: Optional[pulumi.Input[str]] = None,
+            report_versioning: Optional[pulumi.Input[str]] = None,
             s3_bucket: Optional[pulumi.Input[str]] = None,
             s3_prefix: Optional[pulumi.Input[str]] = None,
             s3_region: Optional[pulumi.Input[str]] = None,
@@ -132,11 +140,13 @@ class ReportDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: RESOURCES.
-        :param pulumi.Input[str] compression: Compression format for report. Valid values are: GZIP, ZIP.
-        :param pulumi.Input[str] format: Format for report. Valid values are: textORcsv.
+        :param pulumi.Input[str] compression: Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
+        :param pulumi.Input[str] format: Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
+        :param pulumi.Input[bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         :param pulumi.Input[str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+        :param pulumi.Input[str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
@@ -150,7 +160,9 @@ class ReportDefinition(pulumi.CustomResource):
         __props__["additional_schema_elements"] = additional_schema_elements
         __props__["compression"] = compression
         __props__["format"] = format
+        __props__["refresh_closed_reports"] = refresh_closed_reports
         __props__["report_name"] = report_name
+        __props__["report_versioning"] = report_versioning
         __props__["s3_bucket"] = s3_bucket
         __props__["s3_prefix"] = s3_prefix
         __props__["s3_region"] = s3_region
@@ -161,7 +173,7 @@ class ReportDefinition(pulumi.CustomResource):
     @pulumi.getter(name="additionalArtifacts")
     def additional_artifacts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+        A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
         """
         return pulumi.get(self, "additional_artifacts")
 
@@ -177,7 +189,7 @@ class ReportDefinition(pulumi.CustomResource):
     @pulumi.getter
     def compression(self) -> pulumi.Output[str]:
         """
-        Compression format for report. Valid values are: GZIP, ZIP.
+        Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
         """
         return pulumi.get(self, "compression")
 
@@ -185,9 +197,17 @@ class ReportDefinition(pulumi.CustomResource):
     @pulumi.getter
     def format(self) -> pulumi.Output[str]:
         """
-        Format for report. Valid values are: textORcsv.
+        Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="refreshClosedReports")
+    def refresh_closed_reports(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        """
+        return pulumi.get(self, "refresh_closed_reports")
 
     @property
     @pulumi.getter(name="reportName")
@@ -196,6 +216,14 @@ class ReportDefinition(pulumi.CustomResource):
         Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         """
         return pulumi.get(self, "report_name")
+
+    @property
+    @pulumi.getter(name="reportVersioning")
+    def report_versioning(self) -> pulumi.Output[Optional[str]]:
+        """
+        Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+        """
+        return pulumi.get(self, "report_versioning")
 
     @property
     @pulumi.getter(name="s3Bucket")

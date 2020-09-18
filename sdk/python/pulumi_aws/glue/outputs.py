@@ -36,6 +36,7 @@ __all__ = [
     'TriggerAction',
     'TriggerPredicate',
     'TriggerPredicateCondition',
+    'UserDefinedFunctionResourceUri',
     'GetScriptDagEdgeResult',
     'GetScriptDagNodeResult',
     'GetScriptDagNodeArgResult',
@@ -1180,6 +1181,38 @@ class TriggerPredicateCondition(dict):
         The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
         """
         return pulumi.get(self, "state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserDefinedFunctionResourceUri(dict):
+    def __init__(__self__, *,
+                 resource_type: str,
+                 uri: str):
+        """
+        :param str resource_type: The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+        :param str uri: The URI for accessing the resource.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI for accessing the resource.
+        """
+        return pulumi.get(self, "uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.DirectoryService
     public static class GetDirectory
     {
         /// <summary>
-        /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
+        /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  *
  * To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the `aws.emr.InstanceGroup` resource.
  *
- * > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -135,6 +133,102 @@ import * as utilities from "../utilities";
  * Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
  * guide for more information on these IAM roles. There is also a fully-bootable
  * example this provider configuration at the bottom of this page.
+ * ## Instance Fleet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.emr.Cluster("example", {
+ *     masterInstanceFleet: {
+ *         instanceTypeConfigs: [{
+ *             instanceType: "m4.xlarge",
+ *         }],
+ *         targetOnDemandCapacity: 1,
+ *     },
+ *     coreInstanceFleet: {
+ *         instanceTypeConfigs: [
+ *             {
+ *                 bidPriceAsPercentageOfOnDemandPrice: 80,
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 instanceType: "m3.xlarge",
+ *                 weightedCapacity: 1,
+ *             },
+ *             {
+ *                 bidPriceAsPercentageOfOnDemandPrice: 100,
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 instanceType: "m4.xlarge",
+ *                 weightedCapacity: 1,
+ *             },
+ *             {
+ *                 bidPriceAsPercentageOfOnDemandPrice: 100,
+ *                 ebsConfigs: [{
+ *                     size: 100,
+ *                     type: "gp2",
+ *                     volumesPerInstance: 1,
+ *                 }],
+ *                 instanceType: "m4.2xlarge",
+ *                 weightedCapacity: 2,
+ *             },
+ *         ],
+ *         launchSpecifications: {
+ *             spotSpecifications: [{
+ *                 allocationStrategy: "capacity-optimized",
+ *                 blockDurationMinutes: 0,
+ *                 timeoutAction: "SWITCH_TO_ON_DEMAND",
+ *                 timeoutDurationMinutes: 10,
+ *             }],
+ *         },
+ *         name: "core fleet",
+ *         targetOnDemandCapacity: 2,
+ *         targetSpotCapacity: 2,
+ *     },
+ * });
+ * const task = new aws.emr.InstanceFleet("task", {
+ *     clusterId: example.id,
+ *     instanceTypeConfigs: [
+ *         {
+ *             bidPriceAsPercentageOfOnDemandPrice: 100,
+ *             ebsConfigs: [{
+ *                 size: 100,
+ *                 type: "gp2",
+ *                 volumesPerInstance: 1,
+ *             }],
+ *             instanceType: "m4.xlarge",
+ *             weightedCapacity: 1,
+ *         },
+ *         {
+ *             bidPriceAsPercentageOfOnDemandPrice: 100,
+ *             ebsConfigs: [{
+ *                 size: 100,
+ *                 type: "gp2",
+ *                 volumesPerInstance: 1,
+ *             }],
+ *             instanceType: "m4.2xlarge",
+ *             weightedCapacity: 2,
+ *         },
+ *     ],
+ *     launchSpecifications: {
+ *         spotSpecifications: [{
+ *             allocationStrategy: "capacity-optimized",
+ *             blockDurationMinutes: 0,
+ *             timeoutAction: "TERMINATE_CLUSTER",
+ *             timeoutDurationMinutes: 10,
+ *         }],
+ *     },
+ *     targetOnDemandCapacity: 1,
+ *     targetSpotCapacity: 1,
+ * });
+ * ```
+ *
  * ### Enable Debug Logging
  *
  * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)
@@ -155,6 +249,7 @@ import * as utilities from "../utilities";
  *     },
  * }]});
  * ```
+ *
  * ### Multiple Node Master Instance Group
  *
  * Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
@@ -181,6 +276,7 @@ import * as utilities from "../utilities";
  *     coreInstanceGroup: {},
  * });
  * ```
+ *
  * ## Example bootable config
  *
  * **NOTE:** This configuration demonstrates a minimal configuration needed to
@@ -479,13 +575,17 @@ export class Cluster extends pulumi.CustomResource {
     public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapAction[] | undefined>;
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
     /**
-     * List of configurations supplied for the EMR cluster you are creating
+     * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
      */
     public readonly configurations!: pulumi.Output<string | undefined>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
      */
     public readonly configurationsJson!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
+     */
+    public readonly coreInstanceFleet!: pulumi.Output<outputs.emr.ClusterCoreInstanceFleet>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      */
@@ -515,6 +615,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly logUri!: pulumi.Output<string | undefined>;
     /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
+     */
+    public readonly masterInstanceFleet!: pulumi.Output<outputs.emr.ClusterMasterInstanceFleet>;
+    /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      */
     public readonly masterInstanceGroup!: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup>;
@@ -524,7 +628,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
     /**
-     * The name of the step.
+     * Friendly name given to the instance fleet.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -584,6 +688,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterState"] = state ? state.clusterState : undefined;
             inputs["configurations"] = state ? state.configurations : undefined;
             inputs["configurationsJson"] = state ? state.configurationsJson : undefined;
+            inputs["coreInstanceFleet"] = state ? state.coreInstanceFleet : undefined;
             inputs["coreInstanceGroup"] = state ? state.coreInstanceGroup : undefined;
             inputs["customAmiId"] = state ? state.customAmiId : undefined;
             inputs["ebsRootVolumeSize"] = state ? state.ebsRootVolumeSize : undefined;
@@ -591,6 +696,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["keepJobFlowAliveWhenNoSteps"] = state ? state.keepJobFlowAliveWhenNoSteps : undefined;
             inputs["kerberosAttributes"] = state ? state.kerberosAttributes : undefined;
             inputs["logUri"] = state ? state.logUri : undefined;
+            inputs["masterInstanceFleet"] = state ? state.masterInstanceFleet : undefined;
             inputs["masterInstanceGroup"] = state ? state.masterInstanceGroup : undefined;
             inputs["masterPublicDns"] = state ? state.masterPublicDns : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -617,6 +723,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
             inputs["configurations"] = args ? args.configurations : undefined;
             inputs["configurationsJson"] = args ? args.configurationsJson : undefined;
+            inputs["coreInstanceFleet"] = args ? args.coreInstanceFleet : undefined;
             inputs["coreInstanceGroup"] = args ? args.coreInstanceGroup : undefined;
             inputs["customAmiId"] = args ? args.customAmiId : undefined;
             inputs["ebsRootVolumeSize"] = args ? args.ebsRootVolumeSize : undefined;
@@ -624,6 +731,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["keepJobFlowAliveWhenNoSteps"] = args ? args.keepJobFlowAliveWhenNoSteps : undefined;
             inputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
             inputs["logUri"] = args ? args.logUri : undefined;
+            inputs["masterInstanceFleet"] = args ? args.masterInstanceFleet : undefined;
             inputs["masterInstanceGroup"] = args ? args.masterInstanceGroup : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["releaseLabel"] = args ? args.releaseLabel : undefined;
@@ -673,13 +781,17 @@ export interface ClusterState {
     readonly bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
     readonly clusterState?: pulumi.Input<string>;
     /**
-     * List of configurations supplied for the EMR cluster you are creating
+     * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
      */
     readonly configurations?: pulumi.Input<string>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
      */
     readonly configurationsJson?: pulumi.Input<string>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
+     */
+    readonly coreInstanceFleet?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleet>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      */
@@ -709,6 +821,10 @@ export interface ClusterState {
      */
     readonly logUri?: pulumi.Input<string>;
     /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
+     */
+    readonly masterInstanceFleet?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleet>;
+    /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      */
     readonly masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
@@ -718,7 +834,7 @@ export interface ClusterState {
      */
     readonly masterPublicDns?: pulumi.Input<string>;
     /**
-     * The name of the step.
+     * Friendly name given to the instance fleet.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -780,13 +896,17 @@ export interface ClusterArgs {
      */
     readonly bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
     /**
-     * List of configurations supplied for the EMR cluster you are creating
+     * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
      */
     readonly configurations?: pulumi.Input<string>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
      */
     readonly configurationsJson?: pulumi.Input<string>;
+    /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
+     */
+    readonly coreInstanceFleet?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleet>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      */
@@ -816,11 +936,15 @@ export interface ClusterArgs {
      */
     readonly logUri?: pulumi.Input<string>;
     /**
+     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
+     */
+    readonly masterInstanceFleet?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleet>;
+    /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      */
     readonly masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
     /**
-     * The name of the step.
+     * Friendly name given to the instance fleet.
      */
     readonly name?: pulumi.Input<string>;
     /**

@@ -61,8 +61,12 @@ type LookupReportDefinitionResult struct {
 	// Preferred compression format for report.
 	Format string `pulumi:"format"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	ReportName string `pulumi:"reportName"`
+	Id string `pulumi:"id"`
+	// If true reports are updated after they have been finalized.
+	RefreshClosedReports bool   `pulumi:"refreshClosedReports"`
+	ReportName           string `pulumi:"reportName"`
+	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+	ReportVersioning string `pulumi:"reportVersioning"`
 	// Name of customer S3 bucket.
 	S3Bucket string `pulumi:"s3Bucket"`
 	// Preferred report path prefix.

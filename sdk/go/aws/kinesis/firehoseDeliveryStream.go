@@ -73,7 +73,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		testCluster, err := redshift.NewCluster(ctx, "testCluster", &redshift.ClusterArgs{
-// 			ClusterIdentifier: pulumi.String(fmt.Sprintf("%v%v%v", "tf-redshift-cluster-", "%", "d")),
+// 			ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
 // 			DatabaseName:      pulumi.String("test"),
 // 			MasterUsername:    pulumi.String("testuser"),
 // 			MasterPassword:    pulumi.String("T3stPass"),

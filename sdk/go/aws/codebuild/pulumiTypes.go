@@ -2728,6 +2728,367 @@ func (o ProjectVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ReportGroupExportConfig struct {
+	// contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+	S3Destination *ReportGroupExportConfigS3Destination `pulumi:"s3Destination"`
+	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+	Type string `pulumi:"type"`
+}
+
+// ReportGroupExportConfigInput is an input type that accepts ReportGroupExportConfigArgs and ReportGroupExportConfigOutput values.
+// You can construct a concrete instance of `ReportGroupExportConfigInput` via:
+//
+//          ReportGroupExportConfigArgs{...}
+type ReportGroupExportConfigInput interface {
+	pulumi.Input
+
+	ToReportGroupExportConfigOutput() ReportGroupExportConfigOutput
+	ToReportGroupExportConfigOutputWithContext(context.Context) ReportGroupExportConfigOutput
+}
+
+type ReportGroupExportConfigArgs struct {
+	// contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+	S3Destination ReportGroupExportConfigS3DestinationPtrInput `pulumi:"s3Destination"`
+	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReportGroupExportConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupExportConfig)(nil)).Elem()
+}
+
+func (i ReportGroupExportConfigArgs) ToReportGroupExportConfigOutput() ReportGroupExportConfigOutput {
+	return i.ToReportGroupExportConfigOutputWithContext(context.Background())
+}
+
+func (i ReportGroupExportConfigArgs) ToReportGroupExportConfigOutputWithContext(ctx context.Context) ReportGroupExportConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupExportConfigOutput)
+}
+
+func (i ReportGroupExportConfigArgs) ToReportGroupExportConfigPtrOutput() ReportGroupExportConfigPtrOutput {
+	return i.ToReportGroupExportConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ReportGroupExportConfigArgs) ToReportGroupExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupExportConfigOutput).ToReportGroupExportConfigPtrOutputWithContext(ctx)
+}
+
+// ReportGroupExportConfigPtrInput is an input type that accepts ReportGroupExportConfigArgs, ReportGroupExportConfigPtr and ReportGroupExportConfigPtrOutput values.
+// You can construct a concrete instance of `ReportGroupExportConfigPtrInput` via:
+//
+//          ReportGroupExportConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportGroupExportConfigPtrInput interface {
+	pulumi.Input
+
+	ToReportGroupExportConfigPtrOutput() ReportGroupExportConfigPtrOutput
+	ToReportGroupExportConfigPtrOutputWithContext(context.Context) ReportGroupExportConfigPtrOutput
+}
+
+type reportGroupExportConfigPtrType ReportGroupExportConfigArgs
+
+func ReportGroupExportConfigPtr(v *ReportGroupExportConfigArgs) ReportGroupExportConfigPtrInput {
+	return (*reportGroupExportConfigPtrType)(v)
+}
+
+func (*reportGroupExportConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupExportConfig)(nil)).Elem()
+}
+
+func (i *reportGroupExportConfigPtrType) ToReportGroupExportConfigPtrOutput() ReportGroupExportConfigPtrOutput {
+	return i.ToReportGroupExportConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *reportGroupExportConfigPtrType) ToReportGroupExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupExportConfigPtrOutput)
+}
+
+type ReportGroupExportConfigOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupExportConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupExportConfig)(nil)).Elem()
+}
+
+func (o ReportGroupExportConfigOutput) ToReportGroupExportConfigOutput() ReportGroupExportConfigOutput {
+	return o
+}
+
+func (o ReportGroupExportConfigOutput) ToReportGroupExportConfigOutputWithContext(ctx context.Context) ReportGroupExportConfigOutput {
+	return o
+}
+
+func (o ReportGroupExportConfigOutput) ToReportGroupExportConfigPtrOutput() ReportGroupExportConfigPtrOutput {
+	return o.ToReportGroupExportConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupExportConfigOutput) ToReportGroupExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigPtrOutput {
+	return o.ApplyT(func(v ReportGroupExportConfig) *ReportGroupExportConfig {
+		return &v
+	}).(ReportGroupExportConfigPtrOutput)
+}
+
+// contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+func (o ReportGroupExportConfigOutput) S3Destination() ReportGroupExportConfigS3DestinationPtrOutput {
+	return o.ApplyT(func(v ReportGroupExportConfig) *ReportGroupExportConfigS3Destination { return v.S3Destination }).(ReportGroupExportConfigS3DestinationPtrOutput)
+}
+
+// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+func (o ReportGroupExportConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportGroupExportConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReportGroupExportConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupExportConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupExportConfig)(nil)).Elem()
+}
+
+func (o ReportGroupExportConfigPtrOutput) ToReportGroupExportConfigPtrOutput() ReportGroupExportConfigPtrOutput {
+	return o
+}
+
+func (o ReportGroupExportConfigPtrOutput) ToReportGroupExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigPtrOutput {
+	return o
+}
+
+func (o ReportGroupExportConfigPtrOutput) Elem() ReportGroupExportConfigOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfig) ReportGroupExportConfig { return *v }).(ReportGroupExportConfigOutput)
+}
+
+// contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+func (o ReportGroupExportConfigPtrOutput) S3Destination() ReportGroupExportConfigS3DestinationPtrOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfig) *ReportGroupExportConfigS3Destination {
+		if v == nil {
+			return nil
+		}
+		return v.S3Destination
+	}).(ReportGroupExportConfigS3DestinationPtrOutput)
+}
+
+// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+func (o ReportGroupExportConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReportGroupExportConfigS3Destination struct {
+	// The name of the S3 bucket where the raw data of a report are exported.
+	Bucket string `pulumi:"bucket"`
+	// A boolean value that specifies if the results of a report are encrypted.
+	// **Note: the API does not currently allow setting encryption as disabled**
+	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
+	// The encryption key for the report's encrypted raw data. The KMS key ARN.
+	EncryptionKey string `pulumi:"encryptionKey"`
+	// The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
+	Packaging *string `pulumi:"packaging"`
+	// The path to the exported report's raw data results.
+	Path *string `pulumi:"path"`
+}
+
+// ReportGroupExportConfigS3DestinationInput is an input type that accepts ReportGroupExportConfigS3DestinationArgs and ReportGroupExportConfigS3DestinationOutput values.
+// You can construct a concrete instance of `ReportGroupExportConfigS3DestinationInput` via:
+//
+//          ReportGroupExportConfigS3DestinationArgs{...}
+type ReportGroupExportConfigS3DestinationInput interface {
+	pulumi.Input
+
+	ToReportGroupExportConfigS3DestinationOutput() ReportGroupExportConfigS3DestinationOutput
+	ToReportGroupExportConfigS3DestinationOutputWithContext(context.Context) ReportGroupExportConfigS3DestinationOutput
+}
+
+type ReportGroupExportConfigS3DestinationArgs struct {
+	// The name of the S3 bucket where the raw data of a report are exported.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// A boolean value that specifies if the results of a report are encrypted.
+	// **Note: the API does not currently allow setting encryption as disabled**
+	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
+	// The encryption key for the report's encrypted raw data. The KMS key ARN.
+	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
+	// The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
+	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
+	// The path to the exported report's raw data results.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (ReportGroupExportConfigS3DestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupExportConfigS3Destination)(nil)).Elem()
+}
+
+func (i ReportGroupExportConfigS3DestinationArgs) ToReportGroupExportConfigS3DestinationOutput() ReportGroupExportConfigS3DestinationOutput {
+	return i.ToReportGroupExportConfigS3DestinationOutputWithContext(context.Background())
+}
+
+func (i ReportGroupExportConfigS3DestinationArgs) ToReportGroupExportConfigS3DestinationOutputWithContext(ctx context.Context) ReportGroupExportConfigS3DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupExportConfigS3DestinationOutput)
+}
+
+func (i ReportGroupExportConfigS3DestinationArgs) ToReportGroupExportConfigS3DestinationPtrOutput() ReportGroupExportConfigS3DestinationPtrOutput {
+	return i.ToReportGroupExportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ReportGroupExportConfigS3DestinationArgs) ToReportGroupExportConfigS3DestinationPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupExportConfigS3DestinationOutput).ToReportGroupExportConfigS3DestinationPtrOutputWithContext(ctx)
+}
+
+// ReportGroupExportConfigS3DestinationPtrInput is an input type that accepts ReportGroupExportConfigS3DestinationArgs, ReportGroupExportConfigS3DestinationPtr and ReportGroupExportConfigS3DestinationPtrOutput values.
+// You can construct a concrete instance of `ReportGroupExportConfigS3DestinationPtrInput` via:
+//
+//          ReportGroupExportConfigS3DestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportGroupExportConfigS3DestinationPtrInput interface {
+	pulumi.Input
+
+	ToReportGroupExportConfigS3DestinationPtrOutput() ReportGroupExportConfigS3DestinationPtrOutput
+	ToReportGroupExportConfigS3DestinationPtrOutputWithContext(context.Context) ReportGroupExportConfigS3DestinationPtrOutput
+}
+
+type reportGroupExportConfigS3DestinationPtrType ReportGroupExportConfigS3DestinationArgs
+
+func ReportGroupExportConfigS3DestinationPtr(v *ReportGroupExportConfigS3DestinationArgs) ReportGroupExportConfigS3DestinationPtrInput {
+	return (*reportGroupExportConfigS3DestinationPtrType)(v)
+}
+
+func (*reportGroupExportConfigS3DestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupExportConfigS3Destination)(nil)).Elem()
+}
+
+func (i *reportGroupExportConfigS3DestinationPtrType) ToReportGroupExportConfigS3DestinationPtrOutput() ReportGroupExportConfigS3DestinationPtrOutput {
+	return i.ToReportGroupExportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *reportGroupExportConfigS3DestinationPtrType) ToReportGroupExportConfigS3DestinationPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupExportConfigS3DestinationPtrOutput)
+}
+
+type ReportGroupExportConfigS3DestinationOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupExportConfigS3DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupExportConfigS3Destination)(nil)).Elem()
+}
+
+func (o ReportGroupExportConfigS3DestinationOutput) ToReportGroupExportConfigS3DestinationOutput() ReportGroupExportConfigS3DestinationOutput {
+	return o
+}
+
+func (o ReportGroupExportConfigS3DestinationOutput) ToReportGroupExportConfigS3DestinationOutputWithContext(ctx context.Context) ReportGroupExportConfigS3DestinationOutput {
+	return o
+}
+
+func (o ReportGroupExportConfigS3DestinationOutput) ToReportGroupExportConfigS3DestinationPtrOutput() ReportGroupExportConfigS3DestinationPtrOutput {
+	return o.ToReportGroupExportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupExportConfigS3DestinationOutput) ToReportGroupExportConfigS3DestinationPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigS3DestinationPtrOutput {
+	return o.ApplyT(func(v ReportGroupExportConfigS3Destination) *ReportGroupExportConfigS3Destination {
+		return &v
+	}).(ReportGroupExportConfigS3DestinationPtrOutput)
+}
+
+// The name of the S3 bucket where the raw data of a report are exported.
+func (o ReportGroupExportConfigS3DestinationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportGroupExportConfigS3Destination) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// A boolean value that specifies if the results of a report are encrypted.
+// **Note: the API does not currently allow setting encryption as disabled**
+func (o ReportGroupExportConfigS3DestinationOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReportGroupExportConfigS3Destination) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// The encryption key for the report's encrypted raw data. The KMS key ARN.
+func (o ReportGroupExportConfigS3DestinationOutput) EncryptionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportGroupExportConfigS3Destination) string { return v.EncryptionKey }).(pulumi.StringOutput)
+}
+
+// The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
+func (o ReportGroupExportConfigS3DestinationOutput) Packaging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGroupExportConfigS3Destination) *string { return v.Packaging }).(pulumi.StringPtrOutput)
+}
+
+// The path to the exported report's raw data results.
+func (o ReportGroupExportConfigS3DestinationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGroupExportConfigS3Destination) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type ReportGroupExportConfigS3DestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupExportConfigS3DestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupExportConfigS3Destination)(nil)).Elem()
+}
+
+func (o ReportGroupExportConfigS3DestinationPtrOutput) ToReportGroupExportConfigS3DestinationPtrOutput() ReportGroupExportConfigS3DestinationPtrOutput {
+	return o
+}
+
+func (o ReportGroupExportConfigS3DestinationPtrOutput) ToReportGroupExportConfigS3DestinationPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigS3DestinationPtrOutput {
+	return o
+}
+
+func (o ReportGroupExportConfigS3DestinationPtrOutput) Elem() ReportGroupExportConfigS3DestinationOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfigS3Destination) ReportGroupExportConfigS3Destination { return *v }).(ReportGroupExportConfigS3DestinationOutput)
+}
+
+// The name of the S3 bucket where the raw data of a report are exported.
+func (o ReportGroupExportConfigS3DestinationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// A boolean value that specifies if the results of a report are encrypted.
+// **Note: the API does not currently allow setting encryption as disabled**
+func (o ReportGroupExportConfigS3DestinationPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfigS3Destination) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The encryption key for the report's encrypted raw data. The KMS key ARN.
+func (o ReportGroupExportConfigS3DestinationPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
+func (o ReportGroupExportConfigS3DestinationPtrOutput) Packaging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Packaging
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the exported report's raw data results.
+func (o ReportGroupExportConfigS3DestinationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupExportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebhookFilterGroup struct {
 	// A webhook filter for the group. Filter blocks are documented below.
 	Filters []WebhookFilterGroupFilter `pulumi:"filters"`
@@ -2973,6 +3334,10 @@ func init() {
 	pulumi.RegisterOutputType(ProjectSourceGitSubmodulesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ReportGroupExportConfigOutput{})
+	pulumi.RegisterOutputType(ReportGroupExportConfigPtrOutput{})
+	pulumi.RegisterOutputType(ReportGroupExportConfigS3DestinationOutput{})
+	pulumi.RegisterOutputType(ReportGroupExportConfigS3DestinationPtrOutput{})
 	pulumi.RegisterOutputType(WebhookFilterGroupOutput{})
 	pulumi.RegisterOutputType(WebhookFilterGroupArrayOutput{})
 	pulumi.RegisterOutputType(WebhookFilterGroupFilterOutput{})

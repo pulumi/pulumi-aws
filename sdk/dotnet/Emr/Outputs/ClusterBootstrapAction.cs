@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Args;
         /// <summary>
-        /// The name of the step.
+        /// Friendly name given to the instance fleet.
         /// </summary>
         public readonly string Name;
         /// <summary>

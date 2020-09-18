@@ -144,6 +144,7 @@ __all__ = [
     'GetVpcEndpointServiceFilterResult',
     'GetVpcFilterResult',
     'GetVpcPeeringConnectionFilterResult',
+    'GetVpcPeeringConnectionsFilterResult',
     'GetVpcsFilterResult',
     'GetVpnGatewayFilterResult',
 ]
@@ -172,7 +173,7 @@ class AmiCopyEbsBlockDevice(dict):
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
         :param str volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1" or "gp2".
+               default), "io1", "io2" or "gp2".
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -248,7 +249,7 @@ class AmiCopyEbsBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         """
         The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1" or "gp2".
+        default), "io1", "io2" or "gp2".
         """
         return pulumi.get(self, "volume_type")
 
@@ -316,7 +317,7 @@ class AmiEbsBlockDevice(dict):
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
         :param str volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1" or "gp2".
+               default), "io1", "io2" or "gp2".
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -391,7 +392,7 @@ class AmiEbsBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         """
         The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1" or "gp2".
+        default), "io1", "io2" or "gp2".
         """
         return pulumi.get(self, "volume_type")
 
@@ -457,7 +458,7 @@ class AmiFromInstanceEbsBlockDevice(dict):
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
         :param str volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1" or "gp2".
+               default), "io1", "io2" or "gp2".
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -533,7 +534,7 @@ class AmiFromInstanceEbsBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         """
         The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1" or "gp2".
+        default), "io1", "io2" or "gp2".
         """
         return pulumi.get(self, "volume_type")
 
@@ -1486,12 +1487,12 @@ class InstanceEbsBlockDevice(dict):
                on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         :param int iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1"`.
+               This must be set with a `volume_type` of `"io1/io2"`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param str snapshot_id: The Snapshot ID to mount.
         :param int volume_size: The size of the volume in gibibytes (GiB).
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`,
-               or `"io1"`. (Default: `"gp2"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+               or `"io2"`. (Default: `"gp2"`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -1544,7 +1545,7 @@ class InstanceEbsBlockDevice(dict):
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1"`.
+        This must be set with a `volume_type` of `"io1/io2"`.
         """
         return pulumi.get(self, "iops")
 
@@ -1581,8 +1582,8 @@ class InstanceEbsBlockDevice(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`,
-        or `"io1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+        or `"io2"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -1747,11 +1748,11 @@ class InstanceRootBlockDevice(dict):
         :param bool encrypted: Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         :param int iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This is only valid for `volume_type` of `"io1"`, and must be specified if
+               This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
                using that type
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param int volume_size: The size of the volume in gibibytes (GiB).
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -1801,7 +1802,7 @@ class InstanceRootBlockDevice(dict):
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This is only valid for `volume_type` of `"io1"`, and must be specified if
+        This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
         using that type
         """
         return pulumi.get(self, "iops")
@@ -1831,7 +1832,7 @@ class InstanceRootBlockDevice(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -2058,12 +2059,12 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
                on the volume (Default: `false`). Cannot be used with `snapshot_id`.
         :param int iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1"`.
+               This must be set with a `volume_type` of `"io1/io2"`.
         :param str kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
                `encrypted` must be set to `true` when this is set.
         :param str snapshot_id: The Snapshot ID to mount.
         :param int volume_size: The size of the volume in gigabytes.
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -2103,7 +2104,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1"`.
+        This must be set with a `volume_type` of `"io1/io2"`.
         """
         return pulumi.get(self, "iops")
 
@@ -2136,7 +2137,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -3226,6 +3227,7 @@ class RouteTableRoute(dict):
                  gateway_id: Optional[str] = None,
                  instance_id: Optional[str] = None,
                  ipv6_cidr_block: Optional[str] = None,
+                 local_gateway_id: Optional[str] = None,
                  nat_gateway_id: Optional[str] = None,
                  network_interface_id: Optional[str] = None,
                  transit_gateway_id: Optional[str] = None,
@@ -3236,6 +3238,7 @@ class RouteTableRoute(dict):
         :param str gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param str instance_id: Identifier of an EC2 instance.
         :param str ipv6_cidr_block: The Ipv6 CIDR block of the route.
+        :param str local_gateway_id: Identifier of a Outpost local gateway.
         :param str nat_gateway_id: Identifier of a VPC NAT gateway.
         :param str network_interface_id: Identifier of an EC2 network interface.
         :param str transit_gateway_id: Identifier of an EC2 Transit Gateway.
@@ -3251,6 +3254,8 @@ class RouteTableRoute(dict):
             pulumi.set(__self__, "instance_id", instance_id)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if local_gateway_id is not None:
+            pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         if nat_gateway_id is not None:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
@@ -3299,6 +3304,14 @@ class RouteTableRoute(dict):
         The Ipv6 CIDR block of the route.
         """
         return pulumi.get(self, "ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="localGatewayId")
+    def local_gateway_id(self) -> Optional[str]:
+        """
+        Identifier of a Outpost local gateway.
+        """
+        return pulumi.get(self, "local_gateway_id")
 
     @property
     @pulumi.getter(name="natGatewayId")
@@ -4123,12 +4136,12 @@ class SpotInstanceRequestEbsBlockDevice(dict):
                on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         :param int iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1"`.
+               This must be set with a `volume_type` of `"io1/io2"`.
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param str snapshot_id: The Snapshot ID to mount.
         :param int volume_size: The size of the volume in gibibytes (GiB).
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`,
-               or `"io1"`. (Default: `"gp2"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+               or `"io2"`. (Default: `"gp2"`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -4181,7 +4194,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1"`.
+        This must be set with a `volume_type` of `"io1/io2"`.
         """
         return pulumi.get(self, "iops")
 
@@ -4218,8 +4231,8 @@ class SpotInstanceRequestEbsBlockDevice(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`,
-        or `"io1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+        or `"io2"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -4384,11 +4397,11 @@ class SpotInstanceRequestRootBlockDevice(dict):
         :param bool encrypted: Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         :param int iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This is only valid for `volume_type` of `"io1"`, and must be specified if
+               This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
                using that type
         :param str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param int volume_size: The size of the volume in gibibytes (GiB).
-        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        :param str volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -4438,7 +4451,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This is only valid for `volume_type` of `"io1"`, and must be specified if
+        This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
         using that type
         """
         return pulumi.get(self, "iops")
@@ -4468,7 +4481,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -6591,6 +6604,7 @@ class GetRouteTableRouteResult(dict):
                  gateway_id: str,
                  instance_id: str,
                  ipv6_cidr_block: str,
+                 local_gateway_id: str,
                  nat_gateway_id: str,
                  network_interface_id: str,
                  transit_gateway_id: str,
@@ -6601,6 +6615,7 @@ class GetRouteTableRouteResult(dict):
         :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         :param str instance_id: The EC2 instance ID.
         :param str ipv6_cidr_block: The IPv6 CIDR block of the route.
+        :param str local_gateway_id: The Local Gateway ID.
         :param str nat_gateway_id: The NAT Gateway ID.
         :param str network_interface_id: The ID of the elastic network interface (eni) to use.
         :param str transit_gateway_id: The EC2 Transit Gateway ID.
@@ -6611,6 +6626,7 @@ class GetRouteTableRouteResult(dict):
         pulumi.set(__self__, "gateway_id", gateway_id)
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -6655,6 +6671,14 @@ class GetRouteTableRouteResult(dict):
         The IPv6 CIDR block of the route.
         """
         return pulumi.get(self, "ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="localGatewayId")
+    def local_gateway_id(self) -> str:
+        """
+        The Local Gateway ID.
+        """
+        return pulumi.get(self, "local_gateway_id")
 
     @property
     @pulumi.getter(name="natGatewayId")
@@ -7070,6 +7094,39 @@ class GetVpcFilterResult(dict):
 
 @pulumi.output_type
 class GetVpcPeeringConnectionFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by
+               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               A VPC Peering Connection will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        A VPC Peering Connection will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcPeeringConnectionsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

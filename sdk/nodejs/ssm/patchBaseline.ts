@@ -125,7 +125,7 @@ import * as utilities from "../utilities";
  *                     key: "PATCH_SET",
  *                     values: ["APPLICATION"],
  *                 },
- *                 // Filter on Microsoft product if necessary 
+ *                 // Filter on Microsoft product if necessary
  *                 {
  *                     key: "PRODUCT",
  *                     values: [

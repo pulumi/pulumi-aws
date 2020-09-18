@@ -23,6 +23,7 @@ class Trail(pulumi.CustomResource):
                  enable_logging: Optional[pulumi.Input[bool]] = None,
                  event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
                  include_global_service_events: Optional[pulumi.Input[bool]] = None,
+                 insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]]] = None,
                  is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
                  is_organization_trail: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -161,6 +162,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         :param pulumi.Input[bool] include_global_service_events: Specifies whether the trail is publishing events
                from global services such as IAM to the log files. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]] insight_selectors: Specifies an insight selector for identifying unusual operational activity. Fields documented below.
         :param pulumi.Input[bool] is_multi_region_trail: Specifies whether the trail is created in the current
                region or in all regions. Defaults to `false`.
         :param pulumi.Input[bool] is_organization_trail: Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
@@ -196,6 +198,7 @@ class Trail(pulumi.CustomResource):
             __props__['enable_logging'] = enable_logging
             __props__['event_selectors'] = event_selectors
             __props__['include_global_service_events'] = include_global_service_events
+            __props__['insight_selectors'] = insight_selectors
             __props__['is_multi_region_trail'] = is_multi_region_trail
             __props__['is_organization_trail'] = is_organization_trail
             __props__['kms_key_id'] = kms_key_id
@@ -226,6 +229,7 @@ class Trail(pulumi.CustomResource):
             event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
             home_region: Optional[pulumi.Input[str]] = None,
             include_global_service_events: Optional[pulumi.Input[bool]] = None,
+            insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]]] = None,
             is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
             is_organization_trail: Optional[pulumi.Input[bool]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -254,6 +258,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] home_region: The region in which the trail was created.
         :param pulumi.Input[bool] include_global_service_events: Specifies whether the trail is publishing events
                from global services such as IAM to the log files. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]] insight_selectors: Specifies an insight selector for identifying unusual operational activity. Fields documented below.
         :param pulumi.Input[bool] is_multi_region_trail: Specifies whether the trail is created in the current
                region or in all regions. Defaults to `false`.
         :param pulumi.Input[bool] is_organization_trail: Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
@@ -278,6 +283,7 @@ class Trail(pulumi.CustomResource):
         __props__["event_selectors"] = event_selectors
         __props__["home_region"] = home_region
         __props__["include_global_service_events"] = include_global_service_events
+        __props__["insight_selectors"] = insight_selectors
         __props__["is_multi_region_trail"] = is_multi_region_trail
         __props__["is_organization_trail"] = is_organization_trail
         __props__["kms_key_id"] = kms_key_id
@@ -356,6 +362,14 @@ class Trail(pulumi.CustomResource):
         from global services such as IAM to the log files. Defaults to `true`.
         """
         return pulumi.get(self, "include_global_service_events")
+
+    @property
+    @pulumi.getter(name="insightSelectors")
+    def insight_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.TrailInsightSelector']]]:
+        """
+        Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+        """
+        return pulumi.get(self, "insight_selectors")
 
     @property
     @pulumi.getter(name="isMultiRegionTrail")

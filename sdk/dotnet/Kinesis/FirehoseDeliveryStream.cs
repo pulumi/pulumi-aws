@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         var testCluster = new Aws.RedShift.Cluster("testCluster", new Aws.RedShift.ClusterArgs
     ///         {
-    ///             ClusterIdentifier = "tf-redshift-cluster-%d",
+    ///             ClusterIdentifier = "tf-redshift-cluster",
     ///             DatabaseName = "test",
     ///             MasterUsername = "testuser",
     ///             MasterPassword = "T3stPass",
@@ -254,6 +254,122 @@ namespace Pulumi.Aws.Kinesis
     ///                         },
     ///                     },
     ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Elasticsearch Destination With VPC
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCluster = new Aws.ElasticSearch.Domain("testCluster", new Aws.ElasticSearch.DomainArgs
+    ///         {
+    ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
+    ///             {
+    ///                 InstanceCount = 2,
+    ///                 ZoneAwarenessEnabled = true,
+    ///                 InstanceType = "t2.small.elasticsearch",
+    ///             },
+    ///             EbsOptions = new Aws.ElasticSearch.Inputs.DomainEbsOptionsArgs
+    ///             {
+    ///                 EbsEnabled = true,
+    ///                 VolumeSize = 10,
+    ///             },
+    ///             VpcOptions = new Aws.ElasticSearch.Inputs.DomainVpcOptionsArgs
+    ///             {
+    ///                 SecurityGroupIds = 
+    ///                 {
+    ///                     aws_security_group.First.Id,
+    ///                 },
+    ///                 SubnetIds = 
+    ///                 {
+    ///                     aws_subnet.First.Id,
+    ///                     aws_subnet.Second.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var firehose_elasticsearch = new Aws.Iam.RolePolicy("firehose-elasticsearch", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = aws_iam_role.Firehose.Id,
+    ///             Policy = Output.Tuple(testCluster.Arn, testCluster.Arn).Apply(values =&gt;
+    ///             {
+    ///                 var testClusterArn = values.Item1;
+    ///                 var testClusterArn1 = values.Item2;
+    ///                 return @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Action"": [
+    ///         ""es:*""
+    ///       ],
+    ///       ""Resource"": [
+    ///         ""{testClusterArn}"",
+    ///         ""{testClusterArn1}/*""
+    ///       ]
+    ///         }},
+    ///         {{
+    ///           ""Effect"": ""Allow"",
+    ///           ""Action"": [
+    ///             ""ec2:DescribeVpcs"",
+    ///             ""ec2:DescribeVpcAttribute"",
+    ///             ""ec2:DescribeSubnets"",
+    ///             ""ec2:DescribeSecurityGroups"",
+    ///             ""ec2:DescribeNetworkInterfaces"",
+    ///             ""ec2:CreateNetworkInterface"",
+    ///             ""ec2:CreateNetworkInterfacePermission"",
+    ///             ""ec2:DeleteNetworkInterface""
+    ///           ],
+    ///           ""Resource"": [
+    ///             ""*""
+    ///           ]
+    ///         }}
+    ///   ]
+    /// }}
+    /// ";
+    ///             }),
+    ///         });
+    ///         var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "elasticsearch",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///             },
+    ///             ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
+    ///             {
+    ///                 DomainArn = testCluster.Arn,
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 IndexName = "test",
+    ///                 TypeName = "test",
+    ///                 VpcConfig = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = 
+    ///                     {
+    ///                         aws_subnet.First.Id,
+    ///                         aws_subnet.Second.Id,
+    ///                     },
+    ///                     SecurityGroupIds = 
+    ///                     {
+    ///                         aws_security_group.First.Id,
+    ///                     },
+    ///                     RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 firehose_elasticsearch,
     ///             },
     ///         });
     ///     }

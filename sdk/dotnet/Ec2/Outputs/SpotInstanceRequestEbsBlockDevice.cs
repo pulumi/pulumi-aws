@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// The amount of provisioned
         /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
+        /// This must be set with a `volume_type` of `"io1/io2"`.
         /// </summary>
         public readonly int? Iops;
         /// <summary>
@@ -48,8 +48,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? VolumeSize;
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"gp2"`).
+        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+        /// or `"io2"`. (Default: `"gp2"`).
         /// </summary>
         public readonly string? VolumeType;
 

@@ -15,7 +15,9 @@ type EndpointAuthenticationOption struct {
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
 	RootCertificateChainArn *string `pulumi:"rootCertificateChainArn"`
-	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+	// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+	SamlProviderArn *string `pulumi:"samlProviderArn"`
+	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
 	Type string `pulumi:"type"`
 }
 
@@ -35,7 +37,9 @@ type EndpointAuthenticationOptionArgs struct {
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
 	// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
 	RootCertificateChainArn pulumi.StringPtrInput `pulumi:"rootCertificateChainArn"`
-	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+	// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+	SamlProviderArn pulumi.StringPtrInput `pulumi:"samlProviderArn"`
+	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -100,7 +104,12 @@ func (o EndpointAuthenticationOptionOutput) RootCertificateChainArn() pulumi.Str
 	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.RootCertificateChainArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+func (o EndpointAuthenticationOptionOutput) SamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.SamlProviderArn }).(pulumi.StringPtrOutput)
+}
+
+// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
 func (o EndpointAuthenticationOptionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointAuthenticationOption) string { return v.Type }).(pulumi.StringOutput)
 }

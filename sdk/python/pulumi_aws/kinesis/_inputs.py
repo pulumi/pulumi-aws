@@ -41,6 +41,7 @@ __all__ = [
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs',
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs',
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs',
+    'FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs',
@@ -1318,31 +1319,34 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameter
 @pulumi.input_type
 class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
     def __init__(__self__, *,
-                 domain_arn: pulumi.Input[str],
                  index_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  buffering_interval: Optional[pulumi.Input[int]] = None,
                  buffering_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs']] = None,
+                 cluster_endpoint: Optional[pulumi.Input[str]] = None,
+                 domain_arn: Optional[pulumi.Input[str]] = None,
                  index_rotation_period: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs']] = None,
                  retry_duration: Optional[pulumi.Input[int]] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None,
-                 type_name: Optional[pulumi.Input[str]] = None):
+                 type_name: Optional[pulumi.Input[str]] = None,
+                 vpc_config: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs']] = None):
         """
-        :param pulumi.Input[str] domain_arn: The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
         :param pulumi.Input[str] index_name: The Elasticsearch index name.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
+        :param pulumi.Input[str] cluster_endpoint: The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+        :param pulumi.Input[str] domain_arn: The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
         :param pulumi.Input[str] index_rotation_period: The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  More details are given below.
         :param pulumi.Input[int] retry_duration: After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         :param pulumi.Input[str] type_name: The Elasticsearch type name with maximum length of 100 characters.
+        :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs'] vpc_config: The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
         """
-        pulumi.set(__self__, "domain_arn", domain_arn)
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_interval is not None:
@@ -1351,6 +1355,10 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
             pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if cluster_endpoint is not None:
+            pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if domain_arn is not None:
+            pulumi.set(__self__, "domain_arn", domain_arn)
         if index_rotation_period is not None:
             pulumi.set(__self__, "index_rotation_period", index_rotation_period)
         if processing_configuration is not None:
@@ -1361,18 +1369,8 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
         if type_name is not None:
             pulumi.set(__self__, "type_name", type_name)
-
-    @property
-    @pulumi.getter(name="domainArn")
-    def domain_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
-        """
-        return pulumi.get(self, "domain_arn")
-
-    @domain_arn.setter
-    def domain_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_arn", value)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="indexName")
@@ -1435,6 +1433,30 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
         pulumi.set(self, "cloudwatch_logging_options", value)
 
     @property
+    @pulumi.getter(name="clusterEndpoint")
+    def cluster_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+        """
+        return pulumi.get(self, "cluster_endpoint")
+
+    @cluster_endpoint.setter
+    def cluster_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_endpoint", value)
+
+    @property
+    @pulumi.getter(name="domainArn")
+    def domain_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+        """
+        return pulumi.get(self, "domain_arn")
+
+    @domain_arn.setter
+    def domain_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_arn", value)
+
+    @property
     @pulumi.getter(name="indexRotationPeriod")
     def index_rotation_period(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1493,6 +1515,18 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
     @type_name.setter
     def type_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type_name", value)
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs']]:
+        """
+        The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+        """
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
@@ -1662,6 +1696,70 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
     @parameter_value.setter
     def parameter_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_value", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs to associate with Kinesis Firehose.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to associate with Kinesis Firehose.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of security group IDs to associate with Kinesis Firehose.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of subnet IDs to associate with Kinesis Firehose.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 @pulumi.input_type

@@ -19,7 +19,7 @@ class GetRouteResult:
     """
     A collection of values returned by getRoute.
     """
-    def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
+    def __init__(__self__, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
         if destination_cidr_block and not isinstance(destination_cidr_block, str):
             raise TypeError("Expected argument 'destination_cidr_block' to be a str")
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -38,6 +38,9 @@ class GetRouteResult:
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
         pulumi.set(__self__, "instance_id", instance_id)
+        if local_gateway_id and not isinstance(local_gateway_id, str):
+            raise TypeError("Expected argument 'local_gateway_id' to be a str")
+        pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         if nat_gateway_id and not isinstance(nat_gateway_id, str):
             raise TypeError("Expected argument 'nat_gateway_id' to be a str")
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
@@ -88,6 +91,11 @@ class GetRouteResult:
         return pulumi.get(self, "instance_id")
 
     @property
+    @pulumi.getter(name="localGatewayId")
+    def local_gateway_id(self) -> str:
+        return pulumi.get(self, "local_gateway_id")
+
+    @property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> str:
         return pulumi.get(self, "nat_gateway_id")
@@ -125,6 +133,7 @@ class AwaitableGetRouteResult(GetRouteResult):
             gateway_id=self.gateway_id,
             id=self.id,
             instance_id=self.instance_id,
+            local_gateway_id=self.local_gateway_id,
             nat_gateway_id=self.nat_gateway_id,
             network_interface_id=self.network_interface_id,
             route_table_id=self.route_table_id,
@@ -137,6 +146,7 @@ def get_route(destination_cidr_block: Optional[str] = None,
               egress_only_gateway_id: Optional[str] = None,
               gateway_id: Optional[str] = None,
               instance_id: Optional[str] = None,
+              local_gateway_id: Optional[str] = None,
               nat_gateway_id: Optional[str] = None,
               network_interface_id: Optional[str] = None,
               route_table_id: Optional[str] = None,
@@ -173,6 +183,7 @@ def get_route(destination_cidr_block: Optional[str] = None,
     :param str egress_only_gateway_id: The Egress Only Gateway ID of the Route belonging to the Route Table.
     :param str gateway_id: The Gateway ID of the Route belonging to the Route Table.
     :param str instance_id: The Instance ID of the Route belonging to the Route Table.
+    :param str local_gateway_id: The Local Gateway ID of the Route belonging to the Route Table.
     :param str nat_gateway_id: The NAT Gateway ID of the Route belonging to the Route Table.
     :param str network_interface_id: The Network Interface ID of the Route belonging to the Route Table.
     :param str route_table_id: The id of the specific Route Table containing the Route entry.
@@ -185,6 +196,7 @@ def get_route(destination_cidr_block: Optional[str] = None,
     __args__['egressOnlyGatewayId'] = egress_only_gateway_id
     __args__['gatewayId'] = gateway_id
     __args__['instanceId'] = instance_id
+    __args__['localGatewayId'] = local_gateway_id
     __args__['natGatewayId'] = nat_gateway_id
     __args__['networkInterfaceId'] = network_interface_id
     __args__['routeTableId'] = route_table_id
@@ -203,6 +215,7 @@ def get_route(destination_cidr_block: Optional[str] = None,
         gateway_id=__ret__.gateway_id,
         id=__ret__.id,
         instance_id=__ret__.instance_id,
+        local_gateway_id=__ret__.local_gateway_id,
         nat_gateway_id=__ret__.nat_gateway_id,
         network_interface_id=__ret__.network_interface_id,
         route_table_id=__ret__.route_table_id,

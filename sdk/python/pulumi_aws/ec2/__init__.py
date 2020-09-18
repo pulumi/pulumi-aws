@@ -55,6 +55,7 @@ from .get_vpc_dhcp_options import *
 from .get_vpc_endpoint import *
 from .get_vpc_endpoint_service import *
 from .get_vpc_peering_connection import *
+from .get_vpc_peering_connections import *
 from .get_vpcs import *
 from .get_vpn_gateway import *
 from .instance import *

@@ -105,6 +105,7 @@ const (
 	kinesisMod                = "Kinesis"               // Kinesis
 	kmsMod                    = "Kms"                   // Key Management Service (KMS)
 	lambdaMod                 = "Lambda"                // Lambda
+	lexMod                    = "Lex"                   // Lex
 	licensemanagerMod         = "LicenseManager"        // License Manager
 	lightsailMod              = "LightSail"             // LightSail
 	macieMod                  = "Macie"                 // Macie
@@ -703,6 +704,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
 			"aws_codebuild_source_credential": {Tok: awsResource(codebuildMod, "SourceCredential")},
+			"aws_codebuild_report_group":      {Tok: awsResource(codebuildMod, "ReportGroup")},
 			// CodeDeploy
 			"aws_codedeploy_app":               {Tok: awsResource(codedeployMod, "Application")},
 			"aws_codedeploy_deployment_config": {Tok: awsResource(codedeployMod, "DeploymentConfig")},
@@ -1256,6 +1258,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
 			"aws_emr_managed_scaling_policy": {Tok: awsResource(emrMod, "ManagedScalingPolicy")},
+			"aws_emr_instance_fleet":         {Tok: awsResource(emrMod, "InstanceFleet")},
 			// FSX
 			"aws_fsx_lustre_file_system":  {Tok: awsResource(fsxMod, "LustreFileSystem")},
 			"aws_fsx_windows_file_system": {Tok: awsResource(fsxMod, "WindowsFileSystem")},
@@ -1313,6 +1316,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
 			"aws_glue_workflow":               {Tok: awsResource(glueMod, "Workflow")},
+			"aws_glue_user_defined_function":  {Tok: awsResource(glueMod, "UserDefinedFunction")},
 			// GuardDuty
 			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},
@@ -1322,6 +1326,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_guardduty_organization_admin_account": {Tok: awsResource(guarddutyMod, "OrganizationAdminAccount")},
 			"aws_guardduty_organization_configuration": {Tok: awsResource(guarddutyMod, "OrganizationConfiguration")},
 			"aws_guardduty_publishing_destination":     {Tok: awsResource(guarddutyMod, "PublishingDestination")},
+			"aws_guardduty_filter":                     {Tok: awsResource(guarddutyMod, "Filter")},
 			// Identity and Access Management (IAM)
 			"aws_iam_access_key": {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias": {
@@ -1799,6 +1804,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_db_proxy": {Tok: awsResource(rdsMod, "Proxy")},
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_event_subscription": {Tok: awsResource(redshiftMod, "EventSubscription")},
@@ -2136,6 +2142,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_accessanalyzer_analyzer": {Tok: awsResource(accessAnalyzerMod, "Analyzer")},
 			// CodeStar Notifications
 			"aws_codestarnotifications_notification_rule": {Tok: awsResource(codestarNotificiationsMod, "NotificationRule")},
+			// Lex
+			"aws_lex_slot_type": {Tok: awsResource(lexMod, "SlotType")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -2247,6 +2255,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_endpoint":                        {Tok: awsDataSource(ec2Mod, "getVpcEndpoint")},
 			"aws_vpc_endpoint_service":                {Tok: awsDataSource(ec2Mod, "getVpcEndpointService")},
 			"aws_vpc_peering_connection":              {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
+			"aws_vpc_peering_connections":             {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnections")},
 			"aws_vpcs":                                {Tok: awsDataSource(ec2Mod, "getVpcs")},
 			"aws_vpn_gateway":                         {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
 			"aws_ec2_spot_price":                      {Tok: awsDataSource(ec2Mod, "getSpotPrice")},
@@ -2392,12 +2401,13 @@ func Provider() tfbridge.ProviderInfo {
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS
-			"aws_rds_cluster":         {Tok: awsDataSource(rdsMod, "getCluster")},
-			"aws_db_cluster_snapshot": {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
-			"aws_db_event_categories": {Tok: awsDataSource(rdsMod, "getEventCategories")},
-			"aws_db_instance":         {Tok: awsDataSource(rdsMod, "getInstance")},
-			"aws_db_snapshot":         {Tok: awsDataSource(rdsMod, "getSnapshot")},
-			"aws_db_subnet_group":     {Tok: awsDataSource(rdsMod, "getSubnetGroup")},
+			"aws_rds_cluster":               {Tok: awsDataSource(rdsMod, "getCluster")},
+			"aws_db_cluster_snapshot":       {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
+			"aws_db_event_categories":       {Tok: awsDataSource(rdsMod, "getEventCategories")},
+			"aws_db_instance":               {Tok: awsDataSource(rdsMod, "getInstance")},
+			"aws_db_snapshot":               {Tok: awsDataSource(rdsMod, "getSnapshot")},
+			"aws_db_subnet_group":           {Tok: awsDataSource(rdsMod, "getSubnetGroup")},
+			"aws_rds_orderable_db_instance": {Tok: awsDataSource(rdsMod, "getOrderableDbInstance")},
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift
@@ -2480,6 +2490,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_outposts_outpost_instance_types": {Tok: awsDataSource(outpostsMod, "getOutpostInstanceTypes")},
 			"aws_outposts_site":                   {Tok: awsDataSource(outpostsMod, "getSite")},
 			"aws_outposts_sites":                  {Tok: awsDataSource(outpostsMod, "getSites")},
+			"aws_docdb_orderable_db_instance":     {Tok: awsDataSource(docdbMod, "getOrderableDbInstance")},
+			"aws_lex_slot_type":                   {Tok: awsDataSource(lexMod, "getSlotType")},
+			"aws_neptune_orderable_db_instance":   {Tok: awsDataSource(neptuneMod, "getOrderableDbInstance")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

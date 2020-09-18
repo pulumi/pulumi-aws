@@ -115,6 +115,7 @@ __all__ = [
     'GetVpcEndpointServiceFilterArgs',
     'GetVpcFilterArgs',
     'GetVpcPeeringConnectionFilterArgs',
+    'GetVpcPeeringConnectionsFilterArgs',
     'GetVpcsFilterArgs',
     'GetVpnGatewayFilterArgs',
 ]
@@ -143,7 +144,7 @@ class AmiCopyEbsBlockDeviceArgs:
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
         :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1" or "gp2".
+               default), "io1", "io2" or "gp2".
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -243,7 +244,7 @@ class AmiCopyEbsBlockDeviceArgs:
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1" or "gp2".
+        default), "io1", "io2" or "gp2".
         """
         return pulumi.get(self, "volume_type")
 
@@ -317,7 +318,7 @@ class AmiEbsBlockDeviceArgs:
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
         :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1" or "gp2".
+               default), "io1", "io2" or "gp2".
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -416,7 +417,7 @@ class AmiEbsBlockDeviceArgs:
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1" or "gp2".
+        default), "io1", "io2" or "gp2".
         """
         return pulumi.get(self, "volume_type")
 
@@ -488,7 +489,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
         :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be one of "standard" (the
-               default), "io1" or "gp2".
+               default), "io1", "io2" or "gp2".
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -588,7 +589,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of EBS volume to create. Can be one of "standard" (the
-        default), "io1" or "gp2".
+        default), "io1", "io2" or "gp2".
         """
         return pulumi.get(self, "volume_type")
 
@@ -1771,12 +1772,12 @@ class InstanceEbsBlockDeviceArgs:
                on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         :param pulumi.Input[int] iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1"`.
+               This must be set with a `volume_type` of `"io1/io2"`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[str] snapshot_id: The Snapshot ID to mount.
         :param pulumi.Input[int] volume_size: The size of the volume in gibibytes (GiB).
-        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`,
-               or `"io1"`. (Default: `"gp2"`).
+        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+               or `"io2"`. (Default: `"gp2"`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -1841,7 +1842,7 @@ class InstanceEbsBlockDeviceArgs:
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1"`.
+        This must be set with a `volume_type` of `"io1/io2"`.
         """
         return pulumi.get(self, "iops")
 
@@ -1898,8 +1899,8 @@ class InstanceEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`,
-        or `"io1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+        or `"io2"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -2092,11 +2093,11 @@ class InstanceRootBlockDeviceArgs:
         :param pulumi.Input[bool] encrypted: Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         :param pulumi.Input[int] iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This is only valid for `volume_type` of `"io1"`, and must be specified if
+               This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
                using that type
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[int] volume_size: The size of the volume in gibibytes (GiB).
-        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -2158,7 +2159,7 @@ class InstanceRootBlockDeviceArgs:
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This is only valid for `volume_type` of `"io1"`, and must be specified if
+        This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
         using that type
         """
         return pulumi.get(self, "iops")
@@ -2204,7 +2205,7 @@ class InstanceRootBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -2496,12 +2497,12 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
                on the volume (Default: `false`). Cannot be used with `snapshot_id`.
         :param pulumi.Input[int] iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1"`.
+               This must be set with a `volume_type` of `"io1/io2"`.
         :param pulumi.Input[str] kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
                `encrypted` must be set to `true` when this is set.
         :param pulumi.Input[str] snapshot_id: The Snapshot ID to mount.
         :param pulumi.Input[int] volume_size: The size of the volume in gigabytes.
-        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -2549,7 +2550,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1"`.
+        This must be set with a `volume_type` of `"io1/io2"`.
         """
         return pulumi.get(self, "iops")
 
@@ -2598,7 +2599,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -3910,6 +3911,7 @@ class RouteTableRouteArgs:
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 local_gateway_id: Optional[pulumi.Input[str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -3920,6 +3922,7 @@ class RouteTableRouteArgs:
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
         :param pulumi.Input[str] ipv6_cidr_block: The Ipv6 CIDR block of the route.
+        :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
@@ -3935,6 +3938,8 @@ class RouteTableRouteArgs:
             pulumi.set(__self__, "instance_id", instance_id)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if local_gateway_id is not None:
+            pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         if nat_gateway_id is not None:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
@@ -4003,6 +4008,18 @@ class RouteTableRouteArgs:
     @ipv6_cidr_block.setter
     def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="localGatewayId")
+    def local_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of a Outpost local gateway.
+        """
+        return pulumi.get(self, "local_gateway_id")
+
+    @local_gateway_id.setter
+    def local_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_gateway_id", value)
 
     @property
     @pulumi.getter(name="natGatewayId")
@@ -5074,12 +5091,12 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
                on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         :param pulumi.Input[int] iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1"`.
+               This must be set with a `volume_type` of `"io1/io2"`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[str] snapshot_id: The Snapshot ID to mount.
         :param pulumi.Input[int] volume_size: The size of the volume in gibibytes (GiB).
-        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`,
-               or `"io1"`. (Default: `"gp2"`).
+        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+               or `"io2"`. (Default: `"gp2"`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -5144,7 +5161,7 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1"`.
+        This must be set with a `volume_type` of `"io1/io2"`.
         """
         return pulumi.get(self, "iops")
 
@@ -5201,8 +5218,8 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`,
-        or `"io1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+        or `"io2"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -5395,11 +5412,11 @@ class SpotInstanceRequestRootBlockDeviceArgs:
         :param pulumi.Input[bool] encrypted: Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         :param pulumi.Input[int] iops: The amount of provisioned
                [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This is only valid for `volume_type` of `"io1"`, and must be specified if
+               This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
                using that type
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[int] volume_size: The size of the volume in gibibytes (GiB).
-        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        :param pulumi.Input[str] volume_type: The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -5461,7 +5478,7 @@ class SpotInstanceRequestRootBlockDeviceArgs:
         """
         The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This is only valid for `volume_type` of `"io1"`, and must be specified if
+        This is only valid for `volume_type` of `"io1/io2"`, and must be specified if
         using that type
         """
         return pulumi.get(self, "iops")
@@ -5507,7 +5524,7 @@ class SpotInstanceRequestRootBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+        The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -7168,6 +7185,47 @@ class GetVpcFilterArgs:
 
 @pulumi.input_type
 class GetVpcPeeringConnectionFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by
+               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               A VPC Peering Connection will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        A VPC Peering Connection will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetVpcPeeringConnectionsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

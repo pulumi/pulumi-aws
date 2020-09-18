@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testCluster = new aws.redshift.Cluster("testCluster", {
- *     clusterIdentifier: `tf-redshift-cluster-%d`,
+ *     clusterIdentifier: "tf-redshift-cluster",
  *     databaseName: "test",
  *     masterUsername: "testuser",
  *     masterPassword: "T3stPass",
@@ -174,6 +174,89 @@ import * as utilities from "../utilities";
  *             }],
  *         },
  *     },
+ * });
+ * ```
+ * ### Elasticsearch Destination With VPC
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testCluster = new aws.elasticsearch.Domain("testCluster", {
+ *     clusterConfig: {
+ *         instanceCount: 2,
+ *         zoneAwarenessEnabled: true,
+ *         instanceType: "t2.small.elasticsearch",
+ *     },
+ *     ebsOptions: {
+ *         ebsEnabled: true,
+ *         volumeSize: 10,
+ *     },
+ *     vpcOptions: {
+ *         securityGroupIds: [aws_security_group.first.id],
+ *         subnetIds: [
+ *             aws_subnet.first.id,
+ *             aws_subnet.second.id,
+ *         ],
+ *     },
+ * });
+ * const firehose_elasticsearch = new aws.iam.RolePolicy("firehose-elasticsearch", {
+ *     role: aws_iam_role.firehose.id,
+ *     policy: pulumi.interpolate`{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "es:*"
+ *       ],
+ *       "Resource": [
+ *         "${testCluster.arn}",
+ *         "${testCluster.arn}/*"
+ *       ]
+ *         },
+ *         {
+ *           "Effect": "Allow",
+ *           "Action": [
+ *             "ec2:DescribeVpcs",
+ *             "ec2:DescribeVpcAttribute",
+ *             "ec2:DescribeSubnets",
+ *             "ec2:DescribeSecurityGroups",
+ *             "ec2:DescribeNetworkInterfaces",
+ *             "ec2:CreateNetworkInterface",
+ *             "ec2:CreateNetworkInterfacePermission",
+ *             "ec2:DeleteNetworkInterface"
+ *           ],
+ *           "Resource": [
+ *             "*"
+ *           ]
+ *         }
+ *   ]
+ * }
+ * `,
+ * });
+ * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
+ *     destination: "elasticsearch",
+ *     s3Configuration: {
+ *         roleArn: aws_iam_role.firehose.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
+ *     },
+ *     elasticsearchConfiguration: {
+ *         domainArn: testCluster.arn,
+ *         roleArn: aws_iam_role.firehose.arn,
+ *         indexName: "test",
+ *         typeName: "test",
+ *         vpcConfig: {
+ *             subnetIds: [
+ *                 aws_subnet.first.id,
+ *                 aws_subnet.second.id,
+ *             ],
+ *             securityGroupIds: [aws_security_group.first.id],
+ *             roleArn: aws_iam_role.firehose.arn,
+ *         },
+ *     },
+ * }, {
+ *     dependsOn: [firehose_elasticsearch],
  * });
  * ```
  * ### Splunk Destination

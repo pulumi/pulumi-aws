@@ -152,7 +152,7 @@ class DistributionDefaultCacheBehavior(dict):
         :param bool smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
-        :param Sequence[str] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        :param Sequence[str] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
@@ -299,7 +299,7 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[Sequence[str]]:
         """
-        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
         See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
         return pulumi.get(self, "trusted_signers")
@@ -574,7 +574,7 @@ class DistributionOrderedCacheBehavior(dict):
         :param bool smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
-        :param Sequence[str] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        :param Sequence[str] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
@@ -731,7 +731,7 @@ class DistributionOrderedCacheBehavior(dict):
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[Sequence[str]]:
         """
-        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
         See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
         return pulumi.get(self, "trusted_signers")

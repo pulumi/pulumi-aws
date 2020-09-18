@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly Outputs.ClusterStepHadoopJarStep HadoopJarStep;
         /// <summary>
-        /// The name of the step.
+        /// Friendly name given to the instance fleet.
         /// </summary>
         public readonly string Name;
 

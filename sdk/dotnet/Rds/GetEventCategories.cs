@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Rds
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// List the event categories of all the RDS resources. 
+        /// List the event categories of all the RDS resources.
         /// 
         /// ```csharp
         /// using Pulumi;

@@ -61,7 +61,7 @@ export class ReportDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be OVERWRITE_REPORT.
      */
     public readonly additionalArtifacts!: pulumi.Output<string[] | undefined>;
     /**
@@ -69,17 +69,25 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly additionalSchemaElements!: pulumi.Output<string[]>;
     /**
-     * Compression format for report. Valid values are: GZIP, ZIP.
+     * Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
      */
     public readonly compression!: pulumi.Output<string>;
     /**
-     * Format for report. Valid values are: textORcsv.
+     * Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
      */
     public readonly format!: pulumi.Output<string>;
+    /**
+     * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+     */
+    public readonly refreshClosedReports!: pulumi.Output<boolean | undefined>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
     public readonly reportName!: pulumi.Output<string>;
+    /**
+     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+     */
+    public readonly reportVersioning!: pulumi.Output<string | undefined>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
@@ -113,7 +121,9 @@ export class ReportDefinition extends pulumi.CustomResource {
             inputs["additionalSchemaElements"] = state ? state.additionalSchemaElements : undefined;
             inputs["compression"] = state ? state.compression : undefined;
             inputs["format"] = state ? state.format : undefined;
+            inputs["refreshClosedReports"] = state ? state.refreshClosedReports : undefined;
             inputs["reportName"] = state ? state.reportName : undefined;
+            inputs["reportVersioning"] = state ? state.reportVersioning : undefined;
             inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
             inputs["s3Prefix"] = state ? state.s3Prefix : undefined;
             inputs["s3Region"] = state ? state.s3Region : undefined;
@@ -145,7 +155,9 @@ export class ReportDefinition extends pulumi.CustomResource {
             inputs["additionalSchemaElements"] = args ? args.additionalSchemaElements : undefined;
             inputs["compression"] = args ? args.compression : undefined;
             inputs["format"] = args ? args.format : undefined;
+            inputs["refreshClosedReports"] = args ? args.refreshClosedReports : undefined;
             inputs["reportName"] = args ? args.reportName : undefined;
+            inputs["reportVersioning"] = args ? args.reportVersioning : undefined;
             inputs["s3Bucket"] = args ? args.s3Bucket : undefined;
             inputs["s3Prefix"] = args ? args.s3Prefix : undefined;
             inputs["s3Region"] = args ? args.s3Region : undefined;
@@ -167,7 +179,7 @@ export class ReportDefinition extends pulumi.CustomResource {
  */
 export interface ReportDefinitionState {
     /**
-     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be OVERWRITE_REPORT.
      */
     readonly additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -175,17 +187,25 @@ export interface ReportDefinitionState {
      */
     readonly additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Compression format for report. Valid values are: GZIP, ZIP.
+     * Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
      */
     readonly compression?: pulumi.Input<string>;
     /**
-     * Format for report. Valid values are: textORcsv.
+     * Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
      */
     readonly format?: pulumi.Input<string>;
+    /**
+     * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+     */
+    readonly refreshClosedReports?: pulumi.Input<boolean>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
     readonly reportName?: pulumi.Input<string>;
+    /**
+     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+     */
+    readonly reportVersioning?: pulumi.Input<string>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
@@ -209,7 +229,7 @@ export interface ReportDefinitionState {
  */
 export interface ReportDefinitionArgs {
     /**
-     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be OVERWRITE_REPORT.
      */
     readonly additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -217,17 +237,25 @@ export interface ReportDefinitionArgs {
      */
     readonly additionalSchemaElements: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Compression format for report. Valid values are: GZIP, ZIP.
+     * Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
      */
     readonly compression: pulumi.Input<string>;
     /**
-     * Format for report. Valid values are: textORcsv.
+     * Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
      */
     readonly format: pulumi.Input<string>;
+    /**
+     * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+     */
+    readonly refreshClosedReports?: pulumi.Input<boolean>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
     readonly reportName: pulumi.Input<string>;
+    /**
+     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+     */
+    readonly reportVersioning?: pulumi.Input<string>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */

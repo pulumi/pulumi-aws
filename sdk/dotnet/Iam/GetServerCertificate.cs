@@ -51,10 +51,6 @@ namespace Pulumi.Aws.Iam
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
-        /// ## Import 
-        /// 
-        /// The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
-        /// It will not retrieve the private key which is not available through the AWS API.
         /// </summary>
         public static Task<GetServerCertificateResult> InvokeAsync(GetServerCertificateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateArgs(), options.WithVersion());

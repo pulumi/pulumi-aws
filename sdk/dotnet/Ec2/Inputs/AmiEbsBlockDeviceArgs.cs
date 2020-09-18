@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The type of EBS volume to create. Can be one of "standard" (the
-        /// default), "io1" or "gp2".
+        /// default), "io1", "io2" or "gp2".
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

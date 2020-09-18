@@ -65,7 +65,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly encrypted!: pulumi.Output<boolean>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
      */
     public readonly iops!: pulumi.Output<number>;
     /**
@@ -93,7 +93,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -165,7 +165,7 @@ export interface VolumeState {
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
      */
     readonly iops?: pulumi.Input<number>;
     /**
@@ -193,7 +193,7 @@ export interface VolumeState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -211,7 +211,7 @@ export interface VolumeArgs {
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1` or `io2`.
      */
     readonly iops?: pulumi.Input<number>;
     /**
@@ -239,7 +239,7 @@ export interface VolumeArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "io2", "sc1" or "st1" (Default: "gp2").
      */
     readonly type?: pulumi.Input<string>;
 }

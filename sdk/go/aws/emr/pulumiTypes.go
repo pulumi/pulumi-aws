@@ -13,7 +13,7 @@ import (
 type ClusterBootstrapAction struct {
 	// List of command line arguments passed to the JAR file's main function when executed.
 	Args []string `pulumi:"args"`
-	// The name of the step.
+	// Friendly name given to the instance fleet.
 	Name string `pulumi:"name"`
 	// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
 	Path string `pulumi:"path"`
@@ -33,7 +33,7 @@ type ClusterBootstrapActionInput interface {
 type ClusterBootstrapActionArgs struct {
 	// List of command line arguments passed to the JAR file's main function when executed.
 	Args pulumi.StringArrayInput `pulumi:"args"`
-	// The name of the step.
+	// Friendly name given to the instance fleet.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
 	Path pulumi.StringInput `pulumi:"path"`
@@ -95,7 +95,7 @@ func (o ClusterBootstrapActionOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterBootstrapAction) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
-// The name of the step.
+// Friendly name given to the instance fleet.
 func (o ClusterBootstrapActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBootstrapAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -125,10 +125,1035 @@ func (o ClusterBootstrapActionArrayOutput) Index(i pulumi.IntInput) ClusterBoots
 	}).(ClusterBootstrapActionOutput)
 }
 
+type ClusterCoreInstanceFleet struct {
+	// The ID of the EMR Cluster
+	Id *string `pulumi:"id"`
+	// Configuration block for instance fleet
+	InstanceTypeConfigs []ClusterCoreInstanceFleetInstanceTypeConfig `pulumi:"instanceTypeConfigs"`
+	// Configuration block for launch specification
+	LaunchSpecifications *ClusterCoreInstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
+	// Friendly name given to the instance fleet.
+	Name                        *string `pulumi:"name"`
+	ProvisionedOnDemandCapacity *int    `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     *int    `pulumi:"provisionedSpotCapacity"`
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
+	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	TargetSpotCapacity *int `pulumi:"targetSpotCapacity"`
+}
+
+// ClusterCoreInstanceFleetInput is an input type that accepts ClusterCoreInstanceFleetArgs and ClusterCoreInstanceFleetOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetInput` via:
+//
+//          ClusterCoreInstanceFleetArgs{...}
+type ClusterCoreInstanceFleetInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetOutput() ClusterCoreInstanceFleetOutput
+	ToClusterCoreInstanceFleetOutputWithContext(context.Context) ClusterCoreInstanceFleetOutput
+}
+
+type ClusterCoreInstanceFleetArgs struct {
+	// The ID of the EMR Cluster
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Configuration block for instance fleet
+	InstanceTypeConfigs ClusterCoreInstanceFleetInstanceTypeConfigArrayInput `pulumi:"instanceTypeConfigs"`
+	// Configuration block for launch specification
+	LaunchSpecifications ClusterCoreInstanceFleetLaunchSpecificationsPtrInput `pulumi:"launchSpecifications"`
+	// Friendly name given to the instance fleet.
+	Name                        pulumi.StringPtrInput `pulumi:"name"`
+	ProvisionedOnDemandCapacity pulumi.IntPtrInput    `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     pulumi.IntPtrInput    `pulumi:"provisionedSpotCapacity"`
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	TargetOnDemandCapacity pulumi.IntPtrInput `pulumi:"targetOnDemandCapacity"`
+	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	TargetSpotCapacity pulumi.IntPtrInput `pulumi:"targetSpotCapacity"`
+}
+
+func (ClusterCoreInstanceFleetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleet)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetArgs) ToClusterCoreInstanceFleetOutput() ClusterCoreInstanceFleetOutput {
+	return i.ToClusterCoreInstanceFleetOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetArgs) ToClusterCoreInstanceFleetOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetOutput)
+}
+
+func (i ClusterCoreInstanceFleetArgs) ToClusterCoreInstanceFleetPtrOutput() ClusterCoreInstanceFleetPtrOutput {
+	return i.ToClusterCoreInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetArgs) ToClusterCoreInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetOutput).ToClusterCoreInstanceFleetPtrOutputWithContext(ctx)
+}
+
+// ClusterCoreInstanceFleetPtrInput is an input type that accepts ClusterCoreInstanceFleetArgs, ClusterCoreInstanceFleetPtr and ClusterCoreInstanceFleetPtrOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetPtrInput` via:
+//
+//          ClusterCoreInstanceFleetArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterCoreInstanceFleetPtrInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetPtrOutput() ClusterCoreInstanceFleetPtrOutput
+	ToClusterCoreInstanceFleetPtrOutputWithContext(context.Context) ClusterCoreInstanceFleetPtrOutput
+}
+
+type clusterCoreInstanceFleetPtrType ClusterCoreInstanceFleetArgs
+
+func ClusterCoreInstanceFleetPtr(v *ClusterCoreInstanceFleetArgs) ClusterCoreInstanceFleetPtrInput {
+	return (*clusterCoreInstanceFleetPtrType)(v)
+}
+
+func (*clusterCoreInstanceFleetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCoreInstanceFleet)(nil)).Elem()
+}
+
+func (i *clusterCoreInstanceFleetPtrType) ToClusterCoreInstanceFleetPtrOutput() ClusterCoreInstanceFleetPtrOutput {
+	return i.ToClusterCoreInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterCoreInstanceFleetPtrType) ToClusterCoreInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetPtrOutput)
+}
+
+type ClusterCoreInstanceFleetOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleet)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetOutput) ToClusterCoreInstanceFleetOutput() ClusterCoreInstanceFleetOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetOutput) ToClusterCoreInstanceFleetOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetOutput) ToClusterCoreInstanceFleetPtrOutput() ClusterCoreInstanceFleetPtrOutput {
+	return o.ToClusterCoreInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCoreInstanceFleetOutput) ToClusterCoreInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) *ClusterCoreInstanceFleet {
+		return &v
+	}).(ClusterCoreInstanceFleetPtrOutput)
+}
+
+// The ID of the EMR Cluster
+func (o ClusterCoreInstanceFleetOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for instance fleet
+func (o ClusterCoreInstanceFleetOutput) InstanceTypeConfigs() ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) []ClusterCoreInstanceFleetInstanceTypeConfig {
+		return v.InstanceTypeConfigs
+	}).(ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput)
+}
+
+// Configuration block for launch specification
+func (o ClusterCoreInstanceFleetOutput) LaunchSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) *ClusterCoreInstanceFleetLaunchSpecifications {
+		return v.LaunchSpecifications
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+// Friendly name given to the instance fleet.
+func (o ClusterCoreInstanceFleetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterCoreInstanceFleetOutput) ProvisionedOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) *int { return v.ProvisionedOnDemandCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterCoreInstanceFleetOutput) ProvisionedSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) *int { return v.ProvisionedSpotCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+func (o ClusterCoreInstanceFleetOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) *int { return v.TargetOnDemandCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+func (o ClusterCoreInstanceFleetOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleet) *int { return v.TargetSpotCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ClusterCoreInstanceFleetPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCoreInstanceFleet)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetPtrOutput) ToClusterCoreInstanceFleetPtrOutput() ClusterCoreInstanceFleetPtrOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetPtrOutput) ToClusterCoreInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetPtrOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetPtrOutput) Elem() ClusterCoreInstanceFleetOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) ClusterCoreInstanceFleet { return *v }).(ClusterCoreInstanceFleetOutput)
+}
+
+// The ID of the EMR Cluster
+func (o ClusterCoreInstanceFleetPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for instance fleet
+func (o ClusterCoreInstanceFleetPtrOutput) InstanceTypeConfigs() ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) []ClusterCoreInstanceFleetInstanceTypeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceTypeConfigs
+	}).(ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput)
+}
+
+// Configuration block for launch specification
+func (o ClusterCoreInstanceFleetPtrOutput) LaunchSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *ClusterCoreInstanceFleetLaunchSpecifications {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchSpecifications
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+// Friendly name given to the instance fleet.
+func (o ClusterCoreInstanceFleetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterCoreInstanceFleetPtrOutput) ProvisionedOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedOnDemandCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterCoreInstanceFleetPtrOutput) ProvisionedSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedSpotCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+func (o ClusterCoreInstanceFleetPtrOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetOnDemandCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+func (o ClusterCoreInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetSpotCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfig struct {
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice *string `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations []ClusterCoreInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs []ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig `pulumi:"ebsConfigs"`
+	// An EC2 instance type, such as m4.xlarge.
+	InstanceType string `pulumi:"instanceType"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity *int `pulumi:"weightedCapacity"`
+}
+
+// ClusterCoreInstanceFleetInstanceTypeConfigInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigArgs and ClusterCoreInstanceFleetInstanceTypeConfigOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigInput` via:
+//
+//          ClusterCoreInstanceFleetInstanceTypeConfigArgs{...}
+type ClusterCoreInstanceFleetInstanceTypeConfigInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetInstanceTypeConfigOutput() ClusterCoreInstanceFleetInstanceTypeConfigOutput
+	ToClusterCoreInstanceFleetInstanceTypeConfigOutputWithContext(context.Context) ClusterCoreInstanceFleetInstanceTypeConfigOutput
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigArgs struct {
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	// An EC2 instance type, such as m4.xlarge.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity pulumi.IntPtrInput `pulumi:"weightedCapacity"`
+}
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigArgs) ToClusterCoreInstanceFleetInstanceTypeConfigOutput() ClusterCoreInstanceFleetInstanceTypeConfigOutput {
+	return i.ToClusterCoreInstanceFleetInstanceTypeConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigArgs) ToClusterCoreInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigOutput)
+}
+
+// ClusterCoreInstanceFleetInstanceTypeConfigArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigArray and ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigArrayInput` via:
+//
+//          ClusterCoreInstanceFleetInstanceTypeConfigArray{ ClusterCoreInstanceFleetInstanceTypeConfigArgs{...} }
+type ClusterCoreInstanceFleetInstanceTypeConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetInstanceTypeConfigArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput
+	ToClusterCoreInstanceFleetInstanceTypeConfigArrayOutputWithContext(context.Context) ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigArray []ClusterCoreInstanceFleetInstanceTypeConfigInput
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigArray) ToClusterCoreInstanceFleetInstanceTypeConfigArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput {
+	return i.ToClusterCoreInstanceFleetInstanceTypeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigArray) ToClusterCoreInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) ToClusterCoreInstanceFleetInstanceTypeConfigOutput() ClusterCoreInstanceFleetInstanceTypeConfigOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) ToClusterCoreInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigOutput {
+	return o
+}
+
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
+}
+
+// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *float64 {
+		return v.BidPriceAsPercentageOfOnDemandPrice
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) Configurations() ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) []ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
+		return v.Configurations
+	}).(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput)
+}
+
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) EbsConfigs() ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) []ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig {
+		return v.EbsConfigs
+	}).(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
+}
+
+// An EC2 instance type, such as m4.xlarge.
+func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) WeightedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *int { return v.WeightedCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput) ToClusterCoreInstanceFleetInstanceTypeConfigArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput) ToClusterCoreInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetInstanceTypeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCoreInstanceFleetInstanceTypeConfig {
+		return vs[0].([]ClusterCoreInstanceFleetInstanceTypeConfig)[vs[1].(int)]
+	}).(ClusterCoreInstanceFleetInstanceTypeConfigOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigConfiguration struct {
+	// The classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// A map of properties specified within a configuration classification
+	Properties map[string]interface{} `pulumi:"properties"`
+}
+
+// ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs and ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput` via:
+//
+//          ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs{...}
+type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput() ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput
+	ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(context.Context) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// A map of properties specified within a configuration classification
+	Properties pulumi.MapInput `pulumi:"properties"`
+}
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput() ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return i.ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput)
+}
+
+// ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray and ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
+//
+//          ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray{ ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs{...} }
+type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput
+	ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(context.Context) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray []ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return i.ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput() ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// A map of properties specified within a configuration classification
+func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} {
+		return v.Properties
+	}).(pulumi.MapOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
+		return vs[0].([]ClusterCoreInstanceFleetInstanceTypeConfigConfiguration)[vs[1].(int)]
+	}).(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig struct {
+	// The number of I/O operations per second (IOPS) that the volume supports
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB).
+	Size int `pulumi:"size"`
+	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type string `pulumi:"type"`
+	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+
+// ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs and ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput` via:
+//
+//          ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{...}
+type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput() ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput
+	ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(context.Context) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs struct {
+	// The number of I/O operations per second (IOPS) that the volume supports
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB).
+	Size pulumi.IntInput `pulumi:"size"`
+	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
+}
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput() ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return i.ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput)
+}
+
+// ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray and ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
+//
+//          ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{ ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
+type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput
+	ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(context.Context) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray []ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigInput
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return i.ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput() ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return o
+}
+
+// The number of I/O operations per second (IOPS) that the volume supports
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The volume size, in gibibytes (GiB).
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
+}
+
+type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig {
+		return vs[0].([]ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig)[vs[1].(int)]
+	}).(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecifications struct {
+	// Configuration block for on demand instances launch specifications
+	OnDemandSpecifications []ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification `pulumi:"onDemandSpecifications"`
+	// Configuration block for spot instances launch specifications
+	SpotSpecifications []ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification `pulumi:"spotSpecifications"`
+}
+
+// ClusterCoreInstanceFleetLaunchSpecificationsInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsArgs and ClusterCoreInstanceFleetLaunchSpecificationsOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsInput` via:
+//
+//          ClusterCoreInstanceFleetLaunchSpecificationsArgs{...}
+type ClusterCoreInstanceFleetLaunchSpecificationsInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetLaunchSpecificationsOutput() ClusterCoreInstanceFleetLaunchSpecificationsOutput
+	ToClusterCoreInstanceFleetLaunchSpecificationsOutputWithContext(context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOutput
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsArgs struct {
+	// Configuration block for on demand instances launch specifications
+	OnDemandSpecifications ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput `pulumi:"onDemandSpecifications"`
+	// Configuration block for spot instances launch specifications
+	SpotSpecifications ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput `pulumi:"spotSpecifications"`
+}
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsArgs) ToClusterCoreInstanceFleetLaunchSpecificationsOutput() ClusterCoreInstanceFleetLaunchSpecificationsOutput {
+	return i.ToClusterCoreInstanceFleetLaunchSpecificationsOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsArgs) ToClusterCoreInstanceFleetLaunchSpecificationsOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsOutput)
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsArgs) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutput() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return i.ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsArgs) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsOutput).ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx)
+}
+
+// ClusterCoreInstanceFleetLaunchSpecificationsPtrInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsArgs, ClusterCoreInstanceFleetLaunchSpecificationsPtr and ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsPtrInput` via:
+//
+//          ClusterCoreInstanceFleetLaunchSpecificationsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterCoreInstanceFleetLaunchSpecificationsPtrInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutput() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput
+	ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Context) ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput
+}
+
+type clusterCoreInstanceFleetLaunchSpecificationsPtrType ClusterCoreInstanceFleetLaunchSpecificationsArgs
+
+func ClusterCoreInstanceFleetLaunchSpecificationsPtr(v *ClusterCoreInstanceFleetLaunchSpecificationsArgs) ClusterCoreInstanceFleetLaunchSpecificationsPtrInput {
+	return (*clusterCoreInstanceFleetLaunchSpecificationsPtrType)(v)
+}
+
+func (*clusterCoreInstanceFleetLaunchSpecificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCoreInstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (i *clusterCoreInstanceFleetLaunchSpecificationsPtrType) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutput() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return i.ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterCoreInstanceFleetLaunchSpecificationsPtrType) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToClusterCoreInstanceFleetLaunchSpecificationsOutput() ClusterCoreInstanceFleetLaunchSpecificationsOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToClusterCoreInstanceFleetLaunchSpecificationsOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutput() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecifications) *ClusterCoreInstanceFleetLaunchSpecifications {
+		return &v
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+// Configuration block for on demand instances launch specifications
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) OnDemandSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecifications) []ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification {
+		return v.OnDemandSpecifications
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+// Configuration block for spot instances launch specifications
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) SpotSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecifications) []ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification {
+		return v.SpotSpecifications
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCoreInstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutput() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) Elem() ClusterCoreInstanceFleetLaunchSpecificationsOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleetLaunchSpecifications) ClusterCoreInstanceFleetLaunchSpecifications {
+		return *v
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsOutput)
+}
+
+// Configuration block for on demand instances launch specifications
+func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleetLaunchSpecifications) []ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandSpecifications
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+// Configuration block for spot instances launch specifications
+func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o.ApplyT(func(v *ClusterCoreInstanceFleetLaunchSpecifications) []ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.SpotSpecifications
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+}
+
+// ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs and ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationInput` via:
+//
+//          ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
+type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput
+	ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+}
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return i.ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
+}
+
+// ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray and ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
+//
+//          ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
+type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput
+	ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray []ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationInput
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return i.ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return o
+}
+
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification) string {
+		return v.AllocationStrategy
+	}).(pulumi.StringOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification {
+		return vs[0].([]ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification)[vs[1].(int)]
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction string `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes int `pulumi:"timeoutDurationMinutes"`
+}
+
+// ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs and ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput` via:
+//
+//          ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
+type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput
+	ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(context.Context) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction pulumi.StringInput `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes pulumi.IntInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return i.ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput)
+}
+
+// ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray and ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
+//
+//          ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray{ ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
+type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput
+	ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(context.Context) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray []ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return i.ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return o
+}
+
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) string {
+		return v.AllocationStrategy
+	}).(pulumi.StringOutput)
+}
+
+// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) *int {
+		return v.BlockDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutAction() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) string { return v.TimeoutAction }).(pulumi.StringOutput)
+}
+
+// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutDurationMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) int {
+		return v.TimeoutDurationMinutes
+	}).(pulumi.IntOutput)
+}
+
+type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification {
+		return vs[0].([]ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification)[vs[1].(int)]
+	}).(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput)
+}
+
 type ClusterCoreInstanceGroup struct {
 	// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`
-	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice *string `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs []ClusterCoreInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
@@ -136,9 +1161,9 @@ type ClusterCoreInstanceGroup struct {
 	Id *string `pulumi:"id"`
 	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// EC2 instance type for all instances in the instance group.
+	// An EC2 instance type, such as m4.xlarge.
 	InstanceType string `pulumi:"instanceType"`
-	// The name of the step.
+	// Friendly name given to the instance fleet.
 	Name *string `pulumi:"name"`
 }
 
@@ -156,7 +1181,7 @@ type ClusterCoreInstanceGroupInput interface {
 type ClusterCoreInstanceGroupArgs struct {
 	// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 	AutoscalingPolicy pulumi.StringPtrInput `pulumi:"autoscalingPolicy"`
-	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs ClusterCoreInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
@@ -164,9 +1189,9 @@ type ClusterCoreInstanceGroupArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// EC2 instance type for all instances in the instance group.
+	// An EC2 instance type, such as m4.xlarge.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The name of the step.
+	// Friendly name given to the instance fleet.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -252,7 +1277,7 @@ func (o ClusterCoreInstanceGroupOutput) AutoscalingPolicy() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.AutoscalingPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterCoreInstanceGroupOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
@@ -272,12 +1297,12 @@ func (o ClusterCoreInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// EC2 instance type for all instances in the instance group.
+// An EC2 instance type, such as m4.xlarge.
 func (o ClusterCoreInstanceGroupOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The name of the step.
+// Friendly name given to the instance fleet.
 func (o ClusterCoreInstanceGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -310,7 +1335,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) AutoscalingPolicy() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterCoreInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -350,7 +1375,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// EC2 instance type for all instances in the instance group.
+// An EC2 instance type, such as m4.xlarge.
 func (o ClusterCoreInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -360,7 +1385,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the step.
+// Friendly name given to the instance fleet.
 func (o ClusterCoreInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -965,8 +1990,1033 @@ func (o ClusterKerberosAttributesPtrOutput) Realm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterMasterInstanceFleet struct {
+	// The ID of the EMR Cluster
+	Id *string `pulumi:"id"`
+	// Configuration block for instance fleet
+	InstanceTypeConfigs []ClusterMasterInstanceFleetInstanceTypeConfig `pulumi:"instanceTypeConfigs"`
+	// Configuration block for launch specification
+	LaunchSpecifications *ClusterMasterInstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
+	// Friendly name given to the instance fleet.
+	Name                        *string `pulumi:"name"`
+	ProvisionedOnDemandCapacity *int    `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     *int    `pulumi:"provisionedSpotCapacity"`
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
+	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	TargetSpotCapacity *int `pulumi:"targetSpotCapacity"`
+}
+
+// ClusterMasterInstanceFleetInput is an input type that accepts ClusterMasterInstanceFleetArgs and ClusterMasterInstanceFleetOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetInput` via:
+//
+//          ClusterMasterInstanceFleetArgs{...}
+type ClusterMasterInstanceFleetInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetOutput() ClusterMasterInstanceFleetOutput
+	ToClusterMasterInstanceFleetOutputWithContext(context.Context) ClusterMasterInstanceFleetOutput
+}
+
+type ClusterMasterInstanceFleetArgs struct {
+	// The ID of the EMR Cluster
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Configuration block for instance fleet
+	InstanceTypeConfigs ClusterMasterInstanceFleetInstanceTypeConfigArrayInput `pulumi:"instanceTypeConfigs"`
+	// Configuration block for launch specification
+	LaunchSpecifications ClusterMasterInstanceFleetLaunchSpecificationsPtrInput `pulumi:"launchSpecifications"`
+	// Friendly name given to the instance fleet.
+	Name                        pulumi.StringPtrInput `pulumi:"name"`
+	ProvisionedOnDemandCapacity pulumi.IntPtrInput    `pulumi:"provisionedOnDemandCapacity"`
+	ProvisionedSpotCapacity     pulumi.IntPtrInput    `pulumi:"provisionedSpotCapacity"`
+	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	TargetOnDemandCapacity pulumi.IntPtrInput `pulumi:"targetOnDemandCapacity"`
+	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	TargetSpotCapacity pulumi.IntPtrInput `pulumi:"targetSpotCapacity"`
+}
+
+func (ClusterMasterInstanceFleetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleet)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetArgs) ToClusterMasterInstanceFleetOutput() ClusterMasterInstanceFleetOutput {
+	return i.ToClusterMasterInstanceFleetOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetArgs) ToClusterMasterInstanceFleetOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetOutput)
+}
+
+func (i ClusterMasterInstanceFleetArgs) ToClusterMasterInstanceFleetPtrOutput() ClusterMasterInstanceFleetPtrOutput {
+	return i.ToClusterMasterInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetArgs) ToClusterMasterInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetOutput).ToClusterMasterInstanceFleetPtrOutputWithContext(ctx)
+}
+
+// ClusterMasterInstanceFleetPtrInput is an input type that accepts ClusterMasterInstanceFleetArgs, ClusterMasterInstanceFleetPtr and ClusterMasterInstanceFleetPtrOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetPtrInput` via:
+//
+//          ClusterMasterInstanceFleetArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterMasterInstanceFleetPtrInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetPtrOutput() ClusterMasterInstanceFleetPtrOutput
+	ToClusterMasterInstanceFleetPtrOutputWithContext(context.Context) ClusterMasterInstanceFleetPtrOutput
+}
+
+type clusterMasterInstanceFleetPtrType ClusterMasterInstanceFleetArgs
+
+func ClusterMasterInstanceFleetPtr(v *ClusterMasterInstanceFleetArgs) ClusterMasterInstanceFleetPtrInput {
+	return (*clusterMasterInstanceFleetPtrType)(v)
+}
+
+func (*clusterMasterInstanceFleetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterMasterInstanceFleet)(nil)).Elem()
+}
+
+func (i *clusterMasterInstanceFleetPtrType) ToClusterMasterInstanceFleetPtrOutput() ClusterMasterInstanceFleetPtrOutput {
+	return i.ToClusterMasterInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterMasterInstanceFleetPtrType) ToClusterMasterInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetPtrOutput)
+}
+
+type ClusterMasterInstanceFleetOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleet)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetOutput) ToClusterMasterInstanceFleetOutput() ClusterMasterInstanceFleetOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetOutput) ToClusterMasterInstanceFleetOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetOutput) ToClusterMasterInstanceFleetPtrOutput() ClusterMasterInstanceFleetPtrOutput {
+	return o.ToClusterMasterInstanceFleetPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterMasterInstanceFleetOutput) ToClusterMasterInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) *ClusterMasterInstanceFleet {
+		return &v
+	}).(ClusterMasterInstanceFleetPtrOutput)
+}
+
+// The ID of the EMR Cluster
+func (o ClusterMasterInstanceFleetOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for instance fleet
+func (o ClusterMasterInstanceFleetOutput) InstanceTypeConfigs() ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) []ClusterMasterInstanceFleetInstanceTypeConfig {
+		return v.InstanceTypeConfigs
+	}).(ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput)
+}
+
+// Configuration block for launch specification
+func (o ClusterMasterInstanceFleetOutput) LaunchSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) *ClusterMasterInstanceFleetLaunchSpecifications {
+		return v.LaunchSpecifications
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+// Friendly name given to the instance fleet.
+func (o ClusterMasterInstanceFleetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterMasterInstanceFleetOutput) ProvisionedOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) *int { return v.ProvisionedOnDemandCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterMasterInstanceFleetOutput) ProvisionedSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) *int { return v.ProvisionedSpotCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+func (o ClusterMasterInstanceFleetOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) *int { return v.TargetOnDemandCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+func (o ClusterMasterInstanceFleetOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleet) *int { return v.TargetSpotCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ClusterMasterInstanceFleetPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterMasterInstanceFleet)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetPtrOutput) ToClusterMasterInstanceFleetPtrOutput() ClusterMasterInstanceFleetPtrOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetPtrOutput) ToClusterMasterInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetPtrOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetPtrOutput) Elem() ClusterMasterInstanceFleetOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) ClusterMasterInstanceFleet { return *v }).(ClusterMasterInstanceFleetOutput)
+}
+
+// The ID of the EMR Cluster
+func (o ClusterMasterInstanceFleetPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for instance fleet
+func (o ClusterMasterInstanceFleetPtrOutput) InstanceTypeConfigs() ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) []ClusterMasterInstanceFleetInstanceTypeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceTypeConfigs
+	}).(ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput)
+}
+
+// Configuration block for launch specification
+func (o ClusterMasterInstanceFleetPtrOutput) LaunchSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *ClusterMasterInstanceFleetLaunchSpecifications {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchSpecifications
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+// Friendly name given to the instance fleet.
+func (o ClusterMasterInstanceFleetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterMasterInstanceFleetPtrOutput) ProvisionedOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedOnDemandCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterMasterInstanceFleetPtrOutput) ProvisionedSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedSpotCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+func (o ClusterMasterInstanceFleetPtrOutput) TargetOnDemandCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetOnDemandCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+func (o ClusterMasterInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetSpotCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfig struct {
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice *string `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations []ClusterMasterInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs []ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig `pulumi:"ebsConfigs"`
+	// An EC2 instance type, such as m4.xlarge.
+	InstanceType string `pulumi:"instanceType"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity *int `pulumi:"weightedCapacity"`
+}
+
+// ClusterMasterInstanceFleetInstanceTypeConfigInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigArgs and ClusterMasterInstanceFleetInstanceTypeConfigOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigInput` via:
+//
+//          ClusterMasterInstanceFleetInstanceTypeConfigArgs{...}
+type ClusterMasterInstanceFleetInstanceTypeConfigInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetInstanceTypeConfigOutput() ClusterMasterInstanceFleetInstanceTypeConfigOutput
+	ToClusterMasterInstanceFleetInstanceTypeConfigOutputWithContext(context.Context) ClusterMasterInstanceFleetInstanceTypeConfigOutput
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigArgs struct {
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	// An EC2 instance type, such as m4.xlarge.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity pulumi.IntPtrInput `pulumi:"weightedCapacity"`
+}
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigArgs) ToClusterMasterInstanceFleetInstanceTypeConfigOutput() ClusterMasterInstanceFleetInstanceTypeConfigOutput {
+	return i.ToClusterMasterInstanceFleetInstanceTypeConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigArgs) ToClusterMasterInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigOutput)
+}
+
+// ClusterMasterInstanceFleetInstanceTypeConfigArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigArray and ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigArrayInput` via:
+//
+//          ClusterMasterInstanceFleetInstanceTypeConfigArray{ ClusterMasterInstanceFleetInstanceTypeConfigArgs{...} }
+type ClusterMasterInstanceFleetInstanceTypeConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetInstanceTypeConfigArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput
+	ToClusterMasterInstanceFleetInstanceTypeConfigArrayOutputWithContext(context.Context) ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigArray []ClusterMasterInstanceFleetInstanceTypeConfigInput
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigArray) ToClusterMasterInstanceFleetInstanceTypeConfigArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput {
+	return i.ToClusterMasterInstanceFleetInstanceTypeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigArray) ToClusterMasterInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) ToClusterMasterInstanceFleetInstanceTypeConfigOutput() ClusterMasterInstanceFleetInstanceTypeConfigOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) ToClusterMasterInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigOutput {
+	return o
+}
+
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
+}
+
+// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *float64 {
+		return v.BidPriceAsPercentageOfOnDemandPrice
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) Configurations() ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) []ClusterMasterInstanceFleetInstanceTypeConfigConfiguration {
+		return v.Configurations
+	}).(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput)
+}
+
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) EbsConfigs() ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) []ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig {
+		return v.EbsConfigs
+	}).(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
+}
+
+// An EC2 instance type, such as m4.xlarge.
+func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) WeightedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *int { return v.WeightedCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput) ToClusterMasterInstanceFleetInstanceTypeConfigArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput) ToClusterMasterInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetInstanceTypeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterInstanceFleetInstanceTypeConfig {
+		return vs[0].([]ClusterMasterInstanceFleetInstanceTypeConfig)[vs[1].(int)]
+	}).(ClusterMasterInstanceFleetInstanceTypeConfigOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigConfiguration struct {
+	// The classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// A map of properties specified within a configuration classification
+	Properties map[string]interface{} `pulumi:"properties"`
+}
+
+// ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs and ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput` via:
+//
+//          ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs{...}
+type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput() ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput
+	ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(context.Context) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// A map of properties specified within a configuration classification
+	Properties pulumi.MapInput `pulumi:"properties"`
+}
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput() ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return i.ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput)
+}
+
+// ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray and ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
+//
+//          ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray{ ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs{...} }
+type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput
+	ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(context.Context) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray []ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return i.ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput() ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// A map of properties specified within a configuration classification
+func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} {
+		return v.Properties
+	}).(pulumi.MapOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterInstanceFleetInstanceTypeConfigConfiguration {
+		return vs[0].([]ClusterMasterInstanceFleetInstanceTypeConfigConfiguration)[vs[1].(int)]
+	}).(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig struct {
+	// The number of I/O operations per second (IOPS) that the volume supports
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB).
+	Size int `pulumi:"size"`
+	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type string `pulumi:"type"`
+	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+
+// ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs and ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput` via:
+//
+//          ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs{...}
+type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput() ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput
+	ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(context.Context) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs struct {
+	// The number of I/O operations per second (IOPS) that the volume supports
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB).
+	Size pulumi.IntInput `pulumi:"size"`
+	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
+}
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput() ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return i.ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput)
+}
+
+// ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray and ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
+//
+//          ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray{ ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
+type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput
+	ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(context.Context) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray []ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigInput
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return i.ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput() ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return o
+}
+
+// The number of I/O operations per second (IOPS) that the volume supports
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The volume size, in gibibytes (GiB).
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
+}
+
+type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig {
+		return vs[0].([]ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig)[vs[1].(int)]
+	}).(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecifications struct {
+	// Configuration block for on demand instances launch specifications
+	OnDemandSpecifications []ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification `pulumi:"onDemandSpecifications"`
+	// Configuration block for spot instances launch specifications
+	SpotSpecifications []ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification `pulumi:"spotSpecifications"`
+}
+
+// ClusterMasterInstanceFleetLaunchSpecificationsInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsArgs and ClusterMasterInstanceFleetLaunchSpecificationsOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsInput` via:
+//
+//          ClusterMasterInstanceFleetLaunchSpecificationsArgs{...}
+type ClusterMasterInstanceFleetLaunchSpecificationsInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetLaunchSpecificationsOutput() ClusterMasterInstanceFleetLaunchSpecificationsOutput
+	ToClusterMasterInstanceFleetLaunchSpecificationsOutputWithContext(context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOutput
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsArgs struct {
+	// Configuration block for on demand instances launch specifications
+	OnDemandSpecifications ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput `pulumi:"onDemandSpecifications"`
+	// Configuration block for spot instances launch specifications
+	SpotSpecifications ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput `pulumi:"spotSpecifications"`
+}
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsArgs) ToClusterMasterInstanceFleetLaunchSpecificationsOutput() ClusterMasterInstanceFleetLaunchSpecificationsOutput {
+	return i.ToClusterMasterInstanceFleetLaunchSpecificationsOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsArgs) ToClusterMasterInstanceFleetLaunchSpecificationsOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsOutput)
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsArgs) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutput() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return i.ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsArgs) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsOutput).ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx)
+}
+
+// ClusterMasterInstanceFleetLaunchSpecificationsPtrInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsArgs, ClusterMasterInstanceFleetLaunchSpecificationsPtr and ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsPtrInput` via:
+//
+//          ClusterMasterInstanceFleetLaunchSpecificationsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterMasterInstanceFleetLaunchSpecificationsPtrInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutput() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput
+	ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Context) ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput
+}
+
+type clusterMasterInstanceFleetLaunchSpecificationsPtrType ClusterMasterInstanceFleetLaunchSpecificationsArgs
+
+func ClusterMasterInstanceFleetLaunchSpecificationsPtr(v *ClusterMasterInstanceFleetLaunchSpecificationsArgs) ClusterMasterInstanceFleetLaunchSpecificationsPtrInput {
+	return (*clusterMasterInstanceFleetLaunchSpecificationsPtrType)(v)
+}
+
+func (*clusterMasterInstanceFleetLaunchSpecificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterMasterInstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (i *clusterMasterInstanceFleetLaunchSpecificationsPtrType) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutput() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return i.ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterMasterInstanceFleetLaunchSpecificationsPtrType) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToClusterMasterInstanceFleetLaunchSpecificationsOutput() ClusterMasterInstanceFleetLaunchSpecificationsOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToClusterMasterInstanceFleetLaunchSpecificationsOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutput() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecifications) *ClusterMasterInstanceFleetLaunchSpecifications {
+		return &v
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+// Configuration block for on demand instances launch specifications
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) OnDemandSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecifications) []ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification {
+		return v.OnDemandSpecifications
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+// Configuration block for spot instances launch specifications
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) SpotSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecifications) []ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification {
+		return v.SpotSpecifications
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterMasterInstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutput() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) Elem() ClusterMasterInstanceFleetLaunchSpecificationsOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleetLaunchSpecifications) ClusterMasterInstanceFleetLaunchSpecifications {
+		return *v
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsOutput)
+}
+
+// Configuration block for on demand instances launch specifications
+func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleetLaunchSpecifications) []ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandSpecifications
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+// Configuration block for spot instances launch specifications
+func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o.ApplyT(func(v *ClusterMasterInstanceFleetLaunchSpecifications) []ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.SpotSpecifications
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+}
+
+// ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs and ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationInput` via:
+//
+//          ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
+type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput
+	ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+}
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return i.ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
+}
+
+// ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray and ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
+//
+//          ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
+type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput
+	ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray []ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationInput
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return i.ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return o
+}
+
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification) string {
+		return v.AllocationStrategy
+	}).(pulumi.StringOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification {
+		return vs[0].([]ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification)[vs[1].(int)]
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction string `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes int `pulumi:"timeoutDurationMinutes"`
+}
+
+// ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs and ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput` via:
+//
+//          ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
+type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput
+	ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(context.Context) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction pulumi.StringInput `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes pulumi.IntInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return i.ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput)
+}
+
+// ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray and ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
+//
+//          ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray{ ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
+type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput
+	ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(context.Context) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray []ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return i.ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return o
+}
+
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) string {
+		return v.AllocationStrategy
+	}).(pulumi.StringOutput)
+}
+
+// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) *int {
+		return v.BlockDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutAction() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) string { return v.TimeoutAction }).(pulumi.StringOutput)
+}
+
+// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutDurationMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) int {
+		return v.TimeoutDurationMinutes
+	}).(pulumi.IntOutput)
+}
+
+type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification {
+		return vs[0].([]ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification)[vs[1].(int)]
+	}).(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput)
+}
+
 type ClusterMasterInstanceGroup struct {
-	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice *string `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs []ClusterMasterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
@@ -974,9 +3024,9 @@ type ClusterMasterInstanceGroup struct {
 	Id *string `pulumi:"id"`
 	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
-	// EC2 instance type for all instances in the instance group.
+	// An EC2 instance type, such as m4.xlarge.
 	InstanceType string `pulumi:"instanceType"`
-	// The name of the step.
+	// Friendly name given to the instance fleet.
 	Name *string `pulumi:"name"`
 }
 
@@ -992,7 +3042,7 @@ type ClusterMasterInstanceGroupInput interface {
 }
 
 type ClusterMasterInstanceGroupArgs struct {
-	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs ClusterMasterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
@@ -1000,9 +3050,9 @@ type ClusterMasterInstanceGroupArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// EC2 instance type for all instances in the instance group.
+	// An EC2 instance type, such as m4.xlarge.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The name of the step.
+	// Friendly name given to the instance fleet.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1083,7 +3133,7 @@ func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupPtrOutputW
 	}).(ClusterMasterInstanceGroupPtrOutput)
 }
 
-// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterMasterInstanceGroupOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
@@ -1103,12 +3153,12 @@ func (o ClusterMasterInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// EC2 instance type for all instances in the instance group.
+// An EC2 instance type, such as m4.xlarge.
 func (o ClusterMasterInstanceGroupOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The name of the step.
+// Friendly name given to the instance fleet.
 func (o ClusterMasterInstanceGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1131,7 +3181,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) Elem() ClusterMasterInstanceGroupOu
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) ClusterMasterInstanceGroup { return *v }).(ClusterMasterInstanceGroupOutput)
 }
 
-// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterMasterInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {
@@ -1171,7 +3221,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// EC2 instance type for all instances in the instance group.
+// An EC2 instance type, such as m4.xlarge.
 func (o ClusterMasterInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {
@@ -1181,7 +3231,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the step.
+// Friendly name given to the instance fleet.
 func (o ClusterMasterInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {
@@ -1320,7 +3370,7 @@ type ClusterStep struct {
 	ActionOnFailure string `pulumi:"actionOnFailure"`
 	// The JAR file used for the step. Defined below.
 	HadoopJarStep ClusterStepHadoopJarStep `pulumi:"hadoopJarStep"`
-	// The name of the step.
+	// Friendly name given to the instance fleet.
 	Name string `pulumi:"name"`
 }
 
@@ -1340,7 +3390,7 @@ type ClusterStepArgs struct {
 	ActionOnFailure pulumi.StringInput `pulumi:"actionOnFailure"`
 	// The JAR file used for the step. Defined below.
 	HadoopJarStep ClusterStepHadoopJarStepInput `pulumi:"hadoopJarStep"`
-	// The name of the step.
+	// Friendly name given to the instance fleet.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1405,7 +3455,7 @@ func (o ClusterStepOutput) HadoopJarStep() ClusterStepHadoopJarStepOutput {
 	return o.ApplyT(func(v ClusterStep) ClusterStepHadoopJarStep { return v.HadoopJarStep }).(ClusterStepHadoopJarStepOutput)
 }
 
-// The name of the step.
+// Friendly name given to the instance fleet.
 func (o ClusterStepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterStep) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1437,7 +3487,7 @@ type ClusterStepHadoopJarStep struct {
 	Jar string `pulumi:"jar"`
 	// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
 	MainClass *string `pulumi:"mainClass"`
-	// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+	// A map of properties specified within a configuration classification
 	Properties map[string]string `pulumi:"properties"`
 }
 
@@ -1459,7 +3509,7 @@ type ClusterStepHadoopJarStepArgs struct {
 	Jar pulumi.StringInput `pulumi:"jar"`
 	// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
 	MainClass pulumi.StringPtrInput `pulumi:"mainClass"`
-	// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+	// A map of properties specified within a configuration classification
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 }
 
@@ -1504,9 +3554,760 @@ func (o ClusterStepHadoopJarStepOutput) MainClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterStepHadoopJarStep) *string { return v.MainClass }).(pulumi.StringPtrOutput)
 }
 
-// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+// A map of properties specified within a configuration classification
 func (o ClusterStepHadoopJarStepOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ClusterStepHadoopJarStep) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+type InstanceFleetInstanceTypeConfig struct {
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice *string `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations []InstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs []InstanceFleetInstanceTypeConfigEbsConfig `pulumi:"ebsConfigs"`
+	// An EC2 instance type, such as m4.xlarge.
+	InstanceType string `pulumi:"instanceType"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity *int `pulumi:"weightedCapacity"`
+}
+
+// InstanceFleetInstanceTypeConfigInput is an input type that accepts InstanceFleetInstanceTypeConfigArgs and InstanceFleetInstanceTypeConfigOutput values.
+// You can construct a concrete instance of `InstanceFleetInstanceTypeConfigInput` via:
+//
+//          InstanceFleetInstanceTypeConfigArgs{...}
+type InstanceFleetInstanceTypeConfigInput interface {
+	pulumi.Input
+
+	ToInstanceFleetInstanceTypeConfigOutput() InstanceFleetInstanceTypeConfigOutput
+	ToInstanceFleetInstanceTypeConfigOutputWithContext(context.Context) InstanceFleetInstanceTypeConfigOutput
+}
+
+type InstanceFleetInstanceTypeConfigArgs struct {
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
+	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	Configurations InstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
+	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+	EbsConfigs InstanceFleetInstanceTypeConfigEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	// An EC2 instance type, such as m4.xlarge.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+	WeightedCapacity pulumi.IntPtrInput `pulumi:"weightedCapacity"`
+}
+
+func (InstanceFleetInstanceTypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i InstanceFleetInstanceTypeConfigArgs) ToInstanceFleetInstanceTypeConfigOutput() InstanceFleetInstanceTypeConfigOutput {
+	return i.ToInstanceFleetInstanceTypeConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetInstanceTypeConfigArgs) ToInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigOutput)
+}
+
+// InstanceFleetInstanceTypeConfigArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigArray and InstanceFleetInstanceTypeConfigArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetInstanceTypeConfigArrayInput` via:
+//
+//          InstanceFleetInstanceTypeConfigArray{ InstanceFleetInstanceTypeConfigArgs{...} }
+type InstanceFleetInstanceTypeConfigArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetInstanceTypeConfigArrayOutput() InstanceFleetInstanceTypeConfigArrayOutput
+	ToInstanceFleetInstanceTypeConfigArrayOutputWithContext(context.Context) InstanceFleetInstanceTypeConfigArrayOutput
+}
+
+type InstanceFleetInstanceTypeConfigArray []InstanceFleetInstanceTypeConfigInput
+
+func (InstanceFleetInstanceTypeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (i InstanceFleetInstanceTypeConfigArray) ToInstanceFleetInstanceTypeConfigArrayOutput() InstanceFleetInstanceTypeConfigArrayOutput {
+	return i.ToInstanceFleetInstanceTypeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetInstanceTypeConfigArray) ToInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigArrayOutput)
+}
+
+type InstanceFleetInstanceTypeConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetInstanceTypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o InstanceFleetInstanceTypeConfigOutput) ToInstanceFleetInstanceTypeConfigOutput() InstanceFleetInstanceTypeConfigOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigOutput) ToInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigOutput {
+	return o
+}
+
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+func (o InstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
+}
+
+// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+func (o InstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *float64 { return v.BidPriceAsPercentageOfOnDemandPrice }).(pulumi.Float64PtrOutput)
+}
+
+// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+func (o InstanceFleetInstanceTypeConfigOutput) Configurations() InstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) []InstanceFleetInstanceTypeConfigConfiguration {
+		return v.Configurations
+	}).(InstanceFleetInstanceTypeConfigConfigurationArrayOutput)
+}
+
+// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+func (o InstanceFleetInstanceTypeConfigOutput) EbsConfigs() InstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) []InstanceFleetInstanceTypeConfigEbsConfig {
+		return v.EbsConfigs
+	}).(InstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
+}
+
+// An EC2 instance type, such as m4.xlarge.
+func (o InstanceFleetInstanceTypeConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+func (o InstanceFleetInstanceTypeConfigOutput) WeightedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *int { return v.WeightedCapacity }).(pulumi.IntPtrOutput)
+}
+
+type InstanceFleetInstanceTypeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetInstanceTypeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetInstanceTypeConfig)(nil)).Elem()
+}
+
+func (o InstanceFleetInstanceTypeConfigArrayOutput) ToInstanceFleetInstanceTypeConfigArrayOutput() InstanceFleetInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigArrayOutput) ToInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigArrayOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) InstanceFleetInstanceTypeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetInstanceTypeConfig {
+		return vs[0].([]InstanceFleetInstanceTypeConfig)[vs[1].(int)]
+	}).(InstanceFleetInstanceTypeConfigOutput)
+}
+
+type InstanceFleetInstanceTypeConfigConfiguration struct {
+	// The classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// A map of properties specified within a configuration classification
+	Properties map[string]interface{} `pulumi:"properties"`
+}
+
+// InstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts InstanceFleetInstanceTypeConfigConfigurationArgs and InstanceFleetInstanceTypeConfigConfigurationOutput values.
+// You can construct a concrete instance of `InstanceFleetInstanceTypeConfigConfigurationInput` via:
+//
+//          InstanceFleetInstanceTypeConfigConfigurationArgs{...}
+type InstanceFleetInstanceTypeConfigConfigurationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetInstanceTypeConfigConfigurationOutput() InstanceFleetInstanceTypeConfigConfigurationOutput
+	ToInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(context.Context) InstanceFleetInstanceTypeConfigConfigurationOutput
+}
+
+type InstanceFleetInstanceTypeConfigConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// A map of properties specified within a configuration classification
+	Properties pulumi.MapInput `pulumi:"properties"`
+}
+
+func (InstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (i InstanceFleetInstanceTypeConfigConfigurationArgs) ToInstanceFleetInstanceTypeConfigConfigurationOutput() InstanceFleetInstanceTypeConfigConfigurationOutput {
+	return i.ToInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetInstanceTypeConfigConfigurationArgs) ToInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigConfigurationOutput)
+}
+
+// InstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigConfigurationArray and InstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
+//
+//          InstanceFleetInstanceTypeConfigConfigurationArray{ InstanceFleetInstanceTypeConfigConfigurationArgs{...} }
+type InstanceFleetInstanceTypeConfigConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetInstanceTypeConfigConfigurationArrayOutput() InstanceFleetInstanceTypeConfigConfigurationArrayOutput
+	ToInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(context.Context) InstanceFleetInstanceTypeConfigConfigurationArrayOutput
+}
+
+type InstanceFleetInstanceTypeConfigConfigurationArray []InstanceFleetInstanceTypeConfigConfigurationInput
+
+func (InstanceFleetInstanceTypeConfigConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (i InstanceFleetInstanceTypeConfigConfigurationArray) ToInstanceFleetInstanceTypeConfigConfigurationArrayOutput() InstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return i.ToInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetInstanceTypeConfigConfigurationArray) ToInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigConfigurationArrayOutput)
+}
+
+type InstanceFleetInstanceTypeConfigConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetInstanceTypeConfigConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (o InstanceFleetInstanceTypeConfigConfigurationOutput) ToInstanceFleetInstanceTypeConfigConfigurationOutput() InstanceFleetInstanceTypeConfigConfigurationOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigConfigurationOutput) ToInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o InstanceFleetInstanceTypeConfigConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// A map of properties specified within a configuration classification
+func (o InstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+}
+
+type InstanceFleetInstanceTypeConfigConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetInstanceTypeConfigConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetInstanceTypeConfigConfiguration)(nil)).Elem()
+}
+
+func (o InstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToInstanceFleetInstanceTypeConfigConfigurationArrayOutput() InstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigConfigurationArrayOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigConfigurationArrayOutput) Index(i pulumi.IntInput) InstanceFleetInstanceTypeConfigConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetInstanceTypeConfigConfiguration {
+		return vs[0].([]InstanceFleetInstanceTypeConfigConfiguration)[vs[1].(int)]
+	}).(InstanceFleetInstanceTypeConfigConfigurationOutput)
+}
+
+type InstanceFleetInstanceTypeConfigEbsConfig struct {
+	// The number of I/O operations per second (IOPS) that the volume supports
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB).
+	Size int `pulumi:"size"`
+	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type string `pulumi:"type"`
+	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+
+// InstanceFleetInstanceTypeConfigEbsConfigInput is an input type that accepts InstanceFleetInstanceTypeConfigEbsConfigArgs and InstanceFleetInstanceTypeConfigEbsConfigOutput values.
+// You can construct a concrete instance of `InstanceFleetInstanceTypeConfigEbsConfigInput` via:
+//
+//          InstanceFleetInstanceTypeConfigEbsConfigArgs{...}
+type InstanceFleetInstanceTypeConfigEbsConfigInput interface {
+	pulumi.Input
+
+	ToInstanceFleetInstanceTypeConfigEbsConfigOutput() InstanceFleetInstanceTypeConfigEbsConfigOutput
+	ToInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(context.Context) InstanceFleetInstanceTypeConfigEbsConfigOutput
+}
+
+type InstanceFleetInstanceTypeConfigEbsConfigArgs struct {
+	// The number of I/O operations per second (IOPS) that the volume supports
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB).
+	Size pulumi.IntInput `pulumi:"size"`
+	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
+}
+
+func (InstanceFleetInstanceTypeConfigEbsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (i InstanceFleetInstanceTypeConfigEbsConfigArgs) ToInstanceFleetInstanceTypeConfigEbsConfigOutput() InstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return i.ToInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetInstanceTypeConfigEbsConfigArgs) ToInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigEbsConfigOutput)
+}
+
+// InstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigEbsConfigArray and InstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
+//
+//          InstanceFleetInstanceTypeConfigEbsConfigArray{ InstanceFleetInstanceTypeConfigEbsConfigArgs{...} }
+type InstanceFleetInstanceTypeConfigEbsConfigArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() InstanceFleetInstanceTypeConfigEbsConfigArrayOutput
+	ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(context.Context) InstanceFleetInstanceTypeConfigEbsConfigArrayOutput
+}
+
+type InstanceFleetInstanceTypeConfigEbsConfigArray []InstanceFleetInstanceTypeConfigEbsConfigInput
+
+func (InstanceFleetInstanceTypeConfigEbsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (i InstanceFleetInstanceTypeConfigEbsConfigArray) ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() InstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return i.ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetInstanceTypeConfigEbsConfigArray) ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
+}
+
+type InstanceFleetInstanceTypeConfigEbsConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetInstanceTypeConfigEbsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) ToInstanceFleetInstanceTypeConfigEbsConfigOutput() InstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) ToInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return o
+}
+
+// The number of I/O operations per second (IOPS) that the volume supports
+func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The volume size, in gibibytes (GiB).
+func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigEbsConfig) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigEbsConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
+}
+
+type InstanceFleetInstanceTypeConfigEbsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetInstanceTypeConfigEbsConfig)(nil)).Elem()
+}
+
+func (o InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutput() InstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
+	return o
+}
+
+func (o InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(i pulumi.IntInput) InstanceFleetInstanceTypeConfigEbsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetInstanceTypeConfigEbsConfig {
+		return vs[0].([]InstanceFleetInstanceTypeConfigEbsConfig)[vs[1].(int)]
+	}).(InstanceFleetInstanceTypeConfigEbsConfigOutput)
+}
+
+type InstanceFleetLaunchSpecifications struct {
+	// Configuration block for on demand instances launch specifications
+	OnDemandSpecifications []InstanceFleetLaunchSpecificationsOnDemandSpecification `pulumi:"onDemandSpecifications"`
+	// Configuration block for spot instances launch specifications
+	SpotSpecifications []InstanceFleetLaunchSpecificationsSpotSpecification `pulumi:"spotSpecifications"`
+}
+
+// InstanceFleetLaunchSpecificationsInput is an input type that accepts InstanceFleetLaunchSpecificationsArgs and InstanceFleetLaunchSpecificationsOutput values.
+// You can construct a concrete instance of `InstanceFleetLaunchSpecificationsInput` via:
+//
+//          InstanceFleetLaunchSpecificationsArgs{...}
+type InstanceFleetLaunchSpecificationsInput interface {
+	pulumi.Input
+
+	ToInstanceFleetLaunchSpecificationsOutput() InstanceFleetLaunchSpecificationsOutput
+	ToInstanceFleetLaunchSpecificationsOutputWithContext(context.Context) InstanceFleetLaunchSpecificationsOutput
+}
+
+type InstanceFleetLaunchSpecificationsArgs struct {
+	// Configuration block for on demand instances launch specifications
+	OnDemandSpecifications InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput `pulumi:"onDemandSpecifications"`
+	// Configuration block for spot instances launch specifications
+	SpotSpecifications InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput `pulumi:"spotSpecifications"`
+}
+
+func (InstanceFleetLaunchSpecificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (i InstanceFleetLaunchSpecificationsArgs) ToInstanceFleetLaunchSpecificationsOutput() InstanceFleetLaunchSpecificationsOutput {
+	return i.ToInstanceFleetLaunchSpecificationsOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetLaunchSpecificationsArgs) ToInstanceFleetLaunchSpecificationsOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsOutput)
+}
+
+func (i InstanceFleetLaunchSpecificationsArgs) ToInstanceFleetLaunchSpecificationsPtrOutput() InstanceFleetLaunchSpecificationsPtrOutput {
+	return i.ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetLaunchSpecificationsArgs) ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsOutput).ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx)
+}
+
+// InstanceFleetLaunchSpecificationsPtrInput is an input type that accepts InstanceFleetLaunchSpecificationsArgs, InstanceFleetLaunchSpecificationsPtr and InstanceFleetLaunchSpecificationsPtrOutput values.
+// You can construct a concrete instance of `InstanceFleetLaunchSpecificationsPtrInput` via:
+//
+//          InstanceFleetLaunchSpecificationsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceFleetLaunchSpecificationsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceFleetLaunchSpecificationsPtrOutput() InstanceFleetLaunchSpecificationsPtrOutput
+	ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Context) InstanceFleetLaunchSpecificationsPtrOutput
+}
+
+type instanceFleetLaunchSpecificationsPtrType InstanceFleetLaunchSpecificationsArgs
+
+func InstanceFleetLaunchSpecificationsPtr(v *InstanceFleetLaunchSpecificationsArgs) InstanceFleetLaunchSpecificationsPtrInput {
+	return (*instanceFleetLaunchSpecificationsPtrType)(v)
+}
+
+func (*instanceFleetLaunchSpecificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (i *instanceFleetLaunchSpecificationsPtrType) ToInstanceFleetLaunchSpecificationsPtrOutput() InstanceFleetLaunchSpecificationsPtrOutput {
+	return i.ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceFleetLaunchSpecificationsPtrType) ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+type InstanceFleetLaunchSpecificationsOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetLaunchSpecificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (o InstanceFleetLaunchSpecificationsOutput) ToInstanceFleetLaunchSpecificationsOutput() InstanceFleetLaunchSpecificationsOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsOutput) ToInstanceFleetLaunchSpecificationsOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsOutput) ToInstanceFleetLaunchSpecificationsPtrOutput() InstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceFleetLaunchSpecificationsOutput) ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsPtrOutput {
+	return o.ApplyT(func(v InstanceFleetLaunchSpecifications) *InstanceFleetLaunchSpecifications {
+		return &v
+	}).(InstanceFleetLaunchSpecificationsPtrOutput)
+}
+
+// Configuration block for on demand instances launch specifications
+func (o InstanceFleetLaunchSpecificationsOutput) OnDemandSpecifications() InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o.ApplyT(func(v InstanceFleetLaunchSpecifications) []InstanceFleetLaunchSpecificationsOnDemandSpecification {
+		return v.OnDemandSpecifications
+	}).(InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+// Configuration block for spot instances launch specifications
+func (o InstanceFleetLaunchSpecificationsOutput) SpotSpecifications() InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o.ApplyT(func(v InstanceFleetLaunchSpecifications) []InstanceFleetLaunchSpecificationsSpotSpecification {
+		return v.SpotSpecifications
+	}).(InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type InstanceFleetLaunchSpecificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetLaunchSpecificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceFleetLaunchSpecifications)(nil)).Elem()
+}
+
+func (o InstanceFleetLaunchSpecificationsPtrOutput) ToInstanceFleetLaunchSpecificationsPtrOutput() InstanceFleetLaunchSpecificationsPtrOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsPtrOutput) ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsPtrOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsPtrOutput) Elem() InstanceFleetLaunchSpecificationsOutput {
+	return o.ApplyT(func(v *InstanceFleetLaunchSpecifications) InstanceFleetLaunchSpecifications { return *v }).(InstanceFleetLaunchSpecificationsOutput)
+}
+
+// Configuration block for on demand instances launch specifications
+func (o InstanceFleetLaunchSpecificationsPtrOutput) OnDemandSpecifications() InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o.ApplyT(func(v *InstanceFleetLaunchSpecifications) []InstanceFleetLaunchSpecificationsOnDemandSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandSpecifications
+	}).(InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+// Configuration block for spot instances launch specifications
+func (o InstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o.ApplyT(func(v *InstanceFleetLaunchSpecifications) []InstanceFleetLaunchSpecificationsSpotSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.SpotSpecifications
+	}).(InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type InstanceFleetLaunchSpecificationsOnDemandSpecification struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+}
+
+// InstanceFleetLaunchSpecificationsOnDemandSpecificationInput is an input type that accepts InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs and InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput values.
+// You can construct a concrete instance of `InstanceFleetLaunchSpecificationsOnDemandSpecificationInput` via:
+//
+//          InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...}
+type InstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput
+	ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(context.Context) InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput
+}
+
+type InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+}
+
+func (InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return i.ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
+}
+
+// InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts InstanceFleetLaunchSpecificationsOnDemandSpecificationArray and InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
+//
+//          InstanceFleetLaunchSpecificationsOnDemandSpecificationArray{ InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs{...} }
+type InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput
+	ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(context.Context) InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput
+}
+
+type InstanceFleetLaunchSpecificationsOnDemandSpecificationArray []InstanceFleetLaunchSpecificationsOnDemandSpecificationInput
+
+func (InstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return i.ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
+}
+
+type InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput() InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return o
+}
+
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsOnDemandSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
+}
+
+type InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetLaunchSpecificationsOnDemandSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput() InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index(i pulumi.IntInput) InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetLaunchSpecificationsOnDemandSpecification {
+		return vs[0].([]InstanceFleetLaunchSpecificationsOnDemandSpecification)[vs[1].(int)]
+	}).(InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
+}
+
+type InstanceFleetLaunchSpecificationsSpotSpecification struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction string `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes int `pulumi:"timeoutDurationMinutes"`
+}
+
+// InstanceFleetLaunchSpecificationsSpotSpecificationInput is an input type that accepts InstanceFleetLaunchSpecificationsSpotSpecificationArgs and InstanceFleetLaunchSpecificationsSpotSpecificationOutput values.
+// You can construct a concrete instance of `InstanceFleetLaunchSpecificationsSpotSpecificationInput` via:
+//
+//          InstanceFleetLaunchSpecificationsSpotSpecificationArgs{...}
+type InstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceFleetLaunchSpecificationsSpotSpecificationOutput() InstanceFleetLaunchSpecificationsSpotSpecificationOutput
+	ToInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(context.Context) InstanceFleetLaunchSpecificationsSpotSpecificationOutput
+}
+
+type InstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
+	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+	TimeoutAction pulumi.StringInput `pulumi:"timeoutAction"`
+	// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+	TimeoutDurationMinutes pulumi.IntInput `pulumi:"timeoutDurationMinutes"`
+}
+
+func (InstanceFleetLaunchSpecificationsSpotSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToInstanceFleetLaunchSpecificationsSpotSpecificationOutput() InstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return i.ToInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsSpotSpecificationOutput)
+}
+
+// InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts InstanceFleetLaunchSpecificationsSpotSpecificationArray and InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
+// You can construct a concrete instance of `InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
+//
+//          InstanceFleetLaunchSpecificationsSpotSpecificationArray{ InstanceFleetLaunchSpecificationsSpotSpecificationArgs{...} }
+type InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput
+	ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(context.Context) InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput
+}
+
+type InstanceFleetLaunchSpecificationsSpotSpecificationArray []InstanceFleetLaunchSpecificationsSpotSpecificationInput
+
+func (InstanceFleetLaunchSpecificationsSpotSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (i InstanceFleetLaunchSpecificationsSpotSpecificationArray) ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return i.ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceFleetLaunchSpecificationsSpotSpecificationArray) ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
+}
+
+type InstanceFleetLaunchSpecificationsSpotSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToInstanceFleetLaunchSpecificationsSpotSpecificationOutput() InstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return o
+}
+
+// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
+}
+
+// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutAction() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) string { return v.TimeoutAction }).(pulumi.StringOutput)
+}
+
+// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutDurationMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) int { return v.TimeoutDurationMinutes }).(pulumi.IntOutput)
+}
+
+type InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceFleetLaunchSpecificationsSpotSpecification)(nil)).Elem()
+}
+
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput() InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) Index(i pulumi.IntInput) InstanceFleetLaunchSpecificationsSpotSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetLaunchSpecificationsSpotSpecification {
+		return vs[0].([]InstanceFleetLaunchSpecificationsSpotSpecification)[vs[1].(int)]
+	}).(InstanceFleetLaunchSpecificationsSpotSpecificationOutput)
 }
 
 type InstanceGroupEbsConfig struct {
@@ -1769,6 +4570,20 @@ func (o ManagedScalingPolicyComputeLimitArrayOutput) Index(i pulumi.IntInput) Ma
 func init() {
 	pulumi.RegisterOutputType(ClusterBootstrapActionOutput{})
 	pulumi.RegisterOutputType(ClusterBootstrapActionArrayOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetInstanceTypeConfigOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetLaunchSpecificationsOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCoreInstanceGroupOutput{})
 	pulumi.RegisterOutputType(ClusterCoreInstanceGroupPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCoreInstanceGroupEbsConfigOutput{})
@@ -1777,6 +4592,20 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEc2AttributesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetPtrOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetInstanceTypeConfigOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetLaunchSpecificationsOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput{})
+	pulumi.RegisterOutputType(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ClusterMasterInstanceGroupOutput{})
 	pulumi.RegisterOutputType(ClusterMasterInstanceGroupPtrOutput{})
 	pulumi.RegisterOutputType(ClusterMasterInstanceGroupEbsConfigOutput{})
@@ -1784,6 +4613,18 @@ func init() {
 	pulumi.RegisterOutputType(ClusterStepOutput{})
 	pulumi.RegisterOutputType(ClusterStepArrayOutput{})
 	pulumi.RegisterOutputType(ClusterStepHadoopJarStepOutput{})
+	pulumi.RegisterOutputType(InstanceFleetInstanceTypeConfigOutput{})
+	pulumi.RegisterOutputType(InstanceFleetInstanceTypeConfigArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetInstanceTypeConfigConfigurationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetInstanceTypeConfigConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetInstanceTypeConfigEbsConfigOutput{})
+	pulumi.RegisterOutputType(InstanceFleetInstanceTypeConfigEbsConfigArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetLaunchSpecificationsOutput{})
+	pulumi.RegisterOutputType(InstanceFleetLaunchSpecificationsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceFleetLaunchSpecificationsSpotSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceGroupEbsConfigOutput{})
 	pulumi.RegisterOutputType(InstanceGroupEbsConfigArrayOutput{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyComputeLimitOutput{})

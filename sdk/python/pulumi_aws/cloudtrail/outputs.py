@@ -12,6 +12,7 @@ from . import outputs
 __all__ = [
     'TrailEventSelector',
     'TrailEventSelectorDataResource',
+    'TrailInsightSelector',
 ]
 
 @pulumi.output_type
@@ -87,6 +88,27 @@ class TrailEventSelectorDataResource(dict):
         A list of ARN for the specified S3 buckets and object prefixes..
         """
         return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TrailInsightSelector(dict):
+    def __init__(__self__, *,
+                 insight_type: str):
+        """
+        :param str insight_type: The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+        """
+        pulumi.set(__self__, "insight_type", insight_type)
+
+    @property
+    @pulumi.getter(name="insightType")
+    def insight_type(self) -> str:
+        """
+        The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+        """
+        return pulumi.get(self, "insight_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

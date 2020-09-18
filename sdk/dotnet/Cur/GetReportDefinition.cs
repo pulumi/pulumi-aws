@@ -83,7 +83,15 @@ namespace Pulumi.Aws.Cur
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// If true reports are updated after they have been finalized.
+        /// </summary>
+        public readonly bool RefreshClosedReports;
         public readonly string ReportName;
+        /// <summary>
+        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+        /// </summary>
+        public readonly string ReportVersioning;
         /// <summary>
         /// Name of customer S3 bucket.
         /// </summary>
@@ -113,7 +121,11 @@ namespace Pulumi.Aws.Cur
 
             string id,
 
+            bool refreshClosedReports,
+
             string reportName,
+
+            string reportVersioning,
 
             string s3Bucket,
 
@@ -128,7 +140,9 @@ namespace Pulumi.Aws.Cur
             Compression = compression;
             Format = format;
             Id = id;
+            RefreshClosedReports = refreshClosedReports;
             ReportName = reportName;
+            ReportVersioning = reportVersioning;
             S3Bucket = s3Bucket;
             S3Prefix = s3Prefix;
             S3Region = s3Region;

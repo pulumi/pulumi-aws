@@ -4136,8 +4136,10 @@ type FirehoseDeliveryStreamElasticsearchConfiguration struct {
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
-	DomainArn string `pulumi:"domainArn"`
+	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
+	// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
+	DomainArn *string `pulumi:"domainArn"`
 	// The Elasticsearch index name.
 	IndexName string `pulumi:"indexName"`
 	// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
@@ -4152,6 +4154,8 @@ type FirehoseDeliveryStreamElasticsearchConfiguration struct {
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 	// The Elasticsearch type name with maximum length of 100 characters.
 	TypeName *string `pulumi:"typeName"`
+	// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+	VpcConfig *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig `pulumi:"vpcConfig"`
 }
 
 // FirehoseDeliveryStreamElasticsearchConfigurationInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationArgs and FirehoseDeliveryStreamElasticsearchConfigurationOutput values.
@@ -4172,8 +4176,10 @@ type FirehoseDeliveryStreamElasticsearchConfigurationArgs struct {
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
-	DomainArn pulumi.StringInput `pulumi:"domainArn"`
+	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+	ClusterEndpoint pulumi.StringPtrInput `pulumi:"clusterEndpoint"`
+	// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
+	DomainArn pulumi.StringPtrInput `pulumi:"domainArn"`
 	// The Elasticsearch index name.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
 	// The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
@@ -4188,6 +4194,8 @@ type FirehoseDeliveryStreamElasticsearchConfigurationArgs struct {
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 	// The Elasticsearch type name with maximum length of 100 characters.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
+	// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+	VpcConfig FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (FirehoseDeliveryStreamElasticsearchConfigurationArgs) ElementType() reflect.Type {
@@ -4284,9 +4292,14 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) CloudwatchLoggin
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
-func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) DomainArn() pulumi.StringOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) string { return v.DomainArn }).(pulumi.StringOutput)
+// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ClusterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.ClusterEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
+func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) DomainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.DomainArn }).(pulumi.StringPtrOutput)
 }
 
 // The Elasticsearch index name.
@@ -4324,6 +4337,13 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) S3BackupMode() p
 // The Elasticsearch type name with maximum length of 100 characters.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *string { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
+// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) VpcConfig() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
+		return v.VpcConfig
+	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput)
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -4376,13 +4396,23 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) CloudwatchLog
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
+// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ClusterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `clusterEndpoint`.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) DomainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DomainArn
+		return v.DomainArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4454,6 +4484,16 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) TypeName() pu
 		}
 		return v.TypeName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) VpcConfig() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfig
+	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput)
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions struct {
@@ -5007,6 +5047,192 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter {
 		return vs[0].([]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter)[vs[1].(int)]
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig struct {
+	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	RoleArn string `pulumi:"roleArn"`
+	// A list of security group IDs to associate with Kinesis Firehose.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs to associate with Kinesis Firehose.
+	SubnetIds []string `pulumi:"subnetIds"`
+	VpcId     *string  `pulumi:"vpcId"`
+}
+
+// FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs and FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigInput` via:
+//
+//          FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{...}
+type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput
+	ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutputWithContext(context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput
+}
+
+type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs struct {
+	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A list of security group IDs to associate with Kinesis Firehose.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs to associate with Kinesis Firehose.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+}
+
+func (FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput {
+	return i.ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput)
+}
+
+func (i FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return i.ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput).ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs, FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtr and FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrInput` via:
+//
+//          FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput
+	ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput
+}
+
+type firehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrType FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
+
+func FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtr(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrInput {
+	return (*firehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrType) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return i.ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrType) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput)
+}
+
+type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return o.ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
+		return &v
+	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput)
+}
+
+// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A list of security group IDs to associate with Kinesis Firehose.
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs to associate with Kinesis Firehose.
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
+		return *v
+	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput)
+}
+
+// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of security group IDs to associate with Kinesis Firehose.
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs to associate with Kinesis Firehose.
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type FirehoseDeliveryStreamExtendedS3Configuration struct {
@@ -11253,6 +11479,8 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput{})
