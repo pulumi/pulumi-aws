@@ -13,6 +13,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     [OutputType]
     public sealed class EndpointGroupEndpointConfiguration
     {
+        public readonly bool? ClientIpPreservationEnabled;
         /// <summary>
         /// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
 
         [OutputConstructor]
         private EndpointGroupEndpointConfiguration(
+            bool? clientIpPreservationEnabled,
+
             string? endpointId,
 
             int? weight)
         {
+            ClientIpPreservationEnabled = clientIpPreservationEnabled;
             EndpointId = endpointId;
             Weight = weight;
         }

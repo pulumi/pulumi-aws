@@ -655,23 +655,22 @@ class VirtualNodeSpecArgs:
 @pulumi.input_type
 class VirtualNodeSpecBackendArgs:
     def __init__(__self__, *,
-                 virtual_service: Optional[pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgs']] = None):
+                 virtual_service: pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgs']):
         """
         :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgs'] virtual_service: Specifies a virtual service to use as a backend for a virtual node.
         """
-        if virtual_service is not None:
-            pulumi.set(__self__, "virtual_service", virtual_service)
+        pulumi.set(__self__, "virtual_service", virtual_service)
 
     @property
     @pulumi.getter(name="virtualService")
-    def virtual_service(self) -> Optional[pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgs']]:
+    def virtual_service(self) -> pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgs']:
         """
         Specifies a virtual service to use as a backend for a virtual node.
         """
         return pulumi.get(self, "virtual_service")
 
     @virtual_service.setter
-    def virtual_service(self, value: Optional[pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgs']]):
+    def virtual_service(self, value: pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgs']):
         pulumi.set(self, "virtual_service", value)
 
 

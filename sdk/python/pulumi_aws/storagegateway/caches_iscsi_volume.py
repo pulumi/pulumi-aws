@@ -16,6 +16,8 @@ class CachesIscsiVolume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
+                 kms_encrypted: Optional[pulumi.Input[bool]] = None,
+                 kms_key: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  source_volume_arn: Optional[pulumi.Input[str]] = None,
@@ -78,6 +80,8 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         :param pulumi.Input[str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
         :param pulumi.Input[str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
@@ -105,6 +109,8 @@ class CachesIscsiVolume(pulumi.CustomResource):
             if gateway_arn is None:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__['gateway_arn'] = gateway_arn
+            __props__['kms_encrypted'] = kms_encrypted
+            __props__['kms_key'] = kms_key
             if network_interface_id is None:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__['network_interface_id'] = network_interface_id
@@ -137,6 +143,8 @@ class CachesIscsiVolume(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             chap_enabled: Optional[pulumi.Input[bool]] = None,
             gateway_arn: Optional[pulumi.Input[str]] = None,
+            kms_encrypted: Optional[pulumi.Input[bool]] = None,
+            kms_key: Optional[pulumi.Input[str]] = None,
             lun_number: Optional[pulumi.Input[int]] = None,
             network_interface_id: Optional[pulumi.Input[str]] = None,
             network_interface_port: Optional[pulumi.Input[int]] = None,
@@ -158,6 +166,8 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[bool] chap_enabled: Whether mutual CHAP is enabled for the iSCSI target.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         :param pulumi.Input[int] lun_number: Logical disk number.
         :param pulumi.Input[str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[int] network_interface_port: The port used to communicate with iSCSI targets.
@@ -177,6 +187,8 @@ class CachesIscsiVolume(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["chap_enabled"] = chap_enabled
         __props__["gateway_arn"] = gateway_arn
+        __props__["kms_encrypted"] = kms_encrypted
+        __props__["kms_key"] = kms_key
         __props__["lun_number"] = lun_number
         __props__["network_interface_id"] = network_interface_id
         __props__["network_interface_port"] = network_interface_port
@@ -213,6 +225,22 @@ class CachesIscsiVolume(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
+
+    @property
+    @pulumi.getter(name="kmsEncrypted")
+    def kms_encrypted(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        """
+        return pulumi.get(self, "kms_encrypted")
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        """
+        return pulumi.get(self, "kms_key")
 
     @property
     @pulumi.getter(name="lunNumber")

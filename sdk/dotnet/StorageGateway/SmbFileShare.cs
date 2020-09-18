@@ -81,6 +81,18 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> Authentication { get; private set; } = null!;
 
         /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
+        [Output("cacheAttributes")]
+        public Output<Outputs.SmbFileShareCacheAttributes?> CacheAttributes { get; private set; } = null!;
+
+        /// <summary>
+        /// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+        /// </summary>
+        [Output("caseSensitivity")]
+        public Output<string?> CaseSensitivity { get; private set; } = null!;
+
+        /// <summary>
         /// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         /// </summary>
         [Output("defaultStorageClass")]
@@ -235,6 +247,18 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? Authentication { get; set; }
 
         /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
+        [Input("cacheAttributes")]
+        public Input<Inputs.SmbFileShareCacheAttributesArgs>? CacheAttributes { get; set; }
+
+        /// <summary>
+        /// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+        /// </summary>
+        [Input("caseSensitivity")]
+        public Input<string>? CaseSensitivity { get; set; }
+
+        /// <summary>
         /// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         /// </summary>
         [Input("defaultStorageClass")]
@@ -360,6 +384,18 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("authentication")]
         public Input<string>? Authentication { get; set; }
+
+        /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
+        [Input("cacheAttributes")]
+        public Input<Inputs.SmbFileShareCacheAttributesGetArgs>? CacheAttributes { get; set; }
+
+        /// <summary>
+        /// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
+        /// </summary>
+        [Input("caseSensitivity")]
+        public Input<string>? CaseSensitivity { get; set; }
 
         /// <summary>
         /// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.

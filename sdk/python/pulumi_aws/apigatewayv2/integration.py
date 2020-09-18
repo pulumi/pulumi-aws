@@ -24,6 +24,7 @@ class Integration(pulumi.CustomResource):
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_method: Optional[pulumi.Input[str]] = None,
+                 integration_subtype: Optional[pulumi.Input[str]] = None,
                  integration_type: Optional[pulumi.Input[str]] = None,
                  integration_uri: Optional[pulumi.Input[str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[str]] = None,
@@ -72,6 +73,23 @@ class Integration(pulumi.CustomResource):
             integration_uri=example_function.invoke_arn,
             passthrough_behavior="WHEN_NO_MATCH")
         ```
+        ### AWS Service Integration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Integration("example",
+            api_id=aws_apigatewayv2_api["example"]["id"],
+            credentials_arn=aws_iam_role["example"]["arn"],
+            description="SQS example",
+            integration_type="AWS_PROXY",
+            integration_subtype="SQS-SendMessage",
+            request_parameters={
+                "QueueUrl": "$request.header.queueUrl",
+                "MessageBody": "$request.body.message",
+            })
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -82,6 +100,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] credentials_arn: The credentials required for the integration, if any.
         :param pulumi.Input[str] description: The description of the integration.
         :param pulumi.Input[str] integration_method: The integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
+        :param pulumi.Input[str] integration_subtype: Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
         :param pulumi.Input[str] integration_type: The integration type of an integration.
                Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
         :param pulumi.Input[str] integration_uri: The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
@@ -122,6 +141,7 @@ class Integration(pulumi.CustomResource):
             __props__['credentials_arn'] = credentials_arn
             __props__['description'] = description
             __props__['integration_method'] = integration_method
+            __props__['integration_subtype'] = integration_subtype
             if integration_type is None:
                 raise TypeError("Missing required property 'integration_type'")
             __props__['integration_type'] = integration_type
@@ -152,6 +172,7 @@ class Integration(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             integration_method: Optional[pulumi.Input[str]] = None,
             integration_response_selection_expression: Optional[pulumi.Input[str]] = None,
+            integration_subtype: Optional[pulumi.Input[str]] = None,
             integration_type: Optional[pulumi.Input[str]] = None,
             integration_uri: Optional[pulumi.Input[str]] = None,
             passthrough_behavior: Optional[pulumi.Input[str]] = None,
@@ -176,6 +197,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the integration.
         :param pulumi.Input[str] integration_method: The integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
         :param pulumi.Input[str] integration_response_selection_expression: The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
+        :param pulumi.Input[str] integration_subtype: Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
         :param pulumi.Input[str] integration_type: The integration type of an integration.
                Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
         :param pulumi.Input[str] integration_uri: The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
@@ -202,6 +224,7 @@ class Integration(pulumi.CustomResource):
         __props__["description"] = description
         __props__["integration_method"] = integration_method
         __props__["integration_response_selection_expression"] = integration_response_selection_expression
+        __props__["integration_subtype"] = integration_subtype
         __props__["integration_type"] = integration_type
         __props__["integration_uri"] = integration_uri
         __props__["passthrough_behavior"] = passthrough_behavior
@@ -276,6 +299,14 @@ class Integration(pulumi.CustomResource):
         The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         """
         return pulumi.get(self, "integration_response_selection_expression")
+
+    @property
+    @pulumi.getter(name="integrationSubtype")
+    def integration_subtype(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+        """
+        return pulumi.get(self, "integration_subtype")
 
     @property
     @pulumi.getter(name="integrationType")

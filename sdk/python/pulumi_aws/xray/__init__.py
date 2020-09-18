@@ -3,4 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .encryption_config import *
+from .group import *
 from .sampling_rule import *

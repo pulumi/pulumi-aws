@@ -45,6 +45,24 @@ import * as utilities from "../utilities";
  *     passthroughBehavior: "WHEN_NO_MATCH",
  * });
  * ```
+ * ### AWS Service Integration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.apigatewayv2.Integration("example", {
+ *     apiId: aws_apigatewayv2_api.example.id,
+ *     credentialsArn: aws_iam_role.example.arn,
+ *     description: "SQS example",
+ *     integrationType: "AWS_PROXY",
+ *     integrationSubtype: "SQS-SendMessage",
+ *     requestParameters: {
+ *         QueueUrl: `$request.header.queueUrl`,
+ *         MessageBody: `$request.body.message`,
+ *     },
+ * });
+ * ```
  */
 export class Integration extends pulumi.CustomResource {
     /**
@@ -107,6 +125,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public /*out*/ readonly integrationResponseSelectionExpression!: pulumi.Output<string>;
     /**
+     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+     */
+    public readonly integrationSubtype!: pulumi.Output<string | undefined>;
+    /**
      * The integration type of an integration.
      * Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
      */
@@ -167,6 +189,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["integrationMethod"] = state ? state.integrationMethod : undefined;
             inputs["integrationResponseSelectionExpression"] = state ? state.integrationResponseSelectionExpression : undefined;
+            inputs["integrationSubtype"] = state ? state.integrationSubtype : undefined;
             inputs["integrationType"] = state ? state.integrationType : undefined;
             inputs["integrationUri"] = state ? state.integrationUri : undefined;
             inputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
@@ -191,6 +214,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["credentialsArn"] = args ? args.credentialsArn : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["integrationMethod"] = args ? args.integrationMethod : undefined;
+            inputs["integrationSubtype"] = args ? args.integrationSubtype : undefined;
             inputs["integrationType"] = args ? args.integrationType : undefined;
             inputs["integrationUri"] = args ? args.integrationUri : undefined;
             inputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
@@ -249,6 +273,10 @@ export interface IntegrationState {
      * The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
      */
     readonly integrationResponseSelectionExpression?: pulumi.Input<string>;
+    /**
+     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+     */
+    readonly integrationSubtype?: pulumi.Input<string>;
     /**
      * The integration type of an integration.
      * Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
@@ -323,6 +351,10 @@ export interface IntegrationArgs {
      * The integration's HTTP method. Must be specified if `integrationType` is not `MOCK`.
      */
     readonly integrationMethod?: pulumi.Input<string>;
+    /**
+     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values.
+     */
+    readonly integrationSubtype?: pulumi.Input<string>;
     /**
      * The integration type of an integration.
      * Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.

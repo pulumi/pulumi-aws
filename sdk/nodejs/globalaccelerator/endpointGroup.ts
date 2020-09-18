@@ -64,14 +64,8 @@ export class EndpointGroup extends pulumi.CustomResource {
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
     public readonly healthCheckIntervalSeconds!: pulumi.Output<number | undefined>;
-    /**
-     * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-     */
-    public readonly healthCheckPath!: pulumi.Output<string | undefined>;
-    /**
-     * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-     */
-    public readonly healthCheckPort!: pulumi.Output<number | undefined>;
+    public readonly healthCheckPath!: pulumi.Output<string>;
+    public readonly healthCheckPort!: pulumi.Output<number>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      */
@@ -152,13 +146,7 @@ export interface EndpointGroupState {
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
     readonly healthCheckIntervalSeconds?: pulumi.Input<number>;
-    /**
-     * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-     */
     readonly healthCheckPath?: pulumi.Input<string>;
-    /**
-     * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-     */
     readonly healthCheckPort?: pulumi.Input<number>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
@@ -194,13 +182,7 @@ export interface EndpointGroupArgs {
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
     readonly healthCheckIntervalSeconds?: pulumi.Input<number>;
-    /**
-     * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-     */
     readonly healthCheckPath?: pulumi.Input<string>;
-    /**
-     * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-     */
     readonly healthCheckPort?: pulumi.Input<number>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.

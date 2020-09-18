@@ -20,6 +20,7 @@ __all__ = [
     'ClusterStep',
     'ClusterStepHadoopJarStep',
     'InstanceGroupEbsConfig',
+    'ManagedScalingPolicyComputeLimit',
 ]
 
 @pulumi.output_type
@@ -676,6 +677,73 @@ class InstanceGroupEbsConfig(dict):
         The number of EBS Volumes to attach per instance.
         """
         return pulumi.get(self, "volumes_per_instance")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedScalingPolicyComputeLimit(dict):
+    def __init__(__self__, *,
+                 maximum_capacity_units: int,
+                 minimum_capacity_units: int,
+                 unit_type: str,
+                 maximum_core_capacity_units: Optional[int] = None,
+                 maximum_ondemand_capacity_units: Optional[int] = None):
+        """
+        :param int maximum_capacity_units: The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        :param int minimum_capacity_units: The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        :param str unit_type: The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+        :param int maximum_core_capacity_units: The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+        :param int maximum_ondemand_capacity_units: The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
+        """
+        pulumi.set(__self__, "maximum_capacity_units", maximum_capacity_units)
+        pulumi.set(__self__, "minimum_capacity_units", minimum_capacity_units)
+        pulumi.set(__self__, "unit_type", unit_type)
+        if maximum_core_capacity_units is not None:
+            pulumi.set(__self__, "maximum_core_capacity_units", maximum_core_capacity_units)
+        if maximum_ondemand_capacity_units is not None:
+            pulumi.set(__self__, "maximum_ondemand_capacity_units", maximum_ondemand_capacity_units)
+
+    @property
+    @pulumi.getter(name="maximumCapacityUnits")
+    def maximum_capacity_units(self) -> int:
+        """
+        The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        """
+        return pulumi.get(self, "maximum_capacity_units")
+
+    @property
+    @pulumi.getter(name="minimumCapacityUnits")
+    def minimum_capacity_units(self) -> int:
+        """
+        The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        """
+        return pulumi.get(self, "minimum_capacity_units")
+
+    @property
+    @pulumi.getter(name="unitType")
+    def unit_type(self) -> str:
+        """
+        The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+        """
+        return pulumi.get(self, "unit_type")
+
+    @property
+    @pulumi.getter(name="maximumCoreCapacityUnits")
+    def maximum_core_capacity_units(self) -> Optional[int]:
+        """
+        The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+        """
+        return pulumi.get(self, "maximum_core_capacity_units")
+
+    @property
+    @pulumi.getter(name="maximumOndemandCapacityUnits")
+    def maximum_ondemand_capacity_units(self) -> Optional[int]:
+        """
+        The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
+        """
+        return pulumi.get(self, "maximum_ondemand_capacity_units")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -107,6 +107,18 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> GatewayArn { get; private set; } = null!;
 
         /// <summary>
+        /// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        /// </summary>
+        [Output("kmsEncrypted")]
+        public Output<bool?> KmsEncrypted { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        /// </summary>
+        [Output("kmsKey")]
+        public Output<string?> KmsKey { get; private set; } = null!;
+
+        /// <summary>
         /// Logical disk number.
         /// </summary>
         [Output("lunNumber")]
@@ -225,6 +237,18 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> GatewayArn { get; set; } = null!;
 
         /// <summary>
+        /// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        /// </summary>
+        [Input("kmsEncrypted")]
+        public Input<bool>? KmsEncrypted { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        /// </summary>
+        [Input("kmsKey")]
+        public Input<string>? KmsKey { get; set; }
+
+        /// <summary>
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         /// </summary>
         [Input("networkInterfaceId", required: true)]
@@ -290,6 +314,18 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
+
+        /// <summary>
+        /// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        /// </summary>
+        [Input("kmsEncrypted")]
+        public Input<bool>? KmsEncrypted { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        /// </summary>
+        [Input("kmsKey")]
+        public Input<string>? KmsKey { get; set; }
 
         /// <summary>
         /// Logical disk number.

@@ -18,6 +18,8 @@ class Gateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_key: Optional[pulumi.Input[str]] = None,
+                 average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
+                 average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
@@ -27,6 +29,7 @@ class Gateway(pulumi.CustomResource):
                  medium_changer_type: Optional[pulumi.Input[str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']]] = None,
                  smb_guest_password: Optional[pulumi.Input[str]] = None,
+                 smb_security_strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tape_drive_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -92,6 +95,8 @@ class Gateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+        :param pulumi.Input[int] average_download_rate_limit_in_bits_per_sec: The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        :param pulumi.Input[int] average_upload_rate_limit_in_bits_per_sec: The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         :param pulumi.Input[str] cloudwatch_log_group_arn: The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] gateway_name: Name of the gateway.
@@ -101,6 +106,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
         :param pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
+        :param pulumi.Input[str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
@@ -122,6 +128,8 @@ class Gateway(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['activation_key'] = activation_key
+            __props__['average_download_rate_limit_in_bits_per_sec'] = average_download_rate_limit_in_bits_per_sec
+            __props__['average_upload_rate_limit_in_bits_per_sec'] = average_upload_rate_limit_in_bits_per_sec
             __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
             __props__['gateway_ip_address'] = gateway_ip_address
             if gateway_name is None:
@@ -135,6 +143,7 @@ class Gateway(pulumi.CustomResource):
             __props__['medium_changer_type'] = medium_changer_type
             __props__['smb_active_directory_settings'] = smb_active_directory_settings
             __props__['smb_guest_password'] = smb_guest_password
+            __props__['smb_security_strategy'] = smb_security_strategy
             __props__['tags'] = tags
             __props__['tape_drive_type'] = tape_drive_type
             __props__['arn'] = None
@@ -151,6 +160,8 @@ class Gateway(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             activation_key: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
+            average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
             gateway_id: Optional[pulumi.Input[str]] = None,
             gateway_ip_address: Optional[pulumi.Input[str]] = None,
@@ -161,6 +172,7 @@ class Gateway(pulumi.CustomResource):
             medium_changer_type: Optional[pulumi.Input[str]] = None,
             smb_active_directory_settings: Optional[pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']]] = None,
             smb_guest_password: Optional[pulumi.Input[str]] = None,
+            smb_security_strategy: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tape_drive_type: Optional[pulumi.Input[str]] = None) -> 'Gateway':
         """
@@ -172,6 +184,8 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[int] average_download_rate_limit_in_bits_per_sec: The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        :param pulumi.Input[int] average_upload_rate_limit_in_bits_per_sec: The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         :param pulumi.Input[str] cloudwatch_log_group_arn: The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         :param pulumi.Input[str] gateway_id: Identifier of the gateway.
         :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -182,6 +196,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
         :param pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
+        :param pulumi.Input[str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
@@ -191,6 +206,8 @@ class Gateway(pulumi.CustomResource):
 
         __props__["activation_key"] = activation_key
         __props__["arn"] = arn
+        __props__["average_download_rate_limit_in_bits_per_sec"] = average_download_rate_limit_in_bits_per_sec
+        __props__["average_upload_rate_limit_in_bits_per_sec"] = average_upload_rate_limit_in_bits_per_sec
         __props__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
         __props__["gateway_id"] = gateway_id
         __props__["gateway_ip_address"] = gateway_ip_address
@@ -201,6 +218,7 @@ class Gateway(pulumi.CustomResource):
         __props__["medium_changer_type"] = medium_changer_type
         __props__["smb_active_directory_settings"] = smb_active_directory_settings
         __props__["smb_guest_password"] = smb_guest_password
+        __props__["smb_security_strategy"] = smb_security_strategy
         __props__["tags"] = tags
         __props__["tape_drive_type"] = tape_drive_type
         return Gateway(resource_name, opts=opts, __props__=__props__)
@@ -220,6 +238,22 @@ class Gateway(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="averageDownloadRateLimitInBitsPerSec")
+    def average_download_rate_limit_in_bits_per_sec(self) -> pulumi.Output[Optional[int]]:
+        """
+        The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        """
+        return pulumi.get(self, "average_download_rate_limit_in_bits_per_sec")
+
+    @property
+    @pulumi.getter(name="averageUploadRateLimitInBitsPerSec")
+    def average_upload_rate_limit_in_bits_per_sec(self) -> pulumi.Output[Optional[int]]:
+        """
+        The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        """
+        return pulumi.get(self, "average_upload_rate_limit_in_bits_per_sec")
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
@@ -300,6 +334,14 @@ class Gateway(pulumi.CustomResource):
         Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         """
         return pulumi.get(self, "smb_guest_password")
+
+    @property
+    @pulumi.getter(name="smbSecurityStrategy")
+    def smb_security_strategy(self) -> pulumi.Output[str]:
+        """
+        Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        """
+        return pulumi.get(self, "smb_security_strategy")
 
     @property
     @pulumi.getter

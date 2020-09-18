@@ -247,7 +247,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -472,7 +472,7 @@ export interface ReplicationGroupState {
      */
     readonly subnetGroupName?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -597,7 +597,7 @@ export interface ReplicationGroupArgs {
      */
     readonly subnetGroupName?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

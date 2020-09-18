@@ -44,6 +44,8 @@ type NfsFileShare struct {
 
 	// Amazon Resource Name (ARN) of the NFS File Share.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes NfsFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists pulumi.StringArrayOutput `pulumi:"clientLists"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -60,7 +62,7 @@ type NfsFileShare struct {
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
-	// Nested argument with file share default values. More information below.
+	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrOutput `pulumi:"nfsFileShareDefaults"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
@@ -120,6 +122,8 @@ func GetNfsFileShare(ctx *pulumi.Context,
 type nfsFileShareState struct {
 	// Amazon Resource Name (ARN) of the NFS File Share.
 	Arn *string `pulumi:"arn"`
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes *NfsFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists []string `pulumi:"clientLists"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -136,7 +140,7 @@ type nfsFileShareState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn *string `pulumi:"locationArn"`
-	// Nested argument with file share default values. More information below.
+	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults *NfsFileShareNfsFileShareDefaults `pulumi:"nfsFileShareDefaults"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
@@ -157,6 +161,8 @@ type nfsFileShareState struct {
 type NfsFileShareState struct {
 	// Amazon Resource Name (ARN) of the NFS File Share.
 	Arn pulumi.StringPtrInput
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes NfsFileShareCacheAttributesPtrInput
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists pulumi.StringArrayInput
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -173,7 +179,7 @@ type NfsFileShareState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringPtrInput
-	// Nested argument with file share default values. More information below.
+	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrInput
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
@@ -196,6 +202,8 @@ func (NfsFileShareState) ElementType() reflect.Type {
 }
 
 type nfsFileShareArgs struct {
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes *NfsFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists []string `pulumi:"clientLists"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -210,7 +218,7 @@ type nfsFileShareArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn string `pulumi:"locationArn"`
-	// Nested argument with file share default values. More information below.
+	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults *NfsFileShareNfsFileShareDefaults `pulumi:"nfsFileShareDefaults"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
@@ -228,6 +236,8 @@ type nfsFileShareArgs struct {
 
 // The set of arguments for constructing a NfsFileShare resource.
 type NfsFileShareArgs struct {
+	// Refresh cache information. see Cache Attributes for more details.
+	CacheAttributes NfsFileShareCacheAttributesPtrInput
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists pulumi.StringArrayInput
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -242,7 +252,7 @@ type NfsFileShareArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringInput
-	// Nested argument with file share default values. More information below.
+	// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
 	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsPtrInput
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput

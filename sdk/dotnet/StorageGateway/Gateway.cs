@@ -117,6 +117,18 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        /// </summary>
+        [Output("averageDownloadRateLimitInBitsPerSec")]
+        public Output<int?> AverageDownloadRateLimitInBitsPerSec { get; private set; } = null!;
+
+        /// <summary>
+        /// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        /// </summary>
+        [Output("averageUploadRateLimitInBitsPerSec")]
+        public Output<int?> AverageUploadRateLimitInBitsPerSec { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         /// </summary>
         [Output("cloudwatchLogGroupArn")]
@@ -175,6 +187,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Output("smbGuestPassword")]
         public Output<string?> SmbGuestPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        /// </summary>
+        [Output("smbSecurityStrategy")]
+        public Output<string> SmbSecurityStrategy { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags
@@ -241,6 +259,18 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? ActivationKey { get; set; }
 
         /// <summary>
+        /// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        /// </summary>
+        [Input("averageDownloadRateLimitInBitsPerSec")]
+        public Input<int>? AverageDownloadRateLimitInBitsPerSec { get; set; }
+
+        /// <summary>
+        /// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        /// </summary>
+        [Input("averageUploadRateLimitInBitsPerSec")]
+        public Input<int>? AverageUploadRateLimitInBitsPerSec { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
@@ -294,6 +324,12 @@ namespace Pulumi.Aws.StorageGateway
         [Input("smbGuestPassword")]
         public Input<string>? SmbGuestPassword { get; set; }
 
+        /// <summary>
+        /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        /// </summary>
+        [Input("smbSecurityStrategy")]
+        public Input<string>? SmbSecurityStrategy { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -330,6 +366,18 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        /// </summary>
+        [Input("averageDownloadRateLimitInBitsPerSec")]
+        public Input<int>? AverageDownloadRateLimitInBitsPerSec { get; set; }
+
+        /// <summary>
+        /// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
+        /// </summary>
+        [Input("averageUploadRateLimitInBitsPerSec")]
+        public Input<int>? AverageUploadRateLimitInBitsPerSec { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
@@ -390,6 +438,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("smbGuestPassword")]
         public Input<string>? SmbGuestPassword { get; set; }
+
+        /// <summary>
+        /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
+        /// </summary>
+        [Input("smbSecurityStrategy")]
+        public Input<string>? SmbSecurityStrategy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -14,6 +14,7 @@ from .get_cluster_snapshot import *
 from .get_event_categories import *
 from .get_instance import *
 from .get_snapshot import *
+from .get_subnet_group import *
 from .global_cluster import *
 from .instance import *
 from .option_group import *

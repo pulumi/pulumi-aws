@@ -12,6 +12,9 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
 
     public sealed class EndpointGroupEndpointConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("clientIpPreservationEnabled")]
+        public Input<bool>? ClientIpPreservationEnabled { get; set; }
+
         /// <summary>
         /// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         /// </summary>

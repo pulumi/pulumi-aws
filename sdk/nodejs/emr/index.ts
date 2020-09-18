@@ -4,4 +4,5 @@
 // Export members:
 export * from "./cluster";
 export * from "./instanceGroup";
+export * from "./managedScalingPolicy";
 export * from "./securityConfiguration";

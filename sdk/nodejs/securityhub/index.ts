@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./account";
+export * from "./actionTarget";
 export * from "./member";
 export * from "./productSubscription";
 export * from "./standardsSubscription";

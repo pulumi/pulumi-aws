@@ -71,7 +71,8 @@ type Policy struct {
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrOutput `pulumi:"estimatedInstanceWarmup"`
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-	MetricAggregationType  pulumi.StringOutput `pulumi:"metricAggregationType"`
+	MetricAggregationType pulumi.StringOutput `pulumi:"metricAggregationType"`
+	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	MinAdjustmentMagnitude pulumi.IntPtrOutput `pulumi:"minAdjustmentMagnitude"`
 	// The name of the dimension.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -130,8 +131,9 @@ type policyState struct {
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-	MetricAggregationType  *string `pulumi:"metricAggregationType"`
-	MinAdjustmentMagnitude *int    `pulumi:"minAdjustmentMagnitude"`
+	MetricAggregationType *string `pulumi:"metricAggregationType"`
+	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// The name of the dimension.
 	Name *string `pulumi:"name"`
 	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
@@ -159,7 +161,8 @@ type PolicyState struct {
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrInput
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-	MetricAggregationType  pulumi.StringPtrInput
+	MetricAggregationType pulumi.StringPtrInput
+	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	MinAdjustmentMagnitude pulumi.IntPtrInput
 	// The name of the dimension.
 	Name pulumi.StringPtrInput
@@ -190,8 +193,9 @@ type policyArgs struct {
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-	MetricAggregationType  *string `pulumi:"metricAggregationType"`
-	MinAdjustmentMagnitude *int    `pulumi:"minAdjustmentMagnitude"`
+	MetricAggregationType *string `pulumi:"metricAggregationType"`
+	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
+	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// The name of the dimension.
 	Name *string `pulumi:"name"`
 	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
@@ -218,7 +222,8 @@ type PolicyArgs struct {
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrInput
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-	MetricAggregationType  pulumi.StringPtrInput
+	MetricAggregationType pulumi.StringPtrInput
+	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	MinAdjustmentMagnitude pulumi.IntPtrInput
 	// The name of the dimension.
 	Name pulumi.StringPtrInput

@@ -25,6 +25,7 @@ class SamplingRule(pulumi.CustomResource):
                  rule_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url_path: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[int]] = None,
                  __props__=None,
@@ -68,6 +69,7 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
         :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
         """
@@ -114,6 +116,7 @@ class SamplingRule(pulumi.CustomResource):
             if service_type is None:
                 raise TypeError("Missing required property 'service_type'")
             __props__['service_type'] = service_type
+            __props__['tags'] = tags
             if url_path is None:
                 raise TypeError("Missing required property 'url_path'")
             __props__['url_path'] = url_path
@@ -142,6 +145,7 @@ class SamplingRule(pulumi.CustomResource):
             rule_name: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             service_type: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             url_path: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'SamplingRule':
         """
@@ -162,6 +166,7 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
         :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
         """
@@ -180,6 +185,7 @@ class SamplingRule(pulumi.CustomResource):
         __props__["rule_name"] = rule_name
         __props__["service_name"] = service_name
         __props__["service_type"] = service_type
+        __props__["tags"] = tags
         __props__["url_path"] = url_path
         __props__["version"] = version
         return SamplingRule(resource_name, opts=opts, __props__=__props__)
@@ -271,6 +277,14 @@ class SamplingRule(pulumi.CustomResource):
         Matches the `origin` that the service uses to identify its type in segments.
         """
         return pulumi.get(self, "service_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of resource tags
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="urlPath")

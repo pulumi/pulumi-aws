@@ -114,6 +114,12 @@ namespace Pulumi.Aws.Xray
         public Output<string> ServiceType { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
         [Output("urlPath")]
@@ -237,6 +243,18 @@ namespace Pulumi.Aws.Xray
         [Input("serviceType", required: true)]
         public Input<string> ServiceType { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
@@ -327,6 +345,18 @@ namespace Pulumi.Aws.Xray
         /// </summary>
         [Input("serviceType")]
         public Input<string>? ServiceType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Matches the path from a request URL.

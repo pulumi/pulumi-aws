@@ -105,6 +105,10 @@ type CachesIscsiVolume struct {
 	ChapEnabled pulumi.BoolOutput `pulumi:"chapEnabled"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
+	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+	KmsEncrypted pulumi.BoolPtrOutput `pulumi:"kmsEncrypted"`
+	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	// Logical disk number.
 	LunNumber pulumi.IntOutput `pulumi:"lunNumber"`
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
@@ -175,6 +179,10 @@ type cachesIscsiVolumeState struct {
 	ChapEnabled *bool `pulumi:"chapEnabled"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
+	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
+	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+	KmsKey *string `pulumi:"kmsKey"`
 	// Logical disk number.
 	LunNumber *int `pulumi:"lunNumber"`
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
@@ -206,6 +214,10 @@ type CachesIscsiVolumeState struct {
 	ChapEnabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringPtrInput
+	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+	KmsEncrypted pulumi.BoolPtrInput
+	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+	KmsKey pulumi.StringPtrInput
 	// Logical disk number.
 	LunNumber pulumi.IntPtrInput
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
@@ -237,6 +249,10 @@ func (CachesIscsiVolumeState) ElementType() reflect.Type {
 type cachesIscsiVolumeArgs struct {
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
+	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
+	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+	KmsKey *string `pulumi:"kmsKey"`
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
@@ -255,6 +271,10 @@ type cachesIscsiVolumeArgs struct {
 type CachesIscsiVolumeArgs struct {
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringInput
+	// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+	KmsEncrypted pulumi.BoolPtrInput
+	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+	KmsKey pulumi.StringPtrInput
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId pulumi.StringInput
 	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
