@@ -56,13 +56,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// }
     /// ```
-    /// ## Attribute Reference
-    /// 
-    /// In addition to all arguments above, the following attributes are exported:
-    /// 
-    /// * `id` - The ID of the Client VPN endpoint.
-    /// * `origin` - Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-    /// * `type` - The type of the route.
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {
@@ -84,6 +77,9 @@ namespace Pulumi.Aws.Ec2ClientVpn
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+        /// </summary>
         [Output("origin")]
         public Output<string> Origin { get; private set; } = null!;
 
@@ -93,6 +89,9 @@ namespace Pulumi.Aws.Ec2ClientVpn
         [Output("targetVpcSubnetId")]
         public Output<string> TargetVpcSubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the route.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -191,6 +190,9 @@ namespace Pulumi.Aws.Ec2ClientVpn
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
+        /// <summary>
+        /// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+        /// </summary>
         [Input("origin")]
         public Input<string>? Origin { get; set; }
 
@@ -200,6 +202,9 @@ namespace Pulumi.Aws.Ec2ClientVpn
         [Input("targetVpcSubnetId")]
         public Input<string>? TargetVpcSubnetId { get; set; }
 
+        /// <summary>
+        /// The type of the route.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

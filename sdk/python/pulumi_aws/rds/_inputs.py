@@ -17,6 +17,7 @@ __all__ = [
     'OptionGroupOptionArgs',
     'OptionGroupOptionOptionSettingArgs',
     'ParameterGroupParameterArgs',
+    'ProxyAuthArgs',
     'SecurityGroupIngressArgs',
 ]
 
@@ -563,6 +564,77 @@ class ParameterGroupParameterArgs:
     @apply_method.setter
     def apply_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "apply_method", value)
+
+
+@pulumi.input_type
+class ProxyAuthArgs:
+    def __init__(__self__, *,
+                 auth_scheme: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 iam_auth: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+        :param pulumi.Input[str] description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
+        :param pulumi.Input[str] iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        """
+        if auth_scheme is not None:
+            pulumi.set(__self__, "auth_scheme", auth_scheme)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if iam_auth is not None:
+            pulumi.set(__self__, "iam_auth", iam_auth)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="authScheme")
+    def auth_scheme(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+        """
+        return pulumi.get(self, "auth_scheme")
+
+    @auth_scheme.setter
+    def auth_scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_scheme", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-specified description about the authentication used by a proxy to log in as a specific database user.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="iamAuth")
+    def iam_auth(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+        """
+        return pulumi.get(self, "iam_auth")
+
+    @iam_auth.setter
+    def iam_auth(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_auth", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
 
 
 @pulumi.input_type

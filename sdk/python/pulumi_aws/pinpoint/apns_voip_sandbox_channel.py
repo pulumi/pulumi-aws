@@ -50,7 +50,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         :param pulumi.Input[str] certificate: The pem encoded TLS Certificate from Apple.
-        :param pulumi.Input[str] default_authentication_method: The default authentication method used for APNs. 
+        :param pulumi.Input[str] default_authentication_method: The default authentication method used for APNs.
                __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
                You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
                If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -117,7 +117,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         :param pulumi.Input[str] certificate: The pem encoded TLS Certificate from Apple.
-        :param pulumi.Input[str] default_authentication_method: The default authentication method used for APNs. 
+        :param pulumi.Input[str] default_authentication_method: The default authentication method used for APNs.
                __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
                You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
                If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -170,7 +170,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
     @pulumi.getter(name="defaultAuthenticationMethod")
     def default_authentication_method(self) -> pulumi.Output[Optional[str]]:
         """
-        The default authentication method used for APNs. 
+        The default authentication method used for APNs.
         __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.

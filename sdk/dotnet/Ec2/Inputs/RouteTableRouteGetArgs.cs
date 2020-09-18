@@ -43,6 +43,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? Ipv6CidrBlock { get; set; }
 
         /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        [Input("localGatewayId")]
+        public Input<string>? LocalGatewayId { get; set; }
+
+        /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         [Input("natGatewayId")]

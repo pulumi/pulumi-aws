@@ -30,7 +30,7 @@ type AmiCopyEbsBlockDevice struct {
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -65,7 +65,7 @@ type AmiCopyEbsBlockDeviceArgs struct {
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -157,7 +157,7 @@ func (o AmiCopyEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1" or "gp2".
+// default), "io1", "io2" or "gp2".
 func (o AmiCopyEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -311,7 +311,7 @@ type AmiEbsBlockDevice struct {
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -346,7 +346,7 @@ type AmiEbsBlockDeviceArgs struct {
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -438,7 +438,7 @@ func (o AmiEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1" or "gp2".
+// default), "io1", "io2" or "gp2".
 func (o AmiEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -592,7 +592,7 @@ type AmiFromInstanceEbsBlockDevice struct {
 	// as the selected snapshot.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -627,7 +627,7 @@ type AmiFromInstanceEbsBlockDeviceArgs struct {
 	// as the selected snapshot.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of EBS volume to create. Can be one of "standard" (the
-	// default), "io1" or "gp2".
+	// default), "io1", "io2" or "gp2".
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -719,7 +719,7 @@ func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of EBS volume to create. Can be one of "standard" (the
-// default), "io1" or "gp2".
+// default), "io1", "io2" or "gp2".
 func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -2806,7 +2806,7 @@ type InstanceEbsBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -2815,8 +2815,8 @@ type InstanceEbsBlockDevice struct {
 	VolumeId   *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+	// or `"io2"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -2843,7 +2843,7 @@ type InstanceEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -2852,8 +2852,8 @@ type InstanceEbsBlockDeviceArgs struct {
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+	// or `"io2"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -2928,7 +2928,7 @@ func (o InstanceEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This must be set with a `volumeType` of `"io1/io2"`.
 func (o InstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -2952,8 +2952,8 @@ func (o InstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+// or `"io2"`. (Default: `"gp2"`).
 func (o InstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3393,7 +3393,7 @@ type InstanceRootBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 	// using that type
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -3401,7 +3401,7 @@ type InstanceRootBlockDevice struct {
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -3426,7 +3426,7 @@ type InstanceRootBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 	// using that type
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -3434,7 +3434,7 @@ type InstanceRootBlockDeviceArgs struct {
 	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -3533,7 +3533,7 @@ func (o InstanceRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 // using that type
 func (o InstanceRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -3553,7 +3553,7 @@ func (o InstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o InstanceRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3609,7 +3609,7 @@ func (o InstanceRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 // using that type
 func (o InstanceRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *int {
@@ -3649,7 +3649,7 @@ func (o InstanceRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o InstanceRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
 		if v == nil {
@@ -4219,7 +4219,7 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	Encrypted *string `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops *int `pulumi:"iops"`
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
 	// `encrypted` must be set to `true` when this is set.
@@ -4228,7 +4228,7 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The size of the volume in gigabytes.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -4251,7 +4251,7 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
 	// `encrypted` must be set to `true` when this is set.
@@ -4260,7 +4260,7 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// The size of the volume in gigabytes.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -4354,7 +4354,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrO
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This must be set with a `volumeType` of `"io1/io2"`.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -4375,7 +4375,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOut
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -4421,7 +4421,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringP
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This must be set with a `volumeType` of `"io1/io2"`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -4462,7 +4462,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"` or `"io2"`. (Default: `"standard"`).
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -7717,6 +7717,8 @@ type RouteTableRoute struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
@@ -7749,6 +7751,8 @@ type RouteTableRouteArgs struct {
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId pulumi.StringPtrInput `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId pulumi.StringPtrInput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
@@ -7833,6 +7837,11 @@ func (o RouteTableRouteOutput) InstanceId() pulumi.StringPtrOutput {
 // The Ipv6 CIDR block of the route.
 func (o RouteTableRouteOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of a Outpost local gateway.
+func (o RouteTableRouteOutput) LocalGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableRoute) *string { return v.LocalGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of a VPC NAT gateway.
@@ -9288,7 +9297,7 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -9297,8 +9306,8 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	VolumeId   *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+	// or `"io2"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -9325,7 +9334,7 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -9334,8 +9343,8 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+	// or `"io2"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -9410,7 +9419,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutpu
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This must be set with a `volumeType` of `"io1/io2"`.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -9434,8 +9443,8 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`
+// or `"io2"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -9875,7 +9884,7 @@ type SpotInstanceRequestRootBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 	// using that type
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -9883,7 +9892,7 @@ type SpotInstanceRequestRootBlockDevice struct {
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -9908,7 +9917,7 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 	// using that type
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
@@ -9916,7 +9925,7 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -10015,7 +10024,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutp
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 // using that type
 func (o SpotInstanceRequestRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -10035,7 +10044,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutp
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -10091,7 +10100,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrO
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// This is only valid for `volumeType` of `"io1/io2"`, and must be specified if
 // using that type
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *int {
@@ -10131,7 +10140,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"io2"`, `"sc1"`, or `"st1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
 		if v == nil {
@@ -16784,6 +16793,8 @@ type GetRouteTableRoute struct {
 	InstanceId string `pulumi:"instanceId"`
 	// The IPv6 CIDR block of the route.
 	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+	// The Local Gateway ID.
+	LocalGatewayId string `pulumi:"localGatewayId"`
 	// The NAT Gateway ID.
 	NatGatewayId string `pulumi:"natGatewayId"`
 	// The ID of the elastic network interface (eni) to use.
@@ -16816,6 +16827,8 @@ type GetRouteTableRouteArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// The IPv6 CIDR block of the route.
 	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+	// The Local Gateway ID.
+	LocalGatewayId pulumi.StringInput `pulumi:"localGatewayId"`
 	// The NAT Gateway ID.
 	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
 	// The ID of the elastic network interface (eni) to use.
@@ -16900,6 +16913,11 @@ func (o GetRouteTableRouteOutput) InstanceId() pulumi.StringOutput {
 // The IPv6 CIDR block of the route.
 func (o GetRouteTableRouteOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+// The Local Gateway ID.
+func (o GetRouteTableRouteOutput) LocalGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoute) string { return v.LocalGatewayId }).(pulumi.StringOutput)
 }
 
 // The NAT Gateway ID.
@@ -18374,6 +18392,118 @@ func (o GetVpcPeeringConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVp
 	}).(GetVpcPeeringConnectionFilterOutput)
 }
 
+type GetVpcPeeringConnectionsFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC Peering Connection will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcPeeringConnectionsFilterInput is an input type that accepts GetVpcPeeringConnectionsFilterArgs and GetVpcPeeringConnectionsFilterOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionsFilterInput` via:
+//
+//          GetVpcPeeringConnectionsFilterArgs{...}
+type GetVpcPeeringConnectionsFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionsFilterOutput() GetVpcPeeringConnectionsFilterOutput
+	ToGetVpcPeeringConnectionsFilterOutputWithContext(context.Context) GetVpcPeeringConnectionsFilterOutput
+}
+
+type GetVpcPeeringConnectionsFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC Peering Connection will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcPeeringConnectionsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionsFilter)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionsFilterArgs) ToGetVpcPeeringConnectionsFilterOutput() GetVpcPeeringConnectionsFilterOutput {
+	return i.ToGetVpcPeeringConnectionsFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionsFilterArgs) ToGetVpcPeeringConnectionsFilterOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionsFilterOutput)
+}
+
+// GetVpcPeeringConnectionsFilterArrayInput is an input type that accepts GetVpcPeeringConnectionsFilterArray and GetVpcPeeringConnectionsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionsFilterArrayInput` via:
+//
+//          GetVpcPeeringConnectionsFilterArray{ GetVpcPeeringConnectionsFilterArgs{...} }
+type GetVpcPeeringConnectionsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionsFilterArrayOutput() GetVpcPeeringConnectionsFilterArrayOutput
+	ToGetVpcPeeringConnectionsFilterArrayOutputWithContext(context.Context) GetVpcPeeringConnectionsFilterArrayOutput
+}
+
+type GetVpcPeeringConnectionsFilterArray []GetVpcPeeringConnectionsFilterInput
+
+func (GetVpcPeeringConnectionsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionsFilter)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionsFilterArray) ToGetVpcPeeringConnectionsFilterArrayOutput() GetVpcPeeringConnectionsFilterArrayOutput {
+	return i.ToGetVpcPeeringConnectionsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionsFilterArray) ToGetVpcPeeringConnectionsFilterArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionsFilterArrayOutput)
+}
+
+type GetVpcPeeringConnectionsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionsFilter)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionsFilterOutput) ToGetVpcPeeringConnectionsFilterOutput() GetVpcPeeringConnectionsFilterOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionsFilterOutput) ToGetVpcPeeringConnectionsFilterOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+func (o GetVpcPeeringConnectionsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A VPC Peering Connection will be selected if any one of the given values matches.
+func (o GetVpcPeeringConnectionsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcPeeringConnectionsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionsFilter)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionsFilterArrayOutput) ToGetVpcPeeringConnectionsFilterArrayOutput() GetVpcPeeringConnectionsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionsFilterArrayOutput) ToGetVpcPeeringConnectionsFilterArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcPeeringConnectionsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionsFilter {
+		return vs[0].([]GetVpcPeeringConnectionsFilter)[vs[1].(int)]
+	}).(GetVpcPeeringConnectionsFilterOutput)
+}
+
 type GetVpcsFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
@@ -18866,6 +18996,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpnGatewayFilterOutput{})

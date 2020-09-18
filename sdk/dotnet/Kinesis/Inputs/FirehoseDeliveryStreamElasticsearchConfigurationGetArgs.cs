@@ -31,10 +31,16 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
+        /// The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
         /// </summary>
-        [Input("domainArn", required: true)]
-        public Input<string> DomainArn { get; set; } = null!;
+        [Input("clusterEndpoint")]
+        public Input<string>? ClusterEndpoint { get; set; }
+
+        /// <summary>
+        /// The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+        /// </summary>
+        [Input("domainArn")]
+        public Input<string>? DomainArn { get; set; }
 
         /// <summary>
         /// The Elasticsearch index name.
@@ -77,6 +83,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
+
+        /// <summary>
+        /// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+        /// </summary>
+        [Input("vpcConfig")]
+        public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigGetArgs>? VpcConfig { get; set; }
 
         public FirehoseDeliveryStreamElasticsearchConfigurationGetArgs()
         {

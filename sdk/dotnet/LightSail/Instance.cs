@@ -196,7 +196,7 @@ namespace Pulumi.Aws.LightSail
         public Output<double> RamSize { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         /// </summary>
         public InputMap<string> Tags
         {

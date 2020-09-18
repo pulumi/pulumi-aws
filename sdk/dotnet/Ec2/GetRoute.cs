@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ec2
         public string? InstanceId { get; set; }
 
         /// <summary>
+        /// The Local Gateway ID of the Route belonging to the Route Table.
+        /// </summary>
+        [Input("localGatewayId")]
+        public string? LocalGatewayId { get; set; }
+
+        /// <summary>
         /// The NAT Gateway ID of the Route belonging to the Route Table.
         /// </summary>
         [Input("natGatewayId")]
@@ -140,6 +146,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         public readonly string InstanceId;
+        public readonly string LocalGatewayId;
         public readonly string NatGatewayId;
         public readonly string NetworkInterfaceId;
         public readonly string RouteTableId;
@@ -160,6 +167,8 @@ namespace Pulumi.Aws.Ec2
 
             string instanceId,
 
+            string localGatewayId,
+
             string natGatewayId,
 
             string networkInterfaceId,
@@ -176,6 +185,7 @@ namespace Pulumi.Aws.Ec2
             GatewayId = gatewayId;
             Id = id;
             InstanceId = instanceId;
+            LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
             RouteTableId = routeTableId;

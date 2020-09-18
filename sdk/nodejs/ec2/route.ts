@@ -96,6 +96,10 @@ export class Route extends pulumi.CustomResource {
     public readonly instanceId!: pulumi.Output<string>;
     public /*out*/ readonly instanceOwnerId!: pulumi.Output<string>;
     /**
+     * Identifier of a Outpost local gateway.
+     */
+    public readonly localGatewayId!: pulumi.Output<string>;
+    /**
      * Identifier of a VPC NAT gateway.
      */
     public readonly natGatewayId!: pulumi.Output<string>;
@@ -137,6 +141,7 @@ export class Route extends pulumi.CustomResource {
             inputs["gatewayId"] = state ? state.gatewayId : undefined;
             inputs["instanceId"] = state ? state.instanceId : undefined;
             inputs["instanceOwnerId"] = state ? state.instanceOwnerId : undefined;
+            inputs["localGatewayId"] = state ? state.localGatewayId : undefined;
             inputs["natGatewayId"] = state ? state.natGatewayId : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["origin"] = state ? state.origin : undefined;
@@ -154,6 +159,7 @@ export class Route extends pulumi.CustomResource {
             inputs["egressOnlyGatewayId"] = args ? args.egressOnlyGatewayId : undefined;
             inputs["gatewayId"] = args ? args.gatewayId : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
+            inputs["localGatewayId"] = args ? args.localGatewayId : undefined;
             inputs["natGatewayId"] = args ? args.natGatewayId : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
@@ -202,6 +208,10 @@ export interface RouteState {
     readonly instanceId?: pulumi.Input<string>;
     readonly instanceOwnerId?: pulumi.Input<string>;
     /**
+     * Identifier of a Outpost local gateway.
+     */
+    readonly localGatewayId?: pulumi.Input<string>;
+    /**
      * Identifier of a VPC NAT gateway.
      */
     readonly natGatewayId?: pulumi.Input<string>;
@@ -249,6 +259,10 @@ export interface RouteArgs {
      * Identifier of an EC2 instance.
      */
     readonly instanceId?: pulumi.Input<string>;
+    /**
+     * Identifier of a Outpost local gateway.
+     */
+    readonly localGatewayId?: pulumi.Input<string>;
     /**
      * Identifier of a VPC NAT gateway.
      */

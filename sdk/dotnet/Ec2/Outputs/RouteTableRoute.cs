@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? Ipv6CidrBlock;
         /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        public readonly string? LocalGatewayId;
+        /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         public readonly string? NatGatewayId;
@@ -62,6 +66,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? ipv6CidrBlock,
 
+            string? localGatewayId,
+
             string? natGatewayId,
 
             string? networkInterfaceId,
@@ -75,6 +81,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             GatewayId = gatewayId;
             InstanceId = instanceId;
             Ipv6CidrBlock = ipv6CidrBlock;
+            LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
             TransitGatewayId = transitGatewayId;

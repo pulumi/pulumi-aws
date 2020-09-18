@@ -50,6 +50,7 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
         "egressOnlyGatewayId": args.egressOnlyGatewayId,
         "gatewayId": args.gatewayId,
         "instanceId": args.instanceId,
+        "localGatewayId": args.localGatewayId,
         "natGatewayId": args.natGatewayId,
         "networkInterfaceId": args.networkInterfaceId,
         "routeTableId": args.routeTableId,
@@ -82,6 +83,10 @@ export interface GetRouteArgs {
      * The Instance ID of the Route belonging to the Route Table.
      */
     readonly instanceId?: string;
+    /**
+     * The Local Gateway ID of the Route belonging to the Route Table.
+     */
+    readonly localGatewayId?: string;
     /**
      * The NAT Gateway ID of the Route belonging to the Route Table.
      */
@@ -117,6 +122,7 @@ export interface GetRouteResult {
      */
     readonly id: string;
     readonly instanceId: string;
+    readonly localGatewayId: string;
     readonly natGatewayId: string;
     readonly networkInterfaceId: string;
     readonly routeTableId: string;

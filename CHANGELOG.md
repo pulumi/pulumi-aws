@@ -6,7 +6,7 @@ CHANGELOG
 * Enforce `appsync.DataSource` to adhere to AWS naming conventions of not using `-` in names.
 * Upgrade to pulumi-terraform-bridge v2.9.2
 * Upgrade to Pulumi v2.10.1
-* Upgrade to v3.4.0 of the AWS Terraform Provider 
+* Upgrade to v3.5.0 of the AWS Terraform Provider 
 
 ---
 

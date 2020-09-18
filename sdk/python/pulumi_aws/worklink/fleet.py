@@ -66,7 +66,7 @@ class Fleet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] audit_stream_arn: The ARN of the Amazon Kinesis data stream that receives the audit events.
+        :param pulumi.Input[str] audit_stream_arn: The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
         :param pulumi.Input[str] device_ca_certificate: The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
         :param pulumi.Input[str] display_name: The name of the fleet.
         :param pulumi.Input[pulumi.InputType['FleetIdentityProviderArgs']] identity_provider: Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
@@ -131,7 +131,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the created WorkLink Fleet.
-        :param pulumi.Input[str] audit_stream_arn: The ARN of the Amazon Kinesis data stream that receives the audit events.
+        :param pulumi.Input[str] audit_stream_arn: The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
         :param pulumi.Input[str] company_code: The identifier used by users to sign in to the Amazon WorkLink app.
         :param pulumi.Input[str] created_time: The time that the fleet was created.
         :param pulumi.Input[str] device_ca_certificate: The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
@@ -171,7 +171,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="auditStreamArn")
     def audit_stream_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of the Amazon Kinesis data stream that receives the audit events.
+        The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
         """
         return pulumi.get(self, "audit_stream_arn")
 

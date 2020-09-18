@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./detector";
+export * from "./filter";
 export * from "./getDetector";
 export * from "./inviteAccepter";
 export * from "./ipset";

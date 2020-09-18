@@ -268,6 +268,12 @@ namespace Pulumi.Aws.CloudTrail
         public Output<bool?> IncludeGlobalServiceEvents { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+        /// </summary>
+        [Output("insightSelectors")]
+        public Output<ImmutableArray<Outputs.TrailInsightSelector>> InsightSelectors { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the trail is created in the current
         /// region or in all regions. Defaults to `false`.
         /// </summary>
@@ -411,6 +417,18 @@ namespace Pulumi.Aws.CloudTrail
         [Input("includeGlobalServiceEvents")]
         public Input<bool>? IncludeGlobalServiceEvents { get; set; }
 
+        [Input("insightSelectors")]
+        private InputList<Inputs.TrailInsightSelectorArgs>? _insightSelectors;
+
+        /// <summary>
+        /// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+        /// </summary>
+        public InputList<Inputs.TrailInsightSelectorArgs> InsightSelectors
+        {
+            get => _insightSelectors ?? (_insightSelectors = new InputList<Inputs.TrailInsightSelectorArgs>());
+            set => _insightSelectors = value;
+        }
+
         /// <summary>
         /// Specifies whether the trail is created in the current
         /// region or in all regions. Defaults to `false`.
@@ -533,6 +551,18 @@ namespace Pulumi.Aws.CloudTrail
         /// </summary>
         [Input("includeGlobalServiceEvents")]
         public Input<bool>? IncludeGlobalServiceEvents { get; set; }
+
+        [Input("insightSelectors")]
+        private InputList<Inputs.TrailInsightSelectorGetArgs>? _insightSelectors;
+
+        /// <summary>
+        /// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+        /// </summary>
+        public InputList<Inputs.TrailInsightSelectorGetArgs> InsightSelectors
+        {
+            get => _insightSelectors ?? (_insightSelectors = new InputList<Inputs.TrailInsightSelectorGetArgs>());
+            set => _insightSelectors = value;
+        }
 
         /// <summary>
         /// Specifies whether the trail is created in the current

@@ -51,13 +51,6 @@ class Route(pulumi.CustomResource):
             destination_cidr_block="0.0.0.0/0",
             target_vpc_subnet_id=example_network_association.subnet_id)
         ```
-        ## Attribute Reference
-
-        In addition to all arguments above, the following attributes are exported:
-
-        * `id` - The ID of the Client VPN endpoint.
-        * `origin` - Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-        * `type` - The type of the route.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +114,9 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[str] description: A brief description of the authorization rule.
         :param pulumi.Input[str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
+        :param pulumi.Input[str] origin: Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
         :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+        :param pulumi.Input[str] type: The type of the route.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -162,6 +157,9 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter
     def origin(self) -> pulumi.Output[str]:
+        """
+        Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+        """
         return pulumi.get(self, "origin")
 
     @property
@@ -175,6 +173,9 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of the route.
+        """
         return pulumi.get(self, "type")
 
     def translate_output_property(self, prop):

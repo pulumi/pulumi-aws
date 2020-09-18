@@ -11,6 +11,7 @@ from .. import _utilities, _tables
 __all__ = [
     'TrailEventSelectorArgs',
     'TrailEventSelectorDataResourceArgs',
+    'TrailInsightSelectorArgs',
 ]
 
 @pulumi.input_type
@@ -103,5 +104,27 @@ class TrailEventSelectorDataResourceArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class TrailInsightSelectorArgs:
+    def __init__(__self__, *,
+                 insight_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] insight_type: The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+        """
+        pulumi.set(__self__, "insight_type", insight_type)
+
+    @property
+    @pulumi.getter(name="insightType")
+    def insight_type(self) -> pulumi.Input[str]:
+        """
+        The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+        """
+        return pulumi.get(self, "insight_type")
+
+    @insight_type.setter
+    def insight_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "insight_type", value)
 
 

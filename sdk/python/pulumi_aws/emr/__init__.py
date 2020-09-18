@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .cluster import *
+from .instance_fleet import *
 from .instance_group import *
 from .managed_scaling_policy import *
 from .security_configuration import *

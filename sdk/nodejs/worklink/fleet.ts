@@ -77,7 +77,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events.
+     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
     public readonly auditStreamArn!: pulumi.Output<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface FleetState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events.
+     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
     readonly auditStreamArn?: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface FleetState {
  */
 export interface FleetArgs {
     /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events.
+     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
     readonly auditStreamArn?: pulumi.Input<string>;
     /**

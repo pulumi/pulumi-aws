@@ -3911,6 +3911,112 @@ func (o TriggerPredicateConditionArrayOutput) Index(i pulumi.IntInput) TriggerPr
 	}).(TriggerPredicateConditionOutput)
 }
 
+type UserDefinedFunctionResourceUri struct {
+	// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+	ResourceType string `pulumi:"resourceType"`
+	// The URI for accessing the resource.
+	Uri string `pulumi:"uri"`
+}
+
+// UserDefinedFunctionResourceUriInput is an input type that accepts UserDefinedFunctionResourceUriArgs and UserDefinedFunctionResourceUriOutput values.
+// You can construct a concrete instance of `UserDefinedFunctionResourceUriInput` via:
+//
+//          UserDefinedFunctionResourceUriArgs{...}
+type UserDefinedFunctionResourceUriInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionResourceUriOutput() UserDefinedFunctionResourceUriOutput
+	ToUserDefinedFunctionResourceUriOutputWithContext(context.Context) UserDefinedFunctionResourceUriOutput
+}
+
+type UserDefinedFunctionResourceUriArgs struct {
+	// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// The URI for accessing the resource.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (UserDefinedFunctionResourceUriArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionResourceUri)(nil)).Elem()
+}
+
+func (i UserDefinedFunctionResourceUriArgs) ToUserDefinedFunctionResourceUriOutput() UserDefinedFunctionResourceUriOutput {
+	return i.ToUserDefinedFunctionResourceUriOutputWithContext(context.Background())
+}
+
+func (i UserDefinedFunctionResourceUriArgs) ToUserDefinedFunctionResourceUriOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionResourceUriOutput)
+}
+
+// UserDefinedFunctionResourceUriArrayInput is an input type that accepts UserDefinedFunctionResourceUriArray and UserDefinedFunctionResourceUriArrayOutput values.
+// You can construct a concrete instance of `UserDefinedFunctionResourceUriArrayInput` via:
+//
+//          UserDefinedFunctionResourceUriArray{ UserDefinedFunctionResourceUriArgs{...} }
+type UserDefinedFunctionResourceUriArrayInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionResourceUriArrayOutput() UserDefinedFunctionResourceUriArrayOutput
+	ToUserDefinedFunctionResourceUriArrayOutputWithContext(context.Context) UserDefinedFunctionResourceUriArrayOutput
+}
+
+type UserDefinedFunctionResourceUriArray []UserDefinedFunctionResourceUriInput
+
+func (UserDefinedFunctionResourceUriArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDefinedFunctionResourceUri)(nil)).Elem()
+}
+
+func (i UserDefinedFunctionResourceUriArray) ToUserDefinedFunctionResourceUriArrayOutput() UserDefinedFunctionResourceUriArrayOutput {
+	return i.ToUserDefinedFunctionResourceUriArrayOutputWithContext(context.Background())
+}
+
+func (i UserDefinedFunctionResourceUriArray) ToUserDefinedFunctionResourceUriArrayOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionResourceUriArrayOutput)
+}
+
+type UserDefinedFunctionResourceUriOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionResourceUriOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionResourceUri)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionResourceUriOutput) ToUserDefinedFunctionResourceUriOutput() UserDefinedFunctionResourceUriOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriOutput) ToUserDefinedFunctionResourceUriOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriOutput {
+	return o
+}
+
+// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+func (o UserDefinedFunctionResourceUriOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDefinedFunctionResourceUri) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// The URI for accessing the resource.
+func (o UserDefinedFunctionResourceUriOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDefinedFunctionResourceUri) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type UserDefinedFunctionResourceUriArrayOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionResourceUriArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDefinedFunctionResourceUri)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionResourceUriArrayOutput) ToUserDefinedFunctionResourceUriArrayOutput() UserDefinedFunctionResourceUriArrayOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriArrayOutput) ToUserDefinedFunctionResourceUriArrayOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriArrayOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriArrayOutput) Index(i pulumi.IntInput) UserDefinedFunctionResourceUriOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserDefinedFunctionResourceUri {
+		return vs[0].([]UserDefinedFunctionResourceUri)[vs[1].(int)]
+	}).(UserDefinedFunctionResourceUriOutput)
+}
+
 type GetScriptDagEdge struct {
 	// The ID of the node at which the edge starts.
 	Source string `pulumi:"source"`
@@ -4318,6 +4424,8 @@ func init() {
 	pulumi.RegisterOutputType(TriggerPredicatePtrOutput{})
 	pulumi.RegisterOutputType(TriggerPredicateConditionOutput{})
 	pulumi.RegisterOutputType(TriggerPredicateConditionArrayOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriArrayOutput{})
 	pulumi.RegisterOutputType(GetScriptDagEdgeOutput{})
 	pulumi.RegisterOutputType(GetScriptDagEdgeArrayOutput{})
 	pulumi.RegisterOutputType(GetScriptDagNodeOutput{})

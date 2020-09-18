@@ -71,7 +71,15 @@ export interface GetReportDefinitionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * If true reports are updated after they have been finalized.
+     */
+    readonly refreshClosedReports: boolean;
     readonly reportName: string;
+    /**
+     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+     */
+    readonly reportVersioning: string;
     /**
      * Name of customer S3 bucket.
      */

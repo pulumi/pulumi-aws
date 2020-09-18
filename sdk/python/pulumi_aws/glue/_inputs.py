@@ -35,6 +35,7 @@ __all__ = [
     'TriggerActionArgs',
     'TriggerPredicateArgs',
     'TriggerPredicateConditionArgs',
+    'UserDefinedFunctionResourceUriArgs',
     'GetScriptDagEdgeArgs',
     'GetScriptDagNodeArgs',
     'GetScriptDagNodeArgArgs',
@@ -1408,6 +1409,43 @@ class TriggerPredicateConditionArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class UserDefinedFunctionResourceUriArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[str],
+                 uri: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] resource_type: The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+        :param pulumi.Input[str] uri: The URI for accessing the resource.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        """
+        The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI for accessing the resource.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
 
 
 @pulumi.input_type

@@ -231,9 +231,108 @@ func (o TrailEventSelectorDataResourceArrayOutput) Index(i pulumi.IntInput) Trai
 	}).(TrailEventSelectorDataResourceOutput)
 }
 
+type TrailInsightSelector struct {
+	// The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+	InsightType string `pulumi:"insightType"`
+}
+
+// TrailInsightSelectorInput is an input type that accepts TrailInsightSelectorArgs and TrailInsightSelectorOutput values.
+// You can construct a concrete instance of `TrailInsightSelectorInput` via:
+//
+//          TrailInsightSelectorArgs{...}
+type TrailInsightSelectorInput interface {
+	pulumi.Input
+
+	ToTrailInsightSelectorOutput() TrailInsightSelectorOutput
+	ToTrailInsightSelectorOutputWithContext(context.Context) TrailInsightSelectorOutput
+}
+
+type TrailInsightSelectorArgs struct {
+	// The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+	InsightType pulumi.StringInput `pulumi:"insightType"`
+}
+
+func (TrailInsightSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailInsightSelector)(nil)).Elem()
+}
+
+func (i TrailInsightSelectorArgs) ToTrailInsightSelectorOutput() TrailInsightSelectorOutput {
+	return i.ToTrailInsightSelectorOutputWithContext(context.Background())
+}
+
+func (i TrailInsightSelectorArgs) ToTrailInsightSelectorOutputWithContext(ctx context.Context) TrailInsightSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailInsightSelectorOutput)
+}
+
+// TrailInsightSelectorArrayInput is an input type that accepts TrailInsightSelectorArray and TrailInsightSelectorArrayOutput values.
+// You can construct a concrete instance of `TrailInsightSelectorArrayInput` via:
+//
+//          TrailInsightSelectorArray{ TrailInsightSelectorArgs{...} }
+type TrailInsightSelectorArrayInput interface {
+	pulumi.Input
+
+	ToTrailInsightSelectorArrayOutput() TrailInsightSelectorArrayOutput
+	ToTrailInsightSelectorArrayOutputWithContext(context.Context) TrailInsightSelectorArrayOutput
+}
+
+type TrailInsightSelectorArray []TrailInsightSelectorInput
+
+func (TrailInsightSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailInsightSelector)(nil)).Elem()
+}
+
+func (i TrailInsightSelectorArray) ToTrailInsightSelectorArrayOutput() TrailInsightSelectorArrayOutput {
+	return i.ToTrailInsightSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i TrailInsightSelectorArray) ToTrailInsightSelectorArrayOutputWithContext(ctx context.Context) TrailInsightSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailInsightSelectorArrayOutput)
+}
+
+type TrailInsightSelectorOutput struct{ *pulumi.OutputState }
+
+func (TrailInsightSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailInsightSelector)(nil)).Elem()
+}
+
+func (o TrailInsightSelectorOutput) ToTrailInsightSelectorOutput() TrailInsightSelectorOutput {
+	return o
+}
+
+func (o TrailInsightSelectorOutput) ToTrailInsightSelectorOutputWithContext(ctx context.Context) TrailInsightSelectorOutput {
+	return o
+}
+
+// The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+func (o TrailInsightSelectorOutput) InsightType() pulumi.StringOutput {
+	return o.ApplyT(func(v TrailInsightSelector) string { return v.InsightType }).(pulumi.StringOutput)
+}
+
+type TrailInsightSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (TrailInsightSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailInsightSelector)(nil)).Elem()
+}
+
+func (o TrailInsightSelectorArrayOutput) ToTrailInsightSelectorArrayOutput() TrailInsightSelectorArrayOutput {
+	return o
+}
+
+func (o TrailInsightSelectorArrayOutput) ToTrailInsightSelectorArrayOutputWithContext(ctx context.Context) TrailInsightSelectorArrayOutput {
+	return o
+}
+
+func (o TrailInsightSelectorArrayOutput) Index(i pulumi.IntInput) TrailInsightSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailInsightSelector {
+		return vs[0].([]TrailInsightSelector)[vs[1].(int)]
+	}).(TrailInsightSelectorOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TrailEventSelectorOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorDataResourceOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorDataResourceArrayOutput{})
+	pulumi.RegisterOutputType(TrailInsightSelectorOutput{})
+	pulumi.RegisterOutputType(TrailInsightSelectorArrayOutput{})
 }

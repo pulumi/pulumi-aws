@@ -42,6 +42,7 @@ __all__ = [
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration',
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor',
     'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter',
+    'FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig',
     'FirehoseDeliveryStreamExtendedS3Configuration',
     'FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions',
     'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration',
@@ -1132,31 +1133,34 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameter
 @pulumi.output_type
 class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
     def __init__(__self__, *,
-                 domain_arn: str,
                  index_name: str,
                  role_arn: str,
                  buffering_interval: Optional[int] = None,
                  buffering_size: Optional[int] = None,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions'] = None,
+                 cluster_endpoint: Optional[str] = None,
+                 domain_arn: Optional[str] = None,
                  index_rotation_period: Optional[str] = None,
                  processing_configuration: Optional['outputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration'] = None,
                  retry_duration: Optional[int] = None,
                  s3_backup_mode: Optional[str] = None,
-                 type_name: Optional[str] = None):
+                 type_name: Optional[str] = None,
+                 vpc_config: Optional['outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig'] = None):
         """
-        :param str domain_arn: The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
         :param str index_name: The Elasticsearch index name.
         :param str role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param 'FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
+        :param str cluster_endpoint: The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+        :param str domain_arn: The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
         :param str index_rotation_period: The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         :param 'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs' processing_configuration: The data processing configuration.  More details are given below.
         :param int retry_duration: After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         :param str s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         :param str type_name: The Elasticsearch type name with maximum length of 100 characters.
+        :param 'FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs' vpc_config: The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
         """
-        pulumi.set(__self__, "domain_arn", domain_arn)
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_interval is not None:
@@ -1165,6 +1169,10 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
             pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if cluster_endpoint is not None:
+            pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if domain_arn is not None:
+            pulumi.set(__self__, "domain_arn", domain_arn)
         if index_rotation_period is not None:
             pulumi.set(__self__, "index_rotation_period", index_rotation_period)
         if processing_configuration is not None:
@@ -1175,14 +1183,8 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
         if type_name is not None:
             pulumi.set(__self__, "type_name", type_name)
-
-    @property
-    @pulumi.getter(name="domainArn")
-    def domain_arn(self) -> str:
-        """
-        The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
-        """
-        return pulumi.get(self, "domain_arn")
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="indexName")
@@ -1225,6 +1227,22 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @property
+    @pulumi.getter(name="clusterEndpoint")
+    def cluster_endpoint(self) -> Optional[str]:
+        """
+        The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+        """
+        return pulumi.get(self, "cluster_endpoint")
+
+    @property
+    @pulumi.getter(name="domainArn")
+    def domain_arn(self) -> Optional[str]:
+        """
+        The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`. Conflicts with `cluster_endpoint`.
+        """
+        return pulumi.get(self, "domain_arn")
+
+    @property
     @pulumi.getter(name="indexRotationPeriod")
     def index_rotation_period(self) -> Optional[str]:
         """
@@ -1263,6 +1281,14 @@ class FirehoseDeliveryStreamElasticsearchConfiguration(dict):
         The Elasticsearch type name with maximum length of 100 characters.
         """
         return pulumi.get(self, "type_name")
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig']:
+        """
+        The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
+        """
+        return pulumi.get(self, "vpc_config")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1408,6 +1434,57 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         """
         return pulumi.get(self, "parameter_value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig(dict):
+    def __init__(__self__, *,
+                 role_arn: str,
+                 security_group_ids: Sequence[str],
+                 subnet_ids: Sequence[str],
+                 vpc_id: Optional[str] = None):
+        """
+        :param str role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        :param Sequence[str] security_group_ids: A list of security group IDs to associate with Kinesis Firehose.
+        :param Sequence[str] subnet_ids: A list of subnet IDs to associate with Kinesis Firehose.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        A list of security group IDs to associate with Kinesis Firehose.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        A list of subnet IDs to associate with Kinesis Firehose.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        return pulumi.get(self, "vpc_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

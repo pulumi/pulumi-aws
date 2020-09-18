@@ -1227,6 +1227,130 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 	}).(ParameterGroupParameterOutput)
 }
 
+type ProxyAuth struct {
+	// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+	AuthScheme *string `pulumi:"authScheme"`
+	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+	Description *string `pulumi:"description"`
+	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+	IamAuth *string `pulumi:"iamAuth"`
+	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// ProxyAuthInput is an input type that accepts ProxyAuthArgs and ProxyAuthOutput values.
+// You can construct a concrete instance of `ProxyAuthInput` via:
+//
+//          ProxyAuthArgs{...}
+type ProxyAuthInput interface {
+	pulumi.Input
+
+	ToProxyAuthOutput() ProxyAuthOutput
+	ToProxyAuthOutputWithContext(context.Context) ProxyAuthOutput
+}
+
+type ProxyAuthArgs struct {
+	// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+	AuthScheme pulumi.StringPtrInput `pulumi:"authScheme"`
+	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+	IamAuth pulumi.StringPtrInput `pulumi:"iamAuth"`
+	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (ProxyAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyAuth)(nil)).Elem()
+}
+
+func (i ProxyAuthArgs) ToProxyAuthOutput() ProxyAuthOutput {
+	return i.ToProxyAuthOutputWithContext(context.Background())
+}
+
+func (i ProxyAuthArgs) ToProxyAuthOutputWithContext(ctx context.Context) ProxyAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyAuthOutput)
+}
+
+// ProxyAuthArrayInput is an input type that accepts ProxyAuthArray and ProxyAuthArrayOutput values.
+// You can construct a concrete instance of `ProxyAuthArrayInput` via:
+//
+//          ProxyAuthArray{ ProxyAuthArgs{...} }
+type ProxyAuthArrayInput interface {
+	pulumi.Input
+
+	ToProxyAuthArrayOutput() ProxyAuthArrayOutput
+	ToProxyAuthArrayOutputWithContext(context.Context) ProxyAuthArrayOutput
+}
+
+type ProxyAuthArray []ProxyAuthInput
+
+func (ProxyAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProxyAuth)(nil)).Elem()
+}
+
+func (i ProxyAuthArray) ToProxyAuthArrayOutput() ProxyAuthArrayOutput {
+	return i.ToProxyAuthArrayOutputWithContext(context.Background())
+}
+
+func (i ProxyAuthArray) ToProxyAuthArrayOutputWithContext(ctx context.Context) ProxyAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyAuthArrayOutput)
+}
+
+type ProxyAuthOutput struct{ *pulumi.OutputState }
+
+func (ProxyAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyAuth)(nil)).Elem()
+}
+
+func (o ProxyAuthOutput) ToProxyAuthOutput() ProxyAuthOutput {
+	return o
+}
+
+func (o ProxyAuthOutput) ToProxyAuthOutputWithContext(ctx context.Context) ProxyAuthOutput {
+	return o
+}
+
+// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+func (o ProxyAuthOutput) AuthScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.AuthScheme }).(pulumi.StringPtrOutput)
+}
+
+// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+func (o ProxyAuthOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+func (o ProxyAuthOutput) IamAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.IamAuth }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+func (o ProxyAuthOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type ProxyAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (ProxyAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProxyAuth)(nil)).Elem()
+}
+
+func (o ProxyAuthArrayOutput) ToProxyAuthArrayOutput() ProxyAuthArrayOutput {
+	return o
+}
+
+func (o ProxyAuthArrayOutput) ToProxyAuthArrayOutputWithContext(ctx context.Context) ProxyAuthArrayOutput {
+	return o
+}
+
+func (o ProxyAuthArrayOutput) Index(i pulumi.IntInput) ProxyAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProxyAuth {
+		return vs[0].([]ProxyAuth)[vs[1].(int)]
+	}).(ProxyAuthOutput)
+}
+
 type SecurityGroupIngress struct {
 	// The CIDR block to accept
 	Cidr *string `pulumi:"cidr"`
@@ -1371,6 +1495,8 @@ func init() {
 	pulumi.RegisterOutputType(OptionGroupOptionOptionSettingArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProxyAuthOutput{})
+	pulumi.RegisterOutputType(ProxyAuthArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
 }

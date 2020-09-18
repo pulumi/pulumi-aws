@@ -19,7 +19,7 @@ class GetReportDefinitionResult:
     """
     A collection of values returned by getReportDefinition.
     """
-    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, id=None, report_name=None, s3_bucket=None, s3_prefix=None, s3_region=None, time_unit=None):
+    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, id=None, refresh_closed_reports=None, report_name=None, report_versioning=None, s3_bucket=None, s3_prefix=None, s3_region=None, time_unit=None):
         if additional_artifacts and not isinstance(additional_artifacts, list):
             raise TypeError("Expected argument 'additional_artifacts' to be a list")
         pulumi.set(__self__, "additional_artifacts", additional_artifacts)
@@ -35,9 +35,15 @@ class GetReportDefinitionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if refresh_closed_reports and not isinstance(refresh_closed_reports, bool):
+            raise TypeError("Expected argument 'refresh_closed_reports' to be a bool")
+        pulumi.set(__self__, "refresh_closed_reports", refresh_closed_reports)
         if report_name and not isinstance(report_name, str):
             raise TypeError("Expected argument 'report_name' to be a str")
         pulumi.set(__self__, "report_name", report_name)
+        if report_versioning and not isinstance(report_versioning, str):
+            raise TypeError("Expected argument 'report_versioning' to be a str")
+        pulumi.set(__self__, "report_versioning", report_versioning)
         if s3_bucket and not isinstance(s3_bucket, str):
             raise TypeError("Expected argument 's3_bucket' to be a str")
         pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -92,9 +98,25 @@ class GetReportDefinitionResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="refreshClosedReports")
+    def refresh_closed_reports(self) -> bool:
+        """
+        If true reports are updated after they have been finalized.
+        """
+        return pulumi.get(self, "refresh_closed_reports")
+
+    @property
     @pulumi.getter(name="reportName")
     def report_name(self) -> str:
         return pulumi.get(self, "report_name")
+
+    @property
+    @pulumi.getter(name="reportVersioning")
+    def report_versioning(self) -> str:
+        """
+        Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+        """
+        return pulumi.get(self, "report_versioning")
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -140,7 +162,9 @@ class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
             compression=self.compression,
             format=self.format,
             id=self.id,
+            refresh_closed_reports=self.refresh_closed_reports,
             report_name=self.report_name,
+            report_versioning=self.report_versioning,
             s3_bucket=self.s3_bucket,
             s3_prefix=self.s3_prefix,
             s3_region=self.s3_region,
@@ -182,7 +206,9 @@ def get_report_definition(report_name: Optional[str] = None,
         compression=__ret__.compression,
         format=__ret__.format,
         id=__ret__.id,
+        refresh_closed_reports=__ret__.refresh_closed_reports,
         report_name=__ret__.report_name,
+        report_versioning=__ret__.report_versioning,
         s3_bucket=__ret__.s3_bucket,
         s3_prefix=__ret__.s3_prefix,
         s3_region=__ret__.s3_region,

@@ -113,6 +113,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceOwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        [Output("localGatewayId")]
+        public Output<string> LocalGatewayId { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         [Output("natGatewayId")]
@@ -225,6 +231,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        [Input("localGatewayId")]
+        public Input<string>? LocalGatewayId { get; set; }
+
+        /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         [Input("natGatewayId")]
@@ -296,6 +308,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("instanceOwnerId")]
         public Input<string>? InstanceOwnerId { get; set; }
+
+        /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        [Input("localGatewayId")]
+        public Input<string>? LocalGatewayId { get; set; }
 
         /// <summary>
         /// Identifier of a VPC NAT gateway.

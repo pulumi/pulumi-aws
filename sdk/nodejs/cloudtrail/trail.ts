@@ -199,6 +199,10 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly includeGlobalServiceEvents!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+     */
+    public readonly insightSelectors!: pulumi.Output<outputs.cloudtrail.TrailInsightSelector[] | undefined>;
+    /**
      * Specifies whether the trail is created in the current
      * region or in all regions. Defaults to `false`.
      */
@@ -254,6 +258,7 @@ export class Trail extends pulumi.CustomResource {
             inputs["eventSelectors"] = state ? state.eventSelectors : undefined;
             inputs["homeRegion"] = state ? state.homeRegion : undefined;
             inputs["includeGlobalServiceEvents"] = state ? state.includeGlobalServiceEvents : undefined;
+            inputs["insightSelectors"] = state ? state.insightSelectors : undefined;
             inputs["isMultiRegionTrail"] = state ? state.isMultiRegionTrail : undefined;
             inputs["isOrganizationTrail"] = state ? state.isOrganizationTrail : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
@@ -273,6 +278,7 @@ export class Trail extends pulumi.CustomResource {
             inputs["enableLogging"] = args ? args.enableLogging : undefined;
             inputs["eventSelectors"] = args ? args.eventSelectors : undefined;
             inputs["includeGlobalServiceEvents"] = args ? args.includeGlobalServiceEvents : undefined;
+            inputs["insightSelectors"] = args ? args.insightSelectors : undefined;
             inputs["isMultiRegionTrail"] = args ? args.isMultiRegionTrail : undefined;
             inputs["isOrganizationTrail"] = args ? args.isOrganizationTrail : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -336,6 +342,10 @@ export interface TrailState {
      * from global services such as IAM to the log files. Defaults to `true`.
      */
     readonly includeGlobalServiceEvents?: pulumi.Input<boolean>;
+    /**
+     * Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+     */
+    readonly insightSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailInsightSelector>[]>;
     /**
      * Specifies whether the trail is created in the current
      * region or in all regions. Defaults to `false`.
@@ -406,6 +416,10 @@ export interface TrailArgs {
      * from global services such as IAM to the log files. Defaults to `true`.
      */
     readonly includeGlobalServiceEvents?: pulumi.Input<boolean>;
+    /**
+     * Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+     */
+    readonly insightSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailInsightSelector>[]>;
     /**
      * Specifies whether the trail is created in the current
      * region or in all regions. Defaults to `false`.

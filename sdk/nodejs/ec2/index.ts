@@ -54,6 +54,7 @@ export * from "./getVpcDhcpOptions";
 export * from "./getVpcEndpoint";
 export * from "./getVpcEndpointService";
 export * from "./getVpcPeeringConnection";
+export * from "./getVpcPeeringConnections";
 export * from "./getVpcs";
 export * from "./getVpnGateway";
 export * from "./instance";

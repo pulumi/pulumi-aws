@@ -96,6 +96,8 @@ type Route struct {
 	// Identifier of an EC2 instance.
 	InstanceId      pulumi.StringOutput `pulumi:"instanceId"`
 	InstanceOwnerId pulumi.StringOutput `pulumi:"instanceOwnerId"`
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId pulumi.StringOutput `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
@@ -153,6 +155,8 @@ type routeState struct {
 	// Identifier of an EC2 instance.
 	InstanceId      *string `pulumi:"instanceId"`
 	InstanceOwnerId *string `pulumi:"instanceOwnerId"`
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
@@ -180,6 +184,8 @@ type RouteState struct {
 	// Identifier of an EC2 instance.
 	InstanceId      pulumi.StringPtrInput
 	InstanceOwnerId pulumi.StringPtrInput
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 network interface.
@@ -209,6 +215,8 @@ type routeArgs struct {
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
 	InstanceId *string `pulumi:"instanceId"`
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
@@ -233,6 +241,8 @@ type RouteArgs struct {
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
 	InstanceId pulumi.StringPtrInput
+	// Identifier of a Outpost local gateway.
+	LocalGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 network interface.

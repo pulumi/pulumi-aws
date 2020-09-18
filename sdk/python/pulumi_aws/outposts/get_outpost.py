@@ -48,9 +48,6 @@ class GetOutpostResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -120,7 +117,8 @@ class AwaitableGetOutpostResult(GetOutpostResult):
             site_id=self.site_id)
 
 
-def get_outpost(id: Optional[str] = None,
+def get_outpost(arn: Optional[str] = None,
+                id: Optional[str] = None,
                 name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostResult:
     """
@@ -136,10 +134,12 @@ def get_outpost(id: Optional[str] = None,
     ```
 
 
+    :param str arn: Amazon Resource Name (ARN).
     :param str id: Identifier of the Outpost.
     :param str name: Name of the Outpost.
     """
     __args__ = dict()
+    __args__['arn'] = arn
     __args__['id'] = id
     __args__['name'] = name
     if opts is None:

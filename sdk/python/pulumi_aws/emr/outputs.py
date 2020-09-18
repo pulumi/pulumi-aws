@@ -11,14 +11,34 @@ from . import outputs
 
 __all__ = [
     'ClusterBootstrapAction',
+    'ClusterCoreInstanceFleet',
+    'ClusterCoreInstanceFleetInstanceTypeConfig',
+    'ClusterCoreInstanceFleetInstanceTypeConfigConfiguration',
+    'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig',
+    'ClusterCoreInstanceFleetLaunchSpecifications',
+    'ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification',
+    'ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification',
     'ClusterCoreInstanceGroup',
     'ClusterCoreInstanceGroupEbsConfig',
     'ClusterEc2Attributes',
     'ClusterKerberosAttributes',
+    'ClusterMasterInstanceFleet',
+    'ClusterMasterInstanceFleetInstanceTypeConfig',
+    'ClusterMasterInstanceFleetInstanceTypeConfigConfiguration',
+    'ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig',
+    'ClusterMasterInstanceFleetLaunchSpecifications',
+    'ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification',
+    'ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification',
     'ClusterMasterInstanceGroup',
     'ClusterMasterInstanceGroupEbsConfig',
     'ClusterStep',
     'ClusterStepHadoopJarStep',
+    'InstanceFleetInstanceTypeConfig',
+    'InstanceFleetInstanceTypeConfigConfiguration',
+    'InstanceFleetInstanceTypeConfigEbsConfig',
+    'InstanceFleetLaunchSpecifications',
+    'InstanceFleetLaunchSpecificationsOnDemandSpecification',
+    'InstanceFleetLaunchSpecificationsSpotSpecification',
     'InstanceGroupEbsConfig',
     'ManagedScalingPolicyComputeLimit',
 ]
@@ -30,7 +50,7 @@ class ClusterBootstrapAction(dict):
                  path: str,
                  args: Optional[Sequence[str]] = None):
         """
-        :param str name: The name of the step.
+        :param str name: Friendly name given to the instance fleet.
         :param str path: Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
         :param Sequence[str] args: List of command line arguments passed to the JAR file's main function when executed.
         """
@@ -43,7 +63,7 @@ class ClusterBootstrapAction(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the step.
+        Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 
@@ -68,6 +88,385 @@ class ClusterBootstrapAction(dict):
 
 
 @pulumi.output_type
+class ClusterCoreInstanceFleet(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 instance_type_configs: Optional[Sequence['outputs.ClusterCoreInstanceFleetInstanceTypeConfig']] = None,
+                 launch_specifications: Optional['outputs.ClusterCoreInstanceFleetLaunchSpecifications'] = None,
+                 name: Optional[str] = None,
+                 provisioned_on_demand_capacity: Optional[int] = None,
+                 provisioned_spot_capacity: Optional[int] = None,
+                 target_on_demand_capacity: Optional[int] = None,
+                 target_spot_capacity: Optional[int] = None):
+        """
+        :param str id: The ID of the EMR Cluster
+        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigArgs'] instance_type_configs: Configuration block for instance fleet
+        :param 'ClusterCoreInstanceFleetLaunchSpecificationsArgs' launch_specifications: Configuration block for launch specification
+        :param str name: Friendly name given to the instance fleet.
+        :param int target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        :param int target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if instance_type_configs is not None:
+            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
+        if launch_specifications is not None:
+            pulumi.set(__self__, "launch_specifications", launch_specifications)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provisioned_on_demand_capacity is not None:
+            pulumi.set(__self__, "provisioned_on_demand_capacity", provisioned_on_demand_capacity)
+        if provisioned_spot_capacity is not None:
+            pulumi.set(__self__, "provisioned_spot_capacity", provisioned_spot_capacity)
+        if target_on_demand_capacity is not None:
+            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
+        if target_spot_capacity is not None:
+            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the EMR Cluster
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceTypeConfigs")
+    def instance_type_configs(self) -> Optional[Sequence['outputs.ClusterCoreInstanceFleetInstanceTypeConfig']]:
+        """
+        Configuration block for instance fleet
+        """
+        return pulumi.get(self, "instance_type_configs")
+
+    @property
+    @pulumi.getter(name="launchSpecifications")
+    def launch_specifications(self) -> Optional['outputs.ClusterCoreInstanceFleetLaunchSpecifications']:
+        """
+        Configuration block for launch specification
+        """
+        return pulumi.get(self, "launch_specifications")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly name given to the instance fleet.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisionedOnDemandCapacity")
+    def provisioned_on_demand_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "provisioned_on_demand_capacity")
+
+    @property
+    @pulumi.getter(name="provisionedSpotCapacity")
+    def provisioned_spot_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "provisioned_spot_capacity")
+
+    @property
+    @pulumi.getter(name="targetOnDemandCapacity")
+    def target_on_demand_capacity(self) -> Optional[int]:
+        """
+        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        """
+        return pulumi.get(self, "target_on_demand_capacity")
+
+    @property
+    @pulumi.getter(name="targetSpotCapacity")
+    def target_spot_capacity(self) -> Optional[int]:
+        """
+        The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+        return pulumi.get(self, "target_spot_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
+    def __init__(__self__, *,
+                 instance_type: str,
+                 bid_price: Optional[str] = None,
+                 bid_price_as_percentage_of_on_demand_price: Optional[float] = None,
+                 configurations: Optional[Sequence['outputs.ClusterCoreInstanceFleetInstanceTypeConfigConfiguration']] = None,
+                 ebs_configs: Optional[Sequence['outputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig']] = None,
+                 weighted_capacity: Optional[int] = None):
+        """
+        :param str instance_type: An EC2 instance type, such as m4.xlarge.
+        :param str bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param float bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param int weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if bid_price is not None:
+            pulumi.set(__self__, "bid_price", bid_price)
+        if bid_price_as_percentage_of_on_demand_price is not None:
+            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if ebs_configs is not None:
+            pulumi.set(__self__, "ebs_configs", ebs_configs)
+        if weighted_capacity is not None:
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        An EC2 instance type, such as m4.xlarge.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="bidPrice")
+    def bid_price(self) -> Optional[str]:
+        """
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price")
+
+    @property
+    @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
+    def bid_price_as_percentage_of_on_demand_price(self) -> Optional[float]:
+        """
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.ClusterCoreInstanceFleetInstanceTypeConfigConfiguration']]:
+        """
+        A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter(name="ebsConfigs")
+    def ebs_configs(self) -> Optional[Sequence['outputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig']]:
+        """
+        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        """
+        return pulumi.get(self, "ebs_configs")
+
+    @property
+    @pulumi.getter(name="weightedCapacity")
+    def weighted_capacity(self) -> Optional[int]:
+        """
+        The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+        return pulumi.get(self, "weighted_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
+    def __init__(__self__, *,
+                 classification: Optional[str] = None,
+                 properties: Optional[Mapping[str, Any]] = None):
+        """
+        :param str classification: The classification within a configuration.
+        :param Mapping[str, Any] properties: A map of properties specified within a configuration classification
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[str]:
+        """
+        The classification within a configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, Any]]:
+        """
+        A map of properties specified within a configuration classification
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig(dict):
+    def __init__(__self__, *,
+                 size: int,
+                 type: str,
+                 iops: Optional[int] = None,
+                 volumes_per_instance: Optional[int] = None):
+        """
+        :param int size: The volume size, in gibibytes (GiB).
+        :param str type: The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        :param int iops: The number of I/O operations per second (IOPS) that the volume supports
+        :param int volumes_per_instance: The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        """
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if volumes_per_instance is not None:
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        """
+        The volume size, in gibibytes (GiB).
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        The number of I/O operations per second (IOPS) that the volume supports
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="volumesPerInstance")
+    def volumes_per_instance(self) -> Optional[int]:
+        """
+        The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        """
+        return pulumi.get(self, "volumes_per_instance")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterCoreInstanceFleetLaunchSpecifications(dict):
+    def __init__(__self__, *,
+                 on_demand_specifications: Optional[Sequence['outputs.ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
+                 spot_specifications: Optional[Sequence['outputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification']] = None):
+        """
+        :param Sequence['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs'] on_demand_specifications: Configuration block for on demand instances launch specifications
+        :param Sequence['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs'] spot_specifications: Configuration block for spot instances launch specifications
+        """
+        if on_demand_specifications is not None:
+            pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
+        if spot_specifications is not None:
+            pulumi.set(__self__, "spot_specifications", spot_specifications)
+
+    @property
+    @pulumi.getter(name="onDemandSpecifications")
+    def on_demand_specifications(self) -> Optional[Sequence['outputs.ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification']]:
+        """
+        Configuration block for on demand instances launch specifications
+        """
+        return pulumi.get(self, "on_demand_specifications")
+
+    @property
+    @pulumi.getter(name="spotSpecifications")
+    def spot_specifications(self) -> Optional[Sequence['outputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification']]:
+        """
+        Configuration block for spot instances launch specifications
+        """
+        return pulumi.get(self, "spot_specifications")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+    def __init__(__self__, *,
+                 allocation_strategy: str):
+        """
+        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+
+    @property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> str:
+        """
+        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification(dict):
+    def __init__(__self__, *,
+                 allocation_strategy: str,
+                 timeout_action: str,
+                 timeout_duration_minutes: int,
+                 block_duration_minutes: Optional[int] = None):
+        """
+        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param str timeout_action: The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        :param int timeout_duration_minutes: The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        :param int block_duration_minutes: The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        pulumi.set(__self__, "timeout_action", timeout_action)
+        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+
+    @property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> str:
+        """
+        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @property
+    @pulumi.getter(name="timeoutAction")
+    def timeout_action(self) -> str:
+        """
+        The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        """
+        return pulumi.get(self, "timeout_action")
+
+    @property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> int:
+        """
+        The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+    @property
+    @pulumi.getter(name="blockDurationMinutes")
+    def block_duration_minutes(self) -> Optional[int]:
+        """
+        The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+        return pulumi.get(self, "block_duration_minutes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ClusterCoreInstanceGroup(dict):
     def __init__(__self__, *,
                  instance_type: str,
@@ -78,13 +477,13 @@ class ClusterCoreInstanceGroup(dict):
                  instance_count: Optional[int] = None,
                  name: Optional[str] = None):
         """
-        :param str instance_type: EC2 instance type for all instances in the instance group.
+        :param str instance_type: An EC2 instance type, such as m4.xlarge.
         :param str autoscaling_policy: String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
-        :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        :param str bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param Sequence['ClusterCoreInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param str id: The ID of the EMR Cluster
         :param int instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-        :param str name: The name of the step.
+        :param str name: Friendly name given to the instance fleet.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if autoscaling_policy is not None:
@@ -104,7 +503,7 @@ class ClusterCoreInstanceGroup(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        EC2 instance type for all instances in the instance group.
+        An EC2 instance type, such as m4.xlarge.
         """
         return pulumi.get(self, "instance_type")
 
@@ -120,7 +519,7 @@ class ClusterCoreInstanceGroup(dict):
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[str]:
         """
-        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price")
 
@@ -152,7 +551,7 @@ class ClusterCoreInstanceGroup(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the step.
+        Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 
@@ -390,6 +789,385 @@ class ClusterKerberosAttributes(dict):
 
 
 @pulumi.output_type
+class ClusterMasterInstanceFleet(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 instance_type_configs: Optional[Sequence['outputs.ClusterMasterInstanceFleetInstanceTypeConfig']] = None,
+                 launch_specifications: Optional['outputs.ClusterMasterInstanceFleetLaunchSpecifications'] = None,
+                 name: Optional[str] = None,
+                 provisioned_on_demand_capacity: Optional[int] = None,
+                 provisioned_spot_capacity: Optional[int] = None,
+                 target_on_demand_capacity: Optional[int] = None,
+                 target_spot_capacity: Optional[int] = None):
+        """
+        :param str id: The ID of the EMR Cluster
+        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigArgs'] instance_type_configs: Configuration block for instance fleet
+        :param 'ClusterMasterInstanceFleetLaunchSpecificationsArgs' launch_specifications: Configuration block for launch specification
+        :param str name: Friendly name given to the instance fleet.
+        :param int target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        :param int target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if instance_type_configs is not None:
+            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
+        if launch_specifications is not None:
+            pulumi.set(__self__, "launch_specifications", launch_specifications)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provisioned_on_demand_capacity is not None:
+            pulumi.set(__self__, "provisioned_on_demand_capacity", provisioned_on_demand_capacity)
+        if provisioned_spot_capacity is not None:
+            pulumi.set(__self__, "provisioned_spot_capacity", provisioned_spot_capacity)
+        if target_on_demand_capacity is not None:
+            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
+        if target_spot_capacity is not None:
+            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the EMR Cluster
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceTypeConfigs")
+    def instance_type_configs(self) -> Optional[Sequence['outputs.ClusterMasterInstanceFleetInstanceTypeConfig']]:
+        """
+        Configuration block for instance fleet
+        """
+        return pulumi.get(self, "instance_type_configs")
+
+    @property
+    @pulumi.getter(name="launchSpecifications")
+    def launch_specifications(self) -> Optional['outputs.ClusterMasterInstanceFleetLaunchSpecifications']:
+        """
+        Configuration block for launch specification
+        """
+        return pulumi.get(self, "launch_specifications")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly name given to the instance fleet.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisionedOnDemandCapacity")
+    def provisioned_on_demand_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "provisioned_on_demand_capacity")
+
+    @property
+    @pulumi.getter(name="provisionedSpotCapacity")
+    def provisioned_spot_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "provisioned_spot_capacity")
+
+    @property
+    @pulumi.getter(name="targetOnDemandCapacity")
+    def target_on_demand_capacity(self) -> Optional[int]:
+        """
+        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        """
+        return pulumi.get(self, "target_on_demand_capacity")
+
+    @property
+    @pulumi.getter(name="targetSpotCapacity")
+    def target_spot_capacity(self) -> Optional[int]:
+        """
+        The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+        return pulumi.get(self, "target_spot_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
+    def __init__(__self__, *,
+                 instance_type: str,
+                 bid_price: Optional[str] = None,
+                 bid_price_as_percentage_of_on_demand_price: Optional[float] = None,
+                 configurations: Optional[Sequence['outputs.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration']] = None,
+                 ebs_configs: Optional[Sequence['outputs.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig']] = None,
+                 weighted_capacity: Optional[int] = None):
+        """
+        :param str instance_type: An EC2 instance type, such as m4.xlarge.
+        :param str bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param float bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param int weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if bid_price is not None:
+            pulumi.set(__self__, "bid_price", bid_price)
+        if bid_price_as_percentage_of_on_demand_price is not None:
+            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if ebs_configs is not None:
+            pulumi.set(__self__, "ebs_configs", ebs_configs)
+        if weighted_capacity is not None:
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        An EC2 instance type, such as m4.xlarge.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="bidPrice")
+    def bid_price(self) -> Optional[str]:
+        """
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price")
+
+    @property
+    @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
+    def bid_price_as_percentage_of_on_demand_price(self) -> Optional[float]:
+        """
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration']]:
+        """
+        A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter(name="ebsConfigs")
+    def ebs_configs(self) -> Optional[Sequence['outputs.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig']]:
+        """
+        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        """
+        return pulumi.get(self, "ebs_configs")
+
+    @property
+    @pulumi.getter(name="weightedCapacity")
+    def weighted_capacity(self) -> Optional[int]:
+        """
+        The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+        return pulumi.get(self, "weighted_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
+    def __init__(__self__, *,
+                 classification: Optional[str] = None,
+                 properties: Optional[Mapping[str, Any]] = None):
+        """
+        :param str classification: The classification within a configuration.
+        :param Mapping[str, Any] properties: A map of properties specified within a configuration classification
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[str]:
+        """
+        The classification within a configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, Any]]:
+        """
+        A map of properties specified within a configuration classification
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig(dict):
+    def __init__(__self__, *,
+                 size: int,
+                 type: str,
+                 iops: Optional[int] = None,
+                 volumes_per_instance: Optional[int] = None):
+        """
+        :param int size: The volume size, in gibibytes (GiB).
+        :param str type: The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        :param int iops: The number of I/O operations per second (IOPS) that the volume supports
+        :param int volumes_per_instance: The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        """
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if volumes_per_instance is not None:
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        """
+        The volume size, in gibibytes (GiB).
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        The number of I/O operations per second (IOPS) that the volume supports
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="volumesPerInstance")
+    def volumes_per_instance(self) -> Optional[int]:
+        """
+        The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        """
+        return pulumi.get(self, "volumes_per_instance")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterMasterInstanceFleetLaunchSpecifications(dict):
+    def __init__(__self__, *,
+                 on_demand_specifications: Optional[Sequence['outputs.ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
+                 spot_specifications: Optional[Sequence['outputs.ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification']] = None):
+        """
+        :param Sequence['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs'] on_demand_specifications: Configuration block for on demand instances launch specifications
+        :param Sequence['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs'] spot_specifications: Configuration block for spot instances launch specifications
+        """
+        if on_demand_specifications is not None:
+            pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
+        if spot_specifications is not None:
+            pulumi.set(__self__, "spot_specifications", spot_specifications)
+
+    @property
+    @pulumi.getter(name="onDemandSpecifications")
+    def on_demand_specifications(self) -> Optional[Sequence['outputs.ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification']]:
+        """
+        Configuration block for on demand instances launch specifications
+        """
+        return pulumi.get(self, "on_demand_specifications")
+
+    @property
+    @pulumi.getter(name="spotSpecifications")
+    def spot_specifications(self) -> Optional[Sequence['outputs.ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification']]:
+        """
+        Configuration block for spot instances launch specifications
+        """
+        return pulumi.get(self, "spot_specifications")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+    def __init__(__self__, *,
+                 allocation_strategy: str):
+        """
+        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+
+    @property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> str:
+        """
+        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification(dict):
+    def __init__(__self__, *,
+                 allocation_strategy: str,
+                 timeout_action: str,
+                 timeout_duration_minutes: int,
+                 block_duration_minutes: Optional[int] = None):
+        """
+        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param str timeout_action: The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        :param int timeout_duration_minutes: The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        :param int block_duration_minutes: The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        pulumi.set(__self__, "timeout_action", timeout_action)
+        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+
+    @property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> str:
+        """
+        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @property
+    @pulumi.getter(name="timeoutAction")
+    def timeout_action(self) -> str:
+        """
+        The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        """
+        return pulumi.get(self, "timeout_action")
+
+    @property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> int:
+        """
+        The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+    @property
+    @pulumi.getter(name="blockDurationMinutes")
+    def block_duration_minutes(self) -> Optional[int]:
+        """
+        The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+        return pulumi.get(self, "block_duration_minutes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ClusterMasterInstanceGroup(dict):
     def __init__(__self__, *,
                  instance_type: str,
@@ -399,12 +1177,12 @@ class ClusterMasterInstanceGroup(dict):
                  instance_count: Optional[int] = None,
                  name: Optional[str] = None):
         """
-        :param str instance_type: EC2 instance type for all instances in the instance group.
-        :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        :param str instance_type: An EC2 instance type, such as m4.xlarge.
+        :param str bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param Sequence['ClusterMasterInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param str id: The ID of the EMR Cluster
         :param int instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-        :param str name: The name of the step.
+        :param str name: Friendly name given to the instance fleet.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if bid_price is not None:
@@ -422,7 +1200,7 @@ class ClusterMasterInstanceGroup(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        EC2 instance type for all instances in the instance group.
+        An EC2 instance type, such as m4.xlarge.
         """
         return pulumi.get(self, "instance_type")
 
@@ -430,7 +1208,7 @@ class ClusterMasterInstanceGroup(dict):
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[str]:
         """
-        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price")
 
@@ -462,7 +1240,7 @@ class ClusterMasterInstanceGroup(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the step.
+        Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 
@@ -535,7 +1313,7 @@ class ClusterStep(dict):
         """
         :param str action_on_failure: The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
         :param 'ClusterStepHadoopJarStepArgs' hadoop_jar_step: The JAR file used for the step. Defined below.
-        :param str name: The name of the step.
+        :param str name: Friendly name given to the instance fleet.
         """
         pulumi.set(__self__, "action_on_failure", action_on_failure)
         pulumi.set(__self__, "hadoop_jar_step", hadoop_jar_step)
@@ -561,7 +1339,7 @@ class ClusterStep(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the step.
+        Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 
@@ -580,7 +1358,7 @@ class ClusterStepHadoopJarStep(dict):
         :param str jar: Path to a JAR file run during the step.
         :param Sequence[str] args: List of command line arguments passed to the JAR file's main function when executed.
         :param str main_class: Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-        :param Mapping[str, str] properties: Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        :param Mapping[str, str] properties: A map of properties specified within a configuration classification
         """
         pulumi.set(__self__, "jar", jar)
         if args is not None:
@@ -618,9 +1396,290 @@ class ClusterStepHadoopJarStep(dict):
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, str]]:
         """
-        Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        A map of properties specified within a configuration classification
         """
         return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InstanceFleetInstanceTypeConfig(dict):
+    def __init__(__self__, *,
+                 instance_type: str,
+                 bid_price: Optional[str] = None,
+                 bid_price_as_percentage_of_on_demand_price: Optional[float] = None,
+                 configurations: Optional[Sequence['outputs.InstanceFleetInstanceTypeConfigConfiguration']] = None,
+                 ebs_configs: Optional[Sequence['outputs.InstanceFleetInstanceTypeConfigEbsConfig']] = None,
+                 weighted_capacity: Optional[int] = None):
+        """
+        :param str instance_type: An EC2 instance type, such as m4.xlarge.
+        :param str bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param float bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param Sequence['InstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param Sequence['InstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param int weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if bid_price is not None:
+            pulumi.set(__self__, "bid_price", bid_price)
+        if bid_price_as_percentage_of_on_demand_price is not None:
+            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if ebs_configs is not None:
+            pulumi.set(__self__, "ebs_configs", ebs_configs)
+        if weighted_capacity is not None:
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        An EC2 instance type, such as m4.xlarge.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="bidPrice")
+    def bid_price(self) -> Optional[str]:
+        """
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price")
+
+    @property
+    @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
+    def bid_price_as_percentage_of_on_demand_price(self) -> Optional[float]:
+        """
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.InstanceFleetInstanceTypeConfigConfiguration']]:
+        """
+        A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter(name="ebsConfigs")
+    def ebs_configs(self) -> Optional[Sequence['outputs.InstanceFleetInstanceTypeConfigEbsConfig']]:
+        """
+        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        """
+        return pulumi.get(self, "ebs_configs")
+
+    @property
+    @pulumi.getter(name="weightedCapacity")
+    def weighted_capacity(self) -> Optional[int]:
+        """
+        The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+        return pulumi.get(self, "weighted_capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InstanceFleetInstanceTypeConfigConfiguration(dict):
+    def __init__(__self__, *,
+                 classification: Optional[str] = None,
+                 properties: Optional[Mapping[str, Any]] = None):
+        """
+        :param str classification: The classification within a configuration.
+        :param Mapping[str, Any] properties: A map of properties specified within a configuration classification
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[str]:
+        """
+        The classification within a configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, Any]]:
+        """
+        A map of properties specified within a configuration classification
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InstanceFleetInstanceTypeConfigEbsConfig(dict):
+    def __init__(__self__, *,
+                 size: int,
+                 type: str,
+                 iops: Optional[int] = None,
+                 volumes_per_instance: Optional[int] = None):
+        """
+        :param int size: The volume size, in gibibytes (GiB).
+        :param str type: The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        :param int iops: The number of I/O operations per second (IOPS) that the volume supports
+        :param int volumes_per_instance: The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        """
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if volumes_per_instance is not None:
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        """
+        The volume size, in gibibytes (GiB).
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        The number of I/O operations per second (IOPS) that the volume supports
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="volumesPerInstance")
+    def volumes_per_instance(self) -> Optional[int]:
+        """
+        The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        """
+        return pulumi.get(self, "volumes_per_instance")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InstanceFleetLaunchSpecifications(dict):
+    def __init__(__self__, *,
+                 on_demand_specifications: Optional[Sequence['outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
+                 spot_specifications: Optional[Sequence['outputs.InstanceFleetLaunchSpecificationsSpotSpecification']] = None):
+        """
+        :param Sequence['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs'] on_demand_specifications: Configuration block for on demand instances launch specifications
+        :param Sequence['InstanceFleetLaunchSpecificationsSpotSpecificationArgs'] spot_specifications: Configuration block for spot instances launch specifications
+        """
+        if on_demand_specifications is not None:
+            pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
+        if spot_specifications is not None:
+            pulumi.set(__self__, "spot_specifications", spot_specifications)
+
+    @property
+    @pulumi.getter(name="onDemandSpecifications")
+    def on_demand_specifications(self) -> Optional[Sequence['outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification']]:
+        """
+        Configuration block for on demand instances launch specifications
+        """
+        return pulumi.get(self, "on_demand_specifications")
+
+    @property
+    @pulumi.getter(name="spotSpecifications")
+    def spot_specifications(self) -> Optional[Sequence['outputs.InstanceFleetLaunchSpecificationsSpotSpecification']]:
+        """
+        Configuration block for spot instances launch specifications
+        """
+        return pulumi.get(self, "spot_specifications")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+    def __init__(__self__, *,
+                 allocation_strategy: str):
+        """
+        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+
+    @property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> str:
+        """
+        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InstanceFleetLaunchSpecificationsSpotSpecification(dict):
+    def __init__(__self__, *,
+                 allocation_strategy: str,
+                 timeout_action: str,
+                 timeout_duration_minutes: int,
+                 block_duration_minutes: Optional[int] = None):
+        """
+        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param str timeout_action: The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        :param int timeout_duration_minutes: The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        :param int block_duration_minutes: The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        pulumi.set(__self__, "timeout_action", timeout_action)
+        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+
+    @property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> str:
+        """
+        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @property
+    @pulumi.getter(name="timeoutAction")
+    def timeout_action(self) -> str:
+        """
+        The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        """
+        return pulumi.get(self, "timeout_action")
+
+    @property
+    @pulumi.getter(name="timeoutDurationMinutes")
+    def timeout_duration_minutes(self) -> int:
+        """
+        The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        """
+        return pulumi.get(self, "timeout_duration_minutes")
+
+    @property
+    @pulumi.getter(name="blockDurationMinutes")
+    def block_duration_minutes(self) -> Optional[int]:
+        """
+        The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+        return pulumi.get(self, "block_duration_minutes")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

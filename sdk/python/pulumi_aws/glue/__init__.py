@@ -12,6 +12,7 @@ from .get_script import *
 from .job import *
 from .security_configuration import *
 from .trigger import *
+from .user_defined_function import *
 from .workflow import *
 from ._inputs import *
 from . import outputs

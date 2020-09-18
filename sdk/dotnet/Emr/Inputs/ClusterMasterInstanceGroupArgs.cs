@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Emr.Inputs
     public sealed class ClusterMasterInstanceGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        /// The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         /// </summary>
         [Input("bidPrice")]
         public Input<string>? BidPrice { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Emr.Inputs
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// EC2 instance type for all instances in the instance group.
+        /// An EC2 instance type, such as m4.xlarge.
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
-        /// The name of the step.
+        /// Friendly name given to the instance fleet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

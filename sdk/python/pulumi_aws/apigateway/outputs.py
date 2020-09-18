@@ -315,7 +315,7 @@ class StageAccessLogSettings(dict):
                  format: str):
         """
         :param str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
-        :param str format: The formatting and values recorded in the logs. 
+        :param str format: The formatting and values recorded in the logs.
                For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
@@ -333,7 +333,7 @@ class StageAccessLogSettings(dict):
     @pulumi.getter
     def format(self) -> str:
         """
-        The formatting and values recorded in the logs. 
+        The formatting and values recorded in the logs.
         For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         """
         return pulumi.get(self, "format")

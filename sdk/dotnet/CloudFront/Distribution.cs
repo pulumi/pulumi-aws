@@ -442,7 +442,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
         /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         /// </summary>
         [Output("trustedSigners")]
@@ -911,7 +911,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<Inputs.DistributionTrustedSignerGetArgs>? _trustedSigners;
 
         /// <summary>
-        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
         /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         /// </summary>
         public InputList<Inputs.DistributionTrustedSignerGetArgs> TrustedSigners
