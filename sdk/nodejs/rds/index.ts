@@ -23,6 +23,7 @@ export * from "./instanceType";
 export * from "./optionGroup";
 export * from "./parameterGroup";
 export * from "./proxy";
+export * from "./proxyDefaultTargetGroup";
 export * from "./roleAssociation";
 export * from "./securityGroup";
 export * from "./snapshot";

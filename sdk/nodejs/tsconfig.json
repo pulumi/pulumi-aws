@@ -784,6 +784,7 @@
         "rds/optionGroup.ts",
         "rds/parameterGroup.ts",
         "rds/proxy.ts",
+        "rds/proxyDefaultTargetGroup.ts",
         "rds/roleAssociation.ts",
         "rds/securityGroup.ts",
         "rds/snapshot.ts",

@@ -17,7 +17,7 @@ import {PolicyDocument} from "./index";
  *
  * const myDevelopers = new aws.iam.Group("myDevelopers", {path: "/users/"});
  * const myDeveloperPolicy = new aws.iam.GroupPolicy("myDeveloperPolicy", {
- *     group: myDevelopers.id,
+ *     group: myDevelopers.name,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
