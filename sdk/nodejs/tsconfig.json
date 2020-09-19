@@ -142,6 +142,7 @@
         "cfg/organizationManagedRule.ts",
         "cfg/recorder.ts",
         "cfg/recorderStatus.ts",
+        "cfg/remediationConfiguration.ts",
         "cfg/rule.ts",
         "cloud9/environmentEC2.ts",
         "cloud9/index.ts",

@@ -14,6 +14,7 @@ __all__ = [
     'ConfigurationAggregatorOrganizationAggregationSource',
     'DeliveryChannelSnapshotDeliveryProperties',
     'RecorderRecordingGroup',
+    'RemediationConfigurationParameter',
     'RuleScope',
     'RuleSource',
     'RuleSourceSourceDetail',
@@ -186,6 +187,51 @@ class RecorderRecordingGroup(dict):
         See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         """
         return pulumi.get(self, "resource_types")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RemediationConfigurationParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 resource_value: Optional[str] = None,
+                 static_value: Optional[str] = None):
+        """
+        :param str name: The name of the attribute.
+        :param str resource_value: The value is dynamic and changes at run-time.
+        :param str static_value: The value is static and does not change at run-time.
+        """
+        pulumi.set(__self__, "name", name)
+        if resource_value is not None:
+            pulumi.set(__self__, "resource_value", resource_value)
+        if static_value is not None:
+            pulumi.set(__self__, "static_value", static_value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the attribute.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceValue")
+    def resource_value(self) -> Optional[str]:
+        """
+        The value is dynamic and changes at run-time.
+        """
+        return pulumi.get(self, "resource_value")
+
+    @property
+    @pulumi.getter(name="staticValue")
+    def static_value(self) -> Optional[str]:
+        """
+        The value is static and does not change at run-time.
+        """
+        return pulumi.get(self, "static_value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

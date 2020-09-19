@@ -18,6 +18,18 @@ namespace Pulumi.Aws.Kinesis.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the encryption key. Required when `kms_key_type` is `CUSTOMER_MANAGED_CMK`.
+        /// </summary>
+        [Input("keyArn")]
+        public Input<string>? KeyArn { get; set; }
+
+        /// <summary>
+        /// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+        /// </summary>
+        [Input("keyType")]
+        public Input<string>? KeyType { get; set; }
+
         public FirehoseDeliveryStreamServerSideEncryptionArgs()
         {
         }

@@ -53,6 +53,11 @@ class Cluster(pulumi.CustomResource):
         example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
             role=example.name)
+        # Optionally, enable Security Groups for Pods
+        # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
+        example__amazon_eksvpc_resource_controller = aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
+            role=example.name)
         ```
         ### Enabling Control Plane Logging
 

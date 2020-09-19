@@ -171,6 +171,7 @@ export interface ProviderEndpoint {
     greengrass?: string;
     guardduty?: string;
     iam?: string;
+    identitystore?: string;
     imagebuilder?: string;
     inspector?: string;
     iot?: string;
@@ -230,6 +231,7 @@ export interface ProviderEndpoint {
     sns?: string;
     sqs?: string;
     ssm?: string;
+    ssoadmin?: string;
     stepfunctions?: string;
     storagegateway?: string;
     sts?: string;
@@ -3133,6 +3135,21 @@ export namespace cfg {
         resourceTypes?: string[];
     }
 
+    export interface RemediationConfigurationParameter {
+        /**
+         * The name of the attribute.
+         */
+        name: string;
+        /**
+         * The value is dynamic and changes at run-time.
+         */
+        resourceValue?: string;
+        /**
+         * The value is static and does not change at run-time.
+         */
+        staticValue?: string;
+    }
+
     export interface RuleScope {
         /**
          * The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
@@ -5162,6 +5179,7 @@ export namespace config {
         greengrass?: string;
         guardduty?: string;
         iam?: string;
+        identitystore?: string;
         imagebuilder?: string;
         inspector?: string;
         iot?: string;
@@ -5221,6 +5239,7 @@ export namespace config {
         sns?: string;
         sqs?: string;
         ssm?: string;
+        ssoadmin?: string;
         stepfunctions?: string;
         storagegateway?: string;
         sts?: string;
@@ -13378,6 +13397,14 @@ export namespace kinesis {
          * Whether to enable encryption at rest. Default is `false`.
          */
         enabled?: boolean;
+        /**
+         * Amazon Resource Name (ARN) of the encryption key. Required when `kmsKeyType` is `CUSTOMER_MANAGED_CMK`.
+         */
+        keyArn?: string;
+        /**
+         * Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+         */
+        keyType?: string;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfiguration {

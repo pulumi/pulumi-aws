@@ -44,6 +44,13 @@ namespace Pulumi.Aws.Eks
     ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
     ///             Role = example.Name,
     ///         });
+    ///         // Optionally, enable Security Groups for Pods
+    ///         // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
+    ///         var example_AmazonEKSVPCResourceController = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
+    ///             Role = example.Name,
+    ///         });
     ///     }
     /// 
     /// }

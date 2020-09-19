@@ -65,10 +65,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             resource_type="RESOURCE_GROUP",
             targets=[aws.ssm.MaintenanceWindowTargetTargetArgs(
                 key="resource-groups:ResourceTypeFilters",
-                values=[
-                    "AWS::EC2::INSTANCE",
-                    "AWS::EC2::VPC",
-                ],
+                values=["AWS::EC2::Instance"],
             )])
         ```
 

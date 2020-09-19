@@ -114,7 +114,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
         """
         if __name__ is not None:
@@ -186,6 +186,7 @@ class Eip(pulumi.CustomResource):
                the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[str] customer_owned_ip: Customer owned IP.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
@@ -193,7 +194,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] public_dns: Public DNS associated with the Elastic IP address.
         :param pulumi.Input[str] public_ip: Contains the public IP address.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -256,6 +257,9 @@ class Eip(pulumi.CustomResource):
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
+        """
+        Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        """
         return pulumi.get(self, "domain")
 
     @property
@@ -318,7 +322,7 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource.
+        A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
         """
         return pulumi.get(self, "tags")
 

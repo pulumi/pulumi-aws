@@ -156,6 +156,7 @@ class Endpoints(dict):
                  greengrass: Optional[str] = None,
                  guardduty: Optional[str] = None,
                  iam: Optional[str] = None,
+                 identitystore: Optional[str] = None,
                  imagebuilder: Optional[str] = None,
                  inspector: Optional[str] = None,
                  iot: Optional[str] = None,
@@ -215,6 +216,7 @@ class Endpoints(dict):
                  sns: Optional[str] = None,
                  sqs: Optional[str] = None,
                  ssm: Optional[str] = None,
+                 ssoadmin: Optional[str] = None,
                  stepfunctions: Optional[str] = None,
                  storagegateway: Optional[str] = None,
                  sts: Optional[str] = None,
@@ -362,6 +364,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "guardduty", guardduty)
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
+        if identitystore is not None:
+            pulumi.set(__self__, "identitystore", identitystore)
         if imagebuilder is not None:
             pulumi.set(__self__, "imagebuilder", imagebuilder)
         if inspector is not None:
@@ -480,6 +484,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "sqs", sqs)
         if ssm is not None:
             pulumi.set(__self__, "ssm", ssm)
+        if ssoadmin is not None:
+            pulumi.set(__self__, "ssoadmin", ssoadmin)
         if stepfunctions is not None:
             pulumi.set(__self__, "stepfunctions", stepfunctions)
         if storagegateway is not None:
@@ -844,6 +850,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def identitystore(self) -> Optional[str]:
+        return pulumi.get(self, "identitystore")
+
+    @property
+    @pulumi.getter
     def imagebuilder(self) -> Optional[str]:
         return pulumi.get(self, "imagebuilder")
 
@@ -1136,6 +1147,11 @@ class Endpoints(dict):
     @pulumi.getter
     def ssm(self) -> Optional[str]:
         return pulumi.get(self, "ssm")
+
+    @property
+    @pulumi.getter
+    def ssoadmin(self) -> Optional[str]:
+        return pulumi.get(self, "ssoadmin")
 
     @property
     @pulumi.getter

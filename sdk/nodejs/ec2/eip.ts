@@ -139,6 +139,9 @@ export class Eip extends pulumi.CustomResource {
      * The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
      */
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     */
     public /*out*/ readonly domain!: pulumi.Output<string>;
     /**
      * EC2 instance ID.
@@ -169,7 +172,7 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly publicIpv4Pool!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -253,6 +256,9 @@ export interface EipState {
      * The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
      */
     readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    /**
+     * Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     */
     readonly domain?: pulumi.Input<string>;
     /**
      * EC2 instance ID.
@@ -283,7 +289,7 @@ export interface EipState {
      */
     readonly publicIpv4Pool?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -319,7 +325,7 @@ export interface EipArgs {
      */
     readonly publicIpv4Pool?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

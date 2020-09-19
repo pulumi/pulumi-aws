@@ -33,6 +33,12 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
  *     role: example.name,
  * });
+ * // Optionally, enable Security Groups for Pods
+ * // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
+ * const example_AmazonEKSVPCResourceController = new aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
+ *     role: example.name,
+ * });
  * ```
  * ### Enabling Control Plane Logging
  *

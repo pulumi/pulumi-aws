@@ -159,6 +159,7 @@ export interface ProviderEndpoint {
     greengrass?: pulumi.Input<string>;
     guardduty?: pulumi.Input<string>;
     iam?: pulumi.Input<string>;
+    identitystore?: pulumi.Input<string>;
     imagebuilder?: pulumi.Input<string>;
     inspector?: pulumi.Input<string>;
     iot?: pulumi.Input<string>;
@@ -218,6 +219,7 @@ export interface ProviderEndpoint {
     sns?: pulumi.Input<string>;
     sqs?: pulumi.Input<string>;
     ssm?: pulumi.Input<string>;
+    ssoadmin?: pulumi.Input<string>;
     stepfunctions?: pulumi.Input<string>;
     storagegateway?: pulumi.Input<string>;
     sts?: pulumi.Input<string>;
@@ -2943,6 +2945,21 @@ export namespace cfg {
          * See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
          */
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RemediationConfigurationParameter {
+        /**
+         * The name of the attribute.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value is dynamic and changes at run-time.
+         */
+        resourceValue?: pulumi.Input<string>;
+        /**
+         * The value is static and does not change at run-time.
+         */
+        staticValue?: pulumi.Input<string>;
     }
 
     export interface RuleScope {
@@ -12081,6 +12098,14 @@ export namespace kinesis {
          * Whether to enable encryption at rest. Default is `false`.
          */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Amazon Resource Name (ARN) of the encryption key. Required when `kmsKeyType` is `CUSTOMER_MANAGED_CMK`.
+         */
+        keyArn?: pulumi.Input<string>;
+        /**
+         * Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+         */
+        keyType?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfiguration {

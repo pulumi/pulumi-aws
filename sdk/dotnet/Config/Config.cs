@@ -176,6 +176,7 @@ namespace Pulumi.Aws
                 public string? Greengrass { get; set; } = null!;
                 public string? Guardduty { get; set; } = null!;
                 public string? Iam { get; set; } = null!;
+                public string? Identitystore { get; set; } = null!;
                 public string? Imagebuilder { get; set; } = null!;
                 public string? Inspector { get; set; } = null!;
                 public string? Iot { get; set; } = null!;
@@ -235,6 +236,7 @@ namespace Pulumi.Aws
                 public string? Sns { get; set; } = null!;
                 public string? Sqs { get; set; } = null!;
                 public string? Ssm { get; set; } = null!;
+                public string? Ssoadmin { get; set; } = null!;
                 public string? Stepfunctions { get; set; } = null!;
                 public string? Storagegateway { get; set; } = null!;
                 public string? Sts { get; set; } = null!;

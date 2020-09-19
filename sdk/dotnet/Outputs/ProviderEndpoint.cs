@@ -80,6 +80,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Greengrass;
         public readonly string? Guardduty;
         public readonly string? Iam;
+        public readonly string? Identitystore;
         public readonly string? Imagebuilder;
         public readonly string? Inspector;
         public readonly string? Iot;
@@ -139,6 +140,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Sns;
         public readonly string? Sqs;
         public readonly string? Ssm;
+        public readonly string? Ssoadmin;
         public readonly string? Stepfunctions;
         public readonly string? Storagegateway;
         public readonly string? Sts;
@@ -289,6 +291,8 @@ namespace Pulumi.Aws.Outputs
 
             string? iam,
 
+            string? identitystore,
+
             string? imagebuilder,
 
             string? inspector,
@@ -407,6 +411,8 @@ namespace Pulumi.Aws.Outputs
 
             string? ssm,
 
+            string? ssoadmin,
+
             string? stepfunctions,
 
             string? storagegateway,
@@ -500,6 +506,7 @@ namespace Pulumi.Aws.Outputs
             Greengrass = greengrass;
             Guardduty = guardduty;
             Iam = iam;
+            Identitystore = identitystore;
             Imagebuilder = imagebuilder;
             Inspector = inspector;
             Iot = iot;
@@ -559,6 +566,7 @@ namespace Pulumi.Aws.Outputs
             Sns = sns;
             Sqs = sqs;
             Ssm = ssm;
+            Ssoadmin = ssoadmin;
             Stepfunctions = stepfunctions;
             Storagegateway = storagegateway;
             Sts = sts;

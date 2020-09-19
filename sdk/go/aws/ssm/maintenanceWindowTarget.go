@@ -81,8 +81,7 @@ import (
 // 				&ssm.MaintenanceWindowTargetTargetArgs{
 // 					Key: pulumi.String("resource-groups:ResourceTypeFilters"),
 // 					Values: pulumi.StringArray{
-// 						pulumi.String("AWS::EC2::INSTANCE"),
-// 						pulumi.String("AWS::EC2::VPC"),
+// 						pulumi.String("AWS::EC2::Instance"),
 // 					},
 // 				},
 // 			},

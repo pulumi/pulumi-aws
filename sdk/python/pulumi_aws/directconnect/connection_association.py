@@ -31,10 +31,10 @@ class ConnectionAssociation(pulumi.CustomResource):
 
         example_connection = aws.directconnect.Connection("exampleConnection",
             bandwidth="1Gbps",
-            location="EqSe2")
+            location="EqSe2-EQ")
         example_link_aggregation_group = aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup",
             connections_bandwidth="1Gbps",
-            location="EqSe2")
+            location="EqSe2-EQ")
         example_connection_association = aws.directconnect.ConnectionAssociation("exampleConnectionAssociation",
             connection_id=example_connection.id,
             lag_id=example_link_aggregation_group.id)

@@ -213,6 +213,9 @@ namespace Pulumi.Aws.Inputs
         [Input("iam")]
         public Input<string>? Iam { get; set; }
 
+        [Input("identitystore")]
+        public Input<string>? Identitystore { get; set; }
+
         [Input("imagebuilder")]
         public Input<string>? Imagebuilder { get; set; }
 
@@ -389,6 +392,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("ssm")]
         public Input<string>? Ssm { get; set; }
+
+        [Input("ssoadmin")]
+        public Input<string>? Ssoadmin { get; set; }
 
         [Input("stepfunctions")]
         public Input<string>? Stepfunctions { get; set; }

@@ -26,14 +26,14 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleConnection, err := directconnect.NewConnection(ctx, "exampleConnection", &directconnect.ConnectionArgs{
 // 			Bandwidth: pulumi.String("1Gbps"),
-// 			Location:  pulumi.String("EqSe2"),
+// 			Location:  pulumi.String("EqSe2-EQ"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleLinkAggregationGroup, err := directconnect.NewLinkAggregationGroup(ctx, "exampleLinkAggregationGroup", &directconnect.LinkAggregationGroupArgs{
 // 			ConnectionsBandwidth: pulumi.String("1Gbps"),
-// 			Location:             pulumi.String("EqSe2"),
+// 			Location:             pulumi.String("EqSe2-EQ"),
 // 		})
 // 		if err != nil {
 // 			return err

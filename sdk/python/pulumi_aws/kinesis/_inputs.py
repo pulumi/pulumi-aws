@@ -3765,12 +3765,20 @@ class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs:
 @pulumi.input_type
 class FirehoseDeliveryStreamServerSideEncryptionArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 key_arn: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether to enable encryption at rest. Default is `false`.
+        :param pulumi.Input[str] key_arn: Amazon Resource Name (ARN) of the encryption key. Required when `kms_key_type` is `CUSTOMER_MANAGED_CMK`.
+        :param pulumi.Input[str] key_type: Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if key_arn is not None:
+            pulumi.set(__self__, "key_arn", key_arn)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
 
     @property
     @pulumi.getter
@@ -3783,6 +3791,30 @@ class FirehoseDeliveryStreamServerSideEncryptionArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the encryption key. Required when `kms_key_type` is `CUSTOMER_MANAGED_CMK`.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @key_arn.setter
+    def key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_arn", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_type", value)
 
 
 @pulumi.input_type

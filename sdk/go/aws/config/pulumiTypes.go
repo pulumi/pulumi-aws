@@ -169,6 +169,7 @@ type Endpoints struct {
 	Greengrass               *string `pulumi:"greengrass"`
 	Guardduty                *string `pulumi:"guardduty"`
 	Iam                      *string `pulumi:"iam"`
+	Identitystore            *string `pulumi:"identitystore"`
 	Imagebuilder             *string `pulumi:"imagebuilder"`
 	Inspector                *string `pulumi:"inspector"`
 	Iot                      *string `pulumi:"iot"`
@@ -228,6 +229,7 @@ type Endpoints struct {
 	Sns                      *string `pulumi:"sns"`
 	Sqs                      *string `pulumi:"sqs"`
 	Ssm                      *string `pulumi:"ssm"`
+	Ssoadmin                 *string `pulumi:"ssoadmin"`
 	Stepfunctions            *string `pulumi:"stepfunctions"`
 	Storagegateway           *string `pulumi:"storagegateway"`
 	Sts                      *string `pulumi:"sts"`
@@ -322,6 +324,7 @@ type EndpointsArgs struct {
 	Greengrass               pulumi.StringPtrInput `pulumi:"greengrass"`
 	Guardduty                pulumi.StringPtrInput `pulumi:"guardduty"`
 	Iam                      pulumi.StringPtrInput `pulumi:"iam"`
+	Identitystore            pulumi.StringPtrInput `pulumi:"identitystore"`
 	Imagebuilder             pulumi.StringPtrInput `pulumi:"imagebuilder"`
 	Inspector                pulumi.StringPtrInput `pulumi:"inspector"`
 	Iot                      pulumi.StringPtrInput `pulumi:"iot"`
@@ -381,6 +384,7 @@ type EndpointsArgs struct {
 	Sns                      pulumi.StringPtrInput `pulumi:"sns"`
 	Sqs                      pulumi.StringPtrInput `pulumi:"sqs"`
 	Ssm                      pulumi.StringPtrInput `pulumi:"ssm"`
+	Ssoadmin                 pulumi.StringPtrInput `pulumi:"ssoadmin"`
 	Stepfunctions            pulumi.StringPtrInput `pulumi:"stepfunctions"`
 	Storagegateway           pulumi.StringPtrInput `pulumi:"storagegateway"`
 	Sts                      pulumi.StringPtrInput `pulumi:"sts"`
@@ -715,6 +719,10 @@ func (o EndpointsOutput) Iam() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Iam }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Identitystore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Identitystore }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Imagebuilder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Imagebuilder }).(pulumi.StringPtrOutput)
 }
@@ -949,6 +957,10 @@ func (o EndpointsOutput) Sqs() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Ssm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ssm }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Ssoadmin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Ssoadmin }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Stepfunctions() pulumi.StringPtrOutput {

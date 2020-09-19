@@ -13,6 +13,7 @@ __all__ = [
     'ConfigurationAggregatorOrganizationAggregationSourceArgs',
     'DeliveryChannelSnapshotDeliveryPropertiesArgs',
     'RecorderRecordingGroupArgs',
+    'RemediationConfigurationParameterArgs',
     'RuleScopeArgs',
     'RuleSourceArgs',
     'RuleSourceSourceDetailArgs',
@@ -216,6 +217,60 @@ class RecorderRecordingGroupArgs:
     @resource_types.setter
     def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_types", value)
+
+
+@pulumi.input_type
+class RemediationConfigurationParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 resource_value: Optional[pulumi.Input[str]] = None,
+                 static_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[str] resource_value: The value is dynamic and changes at run-time.
+        :param pulumi.Input[str] static_value: The value is static and does not change at run-time.
+        """
+        pulumi.set(__self__, "name", name)
+        if resource_value is not None:
+            pulumi.set(__self__, "resource_value", resource_value)
+        if static_value is not None:
+            pulumi.set(__self__, "static_value", static_value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the attribute.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceValue")
+    def resource_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value is dynamic and changes at run-time.
+        """
+        return pulumi.get(self, "resource_value")
+
+    @resource_value.setter
+    def resource_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_value", value)
+
+    @property
+    @pulumi.getter(name="staticValue")
+    def static_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value is static and does not change at run-time.
+        """
+        return pulumi.get(self, "static_value")
+
+    @static_value.setter
+    def static_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "static_value", value)
 
 
 @pulumi.input_type

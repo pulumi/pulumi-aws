@@ -25,7 +25,7 @@ type IdentityPool struct {
 	DeveloperProviderName pulumi.StringPtrOutput `pulumi:"developerProviderName"`
 	// The Cognito Identity Pool name.
 	IdentityPoolName pulumi.StringOutput `pulumi:"identityPoolName"`
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayOutput `pulumi:"openidConnectProviderArns"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayOutput `pulumi:"samlProviderArns"`
@@ -77,7 +77,7 @@ type identityPoolState struct {
 	DeveloperProviderName *string `pulumi:"developerProviderName"`
 	// The Cognito Identity Pool name.
 	IdentityPoolName *string `pulumi:"identityPoolName"`
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
@@ -99,7 +99,7 @@ type IdentityPoolState struct {
 	DeveloperProviderName pulumi.StringPtrInput
 	// The Cognito Identity Pool name.
 	IdentityPoolName pulumi.StringPtrInput
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayInput
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayInput
@@ -123,7 +123,7 @@ type identityPoolArgs struct {
 	DeveloperProviderName *string `pulumi:"developerProviderName"`
 	// The Cognito Identity Pool name.
 	IdentityPoolName string `pulumi:"identityPoolName"`
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
@@ -144,7 +144,7 @@ type IdentityPoolArgs struct {
 	DeveloperProviderName pulumi.StringPtrInput
 	// The Cognito Identity Pool name.
 	IdentityPoolName pulumi.StringInput
-	// A list of OpendID Connect provider ARNs.
+	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayInput
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayInput
