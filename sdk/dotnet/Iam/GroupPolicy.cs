@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Iam
     ///         });
     ///         var myDeveloperPolicy = new Aws.Iam.GroupPolicy("myDeveloperPolicy", new Aws.Iam.GroupPolicyArgs
     ///         {
-    ///             Group = myDevelopers.Id,
+    ///             Group = myDevelopers.Name,
     ///             Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [

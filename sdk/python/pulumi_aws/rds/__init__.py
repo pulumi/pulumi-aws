@@ -21,6 +21,7 @@ from .instance import *
 from .option_group import *
 from .parameter_group import *
 from .proxy import *
+from .proxy_default_target_group import *
 from .role_association import *
 from .security_group import *
 from .snapshot import *

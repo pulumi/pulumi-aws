@@ -18,6 +18,7 @@ __all__ = [
     'OptionGroupOptionOptionSettingArgs',
     'ParameterGroupParameterArgs',
     'ProxyAuthArgs',
+    'ProxyDefaultTargetGroupConnectionPoolConfigArgs',
     'SecurityGroupIngressArgs',
 ]
 
@@ -635,6 +636,93 @@ class ProxyAuthArgs:
     @secret_arn.setter
     def secret_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_arn", value)
+
+
+@pulumi.input_type
+class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
+    def __init__(__self__, *,
+                 connection_borrow_timeout: Optional[pulumi.Input[int]] = None,
+                 init_query: Optional[pulumi.Input[str]] = None,
+                 max_connections_percent: Optional[pulumi.Input[int]] = None,
+                 max_idle_connections_percent: Optional[pulumi.Input[int]] = None,
+                 session_pinning_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] connection_borrow_timeout: The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+        :param pulumi.Input[str] init_query: One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+        :param pulumi.Input[int] max_connections_percent: The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        :param pulumi.Input[int] max_idle_connections_percent: Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] session_pinning_filters: Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+        """
+        if connection_borrow_timeout is not None:
+            pulumi.set(__self__, "connection_borrow_timeout", connection_borrow_timeout)
+        if init_query is not None:
+            pulumi.set(__self__, "init_query", init_query)
+        if max_connections_percent is not None:
+            pulumi.set(__self__, "max_connections_percent", max_connections_percent)
+        if max_idle_connections_percent is not None:
+            pulumi.set(__self__, "max_idle_connections_percent", max_idle_connections_percent)
+        if session_pinning_filters is not None:
+            pulumi.set(__self__, "session_pinning_filters", session_pinning_filters)
+
+    @property
+    @pulumi.getter(name="connectionBorrowTimeout")
+    def connection_borrow_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+        """
+        return pulumi.get(self, "connection_borrow_timeout")
+
+    @connection_borrow_timeout.setter
+    def connection_borrow_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_borrow_timeout", value)
+
+    @property
+    @pulumi.getter(name="initQuery")
+    def init_query(self) -> Optional[pulumi.Input[str]]:
+        """
+        One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+        """
+        return pulumi.get(self, "init_query")
+
+    @init_query.setter
+    def init_query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "init_query", value)
+
+    @property
+    @pulumi.getter(name="maxConnectionsPercent")
+    def max_connections_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        """
+        return pulumi.get(self, "max_connections_percent")
+
+    @max_connections_percent.setter
+    def max_connections_percent(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_connections_percent", value)
+
+    @property
+    @pulumi.getter(name="maxIdleConnectionsPercent")
+    def max_idle_connections_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        """
+        return pulumi.get(self, "max_idle_connections_percent")
+
+    @max_idle_connections_percent.setter
+    def max_idle_connections_percent(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_idle_connections_percent", value)
+
+    @property
+    @pulumi.getter(name="sessionPinningFilters")
+    def session_pinning_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+        """
+        return pulumi.get(self, "session_pinning_filters")
+
+    @session_pinning_filters.setter
+    def session_pinning_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "session_pinning_filters", value)
 
 
 @pulumi.input_type

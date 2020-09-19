@@ -1351,6 +1351,215 @@ func (o ProxyAuthArrayOutput) Index(i pulumi.IntInput) ProxyAuthOutput {
 	}).(ProxyAuthOutput)
 }
 
+type ProxyDefaultTargetGroupConnectionPoolConfig struct {
+	// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+	ConnectionBorrowTimeout *int `pulumi:"connectionBorrowTimeout"`
+	// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+	InitQuery *string `pulumi:"initQuery"`
+	// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	MaxConnectionsPercent *int `pulumi:"maxConnectionsPercent"`
+	// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	MaxIdleConnectionsPercent *int `pulumi:"maxIdleConnectionsPercent"`
+	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+	SessionPinningFilters []string `pulumi:"sessionPinningFilters"`
+}
+
+// ProxyDefaultTargetGroupConnectionPoolConfigInput is an input type that accepts ProxyDefaultTargetGroupConnectionPoolConfigArgs and ProxyDefaultTargetGroupConnectionPoolConfigOutput values.
+// You can construct a concrete instance of `ProxyDefaultTargetGroupConnectionPoolConfigInput` via:
+//
+//          ProxyDefaultTargetGroupConnectionPoolConfigArgs{...}
+type ProxyDefaultTargetGroupConnectionPoolConfigInput interface {
+	pulumi.Input
+
+	ToProxyDefaultTargetGroupConnectionPoolConfigOutput() ProxyDefaultTargetGroupConnectionPoolConfigOutput
+	ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(context.Context) ProxyDefaultTargetGroupConnectionPoolConfigOutput
+}
+
+type ProxyDefaultTargetGroupConnectionPoolConfigArgs struct {
+	// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+	ConnectionBorrowTimeout pulumi.IntPtrInput `pulumi:"connectionBorrowTimeout"`
+	// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+	InitQuery pulumi.StringPtrInput `pulumi:"initQuery"`
+	// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	MaxConnectionsPercent pulumi.IntPtrInput `pulumi:"maxConnectionsPercent"`
+	// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	MaxIdleConnectionsPercent pulumi.IntPtrInput `pulumi:"maxIdleConnectionsPercent"`
+	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+	SessionPinningFilters pulumi.StringArrayInput `pulumi:"sessionPinningFilters"`
+}
+
+func (ProxyDefaultTargetGroupConnectionPoolConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfig)(nil)).Elem()
+}
+
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigOutput() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return i.ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(context.Background())
+}
+
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupConnectionPoolConfigOutput)
+}
+
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return i.ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProxyDefaultTargetGroupConnectionPoolConfigArgs) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupConnectionPoolConfigOutput).ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx)
+}
+
+// ProxyDefaultTargetGroupConnectionPoolConfigPtrInput is an input type that accepts ProxyDefaultTargetGroupConnectionPoolConfigArgs, ProxyDefaultTargetGroupConnectionPoolConfigPtr and ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput values.
+// You can construct a concrete instance of `ProxyDefaultTargetGroupConnectionPoolConfigPtrInput` via:
+//
+//          ProxyDefaultTargetGroupConnectionPoolConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ProxyDefaultTargetGroupConnectionPoolConfigPtrInput interface {
+	pulumi.Input
+
+	ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput
+	ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput
+}
+
+type proxyDefaultTargetGroupConnectionPoolConfigPtrType ProxyDefaultTargetGroupConnectionPoolConfigArgs
+
+func ProxyDefaultTargetGroupConnectionPoolConfigPtr(v *ProxyDefaultTargetGroupConnectionPoolConfigArgs) ProxyDefaultTargetGroupConnectionPoolConfigPtrInput {
+	return (*proxyDefaultTargetGroupConnectionPoolConfigPtrType)(v)
+}
+
+func (*proxyDefaultTargetGroupConnectionPoolConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyDefaultTargetGroupConnectionPoolConfig)(nil)).Elem()
+}
+
+func (i *proxyDefaultTargetGroupConnectionPoolConfigPtrType) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return i.ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *proxyDefaultTargetGroupConnectionPoolConfigPtrType) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
+}
+
+type ProxyDefaultTargetGroupConnectionPoolConfigOutput struct{ *pulumi.OutputState }
+
+func (ProxyDefaultTargetGroupConnectionPoolConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfig)(nil)).Elem()
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigOutput() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o.ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *ProxyDefaultTargetGroupConnectionPoolConfig {
+		return &v
+	}).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
+}
+
+// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.ConnectionBorrowTimeout }).(pulumi.IntPtrOutput)
+}
+
+// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) InitQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *string { return v.InitQuery }).(pulumi.StringPtrOutput)
+}
+
+// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.MaxConnectionsPercent }).(pulumi.IntPtrOutput)
+}
+
+// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.MaxIdleConnectionsPercent }).(pulumi.IntPtrOutput)
+}
+
+// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) SessionPinningFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) []string { return v.SessionPinningFilters }).(pulumi.StringArrayOutput)
+}
+
+type ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyDefaultTargetGroupConnectionPoolConfig)(nil)).Elem()
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutput() ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
+	return o
+}
+
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) Elem() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) ProxyDefaultTargetGroupConnectionPoolConfig {
+		return *v
+	}).(ProxyDefaultTargetGroupConnectionPoolConfigOutput)
+}
+
+// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionBorrowTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) InitQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InitQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConnectionsPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleConnectionsPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) SessionPinningFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionPinningFilters
+	}).(pulumi.StringArrayOutput)
+}
+
 type SecurityGroupIngress struct {
 	// The CIDR block to accept
 	Cidr *string `pulumi:"cidr"`
@@ -1497,6 +1706,8 @@ func init() {
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProxyAuthOutput{})
 	pulumi.RegisterOutputType(ProxyAuthArrayOutput{})
+	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigOutput{})
+	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
 }

@@ -22,7 +22,7 @@ type Proxy struct {
 	DebugLogging pulumi.BoolPtrOutput `pulumi:"debugLogging"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. Currently, this value is always `MYSQL`. The engine family applies to both RDS MySQL and Aurora MySQL.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
 	EngineFamily pulumi.StringOutput `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout pulumi.IntOutput `pulumi:"idleClientTimeout"`
@@ -89,7 +89,7 @@ type proxyState struct {
 	DebugLogging *bool `pulumi:"debugLogging"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint *string `pulumi:"endpoint"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. Currently, this value is always `MYSQL`. The engine family applies to both RDS MySQL and Aurora MySQL.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
 	EngineFamily *string `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
@@ -117,7 +117,7 @@ type ProxyState struct {
 	DebugLogging pulumi.BoolPtrInput
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringPtrInput
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. Currently, this value is always `MYSQL`. The engine family applies to both RDS MySQL and Aurora MySQL.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
 	EngineFamily pulumi.StringPtrInput
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout pulumi.IntPtrInput
@@ -145,7 +145,7 @@ type proxyArgs struct {
 	Auths []ProxyAuth `pulumi:"auths"`
 	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. Currently, this value is always `MYSQL`. The engine family applies to both RDS MySQL and Aurora MySQL.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
 	EngineFamily string `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
@@ -170,7 +170,7 @@ type ProxyArgs struct {
 	Auths ProxyAuthArrayInput
 	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
 	DebugLogging pulumi.BoolPtrInput
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. Currently, this value is always `MYSQL`. The engine family applies to both RDS MySQL and Aurora MySQL.
+	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
 	EngineFamily pulumi.StringInput
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 	IdleClientTimeout pulumi.IntPtrInput

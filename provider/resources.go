@@ -1804,7 +1804,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_db_proxy": {Tok: awsResource(rdsMod, "Proxy")},
+			"aws_db_proxy":                      {Tok: awsResource(rdsMod, "Proxy")},
+			"aws_db_proxy_default_target_group": {Tok: awsResource(rdsMod, "ProxyDefaultTargetGroup")},
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_event_subscription": {Tok: awsResource(redshiftMod, "EventSubscription")},
