@@ -2,13 +2,16 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.3.0 (2020-09-19)
 * Add gov regions for east (us-gov-east-1) and west (us-gov-west-1)
 * Enforce `appsync.DataSource` to adhere to AWS naming conventions of not using `-` in names.
 * Upgrade to pulumi-terraform-bridge v2.9.2
 * Upgrade to Pulumi v2.10.1
 * Upgrade to v3.6.0 of the AWS Terraform Provider 
-
----
 
 ## 3.2.1 (2020-08-26)
 * Upgrade to pulumi-terraform-bridge v2.7.3
