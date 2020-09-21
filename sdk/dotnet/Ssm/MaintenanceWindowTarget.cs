@@ -78,8 +78,7 @@ namespace Pulumi.Aws.Ssm
     ///                     Key = "resource-groups:ResourceTypeFilters",
     ///                     Values = 
     ///                     {
-    ///                         "AWS::EC2::INSTANCE",
-    ///                         "AWS::EC2::VPC",
+    ///                         "AWS::EC2::Instance",
     ///                     },
     ///                 },
     ///             },

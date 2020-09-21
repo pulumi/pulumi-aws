@@ -3118,12 +3118,20 @@ class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions(dict):
 @pulumi.output_type
 class FirehoseDeliveryStreamServerSideEncryption(dict):
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 key_arn: Optional[str] = None,
+                 key_type: Optional[str] = None):
         """
         :param bool enabled: Whether to enable encryption at rest. Default is `false`.
+        :param str key_arn: Amazon Resource Name (ARN) of the encryption key. Required when `kms_key_type` is `CUSTOMER_MANAGED_CMK`.
+        :param str key_type: Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if key_arn is not None:
+            pulumi.set(__self__, "key_arn", key_arn)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
 
     @property
     @pulumi.getter
@@ -3132,6 +3140,22 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
         Whether to enable encryption at rest. Default is `false`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the encryption key. Required when `kms_key_type` is `CUSTOMER_MANAGED_CMK`.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional[str]:
+        """
+        Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+        """
+        return pulumi.get(self, "key_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

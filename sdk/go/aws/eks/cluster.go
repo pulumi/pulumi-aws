@@ -40,6 +40,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "example_AmazonEKSVPCResourceController", &iam.RolePolicyAttachmentArgs{
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"),
+// 			Role:      example.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		return nil
 // 	})
 // }

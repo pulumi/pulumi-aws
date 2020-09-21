@@ -465,6 +465,7 @@ class ProviderEndpointArgs:
                  greengrass: Optional[pulumi.Input[str]] = None,
                  guardduty: Optional[pulumi.Input[str]] = None,
                  iam: Optional[pulumi.Input[str]] = None,
+                 identitystore: Optional[pulumi.Input[str]] = None,
                  imagebuilder: Optional[pulumi.Input[str]] = None,
                  inspector: Optional[pulumi.Input[str]] = None,
                  iot: Optional[pulumi.Input[str]] = None,
@@ -524,6 +525,7 @@ class ProviderEndpointArgs:
                  sns: Optional[pulumi.Input[str]] = None,
                  sqs: Optional[pulumi.Input[str]] = None,
                  ssm: Optional[pulumi.Input[str]] = None,
+                 ssoadmin: Optional[pulumi.Input[str]] = None,
                  stepfunctions: Optional[pulumi.Input[str]] = None,
                  storagegateway: Optional[pulumi.Input[str]] = None,
                  sts: Optional[pulumi.Input[str]] = None,
@@ -671,6 +673,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "guardduty", guardduty)
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
+        if identitystore is not None:
+            pulumi.set(__self__, "identitystore", identitystore)
         if imagebuilder is not None:
             pulumi.set(__self__, "imagebuilder", imagebuilder)
         if inspector is not None:
@@ -789,6 +793,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "sqs", sqs)
         if ssm is not None:
             pulumi.set(__self__, "ssm", ssm)
+        if ssoadmin is not None:
+            pulumi.set(__self__, "ssoadmin", ssoadmin)
         if stepfunctions is not None:
             pulumi.set(__self__, "stepfunctions", stepfunctions)
         if storagegateway is not None:
@@ -1421,6 +1427,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def identitystore(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "identitystore")
+
+    @identitystore.setter
+    def identitystore(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identitystore", value)
+
+    @property
+    @pulumi.getter
     def imagebuilder(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "imagebuilder")
 
@@ -1949,6 +1964,15 @@ class ProviderEndpointArgs:
     @ssm.setter
     def ssm(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssm", value)
+
+    @property
+    @pulumi.getter
+    def ssoadmin(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ssoadmin")
+
+    @ssoadmin.setter
+    def ssoadmin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssoadmin", value)
 
     @property
     @pulumi.getter

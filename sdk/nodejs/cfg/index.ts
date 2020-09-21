@@ -9,4 +9,5 @@ export * from "./organizationCustomRule";
 export * from "./organizationManagedRule";
 export * from "./recorder";
 export * from "./recorderStatus";
+export * from "./remediationConfiguration";
 export * from "./rule";

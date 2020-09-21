@@ -68,7 +68,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[str] developer_provider_name: The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[str] identity_pool_name: The Cognito Identity Pool name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] openid_connect_provider_arns: A list of OpendID Connect provider ARNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Identity Pool.
@@ -133,7 +133,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[str] developer_provider_name: The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[str] identity_pool_name: The Cognito Identity Pool name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] openid_connect_provider_arns: A list of OpendID Connect provider ARNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Identity Pool.
@@ -198,7 +198,7 @@ class IdentityPool(pulumi.CustomResource):
     @pulumi.getter(name="openidConnectProviderArns")
     def openid_connect_provider_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of OpendID Connect provider ARNs.
+        Set of OpendID Connect provider ARNs.
         """
         return pulumi.get(self, "openid_connect_provider_arns")
 

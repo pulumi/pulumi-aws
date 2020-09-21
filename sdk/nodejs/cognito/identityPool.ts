@@ -91,7 +91,7 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly identityPoolName!: pulumi.Output<string>;
     /**
-     * A list of OpendID Connect provider ARNs.
+     * Set of OpendID Connect provider ARNs.
      */
     public readonly openidConnectProviderArns!: pulumi.Output<string[] | undefined>;
     /**
@@ -180,7 +180,7 @@ export interface IdentityPoolState {
      */
     readonly identityPoolName?: pulumi.Input<string>;
     /**
-     * A list of OpendID Connect provider ARNs.
+     * Set of OpendID Connect provider ARNs.
      */
     readonly openidConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -219,7 +219,7 @@ export interface IdentityPoolArgs {
      */
     readonly identityPoolName: pulumi.Input<string>;
     /**
-     * A list of OpendID Connect provider ARNs.
+     * Set of OpendID Connect provider ARNs.
      */
     readonly openidConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

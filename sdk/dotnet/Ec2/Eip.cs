@@ -177,6 +177,9 @@ namespace Pulumi.Aws.Ec2
         [Output("customerOwnedIpv4Pool")]
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
@@ -223,7 +226,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIpv4Pool { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -316,7 +319,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -363,6 +366,9 @@ namespace Pulumi.Aws.Ec2
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
+        /// <summary>
+        /// Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
@@ -412,7 +418,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
         /// </summary>
         public InputMap<string> Tags
         {

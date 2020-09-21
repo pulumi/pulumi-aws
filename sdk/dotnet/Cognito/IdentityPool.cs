@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> IdentityPoolName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of OpendID Connect provider ARNs.
+        /// Set of OpendID Connect provider ARNs.
         /// </summary>
         [Output("openidConnectProviderArns")]
         public Output<ImmutableArray<string>> OpenidConnectProviderArns { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _openidConnectProviderArns;
 
         /// <summary>
-        /// A list of OpendID Connect provider ARNs.
+        /// Set of OpendID Connect provider ARNs.
         /// </summary>
         public InputList<string> OpenidConnectProviderArns
         {
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _openidConnectProviderArns;
 
         /// <summary>
-        /// A list of OpendID Connect provider ARNs.
+        /// Set of OpendID Connect provider ARNs.
         /// </summary>
         public InputList<string> OpenidConnectProviderArns
         {

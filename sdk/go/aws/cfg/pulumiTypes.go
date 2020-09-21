@@ -682,6 +682,121 @@ func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+type RemediationConfigurationParameter struct {
+	// The name of the attribute.
+	Name string `pulumi:"name"`
+	// The value is dynamic and changes at run-time.
+	ResourceValue *string `pulumi:"resourceValue"`
+	// The value is static and does not change at run-time.
+	StaticValue *string `pulumi:"staticValue"`
+}
+
+// RemediationConfigurationParameterInput is an input type that accepts RemediationConfigurationParameterArgs and RemediationConfigurationParameterOutput values.
+// You can construct a concrete instance of `RemediationConfigurationParameterInput` via:
+//
+//          RemediationConfigurationParameterArgs{...}
+type RemediationConfigurationParameterInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationParameterOutput() RemediationConfigurationParameterOutput
+	ToRemediationConfigurationParameterOutputWithContext(context.Context) RemediationConfigurationParameterOutput
+}
+
+type RemediationConfigurationParameterArgs struct {
+	// The name of the attribute.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value is dynamic and changes at run-time.
+	ResourceValue pulumi.StringPtrInput `pulumi:"resourceValue"`
+	// The value is static and does not change at run-time.
+	StaticValue pulumi.StringPtrInput `pulumi:"staticValue"`
+}
+
+func (RemediationConfigurationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationParameter)(nil)).Elem()
+}
+
+func (i RemediationConfigurationParameterArgs) ToRemediationConfigurationParameterOutput() RemediationConfigurationParameterOutput {
+	return i.ToRemediationConfigurationParameterOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationParameterArgs) ToRemediationConfigurationParameterOutputWithContext(ctx context.Context) RemediationConfigurationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationParameterOutput)
+}
+
+// RemediationConfigurationParameterArrayInput is an input type that accepts RemediationConfigurationParameterArray and RemediationConfigurationParameterArrayOutput values.
+// You can construct a concrete instance of `RemediationConfigurationParameterArrayInput` via:
+//
+//          RemediationConfigurationParameterArray{ RemediationConfigurationParameterArgs{...} }
+type RemediationConfigurationParameterArrayInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationParameterArrayOutput() RemediationConfigurationParameterArrayOutput
+	ToRemediationConfigurationParameterArrayOutputWithContext(context.Context) RemediationConfigurationParameterArrayOutput
+}
+
+type RemediationConfigurationParameterArray []RemediationConfigurationParameterInput
+
+func (RemediationConfigurationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemediationConfigurationParameter)(nil)).Elem()
+}
+
+func (i RemediationConfigurationParameterArray) ToRemediationConfigurationParameterArrayOutput() RemediationConfigurationParameterArrayOutput {
+	return i.ToRemediationConfigurationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationParameterArray) ToRemediationConfigurationParameterArrayOutputWithContext(ctx context.Context) RemediationConfigurationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationParameterArrayOutput)
+}
+
+type RemediationConfigurationParameterOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationParameter)(nil)).Elem()
+}
+
+func (o RemediationConfigurationParameterOutput) ToRemediationConfigurationParameterOutput() RemediationConfigurationParameterOutput {
+	return o
+}
+
+func (o RemediationConfigurationParameterOutput) ToRemediationConfigurationParameterOutputWithContext(ctx context.Context) RemediationConfigurationParameterOutput {
+	return o
+}
+
+// The name of the attribute.
+func (o RemediationConfigurationParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationConfigurationParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value is dynamic and changes at run-time.
+func (o RemediationConfigurationParameterOutput) ResourceValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationParameter) *string { return v.ResourceValue }).(pulumi.StringPtrOutput)
+}
+
+// The value is static and does not change at run-time.
+func (o RemediationConfigurationParameterOutput) StaticValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationParameter) *string { return v.StaticValue }).(pulumi.StringPtrOutput)
+}
+
+type RemediationConfigurationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemediationConfigurationParameter)(nil)).Elem()
+}
+
+func (o RemediationConfigurationParameterArrayOutput) ToRemediationConfigurationParameterArrayOutput() RemediationConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o RemediationConfigurationParameterArrayOutput) ToRemediationConfigurationParameterArrayOutputWithContext(ctx context.Context) RemediationConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o RemediationConfigurationParameterArrayOutput) Index(i pulumi.IntInput) RemediationConfigurationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemediationConfigurationParameter {
+		return vs[0].([]RemediationConfigurationParameter)[vs[1].(int)]
+	}).(RemediationConfigurationParameterOutput)
+}
+
 type RuleScope struct {
 	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
 	// If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
@@ -1185,6 +1300,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryChannelSnapshotDeliveryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupPtrOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationParameterOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(RuleScopeOutput{})
 	pulumi.RegisterOutputType(RuleScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleSourceOutput{})

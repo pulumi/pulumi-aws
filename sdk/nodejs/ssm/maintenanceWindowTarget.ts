@@ -48,10 +48,7 @@ import * as utilities from "../utilities";
  *     resourceType: "RESOURCE_GROUP",
  *     targets: [{
  *         key: "resource-groups:ResourceTypeFilters",
- *         values: [
- *             "AWS::EC2::INSTANCE",
- *             "AWS::EC2::VPC",
- *         ],
+ *         values: ["AWS::EC2::Instance"],
  *     }],
  * });
  * ```
