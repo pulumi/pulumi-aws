@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure default values for codebuild project are the correct schema type
 
 ---
 

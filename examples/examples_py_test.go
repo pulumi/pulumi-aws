@@ -77,6 +77,16 @@ func TestAccAlbNewPy(t *testing.T) {
 	}
 }
 
+func TestAccCodeBuildProjectPy(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "codebuild-project-py"),
+			RunUpdateTest: false,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	base := getBaseOptions()
