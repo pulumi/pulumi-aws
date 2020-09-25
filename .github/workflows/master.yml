@@ -140,7 +140,7 @@ jobs:
   publish:
     name: publish
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
@@ -350,6 +350,7 @@ name: master
   push:
     branches:
     - master
+    - feature/**
     paths-ignore:
     - CHANGELOG.md
     tags-ignore:
