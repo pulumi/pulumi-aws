@@ -114,7 +114,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly glueVersion!: pulumi.Output<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     public readonly maxCapacity!: pulumi.Output<number>;
     /**
@@ -125,6 +125,10 @@ export class Job extends pulumi.CustomResource {
      * The name you assign to this job. It must be unique in your account.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Non-overridable arguments for this job, specified as name-value pairs.
+     */
+    public readonly nonOverridableArguments!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Notification property of the job. Defined below.
      */
@@ -176,6 +180,7 @@ export class Job extends pulumi.CustomResource {
             inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["maxRetries"] = state ? state.maxRetries : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["nonOverridableArguments"] = state ? state.nonOverridableArguments : undefined;
             inputs["notificationProperty"] = state ? state.notificationProperty : undefined;
             inputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -200,6 +205,7 @@ export class Job extends pulumi.CustomResource {
             inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["nonOverridableArguments"] = args ? args.nonOverridableArguments : undefined;
             inputs["notificationProperty"] = args ? args.notificationProperty : undefined;
             inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
@@ -253,7 +259,7 @@ export interface JobState {
      */
     readonly glueVersion?: pulumi.Input<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     readonly maxCapacity?: pulumi.Input<number>;
     /**
@@ -264,6 +270,10 @@ export interface JobState {
      * The name you assign to this job. It must be unique in your account.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Non-overridable arguments for this job, specified as name-value pairs.
+     */
+    readonly nonOverridableArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Notification property of the job. Defined below.
      */
@@ -323,7 +333,7 @@ export interface JobArgs {
      */
     readonly glueVersion?: pulumi.Input<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     readonly maxCapacity?: pulumi.Input<number>;
     /**
@@ -334,6 +344,10 @@ export interface JobArgs {
      * The name you assign to this job. It must be unique in your account.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Non-overridable arguments for this job, specified as name-value pairs.
+     */
+    readonly nonOverridableArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Notification property of the job. Defined below.
      */

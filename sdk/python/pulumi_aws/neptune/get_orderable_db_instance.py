@@ -97,7 +97,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> Optional[str]:
         return pulumi.get(self, "engine")
 
     @property
@@ -120,7 +120,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> str:
+    def license_model(self) -> Optional[str]:
         return pulumi.get(self, "license_model")
 
     @property
@@ -292,24 +292,21 @@ def get_orderable_db_instance(engine: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.neptune.get_orderable_db_instance(engine="neptune",
-        engine_version="1.0.3.0",
-        license_model="amazon-license",
+    test = aws.neptune.get_orderable_db_instance(engine_version="1.0.3.0",
         preferred_instance_classes=[
             "db.r5.large",
             "db.r4.large",
             "db.t3.medium",
-        ],
-        storage_type="aurora")
+        ])
     ```
 
 
-    :param str engine: DB engine. Engine values include `neptune`.
+    :param str engine: DB engine. (Default: `neptune`)
     :param str engine_version: Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
     :param str instance_class: DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
-    :param str license_model: License model. For example, `amazon-license`.
+    :param str license_model: License model. (Default: `amazon-license`)
     :param Sequence[str] preferred_instance_classes: Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param bool vpc: Boolean that indicates whether to show only VPC or non-VPC offerings.
+    :param bool vpc: Enable to show only VPC offerings.
     """
     __args__ = dict()
     __args__['engine'] = engine

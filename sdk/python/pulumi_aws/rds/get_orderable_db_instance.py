@@ -346,7 +346,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
                               vpc: Optional[bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableDbInstanceResult:
     """
-    Information about RDS orderable DB instances.
+    Information about RDS orderable DB instances and valid parameter combinations.
 
     ## Example Usage
 
@@ -365,12 +365,33 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
         storage_type="standard")
     ```
 
+    Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.rds.get_orderable_db_instance(engine="mysql",
+        license_model="general-public-license",
+        preferred_engine_versions=[
+            "5.6.35",
+            "5.6.41",
+            "5.6.44",
+        ],
+        preferred_instance_classes=[
+            "db.t2.small",
+            "db.t3.medium",
+            "db.t3.large",
+        ])
+    ```
+
 
     :param str availability_zone_group: Availability zone group.
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param str engine_version: Version of the DB engine.
+    :param str engine_version: Version of the DB engine. If none is provided, the AWS-defined default version will be used.
     :param str instance_class: DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
     :param str license_model: License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+    :param Sequence[str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     :param Sequence[str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     :param str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
     :param bool supports_enhanced_monitoring: Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.

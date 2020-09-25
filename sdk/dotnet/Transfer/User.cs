@@ -88,6 +88,18 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> HomeDirectory { get; private set; } = null!;
 
         /// <summary>
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// </summary>
+        [Output("homeDirectoryMappings")]
+        public Output<ImmutableArray<Outputs.UserHomeDirectoryMapping>> HomeDirectoryMappings { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// </summary>
+        [Output("homeDirectoryType")]
+        public Output<string?> HomeDirectoryType { get; private set; } = null!;
+
+        /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
         [Output("policy")]
@@ -169,6 +181,24 @@ namespace Pulumi.Aws.Transfer
         [Input("homeDirectory")]
         public Input<string>? HomeDirectory { get; set; }
 
+        [Input("homeDirectoryMappings")]
+        private InputList<Inputs.UserHomeDirectoryMappingArgs>? _homeDirectoryMappings;
+
+        /// <summary>
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// </summary>
+        public InputList<Inputs.UserHomeDirectoryMappingArgs> HomeDirectoryMappings
+        {
+            get => _homeDirectoryMappings ?? (_homeDirectoryMappings = new InputList<Inputs.UserHomeDirectoryMappingArgs>());
+            set => _homeDirectoryMappings = value;
+        }
+
+        /// <summary>
+        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// </summary>
+        [Input("homeDirectoryType")]
+        public Input<string>? HomeDirectoryType { get; set; }
+
         /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
@@ -223,6 +253,24 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("homeDirectory")]
         public Input<string>? HomeDirectory { get; set; }
+
+        [Input("homeDirectoryMappings")]
+        private InputList<Inputs.UserHomeDirectoryMappingGetArgs>? _homeDirectoryMappings;
+
+        /// <summary>
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// </summary>
+        public InputList<Inputs.UserHomeDirectoryMappingGetArgs> HomeDirectoryMappings
+        {
+            get => _homeDirectoryMappings ?? (_homeDirectoryMappings = new InputList<Inputs.UserHomeDirectoryMappingGetArgs>());
+            set => _homeDirectoryMappings = value;
+        }
+
+        /// <summary>
+        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// </summary>
+        [Input("homeDirectoryType")]
+        public Input<string>? HomeDirectoryType { get; set; }
 
         /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.

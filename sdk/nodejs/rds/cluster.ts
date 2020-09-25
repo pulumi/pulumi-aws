@@ -139,6 +139,10 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+     */
+    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
     public readonly applyImmediately!: pulumi.Output<boolean>;
@@ -313,6 +317,7 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            inputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
@@ -356,6 +361,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
+            inputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             inputs["backtrackWindow"] = args ? args.backtrackWindow : undefined;
@@ -413,6 +419,10 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+     */
+    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
@@ -581,6 +591,10 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+     */
+    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */

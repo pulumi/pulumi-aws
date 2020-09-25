@@ -27,7 +27,8 @@ import * as utilities from "../utilities";
  * }, { async: true }));
  * ```
  */
-export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
+export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -50,27 +51,27 @@ export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: 
  */
 export interface GetOrderableDbInstanceArgs {
     /**
-     * DB engine. Engine values include `docdb`.
+     * DB engine. Default: `docdb`
      */
-    readonly engine: string;
+    readonly engine?: string;
     /**
-     * Version of the DB engine. For example, `3.6.0`.
+     * Version of the DB engine.
      */
     readonly engineVersion?: string;
     /**
-     * DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`.
+     * DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
      */
     readonly instanceClass?: string;
     /**
-     * License model. Examples of license models are `general-public-license`, `na`, `bring-your-own-license`, and `amazon-license`.
+     * License model. Default: `na`
      */
     readonly licenseModel?: string;
     /**
-     * Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
      */
     readonly preferredInstanceClasses?: string[];
     /**
-     * Boolean that indicates whether to show only VPC or non-VPC offerings.
+     * Enable to show only VPC.
      */
     readonly vpc?: boolean;
 }
@@ -83,14 +84,14 @@ export interface GetOrderableDbInstanceResult {
      * Availability zones where the instance is available.
      */
     readonly availabilityZones: string[];
-    readonly engine: string;
+    readonly engine?: string;
     readonly engineVersion: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly instanceClass: string;
-    readonly licenseModel: string;
+    readonly licenseModel?: string;
     readonly preferredInstanceClasses?: string[];
     readonly vpc: boolean;
 }

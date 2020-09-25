@@ -135,6 +135,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
     /**
+     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     */
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
+    /**
      * The DNS name of the load balancer.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
@@ -203,6 +207,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     public /*out*/ readonly zoneId!: pulumi.Output<string>;
 
@@ -224,6 +229,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["accessLogs"] = state ? state.accessLogs : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
+            inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["dropInvalidHeaderFields"] = state ? state.dropInvalidHeaderFields : undefined;
             inputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
@@ -244,6 +250,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
             inputs["accessLogs"] = args ? args.accessLogs : undefined;
+            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             inputs["dropInvalidHeaderFields"] = args ? args.dropInvalidHeaderFields : undefined;
             inputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
             inputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
@@ -291,6 +298,10 @@ export interface LoadBalancerState {
      * The ARN suffix for use with CloudWatch Metrics.
      */
     readonly arnSuffix?: pulumi.Input<string>;
+    /**
+     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * The DNS name of the load balancer.
      */
@@ -360,6 +371,7 @@ export interface LoadBalancerState {
     readonly vpcId?: pulumi.Input<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     readonly zoneId?: pulumi.Input<string>;
 }
@@ -372,6 +384,10 @@ export interface LoadBalancerArgs {
      * An Access Logs block. Access Logs documented below.
      */
     readonly accessLogs?: pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerAccessLogs>;
+    /**
+     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */

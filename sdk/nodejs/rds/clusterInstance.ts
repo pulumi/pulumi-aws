@@ -132,7 +132,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<EngineType | undefined>;
     /**
-     * The database engine version.
+     * The database engine version
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -354,7 +354,7 @@ export interface ClusterInstanceState {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine version.
+     * The database engine version
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -475,7 +475,7 @@ export interface ClusterInstanceArgs {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine version.
+     * The database engine version
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**

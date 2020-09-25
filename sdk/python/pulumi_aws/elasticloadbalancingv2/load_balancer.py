@@ -22,6 +22,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_logs: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -123,6 +124,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']] access_logs: An Access Logs block. Access Logs documented below.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
                This is a `network` load balancer feature. Defaults to `false`.
@@ -163,6 +165,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_logs'] = access_logs
+            __props__['customer_owned_ipv4_pool'] = customer_owned_ipv4_pool
             __props__['drop_invalid_header_fields'] = drop_invalid_header_fields
             __props__['enable_cross_zone_load_balancing'] = enable_cross_zone_load_balancing
             __props__['enable_deletion_protection'] = enable_deletion_protection
@@ -195,6 +198,7 @@ class LoadBalancer(pulumi.CustomResource):
             access_logs: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             arn_suffix: Optional[pulumi.Input[str]] = None,
+            customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
             enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
@@ -222,6 +226,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[str] arn: The ARN of the load balancer (matches `id`).
         :param pulumi.Input[str] arn_suffix: The ARN suffix for use with CloudWatch Metrics.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
         :param pulumi.Input[str] dns_name: The DNS name of the load balancer.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
@@ -244,6 +249,7 @@ class LoadBalancer(pulumi.CustomResource):
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+               * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -252,6 +258,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__["access_logs"] = access_logs
         __props__["arn"] = arn
         __props__["arn_suffix"] = arn_suffix
+        __props__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__["dns_name"] = dns_name
         __props__["drop_invalid_header_fields"] = drop_invalid_header_fields
         __props__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
@@ -294,6 +301,14 @@ class LoadBalancer(pulumi.CustomResource):
         The ARN suffix for use with CloudWatch Metrics.
         """
         return pulumi.get(self, "arn_suffix")
+
+    @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the customer owned ipv4 pool to use for this load balancer.
+        """
+        return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
     @pulumi.getter(name="dnsName")
@@ -431,6 +446,7 @@ class LoadBalancer(pulumi.CustomResource):
     def zone_id(self) -> pulumi.Output[str]:
         """
         The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+        * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         """
         return pulumi.get(self, "zone_id")
 

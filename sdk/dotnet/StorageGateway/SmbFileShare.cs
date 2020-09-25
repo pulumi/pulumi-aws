@@ -63,6 +63,12 @@ namespace Pulumi.Aws.StorageGateway
     public partial class SmbFileShare : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        /// </summary>
+        [Output("adminUserLists")]
+        public Output<ImmutableArray<string>> AdminUserLists { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the SMB File Share.
         /// </summary>
         [Output("arn")]
@@ -234,6 +240,18 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class SmbFileShareArgs : Pulumi.ResourceArgs
     {
+        [Input("adminUserLists")]
+        private InputList<string>? _adminUserLists;
+
+        /// <summary>
+        /// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        /// </summary>
+        public InputList<string> AdminUserLists
+        {
+            get => _adminUserLists ?? (_adminUserLists = new InputList<string>());
+            set => _adminUserLists = value;
+        }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         /// </summary>
@@ -367,6 +385,18 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class SmbFileShareState : Pulumi.ResourceArgs
     {
+        [Input("adminUserLists")]
+        private InputList<string>? _adminUserLists;
+
+        /// <summary>
+        /// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        /// </summary>
+        public InputList<string> AdminUserLists
+        {
+            get => _adminUserLists ?? (_adminUserLists = new InputList<string>());
+            set => _adminUserLists = value;
+        }
+
         /// <summary>
         /// Amazon Resource Name (ARN) of the SMB File Share.
         /// </summary>

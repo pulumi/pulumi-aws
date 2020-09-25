@@ -123,12 +123,14 @@ type Job struct {
 	ExecutionProperty JobExecutionPropertyOutput `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrOutput `pulumi:"maxRetries"`
 	// The name you assign to this job. It must be unique in your account.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Non-overridable arguments for this job, specified as name-value pairs.
+	NonOverridableArguments pulumi.StringMapOutput `pulumi:"nonOverridableArguments"`
 	// Notification property of the job. Defined below.
 	NotificationProperty JobNotificationPropertyOutput `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
@@ -193,12 +195,14 @@ type jobState struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries *int `pulumi:"maxRetries"`
 	// The name you assign to this job. It must be unique in your account.
 	Name *string `pulumi:"name"`
+	// Non-overridable arguments for this job, specified as name-value pairs.
+	NonOverridableArguments map[string]string `pulumi:"nonOverridableArguments"`
 	// Notification property of the job. Defined below.
 	NotificationProperty *JobNotificationProperty `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
@@ -230,12 +234,14 @@ type JobState struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64PtrInput
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrInput
 	// The name you assign to this job. It must be unique in your account.
 	Name pulumi.StringPtrInput
+	// Non-overridable arguments for this job, specified as name-value pairs.
+	NonOverridableArguments pulumi.StringMapInput
 	// Notification property of the job. Defined below.
 	NotificationProperty JobNotificationPropertyPtrInput
 	// The number of workers of a defined workerType that are allocated when a job runs.
@@ -269,12 +275,14 @@ type jobArgs struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries *int `pulumi:"maxRetries"`
 	// The name you assign to this job. It must be unique in your account.
 	Name *string `pulumi:"name"`
+	// Non-overridable arguments for this job, specified as name-value pairs.
+	NonOverridableArguments map[string]string `pulumi:"nonOverridableArguments"`
 	// Notification property of the job. Defined below.
 	NotificationProperty *JobNotificationProperty `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
@@ -305,12 +313,14 @@ type JobArgs struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64PtrInput
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrInput
 	// The name you assign to this job. It must be unique in your account.
 	Name pulumi.StringPtrInput
+	// Non-overridable arguments for this job, specified as name-value pairs.
+	NonOverridableArguments pulumi.StringMapInput
 	// Notification property of the job. Defined below.
 	NotificationProperty JobNotificationPropertyPtrInput
 	// The number of workers of a defined workerType that are allocated when a job runs.

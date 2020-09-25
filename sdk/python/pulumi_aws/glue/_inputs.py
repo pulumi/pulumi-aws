@@ -805,11 +805,19 @@ class CrawlerCatalogTargetArgs:
 @pulumi.input_type
 class CrawlerDynamodbTargetArgs:
     def __init__(__self__, *,
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 scan_all: Optional[pulumi.Input[bool]] = None,
+                 scan_rate: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
+        :param pulumi.Input[bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+        :param pulumi.Input[float] scan_rate: The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
         """
         pulumi.set(__self__, "path", path)
+        if scan_all is not None:
+            pulumi.set(__self__, "scan_all", scan_all)
+        if scan_rate is not None:
+            pulumi.set(__self__, "scan_rate", scan_rate)
 
     @property
     @pulumi.getter
@@ -822,6 +830,30 @@ class CrawlerDynamodbTargetArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="scanAll")
+    def scan_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+        """
+        return pulumi.get(self, "scan_all")
+
+    @scan_all.setter
+    def scan_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scan_all", value)
+
+    @property
+    @pulumi.getter(name="scanRate")
+    def scan_rate(self) -> Optional[pulumi.Input[float]]:
+        """
+        The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+        """
+        return pulumi.get(self, "scan_rate")
+
+    @scan_rate.setter
+    def scan_rate(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "scan_rate", value)
 
 
 @pulumi.input_type

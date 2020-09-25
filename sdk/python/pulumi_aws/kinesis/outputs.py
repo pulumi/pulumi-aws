@@ -3123,7 +3123,7 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
                  key_type: Optional[str] = None):
         """
         :param bool enabled: Whether to enable encryption at rest. Default is `false`.
-        :param str key_arn: Amazon Resource Name (ARN) of the encryption key. Required when `kms_key_type` is `CUSTOMER_MANAGED_CMK`.
+        :param str key_arn: Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
         :param str key_type: Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
         """
         if enabled is not None:
@@ -3145,7 +3145,7 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
         """
-        Amazon Resource Name (ARN) of the encryption key. Required when `kms_key_type` is `CUSTOMER_MANAGED_CMK`.
+        Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
         """
         return pulumi.get(self, "key_arn")
 

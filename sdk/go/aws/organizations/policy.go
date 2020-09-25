@@ -47,6 +47,8 @@ type Policy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The friendly name to assign to the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -90,6 +92,8 @@ type policyState struct {
 	Description *string `pulumi:"description"`
 	// The friendly name to assign to the policy.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
 	Type *string `pulumi:"type"`
 }
@@ -103,6 +107,8 @@ type PolicyState struct {
 	Description pulumi.StringPtrInput
 	// The friendly name to assign to the policy.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 	// The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
 	Type pulumi.StringPtrInput
 }
@@ -118,6 +124,8 @@ type policyArgs struct {
 	Description *string `pulumi:"description"`
 	// The friendly name to assign to the policy.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
 	Type *string `pulumi:"type"`
 }
@@ -130,6 +138,8 @@ type PolicyArgs struct {
 	Description pulumi.StringPtrInput
 	// The friendly name to assign to the policy.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 	// The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
 	Type pulumi.StringPtrInput
 }

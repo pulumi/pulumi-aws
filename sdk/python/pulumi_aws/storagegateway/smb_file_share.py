@@ -17,6 +17,7 @@ class SmbFileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
@@ -73,6 +74,7 @@ class SmbFileShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
@@ -109,6 +111,7 @@ class SmbFileShare(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['admin_user_lists'] = admin_user_lists
             __props__['audit_destination_arn'] = audit_destination_arn
             __props__['authentication'] = authentication
             __props__['cache_attributes'] = cache_attributes
@@ -146,6 +149,7 @@ class SmbFileShare(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
             authentication: Optional[pulumi.Input[str]] = None,
@@ -174,6 +178,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SMB File Share.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
@@ -200,6 +205,7 @@ class SmbFileShare(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["admin_user_lists"] = admin_user_lists
         __props__["arn"] = arn
         __props__["audit_destination_arn"] = audit_destination_arn
         __props__["authentication"] = authentication
@@ -222,6 +228,14 @@ class SmbFileShare(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["valid_user_lists"] = valid_user_lists
         return SmbFileShare(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="adminUserLists")
+    def admin_user_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        """
+        return pulumi.get(self, "admin_user_lists")
 
     @property
     @pulumi.getter

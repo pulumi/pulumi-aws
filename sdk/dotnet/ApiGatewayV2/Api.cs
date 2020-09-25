@@ -100,6 +100,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Whether clients can invoke the API by using the default `execute-api` endpoint.
+        /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
+        /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+        /// </summary>
+        [Output("disableExecuteApiEndpoint")]
+        public Output<bool?> DisableExecuteApiEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
@@ -231,6 +239,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Whether clients can invoke the API by using the default `execute-api` endpoint.
+        /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
+        /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+        /// </summary>
+        [Input("disableExecuteApiEndpoint")]
+        public Input<bool>? DisableExecuteApiEndpoint { get; set; }
+
+        /// <summary>
         /// The name of the API.
         /// </summary>
         [Input("name")]
@@ -331,6 +347,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Whether clients can invoke the API by using the default `execute-api` endpoint.
+        /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
+        /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+        /// </summary>
+        [Input("disableExecuteApiEndpoint")]
+        public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
         /// The ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute

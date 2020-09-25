@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Information about RDS orderable DB instances.
+ * Information about RDS orderable DB instances and valid parameter combinations.
  *
  * ## Example Usage
  *
@@ -25,6 +25,28 @@ import * as utilities from "../utilities";
  *         "db.t3.small",
  *     ],
  *     storageType: "standard",
+ * }, { async: true }));
+ * ```
+ *
+ * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = pulumi.output(aws.rds.getOrderableDbInstance({
+ *     engine: "mysql",
+ *     licenseModel: "general-public-license",
+ *     preferredEngineVersions: [
+ *         "5.6.35",
+ *         "5.6.41",
+ *         "5.6.44",
+ *     ],
+ *     preferredInstanceClasses: [
+ *         "db.t2.small",
+ *         "db.t3.medium",
+ *         "db.t3.large",
+ *     ],
  * }, { async: true }));
  * ```
  */
@@ -70,7 +92,7 @@ export interface GetOrderableDbInstanceArgs {
      */
     readonly engine: string;
     /**
-     * Version of the DB engine.
+     * Version of the DB engine. If none is provided, the AWS-defined default version will be used.
      */
     readonly engineVersion?: string;
     /**
@@ -81,6 +103,9 @@ export interface GetOrderableDbInstanceArgs {
      * License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
      */
     readonly licenseModel?: string;
+    /**
+     * Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     */
     readonly preferredEngineVersions?: string[];
     /**
      * Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.

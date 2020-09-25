@@ -45,6 +45,8 @@ type LustreFileSystem struct {
 
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+	AutomaticBackupRetentionDays pulumi.IntOutput `pulumi:"automaticBackupRetentionDays"`
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType pulumi.StringPtrOutput `pulumi:"deploymentType"`
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
@@ -55,7 +57,11 @@ type LustreFileSystem struct {
 	ImportPath pulumi.StringPtrOutput `pulumi:"importPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
 	ImportedFileChunkSize pulumi.IntOutput `pulumi:"importedFileChunkSize"`
-	// Set of Elastic Network Interface identifiers from which the file system is accessible.
+	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The value to be used when mounting the filesystem.
+	MountName pulumi.StringOutput `pulumi:"mountName"`
+	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -111,6 +117,8 @@ func GetLustreFileSystem(ctx *pulumi.Context,
 type lustreFileSystemState struct {
 	// Amazon Resource Name of the file system.
 	Arn *string `pulumi:"arn"`
+	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
@@ -121,7 +129,11 @@ type lustreFileSystemState struct {
 	ImportPath *string `pulumi:"importPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
-	// Set of Elastic Network Interface identifiers from which the file system is accessible.
+	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The value to be used when mounting the filesystem.
+	MountName *string `pulumi:"mountName"`
+	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
@@ -144,6 +156,8 @@ type lustreFileSystemState struct {
 type LustreFileSystemState struct {
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringPtrInput
+	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+	AutomaticBackupRetentionDays pulumi.IntPtrInput
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType pulumi.StringPtrInput
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
@@ -154,7 +168,11 @@ type LustreFileSystemState struct {
 	ImportPath pulumi.StringPtrInput
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
 	ImportedFileChunkSize pulumi.IntPtrInput
-	// Set of Elastic Network Interface identifiers from which the file system is accessible.
+	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+	KmsKeyId pulumi.StringPtrInput
+	// The value to be used when mounting the filesystem.
+	MountName pulumi.StringPtrInput
+	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
@@ -179,6 +197,8 @@ func (LustreFileSystemState) ElementType() reflect.Type {
 }
 
 type lustreFileSystemArgs struct {
+	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
@@ -187,6 +207,8 @@ type lustreFileSystemArgs struct {
 	ImportPath *string `pulumi:"importPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
+	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
 	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -203,6 +225,8 @@ type lustreFileSystemArgs struct {
 
 // The set of arguments for constructing a LustreFileSystem resource.
 type LustreFileSystemArgs struct {
+	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+	AutomaticBackupRetentionDays pulumi.IntPtrInput
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType pulumi.StringPtrInput
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
@@ -211,6 +235,8 @@ type LustreFileSystemArgs struct {
 	ImportPath pulumi.StringPtrInput
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
 	ImportedFileChunkSize pulumi.IntPtrInput
+	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+	KmsKeyId pulumi.StringPtrInput
 	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
 	PerUnitStorageThroughput pulumi.IntPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.

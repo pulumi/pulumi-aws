@@ -11,6 +11,7 @@ from .cluster_snapshot import *
 from .event_subscription import *
 from .get_cluster import *
 from .get_cluster_snapshot import *
+from .get_engine_version import *
 from .get_event_categories import *
 from .get_instance import *
 from .get_orderable_db_instance import *

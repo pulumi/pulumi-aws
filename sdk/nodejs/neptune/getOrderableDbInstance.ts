@@ -16,19 +16,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = pulumi.output(aws.neptune.getOrderableDbInstance({
- *     engine: "neptune",
  *     engineVersion: "1.0.3.0",
- *     licenseModel: "amazon-license",
  *     preferredInstanceClasses: [
  *         "db.r5.large",
  *         "db.r4.large",
  *         "db.t3.medium",
  *     ],
- *     storageType: "aurora",
  * }, { async: true }));
  * ```
  */
-export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
+export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -51,9 +49,9 @@ export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: 
  */
 export interface GetOrderableDbInstanceArgs {
     /**
-     * DB engine. Engine values include `neptune`.
+     * DB engine. (Default: `neptune`)
      */
-    readonly engine: string;
+    readonly engine?: string;
     /**
      * Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
      */
@@ -63,7 +61,7 @@ export interface GetOrderableDbInstanceArgs {
      */
     readonly instanceClass?: string;
     /**
-     * License model. For example, `amazon-license`.
+     * License model. (Default: `amazon-license`)
      */
     readonly licenseModel?: string;
     /**
@@ -71,7 +69,7 @@ export interface GetOrderableDbInstanceArgs {
      */
     readonly preferredInstanceClasses?: string[];
     /**
-     * Boolean that indicates whether to show only VPC or non-VPC offerings.
+     * Enable to show only VPC offerings.
      */
     readonly vpc?: boolean;
 }
@@ -84,14 +82,14 @@ export interface GetOrderableDbInstanceResult {
      * Availability zones where the instance is available.
      */
     readonly availabilityZones: string[];
-    readonly engine: string;
+    readonly engine?: string;
     readonly engineVersion: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly instanceClass: string;
-    readonly licenseModel: string;
+    readonly licenseModel?: string;
     /**
      * Maximum total provisioned IOPS for a DB instance.
      */

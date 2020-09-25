@@ -1773,6 +1773,7 @@ class LoadBalancerSubnetMappingArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  allocation_id: Optional[pulumi.Input[str]] = None,
+                 outpost_id: Optional[pulumi.Input[str]] = None,
                  private_ipv4_address: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] subnet_id: The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
@@ -1782,6 +1783,8 @@ class LoadBalancerSubnetMappingArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
+        if outpost_id is not None:
+            pulumi.set(__self__, "outpost_id", outpost_id)
         if private_ipv4_address is not None:
             pulumi.set(__self__, "private_ipv4_address", private_ipv4_address)
 
@@ -1808,6 +1811,15 @@ class LoadBalancerSubnetMappingArgs:
     @allocation_id.setter
     def allocation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "allocation_id", value)
+
+    @property
+    @pulumi.getter(name="outpostId")
+    def outpost_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outpost_id")
+
+    @outpost_id.setter
+    def outpost_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_id", value)
 
     @property
     @pulumi.getter(name="privateIpv4Address")

@@ -70,6 +70,8 @@ import (
 type SmbFileShare struct {
 	pulumi.CustomResourceState
 
+	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+	AdminUserLists pulumi.StringArrayOutput `pulumi:"adminUserLists"`
 	// Amazon Resource Name (ARN) of the SMB File Share.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
@@ -151,6 +153,8 @@ func GetSmbFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SmbFileShare resources.
 type smbFileShareState struct {
+	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+	AdminUserLists []string `pulumi:"adminUserLists"`
 	// Amazon Resource Name (ARN) of the SMB File Share.
 	Arn *string `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
@@ -196,6 +200,8 @@ type smbFileShareState struct {
 }
 
 type SmbFileShareState struct {
+	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+	AdminUserLists pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the SMB File Share.
 	Arn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
@@ -245,6 +251,8 @@ func (SmbFileShareState) ElementType() reflect.Type {
 }
 
 type smbFileShareArgs struct {
+	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+	AdminUserLists []string `pulumi:"adminUserLists"`
 	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
@@ -285,6 +293,8 @@ type smbFileShareArgs struct {
 
 // The set of arguments for constructing a SmbFileShare resource.
 type SmbFileShareArgs struct {
+	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+	AdminUserLists pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.

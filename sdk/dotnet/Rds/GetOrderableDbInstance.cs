@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Rds
     public static class GetOrderableDbInstance
     {
         /// <summary>
-        /// Information about RDS orderable DB instances.
+        /// Information about RDS orderable DB instances and valid parameter combinations.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -43,6 +43,38 @@ namespace Pulumi.Aws.Rds
         /// 
         /// }
         /// ```
+        /// 
+        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Rds.GetOrderableDbInstance.InvokeAsync(new Aws.Rds.GetOrderableDbInstanceArgs
+        ///         {
+        ///             Engine = "mysql",
+        ///             LicenseModel = "general-public-license",
+        ///             PreferredEngineVersions = 
+        ///             {
+        ///                 "5.6.35",
+        ///                 "5.6.41",
+        ///                 "5.6.44",
+        ///             },
+        ///             PreferredInstanceClasses = 
+        ///             {
+        ///                 "db.t2.small",
+        ///                 "db.t3.medium",
+        ///                 "db.t3.large",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -66,7 +98,7 @@ namespace Pulumi.Aws.Rds
         public string Engine { get; set; } = null!;
 
         /// <summary>
-        /// Version of the DB engine.
+        /// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
         /// </summary>
         [Input("engineVersion")]
         public string? EngineVersion { get; set; }
@@ -85,6 +117,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("preferredEngineVersions")]
         private List<string>? _preferredEngineVersions;
+
+        /// <summary>
+        /// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
         public List<string> PreferredEngineVersions
         {
             get => _preferredEngineVersions ?? (_preferredEngineVersions = new List<string>());

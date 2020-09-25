@@ -467,7 +467,7 @@ class DomainLogPublishingOption(dict):
                  enabled: Optional[bool] = None):
         """
         :param str cloudwatch_log_group_arn: ARN of the Cloudwatch log group to which log needs to be published.
-        :param str log_type: A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+        :param str log_type: A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
         :param bool enabled: Specifies whether Amazon Cognito authentication with Kibana is enabled or not
         """
         pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
@@ -487,7 +487,7 @@ class DomainLogPublishingOption(dict):
     @pulumi.getter(name="logType")
     def log_type(self) -> str:
         """
-        A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+        A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
         """
         return pulumi.get(self, "log_type")
 

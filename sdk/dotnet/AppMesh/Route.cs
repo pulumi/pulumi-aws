@@ -175,10 +175,22 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> MeshName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        /// </summary>
+        [Output("meshOwner")]
+        public Output<string> MeshOwner { get; private set; } = null!;
+
+        /// <summary>
         /// The name to use for the route.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource owner's AWS account ID.
+        /// </summary>
+        [Output("resourceOwner")]
+        public Output<string> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
         /// The route specification to apply.
@@ -251,6 +263,12 @@ namespace Pulumi.Aws.AppMesh
         public Input<string> MeshName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        /// </summary>
+        [Input("meshOwner")]
+        public Input<string>? MeshOwner { get; set; }
+
+        /// <summary>
         /// The name to use for the route.
         /// </summary>
         [Input("name")]
@@ -312,10 +330,22 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? MeshName { get; set; }
 
         /// <summary>
+        /// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        /// </summary>
+        [Input("meshOwner")]
+        public Input<string>? MeshOwner { get; set; }
+
+        /// <summary>
         /// The name to use for the route.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The resource owner's AWS account ID.
+        /// </summary>
+        [Input("resourceOwner")]
+        public Input<string>? ResourceOwner { get; set; }
 
         /// <summary>
         /// The route specification to apply.

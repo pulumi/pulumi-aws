@@ -21,12 +21,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "3.6.0"
-// 		opt1 := "na"
+// 		opt0 := "docdb"
+// 		opt1 := "3.6.0"
+// 		opt2 := "na"
 // 		_, err := docdb.GetOrderableDbInstance(ctx, &docdb.GetOrderableDbInstanceArgs{
-// 			Engine:        "docdb",
-// 			EngineVersion: &opt0,
-// 			LicenseModel:  &opt1,
+// 			Engine:        &opt0,
+// 			EngineVersion: &opt1,
+// 			LicenseModel:  &opt2,
 // 			PreferredInstanceClasses: []string{
 // 				"db.r5.large",
 // 				"db.r4.large",
@@ -51,17 +52,17 @@ func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArg
 
 // A collection of arguments for invoking getOrderableDbInstance.
 type GetOrderableDbInstanceArgs struct {
-	// DB engine. Engine values include `docdb`.
-	Engine string `pulumi:"engine"`
-	// Version of the DB engine. For example, `3.6.0`.
+	// DB engine. Default: `docdb`
+	Engine *string `pulumi:"engine"`
+	// Version of the DB engine.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`.
+	// DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
 	InstanceClass *string `pulumi:"instanceClass"`
-	// License model. Examples of license models are `general-public-license`, `na`, `bring-your-own-license`, and `amazon-license`.
+	// License model. Default: `na`
 	LicenseModel *string `pulumi:"licenseModel"`
-	// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+	// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
-	// Boolean that indicates whether to show only VPC or non-VPC offerings.
+	// Enable to show only VPC.
 	Vpc *bool `pulumi:"vpc"`
 }
 
@@ -69,12 +70,12 @@ type GetOrderableDbInstanceArgs struct {
 type GetOrderableDbInstanceResult struct {
 	// Availability zones where the instance is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	Engine            string   `pulumi:"engine"`
+	Engine            *string  `pulumi:"engine"`
 	EngineVersion     string   `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                       string   `pulumi:"id"`
 	InstanceClass            string   `pulumi:"instanceClass"`
-	LicenseModel             string   `pulumi:"licenseModel"`
+	LicenseModel             *string  `pulumi:"licenseModel"`
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
 	Vpc                      bool     `pulumi:"vpc"`
 }

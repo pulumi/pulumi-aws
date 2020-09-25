@@ -97,7 +97,7 @@ class ClusterInstance(pulumi.CustomResource):
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The database engine version.
+        :param pulumi.Input[str] engine_version: The database engine version
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU
@@ -230,7 +230,7 @@ class ClusterInstance(pulumi.CustomResource):
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The database engine version.
+        :param pulumi.Input[str] engine_version: The database engine version
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU
@@ -394,7 +394,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         """
-        The database engine version.
+        The database engine version
         """
         return pulumi.get(self, "engine_version")
 

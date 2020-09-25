@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v3.8.0 of the AWS Terraform Provider
 * Ensure default values for codebuild project are the correct schema type
 
 ---

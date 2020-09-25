@@ -70,6 +70,10 @@ export class SmbFileShare extends pulumi.CustomResource {
     }
 
     /**
+     * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+     */
+    public readonly adminUserLists!: pulumi.Output<string[] | undefined>;
+    /**
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -166,6 +170,7 @@ export class SmbFileShare extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SmbFileShareState | undefined;
+            inputs["adminUserLists"] = state ? state.adminUserLists : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
             inputs["authentication"] = state ? state.authentication : undefined;
@@ -198,6 +203,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["adminUserLists"] = args ? args.adminUserLists : undefined;
             inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
             inputs["authentication"] = args ? args.authentication : undefined;
             inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
@@ -235,6 +241,10 @@ export class SmbFileShare extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SmbFileShare resources.
  */
 export interface SmbFileShareState {
+    /**
+     * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+     */
+    readonly adminUserLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
@@ -325,6 +335,10 @@ export interface SmbFileShareState {
  * The set of arguments for constructing a SmbFileShare resource.
  */
 export interface SmbFileShareArgs {
+    /**
+     * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+     */
+    readonly adminUserLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
      */

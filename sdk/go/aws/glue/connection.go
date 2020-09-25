@@ -48,7 +48,7 @@ type Connection struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties pulumi.StringMapOutput `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -97,7 +97,7 @@ type connectionState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -116,7 +116,7 @@ type ConnectionState struct {
 	CatalogId pulumi.StringPtrInput
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties pulumi.StringMapInput
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
@@ -137,7 +137,7 @@ type connectionArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -155,7 +155,7 @@ type ConnectionArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties pulumi.StringMapInput
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput

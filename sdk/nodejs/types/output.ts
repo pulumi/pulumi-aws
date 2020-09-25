@@ -450,6 +450,7 @@ export namespace alb {
 
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
+        outpostId: string;
         privateIpv4Address: string;
         subnetId: string;
     }
@@ -941,6 +942,7 @@ export namespace alb {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        outpostId: string;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
          */
@@ -1478,6 +1480,7 @@ export namespace applicationloadbalancing {
 
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
+        outpostId: string;
         privateIpv4Address: string;
         subnetId: string;
     }
@@ -1969,6 +1972,7 @@ export namespace applicationloadbalancing {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        outpostId: string;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
          */
@@ -9165,6 +9169,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
+        outpostId: string;
         privateIpv4Address: string;
         subnetId: string;
     }
@@ -9656,6 +9661,7 @@ export namespace elasticloadbalancingv2 {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        outpostId: string;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
          */
@@ -9874,7 +9880,7 @@ export namespace elasticsearch {
          */
         enabled?: boolean;
         /**
-         * A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+         * A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
          */
         logType: string;
     }
@@ -11425,6 +11431,14 @@ export namespace glue {
          * The name of the DynamoDB table to crawl.
          */
         path: string;
+        /**
+         * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+         */
+        scanAll?: boolean;
+        /**
+         * The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+         */
+        scanRate?: number;
     }
 
     export interface CrawlerJdbcTarget {
@@ -13398,7 +13412,7 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Amazon Resource Name (ARN) of the encryption key. Required when `kmsKeyType` is `CUSTOMER_MANAGED_CMK`.
+         * Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
          */
         keyArn?: string;
         /**
@@ -13717,6 +13731,7 @@ export namespace lb {
 
     export interface GetLoadBalancerSubnetMapping {
         allocationId: string;
+        outpostId: string;
         privateIpv4Address: string;
         subnetId: string;
     }
@@ -14208,6 +14223,7 @@ export namespace lb {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        outpostId: string;
         /**
          * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
          */
@@ -16839,9 +16855,32 @@ export namespace storagegateway {
 export namespace transfer {
     export interface ServerEndpointDetails {
         /**
-         * The ID of the VPC endpoint.
+         * A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
+         */
+        addressAllocationIds?: string[];
+        /**
+         * A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
+         */
+        subnetIds?: string[];
+        /**
+         * The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
          */
         vpcEndpointId: string;
+        /**
+         * The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+         */
+        vpcId?: string;
+    }
+
+    export interface UserHomeDirectoryMapping {
+        /**
+         * Represents an entry and a target.
+         */
+        entry: string;
+        /**
+         * Represents the map target.
+         */
+        target: string;
     }
 }
 

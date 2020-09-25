@@ -68,6 +68,7 @@ export interface GetLoadBalancerResult {
     readonly accessLogs: outputs.alb.GetLoadBalancerAccessLogs;
     readonly arn: string;
     readonly arnSuffix: string;
+    readonly customerOwnedIpv4Pool: string;
     readonly dnsName: string;
     readonly dropInvalidHeaderFields: boolean;
     readonly enableDeletionProtection: boolean;
