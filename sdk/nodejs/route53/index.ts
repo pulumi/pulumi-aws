@@ -12,6 +12,8 @@ export * from "./queryLog";
 export * from "./record";
 export * from "./recordType";
 export * from "./resolverEndpoint";
+export * from "./resolverQueryLogConfig";
+export * from "./resolverQueryLogConfigAssociation";
 export * from "./resolverRule";
 export * from "./resolverRuleAssociation";
 export * from "./vpcAssociationAuthorization";

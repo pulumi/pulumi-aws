@@ -776,7 +776,8 @@ func Provider() tfbridge.ProviderInfo {
 					"cloudwatch_log_group_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 				},
 			},
-			"aws_datasync_location_smb": {Tok: awsResource(datasyncMod, "LocationSmb")},
+			"aws_datasync_location_smb":         {Tok: awsResource(datasyncMod, "LocationSmb")},
+			"aws_datasync_location_fsx_windows": {Tok: awsResource(datasyncMod, "LocationFsxWindows")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
 			// Data Migration Service
@@ -1867,7 +1868,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
+			"aws_route53_health_check":              {Tok: awsResource(route53Mod, "HealthCheck")},
+			"aws_route53_resolver_query_log_config": {Tok: awsResource(route53Mod, "ResolverQueryLogConfig")},
+			"aws_route53_resolver_query_log_config_association": {
+				Tok: awsResource(route53Mod, "ResolverQueryLogConfigAssociation"),
+			},
 			// Sagemaker
 			"aws_sagemaker_endpoint":               {Tok: awsResource(sagemakerMod, "Endpoint")},
 			"aws_sagemaker_endpoint_configuration": {Tok: awsResource(sagemakerMod, "EndpointConfiguration")},
@@ -2410,6 +2415,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_snapshot":               {Tok: awsDataSource(rdsMod, "getSnapshot")},
 			"aws_db_subnet_group":           {Tok: awsDataSource(rdsMod, "getSubnetGroup")},
 			"aws_rds_orderable_db_instance": {Tok: awsDataSource(rdsMod, "getOrderableDbInstance")},
+			"aws_rds_engine_version":        {Tok: awsDataSource(rdsMod, "getEngineVersion")},
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift
@@ -2443,6 +2449,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Workspaces
 			"aws_workspaces_bundle":    {Tok: awsDataSource(workspacesMod, "getBundle")},
 			"aws_workspaces_directory": {Tok: awsDataSource(workspacesMod, "getDirectory")},
+			"aws_workspaces_image":     {Tok: awsDataSource(workspacesMod, "getImage")},
 			// MSK
 			"aws_msk_cluster": {Tok: awsDataSource(mskMod, "getCluster")},
 			// Service Quotas
@@ -2493,8 +2500,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_outposts_site":                   {Tok: awsDataSource(outpostsMod, "getSite")},
 			"aws_outposts_sites":                  {Tok: awsDataSource(outpostsMod, "getSites")},
 			"aws_docdb_orderable_db_instance":     {Tok: awsDataSource(docdbMod, "getOrderableDbInstance")},
+			"aws_docdb_engine_version":            {Tok: awsDataSource(docdbMod, "getEngineVersion")},
 			"aws_lex_slot_type":                   {Tok: awsDataSource(lexMod, "getSlotType")},
 			"aws_neptune_orderable_db_instance":   {Tok: awsDataSource(neptuneMod, "getOrderableDbInstance")},
+			"aws_neptune_engine_version":          {Tok: awsDataSource(neptuneMod, "getEngineVersion")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

@@ -65,8 +65,12 @@ type VirtualRouter struct {
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the virtual router.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// The name to use for the virtual router.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The resource owner's AWS account ID.
+	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpecOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource.
@@ -115,8 +119,12 @@ type virtualRouterState struct {
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the virtual router.
 	MeshName *string `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner *string `pulumi:"meshOwner"`
 	// The name to use for the virtual router.
 	Name *string `pulumi:"name"`
+	// The resource owner's AWS account ID.
+	ResourceOwner *string `pulumi:"resourceOwner"`
 	// The virtual router specification to apply.
 	Spec *VirtualRouterSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
@@ -132,8 +140,12 @@ type VirtualRouterState struct {
 	LastUpdatedDate pulumi.StringPtrInput
 	// The name of the service mesh in which to create the virtual router.
 	MeshName pulumi.StringPtrInput
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringPtrInput
 	// The name to use for the virtual router.
 	Name pulumi.StringPtrInput
+	// The resource owner's AWS account ID.
+	ResourceOwner pulumi.StringPtrInput
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpecPtrInput
 	// A map of tags to assign to the resource.
@@ -147,6 +159,8 @@ func (VirtualRouterState) ElementType() reflect.Type {
 type virtualRouterArgs struct {
 	// The name of the service mesh in which to create the virtual router.
 	MeshName string `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner *string `pulumi:"meshOwner"`
 	// The name to use for the virtual router.
 	Name *string `pulumi:"name"`
 	// The virtual router specification to apply.
@@ -159,6 +173,8 @@ type virtualRouterArgs struct {
 type VirtualRouterArgs struct {
 	// The name of the service mesh in which to create the virtual router.
 	MeshName pulumi.StringInput
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringPtrInput
 	// The name to use for the virtual router.
 	Name pulumi.StringPtrInput
 	// The virtual router specification to apply.

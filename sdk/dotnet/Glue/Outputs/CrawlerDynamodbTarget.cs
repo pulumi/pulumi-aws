@@ -17,11 +17,26 @@ namespace Pulumi.Aws.Glue.Outputs
         /// The name of the DynamoDB table to crawl.
         /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+        /// </summary>
+        public readonly bool? ScanAll;
+        /// <summary>
+        /// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+        /// </summary>
+        public readonly double? ScanRate;
 
         [OutputConstructor]
-        private CrawlerDynamodbTarget(string path)
+        private CrawlerDynamodbTarget(
+            string path,
+
+            bool? scanAll,
+
+            double? scanRate)
         {
             Path = path;
+            ScanAll = scanAll;
+            ScanRate = scanRate;
         }
     }
 }

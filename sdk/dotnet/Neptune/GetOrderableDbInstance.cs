@@ -28,16 +28,13 @@ namespace Pulumi.Aws.Neptune
         ///     {
         ///         var test = Output.Create(Aws.Neptune.GetOrderableDbInstance.InvokeAsync(new Aws.Neptune.GetOrderableDbInstanceArgs
         ///         {
-        ///             Engine = "neptune",
         ///             EngineVersion = "1.0.3.0",
-        ///             LicenseModel = "amazon-license",
         ///             PreferredInstanceClasses = 
         ///             {
         ///                 "db.r5.large",
         ///                 "db.r4.large",
         ///                 "db.t3.medium",
         ///             },
-        ///             StorageType = "aurora",
         ///         }));
         ///     }
         /// 
@@ -46,7 +43,7 @@ namespace Pulumi.Aws.Neptune
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs args, InvokeOptions? options = null)
+        public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithVersion());
     }
 
@@ -54,10 +51,10 @@ namespace Pulumi.Aws.Neptune
     public sealed class GetOrderableDbInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DB engine. Engine values include `neptune`.
+        /// DB engine. (Default: `neptune`)
         /// </summary>
-        [Input("engine", required: true)]
-        public string Engine { get; set; } = null!;
+        [Input("engine")]
+        public string? Engine { get; set; }
 
         /// <summary>
         /// Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
@@ -72,7 +69,7 @@ namespace Pulumi.Aws.Neptune
         public string? InstanceClass { get; set; }
 
         /// <summary>
-        /// License model. For example, `amazon-license`.
+        /// License model. (Default: `amazon-license`)
         /// </summary>
         [Input("licenseModel")]
         public string? LicenseModel { get; set; }
@@ -90,7 +87,7 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// Boolean that indicates whether to show only VPC or non-VPC offerings.
+        /// Enable to show only VPC offerings.
         /// </summary>
         [Input("vpc")]
         public bool? Vpc { get; set; }
@@ -108,14 +105,14 @@ namespace Pulumi.Aws.Neptune
         /// Availability zones where the instance is available.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
-        public readonly string Engine;
+        public readonly string? Engine;
         public readonly string EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string InstanceClass;
-        public readonly string LicenseModel;
+        public readonly string? LicenseModel;
         /// <summary>
         /// Maximum total provisioned IOPS for a DB instance.
         /// </summary>
@@ -179,7 +176,7 @@ namespace Pulumi.Aws.Neptune
         private GetOrderableDbInstanceResult(
             ImmutableArray<string> availabilityZones,
 
-            string engine,
+            string? engine,
 
             string engineVersion,
 
@@ -187,7 +184,7 @@ namespace Pulumi.Aws.Neptune
 
             string instanceClass,
 
-            string licenseModel,
+            string? licenseModel,
 
             int maxIopsPerDbInstance,
 

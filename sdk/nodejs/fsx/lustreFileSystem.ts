@@ -53,6 +53,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+     */
+    public readonly automaticBackupRetentionDays!: pulumi.Output<number>;
+    /**
      * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
      */
     public readonly deploymentType!: pulumi.Output<string | undefined>;
@@ -73,7 +77,15 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly importedFileChunkSize!: pulumi.Output<number>;
     /**
-     * Set of Elastic Network Interface identifiers from which the file system is accessible.
+     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+     */
+    public readonly kmsKeyId!: pulumi.Output<string>;
+    /**
+     * The value to be used when mounting the filesystem.
+     */
+    public /*out*/ readonly mountName!: pulumi.Output<string>;
+    /**
+     * Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
      */
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
@@ -122,11 +134,14 @@ export class LustreFileSystem extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as LustreFileSystemState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
             inputs["deploymentType"] = state ? state.deploymentType : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["exportPath"] = state ? state.exportPath : undefined;
             inputs["importPath"] = state ? state.importPath : undefined;
             inputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
+            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["mountName"] = state ? state.mountName : undefined;
             inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["perUnitStorageThroughput"] = state ? state.perUnitStorageThroughput : undefined;
@@ -144,10 +159,12 @@ export class LustreFileSystem extends pulumi.CustomResource {
             if (!args || args.subnetIds === undefined) {
                 throw new Error("Missing required property 'subnetIds'");
             }
+            inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
             inputs["deploymentType"] = args ? args.deploymentType : undefined;
             inputs["exportPath"] = args ? args.exportPath : undefined;
             inputs["importPath"] = args ? args.importPath : undefined;
             inputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
+            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
@@ -156,6 +173,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
+            inputs["mountName"] = undefined /*out*/;
             inputs["networkInterfaceIds"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
@@ -180,6 +198,10 @@ export interface LustreFileSystemState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+     */
+    readonly automaticBackupRetentionDays?: pulumi.Input<number>;
+    /**
      * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
      */
     readonly deploymentType?: pulumi.Input<string>;
@@ -200,7 +222,15 @@ export interface LustreFileSystemState {
      */
     readonly importedFileChunkSize?: pulumi.Input<number>;
     /**
-     * Set of Elastic Network Interface identifiers from which the file system is accessible.
+     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+     */
+    readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The value to be used when mounting the filesystem.
+     */
+    readonly mountName?: pulumi.Input<string>;
+    /**
+     * Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
      */
     readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -242,6 +272,10 @@ export interface LustreFileSystemState {
  */
 export interface LustreFileSystemArgs {
     /**
+     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+     */
+    readonly automaticBackupRetentionDays?: pulumi.Input<number>;
+    /**
      * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
      */
     readonly deploymentType?: pulumi.Input<string>;
@@ -257,6 +291,10 @@ export interface LustreFileSystemArgs {
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
      */
     readonly importedFileChunkSize?: pulumi.Input<number>;
+    /**
+     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+     */
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
      */

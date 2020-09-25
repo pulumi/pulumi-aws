@@ -1474,7 +1474,7 @@ type DomainLogPublishingOption struct {
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
 	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 	Enabled *bool `pulumi:"enabled"`
-	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
 	LogType string `pulumi:"logType"`
 }
 
@@ -1494,7 +1494,7 @@ type DomainLogPublishingOptionArgs struct {
 	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
 	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
 	LogType pulumi.StringInput `pulumi:"logType"`
 }
 
@@ -1559,7 +1559,7 @@ func (o DomainLogPublishingOptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
 func (o DomainLogPublishingOptionOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainLogPublishingOption) string { return v.LogType }).(pulumi.StringOutput)
 }

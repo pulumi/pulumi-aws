@@ -68,7 +68,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
+        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
@@ -129,7 +129,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Glue Connection.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
-        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
+        :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
@@ -177,7 +177,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
+        The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
         """
         return pulumi.get(self, "connection_type")
 

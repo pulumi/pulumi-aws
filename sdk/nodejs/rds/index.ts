@@ -12,6 +12,7 @@ export * from "./engineType";
 export * from "./eventSubscription";
 export * from "./getCluster";
 export * from "./getClusterSnapshot";
+export * from "./getEngineVersion";
 export * from "./getEventCategories";
 export * from "./getInstance";
 export * from "./getOrderableDbInstance";

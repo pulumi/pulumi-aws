@@ -670,11 +670,19 @@ class CrawlerCatalogTarget(dict):
 @pulumi.output_type
 class CrawlerDynamodbTarget(dict):
     def __init__(__self__, *,
-                 path: str):
+                 path: str,
+                 scan_all: Optional[bool] = None,
+                 scan_rate: Optional[float] = None):
         """
         :param str path: The name of the DynamoDB table to crawl.
+        :param bool scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+        :param float scan_rate: The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
         """
         pulumi.set(__self__, "path", path)
+        if scan_all is not None:
+            pulumi.set(__self__, "scan_all", scan_all)
+        if scan_rate is not None:
+            pulumi.set(__self__, "scan_rate", scan_rate)
 
     @property
     @pulumi.getter
@@ -683,6 +691,22 @@ class CrawlerDynamodbTarget(dict):
         The name of the DynamoDB table to crawl.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="scanAll")
+    def scan_all(self) -> Optional[bool]:
+        """
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+        """
+        return pulumi.get(self, "scan_all")
+
+    @property
+    @pulumi.getter(name="scanRate")
+    def scan_rate(self) -> Optional[float]:
+        """
+        The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+        """
+        return pulumi.get(self, "scan_rate")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

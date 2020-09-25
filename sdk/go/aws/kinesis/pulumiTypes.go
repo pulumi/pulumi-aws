@@ -10466,7 +10466,7 @@ func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput) 
 type FirehoseDeliveryStreamServerSideEncryption struct {
 	// Whether to enable encryption at rest. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// Amazon Resource Name (ARN) of the encryption key. Required when `kmsKeyType` is `CUSTOMER_MANAGED_CMK`.
+	// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 	KeyArn *string `pulumi:"keyArn"`
 	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
 	KeyType *string `pulumi:"keyType"`
@@ -10486,7 +10486,7 @@ type FirehoseDeliveryStreamServerSideEncryptionInput interface {
 type FirehoseDeliveryStreamServerSideEncryptionArgs struct {
 	// Whether to enable encryption at rest. Default is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Amazon Resource Name (ARN) of the encryption key. Required when `kmsKeyType` is `CUSTOMER_MANAGED_CMK`.
+	// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
 	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
 	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
@@ -10574,7 +10574,7 @@ func (o FirehoseDeliveryStreamServerSideEncryptionOutput) Enabled() pulumi.BoolP
 	return o.ApplyT(func(v FirehoseDeliveryStreamServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the encryption key. Required when `kmsKeyType` is `CUSTOMER_MANAGED_CMK`.
+// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 func (o FirehoseDeliveryStreamServerSideEncryptionOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamServerSideEncryption) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
@@ -10614,7 +10614,7 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the encryption key. Required when `kmsKeyType` is `CUSTOMER_MANAGED_CMK`.
+// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamServerSideEncryption) *string {
 		if v == nil {

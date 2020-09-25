@@ -67,6 +67,10 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of Glue Workflow
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
     public readonly defaultRunProperties!: pulumi.Output<{[key: string]: any} | undefined>;
@@ -75,9 +79,17 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+     */
+    public readonly maxConcurrentRuns!: pulumi.Output<number | undefined>;
+    /**
      * The name you assign to this workflow.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -91,14 +103,20 @@ export class Workflow extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as WorkflowState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultRunProperties"] = state ? state.defaultRunProperties : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["maxConcurrentRuns"] = state ? state.maxConcurrentRuns : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
             inputs["defaultRunProperties"] = args ? args.defaultRunProperties : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["maxConcurrentRuns"] = args ? args.maxConcurrentRuns : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -116,6 +134,10 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
+     * Amazon Resource Name (ARN) of Glue Workflow
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
     readonly defaultRunProperties?: pulumi.Input<{[key: string]: any}>;
@@ -124,9 +146,17 @@ export interface WorkflowState {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+     */
+    readonly maxConcurrentRuns?: pulumi.Input<number>;
+    /**
      * The name you assign to this workflow.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -142,7 +172,15 @@ export interface WorkflowArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+     */
+    readonly maxConcurrentRuns?: pulumi.Input<number>;
+    /**
      * The name you assign to this workflow.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

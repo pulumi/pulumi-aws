@@ -45,7 +45,7 @@ namespace Pulumi.Aws.DocDB
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs args, InvokeOptions? options = null)
+        public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithVersion());
     }
 
@@ -53,25 +53,25 @@ namespace Pulumi.Aws.DocDB
     public sealed class GetOrderableDbInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DB engine. Engine values include `docdb`.
+        /// DB engine. Default: `docdb`
         /// </summary>
-        [Input("engine", required: true)]
-        public string Engine { get; set; } = null!;
+        [Input("engine")]
+        public string? Engine { get; set; }
 
         /// <summary>
-        /// Version of the DB engine. For example, `3.6.0`.
+        /// Version of the DB engine.
         /// </summary>
         [Input("engineVersion")]
         public string? EngineVersion { get; set; }
 
         /// <summary>
-        /// DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`.
+        /// DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
         /// </summary>
         [Input("instanceClass")]
         public string? InstanceClass { get; set; }
 
         /// <summary>
-        /// License model. Examples of license models are `general-public-license`, `na`, `bring-your-own-license`, and `amazon-license`.
+        /// License model. Default: `na`
         /// </summary>
         [Input("licenseModel")]
         public string? LicenseModel { get; set; }
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.DocDB
         private List<string>? _preferredInstanceClasses;
 
         /// <summary>
-        /// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
         /// </summary>
         public List<string> PreferredInstanceClasses
         {
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// Boolean that indicates whether to show only VPC or non-VPC offerings.
+        /// Enable to show only VPC.
         /// </summary>
         [Input("vpc")]
         public bool? Vpc { get; set; }
@@ -107,14 +107,14 @@ namespace Pulumi.Aws.DocDB
         /// Availability zones where the instance is available.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
-        public readonly string Engine;
+        public readonly string? Engine;
         public readonly string EngineVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string InstanceClass;
-        public readonly string LicenseModel;
+        public readonly string? LicenseModel;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
         public readonly bool Vpc;
 
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.DocDB
         private GetOrderableDbInstanceResult(
             ImmutableArray<string> availabilityZones,
 
-            string engine,
+            string? engine,
 
             string engineVersion,
 
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.DocDB
 
             string instanceClass,
 
-            string licenseModel,
+            string? licenseModel,
 
             ImmutableArray<string> preferredInstanceClasses,
 

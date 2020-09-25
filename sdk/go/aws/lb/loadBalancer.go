@@ -87,6 +87,8 @@ type LoadBalancer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
+	// The ID of the customer owned ipv4 pool to use for this load balancer.
+	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// The DNS name of the load balancer.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -125,6 +127,7 @@ type LoadBalancer struct {
 	Tags  pulumi.StringMapOutput `pulumi:"tags"`
 	VpcId pulumi.StringOutput    `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
 
@@ -168,6 +171,8 @@ type loadBalancerState struct {
 	Arn *string `pulumi:"arn"`
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix *string `pulumi:"arnSuffix"`
+	// The ID of the customer owned ipv4 pool to use for this load balancer.
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// The DNS name of the load balancer.
 	DnsName *string `pulumi:"dnsName"`
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -206,6 +211,7 @@ type loadBalancerState struct {
 	Tags  map[string]string `pulumi:"tags"`
 	VpcId *string           `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	ZoneId *string `pulumi:"zoneId"`
 }
 
@@ -216,6 +222,8 @@ type LoadBalancerState struct {
 	Arn pulumi.StringPtrInput
 	// The ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringPtrInput
+	// The ID of the customer owned ipv4 pool to use for this load balancer.
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// The DNS name of the load balancer.
 	DnsName pulumi.StringPtrInput
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -254,6 +262,7 @@ type LoadBalancerState struct {
 	Tags  pulumi.StringMapInput
 	VpcId pulumi.StringPtrInput
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	ZoneId pulumi.StringPtrInput
 }
 
@@ -264,6 +273,8 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// An Access Logs block. Access Logs documented below.
 	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
+	// The ID of the customer owned ipv4 pool to use for this load balancer.
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
 	DropInvalidHeaderFields *bool `pulumi:"dropInvalidHeaderFields"`
 	// If true, cross-zone load balancing of the load balancer will be enabled.
@@ -304,6 +315,8 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// An Access Logs block. Access Logs documented below.
 	AccessLogs LoadBalancerAccessLogsPtrInput
+	// The ID of the customer owned ipv4 pool to use for this load balancer.
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
 	DropInvalidHeaderFields pulumi.BoolPtrInput
 	// If true, cross-zone load balancing of the load balancer will be enabled.

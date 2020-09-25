@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['User']
 
@@ -16,6 +18,8 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  home_directory: Optional[pulumi.Input[str]] = None,
+                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]]] = None,
+                 home_directory_type: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
@@ -74,6 +78,8 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        :param pulumi.Input[str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
@@ -98,6 +104,8 @@ class User(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['home_directory'] = home_directory
+            __props__['home_directory_mappings'] = home_directory_mappings
+            __props__['home_directory_type'] = home_directory_type
             __props__['policy'] = policy
             if role is None:
                 raise TypeError("Missing required property 'role'")
@@ -122,6 +130,8 @@ class User(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             home_directory: Optional[pulumi.Input[str]] = None,
+            home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]]] = None,
+            home_directory_type: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
@@ -136,6 +146,8 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer User
         :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        :param pulumi.Input[str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
@@ -148,6 +160,8 @@ class User(pulumi.CustomResource):
 
         __props__["arn"] = arn
         __props__["home_directory"] = home_directory
+        __props__["home_directory_mappings"] = home_directory_mappings
+        __props__["home_directory_type"] = home_directory_type
         __props__["policy"] = policy
         __props__["role"] = role
         __props__["server_id"] = server_id
@@ -170,6 +184,22 @@ class User(pulumi.CustomResource):
         The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
         """
         return pulumi.get(self, "home_directory")
+
+    @property
+    @pulumi.getter(name="homeDirectoryMappings")
+    def home_directory_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.UserHomeDirectoryMapping']]]:
+        """
+        Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        """
+        return pulumi.get(self, "home_directory_mappings")
+
+    @property
+    @pulumi.getter(name="homeDirectoryType")
+    def home_directory_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        """
+        return pulumi.get(self, "home_directory_type")
 
     @property
     @pulumi.getter

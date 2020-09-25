@@ -65,6 +65,7 @@ type LookupLoadBalancerResult struct {
 	AccessLogs               GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
 	Arn                      string                    `pulumi:"arn"`
 	ArnSuffix                string                    `pulumi:"arnSuffix"`
+	CustomerOwnedIpv4Pool    string                    `pulumi:"customerOwnedIpv4Pool"`
 	DnsName                  string                    `pulumi:"dnsName"`
 	DropInvalidHeaderFields  bool                      `pulumi:"dropInvalidHeaderFields"`
 	EnableDeletionProtection bool                      `pulumi:"enableDeletionProtection"`

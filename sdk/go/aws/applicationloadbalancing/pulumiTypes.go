@@ -4192,6 +4192,7 @@ func (o LoadBalancerAccessLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 type LoadBalancerSubnetMapping struct {
 	// The allocation ID of the Elastic IP address.
 	AllocationId *string `pulumi:"allocationId"`
+	OutpostId    *string `pulumi:"outpostId"`
 	// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
 	PrivateIpv4Address *string `pulumi:"privateIpv4Address"`
 	// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
@@ -4212,6 +4213,7 @@ type LoadBalancerSubnetMappingInput interface {
 type LoadBalancerSubnetMappingArgs struct {
 	// The allocation ID of the Elastic IP address.
 	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
+	OutpostId    pulumi.StringPtrInput `pulumi:"outpostId"`
 	// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
 	PrivateIpv4Address pulumi.StringPtrInput `pulumi:"privateIpv4Address"`
 	// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
@@ -4272,6 +4274,10 @@ func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutputWithCo
 // The allocation ID of the Elastic IP address.
 func (o LoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerSubnetMappingOutput) OutpostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.OutpostId }).(pulumi.StringPtrOutput)
 }
 
 // A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -5480,6 +5486,7 @@ func (o GetLoadBalancerAccessLogsOutput) Prefix() pulumi.StringOutput {
 
 type GetLoadBalancerSubnetMapping struct {
 	AllocationId       string `pulumi:"allocationId"`
+	OutpostId          string `pulumi:"outpostId"`
 	PrivateIpv4Address string `pulumi:"privateIpv4Address"`
 	SubnetId           string `pulumi:"subnetId"`
 }
@@ -5497,6 +5504,7 @@ type GetLoadBalancerSubnetMappingInput interface {
 
 type GetLoadBalancerSubnetMappingArgs struct {
 	AllocationId       pulumi.StringInput `pulumi:"allocationId"`
+	OutpostId          pulumi.StringInput `pulumi:"outpostId"`
 	PrivateIpv4Address pulumi.StringInput `pulumi:"privateIpv4Address"`
 	SubnetId           pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -5554,6 +5562,10 @@ func (o GetLoadBalancerSubnetMappingOutput) ToGetLoadBalancerSubnetMappingOutput
 
 func (o GetLoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) string { return v.AllocationId }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancerSubnetMappingOutput) OutpostId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerSubnetMapping) string { return v.OutpostId }).(pulumi.StringOutput)
 }
 
 func (o GetLoadBalancerSubnetMappingOutput) PrivateIpv4Address() pulumi.StringOutput {

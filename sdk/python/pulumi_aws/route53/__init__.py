@@ -12,6 +12,8 @@ from .health_check import *
 from .query_log import *
 from .record import *
 from .resolver_endpoint import *
+from .resolver_query_log_config import *
+from .resolver_query_log_config_association import *
 from .resolver_rule import *
 from .resolver_rule_association import *
 from .vpc_association_authorization import *

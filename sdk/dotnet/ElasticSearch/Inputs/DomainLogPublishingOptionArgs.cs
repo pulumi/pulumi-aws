@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+        /// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
         /// </summary>
         [Input("logType", required: true)]
         public Input<string> LogType { get; set; } = null!;

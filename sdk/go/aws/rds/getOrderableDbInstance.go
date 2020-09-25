@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Information about RDS orderable DB instances.
+// Information about RDS orderable DB instances and valid parameter combinations.
 //
 // ## Example Usage
 //
@@ -42,6 +42,41 @@ import (
 // 	})
 // }
 // ```
+//
+// Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "general-public-license"
+// 		_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+// 			Engine:       "mysql",
+// 			LicenseModel: &opt0,
+// 			PreferredEngineVersions: []string{
+// 				"5.6.35",
+// 				"5.6.41",
+// 				"5.6.44",
+// 			},
+// 			PreferredInstanceClasses: []string{
+// 				"db.t2.small",
+// 				"db.t3.medium",
+// 				"db.t3.large",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArgs, opts ...pulumi.InvokeOption) (*GetOrderableDbInstanceResult, error) {
 	var rv GetOrderableDbInstanceResult
 	err := ctx.Invoke("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args, &rv, opts...)
@@ -57,12 +92,13 @@ type GetOrderableDbInstanceArgs struct {
 	AvailabilityZoneGroup *string `pulumi:"availabilityZoneGroup"`
 	// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
 	Engine string `pulumi:"engine"`
-	// Version of the DB engine.
+	// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
 	InstanceClass *string `pulumi:"instanceClass"`
 	// License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
-	LicenseModel            *string  `pulumi:"licenseModel"`
+	LicenseModel *string `pulumi:"licenseModel"`
+	// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredEngineVersions []string `pulumi:"preferredEngineVersions"`
 	// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`

@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> GlueVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Output("maxCapacity")]
         public Output<double> MaxCapacity { get; private set; } = null!;
@@ -154,6 +154,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Non-overridable arguments for this job, specified as name-value pairs.
+        /// </summary>
+        [Output("nonOverridableArguments")]
+        public Output<ImmutableDictionary<string, string>?> NonOverridableArguments { get; private set; } = null!;
 
         /// <summary>
         /// Notification property of the job. Defined below.
@@ -292,7 +298,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -308,6 +314,18 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("nonOverridableArguments")]
+        private InputMap<string>? _nonOverridableArguments;
+
+        /// <summary>
+        /// Non-overridable arguments for this job, specified as name-value pairs.
+        /// </summary>
+        public InputMap<string> NonOverridableArguments
+        {
+            get => _nonOverridableArguments ?? (_nonOverridableArguments = new InputMap<string>());
+            set => _nonOverridableArguments = value;
+        }
 
         /// <summary>
         /// Notification property of the job. Defined below.
@@ -419,7 +437,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -435,6 +453,18 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("nonOverridableArguments")]
+        private InputMap<string>? _nonOverridableArguments;
+
+        /// <summary>
+        /// Non-overridable arguments for this job, specified as name-value pairs.
+        /// </summary>
+        public InputMap<string> NonOverridableArguments
+        {
+            get => _nonOverridableArguments ?? (_nonOverridableArguments = new InputMap<string>());
+            set => _nonOverridableArguments = value;
+        }
 
         /// <summary>
         /// Notification property of the job. Defined below.

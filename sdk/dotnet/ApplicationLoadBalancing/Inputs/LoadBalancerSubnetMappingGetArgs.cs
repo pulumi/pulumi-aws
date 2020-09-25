@@ -18,6 +18,9 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
+        [Input("outpostId")]
+        public Input<string>? OutpostId { get; set; }
+
         /// <summary>
         /// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
         /// </summary>

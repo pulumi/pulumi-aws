@@ -11,8 +11,14 @@ import (
 )
 
 type ServerEndpointDetails struct {
-	// The ID of the VPC endpoint.
-	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
+	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
+	// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // ServerEndpointDetailsInput is an input type that accepts ServerEndpointDetailsArgs and ServerEndpointDetailsOutput values.
@@ -27,8 +33,14 @@ type ServerEndpointDetailsInput interface {
 }
 
 type ServerEndpointDetailsArgs struct {
-	// The ID of the VPC endpoint.
-	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
+	AddressAllocationIds pulumi.StringArrayInput `pulumi:"addressAllocationIds"`
+	// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (ServerEndpointDetailsArgs) ElementType() reflect.Type {
@@ -108,9 +120,24 @@ func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext
 	}).(ServerEndpointDetailsPtrOutput)
 }
 
-// The ID of the VPC endpoint.
-func (o ServerEndpointDetailsOutput) VpcEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerEndpointDetails) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
+func (o ServerEndpointDetailsOutput) AddressAllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.AddressAllocationIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
+func (o ServerEndpointDetailsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
+func (o ServerEndpointDetailsOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+func (o ServerEndpointDetailsOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type ServerEndpointDetailsPtrOutput struct{ *pulumi.OutputState }
@@ -131,17 +158,155 @@ func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) ServerEndpointDetails { return *v }).(ServerEndpointDetailsOutput)
 }
 
-// The ID of the VPC endpoint.
+// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
+func (o ServerEndpointDetailsPtrOutput) AddressAllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressAllocationIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
+func (o ServerEndpointDetailsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
 func (o ServerEndpointDetailsPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.VpcEndpointId
+		return v.VpcEndpointId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserHomeDirectoryMapping struct {
+	// Represents an entry and a target.
+	Entry string `pulumi:"entry"`
+	// Represents the map target.
+	Target string `pulumi:"target"`
+}
+
+// UserHomeDirectoryMappingInput is an input type that accepts UserHomeDirectoryMappingArgs and UserHomeDirectoryMappingOutput values.
+// You can construct a concrete instance of `UserHomeDirectoryMappingInput` via:
+//
+//          UserHomeDirectoryMappingArgs{...}
+type UserHomeDirectoryMappingInput interface {
+	pulumi.Input
+
+	ToUserHomeDirectoryMappingOutput() UserHomeDirectoryMappingOutput
+	ToUserHomeDirectoryMappingOutputWithContext(context.Context) UserHomeDirectoryMappingOutput
+}
+
+type UserHomeDirectoryMappingArgs struct {
+	// Represents an entry and a target.
+	Entry pulumi.StringInput `pulumi:"entry"`
+	// Represents the map target.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (UserHomeDirectoryMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHomeDirectoryMapping)(nil)).Elem()
+}
+
+func (i UserHomeDirectoryMappingArgs) ToUserHomeDirectoryMappingOutput() UserHomeDirectoryMappingOutput {
+	return i.ToUserHomeDirectoryMappingOutputWithContext(context.Background())
+}
+
+func (i UserHomeDirectoryMappingArgs) ToUserHomeDirectoryMappingOutputWithContext(ctx context.Context) UserHomeDirectoryMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHomeDirectoryMappingOutput)
+}
+
+// UserHomeDirectoryMappingArrayInput is an input type that accepts UserHomeDirectoryMappingArray and UserHomeDirectoryMappingArrayOutput values.
+// You can construct a concrete instance of `UserHomeDirectoryMappingArrayInput` via:
+//
+//          UserHomeDirectoryMappingArray{ UserHomeDirectoryMappingArgs{...} }
+type UserHomeDirectoryMappingArrayInput interface {
+	pulumi.Input
+
+	ToUserHomeDirectoryMappingArrayOutput() UserHomeDirectoryMappingArrayOutput
+	ToUserHomeDirectoryMappingArrayOutputWithContext(context.Context) UserHomeDirectoryMappingArrayOutput
+}
+
+type UserHomeDirectoryMappingArray []UserHomeDirectoryMappingInput
+
+func (UserHomeDirectoryMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserHomeDirectoryMapping)(nil)).Elem()
+}
+
+func (i UserHomeDirectoryMappingArray) ToUserHomeDirectoryMappingArrayOutput() UserHomeDirectoryMappingArrayOutput {
+	return i.ToUserHomeDirectoryMappingArrayOutputWithContext(context.Background())
+}
+
+func (i UserHomeDirectoryMappingArray) ToUserHomeDirectoryMappingArrayOutputWithContext(ctx context.Context) UserHomeDirectoryMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHomeDirectoryMappingArrayOutput)
+}
+
+type UserHomeDirectoryMappingOutput struct{ *pulumi.OutputState }
+
+func (UserHomeDirectoryMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHomeDirectoryMapping)(nil)).Elem()
+}
+
+func (o UserHomeDirectoryMappingOutput) ToUserHomeDirectoryMappingOutput() UserHomeDirectoryMappingOutput {
+	return o
+}
+
+func (o UserHomeDirectoryMappingOutput) ToUserHomeDirectoryMappingOutputWithContext(ctx context.Context) UserHomeDirectoryMappingOutput {
+	return o
+}
+
+// Represents an entry and a target.
+func (o UserHomeDirectoryMappingOutput) Entry() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHomeDirectoryMapping) string { return v.Entry }).(pulumi.StringOutput)
+}
+
+// Represents the map target.
+func (o UserHomeDirectoryMappingOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHomeDirectoryMapping) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type UserHomeDirectoryMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (UserHomeDirectoryMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserHomeDirectoryMapping)(nil)).Elem()
+}
+
+func (o UserHomeDirectoryMappingArrayOutput) ToUserHomeDirectoryMappingArrayOutput() UserHomeDirectoryMappingArrayOutput {
+	return o
+}
+
+func (o UserHomeDirectoryMappingArrayOutput) ToUserHomeDirectoryMappingArrayOutputWithContext(ctx context.Context) UserHomeDirectoryMappingArrayOutput {
+	return o
+}
+
+func (o UserHomeDirectoryMappingArrayOutput) Index(i pulumi.IntInput) UserHomeDirectoryMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserHomeDirectoryMapping {
+		return vs[0].([]UserHomeDirectoryMapping)[vs[1].(int)]
+	}).(UserHomeDirectoryMappingOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
+	pulumi.RegisterOutputType(UserHomeDirectoryMappingOutput{})
+	pulumi.RegisterOutputType(UserHomeDirectoryMappingArrayOutput{})
 }

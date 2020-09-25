@@ -149,8 +149,12 @@ type Route struct {
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// The name to use for the route.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The resource owner's AWS account ID.
+	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// The route specification to apply.
 	Spec RouteSpecOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource.
@@ -204,8 +208,12 @@ type routeState struct {
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the route.
 	MeshName *string `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner *string `pulumi:"meshOwner"`
 	// The name to use for the route.
 	Name *string `pulumi:"name"`
+	// The resource owner's AWS account ID.
+	ResourceOwner *string `pulumi:"resourceOwner"`
 	// The route specification to apply.
 	Spec *RouteSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
@@ -223,8 +231,12 @@ type RouteState struct {
 	LastUpdatedDate pulumi.StringPtrInput
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringPtrInput
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringPtrInput
 	// The name to use for the route.
 	Name pulumi.StringPtrInput
+	// The resource owner's AWS account ID.
+	ResourceOwner pulumi.StringPtrInput
 	// The route specification to apply.
 	Spec RouteSpecPtrInput
 	// A map of tags to assign to the resource.
@@ -240,6 +252,8 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// The name of the service mesh in which to create the route.
 	MeshName string `pulumi:"meshName"`
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner *string `pulumi:"meshOwner"`
 	// The name to use for the route.
 	Name *string `pulumi:"name"`
 	// The route specification to apply.
@@ -254,6 +268,8 @@ type routeArgs struct {
 type RouteArgs struct {
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringInput
+	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	MeshOwner pulumi.StringPtrInput
 	// The name to use for the route.
 	Name pulumi.StringPtrInput
 	// The route specification to apply.

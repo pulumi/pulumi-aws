@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+        /// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS, AUDIT_LOGS
         /// </summary>
         public readonly string LogType;
 

@@ -149,6 +149,12 @@ namespace Pulumi.Aws.Rds
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        /// </summary>
+        [Output("allowMajorVersionUpgrade")]
+        public Output<bool?> AllowMajorVersionUpgrade { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Output("applyImmediately")]
@@ -439,6 +445,12 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
+
+        /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Input("applyImmediately")]
@@ -694,6 +706,12 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
+
         /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>

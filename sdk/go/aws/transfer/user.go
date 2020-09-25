@@ -66,6 +66,10 @@ type User struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory pulumi.StringPtrOutput `pulumi:"homeDirectory"`
+	// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+	HomeDirectoryMappings UserHomeDirectoryMappingArrayOutput `pulumi:"homeDirectoryMappings"`
+	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+	HomeDirectoryType pulumi.StringPtrOutput `pulumi:"homeDirectoryType"`
 	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -119,6 +123,10 @@ type userState struct {
 	Arn *string `pulumi:"arn"`
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory *string `pulumi:"homeDirectory"`
+	// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+	HomeDirectoryMappings []UserHomeDirectoryMapping `pulumi:"homeDirectoryMappings"`
+	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+	HomeDirectoryType *string `pulumi:"homeDirectoryType"`
 	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
 	Policy *string `pulumi:"policy"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -136,6 +144,10 @@ type UserState struct {
 	Arn pulumi.StringPtrInput
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory pulumi.StringPtrInput
+	// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+	HomeDirectoryMappings UserHomeDirectoryMappingArrayInput
+	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+	HomeDirectoryType pulumi.StringPtrInput
 	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
 	Policy pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -155,6 +167,10 @@ func (UserState) ElementType() reflect.Type {
 type userArgs struct {
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory *string `pulumi:"homeDirectory"`
+	// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+	HomeDirectoryMappings []UserHomeDirectoryMapping `pulumi:"homeDirectoryMappings"`
+	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+	HomeDirectoryType *string `pulumi:"homeDirectoryType"`
 	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
 	Policy *string `pulumi:"policy"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -171,6 +187,10 @@ type userArgs struct {
 type UserArgs struct {
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory pulumi.StringPtrInput
+	// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+	HomeDirectoryMappings UserHomeDirectoryMappingArrayInput
+	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+	HomeDirectoryType pulumi.StringPtrInput
 	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
 	Policy pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.

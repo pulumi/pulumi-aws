@@ -86,8 +86,23 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> AuthorizerCredentialsArn { get; private set; } = null!;
 
         /// <summary>
+        /// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+        /// Valid values: `1.0`, `2.0`.
+        /// </summary>
+        [Output("authorizerPayloadFormatVersion")]
+        public Output<string?> AuthorizerPayloadFormatVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+        /// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
+        /// Supported only for HTTP API Lambda authorizers.
+        /// </summary>
+        [Output("authorizerResultTtlInSeconds")]
+        public Output<int> AuthorizerResultTtlInSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// The authorizer type. Valid values: `JWT`, `REQUEST`.
-        /// For WebSocket APIs, specify `REQUEST` for a Lambda function using incoming request parameters.
+        /// Specify `REQUEST` for a Lambda function using incoming request parameters.
         /// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         /// </summary>
         [Output("authorizerType")]
@@ -100,6 +115,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Output("authorizerUri")]
         public Output<string?> AuthorizerUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
+        /// Supported only for HTTP APIs.
+        /// </summary>
+        [Output("enableSimpleResponses")]
+        public Output<bool?> EnableSimpleResponses { get; private set; } = null!;
 
         /// <summary>
         /// The identity sources for which authorization is requested.
@@ -182,8 +204,23 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? AuthorizerCredentialsArn { get; set; }
 
         /// <summary>
+        /// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+        /// Valid values: `1.0`, `2.0`.
+        /// </summary>
+        [Input("authorizerPayloadFormatVersion")]
+        public Input<string>? AuthorizerPayloadFormatVersion { get; set; }
+
+        /// <summary>
+        /// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+        /// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
+        /// Supported only for HTTP API Lambda authorizers.
+        /// </summary>
+        [Input("authorizerResultTtlInSeconds")]
+        public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
+
+        /// <summary>
         /// The authorizer type. Valid values: `JWT`, `REQUEST`.
-        /// For WebSocket APIs, specify `REQUEST` for a Lambda function using incoming request parameters.
+        /// Specify `REQUEST` for a Lambda function using incoming request parameters.
         /// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         /// </summary>
         [Input("authorizerType", required: true)]
@@ -197,7 +234,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
 
-        [Input("identitySources", required: true)]
+        /// <summary>
+        /// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
+        /// Supported only for HTTP APIs.
+        /// </summary>
+        [Input("enableSimpleResponses")]
+        public Input<bool>? EnableSimpleResponses { get; set; }
+
+        [Input("identitySources")]
         private InputList<string>? _identitySources;
 
         /// <summary>
@@ -245,8 +289,23 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? AuthorizerCredentialsArn { get; set; }
 
         /// <summary>
+        /// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+        /// Valid values: `1.0`, `2.0`.
+        /// </summary>
+        [Input("authorizerPayloadFormatVersion")]
+        public Input<string>? AuthorizerPayloadFormatVersion { get; set; }
+
+        /// <summary>
+        /// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+        /// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
+        /// Supported only for HTTP API Lambda authorizers.
+        /// </summary>
+        [Input("authorizerResultTtlInSeconds")]
+        public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
+
+        /// <summary>
         /// The authorizer type. Valid values: `JWT`, `REQUEST`.
-        /// For WebSocket APIs, specify `REQUEST` for a Lambda function using incoming request parameters.
+        /// Specify `REQUEST` for a Lambda function using incoming request parameters.
         /// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         /// </summary>
         [Input("authorizerType")]
@@ -259,6 +318,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
+
+        /// <summary>
+        /// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
+        /// Supported only for HTTP APIs.
+        /// </summary>
+        [Input("enableSimpleResponses")]
+        public Input<bool>? EnableSimpleResponses { get; set; }
 
         [Input("identitySources")]
         private InputList<string>? _identitySources;

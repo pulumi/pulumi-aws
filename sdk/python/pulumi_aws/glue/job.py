@@ -26,6 +26,7 @@ class Job(pulumi.CustomResource):
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  notification_property: Optional[pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -93,9 +94,10 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
@@ -132,6 +134,7 @@ class Job(pulumi.CustomResource):
             __props__['max_capacity'] = max_capacity
             __props__['max_retries'] = max_retries
             __props__['name'] = name
+            __props__['non_overridable_arguments'] = non_overridable_arguments
             __props__['notification_property'] = notification_property
             __props__['number_of_workers'] = number_of_workers
             if role_arn is None:
@@ -162,6 +165,7 @@ class Job(pulumi.CustomResource):
             max_capacity: Optional[pulumi.Input[float]] = None,
             max_retries: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             notification_property: Optional[pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']]] = None,
             number_of_workers: Optional[pulumi.Input[int]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
@@ -183,9 +187,10 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
@@ -208,6 +213,7 @@ class Job(pulumi.CustomResource):
         __props__["max_capacity"] = max_capacity
         __props__["max_retries"] = max_retries
         __props__["name"] = name
+        __props__["non_overridable_arguments"] = non_overridable_arguments
         __props__["notification_property"] = notification_property
         __props__["number_of_workers"] = number_of_workers
         __props__["role_arn"] = role_arn
@@ -277,7 +283,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Output[float]:
         """
-        The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
+        The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -296,6 +302,14 @@ class Job(pulumi.CustomResource):
         The name you assign to this job. It must be unique in your account.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nonOverridableArguments")
+    def non_overridable_arguments(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Non-overridable arguments for this job, specified as name-value pairs.
+        """
+        return pulumi.get(self, "non_overridable_arguments")
 
     @property
     @pulumi.getter(name="notificationProperty")

@@ -22,7 +22,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, enable_http2=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, enable_http2=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -32,6 +32,9 @@ class GetLoadBalancerResult:
         if arn_suffix and not isinstance(arn_suffix, str):
             raise TypeError("Expected argument 'arn_suffix' to be a str")
         pulumi.set(__self__, "arn_suffix", arn_suffix)
+        if customer_owned_ipv4_pool and not isinstance(customer_owned_ipv4_pool, str):
+            raise TypeError("Expected argument 'customer_owned_ipv4_pool' to be a str")
+        pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
@@ -95,6 +98,11 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> str:
         return pulumi.get(self, "arn_suffix")
+
+    @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> str:
+        return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
     @pulumi.getter(name="dnsName")
@@ -189,6 +197,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             access_logs=self.access_logs,
             arn=self.arn,
             arn_suffix=self.arn_suffix,
+            customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             dns_name=self.dns_name,
             drop_invalid_header_fields=self.drop_invalid_header_fields,
             enable_deletion_protection=self.enable_deletion_protection,
@@ -256,6 +265,7 @@ def get_load_balancer(arn: Optional[str] = None,
         access_logs=__ret__.access_logs,
         arn=__ret__.arn,
         arn_suffix=__ret__.arn_suffix,
+        customer_owned_ipv4_pool=__ret__.customer_owned_ipv4_pool,
         dns_name=__ret__.dns_name,
         drop_invalid_header_fields=__ret__.drop_invalid_header_fields,
         enable_deletion_protection=__ret__.enable_deletion_protection,

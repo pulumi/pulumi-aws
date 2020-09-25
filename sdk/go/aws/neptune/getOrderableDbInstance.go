@@ -22,17 +22,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "1.0.3.0"
-// 		opt1 := "amazon-license"
 // 		_, err := neptune.GetOrderableDbInstance(ctx, &neptune.GetOrderableDbInstanceArgs{
-// 			Engine:        "neptune",
 // 			EngineVersion: &opt0,
-// 			LicenseModel:  &opt1,
 // 			PreferredInstanceClasses: []string{
 // 				"db.r5.large",
 // 				"db.r4.large",
 // 				"db.t3.medium",
 // 			},
-// 			StorageType: "aurora",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -52,17 +48,17 @@ func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArg
 
 // A collection of arguments for invoking getOrderableDbInstance.
 type GetOrderableDbInstanceArgs struct {
-	// DB engine. Engine values include `neptune`.
-	Engine string `pulumi:"engine"`
+	// DB engine. (Default: `neptune`)
+	Engine *string `pulumi:"engine"`
 	// Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
 	InstanceClass *string `pulumi:"instanceClass"`
-	// License model. For example, `amazon-license`.
+	// License model. (Default: `amazon-license`)
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
-	// Boolean that indicates whether to show only VPC or non-VPC offerings.
+	// Enable to show only VPC offerings.
 	Vpc *bool `pulumi:"vpc"`
 }
 
@@ -70,12 +66,12 @@ type GetOrderableDbInstanceArgs struct {
 type GetOrderableDbInstanceResult struct {
 	// Availability zones where the instance is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	Engine            string   `pulumi:"engine"`
+	Engine            *string  `pulumi:"engine"`
 	EngineVersion     string   `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	InstanceClass string `pulumi:"instanceClass"`
-	LicenseModel  string `pulumi:"licenseModel"`
+	Id            string  `pulumi:"id"`
+	InstanceClass string  `pulumi:"instanceClass"`
+	LicenseModel  *string `pulumi:"licenseModel"`
 	// Maximum total provisioned IOPS for a DB instance.
 	MaxIopsPerDbInstance int `pulumi:"maxIopsPerDbInstance"`
 	// Maximum provisioned IOPS per GiB for a DB instance.

@@ -77,6 +77,8 @@ class Mesh(pulumi.CustomResource):
             __props__['arn'] = None
             __props__['created_date'] = None
             __props__['last_updated_date'] = None
+            __props__['mesh_owner'] = None
+            __props__['resource_owner'] = None
         super(Mesh, __self__).__init__(
             'aws:appmesh/mesh:Mesh',
             resource_name,
@@ -90,7 +92,9 @@ class Mesh(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             last_updated_date: Optional[pulumi.Input[str]] = None,
+            mesh_owner: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            resource_owner: Optional[pulumi.Input[str]] = None,
             spec: Optional[pulumi.Input[pulumi.InputType['MeshSpecArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Mesh':
         """
@@ -103,7 +107,9 @@ class Mesh(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the service mesh.
         :param pulumi.Input[str] created_date: The creation date of the service mesh.
         :param pulumi.Input[str] last_updated_date: The last update date of the service mesh.
+        :param pulumi.Input[str] mesh_owner: The AWS account ID of the service mesh's owner.
         :param pulumi.Input[str] name: The name to use for the service mesh.
+        :param pulumi.Input[str] resource_owner: The resource owner's AWS account ID.
         :param pulumi.Input[pulumi.InputType['MeshSpecArgs']] spec: The service mesh specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -114,7 +120,9 @@ class Mesh(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["created_date"] = created_date
         __props__["last_updated_date"] = last_updated_date
+        __props__["mesh_owner"] = mesh_owner
         __props__["name"] = name
+        __props__["resource_owner"] = resource_owner
         __props__["spec"] = spec
         __props__["tags"] = tags
         return Mesh(resource_name, opts=opts, __props__=__props__)
@@ -144,12 +152,28 @@ class Mesh(pulumi.CustomResource):
         return pulumi.get(self, "last_updated_date")
 
     @property
+    @pulumi.getter(name="meshOwner")
+    def mesh_owner(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID of the service mesh's owner.
+        """
+        return pulumi.get(self, "mesh_owner")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name to use for the service mesh.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceOwner")
+    def resource_owner(self) -> pulumi.Output[str]:
+        """
+        The resource owner's AWS account ID.
+        """
+        return pulumi.get(self, "resource_owner")
 
     @property
     @pulumi.getter

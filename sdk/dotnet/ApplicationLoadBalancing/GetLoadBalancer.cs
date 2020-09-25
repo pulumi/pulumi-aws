@@ -87,6 +87,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
         public readonly string Arn;
         public readonly string ArnSuffix;
+        public readonly string CustomerOwnedIpv4Pool;
         public readonly string DnsName;
         public readonly bool DropInvalidHeaderFields;
         public readonly bool EnableDeletionProtection;
@@ -114,6 +115,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             string arn,
 
             string arnSuffix,
+
+            string customerOwnedIpv4Pool,
 
             string dnsName,
 
@@ -150,6 +153,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             AccessLogs = accessLogs;
             Arn = arn;
             ArnSuffix = arnSuffix;
+            CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             DnsName = dnsName;
             DropInvalidHeaderFields = dropInvalidHeaderFields;
             EnableDeletionProtection = enableDeletionProtection;

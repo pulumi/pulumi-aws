@@ -18,6 +18,7 @@ class Route(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
+                 mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -113,6 +114,7 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
+        :param pulumi.Input[str] mesh_owner: The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         :param pulumi.Input[str] name: The name to use for the route.
         :param pulumi.Input[pulumi.InputType['RouteSpecArgs']] spec: The route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -138,6 +140,7 @@ class Route(pulumi.CustomResource):
             if mesh_name is None:
                 raise TypeError("Missing required property 'mesh_name'")
             __props__['mesh_name'] = mesh_name
+            __props__['mesh_owner'] = mesh_owner
             __props__['name'] = name
             if spec is None:
                 raise TypeError("Missing required property 'spec'")
@@ -149,6 +152,7 @@ class Route(pulumi.CustomResource):
             __props__['arn'] = None
             __props__['created_date'] = None
             __props__['last_updated_date'] = None
+            __props__['resource_owner'] = None
         super(Route, __self__).__init__(
             'aws:appmesh/route:Route',
             resource_name,
@@ -163,7 +167,9 @@ class Route(pulumi.CustomResource):
             created_date: Optional[pulumi.Input[str]] = None,
             last_updated_date: Optional[pulumi.Input[str]] = None,
             mesh_name: Optional[pulumi.Input[str]] = None,
+            mesh_owner: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            resource_owner: Optional[pulumi.Input[str]] = None,
             spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_router_name: Optional[pulumi.Input[str]] = None) -> 'Route':
@@ -178,7 +184,9 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] created_date: The creation date of the route.
         :param pulumi.Input[str] last_updated_date: The last update date of the route.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
+        :param pulumi.Input[str] mesh_owner: The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         :param pulumi.Input[str] name: The name to use for the route.
+        :param pulumi.Input[str] resource_owner: The resource owner's AWS account ID.
         :param pulumi.Input[pulumi.InputType['RouteSpecArgs']] spec: The route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
@@ -191,7 +199,9 @@ class Route(pulumi.CustomResource):
         __props__["created_date"] = created_date
         __props__["last_updated_date"] = last_updated_date
         __props__["mesh_name"] = mesh_name
+        __props__["mesh_owner"] = mesh_owner
         __props__["name"] = name
+        __props__["resource_owner"] = resource_owner
         __props__["spec"] = spec
         __props__["tags"] = tags
         __props__["virtual_router_name"] = virtual_router_name
@@ -230,12 +240,28 @@ class Route(pulumi.CustomResource):
         return pulumi.get(self, "mesh_name")
 
     @property
+    @pulumi.getter(name="meshOwner")
+    def mesh_owner(self) -> pulumi.Output[str]:
+        """
+        The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        """
+        return pulumi.get(self, "mesh_owner")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name to use for the route.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceOwner")
+    def resource_owner(self) -> pulumi.Output[str]:
+        """
+        The resource owner's AWS account ID.
+        """
+        return pulumi.get(self, "resource_owner")
 
     @property
     @pulumi.getter

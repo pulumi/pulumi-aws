@@ -45,6 +45,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+        /// </summary>
+        [Output("automaticBackupRetentionDays")]
+        public Output<int> AutomaticBackupRetentionDays { get; private set; } = null!;
+
+        /// <summary>
         /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
         /// </summary>
         [Output("deploymentType")]
@@ -75,7 +81,19 @@ namespace Pulumi.Aws.Fsx
         public Output<int> ImportedFileChunkSize { get; private set; } = null!;
 
         /// <summary>
-        /// Set of Elastic Network Interface identifiers from which the file system is accessible.
+        /// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The value to be used when mounting the filesystem.
+        /// </summary>
+        [Output("mountName")]
+        public Output<string> MountName { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
         /// </summary>
         [Output("networkInterfaceIds")]
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
@@ -175,6 +193,12 @@ namespace Pulumi.Aws.Fsx
     public sealed class LustreFileSystemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+        /// </summary>
+        [Input("automaticBackupRetentionDays")]
+        public Input<int>? AutomaticBackupRetentionDays { get; set; }
+
+        /// <summary>
         /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
         /// </summary>
         [Input("deploymentType")]
@@ -197,6 +221,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("importedFileChunkSize")]
         public Input<int>? ImportedFileChunkSize { get; set; }
+
+        /// <summary>
+        /// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
@@ -260,6 +290,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+        /// </summary>
+        [Input("automaticBackupRetentionDays")]
+        public Input<int>? AutomaticBackupRetentionDays { get; set; }
+
+        /// <summary>
         /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
         /// </summary>
         [Input("deploymentType")]
@@ -289,11 +325,23 @@ namespace Pulumi.Aws.Fsx
         [Input("importedFileChunkSize")]
         public Input<int>? ImportedFileChunkSize { get; set; }
 
+        /// <summary>
+        /// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The value to be used when mounting the filesystem.
+        /// </summary>
+        [Input("mountName")]
+        public Input<string>? MountName { get; set; }
+
         [Input("networkInterfaceIds")]
         private InputList<string>? _networkInterfaceIds;
 
         /// <summary>
-        /// Set of Elastic Network Interface identifiers from which the file system is accessible.
+        /// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
         /// </summary>
         public InputList<string> NetworkInterfaceIds
         {

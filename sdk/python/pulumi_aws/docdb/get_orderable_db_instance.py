@@ -55,7 +55,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> Optional[str]:
         return pulumi.get(self, "engine")
 
     @property
@@ -78,7 +78,7 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> str:
+    def license_model(self) -> Optional[str]:
         return pulumi.get(self, "license_model")
 
     @property
@@ -135,12 +135,12 @@ def get_orderable_db_instance(engine: Optional[str] = None,
     ```
 
 
-    :param str engine: DB engine. Engine values include `docdb`.
-    :param str engine_version: Version of the DB engine. For example, `3.6.0`.
-    :param str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`.
-    :param str license_model: License model. Examples of license models are `general-public-license`, `na`, `bring-your-own-license`, and `amazon-license`.
-    :param Sequence[str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param bool vpc: Boolean that indicates whether to show only VPC or non-VPC offerings.
+    :param str engine: DB engine. Default: `docdb`
+    :param str engine_version: Version of the DB engine.
+    :param str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
+    :param str license_model: License model. Default: `na`
+    :param Sequence[str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
+    :param bool vpc: Enable to show only VPC.
     """
     __args__ = dict()
     __args__['engine'] = engine

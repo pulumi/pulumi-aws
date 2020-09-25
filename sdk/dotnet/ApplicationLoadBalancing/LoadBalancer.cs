@@ -168,6 +168,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<string> ArnSuffix { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the customer owned ipv4 pool to use for this load balancer.
+        /// </summary>
+        [Output("customerOwnedIpv4Pool")]
+        public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS name of the load balancer.
         /// </summary>
         [Output("dnsName")]
@@ -268,6 +274,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
@@ -323,6 +330,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// </summary>
         [Input("accessLogs")]
         public Input<Inputs.LoadBalancerAccessLogsArgs>? AccessLogs { get; set; }
+
+        /// <summary>
+        /// The ID of the customer owned ipv4 pool to use for this load balancer.
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
         /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -464,6 +477,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? ArnSuffix { get; set; }
 
         /// <summary>
+        /// The ID of the customer owned ipv4 pool to use for this load balancer.
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
+        /// <summary>
         /// The DNS name of the load balancer.
         /// </summary>
         [Input("dnsName")]
@@ -588,6 +607,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }

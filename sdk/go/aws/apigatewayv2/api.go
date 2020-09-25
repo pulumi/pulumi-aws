@@ -81,6 +81,10 @@ type Api struct {
 	CredentialsArn pulumi.StringPtrOutput `pulumi:"credentialsArn"`
 	// The description of the API.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Whether clients can invoke the API by using the default `execute-api` endpoint.
+	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
+	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+	DisableExecuteApiEndpoint pulumi.BoolPtrOutput `pulumi:"disableExecuteApiEndpoint"`
 	// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
@@ -151,6 +155,10 @@ type apiState struct {
 	CredentialsArn *string `pulumi:"credentialsArn"`
 	// The description of the API.
 	Description *string `pulumi:"description"`
+	// Whether clients can invoke the API by using the default `execute-api` endpoint.
+	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
+	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
@@ -191,6 +199,10 @@ type ApiState struct {
 	CredentialsArn pulumi.StringPtrInput
 	// The description of the API.
 	Description pulumi.StringPtrInput
+	// Whether clients can invoke the API by using the default `execute-api` endpoint.
+	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
+	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
@@ -231,6 +243,10 @@ type apiArgs struct {
 	CredentialsArn *string `pulumi:"credentialsArn"`
 	// The description of the API.
 	Description *string `pulumi:"description"`
+	// Whether clients can invoke the API by using the default `execute-api` endpoint.
+	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
+	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// The name of the API.
 	Name *string `pulumi:"name"`
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
@@ -264,6 +280,10 @@ type ApiArgs struct {
 	CredentialsArn pulumi.StringPtrInput
 	// The description of the API.
 	Description pulumi.StringPtrInput
+	// Whether clients can invoke the API by using the default `execute-api` endpoint.
+	// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
+	// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// The name of the API.
 	Name pulumi.StringPtrInput
 	// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.

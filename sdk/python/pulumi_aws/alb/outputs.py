@@ -1451,6 +1451,7 @@ class LoadBalancerSubnetMapping(dict):
     def __init__(__self__, *,
                  subnet_id: str,
                  allocation_id: Optional[str] = None,
+                 outpost_id: Optional[str] = None,
                  private_ipv4_address: Optional[str] = None):
         """
         :param str subnet_id: The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
@@ -1460,6 +1461,8 @@ class LoadBalancerSubnetMapping(dict):
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
+        if outpost_id is not None:
+            pulumi.set(__self__, "outpost_id", outpost_id)
         if private_ipv4_address is not None:
             pulumi.set(__self__, "private_ipv4_address", private_ipv4_address)
 
@@ -1478,6 +1481,11 @@ class LoadBalancerSubnetMapping(dict):
         The allocation ID of the Elastic IP address.
         """
         return pulumi.get(self, "allocation_id")
+
+    @property
+    @pulumi.getter(name="outpostId")
+    def outpost_id(self) -> Optional[str]:
+        return pulumi.get(self, "outpost_id")
 
     @property
     @pulumi.getter(name="privateIpv4Address")
@@ -1960,9 +1968,11 @@ class GetLoadBalancerAccessLogsResult(dict):
 class GetLoadBalancerSubnetMappingResult(dict):
     def __init__(__self__, *,
                  allocation_id: str,
+                 outpost_id: str,
                  private_ipv4_address: str,
                  subnet_id: str):
         pulumi.set(__self__, "allocation_id", allocation_id)
+        pulumi.set(__self__, "outpost_id", outpost_id)
         pulumi.set(__self__, "private_ipv4_address", private_ipv4_address)
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -1970,6 +1980,11 @@ class GetLoadBalancerSubnetMappingResult(dict):
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> str:
         return pulumi.get(self, "allocation_id")
+
+    @property
+    @pulumi.getter(name="outpostId")
+    def outpost_id(self) -> str:
+        return pulumi.get(self, "outpost_id")
 
     @property
     @pulumi.getter(name="privateIpv4Address")

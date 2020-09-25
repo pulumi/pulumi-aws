@@ -15,10 +15,12 @@ class LustreFileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
                  import_path: Optional[pulumi.Input[str]] = None,
                  imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  per_unit_storage_throughput: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
@@ -45,10 +47,12 @@ class LustreFileSystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
         :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
         :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
         :param pulumi.Input[int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[int] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
@@ -73,10 +77,12 @@ class LustreFileSystem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['automatic_backup_retention_days'] = automatic_backup_retention_days
             __props__['deployment_type'] = deployment_type
             __props__['export_path'] = export_path
             __props__['import_path'] = import_path
             __props__['imported_file_chunk_size'] = imported_file_chunk_size
+            __props__['kms_key_id'] = kms_key_id
             __props__['per_unit_storage_throughput'] = per_unit_storage_throughput
             __props__['security_group_ids'] = security_group_ids
             if storage_capacity is None:
@@ -89,6 +95,7 @@ class LustreFileSystem(pulumi.CustomResource):
             __props__['weekly_maintenance_start_time'] = weekly_maintenance_start_time
             __props__['arn'] = None
             __props__['dns_name'] = None
+            __props__['mount_name'] = None
             __props__['network_interface_ids'] = None
             __props__['owner_id'] = None
             __props__['vpc_id'] = None
@@ -103,11 +110,14 @@ class LustreFileSystem(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
             deployment_type: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             export_path: Optional[pulumi.Input[str]] = None,
             import_path: Optional[pulumi.Input[str]] = None,
             imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
+            kms_key_id: Optional[pulumi.Input[str]] = None,
+            mount_name: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             per_unit_storage_throughput: Optional[pulumi.Input[int]] = None,
@@ -125,12 +135,15 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
         :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
         :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
         :param pulumi.Input[int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+        :param pulumi.Input[str] mount_name: The value to be used when mounting the filesystem.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[int] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -145,11 +158,14 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["arn"] = arn
+        __props__["automatic_backup_retention_days"] = automatic_backup_retention_days
         __props__["deployment_type"] = deployment_type
         __props__["dns_name"] = dns_name
         __props__["export_path"] = export_path
         __props__["import_path"] = import_path
         __props__["imported_file_chunk_size"] = imported_file_chunk_size
+        __props__["kms_key_id"] = kms_key_id
+        __props__["mount_name"] = mount_name
         __props__["network_interface_ids"] = network_interface_ids
         __props__["owner_id"] = owner_id
         __props__["per_unit_storage_throughput"] = per_unit_storage_throughput
@@ -168,6 +184,14 @@ class LustreFileSystem(pulumi.CustomResource):
         Amazon Resource Name of the file system.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="automaticBackupRetentionDays")
+    def automatic_backup_retention_days(self) -> pulumi.Output[int]:
+        """
+        The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+        """
+        return pulumi.get(self, "automatic_backup_retention_days")
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -210,10 +234,26 @@ class LustreFileSystem(pulumi.CustomResource):
         return pulumi.get(self, "imported_file_chunk_size")
 
     @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[str]:
+        """
+        ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> pulumi.Output[str]:
+        """
+        The value to be used when mounting the filesystem.
+        """
+        return pulumi.get(self, "mount_name")
+
+    @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        Set of Elastic Network Interface identifiers from which the file system is accessible.
+        Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
         """
         return pulumi.get(self, "network_interface_ids")
 

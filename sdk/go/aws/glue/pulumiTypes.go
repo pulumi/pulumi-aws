@@ -1980,6 +1980,10 @@ func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalog
 type CrawlerDynamodbTarget struct {
 	// The name of the DynamoDB table to crawl.
 	Path string `pulumi:"path"`
+	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+	ScanAll *bool `pulumi:"scanAll"`
+	// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+	ScanRate *float64 `pulumi:"scanRate"`
 }
 
 // CrawlerDynamodbTargetInput is an input type that accepts CrawlerDynamodbTargetArgs and CrawlerDynamodbTargetOutput values.
@@ -1996,6 +2000,10 @@ type CrawlerDynamodbTargetInput interface {
 type CrawlerDynamodbTargetArgs struct {
 	// The name of the DynamoDB table to crawl.
 	Path pulumi.StringInput `pulumi:"path"`
+	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+	ScanAll pulumi.BoolPtrInput `pulumi:"scanAll"`
+	// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+	ScanRate pulumi.Float64PtrInput `pulumi:"scanRate"`
 }
 
 func (CrawlerDynamodbTargetArgs) ElementType() reflect.Type {
@@ -2052,6 +2060,16 @@ func (o CrawlerDynamodbTargetOutput) ToCrawlerDynamodbTargetOutputWithContext(ct
 // The name of the DynamoDB table to crawl.
 func (o CrawlerDynamodbTargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerDynamodbTarget) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+func (o CrawlerDynamodbTargetOutput) ScanAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerDynamodbTarget) *bool { return v.ScanAll }).(pulumi.BoolPtrOutput)
+}
+
+// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+func (o CrawlerDynamodbTargetOutput) ScanRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CrawlerDynamodbTarget) *float64 { return v.ScanRate }).(pulumi.Float64PtrOutput)
 }
 
 type CrawlerDynamodbTargetArrayOutput struct{ *pulumi.OutputState }
