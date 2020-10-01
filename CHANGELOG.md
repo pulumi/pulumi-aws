@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to pulumi-terraform-bridge v2.10.2
+* Upgrade to Pulumi v2.10.2
 
 ---
 
@@ -18,7 +19,7 @@ _(none)_
 * Enforce `appsync.DataSource` to adhere to AWS naming conventions of not using `-` in names.
 * Upgrade to pulumi-terraform-bridge v2.9.2
 * Upgrade to Pulumi v2.10.1
-* Upgrade to v3.6.0 of the AWS Terraform Provider 
+* Upgrade to v3.6.0 of the AWS Terraform Provider
 
 ## 3.2.1 (2020-08-26)
 * Upgrade to pulumi-terraform-bridge v2.7.3
@@ -29,7 +30,7 @@ _(none)_
 
 ## 3.1.0 (2020-08-12)
 * Upgrade to v3.1.0 of the AWS Terraform Provider
-* Relax naming restrictions on `elasticache.ReplicationGroup` `replicationGroupId` to allow 40 characters as per 
+* Relax naming restrictions on `elasticache.ReplicationGroup` `replicationGroupId` to allow 40 characters as per
   [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
 
 ## 3.0.0 (2020-08-11)
