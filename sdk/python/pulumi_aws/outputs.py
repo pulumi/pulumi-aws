@@ -9,6 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
+    'ProviderAssumeRole',
+    'ProviderEndpoint',
+    'ProviderIgnoreTags',
     'GetAmiBlockDeviceMappingResult',
     'GetAmiFilterResult',
     'GetAmiIdsFilterResult',
@@ -19,270 +22,7 @@ __all__ = [
     'GetElasticIpFilterResult',
     'GetPrefixListFilterResult',
     'GetRegionsFilterResult',
-    'ProviderAssumeRole',
-    'ProviderEndpoint',
-    'ProviderIgnoreTags',
 ]
-
-@pulumi.output_type
-class GetAmiBlockDeviceMappingResult(dict):
-    def __init__(__self__, *,
-                 device_name: str,
-                 ebs: Mapping[str, str],
-                 no_device: str,
-                 virtual_name: str):
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "ebs", ebs)
-        pulumi.set(__self__, "no_device", no_device)
-        pulumi.set(__self__, "virtual_name", virtual_name)
-
-    @property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
-        return pulumi.get(self, "device_name")
-
-    @property
-    @pulumi.getter
-    def ebs(self) -> Mapping[str, str]:
-        return pulumi.get(self, "ebs")
-
-    @property
-    @pulumi.getter(name="noDevice")
-    def no_device(self) -> str:
-        return pulumi.get(self, "no_device")
-
-    @property
-    @pulumi.getter(name="virtualName")
-    def virtual_name(self) -> str:
-        return pulumi.get(self, "virtual_name")
-
-
-@pulumi.output_type
-class GetAmiFilterResult(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: The name of the AMI that was provided during image creation.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the AMI that was provided during image creation.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetAmiIdsFilterResult(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetAmiProductCodeResult(dict):
-    def __init__(__self__, *,
-                 product_code_id: str,
-                 product_code_type: str):
-        pulumi.set(__self__, "product_code_id", product_code_id)
-        pulumi.set(__self__, "product_code_type", product_code_type)
-
-    @property
-    @pulumi.getter(name="productCodeId")
-    def product_code_id(self) -> str:
-        return pulumi.get(self, "product_code_id")
-
-    @property
-    @pulumi.getter(name="productCodeType")
-    def product_code_type(self) -> str:
-        return pulumi.get(self, "product_code_type")
-
-
-@pulumi.output_type
-class GetAutoscalingGroupsFilterResult(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
-        :param Sequence[str] values: The value of the filter.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        The value of the filter.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetAvailabilityZoneFilterResult(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetAvailabilityZonesFilterResult(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetElasticIpFilterResult(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetPrefixListFilterResult(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetRegionsFilterResult(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-        return pulumi.get(self, "values")
-
 
 @pulumi.output_type
 class ProviderAssumeRole(dict):
@@ -1514,5 +1254,265 @@ class ProviderIgnoreTags(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetAmiBlockDeviceMappingResult(dict):
+    def __init__(__self__, *,
+                 device_name: str,
+                 ebs: Mapping[str, str],
+                 no_device: str,
+                 virtual_name: str):
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "ebs", ebs)
+        pulumi.set(__self__, "no_device", no_device)
+        pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> str:
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Mapping[str, str]:
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> str:
+        return pulumi.get(self, "no_device")
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> str:
+        return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class GetAmiFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the AMI that was provided during image creation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the AMI that was provided during image creation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAmiIdsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAmiProductCodeResult(dict):
+    def __init__(__self__, *,
+                 product_code_id: str,
+                 product_code_type: str):
+        pulumi.set(__self__, "product_code_id", product_code_id)
+        pulumi.set(__self__, "product_code_type", product_code_type)
+
+    @property
+    @pulumi.getter(name="productCodeId")
+    def product_code_id(self) -> str:
+        return pulumi.get(self, "product_code_id")
+
+    @property
+    @pulumi.getter(name="productCodeType")
+    def product_code_type(self) -> str:
+        return pulumi.get(self, "product_code_type")
+
+
+@pulumi.output_type
+class GetAutoscalingGroupsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+        :param Sequence[str] values: The value of the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The value of the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAvailabilityZoneFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAvailabilityZonesFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetElasticIpFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetPrefixListFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetRegionsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
 
 
