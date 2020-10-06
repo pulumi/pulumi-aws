@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? Method;
         /// <summary>
-        /// Specifies the path with which to match requests.
+        /// The value sent by the client must begin with the specified characters.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
         public readonly string Prefix;

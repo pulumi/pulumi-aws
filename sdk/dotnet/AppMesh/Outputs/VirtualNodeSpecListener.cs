@@ -21,15 +21,22 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// The port mapping information for the listener.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerPortMapping PortMapping;
+        /// <summary>
+        /// The Transport Layer Security (TLS) properties for the listener
+        /// </summary>
+        public readonly Outputs.VirtualNodeSpecListenerTls? Tls;
 
         [OutputConstructor]
         private VirtualNodeSpecListener(
             Outputs.VirtualNodeSpecListenerHealthCheck? healthCheck,
 
-            Outputs.VirtualNodeSpecListenerPortMapping portMapping)
+            Outputs.VirtualNodeSpecListenerPortMapping portMapping,
+
+            Outputs.VirtualNodeSpecListenerTls? tls)
         {
             HealthCheck = healthCheck;
             PortMapping = portMapping;
+            Tls = tls;
         }
     }
 }

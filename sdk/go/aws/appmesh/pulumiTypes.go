@@ -277,6 +277,10 @@ func (o MeshSpecEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type RouteSpec struct {
+	// The gRPC routing information for the route.
+	GrpcRoute *RouteSpecGrpcRoute `pulumi:"grpcRoute"`
+	// The HTTP/2 routing information for the route.
+	Http2Route *RouteSpecHttp2Route `pulumi:"http2Route"`
 	// The HTTP routing information for the route.
 	HttpRoute *RouteSpecHttpRoute `pulumi:"httpRoute"`
 	// The priority for the route, between `0` and `1000`.
@@ -298,6 +302,10 @@ type RouteSpecInput interface {
 }
 
 type RouteSpecArgs struct {
+	// The gRPC routing information for the route.
+	GrpcRoute RouteSpecGrpcRoutePtrInput `pulumi:"grpcRoute"`
+	// The HTTP/2 routing information for the route.
+	Http2Route RouteSpecHttp2RoutePtrInput `pulumi:"http2Route"`
 	// The HTTP routing information for the route.
 	HttpRoute RouteSpecHttpRoutePtrInput `pulumi:"httpRoute"`
 	// The priority for the route, between `0` and `1000`.
@@ -384,6 +392,16 @@ func (o RouteSpecOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context) Ro
 	}).(RouteSpecPtrOutput)
 }
 
+// The gRPC routing information for the route.
+func (o RouteSpecOutput) GrpcRoute() RouteSpecGrpcRoutePtrOutput {
+	return o.ApplyT(func(v RouteSpec) *RouteSpecGrpcRoute { return v.GrpcRoute }).(RouteSpecGrpcRoutePtrOutput)
+}
+
+// The HTTP/2 routing information for the route.
+func (o RouteSpecOutput) Http2Route() RouteSpecHttp2RoutePtrOutput {
+	return o.ApplyT(func(v RouteSpec) *RouteSpecHttp2Route { return v.Http2Route }).(RouteSpecHttp2RoutePtrOutput)
+}
+
 // The HTTP routing information for the route.
 func (o RouteSpecOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
 	return o.ApplyT(func(v RouteSpec) *RouteSpecHttpRoute { return v.HttpRoute }).(RouteSpecHttpRoutePtrOutput)
@@ -418,6 +436,26 @@ func (o RouteSpecPtrOutput) Elem() RouteSpecOutput {
 	return o.ApplyT(func(v *RouteSpec) RouteSpec { return *v }).(RouteSpecOutput)
 }
 
+// The gRPC routing information for the route.
+func (o RouteSpecPtrOutput) GrpcRoute() RouteSpecGrpcRoutePtrOutput {
+	return o.ApplyT(func(v *RouteSpec) *RouteSpecGrpcRoute {
+		if v == nil {
+			return nil
+		}
+		return v.GrpcRoute
+	}).(RouteSpecGrpcRoutePtrOutput)
+}
+
+// The HTTP/2 routing information for the route.
+func (o RouteSpecPtrOutput) Http2Route() RouteSpecHttp2RoutePtrOutput {
+	return o.ApplyT(func(v *RouteSpec) *RouteSpecHttp2Route {
+		if v == nil {
+			return nil
+		}
+		return v.Http2Route
+	}).(RouteSpecHttp2RoutePtrOutput)
+}
+
 // The HTTP routing information for the route.
 func (o RouteSpecPtrOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
 	return o.ApplyT(func(v *RouteSpec) *RouteSpecHttpRoute {
@@ -449,11 +487,2873 @@ func (o RouteSpecPtrOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
 	}).(RouteSpecTcpRoutePtrOutput)
 }
 
+type RouteSpecGrpcRoute struct {
+	// The action to take if a match is determined.
+	Action RouteSpecGrpcRouteAction `pulumi:"action"`
+	// The criteria for determining an gRPC request match.
+	Match RouteSpecGrpcRouteMatch `pulumi:"match"`
+	// The retry policy.
+	RetryPolicy *RouteSpecGrpcRouteRetryPolicy `pulumi:"retryPolicy"`
+}
+
+// RouteSpecGrpcRouteInput is an input type that accepts RouteSpecGrpcRouteArgs and RouteSpecGrpcRouteOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteInput` via:
+//
+//          RouteSpecGrpcRouteArgs{...}
+type RouteSpecGrpcRouteInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteOutput() RouteSpecGrpcRouteOutput
+	ToRouteSpecGrpcRouteOutputWithContext(context.Context) RouteSpecGrpcRouteOutput
+}
+
+type RouteSpecGrpcRouteArgs struct {
+	// The action to take if a match is determined.
+	Action RouteSpecGrpcRouteActionInput `pulumi:"action"`
+	// The criteria for determining an gRPC request match.
+	Match RouteSpecGrpcRouteMatchInput `pulumi:"match"`
+	// The retry policy.
+	RetryPolicy RouteSpecGrpcRouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
+}
+
+func (RouteSpecGrpcRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRoute)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteArgs) ToRouteSpecGrpcRouteOutput() RouteSpecGrpcRouteOutput {
+	return i.ToRouteSpecGrpcRouteOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteArgs) ToRouteSpecGrpcRouteOutputWithContext(ctx context.Context) RouteSpecGrpcRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteOutput)
+}
+
+func (i RouteSpecGrpcRouteArgs) ToRouteSpecGrpcRoutePtrOutput() RouteSpecGrpcRoutePtrOutput {
+	return i.ToRouteSpecGrpcRoutePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteArgs) ToRouteSpecGrpcRoutePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteOutput).ToRouteSpecGrpcRoutePtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRoutePtrInput is an input type that accepts RouteSpecGrpcRouteArgs, RouteSpecGrpcRoutePtr and RouteSpecGrpcRoutePtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRoutePtrInput` via:
+//
+//          RouteSpecGrpcRouteArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRoutePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRoutePtrOutput() RouteSpecGrpcRoutePtrOutput
+	ToRouteSpecGrpcRoutePtrOutputWithContext(context.Context) RouteSpecGrpcRoutePtrOutput
+}
+
+type routeSpecGrpcRoutePtrType RouteSpecGrpcRouteArgs
+
+func RouteSpecGrpcRoutePtr(v *RouteSpecGrpcRouteArgs) RouteSpecGrpcRoutePtrInput {
+	return (*routeSpecGrpcRoutePtrType)(v)
+}
+
+func (*routeSpecGrpcRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRoute)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRoutePtrType) ToRouteSpecGrpcRoutePtrOutput() RouteSpecGrpcRoutePtrOutput {
+	return i.ToRouteSpecGrpcRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRoutePtrType) ToRouteSpecGrpcRoutePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRoutePtrOutput)
+}
+
+type RouteSpecGrpcRouteOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRoute)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteOutput) ToRouteSpecGrpcRouteOutput() RouteSpecGrpcRouteOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteOutput) ToRouteSpecGrpcRouteOutputWithContext(ctx context.Context) RouteSpecGrpcRouteOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteOutput) ToRouteSpecGrpcRoutePtrOutput() RouteSpecGrpcRoutePtrOutput {
+	return o.ToRouteSpecGrpcRoutePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteOutput) ToRouteSpecGrpcRoutePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRoutePtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRoute {
+		return &v
+	}).(RouteSpecGrpcRoutePtrOutput)
+}
+
+// The action to take if a match is determined.
+func (o RouteSpecGrpcRouteOutput) Action() RouteSpecGrpcRouteActionOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRoute) RouteSpecGrpcRouteAction { return v.Action }).(RouteSpecGrpcRouteActionOutput)
+}
+
+// The criteria for determining an gRPC request match.
+func (o RouteSpecGrpcRouteOutput) Match() RouteSpecGrpcRouteMatchOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRoute) RouteSpecGrpcRouteMatch { return v.Match }).(RouteSpecGrpcRouteMatchOutput)
+}
+
+// The retry policy.
+func (o RouteSpecGrpcRouteOutput) RetryPolicy() RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRouteRetryPolicy { return v.RetryPolicy }).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
+}
+
+type RouteSpecGrpcRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRoute)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRoutePtrOutput) ToRouteSpecGrpcRoutePtrOutput() RouteSpecGrpcRoutePtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRoutePtrOutput) ToRouteSpecGrpcRoutePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRoutePtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRoutePtrOutput) Elem() RouteSpecGrpcRouteOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRoute) RouteSpecGrpcRoute { return *v }).(RouteSpecGrpcRouteOutput)
+}
+
+// The action to take if a match is determined.
+func (o RouteSpecGrpcRoutePtrOutput) Action() RouteSpecGrpcRouteActionPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRoute) *RouteSpecGrpcRouteAction {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(RouteSpecGrpcRouteActionPtrOutput)
+}
+
+// The criteria for determining an gRPC request match.
+func (o RouteSpecGrpcRoutePtrOutput) Match() RouteSpecGrpcRouteMatchPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRoute) *RouteSpecGrpcRouteMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(RouteSpecGrpcRouteMatchPtrOutput)
+}
+
+// The retry policy.
+func (o RouteSpecGrpcRoutePtrOutput) RetryPolicy() RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRoute) *RouteSpecGrpcRouteRetryPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RetryPolicy
+	}).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
+}
+
+type RouteSpecGrpcRouteAction struct {
+	// The targets that traffic is routed to when a request matches the route.
+	// You can specify one or more targets and their relative weights with which to distribute traffic.
+	WeightedTargets []RouteSpecGrpcRouteActionWeightedTarget `pulumi:"weightedTargets"`
+}
+
+// RouteSpecGrpcRouteActionInput is an input type that accepts RouteSpecGrpcRouteActionArgs and RouteSpecGrpcRouteActionOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteActionInput` via:
+//
+//          RouteSpecGrpcRouteActionArgs{...}
+type RouteSpecGrpcRouteActionInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteActionOutput() RouteSpecGrpcRouteActionOutput
+	ToRouteSpecGrpcRouteActionOutputWithContext(context.Context) RouteSpecGrpcRouteActionOutput
+}
+
+type RouteSpecGrpcRouteActionArgs struct {
+	// The targets that traffic is routed to when a request matches the route.
+	// You can specify one or more targets and their relative weights with which to distribute traffic.
+	WeightedTargets RouteSpecGrpcRouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
+}
+
+func (RouteSpecGrpcRouteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteAction)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteActionArgs) ToRouteSpecGrpcRouteActionOutput() RouteSpecGrpcRouteActionOutput {
+	return i.ToRouteSpecGrpcRouteActionOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteActionArgs) ToRouteSpecGrpcRouteActionOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteActionOutput)
+}
+
+func (i RouteSpecGrpcRouteActionArgs) ToRouteSpecGrpcRouteActionPtrOutput() RouteSpecGrpcRouteActionPtrOutput {
+	return i.ToRouteSpecGrpcRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteActionArgs) ToRouteSpecGrpcRouteActionPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteActionOutput).ToRouteSpecGrpcRouteActionPtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteActionPtrInput is an input type that accepts RouteSpecGrpcRouteActionArgs, RouteSpecGrpcRouteActionPtr and RouteSpecGrpcRouteActionPtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteActionPtrInput` via:
+//
+//          RouteSpecGrpcRouteActionArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteActionPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteActionPtrOutput() RouteSpecGrpcRouteActionPtrOutput
+	ToRouteSpecGrpcRouteActionPtrOutputWithContext(context.Context) RouteSpecGrpcRouteActionPtrOutput
+}
+
+type routeSpecGrpcRouteActionPtrType RouteSpecGrpcRouteActionArgs
+
+func RouteSpecGrpcRouteActionPtr(v *RouteSpecGrpcRouteActionArgs) RouteSpecGrpcRouteActionPtrInput {
+	return (*routeSpecGrpcRouteActionPtrType)(v)
+}
+
+func (*routeSpecGrpcRouteActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteAction)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteActionPtrType) ToRouteSpecGrpcRouteActionPtrOutput() RouteSpecGrpcRouteActionPtrOutput {
+	return i.ToRouteSpecGrpcRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteActionPtrType) ToRouteSpecGrpcRouteActionPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteActionPtrOutput)
+}
+
+type RouteSpecGrpcRouteActionOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteAction)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteActionOutput) ToRouteSpecGrpcRouteActionOutput() RouteSpecGrpcRouteActionOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteActionOutput) ToRouteSpecGrpcRouteActionOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteActionOutput) ToRouteSpecGrpcRouteActionPtrOutput() RouteSpecGrpcRouteActionPtrOutput {
+	return o.ToRouteSpecGrpcRouteActionPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteActionOutput) ToRouteSpecGrpcRouteActionPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteAction) *RouteSpecGrpcRouteAction {
+		return &v
+	}).(RouteSpecGrpcRouteActionPtrOutput)
+}
+
+// The targets that traffic is routed to when a request matches the route.
+// You can specify one or more targets and their relative weights with which to distribute traffic.
+func (o RouteSpecGrpcRouteActionOutput) WeightedTargets() RouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteAction) []RouteSpecGrpcRouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecGrpcRouteActionWeightedTargetArrayOutput)
+}
+
+type RouteSpecGrpcRouteActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteAction)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteActionPtrOutput) ToRouteSpecGrpcRouteActionPtrOutput() RouteSpecGrpcRouteActionPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteActionPtrOutput) ToRouteSpecGrpcRouteActionPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteActionPtrOutput) Elem() RouteSpecGrpcRouteActionOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteAction) RouteSpecGrpcRouteAction { return *v }).(RouteSpecGrpcRouteActionOutput)
+}
+
+// The targets that traffic is routed to when a request matches the route.
+// You can specify one or more targets and their relative weights with which to distribute traffic.
+func (o RouteSpecGrpcRouteActionPtrOutput) WeightedTargets() RouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteAction) []RouteSpecGrpcRouteActionWeightedTarget {
+		if v == nil {
+			return nil
+		}
+		return v.WeightedTargets
+	}).(RouteSpecGrpcRouteActionWeightedTargetArrayOutput)
+}
+
+type RouteSpecGrpcRouteActionWeightedTarget struct {
+	// The virtual node to associate with the weighted target.
+	VirtualNode string `pulumi:"virtualNode"`
+	// The relative weight of the weighted target. An integer between 0 and 100.
+	Weight int `pulumi:"weight"`
+}
+
+// RouteSpecGrpcRouteActionWeightedTargetInput is an input type that accepts RouteSpecGrpcRouteActionWeightedTargetArgs and RouteSpecGrpcRouteActionWeightedTargetOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteActionWeightedTargetInput` via:
+//
+//          RouteSpecGrpcRouteActionWeightedTargetArgs{...}
+type RouteSpecGrpcRouteActionWeightedTargetInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteActionWeightedTargetOutput() RouteSpecGrpcRouteActionWeightedTargetOutput
+	ToRouteSpecGrpcRouteActionWeightedTargetOutputWithContext(context.Context) RouteSpecGrpcRouteActionWeightedTargetOutput
+}
+
+type RouteSpecGrpcRouteActionWeightedTargetArgs struct {
+	// The virtual node to associate with the weighted target.
+	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
+	// The relative weight of the weighted target. An integer between 0 and 100.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (RouteSpecGrpcRouteActionWeightedTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteActionWeightedTargetArgs) ToRouteSpecGrpcRouteActionWeightedTargetOutput() RouteSpecGrpcRouteActionWeightedTargetOutput {
+	return i.ToRouteSpecGrpcRouteActionWeightedTargetOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteActionWeightedTargetArgs) ToRouteSpecGrpcRouteActionWeightedTargetOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionWeightedTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteActionWeightedTargetOutput)
+}
+
+// RouteSpecGrpcRouteActionWeightedTargetArrayInput is an input type that accepts RouteSpecGrpcRouteActionWeightedTargetArray and RouteSpecGrpcRouteActionWeightedTargetArrayOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteActionWeightedTargetArrayInput` via:
+//
+//          RouteSpecGrpcRouteActionWeightedTargetArray{ RouteSpecGrpcRouteActionWeightedTargetArgs{...} }
+type RouteSpecGrpcRouteActionWeightedTargetArrayInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteActionWeightedTargetArrayOutput() RouteSpecGrpcRouteActionWeightedTargetArrayOutput
+	ToRouteSpecGrpcRouteActionWeightedTargetArrayOutputWithContext(context.Context) RouteSpecGrpcRouteActionWeightedTargetArrayOutput
+}
+
+type RouteSpecGrpcRouteActionWeightedTargetArray []RouteSpecGrpcRouteActionWeightedTargetInput
+
+func (RouteSpecGrpcRouteActionWeightedTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecGrpcRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteActionWeightedTargetArray) ToRouteSpecGrpcRouteActionWeightedTargetArrayOutput() RouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return i.ToRouteSpecGrpcRouteActionWeightedTargetArrayOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteActionWeightedTargetArray) ToRouteSpecGrpcRouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteActionWeightedTargetArrayOutput)
+}
+
+type RouteSpecGrpcRouteActionWeightedTargetOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteActionWeightedTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteActionWeightedTargetOutput) ToRouteSpecGrpcRouteActionWeightedTargetOutput() RouteSpecGrpcRouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteActionWeightedTargetOutput) ToRouteSpecGrpcRouteActionWeightedTargetOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionWeightedTargetOutput {
+	return o
+}
+
+// The virtual node to associate with the weighted target.
+func (o RouteSpecGrpcRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+}
+
+// The relative weight of the weighted target. An integer between 0 and 100.
+func (o RouteSpecGrpcRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type RouteSpecGrpcRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteActionWeightedTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecGrpcRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteActionWeightedTargetArrayOutput) ToRouteSpecGrpcRouteActionWeightedTargetArrayOutput() RouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteActionWeightedTargetArrayOutput) ToRouteSpecGrpcRouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInput) RouteSpecGrpcRouteActionWeightedTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecGrpcRouteActionWeightedTarget {
+		return vs[0].([]RouteSpecGrpcRouteActionWeightedTarget)[vs[1].(int)]
+	}).(RouteSpecGrpcRouteActionWeightedTargetOutput)
+}
+
+type RouteSpecGrpcRouteMatch struct {
+	// The data to match from the gRPC request.
+	Metadatas []RouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
+	// The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
+	MethodName *string `pulumi:"methodName"`
+	// The fully qualified domain name for the service to match from the request.
+	ServiceName *string `pulumi:"serviceName"`
+}
+
+// RouteSpecGrpcRouteMatchInput is an input type that accepts RouteSpecGrpcRouteMatchArgs and RouteSpecGrpcRouteMatchOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteMatchInput` via:
+//
+//          RouteSpecGrpcRouteMatchArgs{...}
+type RouteSpecGrpcRouteMatchInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteMatchOutput() RouteSpecGrpcRouteMatchOutput
+	ToRouteSpecGrpcRouteMatchOutputWithContext(context.Context) RouteSpecGrpcRouteMatchOutput
+}
+
+type RouteSpecGrpcRouteMatchArgs struct {
+	// The data to match from the gRPC request.
+	Metadatas RouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
+	// The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
+	MethodName pulumi.StringPtrInput `pulumi:"methodName"`
+	// The fully qualified domain name for the service to match from the request.
+	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+}
+
+func (RouteSpecGrpcRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteMatch)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteMatchArgs) ToRouteSpecGrpcRouteMatchOutput() RouteSpecGrpcRouteMatchOutput {
+	return i.ToRouteSpecGrpcRouteMatchOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteMatchArgs) ToRouteSpecGrpcRouteMatchOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchOutput)
+}
+
+func (i RouteSpecGrpcRouteMatchArgs) ToRouteSpecGrpcRouteMatchPtrOutput() RouteSpecGrpcRouteMatchPtrOutput {
+	return i.ToRouteSpecGrpcRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteMatchArgs) ToRouteSpecGrpcRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchOutput).ToRouteSpecGrpcRouteMatchPtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteMatchPtrInput is an input type that accepts RouteSpecGrpcRouteMatchArgs, RouteSpecGrpcRouteMatchPtr and RouteSpecGrpcRouteMatchPtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteMatchPtrInput` via:
+//
+//          RouteSpecGrpcRouteMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteMatchPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteMatchPtrOutput() RouteSpecGrpcRouteMatchPtrOutput
+	ToRouteSpecGrpcRouteMatchPtrOutputWithContext(context.Context) RouteSpecGrpcRouteMatchPtrOutput
+}
+
+type routeSpecGrpcRouteMatchPtrType RouteSpecGrpcRouteMatchArgs
+
+func RouteSpecGrpcRouteMatchPtr(v *RouteSpecGrpcRouteMatchArgs) RouteSpecGrpcRouteMatchPtrInput {
+	return (*routeSpecGrpcRouteMatchPtrType)(v)
+}
+
+func (*routeSpecGrpcRouteMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteMatch)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteMatchPtrType) ToRouteSpecGrpcRouteMatchPtrOutput() RouteSpecGrpcRouteMatchPtrOutput {
+	return i.ToRouteSpecGrpcRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteMatchPtrType) ToRouteSpecGrpcRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchPtrOutput)
+}
+
+type RouteSpecGrpcRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteMatch)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteMatchOutput) ToRouteSpecGrpcRouteMatchOutput() RouteSpecGrpcRouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchOutput) ToRouteSpecGrpcRouteMatchOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchOutput) ToRouteSpecGrpcRouteMatchPtrOutput() RouteSpecGrpcRouteMatchPtrOutput {
+	return o.ToRouteSpecGrpcRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteMatchOutput) ToRouteSpecGrpcRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *RouteSpecGrpcRouteMatch {
+		return &v
+	}).(RouteSpecGrpcRouteMatchPtrOutput)
+}
+
+// The data to match from the gRPC request.
+func (o RouteSpecGrpcRouteMatchOutput) Metadatas() RouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) []RouteSpecGrpcRouteMatchMetadata { return v.Metadatas }).(RouteSpecGrpcRouteMatchMetadataArrayOutput)
+}
+
+// The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
+func (o RouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.MethodName }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name for the service to match from the request.
+func (o RouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecGrpcRouteMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteMatch)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteMatchPtrOutput) ToRouteSpecGrpcRouteMatchPtrOutput() RouteSpecGrpcRouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchPtrOutput) ToRouteSpecGrpcRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchPtrOutput) Elem() RouteSpecGrpcRouteMatchOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) RouteSpecGrpcRouteMatch { return *v }).(RouteSpecGrpcRouteMatchOutput)
+}
+
+// The data to match from the gRPC request.
+func (o RouteSpecGrpcRouteMatchPtrOutput) Metadatas() RouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) []RouteSpecGrpcRouteMatchMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.Metadatas
+	}).(RouteSpecGrpcRouteMatchMetadataArrayOutput)
+}
+
+// The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
+func (o RouteSpecGrpcRouteMatchPtrOutput) MethodName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MethodName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name for the service to match from the request.
+func (o RouteSpecGrpcRouteMatchPtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadata struct {
+	// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+	Invert *bool `pulumi:"invert"`
+	// The data to match from the request.
+	Match *RouteSpecGrpcRouteMatchMetadataMatch `pulumi:"match"`
+	// The name of the route.
+	Name string `pulumi:"name"`
+}
+
+// RouteSpecGrpcRouteMatchMetadataInput is an input type that accepts RouteSpecGrpcRouteMatchMetadataArgs and RouteSpecGrpcRouteMatchMetadataOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteMatchMetadataInput` via:
+//
+//          RouteSpecGrpcRouteMatchMetadataArgs{...}
+type RouteSpecGrpcRouteMatchMetadataInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteMatchMetadataOutput() RouteSpecGrpcRouteMatchMetadataOutput
+	ToRouteSpecGrpcRouteMatchMetadataOutputWithContext(context.Context) RouteSpecGrpcRouteMatchMetadataOutput
+}
+
+type RouteSpecGrpcRouteMatchMetadataArgs struct {
+	// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+	Invert pulumi.BoolPtrInput `pulumi:"invert"`
+	// The data to match from the request.
+	Match RouteSpecGrpcRouteMatchMetadataMatchPtrInput `pulumi:"match"`
+	// The name of the route.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (RouteSpecGrpcRouteMatchMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteMatchMetadata)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataArgs) ToRouteSpecGrpcRouteMatchMetadataOutput() RouteSpecGrpcRouteMatchMetadataOutput {
+	return i.ToRouteSpecGrpcRouteMatchMetadataOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataArgs) ToRouteSpecGrpcRouteMatchMetadataOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchMetadataOutput)
+}
+
+// RouteSpecGrpcRouteMatchMetadataArrayInput is an input type that accepts RouteSpecGrpcRouteMatchMetadataArray and RouteSpecGrpcRouteMatchMetadataArrayOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteMatchMetadataArrayInput` via:
+//
+//          RouteSpecGrpcRouteMatchMetadataArray{ RouteSpecGrpcRouteMatchMetadataArgs{...} }
+type RouteSpecGrpcRouteMatchMetadataArrayInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteMatchMetadataArrayOutput() RouteSpecGrpcRouteMatchMetadataArrayOutput
+	ToRouteSpecGrpcRouteMatchMetadataArrayOutputWithContext(context.Context) RouteSpecGrpcRouteMatchMetadataArrayOutput
+}
+
+type RouteSpecGrpcRouteMatchMetadataArray []RouteSpecGrpcRouteMatchMetadataInput
+
+func (RouteSpecGrpcRouteMatchMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecGrpcRouteMatchMetadata)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataArray) ToRouteSpecGrpcRouteMatchMetadataArrayOutput() RouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return i.ToRouteSpecGrpcRouteMatchMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataArray) ToRouteSpecGrpcRouteMatchMetadataArrayOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchMetadataArrayOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadataOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteMatchMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteMatchMetadata)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataOutput) ToRouteSpecGrpcRouteMatchMetadataOutput() RouteSpecGrpcRouteMatchMetadataOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataOutput) ToRouteSpecGrpcRouteMatchMetadataOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataOutput {
+	return o
+}
+
+// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+func (o RouteSpecGrpcRouteMatchMetadataOutput) Invert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadata) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
+}
+
+// The data to match from the request.
+func (o RouteSpecGrpcRouteMatchMetadataOutput) Match() RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadata) *RouteSpecGrpcRouteMatchMetadataMatch { return v.Match }).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
+}
+
+// The name of the route.
+func (o RouteSpecGrpcRouteMatchMetadataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadata) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteMatchMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecGrpcRouteMatchMetadata)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataArrayOutput) ToRouteSpecGrpcRouteMatchMetadataArrayOutput() RouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataArrayOutput) ToRouteSpecGrpcRouteMatchMetadataArrayOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataArrayOutput) Index(i pulumi.IntInput) RouteSpecGrpcRouteMatchMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecGrpcRouteMatchMetadata {
+		return vs[0].([]RouteSpecGrpcRouteMatchMetadata)[vs[1].(int)]
+	}).(RouteSpecGrpcRouteMatchMetadataOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadataMatch struct {
+	// The value sent by the client must match the specified value exactly.
+	Exact *string `pulumi:"exact"`
+	// The value sent by the client must begin with the specified characters.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix *string `pulumi:"prefix"`
+	// The object that specifies the range of numbers that the value sent by the client must be included in.
+	Range *RouteSpecGrpcRouteMatchMetadataMatchRange `pulumi:"range"`
+	// The value sent by the client must include the specified characters.
+	Regex *string `pulumi:"regex"`
+	// The value sent by the client must end with the specified characters.
+	Suffix *string `pulumi:"suffix"`
+}
+
+// RouteSpecGrpcRouteMatchMetadataMatchInput is an input type that accepts RouteSpecGrpcRouteMatchMetadataMatchArgs and RouteSpecGrpcRouteMatchMetadataMatchOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteMatchMetadataMatchInput` via:
+//
+//          RouteSpecGrpcRouteMatchMetadataMatchArgs{...}
+type RouteSpecGrpcRouteMatchMetadataMatchInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteMatchMetadataMatchOutput() RouteSpecGrpcRouteMatchMetadataMatchOutput
+	ToRouteSpecGrpcRouteMatchMetadataMatchOutputWithContext(context.Context) RouteSpecGrpcRouteMatchMetadataMatchOutput
+}
+
+type RouteSpecGrpcRouteMatchMetadataMatchArgs struct {
+	// The value sent by the client must match the specified value exactly.
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	// The value sent by the client must begin with the specified characters.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The object that specifies the range of numbers that the value sent by the client must be included in.
+	Range RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput `pulumi:"range"`
+	// The value sent by the client must include the specified characters.
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The value sent by the client must end with the specified characters.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (RouteSpecGrpcRouteMatchMetadataMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteMatchMetadataMatch)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataMatchArgs) ToRouteSpecGrpcRouteMatchMetadataMatchOutput() RouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return i.ToRouteSpecGrpcRouteMatchMetadataMatchOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataMatchArgs) ToRouteSpecGrpcRouteMatchMetadataMatchOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchMetadataMatchOutput)
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataMatchArgs) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutput() RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return i.ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataMatchArgs) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchMetadataMatchOutput).ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteMatchMetadataMatchPtrInput is an input type that accepts RouteSpecGrpcRouteMatchMetadataMatchArgs, RouteSpecGrpcRouteMatchMetadataMatchPtr and RouteSpecGrpcRouteMatchMetadataMatchPtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteMatchMetadataMatchPtrInput` via:
+//
+//          RouteSpecGrpcRouteMatchMetadataMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteMatchMetadataMatchPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutput() RouteSpecGrpcRouteMatchMetadataMatchPtrOutput
+	ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(context.Context) RouteSpecGrpcRouteMatchMetadataMatchPtrOutput
+}
+
+type routeSpecGrpcRouteMatchMetadataMatchPtrType RouteSpecGrpcRouteMatchMetadataMatchArgs
+
+func RouteSpecGrpcRouteMatchMetadataMatchPtr(v *RouteSpecGrpcRouteMatchMetadataMatchArgs) RouteSpecGrpcRouteMatchMetadataMatchPtrInput {
+	return (*routeSpecGrpcRouteMatchMetadataMatchPtrType)(v)
+}
+
+func (*routeSpecGrpcRouteMatchMetadataMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteMatchMetadataMatch)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteMatchMetadataMatchPtrType) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutput() RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return i.ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteMatchMetadataMatchPtrType) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadataMatchOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteMatchMetadataMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteMatchMetadataMatch)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMetadataMatchOutput() RouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMetadataMatchOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutput() RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return o.ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatch {
+		return &v
+	}).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
+}
+
+// The value sent by the client must match the specified value exactly.
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must begin with the specified characters.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The object that specifies the range of numbers that the value sent by the client must be included in.
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Range() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatchRange {
+		return v.Range
+	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
+}
+
+// The value sent by the client must include the specified characters.
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must end with the specified characters.
+func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadataMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteMatchMetadataMatch)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutput() RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Elem() RouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) RouteSpecGrpcRouteMatchMetadataMatch { return *v }).(RouteSpecGrpcRouteMatchMetadataMatchOutput)
+}
+
+// The value sent by the client must match the specified value exactly.
+func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exact
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must begin with the specified characters.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object that specifies the range of numbers that the value sent by the client must be included in.
+func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Range() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatchRange {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
+}
+
+// The value sent by the client must include the specified characters.
+func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Regex
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must end with the specified characters.
+func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadataMatchRange struct {
+	// The end of the range.
+	End int `pulumi:"end"`
+	// The start of the range.
+	Start int `pulumi:"start"`
+}
+
+// RouteSpecGrpcRouteMatchMetadataMatchRangeInput is an input type that accepts RouteSpecGrpcRouteMatchMetadataMatchRangeArgs and RouteSpecGrpcRouteMatchMetadataMatchRangeOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteMatchMetadataMatchRangeInput` via:
+//
+//          RouteSpecGrpcRouteMatchMetadataMatchRangeArgs{...}
+type RouteSpecGrpcRouteMatchMetadataMatchRangeInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteMatchMetadataMatchRangeOutput() RouteSpecGrpcRouteMatchMetadataMatchRangeOutput
+	ToRouteSpecGrpcRouteMatchMetadataMatchRangeOutputWithContext(context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangeOutput
+}
+
+type RouteSpecGrpcRouteMatchMetadataMatchRangeArgs struct {
+	// The end of the range.
+	End pulumi.IntInput `pulumi:"end"`
+	// The start of the range.
+	Start pulumi.IntInput `pulumi:"start"`
+}
+
+func (RouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteMatchMetadataMatchRange)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ToRouteSpecGrpcRouteMatchMetadataMatchRangeOutput() RouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return i.ToRouteSpecGrpcRouteMatchMetadataMatchRangeOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ToRouteSpecGrpcRouteMatchMetadataMatchRangeOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchMetadataMatchRangeOutput)
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return i.ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchMetadataMatchRangeOutput).ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput is an input type that accepts RouteSpecGrpcRouteMatchMetadataMatchRangeArgs, RouteSpecGrpcRouteMatchMetadataMatchRangePtr and RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput` via:
+//
+//          RouteSpecGrpcRouteMatchMetadataMatchRangeArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput
+	ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput
+}
+
+type routeSpecGrpcRouteMatchMetadataMatchRangePtrType RouteSpecGrpcRouteMatchMetadataMatchRangeArgs
+
+func RouteSpecGrpcRouteMatchMetadataMatchRangePtr(v *RouteSpecGrpcRouteMatchMetadataMatchRangeArgs) RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput {
+	return (*routeSpecGrpcRouteMatchMetadataMatchRangePtrType)(v)
+}
+
+func (*routeSpecGrpcRouteMatchMetadataMatchRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteMatchMetadataMatchRange)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteMatchMetadataMatchRangePtrType) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return i.ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteMatchMetadataMatchRangePtrType) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadataMatchRangeOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteMatchMetadataMatchRange)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToRouteSpecGrpcRouteMatchMetadataMatchRangeOutput() RouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToRouteSpecGrpcRouteMatchMetadataMatchRangeOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return o.ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatchRange) *RouteSpecGrpcRouteMatchMetadataMatchRange {
+		return &v
+	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
+}
+
+// The end of the range.
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatchRange) int { return v.End }).(pulumi.IntOutput)
+}
+
+// The start of the range.
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatchRange) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteMatchMetadataMatchRange)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) Elem() RouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatchRange) RouteSpecGrpcRouteMatchMetadataMatchRange {
+		return *v
+	}).(RouteSpecGrpcRouteMatchMetadataMatchRangeOutput)
+}
+
+// The end of the range.
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatchRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.End
+	}).(pulumi.IntPtrOutput)
+}
+
+// The start of the range.
+func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatchRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecGrpcRouteRetryPolicy struct {
+	// List of gRPC retry events.
+	// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+	GrpcRetryEvents []string `pulumi:"grpcRetryEvents"`
+	// List of HTTP retry events.
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	HttpRetryEvents []string `pulumi:"httpRetryEvents"`
+	// The maximum number of retries.
+	MaxRetries int `pulumi:"maxRetries"`
+	// The per-retry timeout.
+	PerRetryTimeout RouteSpecGrpcRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
+	// List of TCP retry events. The only valid value is `connection-error`.
+	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
+}
+
+// RouteSpecGrpcRouteRetryPolicyInput is an input type that accepts RouteSpecGrpcRouteRetryPolicyArgs and RouteSpecGrpcRouteRetryPolicyOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteRetryPolicyInput` via:
+//
+//          RouteSpecGrpcRouteRetryPolicyArgs{...}
+type RouteSpecGrpcRouteRetryPolicyInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteRetryPolicyOutput() RouteSpecGrpcRouteRetryPolicyOutput
+	ToRouteSpecGrpcRouteRetryPolicyOutputWithContext(context.Context) RouteSpecGrpcRouteRetryPolicyOutput
+}
+
+type RouteSpecGrpcRouteRetryPolicyArgs struct {
+	// List of gRPC retry events.
+	// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+	GrpcRetryEvents pulumi.StringArrayInput `pulumi:"grpcRetryEvents"`
+	// List of HTTP retry events.
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	HttpRetryEvents pulumi.StringArrayInput `pulumi:"httpRetryEvents"`
+	// The maximum number of retries.
+	MaxRetries pulumi.IntInput `pulumi:"maxRetries"`
+	// The per-retry timeout.
+	PerRetryTimeout RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
+	// List of TCP retry events. The only valid value is `connection-error`.
+	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
+}
+
+func (RouteSpecGrpcRouteRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteRetryPolicy)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteRetryPolicyArgs) ToRouteSpecGrpcRouteRetryPolicyOutput() RouteSpecGrpcRouteRetryPolicyOutput {
+	return i.ToRouteSpecGrpcRouteRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteRetryPolicyArgs) ToRouteSpecGrpcRouteRetryPolicyOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteRetryPolicyOutput)
+}
+
+func (i RouteSpecGrpcRouteRetryPolicyArgs) ToRouteSpecGrpcRouteRetryPolicyPtrOutput() RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return i.ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteRetryPolicyArgs) ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteRetryPolicyOutput).ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteRetryPolicyPtrInput is an input type that accepts RouteSpecGrpcRouteRetryPolicyArgs, RouteSpecGrpcRouteRetryPolicyPtr and RouteSpecGrpcRouteRetryPolicyPtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteRetryPolicyPtrInput` via:
+//
+//          RouteSpecGrpcRouteRetryPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteRetryPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteRetryPolicyPtrOutput() RouteSpecGrpcRouteRetryPolicyPtrOutput
+	ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(context.Context) RouteSpecGrpcRouteRetryPolicyPtrOutput
+}
+
+type routeSpecGrpcRouteRetryPolicyPtrType RouteSpecGrpcRouteRetryPolicyArgs
+
+func RouteSpecGrpcRouteRetryPolicyPtr(v *RouteSpecGrpcRouteRetryPolicyArgs) RouteSpecGrpcRouteRetryPolicyPtrInput {
+	return (*routeSpecGrpcRouteRetryPolicyPtrType)(v)
+}
+
+func (*routeSpecGrpcRouteRetryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteRetryPolicy)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteRetryPolicyPtrType) ToRouteSpecGrpcRouteRetryPolicyPtrOutput() RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return i.ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteRetryPolicyPtrType) ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
+}
+
+type RouteSpecGrpcRouteRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteRetryPolicy)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyOutput) ToRouteSpecGrpcRouteRetryPolicyOutput() RouteSpecGrpcRouteRetryPolicyOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyOutput) ToRouteSpecGrpcRouteRetryPolicyOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyOutput) ToRouteSpecGrpcRouteRetryPolicyPtrOutput() RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return o.ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyOutput) ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) *RouteSpecGrpcRouteRetryPolicy {
+		return &v
+	}).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
+}
+
+// List of gRPC retry events.
+// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+func (o RouteSpecGrpcRouteRetryPolicyOutput) GrpcRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) []string { return v.GrpcRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+// List of HTTP retry events.
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+func (o RouteSpecGrpcRouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of retries.
+func (o RouteSpecGrpcRouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+}
+
+// The per-retry timeout.
+func (o RouteSpecGrpcRouteRetryPolicyOutput) PerRetryTimeout() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
+		return v.PerRetryTimeout
+	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// List of TCP retry events. The only valid value is `connection-error`.
+func (o RouteSpecGrpcRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+type RouteSpecGrpcRouteRetryPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteRetryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteRetryPolicy)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) ToRouteSpecGrpcRouteRetryPolicyPtrOutput() RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) Elem() RouteSpecGrpcRouteRetryPolicyOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) RouteSpecGrpcRouteRetryPolicy { return *v }).(RouteSpecGrpcRouteRetryPolicyOutput)
+}
+
+// List of gRPC retry events.
+// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) GrpcRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GrpcRetryEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of HTTP retry events.
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpRetryEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of retries.
+func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRetries
+	}).(pulumi.IntPtrOutput)
+}
+
+// The per-retry timeout.
+func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
+		if v == nil {
+			return nil
+		}
+		return &v.PerRetryTimeout
+	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+// List of TCP retry events. The only valid value is `connection-error`.
+func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TcpRetryEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+type RouteSpecGrpcRouteRetryPolicyPerRetryTimeout struct {
+	// Retry unit. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// Retry value.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput is an input type that accepts RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs and RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput` via:
+//
+//          RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs{...}
+type RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput
+	ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput
+}
+
+type RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs struct {
+	// Retry unit. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Retry value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return i.ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+func (i RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return i.ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput).ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrInput is an input type that accepts RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs, RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtr and RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrInput` via:
+//
+//          RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput
+	ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput
+}
+
+type routeSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrType RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs
+
+func RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtr(v *RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrInput {
+	return (*routeSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrType)(v)
+}
+
+func (*routeSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrType) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return i.ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrType) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+type RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
+		return &v
+	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+// Retry unit. Valid values: `ms`, `s`.
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Retry value.
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
+		return *v
+	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// Retry unit. Valid values: `ms`, `s`.
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retry value.
+func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecHttp2Route struct {
+	// The action to take if a match is determined.
+	Action RouteSpecHttp2RouteAction `pulumi:"action"`
+	// The criteria for determining an gRPC request match.
+	Match RouteSpecHttp2RouteMatch `pulumi:"match"`
+	// The retry policy.
+	RetryPolicy *RouteSpecHttp2RouteRetryPolicy `pulumi:"retryPolicy"`
+}
+
+// RouteSpecHttp2RouteInput is an input type that accepts RouteSpecHttp2RouteArgs and RouteSpecHttp2RouteOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteInput` via:
+//
+//          RouteSpecHttp2RouteArgs{...}
+type RouteSpecHttp2RouteInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteOutput() RouteSpecHttp2RouteOutput
+	ToRouteSpecHttp2RouteOutputWithContext(context.Context) RouteSpecHttp2RouteOutput
+}
+
+type RouteSpecHttp2RouteArgs struct {
+	// The action to take if a match is determined.
+	Action RouteSpecHttp2RouteActionInput `pulumi:"action"`
+	// The criteria for determining an gRPC request match.
+	Match RouteSpecHttp2RouteMatchInput `pulumi:"match"`
+	// The retry policy.
+	RetryPolicy RouteSpecHttp2RouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
+}
+
+func (RouteSpecHttp2RouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2Route)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteArgs) ToRouteSpecHttp2RouteOutput() RouteSpecHttp2RouteOutput {
+	return i.ToRouteSpecHttp2RouteOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteArgs) ToRouteSpecHttp2RouteOutputWithContext(ctx context.Context) RouteSpecHttp2RouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteOutput)
+}
+
+func (i RouteSpecHttp2RouteArgs) ToRouteSpecHttp2RoutePtrOutput() RouteSpecHttp2RoutePtrOutput {
+	return i.ToRouteSpecHttp2RoutePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteArgs) ToRouteSpecHttp2RoutePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteOutput).ToRouteSpecHttp2RoutePtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RoutePtrInput is an input type that accepts RouteSpecHttp2RouteArgs, RouteSpecHttp2RoutePtr and RouteSpecHttp2RoutePtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RoutePtrInput` via:
+//
+//          RouteSpecHttp2RouteArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RoutePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RoutePtrOutput() RouteSpecHttp2RoutePtrOutput
+	ToRouteSpecHttp2RoutePtrOutputWithContext(context.Context) RouteSpecHttp2RoutePtrOutput
+}
+
+type routeSpecHttp2RoutePtrType RouteSpecHttp2RouteArgs
+
+func RouteSpecHttp2RoutePtr(v *RouteSpecHttp2RouteArgs) RouteSpecHttp2RoutePtrInput {
+	return (*routeSpecHttp2RoutePtrType)(v)
+}
+
+func (*routeSpecHttp2RoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2Route)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RoutePtrType) ToRouteSpecHttp2RoutePtrOutput() RouteSpecHttp2RoutePtrOutput {
+	return i.ToRouteSpecHttp2RoutePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RoutePtrType) ToRouteSpecHttp2RoutePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RoutePtrOutput)
+}
+
+type RouteSpecHttp2RouteOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2Route)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteOutput) ToRouteSpecHttp2RouteOutput() RouteSpecHttp2RouteOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteOutput) ToRouteSpecHttp2RouteOutputWithContext(ctx context.Context) RouteSpecHttp2RouteOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteOutput) ToRouteSpecHttp2RoutePtrOutput() RouteSpecHttp2RoutePtrOutput {
+	return o.ToRouteSpecHttp2RoutePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteOutput) ToRouteSpecHttp2RoutePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RoutePtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2Route) *RouteSpecHttp2Route {
+		return &v
+	}).(RouteSpecHttp2RoutePtrOutput)
+}
+
+// The action to take if a match is determined.
+func (o RouteSpecHttp2RouteOutput) Action() RouteSpecHttp2RouteActionOutput {
+	return o.ApplyT(func(v RouteSpecHttp2Route) RouteSpecHttp2RouteAction { return v.Action }).(RouteSpecHttp2RouteActionOutput)
+}
+
+// The criteria for determining an gRPC request match.
+func (o RouteSpecHttp2RouteOutput) Match() RouteSpecHttp2RouteMatchOutput {
+	return o.ApplyT(func(v RouteSpecHttp2Route) RouteSpecHttp2RouteMatch { return v.Match }).(RouteSpecHttp2RouteMatchOutput)
+}
+
+// The retry policy.
+func (o RouteSpecHttp2RouteOutput) RetryPolicy() RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2Route) *RouteSpecHttp2RouteRetryPolicy { return v.RetryPolicy }).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
+}
+
+type RouteSpecHttp2RoutePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2Route)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RoutePtrOutput) ToRouteSpecHttp2RoutePtrOutput() RouteSpecHttp2RoutePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RoutePtrOutput) ToRouteSpecHttp2RoutePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RoutePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RoutePtrOutput) Elem() RouteSpecHttp2RouteOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2Route) RouteSpecHttp2Route { return *v }).(RouteSpecHttp2RouteOutput)
+}
+
+// The action to take if a match is determined.
+func (o RouteSpecHttp2RoutePtrOutput) Action() RouteSpecHttp2RouteActionPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteAction {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(RouteSpecHttp2RouteActionPtrOutput)
+}
+
+// The criteria for determining an gRPC request match.
+func (o RouteSpecHttp2RoutePtrOutput) Match() RouteSpecHttp2RouteMatchPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(RouteSpecHttp2RouteMatchPtrOutput)
+}
+
+// The retry policy.
+func (o RouteSpecHttp2RoutePtrOutput) RetryPolicy() RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteRetryPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RetryPolicy
+	}).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
+}
+
+type RouteSpecHttp2RouteAction struct {
+	// The targets that traffic is routed to when a request matches the route.
+	// You can specify one or more targets and their relative weights with which to distribute traffic.
+	WeightedTargets []RouteSpecHttp2RouteActionWeightedTarget `pulumi:"weightedTargets"`
+}
+
+// RouteSpecHttp2RouteActionInput is an input type that accepts RouteSpecHttp2RouteActionArgs and RouteSpecHttp2RouteActionOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteActionInput` via:
+//
+//          RouteSpecHttp2RouteActionArgs{...}
+type RouteSpecHttp2RouteActionInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteActionOutput() RouteSpecHttp2RouteActionOutput
+	ToRouteSpecHttp2RouteActionOutputWithContext(context.Context) RouteSpecHttp2RouteActionOutput
+}
+
+type RouteSpecHttp2RouteActionArgs struct {
+	// The targets that traffic is routed to when a request matches the route.
+	// You can specify one or more targets and their relative weights with which to distribute traffic.
+	WeightedTargets RouteSpecHttp2RouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
+}
+
+func (RouteSpecHttp2RouteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteAction)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteActionArgs) ToRouteSpecHttp2RouteActionOutput() RouteSpecHttp2RouteActionOutput {
+	return i.ToRouteSpecHttp2RouteActionOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteActionArgs) ToRouteSpecHttp2RouteActionOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteActionOutput)
+}
+
+func (i RouteSpecHttp2RouteActionArgs) ToRouteSpecHttp2RouteActionPtrOutput() RouteSpecHttp2RouteActionPtrOutput {
+	return i.ToRouteSpecHttp2RouteActionPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteActionArgs) ToRouteSpecHttp2RouteActionPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteActionOutput).ToRouteSpecHttp2RouteActionPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteActionPtrInput is an input type that accepts RouteSpecHttp2RouteActionArgs, RouteSpecHttp2RouteActionPtr and RouteSpecHttp2RouteActionPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteActionPtrInput` via:
+//
+//          RouteSpecHttp2RouteActionArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteActionPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteActionPtrOutput() RouteSpecHttp2RouteActionPtrOutput
+	ToRouteSpecHttp2RouteActionPtrOutputWithContext(context.Context) RouteSpecHttp2RouteActionPtrOutput
+}
+
+type routeSpecHttp2RouteActionPtrType RouteSpecHttp2RouteActionArgs
+
+func RouteSpecHttp2RouteActionPtr(v *RouteSpecHttp2RouteActionArgs) RouteSpecHttp2RouteActionPtrInput {
+	return (*routeSpecHttp2RouteActionPtrType)(v)
+}
+
+func (*routeSpecHttp2RouteActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteAction)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteActionPtrType) ToRouteSpecHttp2RouteActionPtrOutput() RouteSpecHttp2RouteActionPtrOutput {
+	return i.ToRouteSpecHttp2RouteActionPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteActionPtrType) ToRouteSpecHttp2RouteActionPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteActionPtrOutput)
+}
+
+type RouteSpecHttp2RouteActionOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteAction)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteActionOutput) ToRouteSpecHttp2RouteActionOutput() RouteSpecHttp2RouteActionOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteActionOutput) ToRouteSpecHttp2RouteActionOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteActionOutput) ToRouteSpecHttp2RouteActionPtrOutput() RouteSpecHttp2RouteActionPtrOutput {
+	return o.ToRouteSpecHttp2RouteActionPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteActionOutput) ToRouteSpecHttp2RouteActionPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteAction) *RouteSpecHttp2RouteAction {
+		return &v
+	}).(RouteSpecHttp2RouteActionPtrOutput)
+}
+
+// The targets that traffic is routed to when a request matches the route.
+// You can specify one or more targets and their relative weights with which to distribute traffic.
+func (o RouteSpecHttp2RouteActionOutput) WeightedTargets() RouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteAction) []RouteSpecHttp2RouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecHttp2RouteActionWeightedTargetArrayOutput)
+}
+
+type RouteSpecHttp2RouteActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteAction)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteActionPtrOutput) ToRouteSpecHttp2RouteActionPtrOutput() RouteSpecHttp2RouteActionPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteActionPtrOutput) ToRouteSpecHttp2RouteActionPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteActionPtrOutput) Elem() RouteSpecHttp2RouteActionOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteAction) RouteSpecHttp2RouteAction { return *v }).(RouteSpecHttp2RouteActionOutput)
+}
+
+// The targets that traffic is routed to when a request matches the route.
+// You can specify one or more targets and their relative weights with which to distribute traffic.
+func (o RouteSpecHttp2RouteActionPtrOutput) WeightedTargets() RouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteAction) []RouteSpecHttp2RouteActionWeightedTarget {
+		if v == nil {
+			return nil
+		}
+		return v.WeightedTargets
+	}).(RouteSpecHttp2RouteActionWeightedTargetArrayOutput)
+}
+
+type RouteSpecHttp2RouteActionWeightedTarget struct {
+	// The virtual node to associate with the weighted target.
+	VirtualNode string `pulumi:"virtualNode"`
+	// The relative weight of the weighted target. An integer between 0 and 100.
+	Weight int `pulumi:"weight"`
+}
+
+// RouteSpecHttp2RouteActionWeightedTargetInput is an input type that accepts RouteSpecHttp2RouteActionWeightedTargetArgs and RouteSpecHttp2RouteActionWeightedTargetOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteActionWeightedTargetInput` via:
+//
+//          RouteSpecHttp2RouteActionWeightedTargetArgs{...}
+type RouteSpecHttp2RouteActionWeightedTargetInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteActionWeightedTargetOutput() RouteSpecHttp2RouteActionWeightedTargetOutput
+	ToRouteSpecHttp2RouteActionWeightedTargetOutputWithContext(context.Context) RouteSpecHttp2RouteActionWeightedTargetOutput
+}
+
+type RouteSpecHttp2RouteActionWeightedTargetArgs struct {
+	// The virtual node to associate with the weighted target.
+	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
+	// The relative weight of the weighted target. An integer between 0 and 100.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (RouteSpecHttp2RouteActionWeightedTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteActionWeightedTargetArgs) ToRouteSpecHttp2RouteActionWeightedTargetOutput() RouteSpecHttp2RouteActionWeightedTargetOutput {
+	return i.ToRouteSpecHttp2RouteActionWeightedTargetOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteActionWeightedTargetArgs) ToRouteSpecHttp2RouteActionWeightedTargetOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionWeightedTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteActionWeightedTargetOutput)
+}
+
+// RouteSpecHttp2RouteActionWeightedTargetArrayInput is an input type that accepts RouteSpecHttp2RouteActionWeightedTargetArray and RouteSpecHttp2RouteActionWeightedTargetArrayOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteActionWeightedTargetArrayInput` via:
+//
+//          RouteSpecHttp2RouteActionWeightedTargetArray{ RouteSpecHttp2RouteActionWeightedTargetArgs{...} }
+type RouteSpecHttp2RouteActionWeightedTargetArrayInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteActionWeightedTargetArrayOutput() RouteSpecHttp2RouteActionWeightedTargetArrayOutput
+	ToRouteSpecHttp2RouteActionWeightedTargetArrayOutputWithContext(context.Context) RouteSpecHttp2RouteActionWeightedTargetArrayOutput
+}
+
+type RouteSpecHttp2RouteActionWeightedTargetArray []RouteSpecHttp2RouteActionWeightedTargetInput
+
+func (RouteSpecHttp2RouteActionWeightedTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecHttp2RouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteActionWeightedTargetArray) ToRouteSpecHttp2RouteActionWeightedTargetArrayOutput() RouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return i.ToRouteSpecHttp2RouteActionWeightedTargetArrayOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteActionWeightedTargetArray) ToRouteSpecHttp2RouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteActionWeightedTargetArrayOutput)
+}
+
+type RouteSpecHttp2RouteActionWeightedTargetOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteActionWeightedTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteActionWeightedTargetOutput) ToRouteSpecHttp2RouteActionWeightedTargetOutput() RouteSpecHttp2RouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteActionWeightedTargetOutput) ToRouteSpecHttp2RouteActionWeightedTargetOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionWeightedTargetOutput {
+	return o
+}
+
+// The virtual node to associate with the weighted target.
+func (o RouteSpecHttp2RouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+}
+
+// The relative weight of the weighted target. An integer between 0 and 100.
+func (o RouteSpecHttp2RouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttp2RouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteActionWeightedTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecHttp2RouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteActionWeightedTargetArrayOutput) ToRouteSpecHttp2RouteActionWeightedTargetArrayOutput() RouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteActionWeightedTargetArrayOutput) ToRouteSpecHttp2RouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInput) RouteSpecHttp2RouteActionWeightedTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecHttp2RouteActionWeightedTarget {
+		return vs[0].([]RouteSpecHttp2RouteActionWeightedTarget)[vs[1].(int)]
+	}).(RouteSpecHttp2RouteActionWeightedTargetOutput)
+}
+
+type RouteSpecHttp2RouteMatch struct {
+	// The client request headers to match on.
+	Headers []RouteSpecHttp2RouteMatchHeader `pulumi:"headers"`
+	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+	Method *string `pulumi:"method"`
+	// The value sent by the client must begin with the specified characters.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix string `pulumi:"prefix"`
+	// The client request header scheme to match on. Valid values: `http`, `https`.
+	Scheme *string `pulumi:"scheme"`
+}
+
+// RouteSpecHttp2RouteMatchInput is an input type that accepts RouteSpecHttp2RouteMatchArgs and RouteSpecHttp2RouteMatchOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteMatchInput` via:
+//
+//          RouteSpecHttp2RouteMatchArgs{...}
+type RouteSpecHttp2RouteMatchInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteMatchOutput() RouteSpecHttp2RouteMatchOutput
+	ToRouteSpecHttp2RouteMatchOutputWithContext(context.Context) RouteSpecHttp2RouteMatchOutput
+}
+
+type RouteSpecHttp2RouteMatchArgs struct {
+	// The client request headers to match on.
+	Headers RouteSpecHttp2RouteMatchHeaderArrayInput `pulumi:"headers"`
+	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The value sent by the client must begin with the specified characters.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The client request header scheme to match on. Valid values: `http`, `https`.
+	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+}
+
+func (RouteSpecHttp2RouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteMatch)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteMatchArgs) ToRouteSpecHttp2RouteMatchOutput() RouteSpecHttp2RouteMatchOutput {
+	return i.ToRouteSpecHttp2RouteMatchOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteMatchArgs) ToRouteSpecHttp2RouteMatchOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchOutput)
+}
+
+func (i RouteSpecHttp2RouteMatchArgs) ToRouteSpecHttp2RouteMatchPtrOutput() RouteSpecHttp2RouteMatchPtrOutput {
+	return i.ToRouteSpecHttp2RouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteMatchArgs) ToRouteSpecHttp2RouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchOutput).ToRouteSpecHttp2RouteMatchPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteMatchPtrInput is an input type that accepts RouteSpecHttp2RouteMatchArgs, RouteSpecHttp2RouteMatchPtr and RouteSpecHttp2RouteMatchPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteMatchPtrInput` via:
+//
+//          RouteSpecHttp2RouteMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteMatchPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteMatchPtrOutput() RouteSpecHttp2RouteMatchPtrOutput
+	ToRouteSpecHttp2RouteMatchPtrOutputWithContext(context.Context) RouteSpecHttp2RouteMatchPtrOutput
+}
+
+type routeSpecHttp2RouteMatchPtrType RouteSpecHttp2RouteMatchArgs
+
+func RouteSpecHttp2RouteMatchPtr(v *RouteSpecHttp2RouteMatchArgs) RouteSpecHttp2RouteMatchPtrInput {
+	return (*routeSpecHttp2RouteMatchPtrType)(v)
+}
+
+func (*routeSpecHttp2RouteMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteMatch)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteMatchPtrType) ToRouteSpecHttp2RouteMatchPtrOutput() RouteSpecHttp2RouteMatchPtrOutput {
+	return i.ToRouteSpecHttp2RouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteMatchPtrType) ToRouteSpecHttp2RouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchPtrOutput)
+}
+
+type RouteSpecHttp2RouteMatchOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteMatch)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteMatchOutput) ToRouteSpecHttp2RouteMatchOutput() RouteSpecHttp2RouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchOutput) ToRouteSpecHttp2RouteMatchOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchOutput) ToRouteSpecHttp2RouteMatchPtrOutput() RouteSpecHttp2RouteMatchPtrOutput {
+	return o.ToRouteSpecHttp2RouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteMatchOutput) ToRouteSpecHttp2RouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *RouteSpecHttp2RouteMatch {
+		return &v
+	}).(RouteSpecHttp2RouteMatchPtrOutput)
+}
+
+// The client request headers to match on.
+func (o RouteSpecHttp2RouteMatchOutput) Headers() RouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) []RouteSpecHttp2RouteMatchHeader { return v.Headers }).(RouteSpecHttp2RouteMatchHeaderArrayOutput)
+}
+
+// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+func (o RouteSpecHttp2RouteMatchOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must begin with the specified characters.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// The client request header scheme to match on. Valid values: `http`, `https`.
+func (o RouteSpecHttp2RouteMatchOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecHttp2RouteMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteMatch)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteMatchPtrOutput) ToRouteSpecHttp2RouteMatchPtrOutput() RouteSpecHttp2RouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchPtrOutput) ToRouteSpecHttp2RouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchPtrOutput) Elem() RouteSpecHttp2RouteMatchOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) RouteSpecHttp2RouteMatch { return *v }).(RouteSpecHttp2RouteMatchOutput)
+}
+
+// The client request headers to match on.
+func (o RouteSpecHttp2RouteMatchPtrOutput) Headers() RouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) []RouteSpecHttp2RouteMatchHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(RouteSpecHttp2RouteMatchHeaderArrayOutput)
+}
+
+// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+func (o RouteSpecHttp2RouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must begin with the specified characters.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client request header scheme to match on. Valid values: `http`, `https`.
+func (o RouteSpecHttp2RouteMatchPtrOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scheme
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeader struct {
+	// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+	Invert *bool `pulumi:"invert"`
+	// The method and value to match the header value sent with a request. Specify one match method.
+	Match *RouteSpecHttp2RouteMatchHeaderMatch `pulumi:"match"`
+	// A name for the HTTP header in the client request that will be matched on.
+	Name string `pulumi:"name"`
+}
+
+// RouteSpecHttp2RouteMatchHeaderInput is an input type that accepts RouteSpecHttp2RouteMatchHeaderArgs and RouteSpecHttp2RouteMatchHeaderOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteMatchHeaderInput` via:
+//
+//          RouteSpecHttp2RouteMatchHeaderArgs{...}
+type RouteSpecHttp2RouteMatchHeaderInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteMatchHeaderOutput() RouteSpecHttp2RouteMatchHeaderOutput
+	ToRouteSpecHttp2RouteMatchHeaderOutputWithContext(context.Context) RouteSpecHttp2RouteMatchHeaderOutput
+}
+
+type RouteSpecHttp2RouteMatchHeaderArgs struct {
+	// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+	Invert pulumi.BoolPtrInput `pulumi:"invert"`
+	// The method and value to match the header value sent with a request. Specify one match method.
+	Match RouteSpecHttp2RouteMatchHeaderMatchPtrInput `pulumi:"match"`
+	// A name for the HTTP header in the client request that will be matched on.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (RouteSpecHttp2RouteMatchHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteMatchHeader)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderArgs) ToRouteSpecHttp2RouteMatchHeaderOutput() RouteSpecHttp2RouteMatchHeaderOutput {
+	return i.ToRouteSpecHttp2RouteMatchHeaderOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderArgs) ToRouteSpecHttp2RouteMatchHeaderOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchHeaderOutput)
+}
+
+// RouteSpecHttp2RouteMatchHeaderArrayInput is an input type that accepts RouteSpecHttp2RouteMatchHeaderArray and RouteSpecHttp2RouteMatchHeaderArrayOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteMatchHeaderArrayInput` via:
+//
+//          RouteSpecHttp2RouteMatchHeaderArray{ RouteSpecHttp2RouteMatchHeaderArgs{...} }
+type RouteSpecHttp2RouteMatchHeaderArrayInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteMatchHeaderArrayOutput() RouteSpecHttp2RouteMatchHeaderArrayOutput
+	ToRouteSpecHttp2RouteMatchHeaderArrayOutputWithContext(context.Context) RouteSpecHttp2RouteMatchHeaderArrayOutput
+}
+
+type RouteSpecHttp2RouteMatchHeaderArray []RouteSpecHttp2RouteMatchHeaderInput
+
+func (RouteSpecHttp2RouteMatchHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecHttp2RouteMatchHeader)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderArray) ToRouteSpecHttp2RouteMatchHeaderArrayOutput() RouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return i.ToRouteSpecHttp2RouteMatchHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderArray) ToRouteSpecHttp2RouteMatchHeaderArrayOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchHeaderArrayOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeaderOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteMatchHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteMatchHeader)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderOutput) ToRouteSpecHttp2RouteMatchHeaderOutput() RouteSpecHttp2RouteMatchHeaderOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderOutput) ToRouteSpecHttp2RouteMatchHeaderOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderOutput {
+	return o
+}
+
+// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+func (o RouteSpecHttp2RouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
+}
+
+// The method and value to match the header value sent with a request. Specify one match method.
+func (o RouteSpecHttp2RouteMatchHeaderOutput) Match() RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeader) *RouteSpecHttp2RouteMatchHeaderMatch { return v.Match }).(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
+}
+
+// A name for the HTTP header in the client request that will be matched on.
+func (o RouteSpecHttp2RouteMatchHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteMatchHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecHttp2RouteMatchHeader)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderArrayOutput) ToRouteSpecHttp2RouteMatchHeaderArrayOutput() RouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderArrayOutput) ToRouteSpecHttp2RouteMatchHeaderArrayOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) RouteSpecHttp2RouteMatchHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecHttp2RouteMatchHeader {
+		return vs[0].([]RouteSpecHttp2RouteMatchHeader)[vs[1].(int)]
+	}).(RouteSpecHttp2RouteMatchHeaderOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeaderMatch struct {
+	// The value sent by the client must match the specified value exactly.
+	Exact *string `pulumi:"exact"`
+	// The value sent by the client must begin with the specified characters.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix *string `pulumi:"prefix"`
+	// The object that specifies the range of numbers that the value sent by the client must be included in.
+	Range *RouteSpecHttp2RouteMatchHeaderMatchRange `pulumi:"range"`
+	// The value sent by the client must include the specified characters.
+	Regex *string `pulumi:"regex"`
+	// The value sent by the client must end with the specified characters.
+	Suffix *string `pulumi:"suffix"`
+}
+
+// RouteSpecHttp2RouteMatchHeaderMatchInput is an input type that accepts RouteSpecHttp2RouteMatchHeaderMatchArgs and RouteSpecHttp2RouteMatchHeaderMatchOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteMatchHeaderMatchInput` via:
+//
+//          RouteSpecHttp2RouteMatchHeaderMatchArgs{...}
+type RouteSpecHttp2RouteMatchHeaderMatchInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteMatchHeaderMatchOutput() RouteSpecHttp2RouteMatchHeaderMatchOutput
+	ToRouteSpecHttp2RouteMatchHeaderMatchOutputWithContext(context.Context) RouteSpecHttp2RouteMatchHeaderMatchOutput
+}
+
+type RouteSpecHttp2RouteMatchHeaderMatchArgs struct {
+	// The value sent by the client must match the specified value exactly.
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	// The value sent by the client must begin with the specified characters.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The object that specifies the range of numbers that the value sent by the client must be included in.
+	Range RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
+	// The value sent by the client must include the specified characters.
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The value sent by the client must end with the specified characters.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (RouteSpecHttp2RouteMatchHeaderMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderMatchArgs) ToRouteSpecHttp2RouteMatchHeaderMatchOutput() RouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return i.ToRouteSpecHttp2RouteMatchHeaderMatchOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderMatchArgs) ToRouteSpecHttp2RouteMatchHeaderMatchOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchHeaderMatchOutput)
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderMatchArgs) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutput() RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return i.ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderMatchArgs) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchHeaderMatchOutput).ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteMatchHeaderMatchPtrInput is an input type that accepts RouteSpecHttp2RouteMatchHeaderMatchArgs, RouteSpecHttp2RouteMatchHeaderMatchPtr and RouteSpecHttp2RouteMatchHeaderMatchPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteMatchHeaderMatchPtrInput` via:
+//
+//          RouteSpecHttp2RouteMatchHeaderMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteMatchHeaderMatchPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutput() RouteSpecHttp2RouteMatchHeaderMatchPtrOutput
+	ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(context.Context) RouteSpecHttp2RouteMatchHeaderMatchPtrOutput
+}
+
+type routeSpecHttp2RouteMatchHeaderMatchPtrType RouteSpecHttp2RouteMatchHeaderMatchArgs
+
+func RouteSpecHttp2RouteMatchHeaderMatchPtr(v *RouteSpecHttp2RouteMatchHeaderMatchArgs) RouteSpecHttp2RouteMatchHeaderMatchPtrInput {
+	return (*routeSpecHttp2RouteMatchHeaderMatchPtrType)(v)
+}
+
+func (*routeSpecHttp2RouteMatchHeaderMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteMatchHeaderMatchPtrType) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutput() RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return i.ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteMatchHeaderMatchPtrType) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeaderMatchOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteMatchHeaderMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHeaderMatchOutput() RouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHeaderMatchOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutput() RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return o.ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatch {
+		return &v
+	}).(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
+}
+
+// The value sent by the client must match the specified value exactly.
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must begin with the specified characters.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The object that specifies the range of numbers that the value sent by the client must be included in.
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Range() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
+}
+
+// The value sent by the client must include the specified characters.
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must end with the specified characters.
+func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeaderMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutput() RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) RouteSpecHttp2RouteMatchHeaderMatch { return *v }).(RouteSpecHttp2RouteMatchHeaderMatchOutput)
+}
+
+// The value sent by the client must match the specified value exactly.
+func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exact
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must begin with the specified characters.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object that specifies the range of numbers that the value sent by the client must be included in.
+func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatchRange {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
+}
+
+// The value sent by the client must include the specified characters.
+func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Regex
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must end with the specified characters.
+func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeaderMatchRange struct {
+	// The end of the range.
+	End int `pulumi:"end"`
+	// The start of the range.
+	Start int `pulumi:"start"`
+}
+
+// RouteSpecHttp2RouteMatchHeaderMatchRangeInput is an input type that accepts RouteSpecHttp2RouteMatchHeaderMatchRangeArgs and RouteSpecHttp2RouteMatchHeaderMatchRangeOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteMatchHeaderMatchRangeInput` via:
+//
+//          RouteSpecHttp2RouteMatchHeaderMatchRangeArgs{...}
+type RouteSpecHttp2RouteMatchHeaderMatchRangeInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteMatchHeaderMatchRangeOutput() RouteSpecHttp2RouteMatchHeaderMatchRangeOutput
+	ToRouteSpecHttp2RouteMatchHeaderMatchRangeOutputWithContext(context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangeOutput
+}
+
+type RouteSpecHttp2RouteMatchHeaderMatchRangeArgs struct {
+	// The end of the range.
+	End pulumi.IntInput `pulumi:"end"`
+	// The start of the range.
+	Start pulumi.IntInput `pulumi:"start"`
+}
+
+func (RouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ToRouteSpecHttp2RouteMatchHeaderMatchRangeOutput() RouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return i.ToRouteSpecHttp2RouteMatchHeaderMatchRangeOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ToRouteSpecHttp2RouteMatchHeaderMatchRangeOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchHeaderMatchRangeOutput)
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return i.ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchHeaderMatchRangeOutput).ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput is an input type that accepts RouteSpecHttp2RouteMatchHeaderMatchRangeArgs, RouteSpecHttp2RouteMatchHeaderMatchRangePtr and RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput` via:
+//
+//          RouteSpecHttp2RouteMatchHeaderMatchRangeArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput
+	ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput
+}
+
+type routeSpecHttp2RouteMatchHeaderMatchRangePtrType RouteSpecHttp2RouteMatchHeaderMatchRangeArgs
+
+func RouteSpecHttp2RouteMatchHeaderMatchRangePtr(v *RouteSpecHttp2RouteMatchHeaderMatchRangeArgs) RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput {
+	return (*routeSpecHttp2RouteMatchHeaderMatchRangePtrType)(v)
+}
+
+func (*routeSpecHttp2RouteMatchHeaderMatchRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteMatchHeaderMatchRangePtrType) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return i.ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteMatchHeaderMatchRangePtrType) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeaderMatchRangeOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToRouteSpecHttp2RouteMatchHeaderMatchRangeOutput() RouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToRouteSpecHttp2RouteMatchHeaderMatchRangeOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return o.ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatchRange) *RouteSpecHttp2RouteMatchHeaderMatchRange {
+		return &v
+	}).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
+}
+
+// The end of the range.
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+}
+
+// The start of the range.
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) Elem() RouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatchRange) RouteSpecHttp2RouteMatchHeaderMatchRange { return *v }).(RouteSpecHttp2RouteMatchHeaderMatchRangeOutput)
+}
+
+// The end of the range.
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatchRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.End
+	}).(pulumi.IntPtrOutput)
+}
+
+// The start of the range.
+func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatchRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecHttp2RouteRetryPolicy struct {
+	// List of HTTP retry events.
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	HttpRetryEvents []string `pulumi:"httpRetryEvents"`
+	// The maximum number of retries.
+	MaxRetries int `pulumi:"maxRetries"`
+	// The per-retry timeout.
+	PerRetryTimeout RouteSpecHttp2RouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
+	// List of TCP retry events. The only valid value is `connection-error`.
+	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
+}
+
+// RouteSpecHttp2RouteRetryPolicyInput is an input type that accepts RouteSpecHttp2RouteRetryPolicyArgs and RouteSpecHttp2RouteRetryPolicyOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteRetryPolicyInput` via:
+//
+//          RouteSpecHttp2RouteRetryPolicyArgs{...}
+type RouteSpecHttp2RouteRetryPolicyInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteRetryPolicyOutput() RouteSpecHttp2RouteRetryPolicyOutput
+	ToRouteSpecHttp2RouteRetryPolicyOutputWithContext(context.Context) RouteSpecHttp2RouteRetryPolicyOutput
+}
+
+type RouteSpecHttp2RouteRetryPolicyArgs struct {
+	// List of HTTP retry events.
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	HttpRetryEvents pulumi.StringArrayInput `pulumi:"httpRetryEvents"`
+	// The maximum number of retries.
+	MaxRetries pulumi.IntInput `pulumi:"maxRetries"`
+	// The per-retry timeout.
+	PerRetryTimeout RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
+	// List of TCP retry events. The only valid value is `connection-error`.
+	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
+}
+
+func (RouteSpecHttp2RouteRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteRetryPolicy)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteRetryPolicyArgs) ToRouteSpecHttp2RouteRetryPolicyOutput() RouteSpecHttp2RouteRetryPolicyOutput {
+	return i.ToRouteSpecHttp2RouteRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteRetryPolicyArgs) ToRouteSpecHttp2RouteRetryPolicyOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteRetryPolicyOutput)
+}
+
+func (i RouteSpecHttp2RouteRetryPolicyArgs) ToRouteSpecHttp2RouteRetryPolicyPtrOutput() RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return i.ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteRetryPolicyArgs) ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteRetryPolicyOutput).ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteRetryPolicyPtrInput is an input type that accepts RouteSpecHttp2RouteRetryPolicyArgs, RouteSpecHttp2RouteRetryPolicyPtr and RouteSpecHttp2RouteRetryPolicyPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteRetryPolicyPtrInput` via:
+//
+//          RouteSpecHttp2RouteRetryPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteRetryPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteRetryPolicyPtrOutput() RouteSpecHttp2RouteRetryPolicyPtrOutput
+	ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(context.Context) RouteSpecHttp2RouteRetryPolicyPtrOutput
+}
+
+type routeSpecHttp2RouteRetryPolicyPtrType RouteSpecHttp2RouteRetryPolicyArgs
+
+func RouteSpecHttp2RouteRetryPolicyPtr(v *RouteSpecHttp2RouteRetryPolicyArgs) RouteSpecHttp2RouteRetryPolicyPtrInput {
+	return (*routeSpecHttp2RouteRetryPolicyPtrType)(v)
+}
+
+func (*routeSpecHttp2RouteRetryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteRetryPolicy)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteRetryPolicyPtrType) ToRouteSpecHttp2RouteRetryPolicyPtrOutput() RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return i.ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteRetryPolicyPtrType) ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
+}
+
+type RouteSpecHttp2RouteRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteRetryPolicy)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyOutput) ToRouteSpecHttp2RouteRetryPolicyOutput() RouteSpecHttp2RouteRetryPolicyOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyOutput) ToRouteSpecHttp2RouteRetryPolicyOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyOutput) ToRouteSpecHttp2RouteRetryPolicyPtrOutput() RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return o.ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyOutput) ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) *RouteSpecHttp2RouteRetryPolicy {
+		return &v
+	}).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
+}
+
+// List of HTTP retry events.
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+func (o RouteSpecHttp2RouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of retries.
+func (o RouteSpecHttp2RouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+}
+
+// The per-retry timeout.
+func (o RouteSpecHttp2RouteRetryPolicyOutput) PerRetryTimeout() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
+		return v.PerRetryTimeout
+	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// List of TCP retry events. The only valid value is `connection-error`.
+func (o RouteSpecHttp2RouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+type RouteSpecHttp2RouteRetryPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteRetryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteRetryPolicy)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) ToRouteSpecHttp2RouteRetryPolicyPtrOutput() RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) Elem() RouteSpecHttp2RouteRetryPolicyOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) RouteSpecHttp2RouteRetryPolicy { return *v }).(RouteSpecHttp2RouteRetryPolicyOutput)
+}
+
+// List of HTTP retry events.
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpRetryEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of retries.
+func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRetries
+	}).(pulumi.IntPtrOutput)
+}
+
+// The per-retry timeout.
+func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
+		if v == nil {
+			return nil
+		}
+		return &v.PerRetryTimeout
+	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+// List of TCP retry events. The only valid value is `connection-error`.
+func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TcpRetryEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+type RouteSpecHttp2RouteRetryPolicyPerRetryTimeout struct {
+	// Retry unit. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// Retry value.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput is an input type that accepts RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs and RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput` via:
+//
+//          RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs{...}
+type RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput
+	ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput
+}
+
+type RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs struct {
+	// Retry unit. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Retry value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return i.ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+func (i RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return i.ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput).ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrInput is an input type that accepts RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs, RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtr and RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrInput` via:
+//
+//          RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput
+	ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput
+}
+
+type routeSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrType RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs
+
+func RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtr(v *RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrInput {
+	return (*routeSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrType)(v)
+}
+
+func (*routeSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrType) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return i.ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrType) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+type RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
+		return &v
+	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+// Retry unit. Valid values: `ms`, `s`.
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Retry value.
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
+		return *v
+	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// Retry unit. Valid values: `ms`, `s`.
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retry value.
+func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type RouteSpecHttpRoute struct {
 	// The action to take if a match is determined.
 	Action RouteSpecHttpRouteAction `pulumi:"action"`
 	// The criteria for determining an HTTP request match.
 	Match RouteSpecHttpRouteMatch `pulumi:"match"`
+	// The retry policy.
+	RetryPolicy *RouteSpecHttpRouteRetryPolicy `pulumi:"retryPolicy"`
 }
 
 // RouteSpecHttpRouteInput is an input type that accepts RouteSpecHttpRouteArgs and RouteSpecHttpRouteOutput values.
@@ -472,6 +3372,8 @@ type RouteSpecHttpRouteArgs struct {
 	Action RouteSpecHttpRouteActionInput `pulumi:"action"`
 	// The criteria for determining an HTTP request match.
 	Match RouteSpecHttpRouteMatchInput `pulumi:"match"`
+	// The retry policy.
+	RetryPolicy RouteSpecHttpRouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
 }
 
 func (RouteSpecHttpRouteArgs) ElementType() reflect.Type {
@@ -561,6 +3463,11 @@ func (o RouteSpecHttpRouteOutput) Match() RouteSpecHttpRouteMatchOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
 }
 
+// The retry policy.
+func (o RouteSpecHttpRouteOutput) RetryPolicy() RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRoute) *RouteSpecHttpRouteRetryPolicy { return v.RetryPolicy }).(RouteSpecHttpRouteRetryPolicyPtrOutput)
+}
+
 type RouteSpecHttpRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRoutePtrOutput) ElementType() reflect.Type {
@@ -597,6 +3504,16 @@ func (o RouteSpecHttpRoutePtrOutput) Match() RouteSpecHttpRouteMatchPtrOutput {
 		}
 		return &v.Match
 	}).(RouteSpecHttpRouteMatchPtrOutput)
+}
+
+// The retry policy.
+func (o RouteSpecHttpRoutePtrOutput) RetryPolicy() RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRoute) *RouteSpecHttpRouteRetryPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RetryPolicy
+	}).(RouteSpecHttpRouteRetryPolicyPtrOutput)
 }
 
 type RouteSpecHttpRouteAction struct {
@@ -845,7 +3762,7 @@ type RouteSpecHttpRouteMatch struct {
 	Headers []RouteSpecHttpRouteMatchHeader `pulumi:"headers"`
 	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method *string `pulumi:"method"`
-	// Specifies the path with which to match requests.
+	// The value sent by the client must begin with the specified characters.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix string `pulumi:"prefix"`
 	// The client request header scheme to match on. Valid values: `http`, `https`.
@@ -868,7 +3785,7 @@ type RouteSpecHttpRouteMatchArgs struct {
 	Headers RouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
 	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
-	// Specifies the path with which to match requests.
+	// The value sent by the client must begin with the specified characters.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
 	// The client request header scheme to match on. Valid values: `http`, `https`.
@@ -962,7 +3879,7 @@ func (o RouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the path with which to match requests.
+// The value sent by the client must begin with the specified characters.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
@@ -1011,7 +3928,7 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the path with which to match requests.
+// The value sent by the client must begin with the specified characters.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) *string {
@@ -1148,16 +4065,16 @@ func (o RouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Route
 }
 
 type RouteSpecHttpRouteMatchHeaderMatch struct {
-	// The header value sent by the client must match the specified value exactly.
+	// The value sent by the client must match the specified value exactly.
 	Exact *string `pulumi:"exact"`
-	// Specifies the path with which to match requests.
+	// The value sent by the client must begin with the specified characters.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
-	// The object that specifies the range of numbers that the header value sent by the client must be included in.
+	// The object that specifies the range of numbers that the value sent by the client must be included in.
 	Range *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
-	// The header value sent by the client must include the specified characters.
+	// The value sent by the client must include the specified characters.
 	Regex *string `pulumi:"regex"`
-	// The header value sent by the client must end with the specified characters.
+	// The value sent by the client must end with the specified characters.
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -1173,16 +4090,16 @@ type RouteSpecHttpRouteMatchHeaderMatchInput interface {
 }
 
 type RouteSpecHttpRouteMatchHeaderMatchArgs struct {
-	// The header value sent by the client must match the specified value exactly.
+	// The value sent by the client must match the specified value exactly.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Specifies the path with which to match requests.
+	// The value sent by the client must begin with the specified characters.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The object that specifies the range of numbers that the header value sent by the client must be included in.
+	// The object that specifies the range of numbers that the value sent by the client must be included in.
 	Range RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
-	// The header value sent by the client must include the specified characters.
+	// The value sent by the client must include the specified characters.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// The header value sent by the client must end with the specified characters.
+	// The value sent by the client must end with the specified characters.
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -1263,28 +4180,28 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeade
 	}).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
 
-// The header value sent by the client must match the specified value exactly.
+// The value sent by the client must match the specified value exactly.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the path with which to match requests.
+// The value sent by the client must begin with the specified characters.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The object that specifies the range of numbers that the header value sent by the client must be included in.
+// The object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Range() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The header value sent by the client must include the specified characters.
+// The value sent by the client must include the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// The header value sent by the client must end with the specified characters.
+// The value sent by the client must end with the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -1307,7 +4224,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttpRouteMa
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) RouteSpecHttpRouteMatchHeaderMatch { return *v }).(RouteSpecHttpRouteMatchHeaderMatchOutput)
 }
 
-// The header value sent by the client must match the specified value exactly.
+// The value sent by the client must match the specified value exactly.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -1317,7 +4234,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the path with which to match requests.
+// The value sent by the client must begin with the specified characters.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
@@ -1328,7 +4245,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object that specifies the range of numbers that the header value sent by the client must be included in.
+// The object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange {
 		if v == nil {
@@ -1338,7 +4255,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttpRouteM
 	}).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// The header value sent by the client must include the specified characters.
+// The value sent by the client must include the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -1348,7 +4265,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The header value sent by the client must end with the specified characters.
+// The value sent by the client must end with the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -1505,6 +4422,356 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntPtrO
 			return nil
 		}
 		return &v.Start
+	}).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecHttpRouteRetryPolicy struct {
+	// List of HTTP retry events.
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	HttpRetryEvents []string `pulumi:"httpRetryEvents"`
+	// The maximum number of retries.
+	MaxRetries int `pulumi:"maxRetries"`
+	// The per-retry timeout.
+	PerRetryTimeout RouteSpecHttpRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
+	// List of TCP retry events. The only valid value is `connection-error`.
+	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
+}
+
+// RouteSpecHttpRouteRetryPolicyInput is an input type that accepts RouteSpecHttpRouteRetryPolicyArgs and RouteSpecHttpRouteRetryPolicyOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteRetryPolicyInput` via:
+//
+//          RouteSpecHttpRouteRetryPolicyArgs{...}
+type RouteSpecHttpRouteRetryPolicyInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteRetryPolicyOutput() RouteSpecHttpRouteRetryPolicyOutput
+	ToRouteSpecHttpRouteRetryPolicyOutputWithContext(context.Context) RouteSpecHttpRouteRetryPolicyOutput
+}
+
+type RouteSpecHttpRouteRetryPolicyArgs struct {
+	// List of HTTP retry events.
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+	HttpRetryEvents pulumi.StringArrayInput `pulumi:"httpRetryEvents"`
+	// The maximum number of retries.
+	MaxRetries pulumi.IntInput `pulumi:"maxRetries"`
+	// The per-retry timeout.
+	PerRetryTimeout RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
+	// List of TCP retry events. The only valid value is `connection-error`.
+	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
+}
+
+func (RouteSpecHttpRouteRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteRetryPolicy)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteRetryPolicyArgs) ToRouteSpecHttpRouteRetryPolicyOutput() RouteSpecHttpRouteRetryPolicyOutput {
+	return i.ToRouteSpecHttpRouteRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteRetryPolicyArgs) ToRouteSpecHttpRouteRetryPolicyOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteRetryPolicyOutput)
+}
+
+func (i RouteSpecHttpRouteRetryPolicyArgs) ToRouteSpecHttpRouteRetryPolicyPtrOutput() RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return i.ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteRetryPolicyArgs) ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteRetryPolicyOutput).ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttpRouteRetryPolicyPtrInput is an input type that accepts RouteSpecHttpRouteRetryPolicyArgs, RouteSpecHttpRouteRetryPolicyPtr and RouteSpecHttpRouteRetryPolicyPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteRetryPolicyPtrInput` via:
+//
+//          RouteSpecHttpRouteRetryPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttpRouteRetryPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteRetryPolicyPtrOutput() RouteSpecHttpRouteRetryPolicyPtrOutput
+	ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(context.Context) RouteSpecHttpRouteRetryPolicyPtrOutput
+}
+
+type routeSpecHttpRouteRetryPolicyPtrType RouteSpecHttpRouteRetryPolicyArgs
+
+func RouteSpecHttpRouteRetryPolicyPtr(v *RouteSpecHttpRouteRetryPolicyArgs) RouteSpecHttpRouteRetryPolicyPtrInput {
+	return (*routeSpecHttpRouteRetryPolicyPtrType)(v)
+}
+
+func (*routeSpecHttpRouteRetryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteRetryPolicy)(nil)).Elem()
+}
+
+func (i *routeSpecHttpRouteRetryPolicyPtrType) ToRouteSpecHttpRouteRetryPolicyPtrOutput() RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return i.ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttpRouteRetryPolicyPtrType) ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteRetryPolicyPtrOutput)
+}
+
+type RouteSpecHttpRouteRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteRetryPolicy)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteRetryPolicyOutput) ToRouteSpecHttpRouteRetryPolicyOutput() RouteSpecHttpRouteRetryPolicyOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteRetryPolicyOutput) ToRouteSpecHttpRouteRetryPolicyOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteRetryPolicyOutput) ToRouteSpecHttpRouteRetryPolicyPtrOutput() RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return o.ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttpRouteRetryPolicyOutput) ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) *RouteSpecHttpRouteRetryPolicy {
+		return &v
+	}).(RouteSpecHttpRouteRetryPolicyPtrOutput)
+}
+
+// List of HTTP retry events.
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+func (o RouteSpecHttpRouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of retries.
+func (o RouteSpecHttpRouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+}
+
+// The per-retry timeout.
+func (o RouteSpecHttpRouteRetryPolicyOutput) PerRetryTimeout() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
+		return v.PerRetryTimeout
+	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// List of TCP retry events. The only valid value is `connection-error`.
+func (o RouteSpecHttpRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+type RouteSpecHttpRouteRetryPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteRetryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteRetryPolicy)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPtrOutput) ToRouteSpecHttpRouteRetryPolicyPtrOutput() RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPtrOutput) ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPtrOutput) Elem() RouteSpecHttpRouteRetryPolicyOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) RouteSpecHttpRouteRetryPolicy { return *v }).(RouteSpecHttpRouteRetryPolicyOutput)
+}
+
+// List of HTTP retry events.
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+func (o RouteSpecHttpRouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpRetryEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of retries.
+func (o RouteSpecHttpRouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRetries
+	}).(pulumi.IntPtrOutput)
+}
+
+// The per-retry timeout.
+func (o RouteSpecHttpRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) *RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
+		if v == nil {
+			return nil
+		}
+		return &v.PerRetryTimeout
+	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+// List of TCP retry events. The only valid value is `connection-error`.
+func (o RouteSpecHttpRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TcpRetryEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+type RouteSpecHttpRouteRetryPolicyPerRetryTimeout struct {
+	// Retry unit. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// Retry value.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput is an input type that accepts RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs and RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput` via:
+//
+//          RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{...}
+type RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput
+	ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput
+}
+
+type RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs struct {
+	// Retry unit. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Retry value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return i.ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+func (i RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return i.ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput).ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrInput is an input type that accepts RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs, RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtr and RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrInput` via:
+//
+//          RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput
+	ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput
+}
+
+type routeSpecHttpRouteRetryPolicyPerRetryTimeoutPtrType RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs
+
+func RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtr(v *RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrInput {
+	return (*routeSpecHttpRouteRetryPolicyPerRetryTimeoutPtrType)(v)
+}
+
+func (*routeSpecHttpRouteRetryPolicyPerRetryTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i *routeSpecHttpRouteRetryPolicyPerRetryTimeoutPtrType) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return i.ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttpRouteRetryPolicyPerRetryTimeoutPtrType) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+type RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicyPerRetryTimeout) *RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
+		return &v
+	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput)
+}
+
+// Retry unit. Valid values: `ms`, `s`.
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Retry value.
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicyPerRetryTimeout) RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
+		return *v
+	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// Retry unit. Valid values: `ms`, `s`.
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicyPerRetryTimeout) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retry value.
+func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicyPerRetryTimeout) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1881,6 +5148,8 @@ func (o RouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInpu
 }
 
 type VirtualNodeSpec struct {
+	// The defaults for backends.
+	BackendDefaults *VirtualNodeSpecBackendDefaults `pulumi:"backendDefaults"`
 	// The backends to which the virtual node is expected to send outbound traffic.
 	Backends []VirtualNodeSpecBackend `pulumi:"backends"`
 	// The listeners from which the virtual node is expected to receive inbound traffic.
@@ -1903,6 +5172,8 @@ type VirtualNodeSpecInput interface {
 }
 
 type VirtualNodeSpecArgs struct {
+	// The defaults for backends.
+	BackendDefaults VirtualNodeSpecBackendDefaultsPtrInput `pulumi:"backendDefaults"`
 	// The backends to which the virtual node is expected to send outbound traffic.
 	Backends VirtualNodeSpecBackendArrayInput `pulumi:"backends"`
 	// The listeners from which the virtual node is expected to receive inbound traffic.
@@ -1990,6 +5261,11 @@ func (o VirtualNodeSpecOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx context
 	}).(VirtualNodeSpecPtrOutput)
 }
 
+// The defaults for backends.
+func (o VirtualNodeSpecOutput) BackendDefaults() VirtualNodeSpecBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecBackendDefaults { return v.BackendDefaults }).(VirtualNodeSpecBackendDefaultsPtrOutput)
+}
+
 // The backends to which the virtual node is expected to send outbound traffic.
 func (o VirtualNodeSpecOutput) Backends() VirtualNodeSpecBackendArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpec) []VirtualNodeSpecBackend { return v.Backends }).(VirtualNodeSpecBackendArrayOutput)
@@ -2026,6 +5302,16 @@ func (o VirtualNodeSpecPtrOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx cont
 
 func (o VirtualNodeSpecPtrOutput) Elem() VirtualNodeSpecOutput {
 	return o.ApplyT(func(v *VirtualNodeSpec) VirtualNodeSpec { return *v }).(VirtualNodeSpecOutput)
+}
+
+// The defaults for backends.
+func (o VirtualNodeSpecPtrOutput) BackendDefaults() VirtualNodeSpecBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeSpecBackendDefaults {
+		if v == nil {
+			return nil
+		}
+		return v.BackendDefaults
+	}).(VirtualNodeSpecBackendDefaultsPtrOutput)
 }
 
 // The backends to which the virtual node is expected to send outbound traffic.
@@ -2165,7 +5451,1006 @@ func (o VirtualNodeSpecBackendArrayOutput) Index(i pulumi.IntInput) VirtualNodeS
 	}).(VirtualNodeSpecBackendOutput)
 }
 
+type VirtualNodeSpecBackendDefaults struct {
+	// The default client policy for virtual service backends. See above for details.
+	ClientPolicy *VirtualNodeSpecBackendDefaultsClientPolicy `pulumi:"clientPolicy"`
+}
+
+// VirtualNodeSpecBackendDefaultsInput is an input type that accepts VirtualNodeSpecBackendDefaultsArgs and VirtualNodeSpecBackendDefaultsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsArgs{...}
+type VirtualNodeSpecBackendDefaultsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsOutput() VirtualNodeSpecBackendDefaultsOutput
+	ToVirtualNodeSpecBackendDefaultsOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsOutput
+}
+
+type VirtualNodeSpecBackendDefaultsArgs struct {
+	// The default client policy for virtual service backends. See above for details.
+	ClientPolicy VirtualNodeSpecBackendDefaultsClientPolicyPtrInput `pulumi:"clientPolicy"`
+}
+
+func (VirtualNodeSpecBackendDefaultsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaults)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsArgs) ToVirtualNodeSpecBackendDefaultsOutput() VirtualNodeSpecBackendDefaultsOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsArgs) ToVirtualNodeSpecBackendDefaultsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsArgs) ToVirtualNodeSpecBackendDefaultsPtrOutput() VirtualNodeSpecBackendDefaultsPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsArgs) ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsOutput).ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsArgs, VirtualNodeSpecBackendDefaultsPtr and VirtualNodeSpecBackendDefaultsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsPtrOutput() VirtualNodeSpecBackendDefaultsPtrOutput
+	ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsPtrType VirtualNodeSpecBackendDefaultsArgs
+
+func VirtualNodeSpecBackendDefaultsPtr(v *VirtualNodeSpecBackendDefaultsArgs) VirtualNodeSpecBackendDefaultsPtrInput {
+	return (*virtualNodeSpecBackendDefaultsPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaults)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsPtrType) ToVirtualNodeSpecBackendDefaultsPtrOutput() VirtualNodeSpecBackendDefaultsPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsPtrType) ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaults)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsOutput) ToVirtualNodeSpecBackendDefaultsOutput() VirtualNodeSpecBackendDefaultsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsOutput) ToVirtualNodeSpecBackendDefaultsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsOutput) ToVirtualNodeSpecBackendDefaultsPtrOutput() VirtualNodeSpecBackendDefaultsPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsOutput) ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaults) *VirtualNodeSpecBackendDefaults {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsPtrOutput)
+}
+
+// The default client policy for virtual service backends. See above for details.
+func (o VirtualNodeSpecBackendDefaultsOutput) ClientPolicy() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaults) *VirtualNodeSpecBackendDefaultsClientPolicy {
+		return v.ClientPolicy
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaults)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsPtrOutput) ToVirtualNodeSpecBackendDefaultsPtrOutput() VirtualNodeSpecBackendDefaultsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsPtrOutput) ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsPtrOutput) Elem() VirtualNodeSpecBackendDefaultsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaults) VirtualNodeSpecBackendDefaults { return *v }).(VirtualNodeSpecBackendDefaultsOutput)
+}
+
+// The default client policy for virtual service backends. See above for details.
+func (o VirtualNodeSpecBackendDefaultsPtrOutput) ClientPolicy() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaults) *VirtualNodeSpecBackendDefaultsClientPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ClientPolicy
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicy struct {
+	// The Transport Layer Security (TLS) client policy.
+	Tls *VirtualNodeSpecBackendDefaultsClientPolicyTls `pulumi:"tls"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyArgs and VirtualNodeSpecBackendDefaultsClientPolicyOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyOutput() VirtualNodeSpecBackendDefaultsClientPolicyOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyArgs struct {
+	// The Transport Layer Security (TLS) client policy.
+	Tls VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrInput `pulumi:"tls"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicy)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyOutput() VirtualNodeSpecBackendDefaultsClientPolicyOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyArgs, VirtualNodeSpecBackendDefaultsClientPolicyPtr and VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyPtrType VirtualNodeSpecBackendDefaultsClientPolicyArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyArgs) VirtualNodeSpecBackendDefaultsClientPolicyPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicy)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicy)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyOutput() VirtualNodeSpecBackendDefaultsClientPolicyOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicy {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput)
+}
+
+// The Transport Layer Security (TLS) client policy.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) Tls() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
+		return v.Tls
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicy)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicy) VirtualNodeSpecBackendDefaultsClientPolicy {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyOutput)
+}
+
+// The Transport Layer Security (TLS) client policy.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
+		if v == nil {
+			return nil
+		}
+		return v.Tls
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTls struct {
+	Enforce *bool `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports []int `pulumi:"ports"`
+	// The TLS validation context.
+	Validation VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation `pulumi:"validation"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs struct {
+	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports pulumi.IntArrayInput `pulumi:"ports"`
+	// The TLS validation context.
+	Validation VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput `pulumi:"validation"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTls)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsPtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsPtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTls)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTls)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput)
+}
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
+}
+
+// One or more ports that the policy is enforced for.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
+}
+
+// The TLS validation context.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Validation() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
+		return v.Validation
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTls)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) VirtualNodeSpecBackendDefaultsClientPolicyTls {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput)
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enforce
+	}).(pulumi.BoolPtrOutput)
+}
+
+// One or more ports that the policy is enforced for.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ports
+	}).(pulumi.IntArrayOutput)
+}
+
+// The TLS validation context.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
+		if v == nil {
+			return nil
+		}
+		return &v.Validation
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation struct {
+	// The TLS validation context trust.
+	Trust VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust `pulumi:"trust"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs struct {
+	// The TLS validation context trust.
+	Trust VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput `pulumi:"trust"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
+}
+
+// The TLS validation context trust.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) Trust() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
+		return v.Trust
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput)
+}
+
+// The TLS validation context trust.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Trust() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
+		if v == nil {
+			return nil
+		}
+		return &v.Trust
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust struct {
+	// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+	Acm *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
+	// The TLS validation context trust for a local file.
+	File *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile `pulumi:"file"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs struct {
+	// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+	Acm VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
+	// The TLS validation context trust for a local file.
+	File VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
+}
+
+// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Acm() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+		return v.Acm
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
+}
+
+// The TLS validation context trust for a local file.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
+		return v.File
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput)
+}
+
+// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Acm() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+		if v == nil {
+			return nil
+		}
+		return v.Acm
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
+}
+
+// The TLS validation context trust for a local file.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm struct {
+	// One or more ACM Amazon Resource Name (ARN)s.
+	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs struct {
+	// One or more ACM Amazon Resource Name (ARN)s.
+	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
+}
+
+// One or more ACM Amazon Resource Name (ARN)s.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) []string {
+		return v.CertificateAuthorityArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput)
+}
+
+// One or more ACM Amazon Resource Name (ARN)s.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateAuthorityArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile struct {
+	// The certificate chain for the certificate.
+	CertificateChain string `pulumi:"certificateChain"`
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs{...}
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs struct {
+	// The certificate chain for the certificate.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+}
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput).ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs, VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtr and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput` via:
+//
+//          VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput
+	ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput
+}
+
+type virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrType VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs
+
+func VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtr(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput {
+	return (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrType)(v)
+}
+
+func (*virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return i.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrType) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return o.ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
+		return &v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+// The certificate chain for the certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) string {
+		return v.CertificateChain
+	}).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
+		return *v
+	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
+}
+
+// The certificate chain for the certificate.
+func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualNodeSpecBackendVirtualService struct {
+	// The client policy for the backend.
+	ClientPolicy *VirtualNodeSpecBackendVirtualServiceClientPolicy `pulumi:"clientPolicy"`
 	// The name of the virtual service that is acting as a virtual node backend.
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
@@ -2182,6 +6467,8 @@ type VirtualNodeSpecBackendVirtualServiceInput interface {
 }
 
 type VirtualNodeSpecBackendVirtualServiceArgs struct {
+	// The client policy for the backend.
+	ClientPolicy VirtualNodeSpecBackendVirtualServiceClientPolicyPtrInput `pulumi:"clientPolicy"`
 	// The name of the virtual service that is acting as a virtual node backend.
 	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
@@ -2212,9 +6499,880 @@ func (o VirtualNodeSpecBackendVirtualServiceOutput) ToVirtualNodeSpecBackendVirt
 	return o
 }
 
+// The client policy for the backend.
+func (o VirtualNodeSpecBackendVirtualServiceOutput) ClientPolicy() VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) *VirtualNodeSpecBackendVirtualServiceClientPolicy {
+		return v.ClientPolicy
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput)
+}
+
 // The name of the virtual service that is acting as a virtual node backend.
 func (o VirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicy struct {
+	// The Transport Layer Security (TLS) client policy.
+	Tls *VirtualNodeSpecBackendVirtualServiceClientPolicyTls `pulumi:"tls"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyArgs struct {
+	// The Transport Layer Security (TLS) client policy.
+	Tls VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrInput `pulumi:"tls"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicy)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicy)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicy)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicy {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput)
+}
+
+// The Transport Layer Security (TLS) client policy.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) Tls() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
+		return v.Tls
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicy)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicy) VirtualNodeSpecBackendVirtualServiceClientPolicy {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyOutput)
+}
+
+// The Transport Layer Security (TLS) client policy.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Tls() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
+		if v == nil {
+			return nil
+		}
+		return v.Tls
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTls struct {
+	Enforce *bool `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports []int `pulumi:"ports"`
+	// The TLS validation context.
+	Validation VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation `pulumi:"validation"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs struct {
+	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports pulumi.IntArrayInput `pulumi:"ports"`
+	// The TLS validation context.
+	Validation VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput `pulumi:"validation"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTls)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTls)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTls)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput)
+}
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
+}
+
+// One or more ports that the policy is enforced for.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
+}
+
+// The TLS validation context.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Validation() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
+		return v.Validation
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTls)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput)
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enforce
+	}).(pulumi.BoolPtrOutput)
+}
+
+// One or more ports that the policy is enforced for.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ports
+	}).(pulumi.IntArrayOutput)
+}
+
+// The TLS validation context.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Validation() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
+		if v == nil {
+			return nil
+		}
+		return &v.Validation
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation struct {
+	// The TLS validation context trust.
+	Trust VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust `pulumi:"trust"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs struct {
+	// The TLS validation context trust.
+	Trust VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput `pulumi:"trust"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput)
+}
+
+// The TLS validation context trust.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) Trust() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
+		return v.Trust
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput)
+}
+
+// The TLS validation context trust.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) Trust() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
+		if v == nil {
+			return nil
+		}
+		return &v.Trust
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust struct {
+	// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+	Acm *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
+	// The TLS validation context trust for a local file.
+	File *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile `pulumi:"file"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs struct {
+	// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+	Acm VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
+	// The TLS validation context trust for a local file.
+	File VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput)
+}
+
+// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) Acm() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
+		return v.Acm
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
+}
+
+// The TLS validation context trust for a local file.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
+		return v.File
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput)
+}
+
+// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) Acm() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
+		if v == nil {
+			return nil
+		}
+		return v.Acm
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
+}
+
+// The TLS validation context trust for a local file.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm struct {
+	// One or more ACM Amazon Resource Name (ARN)s.
+	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs struct {
+	// One or more ACM Amazon Resource Name (ARN)s.
+	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
+}
+
+// One or more ACM Amazon Resource Name (ARN)s.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) []string {
+		return v.CertificateAuthorityArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput)
+}
+
+// One or more ACM Amazon Resource Name (ARN)s.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateAuthorityArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile struct {
+	// The certificate chain for the certificate.
+	CertificateChain string `pulumi:"certificateChain"`
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs{...}
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs struct {
+	// The certificate chain for the certificate.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+}
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput)
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput).ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs, VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtr and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrInput` via:
+//
+//          VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput
+	ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput
+}
+
+type virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrType VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs
+
+func VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtr(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrInput {
+	return (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrType)(v)
+}
+
+func (*virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return i.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrType) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return o.ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
+		return &v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
+}
+
+// The certificate chain for the certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) string {
+		return v.CertificateChain
+	}).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
+		return *v
+	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput)
+}
+
+// The certificate chain for the certificate.
+func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualNodeSpecListener struct {
@@ -2222,6 +7380,8 @@ type VirtualNodeSpecListener struct {
 	HealthCheck *VirtualNodeSpecListenerHealthCheck `pulumi:"healthCheck"`
 	// The port mapping information for the listener.
 	PortMapping VirtualNodeSpecListenerPortMapping `pulumi:"portMapping"`
+	// The Transport Layer Security (TLS) properties for the listener
+	Tls *VirtualNodeSpecListenerTls `pulumi:"tls"`
 }
 
 // VirtualNodeSpecListenerInput is an input type that accepts VirtualNodeSpecListenerArgs and VirtualNodeSpecListenerOutput values.
@@ -2240,6 +7400,8 @@ type VirtualNodeSpecListenerArgs struct {
 	HealthCheck VirtualNodeSpecListenerHealthCheckPtrInput `pulumi:"healthCheck"`
 	// The port mapping information for the listener.
 	PortMapping VirtualNodeSpecListenerPortMappingInput `pulumi:"portMapping"`
+	// The Transport Layer Security (TLS) properties for the listener
+	Tls VirtualNodeSpecListenerTlsPtrInput `pulumi:"tls"`
 }
 
 func (VirtualNodeSpecListenerArgs) ElementType() reflect.Type {
@@ -2329,6 +7491,11 @@ func (o VirtualNodeSpecListenerOutput) PortMapping() VirtualNodeSpecListenerPort
 	return o.ApplyT(func(v VirtualNodeSpecListener) VirtualNodeSpecListenerPortMapping { return v.PortMapping }).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
+// The Transport Layer Security (TLS) properties for the listener
+func (o VirtualNodeSpecListenerOutput) Tls() VirtualNodeSpecListenerTlsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerTls { return v.Tls }).(VirtualNodeSpecListenerTlsPtrOutput)
+}
+
 type VirtualNodeSpecListenerPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerPtrOutput) ElementType() reflect.Type {
@@ -2367,16 +7534,26 @@ func (o VirtualNodeSpecListenerPtrOutput) PortMapping() VirtualNodeSpecListenerP
 	}).(VirtualNodeSpecListenerPortMappingPtrOutput)
 }
 
+// The Transport Layer Security (TLS) properties for the listener
+func (o VirtualNodeSpecListenerPtrOutput) Tls() VirtualNodeSpecListenerTlsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerTls {
+		if v == nil {
+			return nil
+		}
+		return v.Tls
+	}).(VirtualNodeSpecListenerTlsPtrOutput)
+}
+
 type VirtualNodeSpecListenerHealthCheck struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
 	HealthyThreshold int `pulumi:"healthyThreshold"`
 	// The time period in milliseconds between each health check execution.
 	IntervalMillis int `pulumi:"intervalMillis"`
-	// The destination path for the health check request. This is only required if the specified protocol is `http`.
+	// The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
 	Path *string `pulumi:"path"`
 	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 	Port *int `pulumi:"port"`
-	// The protocol for the health check request. Valid values are `http` and `tcp`.
+	// The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
 	Protocol string `pulumi:"protocol"`
 	// The amount of time to wait when receiving a response from the health check, in milliseconds.
 	TimeoutMillis int `pulumi:"timeoutMillis"`
@@ -2400,11 +7577,11 @@ type VirtualNodeSpecListenerHealthCheckArgs struct {
 	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
 	// The time period in milliseconds between each health check execution.
 	IntervalMillis pulumi.IntInput `pulumi:"intervalMillis"`
-	// The destination path for the health check request. This is only required if the specified protocol is `http`.
+	// The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The protocol for the health check request. Valid values are `http` and `tcp`.
+	// The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The amount of time to wait when receiving a response from the health check, in milliseconds.
 	TimeoutMillis pulumi.IntInput `pulumi:"timeoutMillis"`
@@ -2499,7 +7676,7 @@ func (o VirtualNodeSpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOut
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
 }
 
-// The destination path for the health check request. This is only required if the specified protocol is `http`.
+// The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
 func (o VirtualNodeSpecListenerHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -2509,7 +7686,7 @@ func (o VirtualNodeSpecListenerHealthCheckOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The protocol for the health check request. Valid values are `http` and `tcp`.
+// The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -2562,7 +7739,7 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) IntervalMillis() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The destination path for the health check request. This is only required if the specified protocol is `http`.
+// The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *string {
 		if v == nil {
@@ -2582,7 +7759,7 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Port() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The protocol for the health check request. Valid values are `http` and `tcp`.
+// The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *string {
 		if v == nil {
@@ -2615,7 +7792,7 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pulumi
 type VirtualNodeSpecListenerPortMapping struct {
 	// The port used for the port mapping.
 	Port int `pulumi:"port"`
-	// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+	// The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -2633,7 +7810,7 @@ type VirtualNodeSpecListenerPortMappingInput interface {
 type VirtualNodeSpecListenerPortMappingArgs struct {
 	// The port used for the port mapping.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+	// The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -2719,7 +7896,7 @@ func (o VirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+// The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -2752,13 +7929,598 @@ func (o VirtualNodeSpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+// The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerPortMapping) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecListenerTls struct {
+	// The listener's TLS certificate.
+	Certificate VirtualNodeSpecListenerTlsCertificate `pulumi:"certificate"`
+	// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+	Mode string `pulumi:"mode"`
+}
+
+// VirtualNodeSpecListenerTlsInput is an input type that accepts VirtualNodeSpecListenerTlsArgs and VirtualNodeSpecListenerTlsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsInput` via:
+//
+//          VirtualNodeSpecListenerTlsArgs{...}
+type VirtualNodeSpecListenerTlsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsOutput() VirtualNodeSpecListenerTlsOutput
+	ToVirtualNodeSpecListenerTlsOutputWithContext(context.Context) VirtualNodeSpecListenerTlsOutput
+}
+
+type VirtualNodeSpecListenerTlsArgs struct {
+	// The listener's TLS certificate.
+	Certificate VirtualNodeSpecListenerTlsCertificateInput `pulumi:"certificate"`
+	// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (VirtualNodeSpecListenerTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTls)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsArgs) ToVirtualNodeSpecListenerTlsOutput() VirtualNodeSpecListenerTlsOutput {
+	return i.ToVirtualNodeSpecListenerTlsOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsArgs) ToVirtualNodeSpecListenerTlsOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsArgs) ToVirtualNodeSpecListenerTlsPtrOutput() VirtualNodeSpecListenerTlsPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsArgs) ToVirtualNodeSpecListenerTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsOutput).ToVirtualNodeSpecListenerTlsPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsPtrInput is an input type that accepts VirtualNodeSpecListenerTlsArgs, VirtualNodeSpecListenerTlsPtr and VirtualNodeSpecListenerTlsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsPtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsPtrOutput() VirtualNodeSpecListenerTlsPtrOutput
+	ToVirtualNodeSpecListenerTlsPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsPtrOutput
+}
+
+type virtualNodeSpecListenerTlsPtrType VirtualNodeSpecListenerTlsArgs
+
+func VirtualNodeSpecListenerTlsPtr(v *VirtualNodeSpecListenerTlsArgs) VirtualNodeSpecListenerTlsPtrInput {
+	return (*virtualNodeSpecListenerTlsPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTls)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsPtrType) ToVirtualNodeSpecListenerTlsPtrOutput() VirtualNodeSpecListenerTlsPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsPtrType) ToVirtualNodeSpecListenerTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTls)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsOutput) ToVirtualNodeSpecListenerTlsOutput() VirtualNodeSpecListenerTlsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsOutput) ToVirtualNodeSpecListenerTlsOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsOutput) ToVirtualNodeSpecListenerTlsPtrOutput() VirtualNodeSpecListenerTlsPtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsOutput) ToVirtualNodeSpecListenerTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTls {
+		return &v
+	}).(VirtualNodeSpecListenerTlsPtrOutput)
+}
+
+// The listener's TLS certificate.
+func (o VirtualNodeSpecListenerTlsOutput) Certificate() VirtualNodeSpecListenerTlsCertificateOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTls) VirtualNodeSpecListenerTlsCertificate { return v.Certificate }).(VirtualNodeSpecListenerTlsCertificateOutput)
+}
+
+// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+func (o VirtualNodeSpecListenerTlsOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTls) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecListenerTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTls)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsPtrOutput) ToVirtualNodeSpecListenerTlsPtrOutput() VirtualNodeSpecListenerTlsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsPtrOutput) ToVirtualNodeSpecListenerTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsPtrOutput) Elem() VirtualNodeSpecListenerTlsOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) VirtualNodeSpecListenerTls { return *v }).(VirtualNodeSpecListenerTlsOutput)
+}
+
+// The listener's TLS certificate.
+func (o VirtualNodeSpecListenerTlsPtrOutput) Certificate() VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTlsCertificate {
+		if v == nil {
+			return nil
+		}
+		return &v.Certificate
+	}).(VirtualNodeSpecListenerTlsCertificatePtrOutput)
+}
+
+// The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+func (o VirtualNodeSpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificate struct {
+	// An AWS Certicate Manager (ACM) certificate.
+	Acm *VirtualNodeSpecListenerTlsCertificateAcm `pulumi:"acm"`
+	// A local file certificate.
+	File *VirtualNodeSpecListenerTlsCertificateFile `pulumi:"file"`
+}
+
+// VirtualNodeSpecListenerTlsCertificateInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateArgs and VirtualNodeSpecListenerTlsCertificateOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsCertificateInput` via:
+//
+//          VirtualNodeSpecListenerTlsCertificateArgs{...}
+type VirtualNodeSpecListenerTlsCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsCertificateOutput() VirtualNodeSpecListenerTlsCertificateOutput
+	ToVirtualNodeSpecListenerTlsCertificateOutputWithContext(context.Context) VirtualNodeSpecListenerTlsCertificateOutput
+}
+
+type VirtualNodeSpecListenerTlsCertificateArgs struct {
+	// An AWS Certicate Manager (ACM) certificate.
+	Acm VirtualNodeSpecListenerTlsCertificateAcmPtrInput `pulumi:"acm"`
+	// A local file certificate.
+	File VirtualNodeSpecListenerTlsCertificateFilePtrInput `pulumi:"file"`
+}
+
+func (VirtualNodeSpecListenerTlsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsCertificate)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateArgs) ToVirtualNodeSpecListenerTlsCertificateOutput() VirtualNodeSpecListenerTlsCertificateOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateArgs) ToVirtualNodeSpecListenerTlsCertificateOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateArgs) ToVirtualNodeSpecListenerTlsCertificatePtrOutput() VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateArgs) ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateOutput).ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsCertificatePtrInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateArgs, VirtualNodeSpecListenerTlsCertificatePtr and VirtualNodeSpecListenerTlsCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsCertificatePtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsCertificatePtrOutput() VirtualNodeSpecListenerTlsCertificatePtrOutput
+	ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsCertificatePtrOutput
+}
+
+type virtualNodeSpecListenerTlsCertificatePtrType VirtualNodeSpecListenerTlsCertificateArgs
+
+func VirtualNodeSpecListenerTlsCertificatePtr(v *VirtualNodeSpecListenerTlsCertificateArgs) VirtualNodeSpecListenerTlsCertificatePtrInput {
+	return (*virtualNodeSpecListenerTlsCertificatePtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsCertificate)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsCertificatePtrType) ToVirtualNodeSpecListenerTlsCertificatePtrOutput() VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsCertificatePtrType) ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificatePtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateOutput) ToVirtualNodeSpecListenerTlsCertificateOutput() VirtualNodeSpecListenerTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateOutput) ToVirtualNodeSpecListenerTlsCertificateOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateOutput) ToVirtualNodeSpecListenerTlsCertificatePtrOutput() VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateOutput) ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificate {
+		return &v
+	}).(VirtualNodeSpecListenerTlsCertificatePtrOutput)
+}
+
+// An AWS Certicate Manager (ACM) certificate.
+func (o VirtualNodeSpecListenerTlsCertificateOutput) Acm() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateAcm { return v.Acm }).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
+}
+
+// A local file certificate.
+func (o VirtualNodeSpecListenerTlsCertificateOutput) File() VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateFile {
+		return v.File
+	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) ToVirtualNodeSpecListenerTlsCertificatePtrOutput() VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Elem() VirtualNodeSpecListenerTlsCertificateOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) VirtualNodeSpecListenerTlsCertificate { return *v }).(VirtualNodeSpecListenerTlsCertificateOutput)
+}
+
+// An AWS Certicate Manager (ACM) certificate.
+func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Acm() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateAcm {
+		if v == nil {
+			return nil
+		}
+		return v.Acm
+	}).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
+}
+
+// A local file certificate.
+func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) File() VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateAcm struct {
+	// The Amazon Resource Name (ARN) for the certificate.
+	CertificateArn string `pulumi:"certificateArn"`
+}
+
+// VirtualNodeSpecListenerTlsCertificateAcmInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateAcmArgs and VirtualNodeSpecListenerTlsCertificateAcmOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsCertificateAcmInput` via:
+//
+//          VirtualNodeSpecListenerTlsCertificateAcmArgs{...}
+type VirtualNodeSpecListenerTlsCertificateAcmInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsCertificateAcmOutput() VirtualNodeSpecListenerTlsCertificateAcmOutput
+	ToVirtualNodeSpecListenerTlsCertificateAcmOutputWithContext(context.Context) VirtualNodeSpecListenerTlsCertificateAcmOutput
+}
+
+type VirtualNodeSpecListenerTlsCertificateAcmArgs struct {
+	// The Amazon Resource Name (ARN) for the certificate.
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
+}
+
+func (VirtualNodeSpecListenerTlsCertificateAcmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsCertificateAcm)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateAcmArgs) ToVirtualNodeSpecListenerTlsCertificateAcmOutput() VirtualNodeSpecListenerTlsCertificateAcmOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateAcmOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateAcmArgs) ToVirtualNodeSpecListenerTlsCertificateAcmOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateAcmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateAcmOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateAcmArgs) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutput() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateAcmArgs) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateAcmOutput).ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsCertificateAcmPtrInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateAcmArgs, VirtualNodeSpecListenerTlsCertificateAcmPtr and VirtualNodeSpecListenerTlsCertificateAcmPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsCertificateAcmPtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsCertificateAcmArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsCertificateAcmPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutput() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput
+	ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsCertificateAcmPtrOutput
+}
+
+type virtualNodeSpecListenerTlsCertificateAcmPtrType VirtualNodeSpecListenerTlsCertificateAcmArgs
+
+func VirtualNodeSpecListenerTlsCertificateAcmPtr(v *VirtualNodeSpecListenerTlsCertificateAcmArgs) VirtualNodeSpecListenerTlsCertificateAcmPtrInput {
+	return (*virtualNodeSpecListenerTlsCertificateAcmPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsCertificateAcmPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsCertificateAcm)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsCertificateAcmPtrType) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutput() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsCertificateAcmPtrType) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateAcmOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsCertificateAcmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsCertificateAcm)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) ToVirtualNodeSpecListenerTlsCertificateAcmOutput() VirtualNodeSpecListenerTlsCertificateAcmOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) ToVirtualNodeSpecListenerTlsCertificateAcmOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateAcmOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutput() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateAcm) *VirtualNodeSpecListenerTlsCertificateAcm {
+		return &v
+	}).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the certificate.
+func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateAcm) string { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateAcmPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsCertificateAcm)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutput() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) Elem() VirtualNodeSpecListenerTlsCertificateAcmOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateAcm) VirtualNodeSpecListenerTlsCertificateAcm { return *v }).(VirtualNodeSpecListenerTlsCertificateAcmOutput)
+}
+
+// The Amazon Resource Name (ARN) for the certificate.
+func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateAcm) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateFile struct {
+	// The certificate chain for the certificate.
+	CertificateChain string `pulumi:"certificateChain"`
+	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	PrivateKey string `pulumi:"privateKey"`
+}
+
+// VirtualNodeSpecListenerTlsCertificateFileInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateFileArgs and VirtualNodeSpecListenerTlsCertificateFileOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsCertificateFileInput` via:
+//
+//          VirtualNodeSpecListenerTlsCertificateFileArgs{...}
+type VirtualNodeSpecListenerTlsCertificateFileInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsCertificateFileOutput() VirtualNodeSpecListenerTlsCertificateFileOutput
+	ToVirtualNodeSpecListenerTlsCertificateFileOutputWithContext(context.Context) VirtualNodeSpecListenerTlsCertificateFileOutput
+}
+
+type VirtualNodeSpecListenerTlsCertificateFileArgs struct {
+	// The certificate chain for the certificate.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (VirtualNodeSpecListenerTlsCertificateFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsCertificateFile)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateFileArgs) ToVirtualNodeSpecListenerTlsCertificateFileOutput() VirtualNodeSpecListenerTlsCertificateFileOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateFileOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateFileArgs) ToVirtualNodeSpecListenerTlsCertificateFileOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateFileOutput)
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateFileArgs) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutput() VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTlsCertificateFileArgs) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateFileOutput).ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTlsCertificateFilePtrInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateFileArgs, VirtualNodeSpecListenerTlsCertificateFilePtr and VirtualNodeSpecListenerTlsCertificateFilePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTlsCertificateFilePtrInput` via:
+//
+//          VirtualNodeSpecListenerTlsCertificateFileArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTlsCertificateFilePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTlsCertificateFilePtrOutput() VirtualNodeSpecListenerTlsCertificateFilePtrOutput
+	ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(context.Context) VirtualNodeSpecListenerTlsCertificateFilePtrOutput
+}
+
+type virtualNodeSpecListenerTlsCertificateFilePtrType VirtualNodeSpecListenerTlsCertificateFileArgs
+
+func VirtualNodeSpecListenerTlsCertificateFilePtr(v *VirtualNodeSpecListenerTlsCertificateFileArgs) VirtualNodeSpecListenerTlsCertificateFilePtrInput {
+	return (*virtualNodeSpecListenerTlsCertificateFilePtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTlsCertificateFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsCertificateFile)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTlsCertificateFilePtrType) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutput() VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return i.ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTlsCertificateFilePtrType) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateFileOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsCertificateFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTlsCertificateFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListenerTlsCertificateFileOutput() VirtualNodeSpecListenerTlsCertificateFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListenerTlsCertificateFileOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutput() VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return o.ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) *VirtualNodeSpecListenerTlsCertificateFile {
+		return &v
+	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
+}
+
+// The certificate chain for the certificate.
+func (o VirtualNodeSpecListenerTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+func (o VirtualNodeSpecListenerTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecListenerTlsCertificateFilePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTlsCertificateFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTlsCertificateFile)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutput() VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) Elem() VirtualNodeSpecListenerTlsCertificateFileOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) VirtualNodeSpecListenerTlsCertificateFile {
+		return *v
+	}).(VirtualNodeSpecListenerTlsCertificateFileOutput)
+}
+
+// The certificate chain for the certificate.
+func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3882,7 +9644,7 @@ func (o VirtualRouterSpecListenerPtrOutput) PortMapping() VirtualRouterSpecListe
 type VirtualRouterSpecListenerPortMapping struct {
 	// The port used for the port mapping.
 	Port int `pulumi:"port"`
-	// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+	// The protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -3900,7 +9662,7 @@ type VirtualRouterSpecListenerPortMappingInput interface {
 type VirtualRouterSpecListenerPortMappingArgs struct {
 	// The port used for the port mapping.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+	// The protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -3986,7 +9748,7 @@ func (o VirtualRouterSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+// The protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
 func (o VirtualRouterSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -4019,7 +9781,7 @@ func (o VirtualRouterSpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+// The protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
 func (o VirtualRouterSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRouterSpecListenerPortMapping) *string {
 		if v == nil {
@@ -4579,6 +10341,42 @@ func init() {
 	pulumi.RegisterOutputType(MeshSpecEgressFilterPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecOutput{})
 	pulumi.RegisterOutputType(RouteSpecPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRoutePtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteActionOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteActionPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteActionWeightedTargetOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteMatchOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteMatchPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteMatchMetadataOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteMatchMetadataArrayOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteMatchMetadataMatchOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteMatchMetadataMatchRangeOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteRetryPolicyOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteRetryPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RoutePtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteActionOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteActionPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteActionWeightedTargetOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteMatchOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteMatchPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteMatchHeaderOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteMatchHeaderArrayOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteMatchHeaderMatchOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteMatchHeaderMatchRangeOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteRetryPolicyOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteRetryPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteActionOutput{})
@@ -4593,6 +10391,10 @@ func init() {
 	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderMatchPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderMatchRangeOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteRetryPolicyOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteRetryPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionOutput{})
@@ -4603,13 +10405,47 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateAcmOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateFileOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateFilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogOutput{})

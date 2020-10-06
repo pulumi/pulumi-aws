@@ -21,6 +21,7 @@ class NotebookInstance(pulumi.CustomResource):
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 root_access: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -54,6 +55,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+        :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -85,6 +87,7 @@ class NotebookInstance(pulumi.CustomResource):
             if role_arn is None:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
+            __props__['root_access'] = root_access
             __props__['security_groups'] = security_groups
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
@@ -106,6 +109,7 @@ class NotebookInstance(pulumi.CustomResource):
             lifecycle_config_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
+            root_access: Optional[pulumi.Input[str]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NotebookInstance':
@@ -123,6 +127,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+        :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
@@ -138,6 +143,7 @@ class NotebookInstance(pulumi.CustomResource):
         __props__["lifecycle_config_name"] = lifecycle_config_name
         __props__["name"] = name
         __props__["role_arn"] = role_arn
+        __props__["root_access"] = root_access
         __props__["security_groups"] = security_groups
         __props__["subnet_id"] = subnet_id
         __props__["tags"] = tags
@@ -198,6 +204,14 @@ class NotebookInstance(pulumi.CustomResource):
         The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="rootAccess")
+    def root_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+        """
+        return pulumi.get(self, "root_access")
 
     @property
     @pulumi.getter(name="securityGroups")

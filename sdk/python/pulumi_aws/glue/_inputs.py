@@ -25,9 +25,21 @@ __all__ = [
     'CrawlerJdbcTargetArgs',
     'CrawlerS3TargetArgs',
     'CrawlerSchemaChangePolicyArgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs',
     'JobCommandArgs',
     'JobExecutionPropertyArgs',
     'JobNotificationPropertyArgs',
+    'MLTransformInputRecordTableArgs',
+    'MLTransformParametersArgs',
+    'MLTransformParametersFindMatchesParametersArgs',
+    'MLTransformSchemaArgs',
+    'PartitionStorageDescriptorArgs',
+    'PartitionStorageDescriptorColumnArgs',
+    'PartitionStorageDescriptorSerDeInfoArgs',
+    'PartitionStorageDescriptorSkewedInfoArgs',
+    'PartitionStorageDescriptorSortColumnArgs',
     'SecurityConfigurationEncryptionConfigurationArgs',
     'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs',
     'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs',
@@ -913,12 +925,16 @@ class CrawlerJdbcTargetArgs:
 class CrawlerS3TargetArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         """
         pulumi.set(__self__, "path", path)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
 
@@ -933,6 +949,18 @@ class CrawlerS3TargetArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to use to connect to the JDBC target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
 
     @property
     @pulumi.getter
@@ -984,6 +1012,119 @@ class CrawlerSchemaChangePolicyArgs:
     @update_behavior.setter
     def update_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update_behavior", value)
+
+
+@pulumi.input_type
+class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs:
+    def __init__(__self__, *,
+                 connection_password_encryption: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs'],
+                 encryption_at_rest: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs']):
+        """
+        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs'] connection_password_encryption: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs'] encryption_at_rest: Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        """
+        pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
+        pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
+
+    @property
+    @pulumi.getter(name="connectionPasswordEncryption")
+    def connection_password_encryption(self) -> pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']:
+        """
+        When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+        """
+        return pulumi.get(self, "connection_password_encryption")
+
+    @connection_password_encryption.setter
+    def connection_password_encryption(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']):
+        pulumi.set(self, "connection_password_encryption", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtRest")
+    def encryption_at_rest(self) -> pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs']:
+        """
+        Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        """
+        return pulumi.get(self, "encryption_at_rest")
+
+    @encryption_at_rest.setter
+    def encryption_at_rest(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs']):
+        pulumi.set(self, "encryption_at_rest", value)
+
+
+@pulumi.input_type
+class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs:
+    def __init__(__self__, *,
+                 return_connection_password_encrypted: pulumi.Input[bool],
+                 aws_kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] return_connection_password_encrypted: When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+        :param pulumi.Input[str] aws_kms_key_id: A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+        """
+        pulumi.set(__self__, "return_connection_password_encrypted", return_connection_password_encrypted)
+        if aws_kms_key_id is not None:
+            pulumi.set(__self__, "aws_kms_key_id", aws_kms_key_id)
+
+    @property
+    @pulumi.getter(name="returnConnectionPasswordEncrypted")
+    def return_connection_password_encrypted(self) -> pulumi.Input[bool]:
+        """
+        When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+        """
+        return pulumi.get(self, "return_connection_password_encrypted")
+
+    @return_connection_password_encrypted.setter
+    def return_connection_password_encrypted(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "return_connection_password_encrypted", value)
+
+    @property
+    @pulumi.getter(name="awsKmsKeyId")
+    def aws_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+        """
+        return pulumi.get(self, "aws_kms_key_id")
+
+    @aws_kms_key_id.setter
+    def aws_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_kms_key_id", value)
+
+
+@pulumi.input_type
+class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs:
+    def __init__(__self__, *,
+                 catalog_encryption_mode: pulumi.Input[str],
+                 sse_aws_kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] catalog_encryption_mode: The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+        :param pulumi.Input[str] sse_aws_kms_key_id: The ARN of the AWS KMS key to use for encryption at rest.
+        """
+        pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        if sse_aws_kms_key_id is not None:
+            pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
+
+    @property
+    @pulumi.getter(name="catalogEncryptionMode")
+    def catalog_encryption_mode(self) -> pulumi.Input[str]:
+        """
+        The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+        """
+        return pulumi.get(self, "catalog_encryption_mode")
+
+    @catalog_encryption_mode.setter
+    def catalog_encryption_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "catalog_encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="sseAwsKmsKeyId")
+    def sse_aws_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS KMS key to use for encryption at rest.
+        """
+        return pulumi.get(self, "sse_aws_kms_key_id")
+
+    @sse_aws_kms_key_id.setter
+    def sse_aws_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sse_aws_kms_key_id", value)
 
 
 @pulumi.input_type
@@ -1084,6 +1225,622 @@ class JobNotificationPropertyArgs:
     @notify_delay_after.setter
     def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "notify_delay_after", value)
+
+
+@pulumi.input_type
+class MLTransformInputRecordTableArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] database_name: A database name in the AWS Glue Data Catalog.
+        :param pulumi.Input[str] table_name: A table name in the AWS Glue Data Catalog.
+        :param pulumi.Input[str] catalog_id: A unique identifier for the AWS Glue Data Catalog.
+        :param pulumi.Input[str] connection_name: The name of the connection to the AWS Glue Data Catalog.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        A database name in the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        A table name in the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+
+@pulumi.input_type
+class MLTransformParametersArgs:
+    def __init__(__self__, *,
+                 find_matches_parameters: pulumi.Input['MLTransformParametersFindMatchesParametersArgs'],
+                 transform_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input['MLTransformParametersFindMatchesParametersArgs'] find_matches_parameters: The parameters for the find matches algorithm. see Find Matches Parameters.
+        :param pulumi.Input[str] transform_type: The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+        """
+        pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
+        pulumi.set(__self__, "transform_type", transform_type)
+
+    @property
+    @pulumi.getter(name="findMatchesParameters")
+    def find_matches_parameters(self) -> pulumi.Input['MLTransformParametersFindMatchesParametersArgs']:
+        """
+        The parameters for the find matches algorithm. see Find Matches Parameters.
+        """
+        return pulumi.get(self, "find_matches_parameters")
+
+    @find_matches_parameters.setter
+    def find_matches_parameters(self, value: pulumi.Input['MLTransformParametersFindMatchesParametersArgs']):
+        pulumi.set(self, "find_matches_parameters", value)
+
+    @property
+    @pulumi.getter(name="transformType")
+    def transform_type(self) -> pulumi.Input[str]:
+        """
+        The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+        """
+        return pulumi.get(self, "transform_type")
+
+    @transform_type.setter
+    def transform_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "transform_type", value)
+
+
+@pulumi.input_type
+class MLTransformParametersFindMatchesParametersArgs:
+    def __init__(__self__, *,
+                 accuracy_cost_trade_off: Optional[pulumi.Input[float]] = None,
+                 enforce_provided_labels: Optional[pulumi.Input[bool]] = None,
+                 precision_recall_trade_off: Optional[pulumi.Input[float]] = None,
+                 primary_key_column_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] accuracy_cost_trade_off: The value that is selected when tuning your transform for a balance between accuracy and cost.
+        :param pulumi.Input[bool] enforce_provided_labels: The value to switch on or off to force the output to match the provided labels from users.
+        :param pulumi.Input[float] precision_recall_trade_off: The value selected when tuning your transform for a balance between precision and recall.
+        :param pulumi.Input[str] primary_key_column_name: The name of a column that uniquely identifies rows in the source table.
+        """
+        if accuracy_cost_trade_off is not None:
+            pulumi.set(__self__, "accuracy_cost_trade_off", accuracy_cost_trade_off)
+        if enforce_provided_labels is not None:
+            pulumi.set(__self__, "enforce_provided_labels", enforce_provided_labels)
+        if precision_recall_trade_off is not None:
+            pulumi.set(__self__, "precision_recall_trade_off", precision_recall_trade_off)
+        if primary_key_column_name is not None:
+            pulumi.set(__self__, "primary_key_column_name", primary_key_column_name)
+
+    @property
+    @pulumi.getter(name="accuracyCostTradeOff")
+    def accuracy_cost_trade_off(self) -> Optional[pulumi.Input[float]]:
+        """
+        The value that is selected when tuning your transform for a balance between accuracy and cost.
+        """
+        return pulumi.get(self, "accuracy_cost_trade_off")
+
+    @accuracy_cost_trade_off.setter
+    def accuracy_cost_trade_off(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "accuracy_cost_trade_off", value)
+
+    @property
+    @pulumi.getter(name="enforceProvidedLabels")
+    def enforce_provided_labels(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value to switch on or off to force the output to match the provided labels from users.
+        """
+        return pulumi.get(self, "enforce_provided_labels")
+
+    @enforce_provided_labels.setter
+    def enforce_provided_labels(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_provided_labels", value)
+
+    @property
+    @pulumi.getter(name="precisionRecallTradeOff")
+    def precision_recall_trade_off(self) -> Optional[pulumi.Input[float]]:
+        """
+        The value selected when tuning your transform for a balance between precision and recall.
+        """
+        return pulumi.get(self, "precision_recall_trade_off")
+
+    @precision_recall_trade_off.setter
+    def precision_recall_trade_off(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "precision_recall_trade_off", value)
+
+    @property
+    @pulumi.getter(name="primaryKeyColumnName")
+    def primary_key_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a column that uniquely identifies rows in the source table.
+        """
+        return pulumi.get(self, "primary_key_column_name")
+
+    @primary_key_column_name.setter
+    def primary_key_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key_column_name", value)
+
+
+@pulumi.input_type
+class MLTransformSchemaArgs:
+    def __init__(__self__, *,
+                 data_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_type: The type of data in the column.
+        :param pulumi.Input[str] name: The name you assign to this ML Transform. It must be unique in your account.
+        """
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of data in the column.
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you assign to this ML Transform. It must be unique in your account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class PartitionStorageDescriptorArgs:
+    def __init__(__self__, *,
+                 bucket_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]]] = None,
+                 compressed: Optional[pulumi.Input[bool]] = None,
+                 input_format: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 number_of_buckets: Optional[pulumi.Input[int]] = None,
+                 output_format: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ser_de_info: Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs']] = None,
+                 skewed_info: Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs']] = None,
+                 sort_columns: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]]] = None,
+                 stored_as_sub_directories: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bucket_columns: A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        :param pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]] columns: A list of the Columns in the table.
+        :param pulumi.Input[bool] compressed: True if the data in the table is compressed, or False if not.
+        :param pulumi.Input[str] input_format: The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        :param pulumi.Input[str] location: The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        :param pulumi.Input[int] number_of_buckets: Must be specified if the table contains any dimension columns.
+        :param pulumi.Input[str] output_format: The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs'] ser_de_info: Serialization/deserialization (SerDe) information.
+        :param pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs'] skewed_info: Information about values that appear very frequently in a column (skewed values).
+        :param pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
+        :param pulumi.Input[bool] stored_as_sub_directories: True if the table data is stored in subdirectories, or False if not.
+        """
+        if bucket_columns is not None:
+            pulumi.set(__self__, "bucket_columns", bucket_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if compressed is not None:
+            pulumi.set(__self__, "compressed", compressed)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if number_of_buckets is not None:
+            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if ser_de_info is not None:
+            pulumi.set(__self__, "ser_de_info", ser_de_info)
+        if skewed_info is not None:
+            pulumi.set(__self__, "skewed_info", skewed_info)
+        if sort_columns is not None:
+            pulumi.set(__self__, "sort_columns", sort_columns)
+        if stored_as_sub_directories is not None:
+            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @property
+    @pulumi.getter(name="bucketColumns")
+    def bucket_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        """
+        return pulumi.get(self, "bucket_columns")
+
+    @bucket_columns.setter
+    def bucket_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "bucket_columns", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]]]:
+        """
+        A list of the Columns in the table.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def compressed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the data in the table is compressed, or False if not.
+        """
+        return pulumi.get(self, "compressed")
+
+    @compressed.setter
+    def compressed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compressed", value)
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        """
+        return pulumi.get(self, "input_format")
+
+    @input_format.setter
+    def input_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_format", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="numberOfBuckets")
+    def number_of_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        Must be specified if the table contains any dimension columns.
+        """
+        return pulumi.get(self, "number_of_buckets")
+
+    @number_of_buckets.setter
+    def number_of_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_buckets", value)
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        """
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_format", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of initialization parameters for the SerDe, in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="serDeInfo")
+    def ser_de_info(self) -> Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs']]:
+        """
+        Serialization/deserialization (SerDe) information.
+        """
+        return pulumi.get(self, "ser_de_info")
+
+    @ser_de_info.setter
+    def ser_de_info(self, value: Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs']]):
+        pulumi.set(self, "ser_de_info", value)
+
+    @property
+    @pulumi.getter(name="skewedInfo")
+    def skewed_info(self) -> Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs']]:
+        """
+        Information about values that appear very frequently in a column (skewed values).
+        """
+        return pulumi.get(self, "skewed_info")
+
+    @skewed_info.setter
+    def skewed_info(self, value: Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs']]):
+        pulumi.set(self, "skewed_info", value)
+
+    @property
+    @pulumi.getter(name="sortColumns")
+    def sort_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]]]:
+        """
+        A list of Order objects specifying the sort order of each bucket in the table.
+        """
+        return pulumi.get(self, "sort_columns")
+
+    @sort_columns.setter
+    def sort_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]]]):
+        pulumi.set(self, "sort_columns", value)
+
+    @property
+    @pulumi.getter(name="storedAsSubDirectories")
+    def stored_as_sub_directories(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the table data is stored in subdirectories, or False if not.
+        """
+        return pulumi.get(self, "stored_as_sub_directories")
+
+    @stored_as_sub_directories.setter
+    def stored_as_sub_directories(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stored_as_sub_directories", value)
+
+
+@pulumi.input_type
+class PartitionStorageDescriptorColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 comment: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the SerDe.
+        :param pulumi.Input[str] comment: Free-form text comment.
+        :param pulumi.Input[str] type: The datatype of data in the Column.
+        """
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the SerDe.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Free-form text comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The datatype of data in the Column.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class PartitionStorageDescriptorSerDeInfoArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 serialization_library: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the SerDe.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[str] serialization_library: Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if serialization_library is not None:
+            pulumi.set(__self__, "serialization_library", serialization_library)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SerDe.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of initialization parameters for the SerDe, in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="serializationLibrary")
+    def serialization_library(self) -> Optional[pulumi.Input[str]]:
+        """
+        Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+        return pulumi.get(self, "serialization_library")
+
+    @serialization_library.setter
+    def serialization_library(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "serialization_library", value)
+
+
+@pulumi.input_type
+class PartitionStorageDescriptorSkewedInfoArgs:
+    def __init__(__self__, *,
+                 skewed_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skewed_column_value_location_maps: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 skewed_column_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skewed_column_names: A list of names of columns that contain skewed values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] skewed_column_value_location_maps: A list of values that appear so frequently as to be considered skewed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skewed_column_values: A map of skewed values to the columns that contain them.
+        """
+        if skewed_column_names is not None:
+            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+        if skewed_column_value_location_maps is not None:
+            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+        if skewed_column_values is not None:
+            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+
+    @property
+    @pulumi.getter(name="skewedColumnNames")
+    def skewed_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of names of columns that contain skewed values.
+        """
+        return pulumi.get(self, "skewed_column_names")
+
+    @skewed_column_names.setter
+    def skewed_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "skewed_column_names", value)
+
+    @property
+    @pulumi.getter(name="skewedColumnValueLocationMaps")
+    def skewed_column_value_location_maps(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of values that appear so frequently as to be considered skewed.
+        """
+        return pulumi.get(self, "skewed_column_value_location_maps")
+
+    @skewed_column_value_location_maps.setter
+    def skewed_column_value_location_maps(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "skewed_column_value_location_maps", value)
+
+    @property
+    @pulumi.getter(name="skewedColumnValues")
+    def skewed_column_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A map of skewed values to the columns that contain them.
+        """
+        return pulumi.get(self, "skewed_column_values")
+
+    @skewed_column_values.setter
+    def skewed_column_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "skewed_column_values", value)
+
+
+@pulumi.input_type
+class PartitionStorageDescriptorSortColumnArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 sort_order: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] column: The name of the column.
+        :param pulumi.Input[int] sort_order: Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "sort_order", sort_order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> pulumi.Input[int]:
+        """
+        Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        """
+        return pulumi.get(self, "sort_order")
+
+    @sort_order.setter
+    def sort_order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "sort_order", value)
 
 
 @pulumi.input_type

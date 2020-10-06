@@ -90,6 +90,37 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        ### Retry Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        serviceb = aws.appmesh.Route("serviceb",
+            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+            spec=aws.appmesh.RouteSpecArgs(
+                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
+                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
+                        prefix="/",
+                    ),
+                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
+                        http_retry_events=["server-error"],
+                        max_retries=1,
+                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
+                            unit="s",
+                            value=15,
+                        ),
+                    ),
+                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
+                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
+                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            weight=100,
+                        )],
+                    ),
+                ),
+            ))
+        ```
         ### TCP Routing
 
         ```python

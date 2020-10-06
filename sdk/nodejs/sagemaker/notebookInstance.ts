@@ -81,6 +81,10 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
+     * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+     */
+    public readonly rootAccess!: pulumi.Output<string | undefined>;
+    /**
      * The associated security groups.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -112,6 +116,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["lifecycleConfigName"] = state ? state.lifecycleConfigName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
+            inputs["rootAccess"] = state ? state.rootAccess : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -129,6 +134,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["rootAccess"] = args ? args.rootAccess : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -178,6 +184,10 @@ export interface NotebookInstanceState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
+     * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+     */
+    readonly rootAccess?: pulumi.Input<string>;
+    /**
      * The associated security groups.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -219,6 +229,10 @@ export interface NotebookInstanceArgs {
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+     */
+    readonly rootAccess?: pulumi.Input<string>;
     /**
      * The associated security groups.
      */

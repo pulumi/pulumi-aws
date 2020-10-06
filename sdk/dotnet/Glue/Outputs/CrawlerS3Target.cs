@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerS3Target
     {
         /// <summary>
+        /// The name of the connection to use to connect to the JDBC target.
+        /// </summary>
+        public readonly string? ConnectionName;
+        /// <summary>
         /// A list of glob patterns used to exclude from the crawl.
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Glue.Outputs
 
         [OutputConstructor]
         private CrawlerS3Target(
+            string? connectionName,
+
             ImmutableArray<string> exclusions,
 
             string path)
         {
+            ConnectionName = connectionName;
             Exclusions = exclusions;
             Path = path;
         }

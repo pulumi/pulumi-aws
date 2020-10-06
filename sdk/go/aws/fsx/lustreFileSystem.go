@@ -45,12 +45,18 @@ type LustreFileSystem struct {
 
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
+	AutoImportPolicy pulumi.StringOutput `pulumi:"autoImportPolicy"`
 	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
 	AutomaticBackupRetentionDays pulumi.IntOutput `pulumi:"automaticBackupRetentionDays"`
+	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType pulumi.StringPtrOutput `pulumi:"deploymentType"`
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+	DriveCacheType pulumi.StringPtrOutput `pulumi:"driveCacheType"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
 	ExportPath pulumi.StringOutput `pulumi:"exportPath"`
 	// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
@@ -65,12 +71,14 @@ type LustreFileSystem struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storageType are 50, 100, 200. Valid values for `HDD` storageType are 12, 40.
 	PerUnitStorageThroughput pulumi.IntPtrOutput `pulumi:"perUnitStorageThroughput"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
+	// - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system.
@@ -117,12 +125,18 @@ func GetLustreFileSystem(ctx *pulumi.Context,
 type lustreFileSystemState struct {
 	// Amazon Resource Name of the file system.
 	Arn *string `pulumi:"arn"`
+	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
+	AutoImportPolicy *string `pulumi:"autoImportPolicy"`
 	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
+	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName *string `pulumi:"dnsName"`
+	// - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+	DriveCacheType *string `pulumi:"driveCacheType"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
 	ExportPath *string `pulumi:"exportPath"`
 	// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
@@ -137,12 +151,14 @@ type lustreFileSystemState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
-	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storageType are 50, 100, 200. Valid values for `HDD` storageType are 12, 40.
 	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
 	StorageCapacity *int `pulumi:"storageCapacity"`
+	// - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds *string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system.
@@ -156,12 +172,18 @@ type lustreFileSystemState struct {
 type LustreFileSystemState struct {
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringPtrInput
+	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
+	AutoImportPolicy pulumi.StringPtrInput
 	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
+	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType pulumi.StringPtrInput
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName pulumi.StringPtrInput
+	// - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+	DriveCacheType pulumi.StringPtrInput
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
 	ExportPath pulumi.StringPtrInput
 	// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
@@ -176,12 +198,14 @@ type LustreFileSystemState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
-	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storageType are 50, 100, 200. Valid values for `HDD` storageType are 12, 40.
 	PerUnitStorageThroughput pulumi.IntPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
 	StorageCapacity pulumi.IntPtrInput
+	// - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringPtrInput
 	// A map of tags to assign to the file system.
@@ -197,10 +221,16 @@ func (LustreFileSystemState) ElementType() reflect.Type {
 }
 
 type lustreFileSystemArgs struct {
+	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
+	AutoImportPolicy *string `pulumi:"autoImportPolicy"`
 	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
+	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
+	// - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+	DriveCacheType *string `pulumi:"driveCacheType"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
 	ExportPath *string `pulumi:"exportPath"`
 	// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
@@ -209,12 +239,14 @@ type lustreFileSystemArgs struct {
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
 	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storageType are 50, 100, 200. Valid values for `HDD` storageType are 12, 40.
 	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
+	// - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system.
@@ -225,10 +257,16 @@ type lustreFileSystemArgs struct {
 
 // The set of arguments for constructing a LustreFileSystem resource.
 type LustreFileSystemArgs struct {
+	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
+	AutoImportPolicy pulumi.StringPtrInput
 	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
+	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
 	DeploymentType pulumi.StringPtrInput
+	// - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+	DriveCacheType pulumi.StringPtrInput
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
 	ExportPath pulumi.StringPtrInput
 	// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
@@ -237,12 +275,14 @@ type LustreFileSystemArgs struct {
 	ImportedFileChunkSize pulumi.IntPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
-	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storageType are 50, 100, 200. Valid values for `HDD` storageType are 12, 40.
 	PerUnitStorageThroughput pulumi.IntPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
 	StorageCapacity pulumi.IntInput
+	// - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringInput
 	// A map of tags to assign to the file system.

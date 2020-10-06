@@ -177,6 +177,7 @@ export interface ProviderEndpoint {
     licensemanager?: pulumi.Input<string>;
     lightsail?: pulumi.Input<string>;
     macie?: pulumi.Input<string>;
+    macie2?: pulumi.Input<string>;
     managedblockchain?: pulumi.Input<string>;
     marketplacecatalog?: pulumi.Input<string>;
     mediaconnect?: pulumi.Input<string>;
@@ -1871,6 +1872,14 @@ export namespace appmesh {
 
     export interface RouteSpec {
         /**
+         * The gRPC routing information for the route.
+         */
+        grpcRoute?: pulumi.Input<inputs.appmesh.RouteSpecGrpcRoute>;
+        /**
+         * The HTTP/2 routing information for the route.
+         */
+        http2Route?: pulumi.Input<inputs.appmesh.RouteSpecHttp2Route>;
+        /**
          * The HTTP routing information for the route.
          */
         httpRoute?: pulumi.Input<inputs.appmesh.RouteSpecHttpRoute>;
@@ -1885,6 +1894,278 @@ export namespace appmesh {
         tcpRoute?: pulumi.Input<inputs.appmesh.RouteSpecTcpRoute>;
     }
 
+    export interface RouteSpecGrpcRoute {
+        /**
+         * The action to take if a match is determined.
+         */
+        action: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteAction>;
+        /**
+         * The criteria for determining an gRPC request match.
+         */
+        match: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatch>;
+        /**
+         * The retry policy.
+         */
+        retryPolicy?: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteRetryPolicy>;
+    }
+
+    export interface RouteSpecGrpcRouteAction {
+        /**
+         * The targets that traffic is routed to when a request matches the route.
+         * You can specify one or more targets and their relative weights with which to distribute traffic.
+         */
+        weightedTargets: pulumi.Input<pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteActionWeightedTarget>[]>;
+    }
+
+    export interface RouteSpecGrpcRouteActionWeightedTarget {
+        /**
+         * The virtual node to associate with the weighted target.
+         */
+        virtualNode: pulumi.Input<string>;
+        /**
+         * The relative weight of the weighted target. An integer between 0 and 100.
+         */
+        weight: pulumi.Input<number>;
+    }
+
+    export interface RouteSpecGrpcRouteMatch {
+        /**
+         * The data to match from the gRPC request.
+         */
+        metadatas?: pulumi.Input<pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatchMetadata>[]>;
+        /**
+         * The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
+         */
+        methodName?: pulumi.Input<string>;
+        /**
+         * The fully qualified domain name for the service to match from the request.
+         */
+        serviceName?: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecGrpcRouteMatchMetadata {
+        /**
+         * If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+         */
+        invert?: pulumi.Input<boolean>;
+        /**
+         * The data to match from the request.
+         */
+        match?: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatch>;
+        /**
+         * The name of the route.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecGrpcRouteMatchMetadataMatch {
+        /**
+         * The value sent by the client must match the specified value exactly.
+         */
+        exact?: pulumi.Input<string>;
+        /**
+         * The value sent by the client must begin with the specified characters.
+         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * The object that specifies the range of numbers that the value sent by the client must be included in.
+         */
+        range?: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatchRange>;
+        /**
+         * The value sent by the client must include the specified characters.
+         */
+        regex?: pulumi.Input<string>;
+        /**
+         * The value sent by the client must end with the specified characters.
+         */
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecGrpcRouteMatchMetadataMatchRange {
+        /**
+         * The end of the range.
+         */
+        end: pulumi.Input<number>;
+        /**
+         * The start of the range.
+         */
+        start: pulumi.Input<number>;
+    }
+
+    export interface RouteSpecGrpcRouteRetryPolicy {
+        /**
+         * List of gRPC retry events.
+         * Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+         */
+        grpcRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of HTTP retry events.
+         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         */
+        httpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The maximum number of retries.
+         */
+        maxRetries: pulumi.Input<number>;
+        /**
+         * The per-retry timeout.
+         */
+        perRetryTimeout: pulumi.Input<inputs.appmesh.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout>;
+        /**
+         * List of TCP retry events. The only valid value is `connection-error`.
+         */
+        tcpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
+        /**
+         * Retry unit. Valid values: `ms`, `s`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * Retry value.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface RouteSpecHttp2Route {
+        /**
+         * The action to take if a match is determined.
+         */
+        action: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteAction>;
+        /**
+         * The criteria for determining an gRPC request match.
+         */
+        match: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteMatch>;
+        /**
+         * The retry policy.
+         */
+        retryPolicy?: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteRetryPolicy>;
+    }
+
+    export interface RouteSpecHttp2RouteAction {
+        /**
+         * The targets that traffic is routed to when a request matches the route.
+         * You can specify one or more targets and their relative weights with which to distribute traffic.
+         */
+        weightedTargets: pulumi.Input<pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteActionWeightedTarget>[]>;
+    }
+
+    export interface RouteSpecHttp2RouteActionWeightedTarget {
+        /**
+         * The virtual node to associate with the weighted target.
+         */
+        virtualNode: pulumi.Input<string>;
+        /**
+         * The relative weight of the weighted target. An integer between 0 and 100.
+         */
+        weight: pulumi.Input<number>;
+    }
+
+    export interface RouteSpecHttp2RouteMatch {
+        /**
+         * The client request headers to match on.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteMatchHeader>[]>;
+        /**
+         * The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+         */
+        method?: pulumi.Input<string>;
+        /**
+         * The value sent by the client must begin with the specified characters.
+         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         */
+        prefix: pulumi.Input<string>;
+        /**
+         * The client request header scheme to match on. Valid values: `http`, `https`.
+         */
+        scheme?: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttp2RouteMatchHeader {
+        /**
+         * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         */
+        invert?: pulumi.Input<boolean>;
+        /**
+         * The method and value to match the header value sent with a request. Specify one match method.
+         */
+        match?: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteMatchHeaderMatch>;
+        /**
+         * A name for the HTTP header in the client request that will be matched on.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttp2RouteMatchHeaderMatch {
+        /**
+         * The value sent by the client must match the specified value exactly.
+         */
+        exact?: pulumi.Input<string>;
+        /**
+         * The value sent by the client must begin with the specified characters.
+         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * The object that specifies the range of numbers that the value sent by the client must be included in.
+         */
+        range?: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteMatchHeaderMatchRange>;
+        /**
+         * The value sent by the client must include the specified characters.
+         */
+        regex?: pulumi.Input<string>;
+        /**
+         * The value sent by the client must end with the specified characters.
+         */
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttp2RouteMatchHeaderMatchRange {
+        /**
+         * The end of the range.
+         */
+        end: pulumi.Input<number>;
+        /**
+         * The start of the range.
+         */
+        start: pulumi.Input<number>;
+    }
+
+    export interface RouteSpecHttp2RouteRetryPolicy {
+        /**
+         * List of HTTP retry events.
+         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         */
+        httpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The maximum number of retries.
+         */
+        maxRetries: pulumi.Input<number>;
+        /**
+         * The per-retry timeout.
+         */
+        perRetryTimeout: pulumi.Input<inputs.appmesh.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout>;
+        /**
+         * List of TCP retry events. The only valid value is `connection-error`.
+         */
+        tcpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
+        /**
+         * Retry unit. Valid values: `ms`, `s`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * Retry value.
+         */
+        value: pulumi.Input<number>;
+    }
+
     export interface RouteSpecHttpRoute {
         /**
          * The action to take if a match is determined.
@@ -1894,6 +2175,10 @@ export namespace appmesh {
          * The criteria for determining an HTTP request match.
          */
         match: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatch>;
+        /**
+         * The retry policy.
+         */
+        retryPolicy?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteRetryPolicy>;
     }
 
     export interface RouteSpecHttpRouteAction {
@@ -1925,7 +2210,7 @@ export namespace appmesh {
          */
         method?: pulumi.Input<string>;
         /**
-         * Specifies the path with which to match requests.
+         * The value sent by the client must begin with the specified characters.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix: pulumi.Input<string>;
@@ -1952,24 +2237,24 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * The header value sent by the client must match the specified value exactly.
+         * The value sent by the client must match the specified value exactly.
          */
         exact?: pulumi.Input<string>;
         /**
-         * Specifies the path with which to match requests.
+         * The value sent by the client must begin with the specified characters.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
         prefix?: pulumi.Input<string>;
         /**
-         * The object that specifies the range of numbers that the header value sent by the client must be included in.
+         * The object that specifies the range of numbers that the value sent by the client must be included in.
          */
         range?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange>;
         /**
-         * The header value sent by the client must include the specified characters.
+         * The value sent by the client must include the specified characters.
          */
         regex?: pulumi.Input<string>;
         /**
-         * The header value sent by the client must end with the specified characters.
+         * The value sent by the client must end with the specified characters.
          */
         suffix?: pulumi.Input<string>;
     }
@@ -1983,6 +2268,38 @@ export namespace appmesh {
          * The start of the range.
          */
         start: pulumi.Input<number>;
+    }
+
+    export interface RouteSpecHttpRouteRetryPolicy {
+        /**
+         * List of HTTP retry events.
+         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         */
+        httpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The maximum number of retries.
+         */
+        maxRetries: pulumi.Input<number>;
+        /**
+         * The per-retry timeout.
+         */
+        perRetryTimeout: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeout>;
+        /**
+         * List of TCP retry events. The only valid value is `connection-error`.
+         */
+        tcpRetryEvents?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
+        /**
+         * Retry unit. Valid values: `ms`, `s`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * Retry value.
+         */
+        value: pulumi.Input<number>;
     }
 
     export interface RouteSpecTcpRoute {
@@ -2013,6 +2330,10 @@ export namespace appmesh {
 
     export interface VirtualNodeSpec {
         /**
+         * The defaults for backends.
+         */
+        backendDefaults?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendDefaults>;
+        /**
          * The backends to which the virtual node is expected to send outbound traffic.
          */
         backends?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualNodeSpecBackend>[]>;
@@ -2037,11 +2358,124 @@ export namespace appmesh {
         virtualService: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualService>;
     }
 
+    export interface VirtualNodeSpecBackendDefaults {
+        /**
+         * The default client policy for virtual service backends. See above for details.
+         */
+        clientPolicy?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicy>;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicy {
+        /**
+         * The Transport Layer Security (TLS) client policy.
+         */
+        tls?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTls>;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTls {
+        enforce?: pulumi.Input<boolean>;
+        /**
+         * One or more ports that the policy is enforced for.
+         */
+        ports?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * The TLS validation context.
+         */
+        validation: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation>;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
+        /**
+         * The TLS validation context trust.
+         */
+        trust: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust>;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
+        /**
+         * The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+         */
+        acm?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm>;
+        /**
+         * The TLS validation context trust for a local file.
+         */
+        file?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile>;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+        /**
+         * One or more ACM Amazon Resource Name (ARN)s.
+         */
+        certificateAuthorityArns: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
+        /**
+         * The certificate chain for the certificate.
+         */
+        certificateChain: pulumi.Input<string>;
+    }
+
     export interface VirtualNodeSpecBackendVirtualService {
+        /**
+         * The client policy for the backend.
+         */
+        clientPolicy?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicy>;
         /**
          * The name of the virtual service that is acting as a virtual node backend.
          */
         virtualServiceName: pulumi.Input<string>;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicy {
+        /**
+         * The Transport Layer Security (TLS) client policy.
+         */
+        tls?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTls>;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
+        enforce?: pulumi.Input<boolean>;
+        /**
+         * One or more ports that the policy is enforced for.
+         */
+        ports?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * The TLS validation context.
+         */
+        validation: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation>;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
+        /**
+         * The TLS validation context trust.
+         */
+        trust: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust>;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
+        /**
+         * The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+         */
+        acm?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm>;
+        /**
+         * The TLS validation context trust for a local file.
+         */
+        file?: pulumi.Input<inputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile>;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
+        /**
+         * One or more ACM Amazon Resource Name (ARN)s.
+         */
+        certificateAuthorityArns: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
+        /**
+         * The certificate chain for the certificate.
+         */
+        certificateChain: pulumi.Input<string>;
     }
 
     export interface VirtualNodeSpecListener {
@@ -2053,6 +2487,10 @@ export namespace appmesh {
          * The port mapping information for the listener.
          */
         portMapping: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerPortMapping>;
+        /**
+         * The Transport Layer Security (TLS) properties for the listener
+         */
+        tls?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerTls>;
     }
 
     export interface VirtualNodeSpecListenerHealthCheck {
@@ -2065,7 +2503,7 @@ export namespace appmesh {
          */
         intervalMillis: pulumi.Input<number>;
         /**
-         * The destination path for the health check request. This is only required if the specified protocol is `http`.
+         * The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
          */
         path?: pulumi.Input<string>;
         /**
@@ -2073,7 +2511,7 @@ export namespace appmesh {
          */
         port?: pulumi.Input<number>;
         /**
-         * The protocol for the health check request. Valid values are `http` and `tcp`.
+         * The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
          */
         protocol: pulumi.Input<string>;
         /**
@@ -2092,9 +2530,49 @@ export namespace appmesh {
          */
         port: pulumi.Input<number>;
         /**
-         * The protocol used for the port mapping. Valid values are `http` and `tcp`.
+         * The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
          */
         protocol: pulumi.Input<string>;
+    }
+
+    export interface VirtualNodeSpecListenerTls {
+        /**
+         * The listener's TLS certificate.
+         */
+        certificate: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerTlsCertificate>;
+        /**
+         * The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+         */
+        mode: pulumi.Input<string>;
+    }
+
+    export interface VirtualNodeSpecListenerTlsCertificate {
+        /**
+         * An AWS Certicate Manager (ACM) certificate.
+         */
+        acm?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerTlsCertificateAcm>;
+        /**
+         * A local file certificate.
+         */
+        file?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerTlsCertificateFile>;
+    }
+
+    export interface VirtualNodeSpecListenerTlsCertificateAcm {
+        /**
+         * The Amazon Resource Name (ARN) for the certificate.
+         */
+        certificateArn: pulumi.Input<string>;
+    }
+
+    export interface VirtualNodeSpecListenerTlsCertificateFile {
+        /**
+         * The certificate chain for the certificate.
+         */
+        certificateChain: pulumi.Input<string>;
+        /**
+         * The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+         */
+        privateKey: pulumi.Input<string>;
     }
 
     export interface VirtualNodeSpecLogging {
@@ -2173,7 +2651,7 @@ export namespace appmesh {
          */
         port: pulumi.Input<number>;
         /**
-         * The protocol used for the port mapping. Valid values are `http` and `tcp`.
+         * The protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
          */
         protocol: pulumi.Input<string>;
     }
@@ -3758,6 +4236,30 @@ export namespace cloudwatch {
          * The unit for this metric.
          */
         unit?: pulumi.Input<string>;
+    }
+}
+
+export namespace codeartifact {
+    export interface RepositoryExternalConnection {
+        /**
+         * The name of the external connection associated with a repository.
+         */
+        externalConnectionName?: pulumi.Input<string>;
+        /**
+         * The package format associated with a repository's external connection.
+         */
+        packageFormat?: pulumi.Input<string>;
+        /**
+         * The status of the external connection of a repository.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface RepositoryUpstream {
+        /**
+         * The name of an upstream repository.
+         */
+        repositoryName: pulumi.Input<string>;
     }
 }
 
@@ -10175,6 +10677,10 @@ export namespace glue {
 
     export interface CrawlerS3Target {
         /**
+         * The name of the connection to use to connect to the JDBC target.
+         */
+        connectionName?: pulumi.Input<string>;
+        /**
          * A list of glob patterns used to exclude from the crawl.
          */
         exclusions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -10193,6 +10699,39 @@ export namespace glue {
          * The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
          */
         updateBehavior?: pulumi.Input<string>;
+    }
+
+    export interface DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
+        /**
+         * When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+         */
+        connectionPasswordEncryption: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption>;
+        /**
+         * Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+         */
+        encryptionAtRest: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest>;
+    }
+
+    export interface DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
+        /**
+         * A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+         */
+        awsKmsKeyId?: pulumi.Input<string>;
+        /**
+         * When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+         */
+        returnConnectionPasswordEncrypted: pulumi.Input<boolean>;
+    }
+
+    export interface DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
+        /**
+         * The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+         */
+        catalogEncryptionMode: pulumi.Input<string>;
+        /**
+         * The ARN of the AWS KMS key to use for encryption at rest.
+         */
+        sseAwsKmsKeyId?: pulumi.Input<string>;
     }
 
     export interface GetScriptDagEdge {
@@ -10271,6 +10810,173 @@ export namespace glue {
          * After a job run starts, the number of minutes to wait before sending a job run delay notification.
          */
         notifyDelayAfter?: pulumi.Input<number>;
+    }
+
+    export interface MLTransformInputRecordTable {
+        /**
+         * A unique identifier for the AWS Glue Data Catalog.
+         */
+        catalogId?: pulumi.Input<string>;
+        /**
+         * The name of the connection to the AWS Glue Data Catalog.
+         */
+        connectionName?: pulumi.Input<string>;
+        /**
+         * A database name in the AWS Glue Data Catalog.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * A table name in the AWS Glue Data Catalog.
+         */
+        tableName: pulumi.Input<string>;
+    }
+
+    export interface MLTransformParameters {
+        /**
+         * The parameters for the find matches algorithm. see Find Matches Parameters.
+         */
+        findMatchesParameters: pulumi.Input<inputs.glue.MLTransformParametersFindMatchesParameters>;
+        /**
+         * The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+         */
+        transformType: pulumi.Input<string>;
+    }
+
+    export interface MLTransformParametersFindMatchesParameters {
+        /**
+         * The value that is selected when tuning your transform for a balance between accuracy and cost.
+         */
+        accuracyCostTradeOff?: pulumi.Input<number>;
+        /**
+         * The value to switch on or off to force the output to match the provided labels from users.
+         */
+        enforceProvidedLabels?: pulumi.Input<boolean>;
+        /**
+         * The value selected when tuning your transform for a balance between precision and recall.
+         */
+        precisionRecallTradeOff?: pulumi.Input<number>;
+        /**
+         * The name of a column that uniquely identifies rows in the source table.
+         */
+        primaryKeyColumnName?: pulumi.Input<string>;
+    }
+
+    export interface MLTransformSchema {
+        /**
+         * The type of data in the column.
+         */
+        dataType?: pulumi.Input<string>;
+        /**
+         * The name you assign to this ML Transform. It must be unique in your account.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface PartitionStorageDescriptor {
+        /**
+         * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         */
+        bucketColumns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of the Columns in the table.
+         */
+        columns?: pulumi.Input<pulumi.Input<inputs.glue.PartitionStorageDescriptorColumn>[]>;
+        /**
+         * True if the data in the table is compressed, or False if not.
+         */
+        compressed?: pulumi.Input<boolean>;
+        /**
+         * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         */
+        inputFormat?: pulumi.Input<string>;
+        /**
+         * The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * Must be specified if the table contains any dimension columns.
+         */
+        numberOfBuckets?: pulumi.Input<number>;
+        /**
+         * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         */
+        outputFormat?: pulumi.Input<string>;
+        /**
+         * A map of initialization parameters for the SerDe, in key-value form.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Serialization/deserialization (SerDe) information.
+         */
+        serDeInfo?: pulumi.Input<inputs.glue.PartitionStorageDescriptorSerDeInfo>;
+        /**
+         * Information about values that appear very frequently in a column (skewed values).
+         */
+        skewedInfo?: pulumi.Input<inputs.glue.PartitionStorageDescriptorSkewedInfo>;
+        /**
+         * A list of Order objects specifying the sort order of each bucket in the table.
+         */
+        sortColumns?: pulumi.Input<pulumi.Input<inputs.glue.PartitionStorageDescriptorSortColumn>[]>;
+        /**
+         * True if the table data is stored in subdirectories, or False if not.
+         */
+        storedAsSubDirectories?: pulumi.Input<boolean>;
+    }
+
+    export interface PartitionStorageDescriptorColumn {
+        /**
+         * Free-form text comment.
+         */
+        comment?: pulumi.Input<string>;
+        /**
+         * Name of the SerDe.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The datatype of data in the Column.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface PartitionStorageDescriptorSerDeInfo {
+        /**
+         * Name of the SerDe.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A map of initialization parameters for the SerDe, in key-value form.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+         */
+        serializationLibrary?: pulumi.Input<string>;
+    }
+
+    export interface PartitionStorageDescriptorSkewedInfo {
+        /**
+         * A list of names of columns that contain skewed values.
+         */
+        skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of values that appear so frequently as to be considered skewed.
+         */
+        skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * A map of skewed values to the columns that contain them.
+         */
+        skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PartitionStorageDescriptorSortColumn {
+        /**
+         * The name of the column.
+         */
+        column: pulumi.Input<string>;
+        /**
+         * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+         */
+        sortOrder: pulumi.Input<number>;
     }
 
     export interface SecurityConfigurationEncryptionConfiguration {
@@ -12879,6 +13585,380 @@ export namespace lb {
 }
 
 export namespace lex {
+    export interface BotAbortStatement {
+        /**
+         * A set of messages, each of which provides a message string and its type. You
+         * can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+         * are documented under message.
+         */
+        messages: pulumi.Input<pulumi.Input<inputs.lex.BotAbortStatementMessage>[]>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+    }
+
+    export interface BotAbortStatementMessage {
+        /**
+         * The text of the message.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The content type of the message string.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Identifies the message group that the message belongs to. When a group
+         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         */
+        groupNumber?: pulumi.Input<number>;
+    }
+
+    export interface BotClarificationPrompt {
+        /**
+         * The number of times to prompt the user for information.
+         */
+        maxAttempts: pulumi.Input<number>;
+        /**
+         * A set of messages, each of which provides a message string and its type. You
+         * can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+         * are documented under message.
+         */
+        messages: pulumi.Input<pulumi.Input<inputs.lex.BotClarificationPromptMessage>[]>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+    }
+
+    export interface BotClarificationPromptMessage {
+        /**
+         * The text of the message.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The content type of the message string.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Identifies the message group that the message belongs to. When a group
+         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         */
+        groupNumber?: pulumi.Input<number>;
+    }
+
+    export interface BotIntent {
+        /**
+         * The name of the intent.
+         */
+        intentName: pulumi.Input<string>;
+        /**
+         * The version of the intent.
+         */
+        intentVersion: pulumi.Input<string>;
+    }
+
+    export interface IntentConclusionStatement {
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         */
+        messages: pulumi.Input<pulumi.Input<inputs.lex.IntentConclusionStatementMessage>[]>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+    }
+
+    export interface IntentConclusionStatementMessage {
+        /**
+         * The text of the message.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The content type of the message string.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Identifies the message group that the message belongs to. When a group
+         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         */
+        groupNumber?: pulumi.Input<number>;
+    }
+
+    export interface IntentConfirmationPrompt {
+        /**
+         * The number of times to prompt the user for information.
+         */
+        maxAttempts: pulumi.Input<number>;
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         */
+        messages: pulumi.Input<pulumi.Input<inputs.lex.IntentConfirmationPromptMessage>[]>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+    }
+
+    export interface IntentConfirmationPromptMessage {
+        /**
+         * The text of the message.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The content type of the message string.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Identifies the message group that the message belongs to. When a group
+         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         */
+        groupNumber?: pulumi.Input<number>;
+    }
+
+    export interface IntentDialogCodeHook {
+        /**
+         * The version of the request-response that you want Amazon Lex to use
+         * to invoke your Lambda function. For more information, see
+         * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+         */
+        messageVersion: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lambda function.
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    export interface IntentFollowUpPrompt {
+        /**
+         * Prompts for information from the user. Attributes are documented under prompt.
+         */
+        prompt: pulumi.Input<inputs.lex.IntentFollowUpPromptPrompt>;
+        /**
+         * When the user answers "no" to the question defined in
+         * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+         * canceled.
+         */
+        rejectionStatement: pulumi.Input<inputs.lex.IntentFollowUpPromptRejectionStatement>;
+    }
+
+    export interface IntentFollowUpPromptPrompt {
+        /**
+         * The number of times to prompt the user for information.
+         */
+        maxAttempts: pulumi.Input<number>;
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         */
+        messages: pulumi.Input<pulumi.Input<inputs.lex.IntentFollowUpPromptPromptMessage>[]>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+    }
+
+    export interface IntentFollowUpPromptPromptMessage {
+        /**
+         * The text of the message.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The content type of the message string.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Identifies the message group that the message belongs to. When a group
+         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         */
+        groupNumber?: pulumi.Input<number>;
+    }
+
+    export interface IntentFollowUpPromptRejectionStatement {
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         */
+        messages: pulumi.Input<pulumi.Input<inputs.lex.IntentFollowUpPromptRejectionStatementMessage>[]>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+    }
+
+    export interface IntentFollowUpPromptRejectionStatementMessage {
+        /**
+         * The text of the message.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The content type of the message string.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Identifies the message group that the message belongs to. When a group
+         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         */
+        groupNumber?: pulumi.Input<number>;
+    }
+
+    export interface IntentFulfillmentActivity {
+        /**
+         * A description of the Lambda function that is run to fulfill the intent.
+         * Required if type is CodeHook. Attributes are documented under code_hook.
+         */
+        codeHook?: pulumi.Input<inputs.lex.IntentFulfillmentActivityCodeHook>;
+        /**
+         * How the intent should be fulfilled, either by running a Lambda function or by
+         * returning the slot data to the client application.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface IntentFulfillmentActivityCodeHook {
+        /**
+         * The version of the request-response that you want Amazon Lex to use
+         * to invoke your Lambda function. For more information, see
+         * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+         */
+        messageVersion: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lambda function.
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    export interface IntentRejectionStatement {
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         */
+        messages: pulumi.Input<pulumi.Input<inputs.lex.IntentRejectionStatementMessage>[]>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+    }
+
+    export interface IntentRejectionStatementMessage {
+        /**
+         * The text of the message.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The content type of the message string.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Identifies the message group that the message belongs to. When a group
+         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         */
+        groupNumber?: pulumi.Input<number>;
+    }
+
+    export interface IntentSlot {
+        /**
+         * A description of the bot.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name of the intent slot that you want to create. The name is case sensitive.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Directs Lex the order in which to elicit this slot value from the user.
+         * For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
+         * the slot with priority 1.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+        /**
+         * If you know a specific pattern with which users might respond to
+         * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
+         * is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+         */
+        sampleUtterances?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies whether the slot is required or optional.
+         */
+        slotConstraint: pulumi.Input<string>;
+        /**
+         * The type of the slot, either a custom slot type that you defined or one of
+         * the built-in slot types.
+         */
+        slotType: pulumi.Input<string>;
+        /**
+         * The version of the slot type.
+         */
+        slotTypeVersion?: pulumi.Input<string>;
+        /**
+         * The prompt that Amazon Lex uses to elicit the slot value
+         * from the user. Attributes are documented under prompt.
+         */
+        valueElicitationPrompt?: pulumi.Input<inputs.lex.IntentSlotValueElicitationPrompt>;
+    }
+
+    export interface IntentSlotValueElicitationPrompt {
+        /**
+         * The number of times to prompt the user for information.
+         */
+        maxAttempts: pulumi.Input<number>;
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         */
+        messages: pulumi.Input<pulumi.Input<inputs.lex.IntentSlotValueElicitationPromptMessage>[]>;
+        /**
+         * The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         */
+        responseCard?: pulumi.Input<string>;
+    }
+
+    export interface IntentSlotValueElicitationPromptMessage {
+        /**
+         * The text of the message.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The content type of the message string.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Identifies the message group that the message belongs to. When a group
+         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         */
+        groupNumber?: pulumi.Input<number>;
+    }
+
     export interface SlotTypeEnumerationValue {
         /**
          * Additional values related to the slot type value.

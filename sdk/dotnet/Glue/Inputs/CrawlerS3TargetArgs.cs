@@ -12,6 +12,12 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CrawlerS3TargetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the connection to use to connect to the JDBC target.
+        /// </summary>
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
+
         [Input("exclusions")]
         private InputList<string>? _exclusions;
 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int IntervalMillis;
         /// <summary>
-        /// The destination path for the health check request. This is only required if the specified protocol is `http`.
+        /// The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         /// </summary>
         public readonly string? Path;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The protocol for the health check request. Valid values are `http` and `tcp`.
+        /// The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
         /// </summary>
         public readonly string Protocol;
         /// <summary>

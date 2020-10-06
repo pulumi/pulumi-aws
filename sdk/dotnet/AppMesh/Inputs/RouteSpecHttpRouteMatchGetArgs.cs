@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? Method { get; set; }
 
         /// <summary>
-        /// Specifies the path with which to match requests.
+        /// The value sent by the client must begin with the specified characters.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
         [Input("prefix", required: true)]

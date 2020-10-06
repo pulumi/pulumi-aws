@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int> IntervalMillis { get; set; } = null!;
 
         /// <summary>
-        /// The destination path for the health check request. This is only required if the specified protocol is `http`.
+        /// The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol for the health check request. Valid values are `http` and `tcp`.
+        /// The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

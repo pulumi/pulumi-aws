@@ -12,6 +12,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The defaults for backends.
+        /// </summary>
+        [Input("backendDefaults")]
+        public Input<Inputs.VirtualNodeSpecBackendDefaultsGetArgs>? BackendDefaults { get; set; }
+
         [Input("backends")]
         private InputList<Inputs.VirtualNodeSpecBackendGetArgs>? _backends;
 

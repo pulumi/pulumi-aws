@@ -124,7 +124,7 @@ type CatalogTable struct {
 	Retention pulumi.IntPtrOutput `pulumi:"retention"`
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor CatalogTableStorageDescriptorPtrOutput `pulumi:"storageDescriptor"`
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrOutput `pulumi:"tableType"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrOutput `pulumi:"viewExpandedText"`
@@ -183,7 +183,7 @@ type catalogTableState struct {
 	Retention *int `pulumi:"retention"`
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor *CatalogTableStorageDescriptor `pulumi:"storageDescriptor"`
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType *string `pulumi:"tableType"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
@@ -212,7 +212,7 @@ type CatalogTableState struct {
 	Retention pulumi.IntPtrInput
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor CatalogTableStorageDescriptorPtrInput
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrInput
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrInput
@@ -243,7 +243,7 @@ type catalogTableArgs struct {
 	Retention *int `pulumi:"retention"`
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor *CatalogTableStorageDescriptor `pulumi:"storageDescriptor"`
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType *string `pulumi:"tableType"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
@@ -271,7 +271,7 @@ type CatalogTableArgs struct {
 	Retention pulumi.IntPtrInput
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor CatalogTableStorageDescriptorPtrInput
-	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrInput
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrInput

@@ -25,6 +25,7 @@ export * from "./optionGroup";
 export * from "./parameterGroup";
 export * from "./proxy";
 export * from "./proxyDefaultTargetGroup";
+export * from "./proxyTarget";
 export * from "./roleAssociation";
 export * from "./securityGroup";
 export * from "./snapshot";

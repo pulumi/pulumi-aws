@@ -2208,6 +2208,8 @@ func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTarget
 }
 
 type CrawlerS3Target struct {
+	// The name of the connection to use to connect to the JDBC target.
+	ConnectionName *string `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
 	// The name of the DynamoDB table to crawl.
@@ -2226,6 +2228,8 @@ type CrawlerS3TargetInput interface {
 }
 
 type CrawlerS3TargetArgs struct {
+	// The name of the connection to use to connect to the JDBC target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
 	// The name of the DynamoDB table to crawl.
@@ -2281,6 +2285,11 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutput() CrawlerS3TargetOutput {
 
 func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Context) CrawlerS3TargetOutput {
 	return o
+}
+
+// The name of the connection to use to connect to the JDBC target.
+func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
 // A list of glob patterns used to exclude from the crawl.
@@ -2460,6 +2469,474 @@ func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOut
 			return nil
 		}
 		return v.UpdateBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettings struct {
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+	ConnectionPasswordEncryption DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption `pulumi:"connectionPasswordEncryption"`
+	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	EncryptionAtRest DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest `pulumi:"encryptionAtRest"`
+}
+
+// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput` via:
+//
+//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{...}
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs struct {
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+	ConnectionPasswordEncryption DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionInput `pulumi:"connectionPasswordEncryption"`
+	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	EncryptionAtRest DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestInput `pulumi:"encryptionAtRest"`
+}
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput).ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtr and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput` via:
+//
+//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput
+}
+
+type dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
+
+func DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtr(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput {
+	return (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return o.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
+		return &v
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
+}
+
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		return v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
+}
+
+// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) EncryptionAtRest() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
+		return v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
+		return *v
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
+}
+
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) EncryptionAtRest() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption struct {
+	// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+	AwsKmsKeyId *string `pulumi:"awsKmsKeyId"`
+	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+	ReturnConnectionPasswordEncrypted bool `pulumi:"returnConnectionPasswordEncrypted"`
+}
+
+// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionInput` via:
+//
+//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{...}
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs struct {
+	// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+	AwsKmsKeyId pulumi.StringPtrInput `pulumi:"awsKmsKeyId"`
+	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+	ReturnConnectionPasswordEncrypted pulumi.BoolInput `pulumi:"returnConnectionPasswordEncrypted"`
+}
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput).ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtr and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput` via:
+//
+//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput
+}
+
+type dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
+
+func DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtr(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput {
+	return (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		return &v
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *string {
+		return v.AwsKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) bool {
+		return v.ReturnConnectionPasswordEncrypted
+	}).(pulumi.BoolOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		return *v
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
+}
+
+// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ReturnConnectionPasswordEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest struct {
+	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
+	// The ARN of the AWS KMS key to use for encryption at rest.
+	SseAwsKmsKeyId *string `pulumi:"sseAwsKmsKeyId"`
+}
+
+// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestInput` via:
+//
+//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{...}
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs struct {
+	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
+	// The ARN of the AWS KMS key to use for encryption at rest.
+	SseAwsKmsKeyId pulumi.StringPtrInput `pulumi:"sseAwsKmsKeyId"`
+}
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput).ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtr and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput` via:
+//
+//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput
+}
+
+type dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
+
+func DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtr(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput {
+	return (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
+		return &v
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) string {
+		return v.CatalogEncryptionMode
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS KMS key to use for encryption at rest.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		return v.SseAwsKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
+		return *v
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
+}
+
+// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS KMS key to use for encryption at rest.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SseAwsKmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2892,6 +3369,1477 @@ func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput
 		}
 		return v.NotifyDelayAfter
 	}).(pulumi.IntPtrOutput)
+}
+
+type MLTransformInputRecordTable struct {
+	// A unique identifier for the AWS Glue Data Catalog.
+	CatalogId *string `pulumi:"catalogId"`
+	// The name of the connection to the AWS Glue Data Catalog.
+	ConnectionName *string `pulumi:"connectionName"`
+	// A database name in the AWS Glue Data Catalog.
+	DatabaseName string `pulumi:"databaseName"`
+	// A table name in the AWS Glue Data Catalog.
+	TableName string `pulumi:"tableName"`
+}
+
+// MLTransformInputRecordTableInput is an input type that accepts MLTransformInputRecordTableArgs and MLTransformInputRecordTableOutput values.
+// You can construct a concrete instance of `MLTransformInputRecordTableInput` via:
+//
+//          MLTransformInputRecordTableArgs{...}
+type MLTransformInputRecordTableInput interface {
+	pulumi.Input
+
+	ToMLTransformInputRecordTableOutput() MLTransformInputRecordTableOutput
+	ToMLTransformInputRecordTableOutputWithContext(context.Context) MLTransformInputRecordTableOutput
+}
+
+type MLTransformInputRecordTableArgs struct {
+	// A unique identifier for the AWS Glue Data Catalog.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// The name of the connection to the AWS Glue Data Catalog.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A database name in the AWS Glue Data Catalog.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// A table name in the AWS Glue Data Catalog.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (MLTransformInputRecordTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformInputRecordTable)(nil)).Elem()
+}
+
+func (i MLTransformInputRecordTableArgs) ToMLTransformInputRecordTableOutput() MLTransformInputRecordTableOutput {
+	return i.ToMLTransformInputRecordTableOutputWithContext(context.Background())
+}
+
+func (i MLTransformInputRecordTableArgs) ToMLTransformInputRecordTableOutputWithContext(ctx context.Context) MLTransformInputRecordTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformInputRecordTableOutput)
+}
+
+// MLTransformInputRecordTableArrayInput is an input type that accepts MLTransformInputRecordTableArray and MLTransformInputRecordTableArrayOutput values.
+// You can construct a concrete instance of `MLTransformInputRecordTableArrayInput` via:
+//
+//          MLTransformInputRecordTableArray{ MLTransformInputRecordTableArgs{...} }
+type MLTransformInputRecordTableArrayInput interface {
+	pulumi.Input
+
+	ToMLTransformInputRecordTableArrayOutput() MLTransformInputRecordTableArrayOutput
+	ToMLTransformInputRecordTableArrayOutputWithContext(context.Context) MLTransformInputRecordTableArrayOutput
+}
+
+type MLTransformInputRecordTableArray []MLTransformInputRecordTableInput
+
+func (MLTransformInputRecordTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MLTransformInputRecordTable)(nil)).Elem()
+}
+
+func (i MLTransformInputRecordTableArray) ToMLTransformInputRecordTableArrayOutput() MLTransformInputRecordTableArrayOutput {
+	return i.ToMLTransformInputRecordTableArrayOutputWithContext(context.Background())
+}
+
+func (i MLTransformInputRecordTableArray) ToMLTransformInputRecordTableArrayOutputWithContext(ctx context.Context) MLTransformInputRecordTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformInputRecordTableArrayOutput)
+}
+
+type MLTransformInputRecordTableOutput struct{ *pulumi.OutputState }
+
+func (MLTransformInputRecordTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformInputRecordTable)(nil)).Elem()
+}
+
+func (o MLTransformInputRecordTableOutput) ToMLTransformInputRecordTableOutput() MLTransformInputRecordTableOutput {
+	return o
+}
+
+func (o MLTransformInputRecordTableOutput) ToMLTransformInputRecordTableOutputWithContext(ctx context.Context) MLTransformInputRecordTableOutput {
+	return o
+}
+
+// A unique identifier for the AWS Glue Data Catalog.
+func (o MLTransformInputRecordTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformInputRecordTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the connection to the AWS Glue Data Catalog.
+func (o MLTransformInputRecordTableOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformInputRecordTable) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A database name in the AWS Glue Data Catalog.
+func (o MLTransformInputRecordTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformInputRecordTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// A table name in the AWS Glue Data Catalog.
+func (o MLTransformInputRecordTableOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformInputRecordTable) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type MLTransformInputRecordTableArrayOutput struct{ *pulumi.OutputState }
+
+func (MLTransformInputRecordTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MLTransformInputRecordTable)(nil)).Elem()
+}
+
+func (o MLTransformInputRecordTableArrayOutput) ToMLTransformInputRecordTableArrayOutput() MLTransformInputRecordTableArrayOutput {
+	return o
+}
+
+func (o MLTransformInputRecordTableArrayOutput) ToMLTransformInputRecordTableArrayOutputWithContext(ctx context.Context) MLTransformInputRecordTableArrayOutput {
+	return o
+}
+
+func (o MLTransformInputRecordTableArrayOutput) Index(i pulumi.IntInput) MLTransformInputRecordTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MLTransformInputRecordTable {
+		return vs[0].([]MLTransformInputRecordTable)[vs[1].(int)]
+	}).(MLTransformInputRecordTableOutput)
+}
+
+type MLTransformParameters struct {
+	// The parameters for the find matches algorithm. see Find Matches Parameters.
+	FindMatchesParameters MLTransformParametersFindMatchesParameters `pulumi:"findMatchesParameters"`
+	// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+	TransformType string `pulumi:"transformType"`
+}
+
+// MLTransformParametersInput is an input type that accepts MLTransformParametersArgs and MLTransformParametersOutput values.
+// You can construct a concrete instance of `MLTransformParametersInput` via:
+//
+//          MLTransformParametersArgs{...}
+type MLTransformParametersInput interface {
+	pulumi.Input
+
+	ToMLTransformParametersOutput() MLTransformParametersOutput
+	ToMLTransformParametersOutputWithContext(context.Context) MLTransformParametersOutput
+}
+
+type MLTransformParametersArgs struct {
+	// The parameters for the find matches algorithm. see Find Matches Parameters.
+	FindMatchesParameters MLTransformParametersFindMatchesParametersInput `pulumi:"findMatchesParameters"`
+	// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+	TransformType pulumi.StringInput `pulumi:"transformType"`
+}
+
+func (MLTransformParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformParameters)(nil)).Elem()
+}
+
+func (i MLTransformParametersArgs) ToMLTransformParametersOutput() MLTransformParametersOutput {
+	return i.ToMLTransformParametersOutputWithContext(context.Background())
+}
+
+func (i MLTransformParametersArgs) ToMLTransformParametersOutputWithContext(ctx context.Context) MLTransformParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersOutput)
+}
+
+func (i MLTransformParametersArgs) ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput {
+	return i.ToMLTransformParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformParametersArgs) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersOutput).ToMLTransformParametersPtrOutputWithContext(ctx)
+}
+
+// MLTransformParametersPtrInput is an input type that accepts MLTransformParametersArgs, MLTransformParametersPtr and MLTransformParametersPtrOutput values.
+// You can construct a concrete instance of `MLTransformParametersPtrInput` via:
+//
+//          MLTransformParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformParametersPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput
+	ToMLTransformParametersPtrOutputWithContext(context.Context) MLTransformParametersPtrOutput
+}
+
+type mltransformParametersPtrType MLTransformParametersArgs
+
+func MLTransformParametersPtr(v *MLTransformParametersArgs) MLTransformParametersPtrInput {
+	return (*mltransformParametersPtrType)(v)
+}
+
+func (*mltransformParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformParameters)(nil)).Elem()
+}
+
+func (i *mltransformParametersPtrType) ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput {
+	return i.ToMLTransformParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformParametersPtrType) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersPtrOutput)
+}
+
+type MLTransformParametersOutput struct{ *pulumi.OutputState }
+
+func (MLTransformParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformParameters)(nil)).Elem()
+}
+
+func (o MLTransformParametersOutput) ToMLTransformParametersOutput() MLTransformParametersOutput {
+	return o
+}
+
+func (o MLTransformParametersOutput) ToMLTransformParametersOutputWithContext(ctx context.Context) MLTransformParametersOutput {
+	return o
+}
+
+func (o MLTransformParametersOutput) ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput {
+	return o.ToMLTransformParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformParametersOutput) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
+	return o.ApplyT(func(v MLTransformParameters) *MLTransformParameters {
+		return &v
+	}).(MLTransformParametersPtrOutput)
+}
+
+// The parameters for the find matches algorithm. see Find Matches Parameters.
+func (o MLTransformParametersOutput) FindMatchesParameters() MLTransformParametersFindMatchesParametersOutput {
+	return o.ApplyT(func(v MLTransformParameters) MLTransformParametersFindMatchesParameters {
+		return v.FindMatchesParameters
+	}).(MLTransformParametersFindMatchesParametersOutput)
+}
+
+// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+func (o MLTransformParametersOutput) TransformType() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformParameters) string { return v.TransformType }).(pulumi.StringOutput)
+}
+
+type MLTransformParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformParameters)(nil)).Elem()
+}
+
+func (o MLTransformParametersPtrOutput) ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformParametersPtrOutput) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformParametersPtrOutput) Elem() MLTransformParametersOutput {
+	return o.ApplyT(func(v *MLTransformParameters) MLTransformParameters { return *v }).(MLTransformParametersOutput)
+}
+
+// The parameters for the find matches algorithm. see Find Matches Parameters.
+func (o MLTransformParametersPtrOutput) FindMatchesParameters() MLTransformParametersFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v *MLTransformParameters) *MLTransformParametersFindMatchesParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.FindMatchesParameters
+	}).(MLTransformParametersFindMatchesParametersPtrOutput)
+}
+
+// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+func (o MLTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TransformType
+	}).(pulumi.StringPtrOutput)
+}
+
+type MLTransformParametersFindMatchesParameters struct {
+	// The value that is selected when tuning your transform for a balance between accuracy and cost.
+	AccuracyCostTradeOff *float64 `pulumi:"accuracyCostTradeOff"`
+	// The value to switch on or off to force the output to match the provided labels from users.
+	EnforceProvidedLabels *bool `pulumi:"enforceProvidedLabels"`
+	// The value selected when tuning your transform for a balance between precision and recall.
+	PrecisionRecallTradeOff *float64 `pulumi:"precisionRecallTradeOff"`
+	// The name of a column that uniquely identifies rows in the source table.
+	PrimaryKeyColumnName *string `pulumi:"primaryKeyColumnName"`
+}
+
+// MLTransformParametersFindMatchesParametersInput is an input type that accepts MLTransformParametersFindMatchesParametersArgs and MLTransformParametersFindMatchesParametersOutput values.
+// You can construct a concrete instance of `MLTransformParametersFindMatchesParametersInput` via:
+//
+//          MLTransformParametersFindMatchesParametersArgs{...}
+type MLTransformParametersFindMatchesParametersInput interface {
+	pulumi.Input
+
+	ToMLTransformParametersFindMatchesParametersOutput() MLTransformParametersFindMatchesParametersOutput
+	ToMLTransformParametersFindMatchesParametersOutputWithContext(context.Context) MLTransformParametersFindMatchesParametersOutput
+}
+
+type MLTransformParametersFindMatchesParametersArgs struct {
+	// The value that is selected when tuning your transform for a balance between accuracy and cost.
+	AccuracyCostTradeOff pulumi.Float64PtrInput `pulumi:"accuracyCostTradeOff"`
+	// The value to switch on or off to force the output to match the provided labels from users.
+	EnforceProvidedLabels pulumi.BoolPtrInput `pulumi:"enforceProvidedLabels"`
+	// The value selected when tuning your transform for a balance between precision and recall.
+	PrecisionRecallTradeOff pulumi.Float64PtrInput `pulumi:"precisionRecallTradeOff"`
+	// The name of a column that uniquely identifies rows in the source table.
+	PrimaryKeyColumnName pulumi.StringPtrInput `pulumi:"primaryKeyColumnName"`
+}
+
+func (MLTransformParametersFindMatchesParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformParametersFindMatchesParameters)(nil)).Elem()
+}
+
+func (i MLTransformParametersFindMatchesParametersArgs) ToMLTransformParametersFindMatchesParametersOutput() MLTransformParametersFindMatchesParametersOutput {
+	return i.ToMLTransformParametersFindMatchesParametersOutputWithContext(context.Background())
+}
+
+func (i MLTransformParametersFindMatchesParametersArgs) ToMLTransformParametersFindMatchesParametersOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersFindMatchesParametersOutput)
+}
+
+func (i MLTransformParametersFindMatchesParametersArgs) ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput {
+	return i.ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformParametersFindMatchesParametersArgs) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersFindMatchesParametersOutput).ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx)
+}
+
+// MLTransformParametersFindMatchesParametersPtrInput is an input type that accepts MLTransformParametersFindMatchesParametersArgs, MLTransformParametersFindMatchesParametersPtr and MLTransformParametersFindMatchesParametersPtrOutput values.
+// You can construct a concrete instance of `MLTransformParametersFindMatchesParametersPtrInput` via:
+//
+//          MLTransformParametersFindMatchesParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformParametersFindMatchesParametersPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput
+	ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(context.Context) MLTransformParametersFindMatchesParametersPtrOutput
+}
+
+type mltransformParametersFindMatchesParametersPtrType MLTransformParametersFindMatchesParametersArgs
+
+func MLTransformParametersFindMatchesParametersPtr(v *MLTransformParametersFindMatchesParametersArgs) MLTransformParametersFindMatchesParametersPtrInput {
+	return (*mltransformParametersFindMatchesParametersPtrType)(v)
+}
+
+func (*mltransformParametersFindMatchesParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformParametersFindMatchesParameters)(nil)).Elem()
+}
+
+func (i *mltransformParametersFindMatchesParametersPtrType) ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput {
+	return i.ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformParametersFindMatchesParametersPtrType) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersFindMatchesParametersPtrOutput)
+}
+
+type MLTransformParametersFindMatchesParametersOutput struct{ *pulumi.OutputState }
+
+func (MLTransformParametersFindMatchesParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformParametersFindMatchesParameters)(nil)).Elem()
+}
+
+func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParametersFindMatchesParametersOutput() MLTransformParametersFindMatchesParametersOutput {
+	return o
+}
+
+func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParametersFindMatchesParametersOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersOutput {
+	return o
+}
+
+func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput {
+	return o.ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *MLTransformParametersFindMatchesParameters {
+		return &v
+	}).(MLTransformParametersFindMatchesParametersPtrOutput)
+}
+
+// The value that is selected when tuning your transform for a balance between accuracy and cost.
+func (o MLTransformParametersFindMatchesParametersOutput) AccuracyCostTradeOff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *float64 { return v.AccuracyCostTradeOff }).(pulumi.Float64PtrOutput)
+}
+
+// The value to switch on or off to force the output to match the provided labels from users.
+func (o MLTransformParametersFindMatchesParametersOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *bool { return v.EnforceProvidedLabels }).(pulumi.BoolPtrOutput)
+}
+
+// The value selected when tuning your transform for a balance between precision and recall.
+func (o MLTransformParametersFindMatchesParametersOutput) PrecisionRecallTradeOff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *float64 { return v.PrecisionRecallTradeOff }).(pulumi.Float64PtrOutput)
+}
+
+// The name of a column that uniquely identifies rows in the source table.
+func (o MLTransformParametersFindMatchesParametersOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *string { return v.PrimaryKeyColumnName }).(pulumi.StringPtrOutput)
+}
+
+type MLTransformParametersFindMatchesParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformParametersFindMatchesParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformParametersFindMatchesParameters)(nil)).Elem()
+}
+
+func (o MLTransformParametersFindMatchesParametersPtrOutput) ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformParametersFindMatchesParametersPtrOutput) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformParametersFindMatchesParametersPtrOutput) Elem() MLTransformParametersFindMatchesParametersOutput {
+	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) MLTransformParametersFindMatchesParameters {
+		return *v
+	}).(MLTransformParametersFindMatchesParametersOutput)
+}
+
+// The value that is selected when tuning your transform for a balance between accuracy and cost.
+func (o MLTransformParametersFindMatchesParametersPtrOutput) AccuracyCostTradeOff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AccuracyCostTradeOff
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The value to switch on or off to force the output to match the provided labels from users.
+func (o MLTransformParametersFindMatchesParametersPtrOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceProvidedLabels
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value selected when tuning your transform for a balance between precision and recall.
+func (o MLTransformParametersFindMatchesParametersPtrOutput) PrecisionRecallTradeOff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PrecisionRecallTradeOff
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The name of a column that uniquely identifies rows in the source table.
+func (o MLTransformParametersFindMatchesParametersPtrOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryKeyColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+type MLTransformSchema struct {
+	// The type of data in the column.
+	DataType *string `pulumi:"dataType"`
+	// The name you assign to this ML Transform. It must be unique in your account.
+	Name *string `pulumi:"name"`
+}
+
+// MLTransformSchemaInput is an input type that accepts MLTransformSchemaArgs and MLTransformSchemaOutput values.
+// You can construct a concrete instance of `MLTransformSchemaInput` via:
+//
+//          MLTransformSchemaArgs{...}
+type MLTransformSchemaInput interface {
+	pulumi.Input
+
+	ToMLTransformSchemaOutput() MLTransformSchemaOutput
+	ToMLTransformSchemaOutputWithContext(context.Context) MLTransformSchemaOutput
+}
+
+type MLTransformSchemaArgs struct {
+	// The type of data in the column.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// The name you assign to this ML Transform. It must be unique in your account.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MLTransformSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformSchema)(nil)).Elem()
+}
+
+func (i MLTransformSchemaArgs) ToMLTransformSchemaOutput() MLTransformSchemaOutput {
+	return i.ToMLTransformSchemaOutputWithContext(context.Background())
+}
+
+func (i MLTransformSchemaArgs) ToMLTransformSchemaOutputWithContext(ctx context.Context) MLTransformSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformSchemaOutput)
+}
+
+// MLTransformSchemaArrayInput is an input type that accepts MLTransformSchemaArray and MLTransformSchemaArrayOutput values.
+// You can construct a concrete instance of `MLTransformSchemaArrayInput` via:
+//
+//          MLTransformSchemaArray{ MLTransformSchemaArgs{...} }
+type MLTransformSchemaArrayInput interface {
+	pulumi.Input
+
+	ToMLTransformSchemaArrayOutput() MLTransformSchemaArrayOutput
+	ToMLTransformSchemaArrayOutputWithContext(context.Context) MLTransformSchemaArrayOutput
+}
+
+type MLTransformSchemaArray []MLTransformSchemaInput
+
+func (MLTransformSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MLTransformSchema)(nil)).Elem()
+}
+
+func (i MLTransformSchemaArray) ToMLTransformSchemaArrayOutput() MLTransformSchemaArrayOutput {
+	return i.ToMLTransformSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i MLTransformSchemaArray) ToMLTransformSchemaArrayOutputWithContext(ctx context.Context) MLTransformSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformSchemaArrayOutput)
+}
+
+type MLTransformSchemaOutput struct{ *pulumi.OutputState }
+
+func (MLTransformSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformSchema)(nil)).Elem()
+}
+
+func (o MLTransformSchemaOutput) ToMLTransformSchemaOutput() MLTransformSchemaOutput {
+	return o
+}
+
+func (o MLTransformSchemaOutput) ToMLTransformSchemaOutputWithContext(ctx context.Context) MLTransformSchemaOutput {
+	return o
+}
+
+// The type of data in the column.
+func (o MLTransformSchemaOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformSchema) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// The name you assign to this ML Transform. It must be unique in your account.
+func (o MLTransformSchemaOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformSchema) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MLTransformSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (MLTransformSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MLTransformSchema)(nil)).Elem()
+}
+
+func (o MLTransformSchemaArrayOutput) ToMLTransformSchemaArrayOutput() MLTransformSchemaArrayOutput {
+	return o
+}
+
+func (o MLTransformSchemaArrayOutput) ToMLTransformSchemaArrayOutputWithContext(ctx context.Context) MLTransformSchemaArrayOutput {
+	return o
+}
+
+func (o MLTransformSchemaArrayOutput) Index(i pulumi.IntInput) MLTransformSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MLTransformSchema {
+		return vs[0].([]MLTransformSchema)[vs[1].(int)]
+	}).(MLTransformSchemaOutput)
+}
+
+type PartitionStorageDescriptor struct {
+	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns []string `pulumi:"bucketColumns"`
+	// A list of the Columns in the table.
+	Columns []PartitionStorageDescriptorColumn `pulumi:"columns"`
+	// True if the data in the table is compressed, or False if not.
+	Compressed *bool `pulumi:"compressed"`
+	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat *string `pulumi:"inputFormat"`
+	// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location *string `pulumi:"location"`
+	// Must be specified if the table contains any dimension columns.
+	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
+	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat *string `pulumi:"outputFormat"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Serialization/deserialization (SerDe) information.
+	SerDeInfo *PartitionStorageDescriptorSerDeInfo `pulumi:"serDeInfo"`
+	// Information about values that appear very frequently in a column (skewed values).
+	SkewedInfo *PartitionStorageDescriptorSkewedInfo `pulumi:"skewedInfo"`
+	// A list of Order objects specifying the sort order of each bucket in the table.
+	SortColumns []PartitionStorageDescriptorSortColumn `pulumi:"sortColumns"`
+	// True if the table data is stored in subdirectories, or False if not.
+	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
+}
+
+// PartitionStorageDescriptorInput is an input type that accepts PartitionStorageDescriptorArgs and PartitionStorageDescriptorOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorInput` via:
+//
+//          PartitionStorageDescriptorArgs{...}
+type PartitionStorageDescriptorInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput
+	ToPartitionStorageDescriptorOutputWithContext(context.Context) PartitionStorageDescriptorOutput
+}
+
+type PartitionStorageDescriptorArgs struct {
+	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
+	// A list of the Columns in the table.
+	Columns PartitionStorageDescriptorColumnArrayInput `pulumi:"columns"`
+	// True if the data in the table is compressed, or False if not.
+	Compressed pulumi.BoolPtrInput `pulumi:"compressed"`
+	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
+	// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Must be specified if the table contains any dimension columns.
+	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
+	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Serialization/deserialization (SerDe) information.
+	SerDeInfo PartitionStorageDescriptorSerDeInfoPtrInput `pulumi:"serDeInfo"`
+	// Information about values that appear very frequently in a column (skewed values).
+	SkewedInfo PartitionStorageDescriptorSkewedInfoPtrInput `pulumi:"skewedInfo"`
+	// A list of Order objects specifying the sort order of each bucket in the table.
+	SortColumns PartitionStorageDescriptorSortColumnArrayInput `pulumi:"sortColumns"`
+	// True if the table data is stored in subdirectories, or False if not.
+	StoredAsSubDirectories pulumi.BoolPtrInput `pulumi:"storedAsSubDirectories"`
+}
+
+func (PartitionStorageDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput {
+	return i.ToPartitionStorageDescriptorOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorOutputWithContext(ctx context.Context) PartitionStorageDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorOutput)
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return i.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorOutput).ToPartitionStorageDescriptorPtrOutputWithContext(ctx)
+}
+
+// PartitionStorageDescriptorPtrInput is an input type that accepts PartitionStorageDescriptorArgs, PartitionStorageDescriptorPtr and PartitionStorageDescriptorPtrOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorPtrInput` via:
+//
+//          PartitionStorageDescriptorArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionStorageDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput
+	ToPartitionStorageDescriptorPtrOutputWithContext(context.Context) PartitionStorageDescriptorPtrOutput
+}
+
+type partitionStorageDescriptorPtrType PartitionStorageDescriptorArgs
+
+func PartitionStorageDescriptorPtr(v *PartitionStorageDescriptorArgs) PartitionStorageDescriptorPtrInput {
+	return (*partitionStorageDescriptorPtrType)(v)
+}
+
+func (*partitionStorageDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (i *partitionStorageDescriptorPtrType) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return i.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionStorageDescriptorPtrType) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorPtrOutput)
+}
+
+type PartitionStorageDescriptorOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorOutputWithContext(ctx context.Context) PartitionStorageDescriptorOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return o.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionStorageDescriptor {
+		return &v
+	}).(PartitionStorageDescriptorPtrOutput)
+}
+
+// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+func (o PartitionStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
+}
+
+// A list of the Columns in the table.
+func (o PartitionStorageDescriptorOutput) Columns() PartitionStorageDescriptorColumnArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []PartitionStorageDescriptorColumn { return v.Columns }).(PartitionStorageDescriptorColumnArrayOutput)
+}
+
+// True if the data in the table is compressed, or False if not.
+func (o PartitionStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
+}
+
+// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+func (o PartitionStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
+}
+
+// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+func (o PartitionStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Must be specified if the table contains any dimension columns.
+func (o PartitionStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
+}
+
+// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+func (o PartitionStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
+}
+
+// A map of initialization parameters for the SerDe, in key-value form.
+func (o PartitionStorageDescriptorOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Serialization/deserialization (SerDe) information.
+func (o PartitionStorageDescriptorOutput) SerDeInfo() PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionStorageDescriptorSerDeInfo { return v.SerDeInfo }).(PartitionStorageDescriptorSerDeInfoPtrOutput)
+}
+
+// Information about values that appear very frequently in a column (skewed values).
+func (o PartitionStorageDescriptorOutput) SkewedInfo() PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionStorageDescriptorSkewedInfo { return v.SkewedInfo }).(PartitionStorageDescriptorSkewedInfoPtrOutput)
+}
+
+// A list of Order objects specifying the sort order of each bucket in the table.
+func (o PartitionStorageDescriptorOutput) SortColumns() PartitionStorageDescriptorSortColumnArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []PartitionStorageDescriptorSortColumn { return v.SortColumns }).(PartitionStorageDescriptorSortColumnArrayOutput)
+}
+
+// True if the table data is stored in subdirectories, or False if not.
+func (o PartitionStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
+}
+
+type PartitionStorageDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorPtrOutput) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorPtrOutput) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorPtrOutput) Elem() PartitionStorageDescriptorOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) PartitionStorageDescriptor { return *v }).(PartitionStorageDescriptorOutput)
+}
+
+// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+func (o PartitionStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketColumns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the Columns in the table.
+func (o PartitionStorageDescriptorPtrOutput) Columns() PartitionStorageDescriptorColumnArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []PartitionStorageDescriptorColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(PartitionStorageDescriptorColumnArrayOutput)
+}
+
+// True if the data in the table is compressed, or False if not.
+func (o PartitionStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Compressed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+func (o PartitionStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+func (o PartitionStorageDescriptorPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// Must be specified if the table contains any dimension columns.
+func (o PartitionStorageDescriptorPtrOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+func (o PartitionStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of initialization parameters for the SerDe, in key-value form.
+func (o PartitionStorageDescriptorPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Serialization/deserialization (SerDe) information.
+func (o PartitionStorageDescriptorPtrOutput) SerDeInfo() PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionStorageDescriptorSerDeInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SerDeInfo
+	}).(PartitionStorageDescriptorSerDeInfoPtrOutput)
+}
+
+// Information about values that appear very frequently in a column (skewed values).
+func (o PartitionStorageDescriptorPtrOutput) SkewedInfo() PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionStorageDescriptorSkewedInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedInfo
+	}).(PartitionStorageDescriptorSkewedInfoPtrOutput)
+}
+
+// A list of Order objects specifying the sort order of each bucket in the table.
+func (o PartitionStorageDescriptorPtrOutput) SortColumns() PartitionStorageDescriptorSortColumnArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []PartitionStorageDescriptorSortColumn {
+		if v == nil {
+			return nil
+		}
+		return v.SortColumns
+	}).(PartitionStorageDescriptorSortColumnArrayOutput)
+}
+
+// True if the table data is stored in subdirectories, or False if not.
+func (o PartitionStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StoredAsSubDirectories
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PartitionStorageDescriptorColumn struct {
+	// Free-form text comment.
+	Comment *string `pulumi:"comment"`
+	// Name of the SerDe.
+	Name string `pulumi:"name"`
+	// The datatype of data in the Column.
+	Type *string `pulumi:"type"`
+}
+
+// PartitionStorageDescriptorColumnInput is an input type that accepts PartitionStorageDescriptorColumnArgs and PartitionStorageDescriptorColumnOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorColumnInput` via:
+//
+//          PartitionStorageDescriptorColumnArgs{...}
+type PartitionStorageDescriptorColumnInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorColumnOutput() PartitionStorageDescriptorColumnOutput
+	ToPartitionStorageDescriptorColumnOutputWithContext(context.Context) PartitionStorageDescriptorColumnOutput
+}
+
+type PartitionStorageDescriptorColumnArgs struct {
+	// Free-form text comment.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// Name of the SerDe.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The datatype of data in the Column.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PartitionStorageDescriptorColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptorColumn)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorColumnArgs) ToPartitionStorageDescriptorColumnOutput() PartitionStorageDescriptorColumnOutput {
+	return i.ToPartitionStorageDescriptorColumnOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorColumnArgs) ToPartitionStorageDescriptorColumnOutputWithContext(ctx context.Context) PartitionStorageDescriptorColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorColumnOutput)
+}
+
+// PartitionStorageDescriptorColumnArrayInput is an input type that accepts PartitionStorageDescriptorColumnArray and PartitionStorageDescriptorColumnArrayOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorColumnArrayInput` via:
+//
+//          PartitionStorageDescriptorColumnArray{ PartitionStorageDescriptorColumnArgs{...} }
+type PartitionStorageDescriptorColumnArrayInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorColumnArrayOutput() PartitionStorageDescriptorColumnArrayOutput
+	ToPartitionStorageDescriptorColumnArrayOutputWithContext(context.Context) PartitionStorageDescriptorColumnArrayOutput
+}
+
+type PartitionStorageDescriptorColumnArray []PartitionStorageDescriptorColumnInput
+
+func (PartitionStorageDescriptorColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionStorageDescriptorColumn)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorColumnArray) ToPartitionStorageDescriptorColumnArrayOutput() PartitionStorageDescriptorColumnArrayOutput {
+	return i.ToPartitionStorageDescriptorColumnArrayOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorColumnArray) ToPartitionStorageDescriptorColumnArrayOutputWithContext(ctx context.Context) PartitionStorageDescriptorColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorColumnArrayOutput)
+}
+
+type PartitionStorageDescriptorColumnOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptorColumn)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorColumnOutput) ToPartitionStorageDescriptorColumnOutput() PartitionStorageDescriptorColumnOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorColumnOutput) ToPartitionStorageDescriptorColumnOutputWithContext(ctx context.Context) PartitionStorageDescriptorColumnOutput {
+	return o
+}
+
+// Free-form text comment.
+func (o PartitionStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Name of the SerDe.
+func (o PartitionStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The datatype of data in the Column.
+func (o PartitionStorageDescriptorColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PartitionStorageDescriptorColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionStorageDescriptorColumn)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorColumnArrayOutput) ToPartitionStorageDescriptorColumnArrayOutput() PartitionStorageDescriptorColumnArrayOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorColumnArrayOutput) ToPartitionStorageDescriptorColumnArrayOutputWithContext(ctx context.Context) PartitionStorageDescriptorColumnArrayOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorColumnArrayOutput) Index(i pulumi.IntInput) PartitionStorageDescriptorColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionStorageDescriptorColumn {
+		return vs[0].([]PartitionStorageDescriptorColumn)[vs[1].(int)]
+	}).(PartitionStorageDescriptorColumnOutput)
+}
+
+type PartitionStorageDescriptorSerDeInfo struct {
+	// Name of the SerDe.
+	Name *string `pulumi:"name"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	SerializationLibrary *string `pulumi:"serializationLibrary"`
+}
+
+// PartitionStorageDescriptorSerDeInfoInput is an input type that accepts PartitionStorageDescriptorSerDeInfoArgs and PartitionStorageDescriptorSerDeInfoOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorSerDeInfoInput` via:
+//
+//          PartitionStorageDescriptorSerDeInfoArgs{...}
+type PartitionStorageDescriptorSerDeInfoInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorSerDeInfoOutput() PartitionStorageDescriptorSerDeInfoOutput
+	ToPartitionStorageDescriptorSerDeInfoOutputWithContext(context.Context) PartitionStorageDescriptorSerDeInfoOutput
+}
+
+type PartitionStorageDescriptorSerDeInfoArgs struct {
+	// Name of the SerDe.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	SerializationLibrary pulumi.StringPtrInput `pulumi:"serializationLibrary"`
+}
+
+func (PartitionStorageDescriptorSerDeInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptorSerDeInfo)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorSerDeInfoArgs) ToPartitionStorageDescriptorSerDeInfoOutput() PartitionStorageDescriptorSerDeInfoOutput {
+	return i.ToPartitionStorageDescriptorSerDeInfoOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorSerDeInfoArgs) ToPartitionStorageDescriptorSerDeInfoOutputWithContext(ctx context.Context) PartitionStorageDescriptorSerDeInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorSerDeInfoOutput)
+}
+
+func (i PartitionStorageDescriptorSerDeInfoArgs) ToPartitionStorageDescriptorSerDeInfoPtrOutput() PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return i.ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorSerDeInfoArgs) ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorSerDeInfoOutput).ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(ctx)
+}
+
+// PartitionStorageDescriptorSerDeInfoPtrInput is an input type that accepts PartitionStorageDescriptorSerDeInfoArgs, PartitionStorageDescriptorSerDeInfoPtr and PartitionStorageDescriptorSerDeInfoPtrOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorSerDeInfoPtrInput` via:
+//
+//          PartitionStorageDescriptorSerDeInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionStorageDescriptorSerDeInfoPtrInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorSerDeInfoPtrOutput() PartitionStorageDescriptorSerDeInfoPtrOutput
+	ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(context.Context) PartitionStorageDescriptorSerDeInfoPtrOutput
+}
+
+type partitionStorageDescriptorSerDeInfoPtrType PartitionStorageDescriptorSerDeInfoArgs
+
+func PartitionStorageDescriptorSerDeInfoPtr(v *PartitionStorageDescriptorSerDeInfoArgs) PartitionStorageDescriptorSerDeInfoPtrInput {
+	return (*partitionStorageDescriptorSerDeInfoPtrType)(v)
+}
+
+func (*partitionStorageDescriptorSerDeInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptorSerDeInfo)(nil)).Elem()
+}
+
+func (i *partitionStorageDescriptorSerDeInfoPtrType) ToPartitionStorageDescriptorSerDeInfoPtrOutput() PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return i.ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionStorageDescriptorSerDeInfoPtrType) ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorSerDeInfoPtrOutput)
+}
+
+type PartitionStorageDescriptorSerDeInfoOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorSerDeInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptorSerDeInfo)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorSerDeInfoOutput) ToPartitionStorageDescriptorSerDeInfoOutput() PartitionStorageDescriptorSerDeInfoOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSerDeInfoOutput) ToPartitionStorageDescriptorSerDeInfoOutputWithContext(ctx context.Context) PartitionStorageDescriptorSerDeInfoOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSerDeInfoOutput) ToPartitionStorageDescriptorSerDeInfoPtrOutput() PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return o.ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionStorageDescriptorSerDeInfoOutput) ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSerDeInfo) *PartitionStorageDescriptorSerDeInfo {
+		return &v
+	}).(PartitionStorageDescriptorSerDeInfoPtrOutput)
+}
+
+// Name of the SerDe.
+func (o PartitionStorageDescriptorSerDeInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A map of initialization parameters for the SerDe, in key-value form.
+func (o PartitionStorageDescriptorSerDeInfoOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSerDeInfo) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+func (o PartitionStorageDescriptorSerDeInfoOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSerDeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
+}
+
+type PartitionStorageDescriptorSerDeInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorSerDeInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptorSerDeInfo)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorSerDeInfoPtrOutput) ToPartitionStorageDescriptorSerDeInfoPtrOutput() PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSerDeInfoPtrOutput) ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSerDeInfoPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSerDeInfoPtrOutput) Elem() PartitionStorageDescriptorSerDeInfoOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptorSerDeInfo) PartitionStorageDescriptorSerDeInfo { return *v }).(PartitionStorageDescriptorSerDeInfoOutput)
+}
+
+// Name of the SerDe.
+func (o PartitionStorageDescriptorSerDeInfoPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptorSerDeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of initialization parameters for the SerDe, in key-value form.
+func (o PartitionStorageDescriptorSerDeInfoPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptorSerDeInfo) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+func (o PartitionStorageDescriptorSerDeInfoPtrOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptorSerDeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerializationLibrary
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartitionStorageDescriptorSkewedInfo struct {
+	// A list of names of columns that contain skewed values.
+	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
+	// A list of values that appear so frequently as to be considered skewed.
+	SkewedColumnValueLocationMaps map[string]string `pulumi:"skewedColumnValueLocationMaps"`
+	// A map of skewed values to the columns that contain them.
+	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
+}
+
+// PartitionStorageDescriptorSkewedInfoInput is an input type that accepts PartitionStorageDescriptorSkewedInfoArgs and PartitionStorageDescriptorSkewedInfoOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorSkewedInfoInput` via:
+//
+//          PartitionStorageDescriptorSkewedInfoArgs{...}
+type PartitionStorageDescriptorSkewedInfoInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorSkewedInfoOutput() PartitionStorageDescriptorSkewedInfoOutput
+	ToPartitionStorageDescriptorSkewedInfoOutputWithContext(context.Context) PartitionStorageDescriptorSkewedInfoOutput
+}
+
+type PartitionStorageDescriptorSkewedInfoArgs struct {
+	// A list of names of columns that contain skewed values.
+	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
+	// A list of values that appear so frequently as to be considered skewed.
+	SkewedColumnValueLocationMaps pulumi.StringMapInput `pulumi:"skewedColumnValueLocationMaps"`
+	// A map of skewed values to the columns that contain them.
+	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
+}
+
+func (PartitionStorageDescriptorSkewedInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptorSkewedInfo)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorSkewedInfoArgs) ToPartitionStorageDescriptorSkewedInfoOutput() PartitionStorageDescriptorSkewedInfoOutput {
+	return i.ToPartitionStorageDescriptorSkewedInfoOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorSkewedInfoArgs) ToPartitionStorageDescriptorSkewedInfoOutputWithContext(ctx context.Context) PartitionStorageDescriptorSkewedInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorSkewedInfoOutput)
+}
+
+func (i PartitionStorageDescriptorSkewedInfoArgs) ToPartitionStorageDescriptorSkewedInfoPtrOutput() PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return i.ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorSkewedInfoArgs) ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorSkewedInfoOutput).ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(ctx)
+}
+
+// PartitionStorageDescriptorSkewedInfoPtrInput is an input type that accepts PartitionStorageDescriptorSkewedInfoArgs, PartitionStorageDescriptorSkewedInfoPtr and PartitionStorageDescriptorSkewedInfoPtrOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorSkewedInfoPtrInput` via:
+//
+//          PartitionStorageDescriptorSkewedInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionStorageDescriptorSkewedInfoPtrInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorSkewedInfoPtrOutput() PartitionStorageDescriptorSkewedInfoPtrOutput
+	ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(context.Context) PartitionStorageDescriptorSkewedInfoPtrOutput
+}
+
+type partitionStorageDescriptorSkewedInfoPtrType PartitionStorageDescriptorSkewedInfoArgs
+
+func PartitionStorageDescriptorSkewedInfoPtr(v *PartitionStorageDescriptorSkewedInfoArgs) PartitionStorageDescriptorSkewedInfoPtrInput {
+	return (*partitionStorageDescriptorSkewedInfoPtrType)(v)
+}
+
+func (*partitionStorageDescriptorSkewedInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptorSkewedInfo)(nil)).Elem()
+}
+
+func (i *partitionStorageDescriptorSkewedInfoPtrType) ToPartitionStorageDescriptorSkewedInfoPtrOutput() PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return i.ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionStorageDescriptorSkewedInfoPtrType) ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorSkewedInfoPtrOutput)
+}
+
+type PartitionStorageDescriptorSkewedInfoOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorSkewedInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptorSkewedInfo)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorSkewedInfoOutput) ToPartitionStorageDescriptorSkewedInfoOutput() PartitionStorageDescriptorSkewedInfoOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSkewedInfoOutput) ToPartitionStorageDescriptorSkewedInfoOutputWithContext(ctx context.Context) PartitionStorageDescriptorSkewedInfoOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSkewedInfoOutput) ToPartitionStorageDescriptorSkewedInfoPtrOutput() PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return o.ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionStorageDescriptorSkewedInfoOutput) ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) *PartitionStorageDescriptorSkewedInfo {
+		return &v
+	}).(PartitionStorageDescriptorSkewedInfoPtrOutput)
+}
+
+// A list of names of columns that contain skewed values.
+func (o PartitionStorageDescriptorSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that appear so frequently as to be considered skewed.
+func (o PartitionStorageDescriptorSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) map[string]string { return v.SkewedColumnValueLocationMaps }).(pulumi.StringMapOutput)
+}
+
+// A map of skewed values to the columns that contain them.
+func (o PartitionStorageDescriptorSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
+}
+
+type PartitionStorageDescriptorSkewedInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorSkewedInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptorSkewedInfo)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorSkewedInfoPtrOutput) ToPartitionStorageDescriptorSkewedInfoPtrOutput() PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSkewedInfoPtrOutput) ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSkewedInfoPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSkewedInfoPtrOutput) Elem() PartitionStorageDescriptorSkewedInfoOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) PartitionStorageDescriptorSkewedInfo { return *v }).(PartitionStorageDescriptorSkewedInfoOutput)
+}
+
+// A list of names of columns that contain skewed values.
+func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of values that appear so frequently as to be considered skewed.
+func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.StringMapOutput)
+}
+
+// A map of skewed values to the columns that contain them.
+func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type PartitionStorageDescriptorSortColumn struct {
+	// The name of the column.
+	Column string `pulumi:"column"`
+	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	SortOrder int `pulumi:"sortOrder"`
+}
+
+// PartitionStorageDescriptorSortColumnInput is an input type that accepts PartitionStorageDescriptorSortColumnArgs and PartitionStorageDescriptorSortColumnOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorSortColumnInput` via:
+//
+//          PartitionStorageDescriptorSortColumnArgs{...}
+type PartitionStorageDescriptorSortColumnInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorSortColumnOutput() PartitionStorageDescriptorSortColumnOutput
+	ToPartitionStorageDescriptorSortColumnOutputWithContext(context.Context) PartitionStorageDescriptorSortColumnOutput
+}
+
+type PartitionStorageDescriptorSortColumnArgs struct {
+	// The name of the column.
+	Column pulumi.StringInput `pulumi:"column"`
+	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	SortOrder pulumi.IntInput `pulumi:"sortOrder"`
+}
+
+func (PartitionStorageDescriptorSortColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptorSortColumn)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorSortColumnArgs) ToPartitionStorageDescriptorSortColumnOutput() PartitionStorageDescriptorSortColumnOutput {
+	return i.ToPartitionStorageDescriptorSortColumnOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorSortColumnArgs) ToPartitionStorageDescriptorSortColumnOutputWithContext(ctx context.Context) PartitionStorageDescriptorSortColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorSortColumnOutput)
+}
+
+// PartitionStorageDescriptorSortColumnArrayInput is an input type that accepts PartitionStorageDescriptorSortColumnArray and PartitionStorageDescriptorSortColumnArrayOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorSortColumnArrayInput` via:
+//
+//          PartitionStorageDescriptorSortColumnArray{ PartitionStorageDescriptorSortColumnArgs{...} }
+type PartitionStorageDescriptorSortColumnArrayInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorSortColumnArrayOutput() PartitionStorageDescriptorSortColumnArrayOutput
+	ToPartitionStorageDescriptorSortColumnArrayOutputWithContext(context.Context) PartitionStorageDescriptorSortColumnArrayOutput
+}
+
+type PartitionStorageDescriptorSortColumnArray []PartitionStorageDescriptorSortColumnInput
+
+func (PartitionStorageDescriptorSortColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionStorageDescriptorSortColumn)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorSortColumnArray) ToPartitionStorageDescriptorSortColumnArrayOutput() PartitionStorageDescriptorSortColumnArrayOutput {
+	return i.ToPartitionStorageDescriptorSortColumnArrayOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorSortColumnArray) ToPartitionStorageDescriptorSortColumnArrayOutputWithContext(ctx context.Context) PartitionStorageDescriptorSortColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorSortColumnArrayOutput)
+}
+
+type PartitionStorageDescriptorSortColumnOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorSortColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptorSortColumn)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorSortColumnOutput) ToPartitionStorageDescriptorSortColumnOutput() PartitionStorageDescriptorSortColumnOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSortColumnOutput) ToPartitionStorageDescriptorSortColumnOutputWithContext(ctx context.Context) PartitionStorageDescriptorSortColumnOutput {
+	return o
+}
+
+// The name of the column.
+func (o PartitionStorageDescriptorSortColumnOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSortColumn) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+func (o PartitionStorageDescriptorSortColumnOutput) SortOrder() pulumi.IntOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptorSortColumn) int { return v.SortOrder }).(pulumi.IntOutput)
+}
+
+type PartitionStorageDescriptorSortColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorSortColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionStorageDescriptorSortColumn)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorSortColumnArrayOutput) ToPartitionStorageDescriptorSortColumnArrayOutput() PartitionStorageDescriptorSortColumnArrayOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSortColumnArrayOutput) ToPartitionStorageDescriptorSortColumnArrayOutputWithContext(ctx context.Context) PartitionStorageDescriptorSortColumnArrayOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorSortColumnArrayOutput) Index(i pulumi.IntInput) PartitionStorageDescriptorSortColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionStorageDescriptorSortColumn {
+		return vs[0].([]PartitionStorageDescriptorSortColumn)[vs[1].(int)]
+	}).(PartitionStorageDescriptorSortColumnOutput)
 }
 
 type SecurityConfigurationEncryptionConfiguration struct {
@@ -4422,12 +6370,36 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerS3TargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyOutput{})
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
 	pulumi.RegisterOutputType(JobCommandOutput{})
 	pulumi.RegisterOutputType(JobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformInputRecordTableOutput{})
+	pulumi.RegisterOutputType(MLTransformInputRecordTableArrayOutput{})
+	pulumi.RegisterOutputType(MLTransformParametersOutput{})
+	pulumi.RegisterOutputType(MLTransformParametersPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformParametersFindMatchesParametersOutput{})
+	pulumi.RegisterOutputType(MLTransformParametersFindMatchesParametersPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformSchemaOutput{})
+	pulumi.RegisterOutputType(MLTransformSchemaArrayOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorColumnOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorColumnArrayOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorSerDeInfoOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorSerDeInfoPtrOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorSkewedInfoOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorSkewedInfoPtrOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorSortColumnOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorSortColumnArrayOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput{})

@@ -103,6 +103,54 @@ import (
 // 	})
 // }
 // ```
+// ### Retry Policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+// 			MeshName:          pulumi.Any(aws_appmesh_mesh.Simple.Id),
+// 			VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
+// 			Spec: &appmesh.RouteSpecArgs{
+// 				HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+// 					Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+// 						Prefix: pulumi.String("/"),
+// 					},
+// 					RetryPolicy: &appmesh.RouteSpecHttpRouteRetryPolicyArgs{
+// 						HttpRetryEvents: pulumi.StringArray{
+// 							pulumi.String("server-error"),
+// 						},
+// 						MaxRetries: pulumi.Int(1),
+// 						PerRetryTimeout: &appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{
+// 							Unit:  pulumi.String("s"),
+// 							Value: pulumi.Int(15),
+// 						},
+// 					},
+// 					Action: &appmesh.RouteSpecHttpRouteActionArgs{
+// 						WeightedTargets: appmesh.RouteSpecHttpRouteActionWeightedTargetArray{
+// 							&appmesh.RouteSpecHttpRouteActionWeightedTargetArgs{
+// 								VirtualNode: pulumi.Any(aws_appmesh_virtual_node.Serviceb.Name),
+// 								Weight:      pulumi.Int(100),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### TCP Routing
 //
 // ```go

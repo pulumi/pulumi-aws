@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpec
     {
         /// <summary>
+        /// The defaults for backends.
+        /// </summary>
+        public readonly Outputs.VirtualNodeSpecBackendDefaults? BackendDefaults;
+        /// <summary>
         /// The backends to which the virtual node is expected to send outbound traffic.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNodeSpecBackend> Backends;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
         [OutputConstructor]
         private VirtualNodeSpec(
+            Outputs.VirtualNodeSpecBackendDefaults? backendDefaults,
+
             ImmutableArray<Outputs.VirtualNodeSpecBackend> backends,
 
             Outputs.VirtualNodeSpecListener? listener,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             Outputs.VirtualNodeSpecServiceDiscovery? serviceDiscovery)
         {
+            BackendDefaults = backendDefaults;
             Backends = backends;
             Listener = listener;
             Logging = logging;

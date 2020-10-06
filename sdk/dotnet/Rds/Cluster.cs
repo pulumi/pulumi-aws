@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> EnableHttpEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
@@ -544,7 +544,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -818,7 +818,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {

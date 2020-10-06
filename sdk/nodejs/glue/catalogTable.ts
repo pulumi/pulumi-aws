@@ -144,7 +144,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly storageDescriptor!: pulumi.Output<outputs.glue.CatalogTableStorageDescriptor | undefined>;
     /**
-     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
     public readonly tableType!: pulumi.Output<string | undefined>;
     /**
@@ -256,7 +256,7 @@ export interface CatalogTableState {
      */
     readonly storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
     /**
-     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
     readonly tableType?: pulumi.Input<string>;
     /**
@@ -310,7 +310,7 @@ export interface CatalogTableArgs {
      */
     readonly storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
     /**
-     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
     readonly tableType?: pulumi.Input<string>;
     /**

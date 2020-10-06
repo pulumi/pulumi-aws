@@ -13,6 +13,24 @@ __all__ = [
     'MeshSpec',
     'MeshSpecEgressFilter',
     'RouteSpec',
+    'RouteSpecGrpcRoute',
+    'RouteSpecGrpcRouteAction',
+    'RouteSpecGrpcRouteActionWeightedTarget',
+    'RouteSpecGrpcRouteMatch',
+    'RouteSpecGrpcRouteMatchMetadata',
+    'RouteSpecGrpcRouteMatchMetadataMatch',
+    'RouteSpecGrpcRouteMatchMetadataMatchRange',
+    'RouteSpecGrpcRouteRetryPolicy',
+    'RouteSpecGrpcRouteRetryPolicyPerRetryTimeout',
+    'RouteSpecHttp2Route',
+    'RouteSpecHttp2RouteAction',
+    'RouteSpecHttp2RouteActionWeightedTarget',
+    'RouteSpecHttp2RouteMatch',
+    'RouteSpecHttp2RouteMatchHeader',
+    'RouteSpecHttp2RouteMatchHeaderMatch',
+    'RouteSpecHttp2RouteMatchHeaderMatchRange',
+    'RouteSpecHttp2RouteRetryPolicy',
+    'RouteSpecHttp2RouteRetryPolicyPerRetryTimeout',
     'RouteSpecHttpRoute',
     'RouteSpecHttpRouteAction',
     'RouteSpecHttpRouteActionWeightedTarget',
@@ -20,15 +38,34 @@ __all__ = [
     'RouteSpecHttpRouteMatchHeader',
     'RouteSpecHttpRouteMatchHeaderMatch',
     'RouteSpecHttpRouteMatchHeaderMatchRange',
+    'RouteSpecHttpRouteRetryPolicy',
+    'RouteSpecHttpRouteRetryPolicyPerRetryTimeout',
     'RouteSpecTcpRoute',
     'RouteSpecTcpRouteAction',
     'RouteSpecTcpRouteActionWeightedTarget',
     'VirtualNodeSpec',
     'VirtualNodeSpecBackend',
+    'VirtualNodeSpecBackendDefaults',
+    'VirtualNodeSpecBackendDefaultsClientPolicy',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTls',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm',
+    'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile',
     'VirtualNodeSpecBackendVirtualService',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicy',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTls',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm',
+    'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile',
     'VirtualNodeSpecListener',
     'VirtualNodeSpecListenerHealthCheck',
     'VirtualNodeSpecListenerPortMapping',
+    'VirtualNodeSpecListenerTls',
+    'VirtualNodeSpecListenerTlsCertificate',
+    'VirtualNodeSpecListenerTlsCertificateAcm',
+    'VirtualNodeSpecListenerTlsCertificateFile',
     'VirtualNodeSpecLogging',
     'VirtualNodeSpecLoggingAccessLog',
     'VirtualNodeSpecLoggingAccessLogFile',
@@ -93,21 +130,45 @@ class MeshSpecEgressFilter(dict):
 @pulumi.output_type
 class RouteSpec(dict):
     def __init__(__self__, *,
+                 grpc_route: Optional['outputs.RouteSpecGrpcRoute'] = None,
+                 http2_route: Optional['outputs.RouteSpecHttp2Route'] = None,
                  http_route: Optional['outputs.RouteSpecHttpRoute'] = None,
                  priority: Optional[int] = None,
                  tcp_route: Optional['outputs.RouteSpecTcpRoute'] = None):
         """
+        :param 'RouteSpecGrpcRouteArgs' grpc_route: The gRPC routing information for the route.
+        :param 'RouteSpecHttp2RouteArgs' http2_route: The HTTP/2 routing information for the route.
         :param 'RouteSpecHttpRouteArgs' http_route: The HTTP routing information for the route.
         :param int priority: The priority for the route, between `0` and `1000`.
                Routes are matched based on the specified value, where `0` is the highest priority.
         :param 'RouteSpecTcpRouteArgs' tcp_route: The TCP routing information for the route.
         """
+        if grpc_route is not None:
+            pulumi.set(__self__, "grpc_route", grpc_route)
+        if http2_route is not None:
+            pulumi.set(__self__, "http2_route", http2_route)
         if http_route is not None:
             pulumi.set(__self__, "http_route", http_route)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if tcp_route is not None:
             pulumi.set(__self__, "tcp_route", tcp_route)
+
+    @property
+    @pulumi.getter(name="grpcRoute")
+    def grpc_route(self) -> Optional['outputs.RouteSpecGrpcRoute']:
+        """
+        The gRPC routing information for the route.
+        """
+        return pulumi.get(self, "grpc_route")
+
+    @property
+    @pulumi.getter(name="http2Route")
+    def http2_route(self) -> Optional['outputs.RouteSpecHttp2Route']:
+        """
+        The HTTP/2 routing information for the route.
+        """
+        return pulumi.get(self, "http2_route")
 
     @property
     @pulumi.getter(name="httpRoute")
@@ -139,16 +200,819 @@ class RouteSpec(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRoute(dict):
+class RouteSpecGrpcRoute(dict):
     def __init__(__self__, *,
-                 action: 'outputs.RouteSpecHttpRouteAction',
-                 match: 'outputs.RouteSpecHttpRouteMatch'):
+                 action: 'outputs.RouteSpecGrpcRouteAction',
+                 match: 'outputs.RouteSpecGrpcRouteMatch',
+                 retry_policy: Optional['outputs.RouteSpecGrpcRouteRetryPolicy'] = None):
         """
-        :param 'RouteSpecHttpRouteActionArgs' action: The action to take if a match is determined.
-        :param 'RouteSpecHttpRouteMatchArgs' match: The criteria for determining an HTTP request match.
+        :param 'RouteSpecGrpcRouteActionArgs' action: The action to take if a match is determined.
+        :param 'RouteSpecGrpcRouteMatchArgs' match: The criteria for determining an gRPC request match.
+        :param 'RouteSpecGrpcRouteRetryPolicyArgs' retry_policy: The retry policy.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
+        if retry_policy is not None:
+            pulumi.set(__self__, "retry_policy", retry_policy)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'outputs.RouteSpecGrpcRouteAction':
+        """
+        The action to take if a match is determined.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.RouteSpecGrpcRouteMatch':
+        """
+        The criteria for determining an gRPC request match.
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> Optional['outputs.RouteSpecGrpcRouteRetryPolicy']:
+        """
+        The retry policy.
+        """
+        return pulumi.get(self, "retry_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteAction(dict):
+    def __init__(__self__, *,
+                 weighted_targets: Sequence['outputs.RouteSpecGrpcRouteActionWeightedTarget']):
+        """
+        :param Sequence['RouteSpecGrpcRouteActionWeightedTargetArgs'] weighted_targets: The targets that traffic is routed to when a request matches the route.
+               You can specify one or more targets and their relative weights with which to distribute traffic.
+        """
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
+
+    @property
+    @pulumi.getter(name="weightedTargets")
+    def weighted_targets(self) -> Sequence['outputs.RouteSpecGrpcRouteActionWeightedTarget']:
+        """
+        The targets that traffic is routed to when a request matches the route.
+        You can specify one or more targets and their relative weights with which to distribute traffic.
+        """
+        return pulumi.get(self, "weighted_targets")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteActionWeightedTarget(dict):
+    def __init__(__self__, *,
+                 virtual_node: str,
+                 weight: int):
+        """
+        :param str virtual_node: The virtual node to associate with the weighted target.
+        :param int weight: The relative weight of the weighted target. An integer between 0 and 100.
+        """
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="virtualNode")
+    def virtual_node(self) -> str:
+        """
+        The virtual node to associate with the weighted target.
+        """
+        return pulumi.get(self, "virtual_node")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        The relative weight of the weighted target. An integer between 0 and 100.
+        """
+        return pulumi.get(self, "weight")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteMatch(dict):
+    def __init__(__self__, *,
+                 metadatas: Optional[Sequence['outputs.RouteSpecGrpcRouteMatchMetadata']] = None,
+                 method_name: Optional[str] = None,
+                 service_name: Optional[str] = None):
+        """
+        :param Sequence['RouteSpecGrpcRouteMatchMetadataArgs'] metadatas: The data to match from the gRPC request.
+        :param str method_name: The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        :param str service_name: The fully qualified domain name for the service to match from the request.
+        """
+        if metadatas is not None:
+            pulumi.set(__self__, "metadatas", metadatas)
+        if method_name is not None:
+            pulumi.set(__self__, "method_name", method_name)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+
+    @property
+    @pulumi.getter
+    def metadatas(self) -> Optional[Sequence['outputs.RouteSpecGrpcRouteMatchMetadata']]:
+        """
+        The data to match from the gRPC request.
+        """
+        return pulumi.get(self, "metadatas")
+
+    @property
+    @pulumi.getter(name="methodName")
+    def method_name(self) -> Optional[str]:
+        """
+        The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        """
+        return pulumi.get(self, "method_name")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[str]:
+        """
+        The fully qualified domain name for the service to match from the request.
+        """
+        return pulumi.get(self, "service_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteMatchMetadata(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 invert: Optional[bool] = None,
+                 match: Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatch'] = None):
+        """
+        :param str name: The name of the route.
+        :param bool invert: If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+        :param 'RouteSpecGrpcRouteMatchMetadataMatchArgs' match: The data to match from the request.
+        """
+        pulumi.set(__self__, "name", name)
+        if invert is not None:
+            pulumi.set(__self__, "invert", invert)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the route.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def invert(self) -> Optional[bool]:
+        """
+        If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+        """
+        return pulumi.get(self, "invert")
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatch']:
+        """
+        The data to match from the request.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteMatchMetadataMatch(dict):
+    def __init__(__self__, *,
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 range: Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatchRange'] = None,
+                 regex: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        """
+        :param str exact: The value sent by the client must match the specified value exactly.
+        :param str prefix: The value sent by the client must begin with the specified characters.
+               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        :param 'RouteSpecGrpcRouteMatchMetadataMatchRangeArgs' range: The object that specifies the range of numbers that the value sent by the client must be included in.
+        :param str regex: The value sent by the client must include the specified characters.
+        :param str suffix: The value sent by the client must end with the specified characters.
+        """
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[str]:
+        """
+        The value sent by the client must match the specified value exactly.
+        """
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The value sent by the client must begin with the specified characters.
+        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatchRange']:
+        """
+        The object that specifies the range of numbers that the value sent by the client must be included in.
+        """
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        """
+        The value sent by the client must include the specified characters.
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[str]:
+        """
+        The value sent by the client must end with the specified characters.
+        """
+        return pulumi.get(self, "suffix")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteMatchMetadataMatchRange(dict):
+    def __init__(__self__, *,
+                 end: int,
+                 start: int):
+        """
+        :param int end: The end of the range.
+        :param int start: The start of the range.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> int:
+        """
+        The end of the range.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> int:
+        """
+        The start of the range.
+        """
+        return pulumi.get(self, "start")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteRetryPolicy(dict):
+    def __init__(__self__, *,
+                 max_retries: int,
+                 per_retry_timeout: 'outputs.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout',
+                 grpc_retry_events: Optional[Sequence[str]] = None,
+                 http_retry_events: Optional[Sequence[str]] = None,
+                 tcp_retry_events: Optional[Sequence[str]] = None):
+        """
+        :param int max_retries: The maximum number of retries.
+        :param 'RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs' per_retry_timeout: The per-retry timeout.
+        :param Sequence[str] grpc_retry_events: List of gRPC retry events.
+               Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+        :param Sequence[str] http_retry_events: List of HTTP retry events.
+               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+        """
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
+        if grpc_retry_events is not None:
+            pulumi.set(__self__, "grpc_retry_events", grpc_retry_events)
+        if http_retry_events is not None:
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
+        if tcp_retry_events is not None:
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> int:
+        """
+        The maximum number of retries.
+        """
+        return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="perRetryTimeout")
+    def per_retry_timeout(self) -> 'outputs.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout':
+        """
+        The per-retry timeout.
+        """
+        return pulumi.get(self, "per_retry_timeout")
+
+    @property
+    @pulumi.getter(name="grpcRetryEvents")
+    def grpc_retry_events(self) -> Optional[Sequence[str]]:
+        """
+        List of gRPC retry events.
+        Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+        """
+        return pulumi.get(self, "grpc_retry_events")
+
+    @property
+    @pulumi.getter(name="httpRetryEvents")
+    def http_retry_events(self) -> Optional[Sequence[str]]:
+        """
+        List of HTTP retry events.
+        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        """
+        return pulumi.get(self, "http_retry_events")
+
+    @property
+    @pulumi.getter(name="tcpRetryEvents")
+    def tcp_retry_events(self) -> Optional[Sequence[str]]:
+        """
+        List of TCP retry events. The only valid value is `connection-error`.
+        """
+        return pulumi.get(self, "tcp_retry_events")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: Retry unit. Valid values: `ms`, `s`.
+        :param int value: Retry value.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        Retry unit. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        Retry value.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2Route(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.RouteSpecHttp2RouteAction',
+                 match: 'outputs.RouteSpecHttp2RouteMatch',
+                 retry_policy: Optional['outputs.RouteSpecHttp2RouteRetryPolicy'] = None):
+        """
+        :param 'RouteSpecHttp2RouteActionArgs' action: The action to take if a match is determined.
+        :param 'RouteSpecHttp2RouteMatchArgs' match: The criteria for determining an gRPC request match.
+        :param 'RouteSpecHttp2RouteRetryPolicyArgs' retry_policy: The retry policy.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
+        if retry_policy is not None:
+            pulumi.set(__self__, "retry_policy", retry_policy)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'outputs.RouteSpecHttp2RouteAction':
+        """
+        The action to take if a match is determined.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.RouteSpecHttp2RouteMatch':
+        """
+        The criteria for determining an gRPC request match.
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> Optional['outputs.RouteSpecHttp2RouteRetryPolicy']:
+        """
+        The retry policy.
+        """
+        return pulumi.get(self, "retry_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteAction(dict):
+    def __init__(__self__, *,
+                 weighted_targets: Sequence['outputs.RouteSpecHttp2RouteActionWeightedTarget']):
+        """
+        :param Sequence['RouteSpecHttp2RouteActionWeightedTargetArgs'] weighted_targets: The targets that traffic is routed to when a request matches the route.
+               You can specify one or more targets and their relative weights with which to distribute traffic.
+        """
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
+
+    @property
+    @pulumi.getter(name="weightedTargets")
+    def weighted_targets(self) -> Sequence['outputs.RouteSpecHttp2RouteActionWeightedTarget']:
+        """
+        The targets that traffic is routed to when a request matches the route.
+        You can specify one or more targets and their relative weights with which to distribute traffic.
+        """
+        return pulumi.get(self, "weighted_targets")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteActionWeightedTarget(dict):
+    def __init__(__self__, *,
+                 virtual_node: str,
+                 weight: int):
+        """
+        :param str virtual_node: The virtual node to associate with the weighted target.
+        :param int weight: The relative weight of the weighted target. An integer between 0 and 100.
+        """
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="virtualNode")
+    def virtual_node(self) -> str:
+        """
+        The virtual node to associate with the weighted target.
+        """
+        return pulumi.get(self, "virtual_node")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        The relative weight of the weighted target. An integer between 0 and 100.
+        """
+        return pulumi.get(self, "weight")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteMatch(dict):
+    def __init__(__self__, *,
+                 prefix: str,
+                 headers: Optional[Sequence['outputs.RouteSpecHttp2RouteMatchHeader']] = None,
+                 method: Optional[str] = None,
+                 scheme: Optional[str] = None):
+        """
+        :param str prefix: The value sent by the client must begin with the specified characters.
+               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        :param Sequence['RouteSpecHttp2RouteMatchHeaderArgs'] headers: The client request headers to match on.
+        :param str method: The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+        :param str scheme: The client request header scheme to match on. Valid values: `http`, `https`.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        The value sent by the client must begin with the specified characters.
+        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.RouteSpecHttp2RouteMatchHeader']]:
+        """
+        The client request headers to match on.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
+        """
+        The client request header scheme to match on. Valid values: `http`, `https`.
+        """
+        return pulumi.get(self, "scheme")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteMatchHeader(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 invert: Optional[bool] = None,
+                 match: Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatch'] = None):
+        """
+        :param str name: A name for the HTTP header in the client request that will be matched on.
+        :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+        :param 'RouteSpecHttp2RouteMatchHeaderMatchArgs' match: The method and value to match the header value sent with a request. Specify one match method.
+        """
+        pulumi.set(__self__, "name", name)
+        if invert is not None:
+            pulumi.set(__self__, "invert", invert)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A name for the HTTP header in the client request that will be matched on.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def invert(self) -> Optional[bool]:
+        """
+        If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+        """
+        return pulumi.get(self, "invert")
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatch']:
+        """
+        The method and value to match the header value sent with a request. Specify one match method.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteMatchHeaderMatch(dict):
+    def __init__(__self__, *,
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 range: Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatchRange'] = None,
+                 regex: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        """
+        :param str exact: The value sent by the client must match the specified value exactly.
+        :param str prefix: The value sent by the client must begin with the specified characters.
+               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        :param 'RouteSpecHttp2RouteMatchHeaderMatchRangeArgs' range: The object that specifies the range of numbers that the value sent by the client must be included in.
+        :param str regex: The value sent by the client must include the specified characters.
+        :param str suffix: The value sent by the client must end with the specified characters.
+        """
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[str]:
+        """
+        The value sent by the client must match the specified value exactly.
+        """
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The value sent by the client must begin with the specified characters.
+        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatchRange']:
+        """
+        The object that specifies the range of numbers that the value sent by the client must be included in.
+        """
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        """
+        The value sent by the client must include the specified characters.
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[str]:
+        """
+        The value sent by the client must end with the specified characters.
+        """
+        return pulumi.get(self, "suffix")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteMatchHeaderMatchRange(dict):
+    def __init__(__self__, *,
+                 end: int,
+                 start: int):
+        """
+        :param int end: The end of the range.
+        :param int start: The start of the range.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> int:
+        """
+        The end of the range.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> int:
+        """
+        The start of the range.
+        """
+        return pulumi.get(self, "start")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteRetryPolicy(dict):
+    def __init__(__self__, *,
+                 max_retries: int,
+                 per_retry_timeout: 'outputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout',
+                 http_retry_events: Optional[Sequence[str]] = None,
+                 tcp_retry_events: Optional[Sequence[str]] = None):
+        """
+        :param int max_retries: The maximum number of retries.
+        :param 'RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs' per_retry_timeout: The per-retry timeout.
+        :param Sequence[str] http_retry_events: List of HTTP retry events.
+               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+        """
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
+        if http_retry_events is not None:
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
+        if tcp_retry_events is not None:
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> int:
+        """
+        The maximum number of retries.
+        """
+        return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="perRetryTimeout")
+    def per_retry_timeout(self) -> 'outputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout':
+        """
+        The per-retry timeout.
+        """
+        return pulumi.get(self, "per_retry_timeout")
+
+    @property
+    @pulumi.getter(name="httpRetryEvents")
+    def http_retry_events(self) -> Optional[Sequence[str]]:
+        """
+        List of HTTP retry events.
+        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        """
+        return pulumi.get(self, "http_retry_events")
+
+    @property
+    @pulumi.getter(name="tcpRetryEvents")
+    def tcp_retry_events(self) -> Optional[Sequence[str]]:
+        """
+        List of TCP retry events. The only valid value is `connection-error`.
+        """
+        return pulumi.get(self, "tcp_retry_events")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: Retry unit. Valid values: `ms`, `s`.
+        :param int value: Retry value.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        Retry unit. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        Retry value.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttpRoute(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.RouteSpecHttpRouteAction',
+                 match: 'outputs.RouteSpecHttpRouteMatch',
+                 retry_policy: Optional['outputs.RouteSpecHttpRouteRetryPolicy'] = None):
+        """
+        :param 'RouteSpecHttpRouteActionArgs' action: The action to take if a match is determined.
+        :param 'RouteSpecHttpRouteMatchArgs' match: The criteria for determining an HTTP request match.
+        :param 'RouteSpecHttpRouteRetryPolicyArgs' retry_policy: The retry policy.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
+        if retry_policy is not None:
+            pulumi.set(__self__, "retry_policy", retry_policy)
 
     @property
     @pulumi.getter
@@ -165,6 +1029,14 @@ class RouteSpecHttpRoute(dict):
         The criteria for determining an HTTP request match.
         """
         return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> Optional['outputs.RouteSpecHttpRouteRetryPolicy']:
+        """
+        The retry policy.
+        """
+        return pulumi.get(self, "retry_policy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -233,7 +1105,7 @@ class RouteSpecHttpRouteMatch(dict):
                  method: Optional[str] = None,
                  scheme: Optional[str] = None):
         """
-        :param str prefix: Specifies the path with which to match requests.
+        :param str prefix: The value sent by the client must begin with the specified characters.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param Sequence['RouteSpecHttpRouteMatchHeaderArgs'] headers: The client request headers to match on.
         :param str method: The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
@@ -251,7 +1123,7 @@ class RouteSpecHttpRouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> str:
         """
-        Specifies the path with which to match requests.
+        The value sent by the client must begin with the specified characters.
         This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         """
         return pulumi.get(self, "prefix")
@@ -338,12 +1210,12 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
                  regex: Optional[str] = None,
                  suffix: Optional[str] = None):
         """
-        :param str exact: The header value sent by the client must match the specified value exactly.
-        :param str prefix: Specifies the path with which to match requests.
+        :param str exact: The value sent by the client must match the specified value exactly.
+        :param str prefix: The value sent by the client must begin with the specified characters.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        :param 'RouteSpecHttpRouteMatchHeaderMatchRangeArgs' range: The object that specifies the range of numbers that the header value sent by the client must be included in.
-        :param str regex: The header value sent by the client must include the specified characters.
-        :param str suffix: The header value sent by the client must end with the specified characters.
+        :param 'RouteSpecHttpRouteMatchHeaderMatchRangeArgs' range: The object that specifies the range of numbers that the value sent by the client must be included in.
+        :param str regex: The value sent by the client must include the specified characters.
+        :param str suffix: The value sent by the client must end with the specified characters.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -360,7 +1232,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        The header value sent by the client must match the specified value exactly.
+        The value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -368,7 +1240,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Specifies the path with which to match requests.
+        The value sent by the client must begin with the specified characters.
         This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         """
         return pulumi.get(self, "prefix")
@@ -377,7 +1249,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def range(self) -> Optional['outputs.RouteSpecHttpRouteMatchHeaderMatchRange']:
         """
-        The object that specifies the range of numbers that the header value sent by the client must be included in.
+        The object that specifies the range of numbers that the value sent by the client must be included in.
         """
         return pulumi.get(self, "range")
 
@@ -385,7 +1257,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def regex(self) -> Optional[str]:
         """
-        The header value sent by the client must include the specified characters.
+        The value sent by the client must include the specified characters.
         """
         return pulumi.get(self, "regex")
 
@@ -393,7 +1265,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def suffix(self) -> Optional[str]:
         """
-        The header value sent by the client must end with the specified characters.
+        The value sent by the client must end with the specified characters.
         """
         return pulumi.get(self, "suffix")
 
@@ -428,6 +1300,98 @@ class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
         The start of the range.
         """
         return pulumi.get(self, "start")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttpRouteRetryPolicy(dict):
+    def __init__(__self__, *,
+                 max_retries: int,
+                 per_retry_timeout: 'outputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeout',
+                 http_retry_events: Optional[Sequence[str]] = None,
+                 tcp_retry_events: Optional[Sequence[str]] = None):
+        """
+        :param int max_retries: The maximum number of retries.
+        :param 'RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs' per_retry_timeout: The per-retry timeout.
+        :param Sequence[str] http_retry_events: List of HTTP retry events.
+               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+        """
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
+        if http_retry_events is not None:
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
+        if tcp_retry_events is not None:
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> int:
+        """
+        The maximum number of retries.
+        """
+        return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="perRetryTimeout")
+    def per_retry_timeout(self) -> 'outputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeout':
+        """
+        The per-retry timeout.
+        """
+        return pulumi.get(self, "per_retry_timeout")
+
+    @property
+    @pulumi.getter(name="httpRetryEvents")
+    def http_retry_events(self) -> Optional[Sequence[str]]:
+        """
+        List of HTTP retry events.
+        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+        """
+        return pulumi.get(self, "http_retry_events")
+
+    @property
+    @pulumi.getter(name="tcpRetryEvents")
+    def tcp_retry_events(self) -> Optional[Sequence[str]]:
+        """
+        List of TCP retry events. The only valid value is `connection-error`.
+        """
+        return pulumi.get(self, "tcp_retry_events")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: Retry unit. Valid values: `ms`, `s`.
+        :param int value: Retry value.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        Retry unit. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        Retry value.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -512,16 +1476,20 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
 @pulumi.output_type
 class VirtualNodeSpec(dict):
     def __init__(__self__, *,
+                 backend_defaults: Optional['outputs.VirtualNodeSpecBackendDefaults'] = None,
                  backends: Optional[Sequence['outputs.VirtualNodeSpecBackend']] = None,
                  listener: Optional['outputs.VirtualNodeSpecListener'] = None,
                  logging: Optional['outputs.VirtualNodeSpecLogging'] = None,
                  service_discovery: Optional['outputs.VirtualNodeSpecServiceDiscovery'] = None):
         """
+        :param 'VirtualNodeSpecBackendDefaultsArgs' backend_defaults: The defaults for backends.
         :param Sequence['VirtualNodeSpecBackendArgs'] backends: The backends to which the virtual node is expected to send outbound traffic.
         :param 'VirtualNodeSpecListenerArgs' listener: The listeners from which the virtual node is expected to receive inbound traffic.
         :param 'VirtualNodeSpecLoggingArgs' logging: The inbound and outbound access logging information for the virtual node.
         :param 'VirtualNodeSpecServiceDiscoveryArgs' service_discovery: The service discovery information for the virtual node.
         """
+        if backend_defaults is not None:
+            pulumi.set(__self__, "backend_defaults", backend_defaults)
         if backends is not None:
             pulumi.set(__self__, "backends", backends)
         if listener is not None:
@@ -530,6 +1498,14 @@ class VirtualNodeSpec(dict):
             pulumi.set(__self__, "logging", logging)
         if service_discovery is not None:
             pulumi.set(__self__, "service_discovery", service_discovery)
+
+    @property
+    @pulumi.getter(name="backendDefaults")
+    def backend_defaults(self) -> Optional['outputs.VirtualNodeSpecBackendDefaults']:
+        """
+        The defaults for backends.
+        """
+        return pulumi.get(self, "backend_defaults")
 
     @property
     @pulumi.getter
@@ -589,13 +1565,199 @@ class VirtualNodeSpecBackend(dict):
 
 
 @pulumi.output_type
+class VirtualNodeSpecBackendDefaults(dict):
+    def __init__(__self__, *,
+                 client_policy: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicy'] = None):
+        """
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyArgs' client_policy: The default client policy for virtual service backends. See above for details.
+        """
+        if client_policy is not None:
+            pulumi.set(__self__, "client_policy", client_policy)
+
+    @property
+    @pulumi.getter(name="clientPolicy")
+    def client_policy(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicy']:
+        """
+        The default client policy for virtual service backends. See above for details.
+        """
+        return pulumi.get(self, "client_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicy(dict):
+    def __init__(__self__, *,
+                 tls: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTls'] = None):
+        """
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs' tls: The Transport Layer Security (TLS) client policy.
+        """
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTls']:
+        """
+        The Transport Layer Security (TLS) client policy.
+        """
+        return pulumi.get(self, "tls")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
+    def __init__(__self__, *,
+                 validation: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation',
+                 enforce: Optional[bool] = None,
+                 ports: Optional[Sequence[int]] = None):
+        """
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs' validation: The TLS validation context.
+        :param Sequence[int] ports: One or more ports that the policy is enforced for.
+        """
+        pulumi.set(__self__, "validation", validation)
+        if enforce is not None:
+            pulumi.set(__self__, "enforce", enforce)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation':
+        """
+        The TLS validation context.
+        """
+        return pulumi.get(self, "validation")
+
+    @property
+    @pulumi.getter
+    def enforce(self) -> Optional[bool]:
+        return pulumi.get(self, "enforce")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence[int]]:
+        """
+        One or more ports that the policy is enforced for.
+        """
+        return pulumi.get(self, "ports")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
+    def __init__(__self__, *,
+                 trust: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust'):
+        """
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: The TLS validation context trust.
+        """
+        pulumi.set(__self__, "trust", trust)
+
+    @property
+    @pulumi.getter
+    def trust(self) -> 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust':
+        """
+        The TLS validation context trust.
+        """
+        return pulumi.get(self, "trust")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
+    def __init__(__self__, *,
+                 acm: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
+                 file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None):
+        """
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file.
+        """
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def acm(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm']:
+        """
+        The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acm")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile']:
+        """
+        The TLS validation context trust for a local file.
+        """
+        return pulumi.get(self, "file")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
+    def __init__(__self__, *,
+                 certificate_authority_arns: Sequence[str]):
+        """
+        :param Sequence[str] certificate_authority_arns: One or more ACM Amazon Resource Name (ARN)s.
+        """
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArns")
+    def certificate_authority_arns(self) -> Sequence[str]:
+        """
+        One or more ACM Amazon Resource Name (ARN)s.
+        """
+        return pulumi.get(self, "certificate_authority_arns")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str):
+        """
+        :param str certificate_chain: The certificate chain for the certificate.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate chain for the certificate.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class VirtualNodeSpecBackendVirtualService(dict):
     def __init__(__self__, *,
-                 virtual_service_name: str):
+                 virtual_service_name: str,
+                 client_policy: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy'] = None):
         """
         :param str virtual_service_name: The name of the virtual service that is acting as a virtual node backend.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyArgs' client_policy: The client policy for the backend.
         """
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        if client_policy is not None:
+            pulumi.set(__self__, "client_policy", client_policy)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -605,6 +1767,174 @@ class VirtualNodeSpecBackendVirtualService(dict):
         """
         return pulumi.get(self, "virtual_service_name")
 
+    @property
+    @pulumi.getter(name="clientPolicy")
+    def client_policy(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy']:
+        """
+        The client policy for the backend.
+        """
+        return pulumi.get(self, "client_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
+    def __init__(__self__, *,
+                 tls: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTls'] = None):
+        """
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs' tls: The Transport Layer Security (TLS) client policy.
+        """
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTls']:
+        """
+        The Transport Layer Security (TLS) client policy.
+        """
+        return pulumi.get(self, "tls")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
+    def __init__(__self__, *,
+                 validation: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation',
+                 enforce: Optional[bool] = None,
+                 ports: Optional[Sequence[int]] = None):
+        """
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs' validation: The TLS validation context.
+        :param Sequence[int] ports: One or more ports that the policy is enforced for.
+        """
+        pulumi.set(__self__, "validation", validation)
+        if enforce is not None:
+            pulumi.set(__self__, "enforce", enforce)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation':
+        """
+        The TLS validation context.
+        """
+        return pulumi.get(self, "validation")
+
+    @property
+    @pulumi.getter
+    def enforce(self) -> Optional[bool]:
+        return pulumi.get(self, "enforce")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence[int]]:
+        """
+        One or more ports that the policy is enforced for.
+        """
+        return pulumi.get(self, "ports")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
+    def __init__(__self__, *,
+                 trust: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust'):
+        """
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs' trust: The TLS validation context trust.
+        """
+        pulumi.set(__self__, "trust", trust)
+
+    @property
+    @pulumi.getter
+    def trust(self) -> 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust':
+        """
+        The TLS validation context trust.
+        """
+        return pulumi.get(self, "trust")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
+    def __init__(__self__, *,
+                 acm: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm'] = None,
+                 file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile'] = None):
+        """
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file.
+        """
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def acm(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm']:
+        """
+        The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acm")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile']:
+        """
+        The TLS validation context trust for a local file.
+        """
+        return pulumi.get(self, "file")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm(dict):
+    def __init__(__self__, *,
+                 certificate_authority_arns: Sequence[str]):
+        """
+        :param Sequence[str] certificate_authority_arns: One or more ACM Amazon Resource Name (ARN)s.
+        """
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArns")
+    def certificate_authority_arns(self) -> Sequence[str]:
+        """
+        One or more ACM Amazon Resource Name (ARN)s.
+        """
+        return pulumi.get(self, "certificate_authority_arns")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str):
+        """
+        :param str certificate_chain: The certificate chain for the certificate.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate chain for the certificate.
+        """
+        return pulumi.get(self, "certificate_chain")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -613,14 +1943,18 @@ class VirtualNodeSpecBackendVirtualService(dict):
 class VirtualNodeSpecListener(dict):
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualNodeSpecListenerPortMapping',
-                 health_check: Optional['outputs.VirtualNodeSpecListenerHealthCheck'] = None):
+                 health_check: Optional['outputs.VirtualNodeSpecListenerHealthCheck'] = None,
+                 tls: Optional['outputs.VirtualNodeSpecListenerTls'] = None):
         """
         :param 'VirtualNodeSpecListenerPortMappingArgs' port_mapping: The port mapping information for the listener.
         :param 'VirtualNodeSpecListenerHealthCheckArgs' health_check: The health check information for the listener.
+        :param 'VirtualNodeSpecListenerTlsArgs' tls: The Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -637,6 +1971,14 @@ class VirtualNodeSpecListener(dict):
         The health check information for the listener.
         """
         return pulumi.get(self, "health_check")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.VirtualNodeSpecListenerTls']:
+        """
+        The Transport Layer Security (TLS) properties for the listener
+        """
+        return pulumi.get(self, "tls")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -655,10 +1997,10 @@ class VirtualNodeSpecListenerHealthCheck(dict):
         """
         :param int healthy_threshold: The number of consecutive successful health checks that must occur before declaring listener healthy.
         :param int interval_millis: The time period in milliseconds between each health check execution.
-        :param str protocol: The protocol for the health check request. Valid values are `http` and `tcp`.
+        :param str protocol: The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
         :param int timeout_millis: The amount of time to wait when receiving a response from the health check, in milliseconds.
         :param int unhealthy_threshold: The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
-        :param str path: The destination path for the health check request. This is only required if the specified protocol is `http`.
+        :param str path: The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         :param int port: The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         """
         pulumi.set(__self__, "healthy_threshold", healthy_threshold)
@@ -691,7 +2033,7 @@ class VirtualNodeSpecListenerHealthCheck(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The protocol for the health check request. Valid values are `http` and `tcp`.
+        The protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
         return pulumi.get(self, "protocol")
 
@@ -715,7 +2057,7 @@ class VirtualNodeSpecListenerHealthCheck(dict):
     @pulumi.getter
     def path(self) -> Optional[str]:
         """
-        The destination path for the health check request. This is only required if the specified protocol is `http`.
+        The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         """
         return pulumi.get(self, "path")
 
@@ -738,7 +2080,7 @@ class VirtualNodeSpecListenerPortMapping(dict):
                  protocol: str):
         """
         :param int port: The port used for the port mapping.
-        :param str protocol: The protocol used for the port mapping. Valid values are `http` and `tcp`.
+        :param str protocol: The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
@@ -755,9 +2097,128 @@ class VirtualNodeSpecListenerPortMapping(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The protocol used for the port mapping. Valid values are `http` and `tcp`.
+        The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
         return pulumi.get(self, "protocol")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTls(dict):
+    def __init__(__self__, *,
+                 certificate: 'outputs.VirtualNodeSpecListenerTlsCertificate',
+                 mode: str):
+        """
+        :param 'VirtualNodeSpecListenerTlsCertificateArgs' certificate: The listener's TLS certificate.
+        :param str mode: The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        """
+        pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> 'outputs.VirtualNodeSpecListenerTlsCertificate':
+        """
+        The listener's TLS certificate.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        """
+        return pulumi.get(self, "mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsCertificate(dict):
+    def __init__(__self__, *,
+                 acm: Optional['outputs.VirtualNodeSpecListenerTlsCertificateAcm'] = None,
+                 file: Optional['outputs.VirtualNodeSpecListenerTlsCertificateFile'] = None):
+        """
+        :param 'VirtualNodeSpecListenerTlsCertificateAcmArgs' acm: An AWS Certicate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecListenerTlsCertificateFileArgs' file: A local file certificate.
+        """
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def acm(self) -> Optional['outputs.VirtualNodeSpecListenerTlsCertificateAcm']:
+        """
+        An AWS Certicate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acm")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualNodeSpecListenerTlsCertificateFile']:
+        """
+        A local file certificate.
+        """
+        return pulumi.get(self, "file")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsCertificateAcm(dict):
+    def __init__(__self__, *,
+                 certificate_arn: str):
+        """
+        :param str certificate_arn: The Amazon Resource Name (ARN) for the certificate.
+        """
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for the certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTlsCertificateFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str,
+                 private_key: str):
+        """
+        :param str certificate_chain: The certificate chain for the certificate.
+        :param str private_key: The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate chain for the certificate.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
+        """
+        return pulumi.get(self, "private_key")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -980,7 +2441,7 @@ class VirtualRouterSpecListenerPortMapping(dict):
                  protocol: str):
         """
         :param int port: The port used for the port mapping.
-        :param str protocol: The protocol used for the port mapping. Valid values are `http` and `tcp`.
+        :param str protocol: The protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
@@ -997,7 +2458,7 @@ class VirtualRouterSpecListenerPortMapping(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The protocol used for the port mapping. Valid values are `http` and `tcp`.
+        The protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
         """
         return pulumi.get(self, "protocol")
 
