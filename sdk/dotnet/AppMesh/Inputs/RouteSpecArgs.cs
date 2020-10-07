@@ -13,6 +13,18 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The gRPC routing information for the route.
+        /// </summary>
+        [Input("grpcRoute")]
+        public Input<Inputs.RouteSpecGrpcRouteArgs>? GrpcRoute { get; set; }
+
+        /// <summary>
+        /// The HTTP/2 routing information for the route.
+        /// </summary>
+        [Input("http2Route")]
+        public Input<Inputs.RouteSpecHttp2RouteArgs>? Http2Route { get; set; }
+
+        /// <summary>
         /// The HTTP routing information for the route.
         /// </summary>
         [Input("httpRoute")]

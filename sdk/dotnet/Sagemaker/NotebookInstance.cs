@@ -83,6 +83,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+        /// </summary>
+        [Output("rootAccess")]
+        public Output<string?> RootAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The associated security groups.
         /// </summary>
         [Output("securityGroups")]
@@ -182,6 +188,12 @@ namespace Pulumi.Aws.Sagemaker
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+        /// </summary>
+        [Input("rootAccess")]
+        public Input<string>? RootAccess { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -260,6 +272,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+        /// </summary>
+        [Input("rootAccess")]
+        public Input<string>? RootAccess { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

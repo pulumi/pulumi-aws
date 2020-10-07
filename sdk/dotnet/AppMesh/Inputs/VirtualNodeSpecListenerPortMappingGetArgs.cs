@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The protocol used for the port mapping. Valid values are `http` and `tcp`.
+        /// The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

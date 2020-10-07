@@ -72,6 +72,38 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Retry Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const serviceb = new aws.appmesh.Route("serviceb", {
+ *     meshName: aws_appmesh_mesh.simple.id,
+ *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *     spec: {
+ *         httpRoute: {
+ *             match: {
+ *                 prefix: "/",
+ *             },
+ *             retryPolicy: {
+ *                 httpRetryEvents: ["server-error"],
+ *                 maxRetries: 1,
+ *                 perRetryTimeout: {
+ *                     unit: "s",
+ *                     value: 15,
+ *                 },
+ *             },
+ *             action: {
+ *                 weightedTargets: [{
+ *                     virtualNode: aws_appmesh_virtual_node.serviceb.name,
+ *                     weight: 100,
+ *                 }],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
  * ### TCP Routing
  *
  * ```typescript

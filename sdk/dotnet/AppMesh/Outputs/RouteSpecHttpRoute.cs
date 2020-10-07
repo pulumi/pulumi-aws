@@ -21,15 +21,22 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// The criteria for determining an HTTP request match.
         /// </summary>
         public readonly Outputs.RouteSpecHttpRouteMatch Match;
+        /// <summary>
+        /// The retry policy.
+        /// </summary>
+        public readonly Outputs.RouteSpecHttpRouteRetryPolicy? RetryPolicy;
 
         [OutputConstructor]
         private RouteSpecHttpRoute(
             Outputs.RouteSpecHttpRouteAction action,
 
-            Outputs.RouteSpecHttpRouteMatch match)
+            Outputs.RouteSpecHttpRouteMatch match,
+
+            Outputs.RouteSpecHttpRouteRetryPolicy? retryPolicy)
         {
             Action = action;
             Match = match;
+            RetryPolicy = retryPolicy;
         }
     }
 }

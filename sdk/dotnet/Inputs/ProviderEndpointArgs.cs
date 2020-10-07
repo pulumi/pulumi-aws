@@ -267,6 +267,9 @@ namespace Pulumi.Aws.Inputs
         [Input("macie")]
         public Input<string>? Macie { get; set; }
 
+        [Input("macie2")]
+        public Input<string>? Macie2 { get; set; }
+
         [Input("managedblockchain")]
         public Input<string>? Managedblockchain { get; set; }
 

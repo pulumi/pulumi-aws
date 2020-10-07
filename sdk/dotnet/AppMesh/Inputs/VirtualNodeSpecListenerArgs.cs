@@ -24,6 +24,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("portMapping", required: true)]
         public Input<Inputs.VirtualNodeSpecListenerPortMappingArgs> PortMapping { get; set; } = null!;
 
+        /// <summary>
+        /// The Transport Layer Security (TLS) properties for the listener
+        /// </summary>
+        [Input("tls")]
+        public Input<Inputs.VirtualNodeSpecListenerTlsArgs>? Tls { get; set; }
+
         public VirtualNodeSpecListenerArgs()
         {
         }

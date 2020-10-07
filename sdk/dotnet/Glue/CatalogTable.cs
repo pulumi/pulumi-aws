@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.CatalogTableStorageDescriptor?> StorageDescriptor { get; private set; } = null!;
 
         /// <summary>
-        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
         [Output("tableType")]
         public Output<string?> TableType { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.CatalogTableStorageDescriptorArgs>? StorageDescriptor { get; set; }
 
         /// <summary>
-        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
         [Input("tableType")]
         public Input<string>? TableType { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.CatalogTableStorageDescriptorGetArgs>? StorageDescriptor { get; set; }
 
         /// <summary>
-        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+        /// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
         [Input("tableType")]
         public Input<string>? TableType { get; set; }

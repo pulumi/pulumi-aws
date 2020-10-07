@@ -24,6 +24,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("match", required: true)]
         public Input<Inputs.RouteSpecHttpRouteMatchArgs> Match { get; set; } = null!;
 
+        /// <summary>
+        /// The retry policy.
+        /// </summary>
+        [Input("retryPolicy")]
+        public Input<Inputs.RouteSpecHttpRouteRetryPolicyArgs>? RetryPolicy { get; set; }
+
         public RouteSpecHttpRouteArgs()
         {
         }

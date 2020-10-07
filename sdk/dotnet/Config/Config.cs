@@ -194,6 +194,7 @@ namespace Pulumi.Aws
                 public string? Licensemanager { get; set; } = null!;
                 public string? Lightsail { get; set; } = null!;
                 public string? Macie { get; set; } = null!;
+                public string? Macie2 { get; set; } = null!;
                 public string? Managedblockchain { get; set; } = null!;
                 public string? Marketplacecatalog { get; set; } = null!;
                 public string? Mediaconnect { get; set; } = null!;

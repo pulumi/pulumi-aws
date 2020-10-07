@@ -10,6 +10,3287 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type BotAbortStatement struct {
+	// A set of messages, each of which provides a message string and its type. You
+	// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+	// are documented under message.
+	Messages []BotAbortStatementMessage `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+}
+
+// BotAbortStatementInput is an input type that accepts BotAbortStatementArgs and BotAbortStatementOutput values.
+// You can construct a concrete instance of `BotAbortStatementInput` via:
+//
+//          BotAbortStatementArgs{...}
+type BotAbortStatementInput interface {
+	pulumi.Input
+
+	ToBotAbortStatementOutput() BotAbortStatementOutput
+	ToBotAbortStatementOutputWithContext(context.Context) BotAbortStatementOutput
+}
+
+type BotAbortStatementArgs struct {
+	// A set of messages, each of which provides a message string and its type. You
+	// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+	// are documented under message.
+	Messages BotAbortStatementMessageArrayInput `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+}
+
+func (BotAbortStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAbortStatement)(nil)).Elem()
+}
+
+func (i BotAbortStatementArgs) ToBotAbortStatementOutput() BotAbortStatementOutput {
+	return i.ToBotAbortStatementOutputWithContext(context.Background())
+}
+
+func (i BotAbortStatementArgs) ToBotAbortStatementOutputWithContext(ctx context.Context) BotAbortStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementOutput)
+}
+
+func (i BotAbortStatementArgs) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
+	return i.ToBotAbortStatementPtrOutputWithContext(context.Background())
+}
+
+func (i BotAbortStatementArgs) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementOutput).ToBotAbortStatementPtrOutputWithContext(ctx)
+}
+
+// BotAbortStatementPtrInput is an input type that accepts BotAbortStatementArgs, BotAbortStatementPtr and BotAbortStatementPtrOutput values.
+// You can construct a concrete instance of `BotAbortStatementPtrInput` via:
+//
+//          BotAbortStatementArgs{...}
+//
+//  or:
+//
+//          nil
+type BotAbortStatementPtrInput interface {
+	pulumi.Input
+
+	ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput
+	ToBotAbortStatementPtrOutputWithContext(context.Context) BotAbortStatementPtrOutput
+}
+
+type botAbortStatementPtrType BotAbortStatementArgs
+
+func BotAbortStatementPtr(v *BotAbortStatementArgs) BotAbortStatementPtrInput {
+	return (*botAbortStatementPtrType)(v)
+}
+
+func (*botAbortStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAbortStatement)(nil)).Elem()
+}
+
+func (i *botAbortStatementPtrType) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
+	return i.ToBotAbortStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *botAbortStatementPtrType) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementPtrOutput)
+}
+
+type BotAbortStatementOutput struct{ *pulumi.OutputState }
+
+func (BotAbortStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAbortStatement)(nil)).Elem()
+}
+
+func (o BotAbortStatementOutput) ToBotAbortStatementOutput() BotAbortStatementOutput {
+	return o
+}
+
+func (o BotAbortStatementOutput) ToBotAbortStatementOutputWithContext(ctx context.Context) BotAbortStatementOutput {
+	return o
+}
+
+func (o BotAbortStatementOutput) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
+	return o.ToBotAbortStatementPtrOutputWithContext(context.Background())
+}
+
+func (o BotAbortStatementOutput) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
+	return o.ApplyT(func(v BotAbortStatement) *BotAbortStatement {
+		return &v
+	}).(BotAbortStatementPtrOutput)
+}
+
+// A set of messages, each of which provides a message string and its type. You
+// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+// are documented under message.
+func (o BotAbortStatementOutput) Messages() BotAbortStatementMessageArrayOutput {
+	return o.ApplyT(func(v BotAbortStatement) []BotAbortStatementMessage { return v.Messages }).(BotAbortStatementMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o BotAbortStatementOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotAbortStatement) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+type BotAbortStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (BotAbortStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAbortStatement)(nil)).Elem()
+}
+
+func (o BotAbortStatementPtrOutput) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
+	return o
+}
+
+func (o BotAbortStatementPtrOutput) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
+	return o
+}
+
+func (o BotAbortStatementPtrOutput) Elem() BotAbortStatementOutput {
+	return o.ApplyT(func(v *BotAbortStatement) BotAbortStatement { return *v }).(BotAbortStatementOutput)
+}
+
+// A set of messages, each of which provides a message string and its type. You
+// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+// are documented under message.
+func (o BotAbortStatementPtrOutput) Messages() BotAbortStatementMessageArrayOutput {
+	return o.ApplyT(func(v *BotAbortStatement) []BotAbortStatementMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(BotAbortStatementMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o BotAbortStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotAbortStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseCard
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotAbortStatementMessage struct {
+	// The text of the message.
+	Content string `pulumi:"content"`
+	// The content type of the message string.
+	ContentType string `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber *int `pulumi:"groupNumber"`
+}
+
+// BotAbortStatementMessageInput is an input type that accepts BotAbortStatementMessageArgs and BotAbortStatementMessageOutput values.
+// You can construct a concrete instance of `BotAbortStatementMessageInput` via:
+//
+//          BotAbortStatementMessageArgs{...}
+type BotAbortStatementMessageInput interface {
+	pulumi.Input
+
+	ToBotAbortStatementMessageOutput() BotAbortStatementMessageOutput
+	ToBotAbortStatementMessageOutputWithContext(context.Context) BotAbortStatementMessageOutput
+}
+
+type BotAbortStatementMessageArgs struct {
+	// The text of the message.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The content type of the message string.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
+}
+
+func (BotAbortStatementMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAbortStatementMessage)(nil)).Elem()
+}
+
+func (i BotAbortStatementMessageArgs) ToBotAbortStatementMessageOutput() BotAbortStatementMessageOutput {
+	return i.ToBotAbortStatementMessageOutputWithContext(context.Background())
+}
+
+func (i BotAbortStatementMessageArgs) ToBotAbortStatementMessageOutputWithContext(ctx context.Context) BotAbortStatementMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementMessageOutput)
+}
+
+// BotAbortStatementMessageArrayInput is an input type that accepts BotAbortStatementMessageArray and BotAbortStatementMessageArrayOutput values.
+// You can construct a concrete instance of `BotAbortStatementMessageArrayInput` via:
+//
+//          BotAbortStatementMessageArray{ BotAbortStatementMessageArgs{...} }
+type BotAbortStatementMessageArrayInput interface {
+	pulumi.Input
+
+	ToBotAbortStatementMessageArrayOutput() BotAbortStatementMessageArrayOutput
+	ToBotAbortStatementMessageArrayOutputWithContext(context.Context) BotAbortStatementMessageArrayOutput
+}
+
+type BotAbortStatementMessageArray []BotAbortStatementMessageInput
+
+func (BotAbortStatementMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotAbortStatementMessage)(nil)).Elem()
+}
+
+func (i BotAbortStatementMessageArray) ToBotAbortStatementMessageArrayOutput() BotAbortStatementMessageArrayOutput {
+	return i.ToBotAbortStatementMessageArrayOutputWithContext(context.Background())
+}
+
+func (i BotAbortStatementMessageArray) ToBotAbortStatementMessageArrayOutputWithContext(ctx context.Context) BotAbortStatementMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementMessageArrayOutput)
+}
+
+type BotAbortStatementMessageOutput struct{ *pulumi.OutputState }
+
+func (BotAbortStatementMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAbortStatementMessage)(nil)).Elem()
+}
+
+func (o BotAbortStatementMessageOutput) ToBotAbortStatementMessageOutput() BotAbortStatementMessageOutput {
+	return o
+}
+
+func (o BotAbortStatementMessageOutput) ToBotAbortStatementMessageOutputWithContext(ctx context.Context) BotAbortStatementMessageOutput {
+	return o
+}
+
+// The text of the message.
+func (o BotAbortStatementMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v BotAbortStatementMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The content type of the message string.
+func (o BotAbortStatementMessageOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v BotAbortStatementMessage) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Identifies the message group that the message belongs to. When a group
+// is assigned to a message, Amazon Lex returns one message from each group in the response.
+func (o BotAbortStatementMessageOutput) GroupNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BotAbortStatementMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
+}
+
+type BotAbortStatementMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (BotAbortStatementMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotAbortStatementMessage)(nil)).Elem()
+}
+
+func (o BotAbortStatementMessageArrayOutput) ToBotAbortStatementMessageArrayOutput() BotAbortStatementMessageArrayOutput {
+	return o
+}
+
+func (o BotAbortStatementMessageArrayOutput) ToBotAbortStatementMessageArrayOutputWithContext(ctx context.Context) BotAbortStatementMessageArrayOutput {
+	return o
+}
+
+func (o BotAbortStatementMessageArrayOutput) Index(i pulumi.IntInput) BotAbortStatementMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotAbortStatementMessage {
+		return vs[0].([]BotAbortStatementMessage)[vs[1].(int)]
+	}).(BotAbortStatementMessageOutput)
+}
+
+type BotClarificationPrompt struct {
+	// The number of times to prompt the user for information.
+	MaxAttempts int `pulumi:"maxAttempts"`
+	// A set of messages, each of which provides a message string and its type. You
+	// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+	// are documented under message.
+	Messages []BotClarificationPromptMessage `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+}
+
+// BotClarificationPromptInput is an input type that accepts BotClarificationPromptArgs and BotClarificationPromptOutput values.
+// You can construct a concrete instance of `BotClarificationPromptInput` via:
+//
+//          BotClarificationPromptArgs{...}
+type BotClarificationPromptInput interface {
+	pulumi.Input
+
+	ToBotClarificationPromptOutput() BotClarificationPromptOutput
+	ToBotClarificationPromptOutputWithContext(context.Context) BotClarificationPromptOutput
+}
+
+type BotClarificationPromptArgs struct {
+	// The number of times to prompt the user for information.
+	MaxAttempts pulumi.IntInput `pulumi:"maxAttempts"`
+	// A set of messages, each of which provides a message string and its type. You
+	// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+	// are documented under message.
+	Messages BotClarificationPromptMessageArrayInput `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+}
+
+func (BotClarificationPromptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotClarificationPrompt)(nil)).Elem()
+}
+
+func (i BotClarificationPromptArgs) ToBotClarificationPromptOutput() BotClarificationPromptOutput {
+	return i.ToBotClarificationPromptOutputWithContext(context.Background())
+}
+
+func (i BotClarificationPromptArgs) ToBotClarificationPromptOutputWithContext(ctx context.Context) BotClarificationPromptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptOutput)
+}
+
+func (i BotClarificationPromptArgs) ToBotClarificationPromptPtrOutput() BotClarificationPromptPtrOutput {
+	return i.ToBotClarificationPromptPtrOutputWithContext(context.Background())
+}
+
+func (i BotClarificationPromptArgs) ToBotClarificationPromptPtrOutputWithContext(ctx context.Context) BotClarificationPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptOutput).ToBotClarificationPromptPtrOutputWithContext(ctx)
+}
+
+// BotClarificationPromptPtrInput is an input type that accepts BotClarificationPromptArgs, BotClarificationPromptPtr and BotClarificationPromptPtrOutput values.
+// You can construct a concrete instance of `BotClarificationPromptPtrInput` via:
+//
+//          BotClarificationPromptArgs{...}
+//
+//  or:
+//
+//          nil
+type BotClarificationPromptPtrInput interface {
+	pulumi.Input
+
+	ToBotClarificationPromptPtrOutput() BotClarificationPromptPtrOutput
+	ToBotClarificationPromptPtrOutputWithContext(context.Context) BotClarificationPromptPtrOutput
+}
+
+type botClarificationPromptPtrType BotClarificationPromptArgs
+
+func BotClarificationPromptPtr(v *BotClarificationPromptArgs) BotClarificationPromptPtrInput {
+	return (*botClarificationPromptPtrType)(v)
+}
+
+func (*botClarificationPromptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotClarificationPrompt)(nil)).Elem()
+}
+
+func (i *botClarificationPromptPtrType) ToBotClarificationPromptPtrOutput() BotClarificationPromptPtrOutput {
+	return i.ToBotClarificationPromptPtrOutputWithContext(context.Background())
+}
+
+func (i *botClarificationPromptPtrType) ToBotClarificationPromptPtrOutputWithContext(ctx context.Context) BotClarificationPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptPtrOutput)
+}
+
+type BotClarificationPromptOutput struct{ *pulumi.OutputState }
+
+func (BotClarificationPromptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotClarificationPrompt)(nil)).Elem()
+}
+
+func (o BotClarificationPromptOutput) ToBotClarificationPromptOutput() BotClarificationPromptOutput {
+	return o
+}
+
+func (o BotClarificationPromptOutput) ToBotClarificationPromptOutputWithContext(ctx context.Context) BotClarificationPromptOutput {
+	return o
+}
+
+func (o BotClarificationPromptOutput) ToBotClarificationPromptPtrOutput() BotClarificationPromptPtrOutput {
+	return o.ToBotClarificationPromptPtrOutputWithContext(context.Background())
+}
+
+func (o BotClarificationPromptOutput) ToBotClarificationPromptPtrOutputWithContext(ctx context.Context) BotClarificationPromptPtrOutput {
+	return o.ApplyT(func(v BotClarificationPrompt) *BotClarificationPrompt {
+		return &v
+	}).(BotClarificationPromptPtrOutput)
+}
+
+// The number of times to prompt the user for information.
+func (o BotClarificationPromptOutput) MaxAttempts() pulumi.IntOutput {
+	return o.ApplyT(func(v BotClarificationPrompt) int { return v.MaxAttempts }).(pulumi.IntOutput)
+}
+
+// A set of messages, each of which provides a message string and its type. You
+// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+// are documented under message.
+func (o BotClarificationPromptOutput) Messages() BotClarificationPromptMessageArrayOutput {
+	return o.ApplyT(func(v BotClarificationPrompt) []BotClarificationPromptMessage { return v.Messages }).(BotClarificationPromptMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o BotClarificationPromptOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotClarificationPrompt) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+type BotClarificationPromptPtrOutput struct{ *pulumi.OutputState }
+
+func (BotClarificationPromptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotClarificationPrompt)(nil)).Elem()
+}
+
+func (o BotClarificationPromptPtrOutput) ToBotClarificationPromptPtrOutput() BotClarificationPromptPtrOutput {
+	return o
+}
+
+func (o BotClarificationPromptPtrOutput) ToBotClarificationPromptPtrOutputWithContext(ctx context.Context) BotClarificationPromptPtrOutput {
+	return o
+}
+
+func (o BotClarificationPromptPtrOutput) Elem() BotClarificationPromptOutput {
+	return o.ApplyT(func(v *BotClarificationPrompt) BotClarificationPrompt { return *v }).(BotClarificationPromptOutput)
+}
+
+// The number of times to prompt the user for information.
+func (o BotClarificationPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotClarificationPrompt) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxAttempts
+	}).(pulumi.IntPtrOutput)
+}
+
+// A set of messages, each of which provides a message string and its type. You
+// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
+// are documented under message.
+func (o BotClarificationPromptPtrOutput) Messages() BotClarificationPromptMessageArrayOutput {
+	return o.ApplyT(func(v *BotClarificationPrompt) []BotClarificationPromptMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(BotClarificationPromptMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o BotClarificationPromptPtrOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotClarificationPrompt) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseCard
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotClarificationPromptMessage struct {
+	// The text of the message.
+	Content string `pulumi:"content"`
+	// The content type of the message string.
+	ContentType string `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber *int `pulumi:"groupNumber"`
+}
+
+// BotClarificationPromptMessageInput is an input type that accepts BotClarificationPromptMessageArgs and BotClarificationPromptMessageOutput values.
+// You can construct a concrete instance of `BotClarificationPromptMessageInput` via:
+//
+//          BotClarificationPromptMessageArgs{...}
+type BotClarificationPromptMessageInput interface {
+	pulumi.Input
+
+	ToBotClarificationPromptMessageOutput() BotClarificationPromptMessageOutput
+	ToBotClarificationPromptMessageOutputWithContext(context.Context) BotClarificationPromptMessageOutput
+}
+
+type BotClarificationPromptMessageArgs struct {
+	// The text of the message.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The content type of the message string.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
+}
+
+func (BotClarificationPromptMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotClarificationPromptMessage)(nil)).Elem()
+}
+
+func (i BotClarificationPromptMessageArgs) ToBotClarificationPromptMessageOutput() BotClarificationPromptMessageOutput {
+	return i.ToBotClarificationPromptMessageOutputWithContext(context.Background())
+}
+
+func (i BotClarificationPromptMessageArgs) ToBotClarificationPromptMessageOutputWithContext(ctx context.Context) BotClarificationPromptMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptMessageOutput)
+}
+
+// BotClarificationPromptMessageArrayInput is an input type that accepts BotClarificationPromptMessageArray and BotClarificationPromptMessageArrayOutput values.
+// You can construct a concrete instance of `BotClarificationPromptMessageArrayInput` via:
+//
+//          BotClarificationPromptMessageArray{ BotClarificationPromptMessageArgs{...} }
+type BotClarificationPromptMessageArrayInput interface {
+	pulumi.Input
+
+	ToBotClarificationPromptMessageArrayOutput() BotClarificationPromptMessageArrayOutput
+	ToBotClarificationPromptMessageArrayOutputWithContext(context.Context) BotClarificationPromptMessageArrayOutput
+}
+
+type BotClarificationPromptMessageArray []BotClarificationPromptMessageInput
+
+func (BotClarificationPromptMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotClarificationPromptMessage)(nil)).Elem()
+}
+
+func (i BotClarificationPromptMessageArray) ToBotClarificationPromptMessageArrayOutput() BotClarificationPromptMessageArrayOutput {
+	return i.ToBotClarificationPromptMessageArrayOutputWithContext(context.Background())
+}
+
+func (i BotClarificationPromptMessageArray) ToBotClarificationPromptMessageArrayOutputWithContext(ctx context.Context) BotClarificationPromptMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotClarificationPromptMessageArrayOutput)
+}
+
+type BotClarificationPromptMessageOutput struct{ *pulumi.OutputState }
+
+func (BotClarificationPromptMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotClarificationPromptMessage)(nil)).Elem()
+}
+
+func (o BotClarificationPromptMessageOutput) ToBotClarificationPromptMessageOutput() BotClarificationPromptMessageOutput {
+	return o
+}
+
+func (o BotClarificationPromptMessageOutput) ToBotClarificationPromptMessageOutputWithContext(ctx context.Context) BotClarificationPromptMessageOutput {
+	return o
+}
+
+// The text of the message.
+func (o BotClarificationPromptMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v BotClarificationPromptMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The content type of the message string.
+func (o BotClarificationPromptMessageOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v BotClarificationPromptMessage) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Identifies the message group that the message belongs to. When a group
+// is assigned to a message, Amazon Lex returns one message from each group in the response.
+func (o BotClarificationPromptMessageOutput) GroupNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BotClarificationPromptMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
+}
+
+type BotClarificationPromptMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (BotClarificationPromptMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotClarificationPromptMessage)(nil)).Elem()
+}
+
+func (o BotClarificationPromptMessageArrayOutput) ToBotClarificationPromptMessageArrayOutput() BotClarificationPromptMessageArrayOutput {
+	return o
+}
+
+func (o BotClarificationPromptMessageArrayOutput) ToBotClarificationPromptMessageArrayOutputWithContext(ctx context.Context) BotClarificationPromptMessageArrayOutput {
+	return o
+}
+
+func (o BotClarificationPromptMessageArrayOutput) Index(i pulumi.IntInput) BotClarificationPromptMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotClarificationPromptMessage {
+		return vs[0].([]BotClarificationPromptMessage)[vs[1].(int)]
+	}).(BotClarificationPromptMessageOutput)
+}
+
+type BotIntent struct {
+	// The name of the intent.
+	IntentName string `pulumi:"intentName"`
+	// The version of the intent.
+	IntentVersion string `pulumi:"intentVersion"`
+}
+
+// BotIntentInput is an input type that accepts BotIntentArgs and BotIntentOutput values.
+// You can construct a concrete instance of `BotIntentInput` via:
+//
+//          BotIntentArgs{...}
+type BotIntentInput interface {
+	pulumi.Input
+
+	ToBotIntentOutput() BotIntentOutput
+	ToBotIntentOutputWithContext(context.Context) BotIntentOutput
+}
+
+type BotIntentArgs struct {
+	// The name of the intent.
+	IntentName pulumi.StringInput `pulumi:"intentName"`
+	// The version of the intent.
+	IntentVersion pulumi.StringInput `pulumi:"intentVersion"`
+}
+
+func (BotIntentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotIntent)(nil)).Elem()
+}
+
+func (i BotIntentArgs) ToBotIntentOutput() BotIntentOutput {
+	return i.ToBotIntentOutputWithContext(context.Background())
+}
+
+func (i BotIntentArgs) ToBotIntentOutputWithContext(ctx context.Context) BotIntentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotIntentOutput)
+}
+
+// BotIntentArrayInput is an input type that accepts BotIntentArray and BotIntentArrayOutput values.
+// You can construct a concrete instance of `BotIntentArrayInput` via:
+//
+//          BotIntentArray{ BotIntentArgs{...} }
+type BotIntentArrayInput interface {
+	pulumi.Input
+
+	ToBotIntentArrayOutput() BotIntentArrayOutput
+	ToBotIntentArrayOutputWithContext(context.Context) BotIntentArrayOutput
+}
+
+type BotIntentArray []BotIntentInput
+
+func (BotIntentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotIntent)(nil)).Elem()
+}
+
+func (i BotIntentArray) ToBotIntentArrayOutput() BotIntentArrayOutput {
+	return i.ToBotIntentArrayOutputWithContext(context.Background())
+}
+
+func (i BotIntentArray) ToBotIntentArrayOutputWithContext(ctx context.Context) BotIntentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotIntentArrayOutput)
+}
+
+type BotIntentOutput struct{ *pulumi.OutputState }
+
+func (BotIntentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotIntent)(nil)).Elem()
+}
+
+func (o BotIntentOutput) ToBotIntentOutput() BotIntentOutput {
+	return o
+}
+
+func (o BotIntentOutput) ToBotIntentOutputWithContext(ctx context.Context) BotIntentOutput {
+	return o
+}
+
+// The name of the intent.
+func (o BotIntentOutput) IntentName() pulumi.StringOutput {
+	return o.ApplyT(func(v BotIntent) string { return v.IntentName }).(pulumi.StringOutput)
+}
+
+// The version of the intent.
+func (o BotIntentOutput) IntentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v BotIntent) string { return v.IntentVersion }).(pulumi.StringOutput)
+}
+
+type BotIntentArrayOutput struct{ *pulumi.OutputState }
+
+func (BotIntentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotIntent)(nil)).Elem()
+}
+
+func (o BotIntentArrayOutput) ToBotIntentArrayOutput() BotIntentArrayOutput {
+	return o
+}
+
+func (o BotIntentArrayOutput) ToBotIntentArrayOutputWithContext(ctx context.Context) BotIntentArrayOutput {
+	return o
+}
+
+func (o BotIntentArrayOutput) Index(i pulumi.IntInput) BotIntentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotIntent {
+		return vs[0].([]BotIntent)[vs[1].(int)]
+	}).(BotIntentOutput)
+}
+
+type IntentConclusionStatement struct {
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages []IntentConclusionStatementMessage `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+}
+
+// IntentConclusionStatementInput is an input type that accepts IntentConclusionStatementArgs and IntentConclusionStatementOutput values.
+// You can construct a concrete instance of `IntentConclusionStatementInput` via:
+//
+//          IntentConclusionStatementArgs{...}
+type IntentConclusionStatementInput interface {
+	pulumi.Input
+
+	ToIntentConclusionStatementOutput() IntentConclusionStatementOutput
+	ToIntentConclusionStatementOutputWithContext(context.Context) IntentConclusionStatementOutput
+}
+
+type IntentConclusionStatementArgs struct {
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages IntentConclusionStatementMessageArrayInput `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+}
+
+func (IntentConclusionStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentConclusionStatement)(nil)).Elem()
+}
+
+func (i IntentConclusionStatementArgs) ToIntentConclusionStatementOutput() IntentConclusionStatementOutput {
+	return i.ToIntentConclusionStatementOutputWithContext(context.Background())
+}
+
+func (i IntentConclusionStatementArgs) ToIntentConclusionStatementOutputWithContext(ctx context.Context) IntentConclusionStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementOutput)
+}
+
+func (i IntentConclusionStatementArgs) ToIntentConclusionStatementPtrOutput() IntentConclusionStatementPtrOutput {
+	return i.ToIntentConclusionStatementPtrOutputWithContext(context.Background())
+}
+
+func (i IntentConclusionStatementArgs) ToIntentConclusionStatementPtrOutputWithContext(ctx context.Context) IntentConclusionStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementOutput).ToIntentConclusionStatementPtrOutputWithContext(ctx)
+}
+
+// IntentConclusionStatementPtrInput is an input type that accepts IntentConclusionStatementArgs, IntentConclusionStatementPtr and IntentConclusionStatementPtrOutput values.
+// You can construct a concrete instance of `IntentConclusionStatementPtrInput` via:
+//
+//          IntentConclusionStatementArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentConclusionStatementPtrInput interface {
+	pulumi.Input
+
+	ToIntentConclusionStatementPtrOutput() IntentConclusionStatementPtrOutput
+	ToIntentConclusionStatementPtrOutputWithContext(context.Context) IntentConclusionStatementPtrOutput
+}
+
+type intentConclusionStatementPtrType IntentConclusionStatementArgs
+
+func IntentConclusionStatementPtr(v *IntentConclusionStatementArgs) IntentConclusionStatementPtrInput {
+	return (*intentConclusionStatementPtrType)(v)
+}
+
+func (*intentConclusionStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentConclusionStatement)(nil)).Elem()
+}
+
+func (i *intentConclusionStatementPtrType) ToIntentConclusionStatementPtrOutput() IntentConclusionStatementPtrOutput {
+	return i.ToIntentConclusionStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *intentConclusionStatementPtrType) ToIntentConclusionStatementPtrOutputWithContext(ctx context.Context) IntentConclusionStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementPtrOutput)
+}
+
+type IntentConclusionStatementOutput struct{ *pulumi.OutputState }
+
+func (IntentConclusionStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentConclusionStatement)(nil)).Elem()
+}
+
+func (o IntentConclusionStatementOutput) ToIntentConclusionStatementOutput() IntentConclusionStatementOutput {
+	return o
+}
+
+func (o IntentConclusionStatementOutput) ToIntentConclusionStatementOutputWithContext(ctx context.Context) IntentConclusionStatementOutput {
+	return o
+}
+
+func (o IntentConclusionStatementOutput) ToIntentConclusionStatementPtrOutput() IntentConclusionStatementPtrOutput {
+	return o.ToIntentConclusionStatementPtrOutputWithContext(context.Background())
+}
+
+func (o IntentConclusionStatementOutput) ToIntentConclusionStatementPtrOutputWithContext(ctx context.Context) IntentConclusionStatementPtrOutput {
+	return o.ApplyT(func(v IntentConclusionStatement) *IntentConclusionStatement {
+		return &v
+	}).(IntentConclusionStatementPtrOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentConclusionStatementOutput) Messages() IntentConclusionStatementMessageArrayOutput {
+	return o.ApplyT(func(v IntentConclusionStatement) []IntentConclusionStatementMessage { return v.Messages }).(IntentConclusionStatementMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentConclusionStatementOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentConclusionStatement) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+type IntentConclusionStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentConclusionStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentConclusionStatement)(nil)).Elem()
+}
+
+func (o IntentConclusionStatementPtrOutput) ToIntentConclusionStatementPtrOutput() IntentConclusionStatementPtrOutput {
+	return o
+}
+
+func (o IntentConclusionStatementPtrOutput) ToIntentConclusionStatementPtrOutputWithContext(ctx context.Context) IntentConclusionStatementPtrOutput {
+	return o
+}
+
+func (o IntentConclusionStatementPtrOutput) Elem() IntentConclusionStatementOutput {
+	return o.ApplyT(func(v *IntentConclusionStatement) IntentConclusionStatement { return *v }).(IntentConclusionStatementOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentConclusionStatementPtrOutput) Messages() IntentConclusionStatementMessageArrayOutput {
+	return o.ApplyT(func(v *IntentConclusionStatement) []IntentConclusionStatementMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(IntentConclusionStatementMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentConclusionStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentConclusionStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseCard
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentConclusionStatementMessage struct {
+	// The text of the message.
+	Content string `pulumi:"content"`
+	// The content type of the message string.
+	ContentType string `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber *int `pulumi:"groupNumber"`
+}
+
+// IntentConclusionStatementMessageInput is an input type that accepts IntentConclusionStatementMessageArgs and IntentConclusionStatementMessageOutput values.
+// You can construct a concrete instance of `IntentConclusionStatementMessageInput` via:
+//
+//          IntentConclusionStatementMessageArgs{...}
+type IntentConclusionStatementMessageInput interface {
+	pulumi.Input
+
+	ToIntentConclusionStatementMessageOutput() IntentConclusionStatementMessageOutput
+	ToIntentConclusionStatementMessageOutputWithContext(context.Context) IntentConclusionStatementMessageOutput
+}
+
+type IntentConclusionStatementMessageArgs struct {
+	// The text of the message.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The content type of the message string.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
+}
+
+func (IntentConclusionStatementMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentConclusionStatementMessage)(nil)).Elem()
+}
+
+func (i IntentConclusionStatementMessageArgs) ToIntentConclusionStatementMessageOutput() IntentConclusionStatementMessageOutput {
+	return i.ToIntentConclusionStatementMessageOutputWithContext(context.Background())
+}
+
+func (i IntentConclusionStatementMessageArgs) ToIntentConclusionStatementMessageOutputWithContext(ctx context.Context) IntentConclusionStatementMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementMessageOutput)
+}
+
+// IntentConclusionStatementMessageArrayInput is an input type that accepts IntentConclusionStatementMessageArray and IntentConclusionStatementMessageArrayOutput values.
+// You can construct a concrete instance of `IntentConclusionStatementMessageArrayInput` via:
+//
+//          IntentConclusionStatementMessageArray{ IntentConclusionStatementMessageArgs{...} }
+type IntentConclusionStatementMessageArrayInput interface {
+	pulumi.Input
+
+	ToIntentConclusionStatementMessageArrayOutput() IntentConclusionStatementMessageArrayOutput
+	ToIntentConclusionStatementMessageArrayOutputWithContext(context.Context) IntentConclusionStatementMessageArrayOutput
+}
+
+type IntentConclusionStatementMessageArray []IntentConclusionStatementMessageInput
+
+func (IntentConclusionStatementMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentConclusionStatementMessage)(nil)).Elem()
+}
+
+func (i IntentConclusionStatementMessageArray) ToIntentConclusionStatementMessageArrayOutput() IntentConclusionStatementMessageArrayOutput {
+	return i.ToIntentConclusionStatementMessageArrayOutputWithContext(context.Background())
+}
+
+func (i IntentConclusionStatementMessageArray) ToIntentConclusionStatementMessageArrayOutputWithContext(ctx context.Context) IntentConclusionStatementMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConclusionStatementMessageArrayOutput)
+}
+
+type IntentConclusionStatementMessageOutput struct{ *pulumi.OutputState }
+
+func (IntentConclusionStatementMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentConclusionStatementMessage)(nil)).Elem()
+}
+
+func (o IntentConclusionStatementMessageOutput) ToIntentConclusionStatementMessageOutput() IntentConclusionStatementMessageOutput {
+	return o
+}
+
+func (o IntentConclusionStatementMessageOutput) ToIntentConclusionStatementMessageOutputWithContext(ctx context.Context) IntentConclusionStatementMessageOutput {
+	return o
+}
+
+// The text of the message.
+func (o IntentConclusionStatementMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentConclusionStatementMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The content type of the message string.
+func (o IntentConclusionStatementMessageOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentConclusionStatementMessage) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Identifies the message group that the message belongs to. When a group
+// is assigned to a message, Amazon Lex returns one message from each group in the response.
+func (o IntentConclusionStatementMessageOutput) GroupNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntentConclusionStatementMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
+}
+
+type IntentConclusionStatementMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (IntentConclusionStatementMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentConclusionStatementMessage)(nil)).Elem()
+}
+
+func (o IntentConclusionStatementMessageArrayOutput) ToIntentConclusionStatementMessageArrayOutput() IntentConclusionStatementMessageArrayOutput {
+	return o
+}
+
+func (o IntentConclusionStatementMessageArrayOutput) ToIntentConclusionStatementMessageArrayOutputWithContext(ctx context.Context) IntentConclusionStatementMessageArrayOutput {
+	return o
+}
+
+func (o IntentConclusionStatementMessageArrayOutput) Index(i pulumi.IntInput) IntentConclusionStatementMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntentConclusionStatementMessage {
+		return vs[0].([]IntentConclusionStatementMessage)[vs[1].(int)]
+	}).(IntentConclusionStatementMessageOutput)
+}
+
+type IntentConfirmationPrompt struct {
+	// The number of times to prompt the user for information.
+	MaxAttempts int `pulumi:"maxAttempts"`
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages []IntentConfirmationPromptMessage `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+}
+
+// IntentConfirmationPromptInput is an input type that accepts IntentConfirmationPromptArgs and IntentConfirmationPromptOutput values.
+// You can construct a concrete instance of `IntentConfirmationPromptInput` via:
+//
+//          IntentConfirmationPromptArgs{...}
+type IntentConfirmationPromptInput interface {
+	pulumi.Input
+
+	ToIntentConfirmationPromptOutput() IntentConfirmationPromptOutput
+	ToIntentConfirmationPromptOutputWithContext(context.Context) IntentConfirmationPromptOutput
+}
+
+type IntentConfirmationPromptArgs struct {
+	// The number of times to prompt the user for information.
+	MaxAttempts pulumi.IntInput `pulumi:"maxAttempts"`
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages IntentConfirmationPromptMessageArrayInput `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+}
+
+func (IntentConfirmationPromptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentConfirmationPrompt)(nil)).Elem()
+}
+
+func (i IntentConfirmationPromptArgs) ToIntentConfirmationPromptOutput() IntentConfirmationPromptOutput {
+	return i.ToIntentConfirmationPromptOutputWithContext(context.Background())
+}
+
+func (i IntentConfirmationPromptArgs) ToIntentConfirmationPromptOutputWithContext(ctx context.Context) IntentConfirmationPromptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptOutput)
+}
+
+func (i IntentConfirmationPromptArgs) ToIntentConfirmationPromptPtrOutput() IntentConfirmationPromptPtrOutput {
+	return i.ToIntentConfirmationPromptPtrOutputWithContext(context.Background())
+}
+
+func (i IntentConfirmationPromptArgs) ToIntentConfirmationPromptPtrOutputWithContext(ctx context.Context) IntentConfirmationPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptOutput).ToIntentConfirmationPromptPtrOutputWithContext(ctx)
+}
+
+// IntentConfirmationPromptPtrInput is an input type that accepts IntentConfirmationPromptArgs, IntentConfirmationPromptPtr and IntentConfirmationPromptPtrOutput values.
+// You can construct a concrete instance of `IntentConfirmationPromptPtrInput` via:
+//
+//          IntentConfirmationPromptArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentConfirmationPromptPtrInput interface {
+	pulumi.Input
+
+	ToIntentConfirmationPromptPtrOutput() IntentConfirmationPromptPtrOutput
+	ToIntentConfirmationPromptPtrOutputWithContext(context.Context) IntentConfirmationPromptPtrOutput
+}
+
+type intentConfirmationPromptPtrType IntentConfirmationPromptArgs
+
+func IntentConfirmationPromptPtr(v *IntentConfirmationPromptArgs) IntentConfirmationPromptPtrInput {
+	return (*intentConfirmationPromptPtrType)(v)
+}
+
+func (*intentConfirmationPromptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentConfirmationPrompt)(nil)).Elem()
+}
+
+func (i *intentConfirmationPromptPtrType) ToIntentConfirmationPromptPtrOutput() IntentConfirmationPromptPtrOutput {
+	return i.ToIntentConfirmationPromptPtrOutputWithContext(context.Background())
+}
+
+func (i *intentConfirmationPromptPtrType) ToIntentConfirmationPromptPtrOutputWithContext(ctx context.Context) IntentConfirmationPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptPtrOutput)
+}
+
+type IntentConfirmationPromptOutput struct{ *pulumi.OutputState }
+
+func (IntentConfirmationPromptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentConfirmationPrompt)(nil)).Elem()
+}
+
+func (o IntentConfirmationPromptOutput) ToIntentConfirmationPromptOutput() IntentConfirmationPromptOutput {
+	return o
+}
+
+func (o IntentConfirmationPromptOutput) ToIntentConfirmationPromptOutputWithContext(ctx context.Context) IntentConfirmationPromptOutput {
+	return o
+}
+
+func (o IntentConfirmationPromptOutput) ToIntentConfirmationPromptPtrOutput() IntentConfirmationPromptPtrOutput {
+	return o.ToIntentConfirmationPromptPtrOutputWithContext(context.Background())
+}
+
+func (o IntentConfirmationPromptOutput) ToIntentConfirmationPromptPtrOutputWithContext(ctx context.Context) IntentConfirmationPromptPtrOutput {
+	return o.ApplyT(func(v IntentConfirmationPrompt) *IntentConfirmationPrompt {
+		return &v
+	}).(IntentConfirmationPromptPtrOutput)
+}
+
+// The number of times to prompt the user for information.
+func (o IntentConfirmationPromptOutput) MaxAttempts() pulumi.IntOutput {
+	return o.ApplyT(func(v IntentConfirmationPrompt) int { return v.MaxAttempts }).(pulumi.IntOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentConfirmationPromptOutput) Messages() IntentConfirmationPromptMessageArrayOutput {
+	return o.ApplyT(func(v IntentConfirmationPrompt) []IntentConfirmationPromptMessage { return v.Messages }).(IntentConfirmationPromptMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentConfirmationPromptOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentConfirmationPrompt) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+type IntentConfirmationPromptPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentConfirmationPromptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentConfirmationPrompt)(nil)).Elem()
+}
+
+func (o IntentConfirmationPromptPtrOutput) ToIntentConfirmationPromptPtrOutput() IntentConfirmationPromptPtrOutput {
+	return o
+}
+
+func (o IntentConfirmationPromptPtrOutput) ToIntentConfirmationPromptPtrOutputWithContext(ctx context.Context) IntentConfirmationPromptPtrOutput {
+	return o
+}
+
+func (o IntentConfirmationPromptPtrOutput) Elem() IntentConfirmationPromptOutput {
+	return o.ApplyT(func(v *IntentConfirmationPrompt) IntentConfirmationPrompt { return *v }).(IntentConfirmationPromptOutput)
+}
+
+// The number of times to prompt the user for information.
+func (o IntentConfirmationPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntentConfirmationPrompt) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxAttempts
+	}).(pulumi.IntPtrOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentConfirmationPromptPtrOutput) Messages() IntentConfirmationPromptMessageArrayOutput {
+	return o.ApplyT(func(v *IntentConfirmationPrompt) []IntentConfirmationPromptMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(IntentConfirmationPromptMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentConfirmationPromptPtrOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentConfirmationPrompt) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseCard
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentConfirmationPromptMessage struct {
+	// The text of the message.
+	Content string `pulumi:"content"`
+	// The content type of the message string.
+	ContentType string `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber *int `pulumi:"groupNumber"`
+}
+
+// IntentConfirmationPromptMessageInput is an input type that accepts IntentConfirmationPromptMessageArgs and IntentConfirmationPromptMessageOutput values.
+// You can construct a concrete instance of `IntentConfirmationPromptMessageInput` via:
+//
+//          IntentConfirmationPromptMessageArgs{...}
+type IntentConfirmationPromptMessageInput interface {
+	pulumi.Input
+
+	ToIntentConfirmationPromptMessageOutput() IntentConfirmationPromptMessageOutput
+	ToIntentConfirmationPromptMessageOutputWithContext(context.Context) IntentConfirmationPromptMessageOutput
+}
+
+type IntentConfirmationPromptMessageArgs struct {
+	// The text of the message.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The content type of the message string.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
+}
+
+func (IntentConfirmationPromptMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentConfirmationPromptMessage)(nil)).Elem()
+}
+
+func (i IntentConfirmationPromptMessageArgs) ToIntentConfirmationPromptMessageOutput() IntentConfirmationPromptMessageOutput {
+	return i.ToIntentConfirmationPromptMessageOutputWithContext(context.Background())
+}
+
+func (i IntentConfirmationPromptMessageArgs) ToIntentConfirmationPromptMessageOutputWithContext(ctx context.Context) IntentConfirmationPromptMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptMessageOutput)
+}
+
+// IntentConfirmationPromptMessageArrayInput is an input type that accepts IntentConfirmationPromptMessageArray and IntentConfirmationPromptMessageArrayOutput values.
+// You can construct a concrete instance of `IntentConfirmationPromptMessageArrayInput` via:
+//
+//          IntentConfirmationPromptMessageArray{ IntentConfirmationPromptMessageArgs{...} }
+type IntentConfirmationPromptMessageArrayInput interface {
+	pulumi.Input
+
+	ToIntentConfirmationPromptMessageArrayOutput() IntentConfirmationPromptMessageArrayOutput
+	ToIntentConfirmationPromptMessageArrayOutputWithContext(context.Context) IntentConfirmationPromptMessageArrayOutput
+}
+
+type IntentConfirmationPromptMessageArray []IntentConfirmationPromptMessageInput
+
+func (IntentConfirmationPromptMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentConfirmationPromptMessage)(nil)).Elem()
+}
+
+func (i IntentConfirmationPromptMessageArray) ToIntentConfirmationPromptMessageArrayOutput() IntentConfirmationPromptMessageArrayOutput {
+	return i.ToIntentConfirmationPromptMessageArrayOutputWithContext(context.Background())
+}
+
+func (i IntentConfirmationPromptMessageArray) ToIntentConfirmationPromptMessageArrayOutputWithContext(ctx context.Context) IntentConfirmationPromptMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentConfirmationPromptMessageArrayOutput)
+}
+
+type IntentConfirmationPromptMessageOutput struct{ *pulumi.OutputState }
+
+func (IntentConfirmationPromptMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentConfirmationPromptMessage)(nil)).Elem()
+}
+
+func (o IntentConfirmationPromptMessageOutput) ToIntentConfirmationPromptMessageOutput() IntentConfirmationPromptMessageOutput {
+	return o
+}
+
+func (o IntentConfirmationPromptMessageOutput) ToIntentConfirmationPromptMessageOutputWithContext(ctx context.Context) IntentConfirmationPromptMessageOutput {
+	return o
+}
+
+// The text of the message.
+func (o IntentConfirmationPromptMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentConfirmationPromptMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The content type of the message string.
+func (o IntentConfirmationPromptMessageOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentConfirmationPromptMessage) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Identifies the message group that the message belongs to. When a group
+// is assigned to a message, Amazon Lex returns one message from each group in the response.
+func (o IntentConfirmationPromptMessageOutput) GroupNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntentConfirmationPromptMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
+}
+
+type IntentConfirmationPromptMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (IntentConfirmationPromptMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentConfirmationPromptMessage)(nil)).Elem()
+}
+
+func (o IntentConfirmationPromptMessageArrayOutput) ToIntentConfirmationPromptMessageArrayOutput() IntentConfirmationPromptMessageArrayOutput {
+	return o
+}
+
+func (o IntentConfirmationPromptMessageArrayOutput) ToIntentConfirmationPromptMessageArrayOutputWithContext(ctx context.Context) IntentConfirmationPromptMessageArrayOutput {
+	return o
+}
+
+func (o IntentConfirmationPromptMessageArrayOutput) Index(i pulumi.IntInput) IntentConfirmationPromptMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntentConfirmationPromptMessage {
+		return vs[0].([]IntentConfirmationPromptMessage)[vs[1].(int)]
+	}).(IntentConfirmationPromptMessageOutput)
+}
+
+type IntentDialogCodeHook struct {
+	// The version of the request-response that you want Amazon Lex to use
+	// to invoke your Lambda function. For more information, see
+	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+	MessageVersion string `pulumi:"messageVersion"`
+	// The Amazon Resource Name (ARN) of the Lambda function.
+	Uri string `pulumi:"uri"`
+}
+
+// IntentDialogCodeHookInput is an input type that accepts IntentDialogCodeHookArgs and IntentDialogCodeHookOutput values.
+// You can construct a concrete instance of `IntentDialogCodeHookInput` via:
+//
+//          IntentDialogCodeHookArgs{...}
+type IntentDialogCodeHookInput interface {
+	pulumi.Input
+
+	ToIntentDialogCodeHookOutput() IntentDialogCodeHookOutput
+	ToIntentDialogCodeHookOutputWithContext(context.Context) IntentDialogCodeHookOutput
+}
+
+type IntentDialogCodeHookArgs struct {
+	// The version of the request-response that you want Amazon Lex to use
+	// to invoke your Lambda function. For more information, see
+	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
+	// The Amazon Resource Name (ARN) of the Lambda function.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (IntentDialogCodeHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentDialogCodeHook)(nil)).Elem()
+}
+
+func (i IntentDialogCodeHookArgs) ToIntentDialogCodeHookOutput() IntentDialogCodeHookOutput {
+	return i.ToIntentDialogCodeHookOutputWithContext(context.Background())
+}
+
+func (i IntentDialogCodeHookArgs) ToIntentDialogCodeHookOutputWithContext(ctx context.Context) IntentDialogCodeHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentDialogCodeHookOutput)
+}
+
+func (i IntentDialogCodeHookArgs) ToIntentDialogCodeHookPtrOutput() IntentDialogCodeHookPtrOutput {
+	return i.ToIntentDialogCodeHookPtrOutputWithContext(context.Background())
+}
+
+func (i IntentDialogCodeHookArgs) ToIntentDialogCodeHookPtrOutputWithContext(ctx context.Context) IntentDialogCodeHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentDialogCodeHookOutput).ToIntentDialogCodeHookPtrOutputWithContext(ctx)
+}
+
+// IntentDialogCodeHookPtrInput is an input type that accepts IntentDialogCodeHookArgs, IntentDialogCodeHookPtr and IntentDialogCodeHookPtrOutput values.
+// You can construct a concrete instance of `IntentDialogCodeHookPtrInput` via:
+//
+//          IntentDialogCodeHookArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentDialogCodeHookPtrInput interface {
+	pulumi.Input
+
+	ToIntentDialogCodeHookPtrOutput() IntentDialogCodeHookPtrOutput
+	ToIntentDialogCodeHookPtrOutputWithContext(context.Context) IntentDialogCodeHookPtrOutput
+}
+
+type intentDialogCodeHookPtrType IntentDialogCodeHookArgs
+
+func IntentDialogCodeHookPtr(v *IntentDialogCodeHookArgs) IntentDialogCodeHookPtrInput {
+	return (*intentDialogCodeHookPtrType)(v)
+}
+
+func (*intentDialogCodeHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentDialogCodeHook)(nil)).Elem()
+}
+
+func (i *intentDialogCodeHookPtrType) ToIntentDialogCodeHookPtrOutput() IntentDialogCodeHookPtrOutput {
+	return i.ToIntentDialogCodeHookPtrOutputWithContext(context.Background())
+}
+
+func (i *intentDialogCodeHookPtrType) ToIntentDialogCodeHookPtrOutputWithContext(ctx context.Context) IntentDialogCodeHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentDialogCodeHookPtrOutput)
+}
+
+type IntentDialogCodeHookOutput struct{ *pulumi.OutputState }
+
+func (IntentDialogCodeHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentDialogCodeHook)(nil)).Elem()
+}
+
+func (o IntentDialogCodeHookOutput) ToIntentDialogCodeHookOutput() IntentDialogCodeHookOutput {
+	return o
+}
+
+func (o IntentDialogCodeHookOutput) ToIntentDialogCodeHookOutputWithContext(ctx context.Context) IntentDialogCodeHookOutput {
+	return o
+}
+
+func (o IntentDialogCodeHookOutput) ToIntentDialogCodeHookPtrOutput() IntentDialogCodeHookPtrOutput {
+	return o.ToIntentDialogCodeHookPtrOutputWithContext(context.Background())
+}
+
+func (o IntentDialogCodeHookOutput) ToIntentDialogCodeHookPtrOutputWithContext(ctx context.Context) IntentDialogCodeHookPtrOutput {
+	return o.ApplyT(func(v IntentDialogCodeHook) *IntentDialogCodeHook {
+		return &v
+	}).(IntentDialogCodeHookPtrOutput)
+}
+
+// The version of the request-response that you want Amazon Lex to use
+// to invoke your Lambda function. For more information, see
+// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+func (o IntentDialogCodeHookOutput) MessageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentDialogCodeHook) string { return v.MessageVersion }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function.
+func (o IntentDialogCodeHookOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentDialogCodeHook) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type IntentDialogCodeHookPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentDialogCodeHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentDialogCodeHook)(nil)).Elem()
+}
+
+func (o IntentDialogCodeHookPtrOutput) ToIntentDialogCodeHookPtrOutput() IntentDialogCodeHookPtrOutput {
+	return o
+}
+
+func (o IntentDialogCodeHookPtrOutput) ToIntentDialogCodeHookPtrOutputWithContext(ctx context.Context) IntentDialogCodeHookPtrOutput {
+	return o
+}
+
+func (o IntentDialogCodeHookPtrOutput) Elem() IntentDialogCodeHookOutput {
+	return o.ApplyT(func(v *IntentDialogCodeHook) IntentDialogCodeHook { return *v }).(IntentDialogCodeHookOutput)
+}
+
+// The version of the request-response that you want Amazon Lex to use
+// to invoke your Lambda function. For more information, see
+// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+func (o IntentDialogCodeHookPtrOutput) MessageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentDialogCodeHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function.
+func (o IntentDialogCodeHookPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentDialogCodeHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentFollowUpPrompt struct {
+	// Prompts for information from the user. Attributes are documented under prompt.
+	Prompt IntentFollowUpPromptPrompt `pulumi:"prompt"`
+	// When the user answers "no" to the question defined in
+	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+	// canceled.
+	RejectionStatement IntentFollowUpPromptRejectionStatement `pulumi:"rejectionStatement"`
+}
+
+// IntentFollowUpPromptInput is an input type that accepts IntentFollowUpPromptArgs and IntentFollowUpPromptOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptInput` via:
+//
+//          IntentFollowUpPromptArgs{...}
+type IntentFollowUpPromptInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptOutput() IntentFollowUpPromptOutput
+	ToIntentFollowUpPromptOutputWithContext(context.Context) IntentFollowUpPromptOutput
+}
+
+type IntentFollowUpPromptArgs struct {
+	// Prompts for information from the user. Attributes are documented under prompt.
+	Prompt IntentFollowUpPromptPromptInput `pulumi:"prompt"`
+	// When the user answers "no" to the question defined in
+	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+	// canceled.
+	RejectionStatement IntentFollowUpPromptRejectionStatementInput `pulumi:"rejectionStatement"`
+}
+
+func (IntentFollowUpPromptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPrompt)(nil)).Elem()
+}
+
+func (i IntentFollowUpPromptArgs) ToIntentFollowUpPromptOutput() IntentFollowUpPromptOutput {
+	return i.ToIntentFollowUpPromptOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptArgs) ToIntentFollowUpPromptOutputWithContext(ctx context.Context) IntentFollowUpPromptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptOutput)
+}
+
+func (i IntentFollowUpPromptArgs) ToIntentFollowUpPromptPtrOutput() IntentFollowUpPromptPtrOutput {
+	return i.ToIntentFollowUpPromptPtrOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptArgs) ToIntentFollowUpPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptOutput).ToIntentFollowUpPromptPtrOutputWithContext(ctx)
+}
+
+// IntentFollowUpPromptPtrInput is an input type that accepts IntentFollowUpPromptArgs, IntentFollowUpPromptPtr and IntentFollowUpPromptPtrOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptPtrInput` via:
+//
+//          IntentFollowUpPromptArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentFollowUpPromptPtrInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptPtrOutput() IntentFollowUpPromptPtrOutput
+	ToIntentFollowUpPromptPtrOutputWithContext(context.Context) IntentFollowUpPromptPtrOutput
+}
+
+type intentFollowUpPromptPtrType IntentFollowUpPromptArgs
+
+func IntentFollowUpPromptPtr(v *IntentFollowUpPromptArgs) IntentFollowUpPromptPtrInput {
+	return (*intentFollowUpPromptPtrType)(v)
+}
+
+func (*intentFollowUpPromptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFollowUpPrompt)(nil)).Elem()
+}
+
+func (i *intentFollowUpPromptPtrType) ToIntentFollowUpPromptPtrOutput() IntentFollowUpPromptPtrOutput {
+	return i.ToIntentFollowUpPromptPtrOutputWithContext(context.Background())
+}
+
+func (i *intentFollowUpPromptPtrType) ToIntentFollowUpPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPtrOutput)
+}
+
+type IntentFollowUpPromptOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPrompt)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptOutput) ToIntentFollowUpPromptOutput() IntentFollowUpPromptOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptOutput) ToIntentFollowUpPromptOutputWithContext(ctx context.Context) IntentFollowUpPromptOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptOutput) ToIntentFollowUpPromptPtrOutput() IntentFollowUpPromptPtrOutput {
+	return o.ToIntentFollowUpPromptPtrOutputWithContext(context.Background())
+}
+
+func (o IntentFollowUpPromptOutput) ToIntentFollowUpPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPtrOutput {
+	return o.ApplyT(func(v IntentFollowUpPrompt) *IntentFollowUpPrompt {
+		return &v
+	}).(IntentFollowUpPromptPtrOutput)
+}
+
+// Prompts for information from the user. Attributes are documented under prompt.
+func (o IntentFollowUpPromptOutput) Prompt() IntentFollowUpPromptPromptOutput {
+	return o.ApplyT(func(v IntentFollowUpPrompt) IntentFollowUpPromptPrompt { return v.Prompt }).(IntentFollowUpPromptPromptOutput)
+}
+
+// When the user answers "no" to the question defined in
+// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+// canceled.
+func (o IntentFollowUpPromptOutput) RejectionStatement() IntentFollowUpPromptRejectionStatementOutput {
+	return o.ApplyT(func(v IntentFollowUpPrompt) IntentFollowUpPromptRejectionStatement { return v.RejectionStatement }).(IntentFollowUpPromptRejectionStatementOutput)
+}
+
+type IntentFollowUpPromptPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFollowUpPrompt)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptPtrOutput) ToIntentFollowUpPromptPtrOutput() IntentFollowUpPromptPtrOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPtrOutput) ToIntentFollowUpPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPtrOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPtrOutput) Elem() IntentFollowUpPromptOutput {
+	return o.ApplyT(func(v *IntentFollowUpPrompt) IntentFollowUpPrompt { return *v }).(IntentFollowUpPromptOutput)
+}
+
+// Prompts for information from the user. Attributes are documented under prompt.
+func (o IntentFollowUpPromptPtrOutput) Prompt() IntentFollowUpPromptPromptPtrOutput {
+	return o.ApplyT(func(v *IntentFollowUpPrompt) *IntentFollowUpPromptPrompt {
+		if v == nil {
+			return nil
+		}
+		return &v.Prompt
+	}).(IntentFollowUpPromptPromptPtrOutput)
+}
+
+// When the user answers "no" to the question defined in
+// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+// canceled.
+func (o IntentFollowUpPromptPtrOutput) RejectionStatement() IntentFollowUpPromptRejectionStatementPtrOutput {
+	return o.ApplyT(func(v *IntentFollowUpPrompt) *IntentFollowUpPromptRejectionStatement {
+		if v == nil {
+			return nil
+		}
+		return &v.RejectionStatement
+	}).(IntentFollowUpPromptRejectionStatementPtrOutput)
+}
+
+type IntentFollowUpPromptPrompt struct {
+	// The number of times to prompt the user for information.
+	MaxAttempts int `pulumi:"maxAttempts"`
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages []IntentFollowUpPromptPromptMessage `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+}
+
+// IntentFollowUpPromptPromptInput is an input type that accepts IntentFollowUpPromptPromptArgs and IntentFollowUpPromptPromptOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptPromptInput` via:
+//
+//          IntentFollowUpPromptPromptArgs{...}
+type IntentFollowUpPromptPromptInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptPromptOutput() IntentFollowUpPromptPromptOutput
+	ToIntentFollowUpPromptPromptOutputWithContext(context.Context) IntentFollowUpPromptPromptOutput
+}
+
+type IntentFollowUpPromptPromptArgs struct {
+	// The number of times to prompt the user for information.
+	MaxAttempts pulumi.IntInput `pulumi:"maxAttempts"`
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages IntentFollowUpPromptPromptMessageArrayInput `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+}
+
+func (IntentFollowUpPromptPromptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPromptPrompt)(nil)).Elem()
+}
+
+func (i IntentFollowUpPromptPromptArgs) ToIntentFollowUpPromptPromptOutput() IntentFollowUpPromptPromptOutput {
+	return i.ToIntentFollowUpPromptPromptOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptPromptArgs) ToIntentFollowUpPromptPromptOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptOutput)
+}
+
+func (i IntentFollowUpPromptPromptArgs) ToIntentFollowUpPromptPromptPtrOutput() IntentFollowUpPromptPromptPtrOutput {
+	return i.ToIntentFollowUpPromptPromptPtrOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptPromptArgs) ToIntentFollowUpPromptPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptOutput).ToIntentFollowUpPromptPromptPtrOutputWithContext(ctx)
+}
+
+// IntentFollowUpPromptPromptPtrInput is an input type that accepts IntentFollowUpPromptPromptArgs, IntentFollowUpPromptPromptPtr and IntentFollowUpPromptPromptPtrOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptPromptPtrInput` via:
+//
+//          IntentFollowUpPromptPromptArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentFollowUpPromptPromptPtrInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptPromptPtrOutput() IntentFollowUpPromptPromptPtrOutput
+	ToIntentFollowUpPromptPromptPtrOutputWithContext(context.Context) IntentFollowUpPromptPromptPtrOutput
+}
+
+type intentFollowUpPromptPromptPtrType IntentFollowUpPromptPromptArgs
+
+func IntentFollowUpPromptPromptPtr(v *IntentFollowUpPromptPromptArgs) IntentFollowUpPromptPromptPtrInput {
+	return (*intentFollowUpPromptPromptPtrType)(v)
+}
+
+func (*intentFollowUpPromptPromptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFollowUpPromptPrompt)(nil)).Elem()
+}
+
+func (i *intentFollowUpPromptPromptPtrType) ToIntentFollowUpPromptPromptPtrOutput() IntentFollowUpPromptPromptPtrOutput {
+	return i.ToIntentFollowUpPromptPromptPtrOutputWithContext(context.Background())
+}
+
+func (i *intentFollowUpPromptPromptPtrType) ToIntentFollowUpPromptPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptPtrOutput)
+}
+
+type IntentFollowUpPromptPromptOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptPromptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPromptPrompt)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptPromptOutput) ToIntentFollowUpPromptPromptOutput() IntentFollowUpPromptPromptOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPromptOutput) ToIntentFollowUpPromptPromptOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPromptOutput) ToIntentFollowUpPromptPromptPtrOutput() IntentFollowUpPromptPromptPtrOutput {
+	return o.ToIntentFollowUpPromptPromptPtrOutputWithContext(context.Background())
+}
+
+func (o IntentFollowUpPromptPromptOutput) ToIntentFollowUpPromptPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptPtrOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptPrompt) *IntentFollowUpPromptPrompt {
+		return &v
+	}).(IntentFollowUpPromptPromptPtrOutput)
+}
+
+// The number of times to prompt the user for information.
+func (o IntentFollowUpPromptPromptOutput) MaxAttempts() pulumi.IntOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptPrompt) int { return v.MaxAttempts }).(pulumi.IntOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentFollowUpPromptPromptOutput) Messages() IntentFollowUpPromptPromptMessageArrayOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptPrompt) []IntentFollowUpPromptPromptMessage { return v.Messages }).(IntentFollowUpPromptPromptMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentFollowUpPromptPromptOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptPrompt) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+type IntentFollowUpPromptPromptPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptPromptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFollowUpPromptPrompt)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptPromptPtrOutput) ToIntentFollowUpPromptPromptPtrOutput() IntentFollowUpPromptPromptPtrOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPromptPtrOutput) ToIntentFollowUpPromptPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptPtrOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPromptPtrOutput) Elem() IntentFollowUpPromptPromptOutput {
+	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) IntentFollowUpPromptPrompt { return *v }).(IntentFollowUpPromptPromptOutput)
+}
+
+// The number of times to prompt the user for information.
+func (o IntentFollowUpPromptPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxAttempts
+	}).(pulumi.IntPtrOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentFollowUpPromptPromptPtrOutput) Messages() IntentFollowUpPromptPromptMessageArrayOutput {
+	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) []IntentFollowUpPromptPromptMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(IntentFollowUpPromptPromptMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentFollowUpPromptPromptPtrOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseCard
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentFollowUpPromptPromptMessage struct {
+	// The text of the message.
+	Content string `pulumi:"content"`
+	// The content type of the message string.
+	ContentType string `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber *int `pulumi:"groupNumber"`
+}
+
+// IntentFollowUpPromptPromptMessageInput is an input type that accepts IntentFollowUpPromptPromptMessageArgs and IntentFollowUpPromptPromptMessageOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptPromptMessageInput` via:
+//
+//          IntentFollowUpPromptPromptMessageArgs{...}
+type IntentFollowUpPromptPromptMessageInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptPromptMessageOutput() IntentFollowUpPromptPromptMessageOutput
+	ToIntentFollowUpPromptPromptMessageOutputWithContext(context.Context) IntentFollowUpPromptPromptMessageOutput
+}
+
+type IntentFollowUpPromptPromptMessageArgs struct {
+	// The text of the message.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The content type of the message string.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
+}
+
+func (IntentFollowUpPromptPromptMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPromptPromptMessage)(nil)).Elem()
+}
+
+func (i IntentFollowUpPromptPromptMessageArgs) ToIntentFollowUpPromptPromptMessageOutput() IntentFollowUpPromptPromptMessageOutput {
+	return i.ToIntentFollowUpPromptPromptMessageOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptPromptMessageArgs) ToIntentFollowUpPromptPromptMessageOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptMessageOutput)
+}
+
+// IntentFollowUpPromptPromptMessageArrayInput is an input type that accepts IntentFollowUpPromptPromptMessageArray and IntentFollowUpPromptPromptMessageArrayOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptPromptMessageArrayInput` via:
+//
+//          IntentFollowUpPromptPromptMessageArray{ IntentFollowUpPromptPromptMessageArgs{...} }
+type IntentFollowUpPromptPromptMessageArrayInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptPromptMessageArrayOutput() IntentFollowUpPromptPromptMessageArrayOutput
+	ToIntentFollowUpPromptPromptMessageArrayOutputWithContext(context.Context) IntentFollowUpPromptPromptMessageArrayOutput
+}
+
+type IntentFollowUpPromptPromptMessageArray []IntentFollowUpPromptPromptMessageInput
+
+func (IntentFollowUpPromptPromptMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentFollowUpPromptPromptMessage)(nil)).Elem()
+}
+
+func (i IntentFollowUpPromptPromptMessageArray) ToIntentFollowUpPromptPromptMessageArrayOutput() IntentFollowUpPromptPromptMessageArrayOutput {
+	return i.ToIntentFollowUpPromptPromptMessageArrayOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptPromptMessageArray) ToIntentFollowUpPromptPromptMessageArrayOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptPromptMessageArrayOutput)
+}
+
+type IntentFollowUpPromptPromptMessageOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptPromptMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPromptPromptMessage)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptPromptMessageOutput) ToIntentFollowUpPromptPromptMessageOutput() IntentFollowUpPromptPromptMessageOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPromptMessageOutput) ToIntentFollowUpPromptPromptMessageOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptMessageOutput {
+	return o
+}
+
+// The text of the message.
+func (o IntentFollowUpPromptPromptMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptPromptMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The content type of the message string.
+func (o IntentFollowUpPromptPromptMessageOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptPromptMessage) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Identifies the message group that the message belongs to. When a group
+// is assigned to a message, Amazon Lex returns one message from each group in the response.
+func (o IntentFollowUpPromptPromptMessageOutput) GroupNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptPromptMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
+}
+
+type IntentFollowUpPromptPromptMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptPromptMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentFollowUpPromptPromptMessage)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptPromptMessageArrayOutput) ToIntentFollowUpPromptPromptMessageArrayOutput() IntentFollowUpPromptPromptMessageArrayOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPromptMessageArrayOutput) ToIntentFollowUpPromptPromptMessageArrayOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptMessageArrayOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptPromptMessageArrayOutput) Index(i pulumi.IntInput) IntentFollowUpPromptPromptMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntentFollowUpPromptPromptMessage {
+		return vs[0].([]IntentFollowUpPromptPromptMessage)[vs[1].(int)]
+	}).(IntentFollowUpPromptPromptMessageOutput)
+}
+
+type IntentFollowUpPromptRejectionStatement struct {
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages []IntentFollowUpPromptRejectionStatementMessage `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+}
+
+// IntentFollowUpPromptRejectionStatementInput is an input type that accepts IntentFollowUpPromptRejectionStatementArgs and IntentFollowUpPromptRejectionStatementOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementInput` via:
+//
+//          IntentFollowUpPromptRejectionStatementArgs{...}
+type IntentFollowUpPromptRejectionStatementInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptRejectionStatementOutput() IntentFollowUpPromptRejectionStatementOutput
+	ToIntentFollowUpPromptRejectionStatementOutputWithContext(context.Context) IntentFollowUpPromptRejectionStatementOutput
+}
+
+type IntentFollowUpPromptRejectionStatementArgs struct {
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages IntentFollowUpPromptRejectionStatementMessageArrayInput `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+}
+
+func (IntentFollowUpPromptRejectionStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPromptRejectionStatement)(nil)).Elem()
+}
+
+func (i IntentFollowUpPromptRejectionStatementArgs) ToIntentFollowUpPromptRejectionStatementOutput() IntentFollowUpPromptRejectionStatementOutput {
+	return i.ToIntentFollowUpPromptRejectionStatementOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptRejectionStatementArgs) ToIntentFollowUpPromptRejectionStatementOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementOutput)
+}
+
+func (i IntentFollowUpPromptRejectionStatementArgs) ToIntentFollowUpPromptRejectionStatementPtrOutput() IntentFollowUpPromptRejectionStatementPtrOutput {
+	return i.ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptRejectionStatementArgs) ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementOutput).ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(ctx)
+}
+
+// IntentFollowUpPromptRejectionStatementPtrInput is an input type that accepts IntentFollowUpPromptRejectionStatementArgs, IntentFollowUpPromptRejectionStatementPtr and IntentFollowUpPromptRejectionStatementPtrOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementPtrInput` via:
+//
+//          IntentFollowUpPromptRejectionStatementArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentFollowUpPromptRejectionStatementPtrInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptRejectionStatementPtrOutput() IntentFollowUpPromptRejectionStatementPtrOutput
+	ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(context.Context) IntentFollowUpPromptRejectionStatementPtrOutput
+}
+
+type intentFollowUpPromptRejectionStatementPtrType IntentFollowUpPromptRejectionStatementArgs
+
+func IntentFollowUpPromptRejectionStatementPtr(v *IntentFollowUpPromptRejectionStatementArgs) IntentFollowUpPromptRejectionStatementPtrInput {
+	return (*intentFollowUpPromptRejectionStatementPtrType)(v)
+}
+
+func (*intentFollowUpPromptRejectionStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFollowUpPromptRejectionStatement)(nil)).Elem()
+}
+
+func (i *intentFollowUpPromptRejectionStatementPtrType) ToIntentFollowUpPromptRejectionStatementPtrOutput() IntentFollowUpPromptRejectionStatementPtrOutput {
+	return i.ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *intentFollowUpPromptRejectionStatementPtrType) ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementPtrOutput)
+}
+
+type IntentFollowUpPromptRejectionStatementOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptRejectionStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPromptRejectionStatement)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptRejectionStatementOutput) ToIntentFollowUpPromptRejectionStatementOutput() IntentFollowUpPromptRejectionStatementOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementOutput) ToIntentFollowUpPromptRejectionStatementOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementOutput) ToIntentFollowUpPromptRejectionStatementPtrOutput() IntentFollowUpPromptRejectionStatementPtrOutput {
+	return o.ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(context.Background())
+}
+
+func (o IntentFollowUpPromptRejectionStatementOutput) ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementPtrOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatement) *IntentFollowUpPromptRejectionStatement {
+		return &v
+	}).(IntentFollowUpPromptRejectionStatementPtrOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentFollowUpPromptRejectionStatementOutput) Messages() IntentFollowUpPromptRejectionStatementMessageArrayOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatement) []IntentFollowUpPromptRejectionStatementMessage {
+		return v.Messages
+	}).(IntentFollowUpPromptRejectionStatementMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentFollowUpPromptRejectionStatementOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatement) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+type IntentFollowUpPromptRejectionStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptRejectionStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFollowUpPromptRejectionStatement)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptRejectionStatementPtrOutput) ToIntentFollowUpPromptRejectionStatementPtrOutput() IntentFollowUpPromptRejectionStatementPtrOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementPtrOutput) ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementPtrOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementPtrOutput) Elem() IntentFollowUpPromptRejectionStatementOutput {
+	return o.ApplyT(func(v *IntentFollowUpPromptRejectionStatement) IntentFollowUpPromptRejectionStatement { return *v }).(IntentFollowUpPromptRejectionStatementOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentFollowUpPromptRejectionStatementPtrOutput) Messages() IntentFollowUpPromptRejectionStatementMessageArrayOutput {
+	return o.ApplyT(func(v *IntentFollowUpPromptRejectionStatement) []IntentFollowUpPromptRejectionStatementMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(IntentFollowUpPromptRejectionStatementMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentFollowUpPromptRejectionStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentFollowUpPromptRejectionStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseCard
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentFollowUpPromptRejectionStatementMessage struct {
+	// The text of the message.
+	Content string `pulumi:"content"`
+	// The content type of the message string.
+	ContentType string `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber *int `pulumi:"groupNumber"`
+}
+
+// IntentFollowUpPromptRejectionStatementMessageInput is an input type that accepts IntentFollowUpPromptRejectionStatementMessageArgs and IntentFollowUpPromptRejectionStatementMessageOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementMessageInput` via:
+//
+//          IntentFollowUpPromptRejectionStatementMessageArgs{...}
+type IntentFollowUpPromptRejectionStatementMessageInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptRejectionStatementMessageOutput() IntentFollowUpPromptRejectionStatementMessageOutput
+	ToIntentFollowUpPromptRejectionStatementMessageOutputWithContext(context.Context) IntentFollowUpPromptRejectionStatementMessageOutput
+}
+
+type IntentFollowUpPromptRejectionStatementMessageArgs struct {
+	// The text of the message.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The content type of the message string.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
+}
+
+func (IntentFollowUpPromptRejectionStatementMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPromptRejectionStatementMessage)(nil)).Elem()
+}
+
+func (i IntentFollowUpPromptRejectionStatementMessageArgs) ToIntentFollowUpPromptRejectionStatementMessageOutput() IntentFollowUpPromptRejectionStatementMessageOutput {
+	return i.ToIntentFollowUpPromptRejectionStatementMessageOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptRejectionStatementMessageArgs) ToIntentFollowUpPromptRejectionStatementMessageOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementMessageOutput)
+}
+
+// IntentFollowUpPromptRejectionStatementMessageArrayInput is an input type that accepts IntentFollowUpPromptRejectionStatementMessageArray and IntentFollowUpPromptRejectionStatementMessageArrayOutput values.
+// You can construct a concrete instance of `IntentFollowUpPromptRejectionStatementMessageArrayInput` via:
+//
+//          IntentFollowUpPromptRejectionStatementMessageArray{ IntentFollowUpPromptRejectionStatementMessageArgs{...} }
+type IntentFollowUpPromptRejectionStatementMessageArrayInput interface {
+	pulumi.Input
+
+	ToIntentFollowUpPromptRejectionStatementMessageArrayOutput() IntentFollowUpPromptRejectionStatementMessageArrayOutput
+	ToIntentFollowUpPromptRejectionStatementMessageArrayOutputWithContext(context.Context) IntentFollowUpPromptRejectionStatementMessageArrayOutput
+}
+
+type IntentFollowUpPromptRejectionStatementMessageArray []IntentFollowUpPromptRejectionStatementMessageInput
+
+func (IntentFollowUpPromptRejectionStatementMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentFollowUpPromptRejectionStatementMessage)(nil)).Elem()
+}
+
+func (i IntentFollowUpPromptRejectionStatementMessageArray) ToIntentFollowUpPromptRejectionStatementMessageArrayOutput() IntentFollowUpPromptRejectionStatementMessageArrayOutput {
+	return i.ToIntentFollowUpPromptRejectionStatementMessageArrayOutputWithContext(context.Background())
+}
+
+func (i IntentFollowUpPromptRejectionStatementMessageArray) ToIntentFollowUpPromptRejectionStatementMessageArrayOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFollowUpPromptRejectionStatementMessageArrayOutput)
+}
+
+type IntentFollowUpPromptRejectionStatementMessageOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptRejectionStatementMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFollowUpPromptRejectionStatementMessage)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptRejectionStatementMessageOutput) ToIntentFollowUpPromptRejectionStatementMessageOutput() IntentFollowUpPromptRejectionStatementMessageOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementMessageOutput) ToIntentFollowUpPromptRejectionStatementMessageOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementMessageOutput {
+	return o
+}
+
+// The text of the message.
+func (o IntentFollowUpPromptRejectionStatementMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatementMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The content type of the message string.
+func (o IntentFollowUpPromptRejectionStatementMessageOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatementMessage) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Identifies the message group that the message belongs to. When a group
+// is assigned to a message, Amazon Lex returns one message from each group in the response.
+func (o IntentFollowUpPromptRejectionStatementMessageOutput) GroupNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatementMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
+}
+
+type IntentFollowUpPromptRejectionStatementMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (IntentFollowUpPromptRejectionStatementMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentFollowUpPromptRejectionStatementMessage)(nil)).Elem()
+}
+
+func (o IntentFollowUpPromptRejectionStatementMessageArrayOutput) ToIntentFollowUpPromptRejectionStatementMessageArrayOutput() IntentFollowUpPromptRejectionStatementMessageArrayOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementMessageArrayOutput) ToIntentFollowUpPromptRejectionStatementMessageArrayOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementMessageArrayOutput {
+	return o
+}
+
+func (o IntentFollowUpPromptRejectionStatementMessageArrayOutput) Index(i pulumi.IntInput) IntentFollowUpPromptRejectionStatementMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntentFollowUpPromptRejectionStatementMessage {
+		return vs[0].([]IntentFollowUpPromptRejectionStatementMessage)[vs[1].(int)]
+	}).(IntentFollowUpPromptRejectionStatementMessageOutput)
+}
+
+type IntentFulfillmentActivity struct {
+	// A description of the Lambda function that is run to fulfill the intent.
+	// Required if type is CodeHook. Attributes are documented under code_hook.
+	CodeHook *IntentFulfillmentActivityCodeHook `pulumi:"codeHook"`
+	// How the intent should be fulfilled, either by running a Lambda function or by
+	// returning the slot data to the client application.
+	Type string `pulumi:"type"`
+}
+
+// IntentFulfillmentActivityInput is an input type that accepts IntentFulfillmentActivityArgs and IntentFulfillmentActivityOutput values.
+// You can construct a concrete instance of `IntentFulfillmentActivityInput` via:
+//
+//          IntentFulfillmentActivityArgs{...}
+type IntentFulfillmentActivityInput interface {
+	pulumi.Input
+
+	ToIntentFulfillmentActivityOutput() IntentFulfillmentActivityOutput
+	ToIntentFulfillmentActivityOutputWithContext(context.Context) IntentFulfillmentActivityOutput
+}
+
+type IntentFulfillmentActivityArgs struct {
+	// A description of the Lambda function that is run to fulfill the intent.
+	// Required if type is CodeHook. Attributes are documented under code_hook.
+	CodeHook IntentFulfillmentActivityCodeHookPtrInput `pulumi:"codeHook"`
+	// How the intent should be fulfilled, either by running a Lambda function or by
+	// returning the slot data to the client application.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IntentFulfillmentActivityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFulfillmentActivity)(nil)).Elem()
+}
+
+func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityOutput() IntentFulfillmentActivityOutput {
+	return i.ToIntentFulfillmentActivityOutputWithContext(context.Background())
+}
+
+func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityOutputWithContext(ctx context.Context) IntentFulfillmentActivityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityOutput)
+}
+
+func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
+	return i.ToIntentFulfillmentActivityPtrOutputWithContext(context.Background())
+}
+
+func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityOutput).ToIntentFulfillmentActivityPtrOutputWithContext(ctx)
+}
+
+// IntentFulfillmentActivityPtrInput is an input type that accepts IntentFulfillmentActivityArgs, IntentFulfillmentActivityPtr and IntentFulfillmentActivityPtrOutput values.
+// You can construct a concrete instance of `IntentFulfillmentActivityPtrInput` via:
+//
+//          IntentFulfillmentActivityArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentFulfillmentActivityPtrInput interface {
+	pulumi.Input
+
+	ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput
+	ToIntentFulfillmentActivityPtrOutputWithContext(context.Context) IntentFulfillmentActivityPtrOutput
+}
+
+type intentFulfillmentActivityPtrType IntentFulfillmentActivityArgs
+
+func IntentFulfillmentActivityPtr(v *IntentFulfillmentActivityArgs) IntentFulfillmentActivityPtrInput {
+	return (*intentFulfillmentActivityPtrType)(v)
+}
+
+func (*intentFulfillmentActivityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFulfillmentActivity)(nil)).Elem()
+}
+
+func (i *intentFulfillmentActivityPtrType) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
+	return i.ToIntentFulfillmentActivityPtrOutputWithContext(context.Background())
+}
+
+func (i *intentFulfillmentActivityPtrType) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityPtrOutput)
+}
+
+type IntentFulfillmentActivityOutput struct{ *pulumi.OutputState }
+
+func (IntentFulfillmentActivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFulfillmentActivity)(nil)).Elem()
+}
+
+func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityOutput() IntentFulfillmentActivityOutput {
+	return o
+}
+
+func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityOutputWithContext(ctx context.Context) IntentFulfillmentActivityOutput {
+	return o
+}
+
+func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
+	return o.ToIntentFulfillmentActivityPtrOutputWithContext(context.Background())
+}
+
+func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
+	return o.ApplyT(func(v IntentFulfillmentActivity) *IntentFulfillmentActivity {
+		return &v
+	}).(IntentFulfillmentActivityPtrOutput)
+}
+
+// A description of the Lambda function that is run to fulfill the intent.
+// Required if type is CodeHook. Attributes are documented under code_hook.
+func (o IntentFulfillmentActivityOutput) CodeHook() IntentFulfillmentActivityCodeHookPtrOutput {
+	return o.ApplyT(func(v IntentFulfillmentActivity) *IntentFulfillmentActivityCodeHook { return v.CodeHook }).(IntentFulfillmentActivityCodeHookPtrOutput)
+}
+
+// How the intent should be fulfilled, either by running a Lambda function or by
+// returning the slot data to the client application.
+func (o IntentFulfillmentActivityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentFulfillmentActivity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IntentFulfillmentActivityPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentFulfillmentActivityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFulfillmentActivity)(nil)).Elem()
+}
+
+func (o IntentFulfillmentActivityPtrOutput) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
+	return o
+}
+
+func (o IntentFulfillmentActivityPtrOutput) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
+	return o
+}
+
+func (o IntentFulfillmentActivityPtrOutput) Elem() IntentFulfillmentActivityOutput {
+	return o.ApplyT(func(v *IntentFulfillmentActivity) IntentFulfillmentActivity { return *v }).(IntentFulfillmentActivityOutput)
+}
+
+// A description of the Lambda function that is run to fulfill the intent.
+// Required if type is CodeHook. Attributes are documented under code_hook.
+func (o IntentFulfillmentActivityPtrOutput) CodeHook() IntentFulfillmentActivityCodeHookPtrOutput {
+	return o.ApplyT(func(v *IntentFulfillmentActivity) *IntentFulfillmentActivityCodeHook {
+		if v == nil {
+			return nil
+		}
+		return v.CodeHook
+	}).(IntentFulfillmentActivityCodeHookPtrOutput)
+}
+
+// How the intent should be fulfilled, either by running a Lambda function or by
+// returning the slot data to the client application.
+func (o IntentFulfillmentActivityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentFulfillmentActivity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentFulfillmentActivityCodeHook struct {
+	// The version of the request-response that you want Amazon Lex to use
+	// to invoke your Lambda function. For more information, see
+	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+	MessageVersion string `pulumi:"messageVersion"`
+	// The Amazon Resource Name (ARN) of the Lambda function.
+	Uri string `pulumi:"uri"`
+}
+
+// IntentFulfillmentActivityCodeHookInput is an input type that accepts IntentFulfillmentActivityCodeHookArgs and IntentFulfillmentActivityCodeHookOutput values.
+// You can construct a concrete instance of `IntentFulfillmentActivityCodeHookInput` via:
+//
+//          IntentFulfillmentActivityCodeHookArgs{...}
+type IntentFulfillmentActivityCodeHookInput interface {
+	pulumi.Input
+
+	ToIntentFulfillmentActivityCodeHookOutput() IntentFulfillmentActivityCodeHookOutput
+	ToIntentFulfillmentActivityCodeHookOutputWithContext(context.Context) IntentFulfillmentActivityCodeHookOutput
+}
+
+type IntentFulfillmentActivityCodeHookArgs struct {
+	// The version of the request-response that you want Amazon Lex to use
+	// to invoke your Lambda function. For more information, see
+	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
+	// The Amazon Resource Name (ARN) of the Lambda function.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (IntentFulfillmentActivityCodeHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFulfillmentActivityCodeHook)(nil)).Elem()
+}
+
+func (i IntentFulfillmentActivityCodeHookArgs) ToIntentFulfillmentActivityCodeHookOutput() IntentFulfillmentActivityCodeHookOutput {
+	return i.ToIntentFulfillmentActivityCodeHookOutputWithContext(context.Background())
+}
+
+func (i IntentFulfillmentActivityCodeHookArgs) ToIntentFulfillmentActivityCodeHookOutputWithContext(ctx context.Context) IntentFulfillmentActivityCodeHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityCodeHookOutput)
+}
+
+func (i IntentFulfillmentActivityCodeHookArgs) ToIntentFulfillmentActivityCodeHookPtrOutput() IntentFulfillmentActivityCodeHookPtrOutput {
+	return i.ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(context.Background())
+}
+
+func (i IntentFulfillmentActivityCodeHookArgs) ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityCodeHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityCodeHookOutput).ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(ctx)
+}
+
+// IntentFulfillmentActivityCodeHookPtrInput is an input type that accepts IntentFulfillmentActivityCodeHookArgs, IntentFulfillmentActivityCodeHookPtr and IntentFulfillmentActivityCodeHookPtrOutput values.
+// You can construct a concrete instance of `IntentFulfillmentActivityCodeHookPtrInput` via:
+//
+//          IntentFulfillmentActivityCodeHookArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentFulfillmentActivityCodeHookPtrInput interface {
+	pulumi.Input
+
+	ToIntentFulfillmentActivityCodeHookPtrOutput() IntentFulfillmentActivityCodeHookPtrOutput
+	ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(context.Context) IntentFulfillmentActivityCodeHookPtrOutput
+}
+
+type intentFulfillmentActivityCodeHookPtrType IntentFulfillmentActivityCodeHookArgs
+
+func IntentFulfillmentActivityCodeHookPtr(v *IntentFulfillmentActivityCodeHookArgs) IntentFulfillmentActivityCodeHookPtrInput {
+	return (*intentFulfillmentActivityCodeHookPtrType)(v)
+}
+
+func (*intentFulfillmentActivityCodeHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFulfillmentActivityCodeHook)(nil)).Elem()
+}
+
+func (i *intentFulfillmentActivityCodeHookPtrType) ToIntentFulfillmentActivityCodeHookPtrOutput() IntentFulfillmentActivityCodeHookPtrOutput {
+	return i.ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(context.Background())
+}
+
+func (i *intentFulfillmentActivityCodeHookPtrType) ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityCodeHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityCodeHookPtrOutput)
+}
+
+type IntentFulfillmentActivityCodeHookOutput struct{ *pulumi.OutputState }
+
+func (IntentFulfillmentActivityCodeHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentFulfillmentActivityCodeHook)(nil)).Elem()
+}
+
+func (o IntentFulfillmentActivityCodeHookOutput) ToIntentFulfillmentActivityCodeHookOutput() IntentFulfillmentActivityCodeHookOutput {
+	return o
+}
+
+func (o IntentFulfillmentActivityCodeHookOutput) ToIntentFulfillmentActivityCodeHookOutputWithContext(ctx context.Context) IntentFulfillmentActivityCodeHookOutput {
+	return o
+}
+
+func (o IntentFulfillmentActivityCodeHookOutput) ToIntentFulfillmentActivityCodeHookPtrOutput() IntentFulfillmentActivityCodeHookPtrOutput {
+	return o.ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(context.Background())
+}
+
+func (o IntentFulfillmentActivityCodeHookOutput) ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityCodeHookPtrOutput {
+	return o.ApplyT(func(v IntentFulfillmentActivityCodeHook) *IntentFulfillmentActivityCodeHook {
+		return &v
+	}).(IntentFulfillmentActivityCodeHookPtrOutput)
+}
+
+// The version of the request-response that you want Amazon Lex to use
+// to invoke your Lambda function. For more information, see
+// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+func (o IntentFulfillmentActivityCodeHookOutput) MessageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentFulfillmentActivityCodeHook) string { return v.MessageVersion }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function.
+func (o IntentFulfillmentActivityCodeHookOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentFulfillmentActivityCodeHook) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type IntentFulfillmentActivityCodeHookPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentFulfillmentActivityCodeHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentFulfillmentActivityCodeHook)(nil)).Elem()
+}
+
+func (o IntentFulfillmentActivityCodeHookPtrOutput) ToIntentFulfillmentActivityCodeHookPtrOutput() IntentFulfillmentActivityCodeHookPtrOutput {
+	return o
+}
+
+func (o IntentFulfillmentActivityCodeHookPtrOutput) ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityCodeHookPtrOutput {
+	return o
+}
+
+func (o IntentFulfillmentActivityCodeHookPtrOutput) Elem() IntentFulfillmentActivityCodeHookOutput {
+	return o.ApplyT(func(v *IntentFulfillmentActivityCodeHook) IntentFulfillmentActivityCodeHook { return *v }).(IntentFulfillmentActivityCodeHookOutput)
+}
+
+// The version of the request-response that you want Amazon Lex to use
+// to invoke your Lambda function. For more information, see
+// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+func (o IntentFulfillmentActivityCodeHookPtrOutput) MessageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentFulfillmentActivityCodeHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function.
+func (o IntentFulfillmentActivityCodeHookPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentFulfillmentActivityCodeHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentRejectionStatement struct {
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages []IntentRejectionStatementMessage `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+}
+
+// IntentRejectionStatementInput is an input type that accepts IntentRejectionStatementArgs and IntentRejectionStatementOutput values.
+// You can construct a concrete instance of `IntentRejectionStatementInput` via:
+//
+//          IntentRejectionStatementArgs{...}
+type IntentRejectionStatementInput interface {
+	pulumi.Input
+
+	ToIntentRejectionStatementOutput() IntentRejectionStatementOutput
+	ToIntentRejectionStatementOutputWithContext(context.Context) IntentRejectionStatementOutput
+}
+
+type IntentRejectionStatementArgs struct {
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages IntentRejectionStatementMessageArrayInput `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+}
+
+func (IntentRejectionStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentRejectionStatement)(nil)).Elem()
+}
+
+func (i IntentRejectionStatementArgs) ToIntentRejectionStatementOutput() IntentRejectionStatementOutput {
+	return i.ToIntentRejectionStatementOutputWithContext(context.Background())
+}
+
+func (i IntentRejectionStatementArgs) ToIntentRejectionStatementOutputWithContext(ctx context.Context) IntentRejectionStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementOutput)
+}
+
+func (i IntentRejectionStatementArgs) ToIntentRejectionStatementPtrOutput() IntentRejectionStatementPtrOutput {
+	return i.ToIntentRejectionStatementPtrOutputWithContext(context.Background())
+}
+
+func (i IntentRejectionStatementArgs) ToIntentRejectionStatementPtrOutputWithContext(ctx context.Context) IntentRejectionStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementOutput).ToIntentRejectionStatementPtrOutputWithContext(ctx)
+}
+
+// IntentRejectionStatementPtrInput is an input type that accepts IntentRejectionStatementArgs, IntentRejectionStatementPtr and IntentRejectionStatementPtrOutput values.
+// You can construct a concrete instance of `IntentRejectionStatementPtrInput` via:
+//
+//          IntentRejectionStatementArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentRejectionStatementPtrInput interface {
+	pulumi.Input
+
+	ToIntentRejectionStatementPtrOutput() IntentRejectionStatementPtrOutput
+	ToIntentRejectionStatementPtrOutputWithContext(context.Context) IntentRejectionStatementPtrOutput
+}
+
+type intentRejectionStatementPtrType IntentRejectionStatementArgs
+
+func IntentRejectionStatementPtr(v *IntentRejectionStatementArgs) IntentRejectionStatementPtrInput {
+	return (*intentRejectionStatementPtrType)(v)
+}
+
+func (*intentRejectionStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentRejectionStatement)(nil)).Elem()
+}
+
+func (i *intentRejectionStatementPtrType) ToIntentRejectionStatementPtrOutput() IntentRejectionStatementPtrOutput {
+	return i.ToIntentRejectionStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *intentRejectionStatementPtrType) ToIntentRejectionStatementPtrOutputWithContext(ctx context.Context) IntentRejectionStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementPtrOutput)
+}
+
+type IntentRejectionStatementOutput struct{ *pulumi.OutputState }
+
+func (IntentRejectionStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentRejectionStatement)(nil)).Elem()
+}
+
+func (o IntentRejectionStatementOutput) ToIntentRejectionStatementOutput() IntentRejectionStatementOutput {
+	return o
+}
+
+func (o IntentRejectionStatementOutput) ToIntentRejectionStatementOutputWithContext(ctx context.Context) IntentRejectionStatementOutput {
+	return o
+}
+
+func (o IntentRejectionStatementOutput) ToIntentRejectionStatementPtrOutput() IntentRejectionStatementPtrOutput {
+	return o.ToIntentRejectionStatementPtrOutputWithContext(context.Background())
+}
+
+func (o IntentRejectionStatementOutput) ToIntentRejectionStatementPtrOutputWithContext(ctx context.Context) IntentRejectionStatementPtrOutput {
+	return o.ApplyT(func(v IntentRejectionStatement) *IntentRejectionStatement {
+		return &v
+	}).(IntentRejectionStatementPtrOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentRejectionStatementOutput) Messages() IntentRejectionStatementMessageArrayOutput {
+	return o.ApplyT(func(v IntentRejectionStatement) []IntentRejectionStatementMessage { return v.Messages }).(IntentRejectionStatementMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentRejectionStatementOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentRejectionStatement) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+type IntentRejectionStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentRejectionStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentRejectionStatement)(nil)).Elem()
+}
+
+func (o IntentRejectionStatementPtrOutput) ToIntentRejectionStatementPtrOutput() IntentRejectionStatementPtrOutput {
+	return o
+}
+
+func (o IntentRejectionStatementPtrOutput) ToIntentRejectionStatementPtrOutputWithContext(ctx context.Context) IntentRejectionStatementPtrOutput {
+	return o
+}
+
+func (o IntentRejectionStatementPtrOutput) Elem() IntentRejectionStatementOutput {
+	return o.ApplyT(func(v *IntentRejectionStatement) IntentRejectionStatement { return *v }).(IntentRejectionStatementOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentRejectionStatementPtrOutput) Messages() IntentRejectionStatementMessageArrayOutput {
+	return o.ApplyT(func(v *IntentRejectionStatement) []IntentRejectionStatementMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(IntentRejectionStatementMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentRejectionStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentRejectionStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseCard
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentRejectionStatementMessage struct {
+	// The text of the message.
+	Content string `pulumi:"content"`
+	// The content type of the message string.
+	ContentType string `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber *int `pulumi:"groupNumber"`
+}
+
+// IntentRejectionStatementMessageInput is an input type that accepts IntentRejectionStatementMessageArgs and IntentRejectionStatementMessageOutput values.
+// You can construct a concrete instance of `IntentRejectionStatementMessageInput` via:
+//
+//          IntentRejectionStatementMessageArgs{...}
+type IntentRejectionStatementMessageInput interface {
+	pulumi.Input
+
+	ToIntentRejectionStatementMessageOutput() IntentRejectionStatementMessageOutput
+	ToIntentRejectionStatementMessageOutputWithContext(context.Context) IntentRejectionStatementMessageOutput
+}
+
+type IntentRejectionStatementMessageArgs struct {
+	// The text of the message.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The content type of the message string.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
+}
+
+func (IntentRejectionStatementMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentRejectionStatementMessage)(nil)).Elem()
+}
+
+func (i IntentRejectionStatementMessageArgs) ToIntentRejectionStatementMessageOutput() IntentRejectionStatementMessageOutput {
+	return i.ToIntentRejectionStatementMessageOutputWithContext(context.Background())
+}
+
+func (i IntentRejectionStatementMessageArgs) ToIntentRejectionStatementMessageOutputWithContext(ctx context.Context) IntentRejectionStatementMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementMessageOutput)
+}
+
+// IntentRejectionStatementMessageArrayInput is an input type that accepts IntentRejectionStatementMessageArray and IntentRejectionStatementMessageArrayOutput values.
+// You can construct a concrete instance of `IntentRejectionStatementMessageArrayInput` via:
+//
+//          IntentRejectionStatementMessageArray{ IntentRejectionStatementMessageArgs{...} }
+type IntentRejectionStatementMessageArrayInput interface {
+	pulumi.Input
+
+	ToIntentRejectionStatementMessageArrayOutput() IntentRejectionStatementMessageArrayOutput
+	ToIntentRejectionStatementMessageArrayOutputWithContext(context.Context) IntentRejectionStatementMessageArrayOutput
+}
+
+type IntentRejectionStatementMessageArray []IntentRejectionStatementMessageInput
+
+func (IntentRejectionStatementMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentRejectionStatementMessage)(nil)).Elem()
+}
+
+func (i IntentRejectionStatementMessageArray) ToIntentRejectionStatementMessageArrayOutput() IntentRejectionStatementMessageArrayOutput {
+	return i.ToIntentRejectionStatementMessageArrayOutputWithContext(context.Background())
+}
+
+func (i IntentRejectionStatementMessageArray) ToIntentRejectionStatementMessageArrayOutputWithContext(ctx context.Context) IntentRejectionStatementMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentRejectionStatementMessageArrayOutput)
+}
+
+type IntentRejectionStatementMessageOutput struct{ *pulumi.OutputState }
+
+func (IntentRejectionStatementMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentRejectionStatementMessage)(nil)).Elem()
+}
+
+func (o IntentRejectionStatementMessageOutput) ToIntentRejectionStatementMessageOutput() IntentRejectionStatementMessageOutput {
+	return o
+}
+
+func (o IntentRejectionStatementMessageOutput) ToIntentRejectionStatementMessageOutputWithContext(ctx context.Context) IntentRejectionStatementMessageOutput {
+	return o
+}
+
+// The text of the message.
+func (o IntentRejectionStatementMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentRejectionStatementMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The content type of the message string.
+func (o IntentRejectionStatementMessageOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentRejectionStatementMessage) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Identifies the message group that the message belongs to. When a group
+// is assigned to a message, Amazon Lex returns one message from each group in the response.
+func (o IntentRejectionStatementMessageOutput) GroupNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntentRejectionStatementMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
+}
+
+type IntentRejectionStatementMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (IntentRejectionStatementMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentRejectionStatementMessage)(nil)).Elem()
+}
+
+func (o IntentRejectionStatementMessageArrayOutput) ToIntentRejectionStatementMessageArrayOutput() IntentRejectionStatementMessageArrayOutput {
+	return o
+}
+
+func (o IntentRejectionStatementMessageArrayOutput) ToIntentRejectionStatementMessageArrayOutputWithContext(ctx context.Context) IntentRejectionStatementMessageArrayOutput {
+	return o
+}
+
+func (o IntentRejectionStatementMessageArrayOutput) Index(i pulumi.IntInput) IntentRejectionStatementMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntentRejectionStatementMessage {
+		return vs[0].([]IntentRejectionStatementMessage)[vs[1].(int)]
+	}).(IntentRejectionStatementMessageOutput)
+}
+
+type IntentSlot struct {
+	// A description of the bot.
+	Description *string `pulumi:"description"`
+	// The name of the intent slot that you want to create. The name is case sensitive.
+	Name string `pulumi:"name"`
+	// Directs Lex the order in which to elicit this slot value from the user.
+	// For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
+	// the slot with priority 1.
+	Priority *int `pulumi:"priority"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+	// If you know a specific pattern with which users might respond to
+	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	SampleUtterances []string `pulumi:"sampleUtterances"`
+	// Specifies whether the slot is required or optional.
+	SlotConstraint string `pulumi:"slotConstraint"`
+	// The type of the slot, either a custom slot type that you defined or one of
+	// the built-in slot types.
+	SlotType string `pulumi:"slotType"`
+	// The version of the slot type.
+	SlotTypeVersion *string `pulumi:"slotTypeVersion"`
+	// The prompt that Amazon Lex uses to elicit the slot value
+	// from the user. Attributes are documented under prompt.
+	ValueElicitationPrompt *IntentSlotValueElicitationPrompt `pulumi:"valueElicitationPrompt"`
+}
+
+// IntentSlotInput is an input type that accepts IntentSlotArgs and IntentSlotOutput values.
+// You can construct a concrete instance of `IntentSlotInput` via:
+//
+//          IntentSlotArgs{...}
+type IntentSlotInput interface {
+	pulumi.Input
+
+	ToIntentSlotOutput() IntentSlotOutput
+	ToIntentSlotOutputWithContext(context.Context) IntentSlotOutput
+}
+
+type IntentSlotArgs struct {
+	// A description of the bot.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the intent slot that you want to create. The name is case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Directs Lex the order in which to elicit this slot value from the user.
+	// For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
+	// the slot with priority 1.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+	// If you know a specific pattern with which users might respond to
+	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	SampleUtterances pulumi.StringArrayInput `pulumi:"sampleUtterances"`
+	// Specifies whether the slot is required or optional.
+	SlotConstraint pulumi.StringInput `pulumi:"slotConstraint"`
+	// The type of the slot, either a custom slot type that you defined or one of
+	// the built-in slot types.
+	SlotType pulumi.StringInput `pulumi:"slotType"`
+	// The version of the slot type.
+	SlotTypeVersion pulumi.StringPtrInput `pulumi:"slotTypeVersion"`
+	// The prompt that Amazon Lex uses to elicit the slot value
+	// from the user. Attributes are documented under prompt.
+	ValueElicitationPrompt IntentSlotValueElicitationPromptPtrInput `pulumi:"valueElicitationPrompt"`
+}
+
+func (IntentSlotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentSlot)(nil)).Elem()
+}
+
+func (i IntentSlotArgs) ToIntentSlotOutput() IntentSlotOutput {
+	return i.ToIntentSlotOutputWithContext(context.Background())
+}
+
+func (i IntentSlotArgs) ToIntentSlotOutputWithContext(ctx context.Context) IntentSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotOutput)
+}
+
+// IntentSlotArrayInput is an input type that accepts IntentSlotArray and IntentSlotArrayOutput values.
+// You can construct a concrete instance of `IntentSlotArrayInput` via:
+//
+//          IntentSlotArray{ IntentSlotArgs{...} }
+type IntentSlotArrayInput interface {
+	pulumi.Input
+
+	ToIntentSlotArrayOutput() IntentSlotArrayOutput
+	ToIntentSlotArrayOutputWithContext(context.Context) IntentSlotArrayOutput
+}
+
+type IntentSlotArray []IntentSlotInput
+
+func (IntentSlotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentSlot)(nil)).Elem()
+}
+
+func (i IntentSlotArray) ToIntentSlotArrayOutput() IntentSlotArrayOutput {
+	return i.ToIntentSlotArrayOutputWithContext(context.Background())
+}
+
+func (i IntentSlotArray) ToIntentSlotArrayOutputWithContext(ctx context.Context) IntentSlotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotArrayOutput)
+}
+
+type IntentSlotOutput struct{ *pulumi.OutputState }
+
+func (IntentSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentSlot)(nil)).Elem()
+}
+
+func (o IntentSlotOutput) ToIntentSlotOutput() IntentSlotOutput {
+	return o
+}
+
+func (o IntentSlotOutput) ToIntentSlotOutputWithContext(ctx context.Context) IntentSlotOutput {
+	return o
+}
+
+// A description of the bot.
+func (o IntentSlotOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentSlot) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the intent slot that you want to create. The name is case sensitive.
+func (o IntentSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentSlot) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Directs Lex the order in which to elicit this slot value from the user.
+// For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
+// the slot with priority 1.
+func (o IntentSlotOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntentSlot) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentSlotOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentSlot) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+// If you know a specific pattern with which users might respond to
+// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
+// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+func (o IntentSlotOutput) SampleUtterances() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntentSlot) []string { return v.SampleUtterances }).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether the slot is required or optional.
+func (o IntentSlotOutput) SlotConstraint() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentSlot) string { return v.SlotConstraint }).(pulumi.StringOutput)
+}
+
+// The type of the slot, either a custom slot type that you defined or one of
+// the built-in slot types.
+func (o IntentSlotOutput) SlotType() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentSlot) string { return v.SlotType }).(pulumi.StringOutput)
+}
+
+// The version of the slot type.
+func (o IntentSlotOutput) SlotTypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentSlot) *string { return v.SlotTypeVersion }).(pulumi.StringPtrOutput)
+}
+
+// The prompt that Amazon Lex uses to elicit the slot value
+// from the user. Attributes are documented under prompt.
+func (o IntentSlotOutput) ValueElicitationPrompt() IntentSlotValueElicitationPromptPtrOutput {
+	return o.ApplyT(func(v IntentSlot) *IntentSlotValueElicitationPrompt { return v.ValueElicitationPrompt }).(IntentSlotValueElicitationPromptPtrOutput)
+}
+
+type IntentSlotArrayOutput struct{ *pulumi.OutputState }
+
+func (IntentSlotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentSlot)(nil)).Elem()
+}
+
+func (o IntentSlotArrayOutput) ToIntentSlotArrayOutput() IntentSlotArrayOutput {
+	return o
+}
+
+func (o IntentSlotArrayOutput) ToIntentSlotArrayOutputWithContext(ctx context.Context) IntentSlotArrayOutput {
+	return o
+}
+
+func (o IntentSlotArrayOutput) Index(i pulumi.IntInput) IntentSlotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntentSlot {
+		return vs[0].([]IntentSlot)[vs[1].(int)]
+	}).(IntentSlotOutput)
+}
+
+type IntentSlotValueElicitationPrompt struct {
+	// The number of times to prompt the user for information.
+	MaxAttempts int `pulumi:"maxAttempts"`
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages []IntentSlotValueElicitationPromptMessage `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard *string `pulumi:"responseCard"`
+}
+
+// IntentSlotValueElicitationPromptInput is an input type that accepts IntentSlotValueElicitationPromptArgs and IntentSlotValueElicitationPromptOutput values.
+// You can construct a concrete instance of `IntentSlotValueElicitationPromptInput` via:
+//
+//          IntentSlotValueElicitationPromptArgs{...}
+type IntentSlotValueElicitationPromptInput interface {
+	pulumi.Input
+
+	ToIntentSlotValueElicitationPromptOutput() IntentSlotValueElicitationPromptOutput
+	ToIntentSlotValueElicitationPromptOutputWithContext(context.Context) IntentSlotValueElicitationPromptOutput
+}
+
+type IntentSlotValueElicitationPromptArgs struct {
+	// The number of times to prompt the user for information.
+	MaxAttempts pulumi.IntInput `pulumi:"maxAttempts"`
+	// A set of messages, each of which provides a message string and its type.
+	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+	// Attributes are documented under message.
+	Messages IntentSlotValueElicitationPromptMessageArrayInput `pulumi:"messages"`
+	// The response card. Amazon Lex will substitute session attributes and
+	// slot values into the response card. For more information, see
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
+}
+
+func (IntentSlotValueElicitationPromptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentSlotValueElicitationPrompt)(nil)).Elem()
+}
+
+func (i IntentSlotValueElicitationPromptArgs) ToIntentSlotValueElicitationPromptOutput() IntentSlotValueElicitationPromptOutput {
+	return i.ToIntentSlotValueElicitationPromptOutputWithContext(context.Background())
+}
+
+func (i IntentSlotValueElicitationPromptArgs) ToIntentSlotValueElicitationPromptOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptOutput)
+}
+
+func (i IntentSlotValueElicitationPromptArgs) ToIntentSlotValueElicitationPromptPtrOutput() IntentSlotValueElicitationPromptPtrOutput {
+	return i.ToIntentSlotValueElicitationPromptPtrOutputWithContext(context.Background())
+}
+
+func (i IntentSlotValueElicitationPromptArgs) ToIntentSlotValueElicitationPromptPtrOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptOutput).ToIntentSlotValueElicitationPromptPtrOutputWithContext(ctx)
+}
+
+// IntentSlotValueElicitationPromptPtrInput is an input type that accepts IntentSlotValueElicitationPromptArgs, IntentSlotValueElicitationPromptPtr and IntentSlotValueElicitationPromptPtrOutput values.
+// You can construct a concrete instance of `IntentSlotValueElicitationPromptPtrInput` via:
+//
+//          IntentSlotValueElicitationPromptArgs{...}
+//
+//  or:
+//
+//          nil
+type IntentSlotValueElicitationPromptPtrInput interface {
+	pulumi.Input
+
+	ToIntentSlotValueElicitationPromptPtrOutput() IntentSlotValueElicitationPromptPtrOutput
+	ToIntentSlotValueElicitationPromptPtrOutputWithContext(context.Context) IntentSlotValueElicitationPromptPtrOutput
+}
+
+type intentSlotValueElicitationPromptPtrType IntentSlotValueElicitationPromptArgs
+
+func IntentSlotValueElicitationPromptPtr(v *IntentSlotValueElicitationPromptArgs) IntentSlotValueElicitationPromptPtrInput {
+	return (*intentSlotValueElicitationPromptPtrType)(v)
+}
+
+func (*intentSlotValueElicitationPromptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentSlotValueElicitationPrompt)(nil)).Elem()
+}
+
+func (i *intentSlotValueElicitationPromptPtrType) ToIntentSlotValueElicitationPromptPtrOutput() IntentSlotValueElicitationPromptPtrOutput {
+	return i.ToIntentSlotValueElicitationPromptPtrOutputWithContext(context.Background())
+}
+
+func (i *intentSlotValueElicitationPromptPtrType) ToIntentSlotValueElicitationPromptPtrOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptPtrOutput)
+}
+
+type IntentSlotValueElicitationPromptOutput struct{ *pulumi.OutputState }
+
+func (IntentSlotValueElicitationPromptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentSlotValueElicitationPrompt)(nil)).Elem()
+}
+
+func (o IntentSlotValueElicitationPromptOutput) ToIntentSlotValueElicitationPromptOutput() IntentSlotValueElicitationPromptOutput {
+	return o
+}
+
+func (o IntentSlotValueElicitationPromptOutput) ToIntentSlotValueElicitationPromptOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptOutput {
+	return o
+}
+
+func (o IntentSlotValueElicitationPromptOutput) ToIntentSlotValueElicitationPromptPtrOutput() IntentSlotValueElicitationPromptPtrOutput {
+	return o.ToIntentSlotValueElicitationPromptPtrOutputWithContext(context.Background())
+}
+
+func (o IntentSlotValueElicitationPromptOutput) ToIntentSlotValueElicitationPromptPtrOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptPtrOutput {
+	return o.ApplyT(func(v IntentSlotValueElicitationPrompt) *IntentSlotValueElicitationPrompt {
+		return &v
+	}).(IntentSlotValueElicitationPromptPtrOutput)
+}
+
+// The number of times to prompt the user for information.
+func (o IntentSlotValueElicitationPromptOutput) MaxAttempts() pulumi.IntOutput {
+	return o.ApplyT(func(v IntentSlotValueElicitationPrompt) int { return v.MaxAttempts }).(pulumi.IntOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentSlotValueElicitationPromptOutput) Messages() IntentSlotValueElicitationPromptMessageArrayOutput {
+	return o.ApplyT(func(v IntentSlotValueElicitationPrompt) []IntentSlotValueElicitationPromptMessage { return v.Messages }).(IntentSlotValueElicitationPromptMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentSlotValueElicitationPromptOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntentSlotValueElicitationPrompt) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
+}
+
+type IntentSlotValueElicitationPromptPtrOutput struct{ *pulumi.OutputState }
+
+func (IntentSlotValueElicitationPromptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntentSlotValueElicitationPrompt)(nil)).Elem()
+}
+
+func (o IntentSlotValueElicitationPromptPtrOutput) ToIntentSlotValueElicitationPromptPtrOutput() IntentSlotValueElicitationPromptPtrOutput {
+	return o
+}
+
+func (o IntentSlotValueElicitationPromptPtrOutput) ToIntentSlotValueElicitationPromptPtrOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptPtrOutput {
+	return o
+}
+
+func (o IntentSlotValueElicitationPromptPtrOutput) Elem() IntentSlotValueElicitationPromptOutput {
+	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) IntentSlotValueElicitationPrompt { return *v }).(IntentSlotValueElicitationPromptOutput)
+}
+
+// The number of times to prompt the user for information.
+func (o IntentSlotValueElicitationPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxAttempts
+	}).(pulumi.IntPtrOutput)
+}
+
+// A set of messages, each of which provides a message string and its type.
+// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+// Attributes are documented under message.
+func (o IntentSlotValueElicitationPromptPtrOutput) Messages() IntentSlotValueElicitationPromptMessageArrayOutput {
+	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) []IntentSlotValueElicitationPromptMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(IntentSlotValueElicitationPromptMessageArrayOutput)
+}
+
+// The response card. Amazon Lex will substitute session attributes and
+// slot values into the response card. For more information, see
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+func (o IntentSlotValueElicitationPromptPtrOutput) ResponseCard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseCard
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntentSlotValueElicitationPromptMessage struct {
+	// The text of the message.
+	Content string `pulumi:"content"`
+	// The content type of the message string.
+	ContentType string `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber *int `pulumi:"groupNumber"`
+}
+
+// IntentSlotValueElicitationPromptMessageInput is an input type that accepts IntentSlotValueElicitationPromptMessageArgs and IntentSlotValueElicitationPromptMessageOutput values.
+// You can construct a concrete instance of `IntentSlotValueElicitationPromptMessageInput` via:
+//
+//          IntentSlotValueElicitationPromptMessageArgs{...}
+type IntentSlotValueElicitationPromptMessageInput interface {
+	pulumi.Input
+
+	ToIntentSlotValueElicitationPromptMessageOutput() IntentSlotValueElicitationPromptMessageOutput
+	ToIntentSlotValueElicitationPromptMessageOutputWithContext(context.Context) IntentSlotValueElicitationPromptMessageOutput
+}
+
+type IntentSlotValueElicitationPromptMessageArgs struct {
+	// The text of the message.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The content type of the message string.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifies the message group that the message belongs to. When a group
+	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
+}
+
+func (IntentSlotValueElicitationPromptMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentSlotValueElicitationPromptMessage)(nil)).Elem()
+}
+
+func (i IntentSlotValueElicitationPromptMessageArgs) ToIntentSlotValueElicitationPromptMessageOutput() IntentSlotValueElicitationPromptMessageOutput {
+	return i.ToIntentSlotValueElicitationPromptMessageOutputWithContext(context.Background())
+}
+
+func (i IntentSlotValueElicitationPromptMessageArgs) ToIntentSlotValueElicitationPromptMessageOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptMessageOutput)
+}
+
+// IntentSlotValueElicitationPromptMessageArrayInput is an input type that accepts IntentSlotValueElicitationPromptMessageArray and IntentSlotValueElicitationPromptMessageArrayOutput values.
+// You can construct a concrete instance of `IntentSlotValueElicitationPromptMessageArrayInput` via:
+//
+//          IntentSlotValueElicitationPromptMessageArray{ IntentSlotValueElicitationPromptMessageArgs{...} }
+type IntentSlotValueElicitationPromptMessageArrayInput interface {
+	pulumi.Input
+
+	ToIntentSlotValueElicitationPromptMessageArrayOutput() IntentSlotValueElicitationPromptMessageArrayOutput
+	ToIntentSlotValueElicitationPromptMessageArrayOutputWithContext(context.Context) IntentSlotValueElicitationPromptMessageArrayOutput
+}
+
+type IntentSlotValueElicitationPromptMessageArray []IntentSlotValueElicitationPromptMessageInput
+
+func (IntentSlotValueElicitationPromptMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentSlotValueElicitationPromptMessage)(nil)).Elem()
+}
+
+func (i IntentSlotValueElicitationPromptMessageArray) ToIntentSlotValueElicitationPromptMessageArrayOutput() IntentSlotValueElicitationPromptMessageArrayOutput {
+	return i.ToIntentSlotValueElicitationPromptMessageArrayOutputWithContext(context.Background())
+}
+
+func (i IntentSlotValueElicitationPromptMessageArray) ToIntentSlotValueElicitationPromptMessageArrayOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntentSlotValueElicitationPromptMessageArrayOutput)
+}
+
+type IntentSlotValueElicitationPromptMessageOutput struct{ *pulumi.OutputState }
+
+func (IntentSlotValueElicitationPromptMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntentSlotValueElicitationPromptMessage)(nil)).Elem()
+}
+
+func (o IntentSlotValueElicitationPromptMessageOutput) ToIntentSlotValueElicitationPromptMessageOutput() IntentSlotValueElicitationPromptMessageOutput {
+	return o
+}
+
+func (o IntentSlotValueElicitationPromptMessageOutput) ToIntentSlotValueElicitationPromptMessageOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptMessageOutput {
+	return o
+}
+
+// The text of the message.
+func (o IntentSlotValueElicitationPromptMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentSlotValueElicitationPromptMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The content type of the message string.
+func (o IntentSlotValueElicitationPromptMessageOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v IntentSlotValueElicitationPromptMessage) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Identifies the message group that the message belongs to. When a group
+// is assigned to a message, Amazon Lex returns one message from each group in the response.
+func (o IntentSlotValueElicitationPromptMessageOutput) GroupNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntentSlotValueElicitationPromptMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
+}
+
+type IntentSlotValueElicitationPromptMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (IntentSlotValueElicitationPromptMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntentSlotValueElicitationPromptMessage)(nil)).Elem()
+}
+
+func (o IntentSlotValueElicitationPromptMessageArrayOutput) ToIntentSlotValueElicitationPromptMessageArrayOutput() IntentSlotValueElicitationPromptMessageArrayOutput {
+	return o
+}
+
+func (o IntentSlotValueElicitationPromptMessageArrayOutput) ToIntentSlotValueElicitationPromptMessageArrayOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptMessageArrayOutput {
+	return o
+}
+
+func (o IntentSlotValueElicitationPromptMessageArrayOutput) Index(i pulumi.IntInput) IntentSlotValueElicitationPromptMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntentSlotValueElicitationPromptMessage {
+		return vs[0].([]IntentSlotValueElicitationPromptMessage)[vs[1].(int)]
+	}).(IntentSlotValueElicitationPromptMessageOutput)
+}
+
 type SlotTypeEnumerationValue struct {
 	// Additional values related to the slot type value.
 	Synonyms []string `pulumi:"synonyms"`
@@ -217,6 +3498,50 @@ func (o GetSlotTypeEnumerationValueArrayOutput) Index(i pulumi.IntInput) GetSlot
 }
 
 func init() {
+	pulumi.RegisterOutputType(BotAbortStatementOutput{})
+	pulumi.RegisterOutputType(BotAbortStatementPtrOutput{})
+	pulumi.RegisterOutputType(BotAbortStatementMessageOutput{})
+	pulumi.RegisterOutputType(BotAbortStatementMessageArrayOutput{})
+	pulumi.RegisterOutputType(BotClarificationPromptOutput{})
+	pulumi.RegisterOutputType(BotClarificationPromptPtrOutput{})
+	pulumi.RegisterOutputType(BotClarificationPromptMessageOutput{})
+	pulumi.RegisterOutputType(BotClarificationPromptMessageArrayOutput{})
+	pulumi.RegisterOutputType(BotIntentOutput{})
+	pulumi.RegisterOutputType(BotIntentArrayOutput{})
+	pulumi.RegisterOutputType(IntentConclusionStatementOutput{})
+	pulumi.RegisterOutputType(IntentConclusionStatementPtrOutput{})
+	pulumi.RegisterOutputType(IntentConclusionStatementMessageOutput{})
+	pulumi.RegisterOutputType(IntentConclusionStatementMessageArrayOutput{})
+	pulumi.RegisterOutputType(IntentConfirmationPromptOutput{})
+	pulumi.RegisterOutputType(IntentConfirmationPromptPtrOutput{})
+	pulumi.RegisterOutputType(IntentConfirmationPromptMessageOutput{})
+	pulumi.RegisterOutputType(IntentConfirmationPromptMessageArrayOutput{})
+	pulumi.RegisterOutputType(IntentDialogCodeHookOutput{})
+	pulumi.RegisterOutputType(IntentDialogCodeHookPtrOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptPtrOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptPromptOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptPromptPtrOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptPromptMessageOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptPromptMessageArrayOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptRejectionStatementOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptRejectionStatementPtrOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptRejectionStatementMessageOutput{})
+	pulumi.RegisterOutputType(IntentFollowUpPromptRejectionStatementMessageArrayOutput{})
+	pulumi.RegisterOutputType(IntentFulfillmentActivityOutput{})
+	pulumi.RegisterOutputType(IntentFulfillmentActivityPtrOutput{})
+	pulumi.RegisterOutputType(IntentFulfillmentActivityCodeHookOutput{})
+	pulumi.RegisterOutputType(IntentFulfillmentActivityCodeHookPtrOutput{})
+	pulumi.RegisterOutputType(IntentRejectionStatementOutput{})
+	pulumi.RegisterOutputType(IntentRejectionStatementPtrOutput{})
+	pulumi.RegisterOutputType(IntentRejectionStatementMessageOutput{})
+	pulumi.RegisterOutputType(IntentRejectionStatementMessageArrayOutput{})
+	pulumi.RegisterOutputType(IntentSlotOutput{})
+	pulumi.RegisterOutputType(IntentSlotArrayOutput{})
+	pulumi.RegisterOutputType(IntentSlotValueElicitationPromptOutput{})
+	pulumi.RegisterOutputType(IntentSlotValueElicitationPromptPtrOutput{})
+	pulumi.RegisterOutputType(IntentSlotValueElicitationPromptMessageOutput{})
+	pulumi.RegisterOutputType(IntentSlotValueElicitationPromptMessageArrayOutput{})
 	pulumi.RegisterOutputType(SlotTypeEnumerationValueOutput{})
 	pulumi.RegisterOutputType(SlotTypeEnumerationValueArrayOutput{})
 	pulumi.RegisterOutputType(GetSlotTypeEnumerationValueOutput{})

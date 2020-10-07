@@ -187,6 +187,7 @@ type Endpoints struct {
 	Licensemanager           *string `pulumi:"licensemanager"`
 	Lightsail                *string `pulumi:"lightsail"`
 	Macie                    *string `pulumi:"macie"`
+	Macie2                   *string `pulumi:"macie2"`
 	Managedblockchain        *string `pulumi:"managedblockchain"`
 	Marketplacecatalog       *string `pulumi:"marketplacecatalog"`
 	Mediaconnect             *string `pulumi:"mediaconnect"`
@@ -342,6 +343,7 @@ type EndpointsArgs struct {
 	Licensemanager           pulumi.StringPtrInput `pulumi:"licensemanager"`
 	Lightsail                pulumi.StringPtrInput `pulumi:"lightsail"`
 	Macie                    pulumi.StringPtrInput `pulumi:"macie"`
+	Macie2                   pulumi.StringPtrInput `pulumi:"macie2"`
 	Managedblockchain        pulumi.StringPtrInput `pulumi:"managedblockchain"`
 	Marketplacecatalog       pulumi.StringPtrInput `pulumi:"marketplacecatalog"`
 	Mediaconnect             pulumi.StringPtrInput `pulumi:"mediaconnect"`
@@ -789,6 +791,10 @@ func (o EndpointsOutput) Lightsail() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Macie() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Macie }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Macie2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Macie2 }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Managedblockchain() pulumi.StringPtrOutput {

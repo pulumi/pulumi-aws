@@ -98,6 +98,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Licensemanager;
         public readonly string? Lightsail;
         public readonly string? Macie;
+        public readonly string? Macie2;
         public readonly string? Managedblockchain;
         public readonly string? Marketplacecatalog;
         public readonly string? Mediaconnect;
@@ -327,6 +328,8 @@ namespace Pulumi.Aws.Outputs
 
             string? macie,
 
+            string? macie2,
+
             string? managedblockchain,
 
             string? marketplacecatalog,
@@ -524,6 +527,7 @@ namespace Pulumi.Aws.Outputs
             Licensemanager = licensemanager;
             Lightsail = lightsail;
             Macie = macie;
+            Macie2 = macie2;
             Managedblockchain = managedblockchain;
             Marketplacecatalog = marketplacecatalog;
             Mediaconnect = mediaconnect;

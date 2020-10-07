@@ -174,6 +174,7 @@ class Endpoints(dict):
                  licensemanager: Optional[str] = None,
                  lightsail: Optional[str] = None,
                  macie: Optional[str] = None,
+                 macie2: Optional[str] = None,
                  managedblockchain: Optional[str] = None,
                  marketplacecatalog: Optional[str] = None,
                  mediaconnect: Optional[str] = None,
@@ -400,6 +401,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "lightsail", lightsail)
         if macie is not None:
             pulumi.set(__self__, "macie", macie)
+        if macie2 is not None:
+            pulumi.set(__self__, "macie2", macie2)
         if managedblockchain is not None:
             pulumi.set(__self__, "managedblockchain", managedblockchain)
         if marketplacecatalog is not None:
@@ -937,6 +940,11 @@ class Endpoints(dict):
     @pulumi.getter
     def macie(self) -> Optional[str]:
         return pulumi.get(self, "macie")
+
+    @property
+    @pulumi.getter
+    def macie2(self) -> Optional[str]:
+        return pulumi.get(self, "macie2")
 
     @property
     @pulumi.getter

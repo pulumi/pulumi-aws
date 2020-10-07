@@ -13,6 +13,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendVirtualServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The client policy for the backend.
+        /// </summary>
+        [Input("clientPolicy")]
+        public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyArgs>? ClientPolicy { get; set; }
+
+        /// <summary>
         /// The name of the virtual service that is acting as a virtual node backend.
         /// </summary>
         [Input("virtualServiceName", required: true)]

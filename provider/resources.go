@@ -58,6 +58,7 @@ const (
 	cloudfrontMod             = "CloudFront"            // Cloud Front
 	cloudtrailMod             = "CloudTrail"            // Cloud Trail
 	cloudwatchMod             = "CloudWatch"            // Cloud Watch
+	codeartifactMod           = "CodeArtifact"          // CodeArtifact
 	codebuildMod              = "CodeBuild"             // Code Build
 	codecommitMod             = "CodeCommit"            // Code Commit
 	codedeployMod             = "CodeDeploy"            // Code Deploy
@@ -579,9 +580,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_policy":   {Tok: awsResource(autoscalingMod, "Policy")},
 			"aws_autoscaling_schedule": {Tok: awsResource(autoscalingMod, "Schedule")},
 			// Backup
-			"aws_backup_plan":      {Tok: awsResource(backupMod, "Plan")},
-			"aws_backup_selection": {Tok: awsResource(backupMod, "Selection")},
-			"aws_backup_vault":     {Tok: awsResource(backupMod, "Vault")},
+			"aws_backup_plan":                {Tok: awsResource(backupMod, "Plan")},
+			"aws_backup_selection":           {Tok: awsResource(backupMod, "Selection")},
+			"aws_backup_vault":               {Tok: awsResource(backupMod, "Vault")},
+			"aws_backup_vault_notifications": {Tok: awsResource(backupMod, "VaultNotifications")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -776,8 +778,8 @@ func Provider() tfbridge.ProviderInfo {
 					"cloudwatch_log_group_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 				},
 			},
-			"aws_datasync_location_smb":         {Tok: awsResource(datasyncMod, "LocationSmb")},
-			"aws_datasync_location_fsx_windows": {Tok: awsResource(datasyncMod, "LocationFsxWindows")},
+			"aws_datasync_location_smb":                     {Tok: awsResource(datasyncMod, "LocationSmb")},
+			"aws_datasync_location_fsx_windows_file_system": {Tok: awsResource(datasyncMod, "LocationFsxWindows")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
 			// Data Migration Service
@@ -1319,6 +1321,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
 			"aws_glue_workflow":               {Tok: awsResource(glueMod, "Workflow")},
 			"aws_glue_user_defined_function":  {Tok: awsResource(glueMod, "UserDefinedFunction")},
+			"aws_glue_data_catalog_encryption_settings": {
+				Tok: awsResource(glueMod, "DataCatalogEncryptionSettings"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"data_catalog_encryption_settings": {
+						CSharpName: "DataCatalogEncryptionSettingsConfig",
+					},
+				},
+			},
+			"aws_glue_ml_transform": {Tok: awsResource(glueMod, "MLTransform")},
+			"aws_glue_partition":    {Tok: awsResource(glueMod, "Partition")},
 			// GuardDuty
 			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},
@@ -1808,6 +1820,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_db_proxy":                      {Tok: awsResource(rdsMod, "Proxy")},
 			"aws_db_proxy_default_target_group": {Tok: awsResource(rdsMod, "ProxyDefaultTargetGroup")},
+			"aws_db_proxy_target":               {Tok: awsResource(rdsMod, "ProxyTarget")},
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_event_subscription": {Tok: awsResource(redshiftMod, "EventSubscription")},
@@ -2151,6 +2164,26 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codestarnotifications_notification_rule": {Tok: awsResource(codestarNotificiationsMod, "NotificationRule")},
 			// Lex
 			"aws_lex_slot_type": {Tok: awsResource(lexMod, "SlotType")},
+			"aws_lex_bot":       {Tok: awsResource(lexMod, "Bot")},
+			"aws_lex_intent":    {Tok: awsResource(lexMod, "Intent")},
+			// Codeartifact
+			"aws_codeartifact_domain": {
+				Tok: awsResource(codeartifactMod, "Domain"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"domain": {
+						CSharpName: "DomainName",
+					},
+				},
+			},
+			"aws_codeartifact_repository": {
+				Tok: awsResource(codeartifactMod, "Repository"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"repository": {
+						CSharpName: "RepositoryName",
+					},
+				},
+			},
+			"aws_codeartifact_domain_permissions_policy": {Tok: awsResource(codeartifactMod, "DomainPermissions")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -2502,6 +2535,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_docdb_orderable_db_instance":     {Tok: awsDataSource(docdbMod, "getOrderableDbInstance")},
 			"aws_docdb_engine_version":            {Tok: awsDataSource(docdbMod, "getEngineVersion")},
 			"aws_lex_slot_type":                   {Tok: awsDataSource(lexMod, "getSlotType")},
+			"aws_lex_bot":                         {Tok: awsDataSource(lexMod, "getBot")},
+			"aws_lex_intent":                      {Tok: awsDataSource(lexMod, "getIntent")},
 			"aws_neptune_orderable_db_instance":   {Tok: awsDataSource(neptuneMod, "getOrderableDbInstance")},
 			"aws_neptune_engine_version":          {Tok: awsDataSource(neptuneMod, "getEngineVersion")},
 		},

@@ -211,6 +211,7 @@ class ProviderEndpointArgs:
                  licensemanager: Optional[pulumi.Input[str]] = None,
                  lightsail: Optional[pulumi.Input[str]] = None,
                  macie: Optional[pulumi.Input[str]] = None,
+                 macie2: Optional[pulumi.Input[str]] = None,
                  managedblockchain: Optional[pulumi.Input[str]] = None,
                  marketplacecatalog: Optional[pulumi.Input[str]] = None,
                  mediaconnect: Optional[pulumi.Input[str]] = None,
@@ -437,6 +438,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "lightsail", lightsail)
         if macie is not None:
             pulumi.set(__self__, "macie", macie)
+        if macie2 is not None:
+            pulumi.set(__self__, "macie2", macie2)
         if managedblockchain is not None:
             pulumi.set(__self__, "managedblockchain", managedblockchain)
         if marketplacecatalog is not None:
@@ -1314,6 +1317,15 @@ class ProviderEndpointArgs:
     @macie.setter
     def macie(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "macie", value)
+
+    @property
+    @pulumi.getter
+    def macie2(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "macie2")
+
+    @macie2.setter
+    def macie2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "macie2", value)
 
     @property
     @pulumi.getter

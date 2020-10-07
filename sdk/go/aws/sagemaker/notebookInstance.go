@@ -57,6 +57,8 @@ type NotebookInstance struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+	RootAccess pulumi.StringPtrOutput `pulumi:"rootAccess"`
 	// The associated security groups.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The VPC subnet ID.
@@ -113,6 +115,8 @@ type notebookInstanceState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
+	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+	RootAccess *string `pulumi:"rootAccess"`
 	// The associated security groups.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The VPC subnet ID.
@@ -136,6 +140,8 @@ type NotebookInstanceState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
 	RoleArn pulumi.StringPtrInput
+	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+	RootAccess pulumi.StringPtrInput
 	// The associated security groups.
 	SecurityGroups pulumi.StringArrayInput
 	// The VPC subnet ID.
@@ -161,6 +167,8 @@ type notebookInstanceArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
+	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+	RootAccess *string `pulumi:"rootAccess"`
 	// The associated security groups.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The VPC subnet ID.
@@ -183,6 +191,8 @@ type NotebookInstanceArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
 	RoleArn pulumi.StringInput
+	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
+	RootAccess pulumi.StringPtrInput
 	// The associated security groups.
 	SecurityGroups pulumi.StringArrayInput
 	// The VPC subnet ID.

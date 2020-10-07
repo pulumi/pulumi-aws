@@ -46,6 +46,7 @@ from . import (
     cloudhsmv2,
     cloudtrail,
     cloudwatch,
+    codeartifact,
     codebuild,
     codecommit,
     codedeploy,

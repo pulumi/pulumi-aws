@@ -192,7 +192,7 @@ type Cluster struct {
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrOutput `pulumi:"enableHttpEndpoint"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the RDS instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -306,7 +306,7 @@ type clusterState struct {
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the RDS instance
 	Endpoint *string `pulumi:"endpoint"`
@@ -393,7 +393,7 @@ type ClusterState struct {
 	DeletionProtection pulumi.BoolPtrInput
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrInput
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The DNS address of the RDS instance
 	Endpoint pulumi.StringPtrInput
@@ -480,7 +480,7 @@ type clusterArgs struct {
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine *string `pulumi:"engine"`
@@ -557,7 +557,7 @@ type ClusterArgs struct {
 	DeletionProtection pulumi.BoolPtrInput
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrInput
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine pulumi.StringPtrInput
