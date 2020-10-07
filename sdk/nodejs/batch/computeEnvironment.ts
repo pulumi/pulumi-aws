@@ -56,13 +56,16 @@ import * as utilities from "../utilities";
  *     role: awsBatchServiceRoleRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
  * });
- * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {egress: [{
- *     fromPort: 0,
- *     toPort: 0,
- *     protocol: "-1",
- *     cidrBlocks: ["0.0.0.0/0"],
- * }]});
  * const sampleVpc = new aws.ec2.Vpc("sampleVpc", {cidrBlock: "10.1.0.0/16"});
+ * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {
+ *     vpcId: sampleVpc.id,
+ *     egress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *     }],
+ * });
  * const sampleSubnet = new aws.ec2.Subnet("sampleSubnet", {
  *     vpcId: sampleVpc.id,
  *     cidrBlock: "10.1.1.0/24",
