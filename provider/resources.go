@@ -17,6 +17,7 @@ package provider
 import (
 	"errors"
 	"fmt"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"math/rand"
 	"os"
 	"strings"
@@ -2190,6 +2191,68 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_codeartifact_domain_permissions_policy": {Tok: awsResource(codeartifactMod, "DomainPermissions")},
 		},
+		ExtraTypes: map[string]schema.ComplexTypeSpec{
+			"aws::Region": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type:        "string",
+					Description: "A Region represents any valid Amazon region that may be targeted with deployments.",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Value: "af-south-1", Name: "AFSouth1"},
+					{Value: "ap-east-1", Name: "APEast1"},
+					{Value: "ap-northeast-1", Name: "APNortheast1"},
+					{Value: "ap-northeast-2", Name: "APNortheast2"},
+					{Value: "ap-south-1", Name: "APSouth1"},
+					{Value: "ap-southeast-2", Name: "APSouthEast2"}, // Inconsistent casing from existing SDK
+					{Value: "ap-southeast-1", Name: "APSoutheast1"},
+					{Value: "ca-central-1", Name: "CACentral"},
+					{Value: "cn-north-1", Name: "CNNorth1"},
+					{Value: "cn-northwest-1", Name: "CNNorthWest1"}, // Inconsistent casing from existing SDK
+					{Value: "eu-central-1", Name: "EUCentral1"},
+					{Value: "eu-north-1", Name: "EUNorth1"},
+					{Value: "eu-west-1", Name: "EUWest1"},
+					{Value: "eu-west-2", Name: "EUWest2"},
+					{Value: "eu-west-3", Name: "EUWest3"},
+					{Value: "eu-south-1", Name: "EUSouth1"},
+					{Value: "me-south-1", Name: "MESouth1"},
+					{Value: "sa-east-1", Name: "SAEast1"},
+					{Value: "us-gov-east-1", Name: "USGovEast1"},
+					{Value: "us-gov-west-1", Name: "USGovWest1"},
+					{Value: "us-east-1", Name: "USEast1"},
+					{Value: "us-east-2", Name: "USEast2"},
+					{Value: "us-west-1", Name: "USWest1"},
+					{Value: "us-west-2", Name: "USWest2"},
+				},
+			},
+			"aws:lambda/Runtime:Runtime": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type: "string",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Value: "dotnetcore2.1", Name: "DotnetCore2d1"},
+					{Value: "dotnetcore3.1", Name: "DotnetCore3d1"},
+					{Value: "go1.x", Name: "Go1dx"},
+					{Value: "java8", Name: "Java8"},
+					{Value: "java11", Name: "Java11"},
+					{Value: "ruby2.5", Name: "Ruby2d5"},
+					{Value: "ruby2.7", Name: "Ruby2d7"},
+					{Value: "nodejs10.x", Name: "NodeJS10dX"},
+					{Value: "nodejs12.x", Name: "NodeJS12dX"},
+					{Value: "python2.7", Name: "Python2d7"},
+					{Value: "python3.6", Name: "Python3d6"},
+					{Value: "python3.7", Name: "Python3d7"},
+					{Value: "python3.8", Name: "Python3d8"},
+					{Value: "provided", Name: "Custom"},
+					{Value: "nodejs", Name: "NodeJS"},
+					{Value: "nodejs4.3-edge", Name: "NodeJS4d3Edge"},
+					{Value: "nodejs4.3", Name: "NodeJS4d3"},
+					{Value: "nodejs6.10", Name: "NodeJS6d10"},
+					{Value: "nodejs8.10", Name: "NodeJS8d10"},
+					{Value: "dotnetcore1.0", Name: "DotnetCore1d0"},
+					{Value: "dotnetcore2.0", Name: "DotnetCore2d0"},
+				},
+			},
+		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
 			"aws_ami":                     {Tok: awsDataSource(awsMod, "getAmi")},
@@ -2560,10 +2623,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
-					"arn.ts",    // ARN typedef
-					"region.ts", // Region union type and constants
-					"tags.ts",   // Tags typedef (currently unused but left for compatibility)
-					"utils.ts",  // Helpers,
+					"arn.ts",   // ARN typedef
+					"tags.ts",  // Tags typedef (currently unused but left for compatibility)
+					"utils.ts", // Helpers,
 					"awsMixins.ts",
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
@@ -2635,7 +2697,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"lambda": {
 						DestFiles: []string{
-							"runtimes.ts", // a union type and constants for available Lambda runtimes.
 							"lambdaMixins.ts",
 						},
 					},
