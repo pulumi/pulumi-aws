@@ -43,6 +43,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         });
     ///         var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new Aws.DirectoryService.DirectoryArgs
     ///         {
+    ///             Name = "corp.notexample.com",
     ///             Password = "SuperSecretPassw0rd",
     ///             Size = "Small",
     ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
@@ -91,6 +92,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         });
     ///         var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new Aws.DirectoryService.DirectoryArgs
     ///         {
+    ///             Name = "corp.notexample.com",
     ///             Password = "SuperSecretPassw0rd",
     ///             Edition = "Standard",
     ///             Type = "MicrosoftAD",
@@ -140,6 +142,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         });
     ///         var connector = new Aws.DirectoryService.Directory("connector", new Aws.DirectoryService.DirectoryArgs
     ///         {
+    ///             Name = "corp.notexample.com",
     ///             Password = "SuperSecretPassw0rd",
     ///             Size = "Small",
     ///             Type = "ADConnector",
@@ -334,8 +337,8 @@ namespace Pulumi.Aws.DirectoryService
         /// <summary>
         /// The fully qualified name for the directory, such as `corp.example.com`
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The password for the directory administrator or connector user.

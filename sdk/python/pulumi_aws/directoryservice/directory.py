@@ -54,6 +54,7 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar_directory = aws.directoryservice.Directory("barDirectory",
+            name="corp.notexample.com",
             password="SuperSecretPassw0rd",
             size="Small",
             vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
@@ -83,6 +84,7 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         bar_directory = aws.directoryservice.Directory("barDirectory",
+            name="corp.notexample.com",
             password="SuperSecretPassw0rd",
             edition="Standard",
             type="MicrosoftAD",
@@ -113,6 +115,7 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
         connector = aws.directoryservice.Directory("connector",
+            name="corp.notexample.com",
             password="SuperSecretPassw0rd",
             size="Small",
             type="ADConnector",
@@ -164,6 +167,8 @@ class Directory(pulumi.CustomResource):
             __props__['description'] = description
             __props__['edition'] = edition
             __props__['enable_sso'] = enable_sso
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if password is None:
                 raise TypeError("Missing required property 'password'")

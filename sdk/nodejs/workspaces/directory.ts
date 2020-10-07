@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.1.0/24",
  * });
  * const mainDirectory = new aws.directoryservice.Directory("mainDirectory", {
+ *     name: "corp.example.com",
  *     password: "#S1ncerely",
  *     size: "Small",
  *     vpcSettings: {
