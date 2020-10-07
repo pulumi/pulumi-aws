@@ -74,13 +74,14 @@ class ComputeEnvironment(pulumi.CustomResource):
         aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
             role=aws_batch_service_role_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
+        sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
+        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", vpc_id=sample_vpc.id,
+            egress=[aws.ec2.SecurityGroupEgressArgs(
             from_port=0,
             to_port=0,
             protocol="-1",
             cidr_blocks=["0.0.0.0/0"],
         )])
-        sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
         sample_subnet = aws.ec2.Subnet("sampleSubnet",
             vpc_id=sample_vpc.id,
             cidr_block="10.1.1.0/24")
