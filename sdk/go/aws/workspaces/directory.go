@@ -49,6 +49,7 @@ import (
 // 			return err
 // 		}
 // 		mainDirectory, err := directoryservice.NewDirectory(ctx, "mainDirectory", &directoryservice.DirectoryArgs{
+// 			Name:     pulumi.String("corp.example.com"),
 // 			Password: pulumi.String("#S1ncerely"),
 // 			Size:     pulumi.String("Small"),
 // 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{

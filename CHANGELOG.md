@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Disable autonaming on `directoryservice.Directory` as the `name` needs to be fully qualified name for the directory
 
 ---
 

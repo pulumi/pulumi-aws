@@ -51,6 +51,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
+// 			Name:     pulumi.String("corp.notexample.com"),
 // 			Password: pulumi.String("SuperSecretPassw0rd"),
 // 			Size:     pulumi.String("Small"),
 // 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
@@ -107,6 +108,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
+// 			Name:     pulumi.String("corp.notexample.com"),
 // 			Password: pulumi.String("SuperSecretPassw0rd"),
 // 			Edition:  pulumi.String("Standard"),
 // 			Type:     pulumi.String("MicrosoftAD"),
@@ -164,6 +166,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = directoryservice.NewDirectory(ctx, "connector", &directoryservice.DirectoryArgs{
+// 			Name:     pulumi.String("corp.notexample.com"),
 // 			Password: pulumi.String("SuperSecretPassw0rd"),
 // 			Size:     pulumi.String("Small"),
 // 			Type:     pulumi.String("ADConnector"),
@@ -224,6 +227,9 @@ type Directory struct {
 // NewDirectory registers a new resource with the given unique name, arguments, and options.
 func NewDirectory(ctx *pulumi.Context,
 	name string, args *DirectoryArgs, opts ...pulumi.ResourceOption) (*Directory, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.Password == nil {
 		return nil, errors.New("missing required argument 'Password'")
 	}
@@ -333,7 +339,7 @@ type directoryArgs struct {
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso *bool `pulumi:"enableSso"`
 	// The fully qualified name for the directory, such as `corp.example.com`
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The password for the directory administrator or connector user.
 	Password string `pulumi:"password"`
 	// The short name of the directory, such as `CORP`.
@@ -361,7 +367,7 @@ type DirectoryArgs struct {
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso pulumi.BoolPtrInput
 	// The fully qualified name for the directory, such as `corp.example.com`
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// The password for the directory administrator or connector user.
 	Password pulumi.StringInput
 	// The short name of the directory, such as `CORP`.
