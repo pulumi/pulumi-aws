@@ -16,12 +16,33 @@ export const Python3d6Runtime: Runtime = "python3.6";
 export const Python3d7Runtime: Runtime = "python3.7";
 export const Python3d8Runtime: Runtime = "python3.8";
 export const CustomRuntime: Runtime = "provided";
+/**
+ * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+ */
 export const NodeJSRuntime: Runtime = "nodejs";
+/**
+ * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+ */
 export const NodeJS4d3EdgeRuntime: Runtime = "nodejs4.3-edge";
+/**
+ * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+ */
 export const NodeJS4d3Runtime: Runtime = "nodejs4.3";
+/**
+ * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+ */
 export const NodeJS6d10Runtime: Runtime = "nodejs6.10";
+/**
+ * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+ */
 export const NodeJS8d10Runtime: Runtime = "nodejs8.10";
+/**
+ * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+ */
 export const DotnetCore1d0Runtime: Runtime = "dotnetcore1.0";
+/**
+ * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+ */
 export const DotnetCore2d0Runtime: Runtime = "dotnetcore2.0";
 
 export type Runtime = "dotnetcore2.1" | "dotnetcore3.1" | "go1.x" | "java8" | "java11" | "ruby2.5" | "ruby2.7" | "nodejs10.x" | "nodejs12.x" | "python2.7" | "python3.6" | "python3.7" | "python3.8" | "provided" | "nodejs" | "nodejs4.3-edge" | "nodejs4.3" | "nodejs6.10" | "nodejs8.10" | "dotnetcore1.0" | "dotnetcore2.0";
