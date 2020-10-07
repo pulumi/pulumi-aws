@@ -23,10 +23,20 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lb"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		lbTgArn := ""
+// 		if param := cfg.Get("lbTgArn"); param != "" {
+// 			lbTgArn = param
+// 		}
+// 		lbTgName := ""
+// 		if param := cfg.Get("lbTgName"); param != "" {
+// 			lbTgName = param
+// 		}
 // 		opt0 := lbTgArn
 // 		opt1 := lbTgName
 // 		_, err := lb.LookupTargetGroup(ctx, &lb.LookupTargetGroupArgs{

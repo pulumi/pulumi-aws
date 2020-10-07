@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import {region} from "./vars";
-import {Region} from "../region";
+import {Region} from "..";
 
 /**
  * requireRegion fetches the AWS region, requiring that it exists; if it has not been configured, an error is thrown.

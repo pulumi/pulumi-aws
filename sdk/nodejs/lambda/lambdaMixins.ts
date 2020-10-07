@@ -20,7 +20,7 @@ import * as utils from "../utils";
 
 import { Function as LambdaFunction, FunctionArgs } from "./function";
 import * as permission from "./permission";
-import * as runtime from "./runtimes";
+import { Runtime, NodeJS12dXRuntime } from ".";
 
 /**
  * Context is the shape of the context object passed to a Function callback.  For more information,
@@ -182,7 +182,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     /**
      * The Lambda runtime to use.  If not provided, will default to [NodeJS8d10Runtime]
      */
-    runtime?: runtime.Runtime;
+    runtime?: Runtime;
 
     /**
      * Options to control which paths/packages should be included or excluded in the zip file containing
@@ -317,7 +317,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             ...args,
             code: new pulumi.asset.AssetArchive(codePaths),
             handler: serializedFileNameNoExtension + "." + handlerName,
-            runtime: args.runtime || runtime.NodeJS12dXRuntime,
+            runtime: args.runtime || NodeJS12dXRuntime,
             role: role.arn,
             timeout: args.timeout === undefined ? 180 : args.timeout,
         };

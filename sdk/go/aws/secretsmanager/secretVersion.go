@@ -50,10 +50,19 @@ import (
 //
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/secretsmanager"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		example := map[string]interface{}{
+// 			"key1": "value1",
+// 			"key2": "value2",
+// 		}
+// 		if param := cfg.GetBool("example"); param != nil {
+// 			example = param
+// 		}
 // 		tmpJSON0, err := json.Marshal(example)
 // 		if err != nil {
 // 			return err

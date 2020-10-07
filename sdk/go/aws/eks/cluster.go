@@ -64,10 +64,16 @@ import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/eks"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		clusterName := "example"
+// 		if param := cfg.Get("clusterName"); param != "" {
+// 			clusterName = param
+// 		}
 // 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
 // 			RetentionInDays: pulumi.Int(7),
 // 		})

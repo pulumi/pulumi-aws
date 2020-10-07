@@ -14,4 +14,6 @@ export * from "./lambdaMixins";
 export * from "./layerVersion";
 export * from "./permission";
 export * from "./provisionedConcurrencyConfig";
-export * from "./runtimes";
+
+// Export enums:
+export * from "../types/enums/lambda";
