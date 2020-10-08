@@ -332,7 +332,7 @@ func TestAccServerlessRaw(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "serverless-raw"),
-			RunUpdateTest: true,
+			RunUpdateTest: false,
 			// Two changes are known to occur during refresh of the resources in this example:
 			// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
 			// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`
