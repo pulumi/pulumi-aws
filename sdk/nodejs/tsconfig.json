@@ -960,6 +960,8 @@
         "transfer/server.ts",
         "transfer/sshKey.ts",
         "transfer/user.ts",
+        "types/enums/autoscaling/index.ts",
+        "types/enums/iam/index.ts",
         "types/enums/index.ts",
         "types/enums/lambda/index.ts",
         "types/index.ts",

@@ -20,27 +20,27 @@ export let DotnetCore2d1Runtime: Runtime = "dotnetcore2.1";
 export let DotnetCore3d1Runtime: Runtime = "dotnetcore3.1";
 /** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
 export let Go1dxRuntime:         Runtime = "go1.x";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The Java8Runtime constant is deprecated, use Runtime.Java8 instead. */
 export let Java8Runtime:         Runtime = "java8";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The Java11Runtime constant is deprecated, use Runtime.Java11 instead. */
 export let Java11Runtime:        Runtime = "java11";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The Ruby2d5Runtime constant is deprecated, use Runtime.Ruby2d5 instead. */
 export let Ruby2d5Runtime:       Runtime = "ruby2.5";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The Ruby2d7Runtime constant is deprecated, use Runtime.Ruby2d7 instead. */
 export let Ruby2d7Runtime:       Runtime = "ruby2.7";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The NodeJS10dXRuntime constant is deprecated, use Runtime.NodeJS10dX instead. */
 export let NodeJS10dXRuntime:    Runtime = "nodejs10.x";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The NodeJS12dXRuntime constant is deprecated, use Runtime.NodeJS12dX instead. */
 export let NodeJS12dXRuntime:    Runtime = "nodejs12.x";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The Python2d7Runtime constant is deprecated, use Runtime.Python2d7 instead. */
 export let Python2d7Runtime:     Runtime = "python2.7";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The Python3d6Runtime constant is deprecated, use Runtime.Python3d6 instead. */
 export let Python3d6Runtime:     Runtime = "python3.6";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The Python3d7Runtime constant is deprecated, use Runtime.Python3d7 instead. */
 export let Python3d7Runtime:     Runtime = "python3.7";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The Python3d8Runtime constant is deprecated, use Runtime.Python3d8 instead. */
 export let Python3d8Runtime:     Runtime = "python3.8";
-/** @deprecated The Go1dxRuntime constant is deprecated, use Runtime.Go1dx instead. */
+/** @deprecated The CustomRuntime constant is deprecated, use Runtime.Custom instead. */
 export let CustomRuntime:        Runtime = "provided";
 
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */

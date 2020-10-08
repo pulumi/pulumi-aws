@@ -7,6 +7,7 @@ export const Runtime = {
     DotnetCore3d1: "dotnetcore3.1",
     Go1dx: "go1.x",
     Java8: "java8",
+    Java8AL2: "java8.al2",
     Java11: "java11",
     Ruby2d5: "ruby2.5",
     Ruby2d7: "ruby2.7",
@@ -17,6 +18,7 @@ export const Runtime = {
     Python3d7: "python3.7",
     Python3d8: "python3.8",
     Custom: "provided",
+    CustomAL2: "provided.al2",
     /**
      * @deprecated No longer supported. New lambda functions created using this runtime will fail.
      */
@@ -47,4 +49,7 @@ export const Runtime = {
     DotnetCore2d0: "dotnetcore2.0",
 } as const;
 
+/**
+ * See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
+ */
 export type Runtime = (typeof Runtime)[keyof typeof Runtime];

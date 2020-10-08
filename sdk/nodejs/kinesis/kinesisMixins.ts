@@ -151,7 +151,7 @@ function createFunctionFromEventHandler(
     if (handler instanceof Function) {
         return new lambda.CallbackFunction(name, {
             callback: handler,
-            policies: [iam.ManagedPolicies.AWSLambdaFullAccess, iam.ManagedPolicies.AWSLambdaKinesisExecutionRole]
+            policies: [iam.ManagedPolicy.AWSLambdaFullAccess, iam.ManagedPolicy.AWSLambdaKinesisExecutionRole]
         } , opts);
     }
     else {

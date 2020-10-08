@@ -2,8 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as autoscaling from "./autoscaling";
+import * as iam from "./iam";
 import * as lambda from "./lambda";
-export {lambda};
+export {autoscaling, iam, lambda};
 
 export const Region = {
     AFSouth1: "af-south-1",

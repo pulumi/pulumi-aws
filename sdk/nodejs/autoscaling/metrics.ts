@@ -21,31 +21,24 @@
 //
 // These give a better developer experience and are just sugared strings.
 
+import {MetricsGranularity, Metric} from ".";
 
-import * as cloudwatch from "../cloudwatch";
-
+// @deprecated Use MetricsGranularity.OneMinute instead.
 export let OneMinuteMetricsGranularity: MetricsGranularity = "1Minute";
 
-// See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
-export type MetricsGranularity =
-    "1Minute";
-
+// @deprecated Use Metric.GroupMinSize instead.
 export let GroupMinSizeMetric: Metric = "GroupMinSize";
+// @deprecated Use Metric.GroupMaxSize instead.
 export let GroupMaxSizeMetric: Metric = "GroupMaxSize";
+// @deprecated Use Metric.GroupDesiredCapacity instead.
 export let GroupDesiredCapacityMetric: Metric = "GroupDesiredCapacity";
+// @deprecated Use Metric.GroupGroupInServiceInstancesMinSize instead.
 export let GroupInServiceInstancesMetric: Metric = "GroupInServiceInstances";
+// @deprecated Use Metric.GroupPendingInstances instead.
 export let GroupPendingInstances: Metric = "GroupPendingInstances";
+// @deprecated Use Metric.GroupStandbyInstances instead.
 export let GroupStandbyInstances: Metric = "GroupStandbyInstances";
+// @deprecated Use Metric.GroupTerminatingInstances instead.
 export let GroupTerminatingInstances: Metric = "GroupTerminatingInstances";
+// @deprecated Use Metric.GroupTotalInstances instead.
 export let GroupTotalInstances: Metric = "GroupTotalInstances";
-
-// See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
-export type Metric =
-    "GroupMinSize" |
-    "GroupMaxSize" |
-    "GroupDesiredCapacity" |
-    "GroupInServiceInstances" |
-    "GroupPendingInstances" |
-    "GroupStandbyInstances" |
-    "GroupTerminatingInstances" |
-    "GroupTotalInstances";
