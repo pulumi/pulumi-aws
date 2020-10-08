@@ -4,10 +4,15 @@
 package examples
 
 import (
+	"os"
 	"path/filepath"
 	"testing"
 
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAccMinimal(t *testing.T) {
