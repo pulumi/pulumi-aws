@@ -4,15 +4,10 @@
 package examples
 
 import (
-	"os"
 	"path/filepath"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestAccMinimal(t *testing.T) {
@@ -150,7 +145,7 @@ func TestAccLambdaLayerNewEnums(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "lambda-layer-new"),
-			RunUpdateTest: true,
+			RunUpdateTest: false,
 		})
 
 	integration.ProgramTest(t, &test)
