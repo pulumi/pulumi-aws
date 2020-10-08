@@ -74,8 +74,13 @@ namespace Pulumi.Aws.Batch
     ///             Role = awsBatchServiceRoleRole.Name,
     ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
     ///         });
+    ///         var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
     ///         var sampleSecurityGroup = new Aws.Ec2.SecurityGroup("sampleSecurityGroup", new Aws.Ec2.SecurityGroupArgs
     ///         {
+    ///             VpcId = sampleVpc.Id,
     ///             Egress = 
     ///             {
     ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
@@ -89,10 +94,6 @@ namespace Pulumi.Aws.Batch
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
     ///         });
     ///         var sampleSubnet = new Aws.Ec2.Subnet("sampleSubnet", new Aws.Ec2.SubnetArgs
     ///         {

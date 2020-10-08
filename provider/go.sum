@@ -986,6 +986,8 @@ github.com/pulumi/terraform-provider-aws v1.38.1-0.20200925100120-f6be38bce723 h
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200925100120-f6be38bce723/go.mod h1:26tJEW3ZVnXGoZGG7jCJvQMqMIHeCgJIukmeOfVODDI=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20201002192817-1621b4b89e1b h1:vGQGYSxP6ax0wj9kCbL5KY8xkHg207lbmVHsMv0IaOQ=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20201002192817-1621b4b89e1b/go.mod h1:4NIjacQW0H/CxaRA0le+cdpoZduR5scLgAaaZ6sGbqU=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20201007202230-c55a1eb33f6a h1:rXB9T7uyLWndFn6s1OsZf7kZPMJaG3RsCzK0j/RPhb8=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20201007202230-c55a1eb33f6a/go.mod h1:4NIjacQW0H/CxaRA0le+cdpoZduR5scLgAaaZ6sGbqU=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a h1:CUbap8oEhlXRiqVBcAGiW63iXuDY7iIwQLM4r7y8lw8=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200630203740-1846524be4ec h1:C0l29EHsfhH+reeRSmqr0sIzJipQpXssof3YZurRrVo=

@@ -66,7 +66,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		sampleVpc, err := ec2.NewVpc(ctx, "sampleVpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		sampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "sampleSecurityGroup", &ec2.SecurityGroupArgs{
+// 			VpcId: sampleVpc.ID(),
 // 			Egress: ec2.SecurityGroupEgressArray{
 // 				&ec2.SecurityGroupEgressArgs{
 // 					FromPort: pulumi.Int(0),
@@ -77,12 +84,6 @@ import (
 // 					},
 // 				},
 // 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		sampleVpc, err := ec2.NewVpc(ctx, "sampleVpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.1.0.0/16"),
 // 		})
 // 		if err != nil {
 // 			return err
