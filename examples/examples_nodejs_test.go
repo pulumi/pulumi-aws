@@ -139,7 +139,17 @@ func TestAccRoute53(t *testing.T) {
 func TestAccLambdaLayer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "lambda-layer"),
+			Dir:           filepath.Join(getCwd(t), "lambda-layer-old"),
+			RunUpdateTest: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccLambdaLayerNewEnums(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "lambda-layer-new"),
 			RunUpdateTest: true,
 		})
 
