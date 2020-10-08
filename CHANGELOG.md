@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to pulumi-terraform-bridge v2.10.4 which fixes a regression in how config values are passed to the provider
 
 ---
 
