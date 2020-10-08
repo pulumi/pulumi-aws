@@ -2,7 +2,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { Runtime } from "@pulumi/aws/lambda"
 import { asset } from "@pulumi/pulumi";
 
 const config = new pulumi.Config("aws");
@@ -15,8 +14,8 @@ let layer = new aws.lambda.LayerVersion("my-layer-version", {
         ),
     }),
     compatibleRuntimes: [
-        Runtime.NodeJS10dX,
-        Runtime.NodeJS12dX,
+        aws.lambda.Runtime.NodeJS10dX,
+        aws.lambda.Runtime.NodeJS12dX,
     ],
     layerName: "lambda_layer_name",
 }, providerOpts);
