@@ -6,6 +6,9 @@ CHANGELOG
 
 ---
 
+## 3.6.1 (2020-10-08)
+* Upgrade to pulumi-terraform-bridge v2.10.4 which fixes a regression in how config values are passed to the provider
+
 ## 3.6.0 (2020-10-07)
 * Upgrade to v3.9.0 of the AWS Terraform Provider
 * Upgrade to pulumi-terraform-bridge v2.10.2
