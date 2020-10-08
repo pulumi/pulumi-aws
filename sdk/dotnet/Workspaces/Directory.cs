@@ -40,6 +40,7 @@ namespace Pulumi.Aws.Workspaces
     ///         });
     ///         var mainDirectory = new Aws.DirectoryService.Directory("mainDirectory", new Aws.DirectoryService.DirectoryArgs
     ///         {
+    ///             Name = "corp.example.com",
     ///             Password = "#S1ncerely",
     ///             Size = "Small",
     ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs

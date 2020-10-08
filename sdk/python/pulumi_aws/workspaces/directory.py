@@ -43,6 +43,7 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1b",
             cidr_block="10.0.1.0/24")
         main_directory = aws.directoryservice.Directory("mainDirectory",
+            name="corp.example.com",
             password="#S1ncerely",
             size="Small",
             vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(

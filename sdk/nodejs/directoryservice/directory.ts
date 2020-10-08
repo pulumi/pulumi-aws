@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.2.0/24",
  * });
  * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",
  *     vpcSettings: {
@@ -62,6 +63,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.2.0/24",
  * });
  * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     edition: "Standard",
  *     type: "MicrosoftAD",
@@ -95,6 +97,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.2.0/24",
  * });
  * const connector = new aws.directoryservice.Directory("connector", {
+ *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",
  *     type: "ADConnector",
@@ -228,6 +231,9 @@ export class Directory extends pulumi.CustomResource {
             inputs["vpcSettings"] = state ? state.vpcSettings : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.password === undefined) {
                 throw new Error("Missing required property 'password'");
             }
@@ -351,7 +357,7 @@ export interface DirectoryArgs {
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The password for the directory administrator or connector user.
      */

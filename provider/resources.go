@@ -797,8 +797,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_devicefarm_project": {Tok: awsResource(devicefarmMod, "Project")},
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
-			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
-			"aws_directory_service_log_subscription":      {Tok: awsResource(directoryserviceMod, "LogService")},
+			"aws_directory_service_directory": {
+				Tok: awsResource(directoryserviceMod, "Directory"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {Name: "name"},
+				},
+			},
+			"aws_directory_service_log_subscription": {Tok: awsResource(directoryserviceMod, "LogService")},
 			// Document DB
 			"aws_docdb_cluster":                 {Tok: awsResource(docdbMod, "Cluster")},
 			"aws_docdb_cluster_instance":        {Tok: awsResource(docdbMod, "ClusterInstance")},
