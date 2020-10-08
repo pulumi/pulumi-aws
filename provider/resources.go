@@ -17,7 +17,6 @@ package provider
 import (
 	"errors"
 	"fmt"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"math/rand"
 	"os"
 	"strings"
@@ -29,6 +28,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
@@ -2203,11 +2203,11 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "ap-northeast-1", Name: "APNortheast1"},
 					{Value: "ap-northeast-2", Name: "APNortheast2"},
 					{Value: "ap-south-1", Name: "APSouth1"},
-					{Value: "ap-southeast-2", Name: "APSouthEast2"}, // Inconsistent casing from existing SDK
+					{Value: "ap-southeast-2", Name: "APSoutheast2"},
 					{Value: "ap-southeast-1", Name: "APSoutheast1"},
 					{Value: "ca-central-1", Name: "CACentral"},
 					{Value: "cn-north-1", Name: "CNNorth1"},
-					{Value: "cn-northwest-1", Name: "CNNorthWest1"}, // Inconsistent casing from existing SDK
+					{Value: "cn-northwest-1", Name: "CNNorthwest1"},
 					{Value: "eu-central-1", Name: "EUCentral1"},
 					{Value: "eu-north-1", Name: "EUNorth1"},
 					{Value: "eu-west-1", Name: "EUWest1"},
@@ -2623,9 +2623,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
-					"arn.ts",   // ARN typedef
-					"tags.ts",  // Tags typedef (currently unused but left for compatibility)
-					"utils.ts", // Helpers,
+					"arn.ts",    // ARN typedef
+					"region.ts", // Region union type and constants
+					"tags.ts",   // Tags typedef (currently unused but left for compatibility)
+					"utils.ts",  // Helpers,
 					"awsMixins.ts",
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
@@ -2697,6 +2698,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"lambda": {
 						DestFiles: []string{
+							"runtimes.ts", // a union type and constants for available Lambda runtimes.
 							"lambdaMixins.ts",
 						},
 					},

@@ -5,32 +5,34 @@
 import * as lambda from "./lambda";
 export {lambda};
 
-export const AFSouth1Region: Region = "af-south-1";
-export const APEast1Region: Region = "ap-east-1";
-export const APNortheast1Region: Region = "ap-northeast-1";
-export const APNortheast2Region: Region = "ap-northeast-2";
-export const APSouth1Region: Region = "ap-south-1";
-export const APSouthEast2Region: Region = "ap-southeast-2";
-export const APSoutheast1Region: Region = "ap-southeast-1";
-export const CACentralRegion: Region = "ca-central-1";
-export const CNNorth1Region: Region = "cn-north-1";
-export const CNNorthWest1Region: Region = "cn-northwest-1";
-export const EUCentral1Region: Region = "eu-central-1";
-export const EUNorth1Region: Region = "eu-north-1";
-export const EUWest1Region: Region = "eu-west-1";
-export const EUWest2Region: Region = "eu-west-2";
-export const EUWest3Region: Region = "eu-west-3";
-export const EUSouth1Region: Region = "eu-south-1";
-export const MESouth1Region: Region = "me-south-1";
-export const SAEast1Region: Region = "sa-east-1";
-export const USGovEast1Region: Region = "us-gov-east-1";
-export const USGovWest1Region: Region = "us-gov-west-1";
-export const USEast1Region: Region = "us-east-1";
-export const USEast2Region: Region = "us-east-2";
-export const USWest1Region: Region = "us-west-1";
-export const USWest2Region: Region = "us-west-2";
+export const Region = {
+    AFSouth1: "af-south-1",
+    APEast1: "ap-east-1",
+    APNortheast1: "ap-northeast-1",
+    APNortheast2: "ap-northeast-2",
+    APSouth1: "ap-south-1",
+    APSoutheast2: "ap-southeast-2",
+    APSoutheast1: "ap-southeast-1",
+    CACentral: "ca-central-1",
+    CNNorth1: "cn-north-1",
+    CNNorthwest1: "cn-northwest-1",
+    EUCentral1: "eu-central-1",
+    EUNorth1: "eu-north-1",
+    EUWest1: "eu-west-1",
+    EUWest2: "eu-west-2",
+    EUWest3: "eu-west-3",
+    EUSouth1: "eu-south-1",
+    MESouth1: "me-south-1",
+    SAEast1: "sa-east-1",
+    USGovEast1: "us-gov-east-1",
+    USGovWest1: "us-gov-west-1",
+    USEast1: "us-east-1",
+    USEast2: "us-east-2",
+    USWest1: "us-west-1",
+    USWest2: "us-west-2",
+} as const;
 
 /**
  * A Region represents any valid Amazon region that may be targeted with deployments.
  */
-export type Region = "af-south-1" | "ap-east-1" | "ap-northeast-1" | "ap-northeast-2" | "ap-south-1" | "ap-southeast-2" | "ap-southeast-1" | "ca-central-1" | "cn-north-1" | "cn-northwest-1" | "eu-central-1" | "eu-north-1" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "eu-south-1" | "me-south-1" | "sa-east-1" | "us-gov-east-1" | "us-gov-west-1" | "us-east-1" | "us-east-2" | "us-west-1" | "us-west-2";
+export type Region = (typeof Region)[keyof typeof Region];

@@ -20,7 +20,7 @@ import * as utils from "../utils";
 
 import { Function as LambdaFunction, FunctionArgs } from "./function";
 import * as permission from "./permission";
-import { Runtime, NodeJS12dXRuntime } from ".";
+import { Runtime } from ".";
 
 /**
  * Context is the shape of the context object passed to a Function callback.  For more information,
@@ -317,7 +317,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             ...args,
             code: new pulumi.asset.AssetArchive(codePaths),
             handler: serializedFileNameNoExtension + "." + handlerName,
-            runtime: args.runtime || NodeJS12dXRuntime,
+            runtime: args.runtime || Runtime.NodeJS12dX,
             role: role.arn,
             timeout: args.timeout === undefined ? 180 : args.timeout,
         };

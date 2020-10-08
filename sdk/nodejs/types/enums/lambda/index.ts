@@ -2,47 +2,49 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const DotnetCore2d1Runtime: Runtime = "dotnetcore2.1";
-export const DotnetCore3d1Runtime: Runtime = "dotnetcore3.1";
-export const Go1dxRuntime: Runtime = "go1.x";
-export const Java8Runtime: Runtime = "java8";
-export const Java11Runtime: Runtime = "java11";
-export const Ruby2d5Runtime: Runtime = "ruby2.5";
-export const Ruby2d7Runtime: Runtime = "ruby2.7";
-export const NodeJS10dXRuntime: Runtime = "nodejs10.x";
-export const NodeJS12dXRuntime: Runtime = "nodejs12.x";
-export const Python2d7Runtime: Runtime = "python2.7";
-export const Python3d6Runtime: Runtime = "python3.6";
-export const Python3d7Runtime: Runtime = "python3.7";
-export const Python3d8Runtime: Runtime = "python3.8";
-export const CustomRuntime: Runtime = "provided";
-/**
- * @deprecated No longer supported. New lambda functions created using this runtime will fail.
- */
-export const NodeJSRuntime: Runtime = "nodejs";
-/**
- * @deprecated No longer supported. New lambda functions created using this runtime will fail.
- */
-export const NodeJS4d3EdgeRuntime: Runtime = "nodejs4.3-edge";
-/**
- * @deprecated No longer supported. New lambda functions created using this runtime will fail.
- */
-export const NodeJS4d3Runtime: Runtime = "nodejs4.3";
-/**
- * @deprecated No longer supported. New lambda functions created using this runtime will fail.
- */
-export const NodeJS6d10Runtime: Runtime = "nodejs6.10";
-/**
- * @deprecated No longer supported. New lambda functions created using this runtime will fail.
- */
-export const NodeJS8d10Runtime: Runtime = "nodejs8.10";
-/**
- * @deprecated No longer supported. New lambda functions created using this runtime will fail.
- */
-export const DotnetCore1d0Runtime: Runtime = "dotnetcore1.0";
-/**
- * @deprecated No longer supported. New lambda functions created using this runtime will fail.
- */
-export const DotnetCore2d0Runtime: Runtime = "dotnetcore2.0";
+export const Runtime = {
+    DotnetCore2d1: "dotnetcore2.1",
+    DotnetCore3d1: "dotnetcore3.1",
+    Go1dx: "go1.x",
+    Java8: "java8",
+    Java11: "java11",
+    Ruby2d5: "ruby2.5",
+    Ruby2d7: "ruby2.7",
+    NodeJS10dX: "nodejs10.x",
+    NodeJS12dX: "nodejs12.x",
+    Python2d7: "python2.7",
+    Python3d6: "python3.6",
+    Python3d7: "python3.7",
+    Python3d8: "python3.8",
+    Custom: "provided",
+    /**
+     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+     */
+    NodeJS: "nodejs",
+    /**
+     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+     */
+    NodeJS4d3Edge: "nodejs4.3-edge",
+    /**
+     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+     */
+    NodeJS4d3: "nodejs4.3",
+    /**
+     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+     */
+    NodeJS6d10: "nodejs6.10",
+    /**
+     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+     */
+    NodeJS8d10: "nodejs8.10",
+    /**
+     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+     */
+    DotnetCore1d0: "dotnetcore1.0",
+    /**
+     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
+     */
+    DotnetCore2d0: "dotnetcore2.0",
+} as const;
 
-export type Runtime = "dotnetcore2.1" | "dotnetcore3.1" | "go1.x" | "java8" | "java11" | "ruby2.5" | "ruby2.7" | "nodejs10.x" | "nodejs12.x" | "python2.7" | "python3.6" | "python3.7" | "python3.8" | "provided" | "nodejs" | "nodejs4.3-edge" | "nodejs4.3" | "nodejs6.10" | "nodejs8.10" | "dotnetcore1.0" | "dotnetcore2.0";
+export type Runtime = (typeof Runtime)[keyof typeof Runtime];

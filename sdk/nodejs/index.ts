@@ -20,6 +20,7 @@ export * from "./getPrefixList";
 export * from "./getRegion";
 export * from "./getRegions";
 export * from "./provider";
+export * from "./region";
 export * from "./tags";
 export * from "./utils";
 
