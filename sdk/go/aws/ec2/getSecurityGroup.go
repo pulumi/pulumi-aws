@@ -24,10 +24,13 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		securityGroupId := cfg.RequireObject("securityGroupId")
 // 		opt0 := securityGroupId
 // 		selected, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
 // 			Id: &opt0,

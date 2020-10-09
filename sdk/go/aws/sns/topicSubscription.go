@@ -98,10 +98,31 @@ import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sns"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/sqs"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		sns := map[string]interface{}{
+// 			"account-id":   "111111111111",
+// 			"role-name":    "service/service",
+// 			"name":         "example-sns-topic",
+// 			"display_name": "example",
+// 			"region":       "us-west-1",
+// 		}
+// 		if param := cfg.GetBool("sns"); param != nil {
+// 			sns = param
+// 		}
+// 		sqs := map[string]interface{}{
+// 			"account-id": "222222222222",
+// 			"role-name":  "service/service",
+// 			"name":       "example-sqs-queue",
+// 			"region":     "us-east-1",
+// 		}
+// 		if param := cfg.GetBool("sqs"); param != nil {
+// 			sqs = param
+// 		}
 // 		opt0 := "__default_policy_ID"
 // 		sns_topic_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			PolicyId: &opt0,

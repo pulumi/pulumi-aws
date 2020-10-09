@@ -17,10 +17,13 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		subnetId := cfg.RequireObject("subnetId")
 // 		opt0 := aws_subnet.Public.Id
 // 		_, err := ec2.LookupNatGateway(ctx, &ec2.LookupNatGatewayArgs{
 // 			SubnetId: &opt0,
