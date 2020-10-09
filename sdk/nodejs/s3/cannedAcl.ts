@@ -19,22 +19,21 @@
 //
 // These give a better developer experience and are just sugared strings.
 
-export let PrivateAcl:                CannedAcl = "private";
-export let PublicReadAcl:             CannedAcl = "public-read";
-export let PublicReadWriteAcl:        CannedAcl = "public-read-write";
-export let AwsExecReadAcl:            CannedAcl = "aws-exec-read";
-export let AuthenticatedReadAcl:      CannedAcl = "authenticated-read";
-export let BucketOwnerReadAcl:        CannedAcl = "bucket-owner-read";
-export let BucketOwnerFullControlAcl: CannedAcl = "bucket-owner-full-control";
-export let LogDeliveryWriteAcl:       CannedAcl = "log-delivery-write";
+import {CannedAcl} from ".";
 
-// See https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl
-export type CannedAcl =
-    "private" |
-    "public-read" |
-    "public-read-write" |
-    "aws-exec-read" |
-    "authenticated-read" |
-    "bucket-owner-read" |
-    "bucket-owner-full-control" |
-    "log-delivery-write"
+/** @deprecated Use CannedAcl.Private instead. */
+export let PrivateAcl:                CannedAcl = "private";
+/** @deprecated Use CannedAcl.PublicRead instead. */
+export let PublicReadAcl:             CannedAcl = "public-read";
+/** @deprecated Use CannedAcl.PublicReadWrite instead. */
+export let PublicReadWriteAcl:        CannedAcl = "public-read-write";
+/** @deprecated Use CannedAcl.AwsExecRead instead. */
+export let AwsExecReadAcl:            CannedAcl = "aws-exec-read";
+/** @deprecated Use CannedAcl.AuthenticatedRead instead. */
+export let AuthenticatedReadAcl:      CannedAcl = "authenticated-read";
+/** @deprecated Use CannedAcl.BucketOwnerRead instead. */
+export let BucketOwnerReadAcl:        CannedAcl = "bucket-owner-read";
+/** @deprecated Use CannedAcl.BucketOwnerFullControl instead. */
+export let BucketOwnerFullControlAcl: CannedAcl = "bucket-owner-full-control";
+/** @deprecated Use CannedAcl.LogDeliveryWrite instead. */
+export let LogDeliveryWriteAcl:       CannedAcl = "log-delivery-write";

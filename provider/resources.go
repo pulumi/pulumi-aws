@@ -2819,23 +2819,136 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "dotnetcore2.0", Name: "DotnetCore2d0", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
 				},
 			},
+			"aws:rds/EngineMode:EngineMode": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type: "string",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Name: "Provisioned", Value: "provisioned"},
+					{Name: "Serverless", Value: "serverless"},
+					{Name: "ParallelQuery", Value: "parallelquery"},
+					{Name: "Global", Value: "global"},
+				},
+			},
+			"aws:rds/EngineType:EngineType": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type: "string",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Name: "Aurora", Value: "aurora"},
+					{Name: "AuroraMysql", Value: "aurora-mysql"},
+					{Name: "AuroraPostgresql", Value: "aurora-postgresql"},
+				},
+			},
+			"aws:rds/InstanceType:InstanceType": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type: "string",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Name: "T3_Micro", Value: "db.t3.micro"},
+					{Name: "T3_Small", Value: "db.t3.small"},
+					{Name: "T3_Medium", Value: "db.t3.medium"},
+					{Name: "T3_Large", Value: "db.t3.large"},
+					{Name: "T3_XLarge", Value: "db.t3.xlarge"},
+					{Name: "T3_2XLarge", Value: "db.t3.2xlarge"},
+					{Name: "T2_Micro", Value: "db.t2.micro"},
+					{Name: "T2_Small", Value: "db.t2.small"},
+					{Name: "T2_Medium", Value: "db.t2.medium"},
+					{Name: "T2_Large", Value: "db.t2.large"},
+					{Name: "T2_XLarge", Value: "db.t2.xlarge"},
+					{Name: "T2_2XLarge", Value: "db.t2.2xlarge"},
+					{Name: "M1_Small", Value: "db.m1.small"},
+					{Name: "M1_Medium", Value: "db.m1.medium"},
+					{Name: "M1_Large", Value: "db.m1.large"},
+					{Name: "M1_XLarge", Value: "db.m1.xlarge"},
+					{Name: "M2_XLarge", Value: "db.m2.xlarge"},
+					{Name: "M2_2XLarge", Value: "db.m2.2xlarge"},
+					{Name: "M2_4XLarge", Value: "db.m2.4xlarge"},
+					{Name: "M3_Medium", Value: "db.m3.medium"},
+					{Name: "M3_Large", Value: "db.m3.large"},
+					{Name: "M3_XLarge", Value: "db.m3.xlarge"},
+					{Name: "M3_2XLarge", Value: "db.m3.2xlarge"},
+					{Name: "M4_Large", Value: "db.m4.large"},
+					{Name: "M4_XLarge", Value: "db.m4.xlarge"},
+					{Name: "M4_2XLarge", Value: "db.m4.2xlarge"},
+					{Name: "M4_4XLarge", Value: "db.m4.4xlarge"},
+					{Name: "M4_10XLarge", Value: "db.m4.10xlarge"},
+					{Name: "M4_16XLarge", Value: "db.m4.10xlarge"},
+					{Name: "M5_Large", Value: "db.m5.large"},
+					{Name: "M5_XLarge", Value: "db.m5.xlarge"},
+					{Name: "M5_2XLarge", Value: "db.m5.2xlarge"},
+					{Name: "M5_4XLarge", Value: "db.m5.4xlarge"},
+					{Name: "M5_12XLarge", Value: "db.m5.12xlarge"},
+					{Name: "M5_24XLarge", Value: "db.m5.24xlarge"},
+					{Name: "R3_Large", Value: "db.r3.large"},
+					{Name: "R3_XLarge", Value: "db.r3.xlarge"},
+					{Name: "R3_2XLarge", Value: "db.r3.2xlarge"},
+					{Name: "R3_4XLarge", Value: "db.r3.4xlarge"},
+					{Name: "R3_8XLarge", Value: "db.r3.8xlarge"},
+					{Name: "R4_Large", Value: "db.r4.large"},
+					{Name: "R4_XLarge", Value: "db.r4.xlarge"},
+					{Name: "R4_2XLarge", Value: "db.r4.2xlarge"},
+					{Name: "R4_4XLarge", Value: "db.r4.4xlarge"},
+					{Name: "R4_8XLarge", Value: "db.r4.8xlarge"},
+					{Name: "R4_16XLarge", Value: "db.r4.16xlarge"},
+					{Name: "R5_Large", Value: "db.r5.large"},
+					{Name: "R5_XLarge", Value: "db.r5.xlarge"},
+					{Name: "R5_2XLarge", Value: "db.r5.2xlarge"},
+					{Name: "R5_4XLarge", Value: "db.r5.4xlarge"},
+					{Name: "R5_12XLarge", Value: "db.r5.12xlarge"},
+					{Name: "R5_24XLarge", Value: "db.r5.24xlarge"},
+					{Name: "X1_16XLarge", Value: "db.x1.16xlarge"},
+					{Name: "X1_32XLarge", Value: "db.x1.32xlarge"},
+					{Name: "X1E_XLarge", Value: "db.x1e.xlarge"},
+					{Name: "X1E_2XLarge", Value: "db.x1e.2xlarge"},
+					{Name: "X1E_4XLarge", Value: "db.x1e.4xlarge"},
+					{Name: "X1E_8XLarge", Value: "db.x1e.8xlarge"},
+					{Name: "X1E_32XLarge", Value: "db.x1e.32xlarge"},
+				},
+			},
+			"aws:rds/StorageType:StorageType": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type: "string",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Name: "Standard", Value: "standard"},
+					{Name: "GP2", Value: "gp2"},
+					{Name: "IO1", Value: "io1"},
+				},
+			},
 			"aws:route53/RecordType:RecordType": {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
 				Enum: []*schema.EnumValueSpec{
-					{Name: "A", Value: "A"},
-					{Name: "AAAA", Value: "AAAA"},
-					{Name: "CNAME", Value: "CNAME"},
-					{Name: "CAA", Value: "CAA"},
-					{Name: "MX", Value: "MX"},
-					{Name: "NAPTR", Value: "NAPTR"},
-					{Name: "NS", Value: "NS"},
-					{Name: "PTR", Value: "PTR"},
-					{Name: "SOA", Value: "SOA"},
-					{Name: "SPF", Value: "SPF"},
-					{Name: "SRV", Value: "SRV"},
-					{Name: "TXT", Value: "TXT"},
+					{Value: "A"},
+					{Value: "AAAA"},
+					{Value: "CNAME"},
+					{Value: "CAA"},
+					{Value: "MX"},
+					{Value: "NAPTR"},
+					{Value: "NS"},
+					{Value: "PTR"},
+					{Value: "SOA"},
+					{Value: "SPF"},
+					{Value: "SRV"},
+					{Value: "TXT"},
+				},
+			},
+			"aws:s3/CannedAcl:CannedAcl": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type:        "string",
+					Description: "See https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Name: "Private", Value: "private"},
+					{Name: "PublicRead", Value: "public-read"},
+					{Name: "PublicReadWrite", Value: "public-read-write"},
+					{Name: "AwsExecRead", Value: "aws-exec-read"},
+					{Name: "AuthenticatedRead", Value: "authenticated-read"},
+					{Name: "BucketOwnerRead", Value: "bucket-owner-read"},
+					{Name: "BucketOwnerFullControl", Value: "bucket-owner-full-control"},
+					{Name: "LogDeliveryWrite", Value: "log-delivery-write"},
 				},
 			},
 			"aws:ssm/ParameterType:ParameterType": {
@@ -3283,7 +3396,7 @@ func Provider() tfbridge.ProviderInfo {
 					"iam": {
 						DestFiles: []string{
 							"documents.ts",       // policy document schemas.
-							"managedPolicies.ts", // handy constants that predefine all known managed policies.
+							"managedPolicies.ts", // Deprecated ManagedPolicy constants.
 							"principals.ts",      // Pre-defined objects representing Service Principals
 						},
 					},
@@ -3294,16 +3407,16 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"lambda": {
 						DestFiles: []string{
-							"runtimes.ts", // Deprecated lambda runtime constants
+							"runtimes.ts", // Deprecated lambda Runtime constants
 							"lambdaMixins.ts",
 						},
 					},
 					"rds": {
 						DestFiles: []string{
-							"engineMode.ts",
-							"engineType.ts",
-							"instanceType.ts",
-							"storageType.ts",
+							"engineMode.ts",   // Deprecated EngineMode constants
+							"engineType.ts",   // Deprecated EngineType constants
+							"instanceType.ts", // Deprecated InstanceType constants
+							"storageType.ts",  // Deprecated StorageType constants
 						},
 					},
 					"route53": {
@@ -3313,7 +3426,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"s3": {
 						DestFiles: []string{
-							"cannedAcl.ts", // a union type and constants for canned ACL names.
+							"cannedAcl.ts", // Deprecated CannedAcl constants
 							"routingRules.ts",
 							"s3Mixins.ts",
 						},

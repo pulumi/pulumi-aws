@@ -18,3 +18,6 @@ export * from "./getBucketObjects";
 export * from "./inventory";
 export * from "./routingRules";
 export * from "./s3Mixins";
+
+// Export enums:
+export * from "../types/enums/s3";

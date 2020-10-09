@@ -31,3 +31,6 @@ export * from "./securityGroup";
 export * from "./snapshot";
 export * from "./storageType";
 export * from "./subnetGroup";
+
+// Export enums:
+export * from "../types/enums/rds";

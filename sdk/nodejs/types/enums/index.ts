@@ -8,9 +8,11 @@ import * as autoscaling from "./autoscaling";
 import * as ec2 from "./ec2";
 import * as iam from "./iam";
 import * as lambda from "./lambda";
+import * as rds from "./rds";
 import * as route53 from "./route53";
+import * as s3 from "./s3";
 import * as ssm from "./ssm";
-export {alb, applicationloadbalancing, autoscaling, ec2, iam, lambda, route53, ssm};
+export {alb, applicationloadbalancing, autoscaling, ec2, iam, lambda, rds, route53, s3, ssm};
 
 export const Region = {
     AFSouth1: "af-south-1",
