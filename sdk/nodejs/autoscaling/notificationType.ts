@@ -19,16 +19,15 @@
 //
 // These give a better developer experience and are just sugared strings.
 
-export let InstanceLaunchNotification:         NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH";
-export let InstanceTerminateNotification:      NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE";
-export let InstanceLaunchErrorNotification:    NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR";
-export let InstanceTerminateErrorNotification: NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR";
-export let TestNotification:                   NotificationType = "autoscaling:TEST_NOTIFICATION";
+import {NotificationType} from ".";
 
-// See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html
-export type NotificationType =
-    "autoscaling:EC2_INSTANCE_LAUNCH" |
-    "autoscaling:EC2_INSTANCE_TERMINATE" |
-    "autoscaling:EC2_INSTANCE_LAUNCH_ERROR" |
-    "autoscaling:EC2_INSTANCE_TERMINATE_ERROR" |
-    "autoscaling:TEST_NOTIFICATION"
+// @deprecated Use NotificationType.InstanceLaunch instead.
+export let InstanceLaunchNotification:         NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH";
+// @deprecated Use NotificationType.InstanceTerminate instead.
+export let InstanceTerminateNotification:      NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE";
+// @deprecated Use NotificationType.InstanceLaunchError instead.
+export let InstanceLaunchErrorNotification:    NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR";
+// @deprecated Use NotificationType.InstanceTerminateError instead.
+export let InstanceTerminateErrorNotification: NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR";
+// @deprecated Use NotificationType.Test instead.
+export let TestNotification:                   NotificationType = "autoscaling:TEST_NOTIFICATION";
