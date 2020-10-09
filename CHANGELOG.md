@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Disable autonaming on `directoryservice.Directory` as the `name` needs to be fully qualified name for the directory
+* Upgrade to pulumi-terraform-bridge v2.11.0
 
 ---
 
