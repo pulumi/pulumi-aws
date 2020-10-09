@@ -967,6 +967,8 @@
         "types/enums/iam/index.ts",
         "types/enums/index.ts",
         "types/enums/lambda/index.ts",
+        "types/enums/route53/index.ts",
+        "types/enums/ssm/index.ts",
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",

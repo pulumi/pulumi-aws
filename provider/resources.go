@@ -2819,6 +2819,35 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "dotnetcore2.0", Name: "DotnetCore2d0", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
 				},
 			},
+			"aws:route53/RecordType:RecordType": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type: "string",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Name: "A", Value: "A"},
+					{Name: "AAAA", Value: "AAAA"},
+					{Name: "CNAME", Value: "CNAME"},
+					{Name: "CAA", Value: "CAA"},
+					{Name: "MX", Value: "MX"},
+					{Name: "NAPTR", Value: "NAPTR"},
+					{Name: "NS", Value: "NS"},
+					{Name: "PTR", Value: "PTR"},
+					{Name: "SOA", Value: "SOA"},
+					{Name: "SPF", Value: "SPF"},
+					{Name: "SRV", Value: "SRV"},
+					{Name: "TXT", Value: "TXT"},
+				},
+			},
+			"aws:ssm/ParameterType:ParameterType": {
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Type: "string",
+				},
+				Enum: []*schema.EnumValueSpec{
+					{Value: "String"},
+					{Value: "StringList"},
+					{Value: "SecureString"},
+				},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -3265,7 +3294,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"lambda": {
 						DestFiles: []string{
-							"runtimes.ts", // a union type and constants for available Lambda runtimes.
+							"runtimes.ts", // Deprecated lambda runtime constants
 							"lambdaMixins.ts",
 						},
 					},
@@ -3279,7 +3308,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"route53": {
 						DestFiles: []string{
-							"recordType.ts",
+							"recordType.ts", // Deprecated RecordType constants
 						},
 					},
 					"s3": {
@@ -3307,7 +3336,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"ssm": {
 						DestFiles: []string{
-							"parameterType.ts",
+							"parameterType.ts", // Deprecated ParameterType constants
 						},
 					},
 				},

@@ -16,3 +16,6 @@ export * from "./parameterType";
 export * from "./patchBaseline";
 export * from "./patchGroup";
 export * from "./resourceDataSync";
+
+// Export enums:
+export * from "../types/enums/ssm";
