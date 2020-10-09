@@ -2,10 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as alb from "./alb";
+import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as autoscaling from "./autoscaling";
+import * as ec2 from "./ec2";
 import * as iam from "./iam";
 import * as lambda from "./lambda";
-export {autoscaling, iam, lambda};
+export {alb, applicationloadbalancing, autoscaling, ec2, iam, lambda};
 
 export const Region = {
     AFSouth1: "af-south-1",

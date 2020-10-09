@@ -113,3 +113,6 @@ export * from "./vpnConnectionRoute";
 export * from "./vpnGateway";
 export * from "./vpnGatewayAttachment";
 export * from "./vpnGatewayRoutePropagation";
+
+// Export enums:
+export * from "../types/enums/ec2";

@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export const AllProtocols:  ProtocolType = "all";
-export const TCPProtocol:   ProtocolType = "tcp";
-export const UDPProtocol:   ProtocolType = "udp";
-export const ICMPProtocol:  ProtocolType = "icmp";
+import {ProtocolType} from ".";
 
-export type ProtocolType =
-    "all"  |
-    "icmp" |
-    "tcp"  |
-    "udp"  ;
+/** @deprecated Use ProtocolType.All instead. */
+export const AllProtocols:  ProtocolType = "all";
+/** @deprecated Use ProtocolType.TCP. instead. */
+export const TCPProtocol:   ProtocolType = "tcp";
+/** @deprecated Use ProtocolType.UDP instead. */
+export const UDPProtocol:   ProtocolType = "udp";
+/** @deprecated Use ProtocolType.ICMP instead. */
+export const ICMPProtocol:  ProtocolType = "icmp";

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export const ApplicationLoadBalancer: LoadBalancerType = "application";
-export const NetworkLoadBalancer:     LoadBalancerType = "network";
+import {LoadBalancerType} from ".";
 
-export type LoadBalancerType =
-    "application" |
-    "network"     ;
+/** @deprecated Use LoadBalancerType.Application instead. */
+export const ApplicationLoadBalancer: LoadBalancerType = "application";
+/** @deprecated Use LoadBalancerType.Network instead. */
+export const NetworkLoadBalancer:     LoadBalancerType = "network";
