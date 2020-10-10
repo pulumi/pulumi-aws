@@ -21,6 +21,7 @@
 
 import {InstancePlatform} from ".";
 
+/** @deprecated Use InstancePlatform instead. */
 export module InstancePlatforms {
     /** @deprecated Use InstancePlatform.LinuxUnix instead. */
     export const LinuxUnixPlatform: InstancePlatform = "Linux/UNIX";
@@ -40,3 +41,35 @@ export module InstancePlatforms {
     export const WindowsWithSqlServerWebPlatform: InstancePlatform = "Windows with SQL Server Web";
 }
 
+/**
+ * @deprecated Use InstancePlatform.LinuxUnix instead.
+ */
+export const LinuxUnixPlatform: InstancePlatform = "Linux/UNIX";
+/**
+ *@deprecated Use InstancePlatform.RedHatEnterpriseLinux instead.
+ */
+export const RedHatEnterpriseLinuxPlatform: InstancePlatform = "Red Hat Enterprise Linux";
+/**
+ *@deprecated Use InstancePlatform.SuseLinux instead.
+ */
+export const SuseLinuxPlatform: InstancePlatform = "SUSE Linux";
+/**
+ *@deprecated Use InstancePlatform.Windows instead.
+ */
+export const WindowsPlatform: InstancePlatform = "Windows";
+/**
+ *@deprecated Use InstancePlatform.WindowsWithSqlServer instead.
+ */
+export const WindowsWithSqlServerPlatform: InstancePlatform = "Windows with SQL Server";
+/**
+ *@deprecated Use InstancePlatform.WindowsWithSqlServerEnterprise instead.
+ */
+export const WindowsWithSqlServerEnterprisePlatform: InstancePlatform = "Windows with SQL Server Enterprise";
+/**
+ *@deprecated Use InstancePlatform.WindowsWithSqlServerStandard instead.
+ */
+export const WindowsWithSqlServerStandardPlatform: InstancePlatform = "Windows with SQL Server Standard";
+/**
+ *@deprecated Use InstancePlatform.WindowsWithSqlServerWeb instead.
+ */
+export const WindowsWithSqlServerWebPlatform: InstancePlatform = "Windows with SQL Server Web";

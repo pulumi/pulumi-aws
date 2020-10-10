@@ -19,34 +19,6 @@ export const Runtime = {
     Python3d8: "python3.8",
     Custom: "provided",
     CustomAL2: "provided.al2",
-    /**
-     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
-     */
-    NodeJS: "nodejs",
-    /**
-     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
-     */
-    NodeJS4d3Edge: "nodejs4.3-edge",
-    /**
-     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
-     */
-    NodeJS4d3: "nodejs4.3",
-    /**
-     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
-     */
-    NodeJS6d10: "nodejs6.10",
-    /**
-     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
-     */
-    NodeJS8d10: "nodejs8.10",
-    /**
-     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
-     */
-    DotnetCore1d0: "dotnetcore1.0",
-    /**
-     * @deprecated No longer supported. New lambda functions created using this runtime will fail.
-     */
-    DotnetCore2d0: "dotnetcore2.0",
 } as const;
 
 /**

@@ -32,7 +32,7 @@ export let SpreadStrategy: PlacementStrategy = "spread";
  * A `cluster` placement group is a logical grouping of instances within a single
  * Availability Zone that benefit from low network latency, high network throughput.
  *
- * @deprecated Use PlacementStrategy.Spread instead.
+ * @deprecated Use PlacementStrategy.Cluster instead.
  */
 export let ClusterStrategy: PlacementStrategy = "cluster";
 

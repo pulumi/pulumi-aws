@@ -14,6 +14,7 @@
 
 import {RecordType} from ".";
 
+/** @deprecated Use RecordType instead. */
 export module RecordTypes {
     /** @deprecated Use RecordType.A instead. */
     export const A:     RecordType = "A";

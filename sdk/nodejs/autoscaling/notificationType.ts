@@ -21,13 +21,13 @@
 
 import {NotificationType} from ".";
 
-// @deprecated Use NotificationType.InstanceLaunch instead.
+/** @deprecated Use NotificationType.InstanceLaunch instead. */
 export let InstanceLaunchNotification:         NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH";
-// @deprecated Use NotificationType.InstanceTerminate instead.
+/** @deprecated Use NotificationType.InstanceTerminate instead. */
 export let InstanceTerminateNotification:      NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE";
-// @deprecated Use NotificationType.InstanceLaunchError instead.
+/** @deprecated Use NotificationType.InstanceLaunchError instead. */
 export let InstanceLaunchErrorNotification:    NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR";
-// @deprecated Use NotificationType.InstanceTerminateError instead.
+/** @deprecated Use NotificationType.InstanceTerminateError instead. */
 export let InstanceTerminateErrorNotification: NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR";
-// @deprecated Use NotificationType.Test instead.
+/** @deprecated Use NotificationType.TestNotification instead. */
 export let TestNotification:                   NotificationType = "autoscaling:TEST_NOTIFICATION";

@@ -23,22 +23,22 @@
 
 import {MetricsGranularity, Metric} from ".";
 
-// @deprecated Use MetricsGranularity.OneMinute instead.
+/** @deprecated Use MetricsGranularity.OneMinute instead. */
 export let OneMinuteMetricsGranularity: MetricsGranularity = "1Minute";
 
-// @deprecated Use Metric.GroupMinSize instead.
+/** @deprecated Use Metric.GroupMinSize instead. */
 export let GroupMinSizeMetric: Metric = "GroupMinSize";
-// @deprecated Use Metric.GroupMaxSize instead.
+/** @deprecated Use Metric.GroupMaxSize instead. */
 export let GroupMaxSizeMetric: Metric = "GroupMaxSize";
-// @deprecated Use Metric.GroupDesiredCapacity instead.
+/** @deprecated Use Metric.GroupDesiredCapacity instead. */
 export let GroupDesiredCapacityMetric: Metric = "GroupDesiredCapacity";
-// @deprecated Use Metric.GroupGroupInServiceInstancesMinSize instead.
+/** @deprecated Use Metric.GroupGroupInServiceInstancesMinSize instead. */
 export let GroupInServiceInstancesMetric: Metric = "GroupInServiceInstances";
-// @deprecated Use Metric.GroupPendingInstances instead.
+/** @deprecated Use Metric.GroupPendingInstances instead. */
 export let GroupPendingInstances: Metric = "GroupPendingInstances";
-// @deprecated Use Metric.GroupStandbyInstances instead.
+/** @deprecated Use Metric.GroupStandbyInstances instead. */
 export let GroupStandbyInstances: Metric = "GroupStandbyInstances";
-// @deprecated Use Metric.GroupTerminatingInstances instead.
+/** @deprecated Use Metric.GroupTerminatingInstances instead. */
 export let GroupTerminatingInstances: Metric = "GroupTerminatingInstances";
-// @deprecated Use Metric.GroupTotalInstances instead.
+/** @deprecated Use Metric.GroupTotalInstances instead. */
 export let GroupTotalInstances: Metric = "GroupTotalInstances";

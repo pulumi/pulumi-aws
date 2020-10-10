@@ -23,6 +23,7 @@
 
 import { InstanceType } from ".";
 
+/** @deprecated Use InstanceType instead. */
 export module InstanceTypes {
     /** @deprecated Use InstanceType.A1_2XLarge instead. */
     export const A1_2XLarge: InstanceType = "a1.2xlarge";

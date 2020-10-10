@@ -2810,13 +2810,6 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "python3.8", Name: "Python3d8"},
 					{Value: "provided", Name: "Custom"},
 					{Value: "provided.al2", Name: "CustomAL2"},
-					{Value: "nodejs", Name: "NodeJS", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
-					{Value: "nodejs4.3-edge", Name: "NodeJS4d3Edge", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
-					{Value: "nodejs4.3", Name: "NodeJS4d3", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
-					{Value: "nodejs6.10", Name: "NodeJS6d10", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
-					{Value: "nodejs8.10", Name: "NodeJS8d10", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
-					{Value: "dotnetcore1.0", Name: "DotnetCore1d0", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
-					{Value: "dotnetcore2.0", Name: "DotnetCore2d0", DeprecationMessage: "No longer supported. New lambda functions created using this runtime will fail."},
 				},
 			},
 			"aws:rds/EngineMode:EngineMode": {

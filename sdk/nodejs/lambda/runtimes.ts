@@ -44,16 +44,16 @@ export let Python3d8Runtime:     Runtime = "python3.8";
 export let CustomRuntime:        Runtime = "provided";
 
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */
-export let NodeJSRuntime: Runtime = "nodejs";
+export let NodeJSRuntime = "nodejs" as Runtime;
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */
-export let NodeJS4d3EdgeRuntime: Runtime = "nodejs4.3-edge";
+export let NodeJS4d3EdgeRuntime = "nodejs4.3-edge" as Runtime;
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */
-export let NodeJS4d3Runtime: Runtime = "nodejs4.3";
+export let NodeJS4d3Runtime = "nodejs4.3" as Runtime;
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */
-export let NodeJS6d10Runtime: Runtime = "nodejs6.10";
+export let NodeJS6d10Runtime = "nodejs6.10" as Runtime;
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */
-export let DotnetCore1d0Runtime: Runtime = "dotnetcore1.0";
+export let DotnetCore1d0Runtime = "dotnetcore1.0" as Runtime;
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */
-export let DotnetCore2d0Runtime: Runtime = "dotnetcore2.0";
+export let DotnetCore2d0Runtime = "dotnetcore2.0" as Runtime;
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */
-export let NodeJS8d10Runtime: Runtime = "nodejs8.10";
+export let NodeJS8d10Runtime = "nodejs8.10" as Runtime;

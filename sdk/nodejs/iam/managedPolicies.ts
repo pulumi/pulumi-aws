@@ -15,6 +15,7 @@
 /* tslint:disable:max-line-length ordered-imports variable-name */
 import {ARN} from "../arn";
 
+/**@deprecated Use ManagedPolicy instead. */
 export module ManagedPolicies {
     /**@deprecated Use ManagedPolicy.AWSAccountActivityAccess instead. */
     export const AWSAccountActivityAccess: ARN = "arn:aws:iam::aws:policy/AWSAccountActivityAccess";

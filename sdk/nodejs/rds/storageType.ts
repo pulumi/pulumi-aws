@@ -22,6 +22,7 @@
 
 import {StorageType} from ".";
 
+/** @deprecated Use StorageType instead. */
 export module StorageTypes {
     /** @deprecated Use StorageType.Standard instead. */
     export const Standard: StorageType = "standard";

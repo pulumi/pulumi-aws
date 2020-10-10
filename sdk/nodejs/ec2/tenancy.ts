@@ -21,9 +21,19 @@
 
 import {Tenancy} from ".";
 
+/** @deprecated Use Tenancy instead. */
 export module Tenancies {
     /** @deprecated Use Tenancy.Default instead. */
     export const DefaultTenancy: Tenancy = "default";
     /** @deprecated Use Tenancy.Dedicated instead. */
     export const DedicatedTenancy: Tenancy = "dedicated";
 }
+
+/**
+ * @deprecated Use Tenancy.Default instead.
+ */
+export const DefaultTenancy: Tenancy = "default";
+/**
+ * @deprecated Use Tenancy.Dedicated instead.
+ */
+export const DedicatedTenancy: Tenancy = "dedicated";
