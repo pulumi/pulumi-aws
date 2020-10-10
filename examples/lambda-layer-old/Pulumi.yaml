@@ -1,4 +1,4 @@
-name: lambda-layer
+name: lambda-layer-old
 description: Basic example of a creating an AWS lambda layer.
 runtime: nodejs
 

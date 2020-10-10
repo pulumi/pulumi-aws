@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export let AuroraEngine:           EngineType = "aurora";
-export let AuroraMysqlEngine:      EngineType = "aurora-mysql";
-export let AuroraPostgresqlEngine: EngineType = "aurora-postgresql";
+import {EngineType} from ".";
 
-export type EngineType =
-    "aurora"            |
-    "aurora-mysql"      |
-    "aurora-postgresql" ;
+/** @deprecated Use EngineType.Aurora instead. */
+export let AuroraEngine:           EngineType = "aurora";
+/** @deprecated Use EngineType.AuroraMysql instead. */
+export let AuroraMysqlEngine:      EngineType = "aurora-mysql";
+/** @deprecated Use EngineType.AuroraPostgresql instead. */
+export let AuroraPostgresqlEngine: EngineType = "aurora-postgresql";

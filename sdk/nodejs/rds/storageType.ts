@@ -20,15 +20,14 @@
 // These give a better developer experience and are just sugared strings.
 // Based from https://aws.amazon.com/rds/instance-types/
 
+import {StorageType} from ".";
+
+/** @deprecated Use StorageType instead. */
 export module StorageTypes {
+    /** @deprecated Use StorageType.Standard instead. */
     export const Standard: StorageType = "standard";
+    /** @deprecated Use StorageType.GP2 instead. */
     export const GP2:      StorageType = "gp2";
+    /** @deprecated Use StorageType.IO1 instead. */
     export const Io1:      StorageType = "io1";
 }
-
-export type StorageType =
-    "standard" |
-    "gp2"      |
-    "io1"      ;
-
-

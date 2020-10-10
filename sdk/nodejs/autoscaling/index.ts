@@ -11,3 +11,6 @@ export * from "./notification";
 export * from "./notificationType";
 export * from "./policy";
 export * from "./schedule";
+
+// Export enums:
+export * from "../types/enums/autoscaling";

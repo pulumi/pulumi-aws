@@ -139,8 +139,18 @@ func TestAccRoute53(t *testing.T) {
 func TestAccLambdaLayer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "lambda-layer"),
+			Dir:           filepath.Join(getCwd(t), "lambda-layer-old"),
 			RunUpdateTest: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccLambdaLayerNewEnums(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "lambda-layer-new"),
+			RunUpdateTest: false,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -322,7 +332,7 @@ func TestAccServerlessRaw(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "serverless-raw"),
-			RunUpdateTest: true,
+			RunUpdateTest: false,
 			// Two changes are known to occur during refresh of the resources in this example:
 			// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
 			// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`

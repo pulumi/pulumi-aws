@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export let ProvisionedEngine:   EngineMode = "provisioned";
-export let ServerlessEngine:    EngineMode = "serverless";
-export let ParallelQueryEngine: EngineMode = "parallelquery";
-export let GlobalEngine:        EngineMode = "global";
+import {EngineMode} from ".";
 
-export type EngineMode =
-    "provisioned"   |
-    "serverless"    |
-    "parallelquery" |
-    "global"        ;
+/** @deprecated Use EngineMode.Provisioned instead. */
+export let ProvisionedEngine:   EngineMode = "provisioned";
+/** @deprecated Use EngineMode.Serverless instead. */
+export let ServerlessEngine:    EngineMode = "serverless";
+/** @deprecated Use EngineMode.ParallelQuery instead. */
+export let ParallelQueryEngine: EngineMode = "parallelquery";
+/** @deprecated Use EngineMode.Global instead. */
+export let GlobalEngine:        EngineMode = "global";

@@ -19,3 +19,6 @@ export * from "./resolverRuleAssociation";
 export * from "./vpcAssociationAuthorization";
 export * from "./zone";
 export * from "./zoneAssociation";
+
+// Export enums:
+export * from "../types/enums/route53";

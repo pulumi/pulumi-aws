@@ -17,10 +17,16 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/efs"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		fileSystemId := ""
+// 		if param := cfg.Get("fileSystemId"); param != "" {
+// 			fileSystemId = param
+// 		}
 // 		opt0 := fileSystemId
 // 		_, err := efs.LookupFileSystem(ctx, &efs.LookupFileSystemArgs{
 // 			FileSystemId: &opt0,

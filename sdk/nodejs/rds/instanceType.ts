@@ -20,125 +20,126 @@
 // These give a better developer experience and are just sugared strings.
 // Based from https://aws.amazon.com/rds/instance-types/
 
+import {InstanceType} from ".";
+
+/** @deprecated Use InstanceType instead. */
 export module InstanceTypes {
+    /** @deprecated Use InstanceType.T3_Micro instead. */
     export const T3_Micro: InstanceType = "db.t3.micro";
+    /** @deprecated Use InstanceType.T3_Small instead. */
     export const T3_Small: InstanceType = "db.t3.small";
+    /** @deprecated Use InstanceType.T3_Medium instead. */
     export const T3_Medium: InstanceType = "db.t3.medium";
+    /** @deprecated Use InstanceType.T3_Large instead. */
     export const T3_Large: InstanceType = "db.t3.large";
+    /** @deprecated Use InstanceType.T3_XLarge instead. */
     export const T3_XLarge: InstanceType = "db.t3.xlarge";
+    /** @deprecated Use InstanceType.T3_2XLarge instead. */
     export const T3_2XLarge: InstanceType = "db.t3.2xlarge";
+    /** @deprecated Use InstanceType.T2_Micro instead. */
     export const T2_Micro: InstanceType = "db.t2.micro";
+    /** @deprecated Use InstanceType.T2_Small instead. */
     export const T2_Small: InstanceType = "db.t2.small";
+    /** @deprecated Use InstanceType.T2_Medium instead. */
     export const T2_Medium: InstanceType = "db.t2.medium";
+    /** @deprecated Use InstanceType.T2_Large instead. */
     export const T2_Large: InstanceType = "db.t2.large";
+    /** @deprecated Use InstanceType.T2_XLarge instead. */
     export const T2_XLarge: InstanceType = "db.t2.xlarge";
+    /** @deprecated Use InstanceType.T2_2XLarge instead. */
     export const T2_2XLarge: InstanceType = "db.t2.2xlarge";
+    /** @deprecated Use InstanceType.M1_Small instead. */
     export const M1_Small: InstanceType = "db.m1.small";
+    /** @deprecated Use InstanceType.M1_Medium instead. */
     export const M1_Medium: InstanceType = "db.m1.medium";
+    /** @deprecated Use InstanceType.M1_Large instead. */
     export const M1_Large: InstanceType = "db.m1.large";
+    /** @deprecated Use InstanceType.M1_XLarge instead. */
     export const M1_XLarge: InstanceType = "db.m1.xlarge";
+    /** @deprecated Use InstanceType.M2_XLarge instead. */
     export const M2_XLarge: InstanceType = "db.m2.xlarge";
+    /** @deprecated Use InstanceType.M2_2XLarge instead. */
     export const M2_2XLarge: InstanceType = "db.m2.2xlarge";
+    /** @deprecated Use InstanceType.M2_4XLarge instead. */
     export const M2_4XLarge: InstanceType = "db.m2.4xlarge";
+    /** @deprecated Use InstanceType.M3_Medium instead. */
     export const M3_Medium: InstanceType = "db.m3.medium";
+    /** @deprecated Use InstanceType.M3_Large instead. */
     export const M3_Large: InstanceType = "db.m3.large";
+    /** @deprecated Use InstanceType.M3_XLarge instead. */
     export const M3_XLarge: InstanceType = "db.m3.xlarge";
+    /** @deprecated Use InstanceType.M3_2XLarge instead. */
     export const M3_2XLarge: InstanceType = "db.m3.2xlarge";
+    /** @deprecated Use InstanceType.M4_Large instead. */
     export const M4_Large: InstanceType = "db.m4.large";
+    /** @deprecated Use InstanceType.M4_XLarge instead. */
     export const M4_XLarge: InstanceType = "db.m4.xlarge";
+    /** @deprecated Use InstanceType.M4_2XLarge instead. */
     export const M4_2XLarge: InstanceType = "db.m4.2xlarge";
+    /** @deprecated Use InstanceType.M4_4XLarge instead. */
     export const M4_4XLarge: InstanceType = "db.m4.4xlarge";
+    /** @deprecated Use InstanceType.M4_10XLarge instead. */
     export const M4_10XLarge: InstanceType = "db.m4.10xlarge";
+    /** @deprecated Use InstanceType.M4_16XLarge instead. */
     export const M4_16XLarge: InstanceType = "db.m4.10xlarge";
+    /** @deprecated Use InstanceType.M5_Large instead. */
     export const M5_Large: InstanceType = "db.m5.large";
+    /** @deprecated Use InstanceType.M5_XLarge instead. */
     export const M5_XLarge: InstanceType = "db.m5.xlarge";
+    /** @deprecated Use InstanceType.M5_2XLarge instead. */
     export const M5_2XLarge: InstanceType = "db.m5.2xlarge";
+    /** @deprecated Use InstanceType.M5_4XLarge instead. */
     export const M5_4XLarge: InstanceType = "db.m5.4xlarge";
+    /** @deprecated Use InstanceType.M5_12XLarge instead. */
     export const M5_12XLarge: InstanceType = "db.m5.12xlarge";
+    /** @deprecated Use InstanceType.M5_24XLarge instead. */
     export const M5_24XLarge: InstanceType = "db.m5.24xlarge";
+    /** @deprecated Use InstanceType.R3_Large instead. */
     export const R3_Large: InstanceType = "db.r3.large";
+    /** @deprecated Use InstanceType.R3_XLarge instead. */
     export const R3_XLarge: InstanceType = "db.r3.xlarge";
+    /** @deprecated Use InstanceType.R3_2XLarge instead. */
     export const R3_2XLarge: InstanceType = "db.r3.2xlarge";
+    /** @deprecated Use InstanceType.R3_4XLarge instead. */
     export const R3_4XLarge: InstanceType = "db.r3.4xlarge";
+    /** @deprecated Use InstanceType.R3_8XLarge instead. */
     export const R3_8XLarge: InstanceType = "db.r3.8xlarge";
+    /** @deprecated Use InstanceType.R4_Large instead. */
     export const R4_Large: InstanceType = "db.r4.large";
+    /** @deprecated Use InstanceType.R4_XLarge instead. */
     export const R4_XLarge: InstanceType = "db.r4.xlarge";
+    /** @deprecated Use InstanceType.R4_2XLarge instead. */
     export const R4_2XLarge: InstanceType = "db.r4.2xlarge";
+    /** @deprecated Use InstanceType.R4_4XLarge instead. */
     export const R4_4XLarge: InstanceType = "db.r4.4xlarge";
+    /** @deprecated Use InstanceType.R4_8XLarge instead. */
     export const R4_8XLarge: InstanceType = "db.r4.8xlarge";
+    /** @deprecated Use InstanceType.R4_16XLarge instead. */
     export const R4_16XLarge: InstanceType = "db.r4.16xlarge";
+    /** @deprecated Use InstanceType.R5_Large instead. */
     export const R5_Large: InstanceType = "db.r5.large";
+    /** @deprecated Use InstanceType.R5_XLarge instead. */
     export const R5_XLarge: InstanceType = "db.r5.xlarge";
+    /** @deprecated Use InstanceType.R5_2XLarge instead. */
     export const R5_2XLarge: InstanceType = "db.r5.2xlarge";
+    /** @deprecated Use InstanceType.R5_4XLarge instead. */
     export const R5_4XLarge: InstanceType = "db.r5.4xlarge";
+    /** @deprecated Use InstanceType.R5_12XLarge instead. */
     export const R5_12XLarge: InstanceType = "db.r5.12xlarge";
+    /** @deprecated Use InstanceType.R5_24XLarge instead. */
     export const R5_24XLarge: InstanceType = "db.r5.24xlarge";
+    /** @deprecated Use InstanceType.X1_16XLarge instead. */
     export const X1_16XLarge: InstanceType = "db.x1.16xlarge";
+    /** @deprecated Use InstanceType.X1_32XLarge instead. */
     export const X1_32XLarge: InstanceType = "db.x1.32xlarge";
+    /** @deprecated Use InstanceType.X1E_XLarge instead. */
     export const X1E_XLarge: InstanceType = "db.x1e.xlarge";
+    /** @deprecated Use InstanceType.X1E_2XLarge instead. */
     export const X1E_2XLarge: InstanceType = "db.x1e.2xlarge";
+    /** @deprecated Use InstanceType.X1E_4XLarge instead. */
     export const X1E_4XLarge: InstanceType = "db.x1e.4xlarge";
+    /** @deprecated Use InstanceType.X1E_8XLarge instead. */
     export const X1E_8XLarge: InstanceType = "db.x1e.8xlarge";
+    /** @deprecated Use InstanceType.X1E_32XLarge instead. */
     export const X1E_32XLarge: InstanceType = "db.x1e.32xlarge";
 }
-
-export type InstanceType =
-    "db.t3.micro" |
-    "db.t3.small" |
-    "db.t3.medium" |
-    "db.t3.large" |
-    "db.t3.xlarge" |
-    "db.t3.2xlarge" |
-    "db.t2.micro" |
-    "db.t2.small" |
-    "db.t2.medium" |
-    "db.t2.large" |
-    "db.t2.xlarge" |
-    "db.t2.2xlarge" |
-    "db.m1.small" |
-    "db.m1.medium" |
-    "db.m1.large" |
-    "db.m1.xlarge" |
-    "db.m2.xlarge" |
-    "db.m2.2xlarge" |
-    "db.m2.4xlarge" |
-    "db.m3.medium" |
-    "db.m3.large" |
-    "db.m3.xlarge" |
-    "db.m3.2xlarge" |
-    "db.m4.large" |
-    "db.m4.xlarge" |
-    "db.m4.2xlarge" |
-    "db.m4.4xlarge" |
-    "db.m4.10xlarge" |
-    "db.m4.16xlarge" |
-    "db.m5.large" |
-    "db.m5.xlarge" |
-    "db.m5.2xlarge" |
-    "db.m5.4xlarge" |
-    "db.m5.12xlarge" |
-    "db.m5.24xlarge" |
-    "db.r3.large" |
-    "db.r3.xlarge" |
-    "db.r3.2xlarge" |
-    "db.r3.4xlarge" |
-    "db.r3.8xlarge" |
-    "db.r4.large" |
-    "db.r4.xlarge" |
-    "db.r4.2xlarge" |
-    "db.r4.4xlarge" |
-    "db.r4.8xlarge" |
-    "db.r4.16xlarge" |
-    "db.r5.large" |
-    "db.r5.xlarge" |
-    "db.r5.2xlarge" |
-    "db.r5.4xlarge" |
-    "db.r5.12xlarge" |
-    "db.r5.24xlarge" |
-    "db.x1.16xlarge" |
-    "db.x1.32xlarge" |
-    "db.x1e.xlarge" |
-    "db.x1e.2xlarge" |
-    "db.x1e.4xlarge" |
-    "db.x1e.8xlarge" |
-    "db.x1e.32xlarge" ;

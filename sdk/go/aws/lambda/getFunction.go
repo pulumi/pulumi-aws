@@ -17,10 +17,13 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lambda"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		functionName := cfg.Require("functionName")
 // 		_, err := lambda.LookupFunction(ctx, &lambda.LookupFunctionArgs{
 // 			FunctionName: functionName,
 // 		}, nil)

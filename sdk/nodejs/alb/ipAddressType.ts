@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export const Ipv4:      IpAddressType = "ipv4";
-export const Dualstack: IpAddressType = "dualstack";
+import {IpAddressType} from ".";
 
-export type IpAddressType =
-    "ipv4"      |
-    "dualstack" ;
+/** @deprecated Use IpAddressType.Ipv4 instead. */
+export const Ipv4:      IpAddressType = "ipv4";
+/** @deprecated Use IpAddressType.Dualstack instead. */
+export const Dualstack: IpAddressType = "dualstack";

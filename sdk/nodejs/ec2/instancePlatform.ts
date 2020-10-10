@@ -19,57 +19,57 @@
 //
 // These just give a better developer experience and are just sugared strings.
 
+import {InstancePlatform} from ".";
+
+/** @deprecated Use InstancePlatform instead. */
 export module InstancePlatforms {
+    /** @deprecated Use InstancePlatform.LinuxUnix instead. */
     export const LinuxUnixPlatform: InstancePlatform = "Linux/UNIX";
+    /** @deprecated Use InstancePlatform.RedHatEnterpriseLinux instead. */
     export const RedHatEnterpriseLinuxPlatform: InstancePlatform = "Red Hat Enterprise Linux";
+    /** @deprecated Use InstancePlatform.SuseLinux instead. */
     export const SuseLinuxPlatform: InstancePlatform = "SUSE Linux";
+    /** @deprecated Use InstancePlatform.Windows instead. */
     export const WindowsPlatform: InstancePlatform = "Windows";
+    /** @deprecated Use InstancePlatform.WindowsWithSqlServer instead. */
     export const WindowsWithSqlServerPlatform: InstancePlatform = "Windows with SQL Server";
+    /** @deprecated Use InstancePlatform.WindowsWithSqlServerEnterprise instead. */
     export const WindowsWithSqlServerEnterprisePlatform: InstancePlatform = "Windows with SQL Server Enterprise";
+    /** @deprecated Use InstancePlatform.WindowsWithSqlServerStandard instead. */
     export const WindowsWithSqlServerStandardPlatform: InstancePlatform = "Windows with SQL Server Standard";
+    /** @deprecated Use InstancePlatform.WindowsWithSqlServerWeb instead. */
     export const WindowsWithSqlServerWebPlatform: InstancePlatform = "Windows with SQL Server Web";
 }
 
-export type InstancePlatform =
-    "Linux/UNIX" |
-    "Red Hat Enterprise Linux" |
-    "SUSE Linux" |
-    "Windows" |
-    "Windows with SQL Server" |
-    "Windows with SQL Server Enterprise" |
-    "Windows with SQL Server Standard" |
-    "Windows with SQL Server Web"        ;
-
 /**
- * @deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ * @deprecated Use InstancePlatform.LinuxUnix instead.
  */
 export const LinuxUnixPlatform: InstancePlatform = "Linux/UNIX";
 /**
- *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ *@deprecated Use InstancePlatform.RedHatEnterpriseLinux instead.
  */
 export const RedHatEnterpriseLinuxPlatform: InstancePlatform = "Red Hat Enterprise Linux";
 /**
- *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ *@deprecated Use InstancePlatform.SuseLinux instead.
  */
 export const SuseLinuxPlatform: InstancePlatform = "SUSE Linux";
 /**
- *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ *@deprecated Use InstancePlatform.Windows instead.
  */
 export const WindowsPlatform: InstancePlatform = "Windows";
 /**
- *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ *@deprecated Use InstancePlatform.WindowsWithSqlServer instead.
  */
 export const WindowsWithSqlServerPlatform: InstancePlatform = "Windows with SQL Server";
 /**
- *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ *@deprecated Use InstancePlatform.WindowsWithSqlServerEnterprise instead.
  */
 export const WindowsWithSqlServerEnterprisePlatform: InstancePlatform = "Windows with SQL Server Enterprise";
 /**
- *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ *@deprecated Use InstancePlatform.WindowsWithSqlServerStandard instead.
  */
 export const WindowsWithSqlServerStandardPlatform: InstancePlatform = "Windows with SQL Server Standard";
 /**
- *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ *@deprecated Use InstancePlatform.WindowsWithSqlServerWeb instead.
  */
 export const WindowsWithSqlServerWebPlatform: InstancePlatform = "Windows with SQL Server Web";
-

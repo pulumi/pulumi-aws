@@ -24,6 +24,9 @@ export * from "./region";
 export * from "./tags";
 export * from "./utils";
 
+// Export enums:
+export * from "./types/enums";
+
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
 import * as acm from "./acm";

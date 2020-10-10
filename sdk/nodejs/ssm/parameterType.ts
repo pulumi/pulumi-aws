@@ -9,11 +9,11 @@
 //
 // These just give a better developer experience and are just sugared strings.
 
-export let StringParameter:       ParameterType = "String";
-export let StringListParameter:   ParameterType = "StringList";
-export let SecureStringParameter: ParameterType = "SecureString";
+import {ParameterType} from ".";
 
-export type ParameterType =
-    "String"       |
-    "StringList"   |
-    "SecureString" ;
+/** @deprecated Use ParameterType.String instead. */
+export let StringParameter:       ParameterType = "String";
+/** @deprecated Use ParameterType.StringList instead. */
+export let StringListParameter:   ParameterType = "StringList";
+/** @deprecated Use ParameterType.SecureString instead. */
+export let SecureStringParameter: ParameterType = "SecureString";

@@ -19,23 +19,20 @@
 //
 // These give a better developer experience and are just sugared strings.
 
+import {PlacementStrategy} from ".";
+
 /**
- *  A `spread` placement group places instances on distinct hardware.
+ * A `spread` placement group places instances on distinct hardware.
+ *
+ * @deprecated Use PlacementStrategy.Spread instead.
  */
 export let SpreadStrategy: PlacementStrategy = "spread";
 
 /**
- * A `cluster` placement group is a logical grouping of instances within a single 
+ * A `cluster` placement group is a logical grouping of instances within a single
  * Availability Zone that benefit from low network latency, high network throughput.
+ *
+ * @deprecated Use PlacementStrategy.Cluster instead.
  */
 export let ClusterStrategy: PlacementStrategy = "cluster";
 
-/**
- * The strategy of the placement group determines how the instances are organized
- * within the group.
- *
- * See https://docs.aws.amazon.com/cli/latest/reference/ec2/create-placement-group.html
- */
-export type PlacementStrategy =
-    "spread" |
-    "cluster";

@@ -12,8 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import {ManagedPolicy} from "./iam";
 /**
  * An ARN is an Amazon Resource Name, and uniquely identifies a region globally across all accounts and regions.
  */
-export type ARN = string;
+export type ARN = string | ManagedPolicy;
 

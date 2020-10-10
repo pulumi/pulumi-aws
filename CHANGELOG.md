@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Disable autonaming on `directoryservice.Directory` as the `name` needs to be fully qualified name for the directory
+* Disable autonaming on `directoryservice.Directory` as the `name` needs to be a fully qualified name for the directory
+* Schematize enums, generate new constants and deprecate existing constants for Nodejs. [#1151](https://github.com/pulumi/pulumi-aws/pull/1151)
 
 ---
 

@@ -60,10 +60,13 @@ import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/apigateway"
 // 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cognito"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		cognitoUserPoolName := cfg.RequireObject("cognitoUserPoolName")
 // 		thisUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
 // 			Name: cognitoUserPoolName,
 // 		}, nil)

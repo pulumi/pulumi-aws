@@ -19,21 +19,21 @@
 //
 // These just give a better developer experience and are just sugared strings.
 
+import {Tenancy} from ".";
+
+/** @deprecated Use Tenancy instead. */
 export module Tenancies {
+    /** @deprecated Use Tenancy.Default instead. */
     export const DefaultTenancy: Tenancy = "default";
+    /** @deprecated Use Tenancy.Dedicated instead. */
     export const DedicatedTenancy: Tenancy = "dedicated";
 }
 
-export type Tenancy =
-    "default" |
-    "dedicated" ;
-
 /**
- * @deprecated Use the equivalent constant in module `Tenancies` instead
+ * @deprecated Use Tenancy.Default instead.
  */
 export const DefaultTenancy: Tenancy = "default";
 /**
- * @deprecated Use the equivalent constant in module `Tenancies` instead
+ * @deprecated Use Tenancy.Dedicated instead.
  */
 export const DedicatedTenancy: Tenancy = "dedicated";
-
