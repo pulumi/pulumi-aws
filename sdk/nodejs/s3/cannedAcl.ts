@@ -12,28 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains two categories of exports:
+// This file contains individual constants for each canned ACL type.
 //
-//     1) A union type, CannedAcl, that accepts any valid canned ACL type
-//     2) Individual constants for each such canned ACL type
-//
-// These give a better developer experience and are just sugared strings.
+// These constants will not be updated with new values.
+// It is recommended to use CannedAcl.[Value] instead.
 
 import {CannedAcl} from ".";
 
-/** @deprecated Use CannedAcl.Private instead. */
+/** Use CannedAcl.Private instead. */
 export let PrivateAcl:                CannedAcl = "private";
-/** @deprecated Use CannedAcl.PublicRead instead. */
+/** Use CannedAcl.PublicRead instead. */
 export let PublicReadAcl:             CannedAcl = "public-read";
-/** @deprecated Use CannedAcl.PublicReadWrite instead. */
+/** Use CannedAcl.PublicReadWrite instead. */
 export let PublicReadWriteAcl:        CannedAcl = "public-read-write";
-/** @deprecated Use CannedAcl.AwsExecRead instead. */
+/** Use CannedAcl.AwsExecRead instead. */
 export let AwsExecReadAcl:            CannedAcl = "aws-exec-read";
-/** @deprecated Use CannedAcl.AuthenticatedRead instead. */
+/** Use CannedAcl.AuthenticatedRead instead. */
 export let AuthenticatedReadAcl:      CannedAcl = "authenticated-read";
-/** @deprecated Use CannedAcl.BucketOwnerRead instead. */
+/** Use CannedAcl.BucketOwnerRead instead. */
 export let BucketOwnerReadAcl:        CannedAcl = "bucket-owner-read";
-/** @deprecated Use CannedAcl.BucketOwnerFullControl instead. */
+/** Use CannedAcl.BucketOwnerFullControl instead. */
 export let BucketOwnerFullControlAcl: CannedAcl = "bucket-owner-full-control";
-/** @deprecated Use CannedAcl.LogDeliveryWrite instead. */
+/** Use CannedAcl.LogDeliveryWrite instead. */
 export let LogDeliveryWriteAcl:       CannedAcl = "log-delivery-write";

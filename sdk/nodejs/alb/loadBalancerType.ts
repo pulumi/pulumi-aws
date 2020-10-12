@@ -12,9 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// This file contains individual constants for each alb LoadBalancer type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use LoadBalancerType.[Value] instead.
+
 import {LoadBalancerType} from ".";
 
-/** @deprecated Use LoadBalancerType.Application instead. */
+/** Use LoadBalancerType.Application instead. */
 export const ApplicationLoadBalancer: LoadBalancerType = "application";
-/** @deprecated Use LoadBalancerType.Network instead. */
+/** Use LoadBalancerType.Network instead. */
 export const NetworkLoadBalancer:     LoadBalancerType = "network";

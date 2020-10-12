@@ -12,9 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// This file contains individual constants for each applicationloadbalancing IpAddress type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use IpAddressType.[Value] instead.
+
 import {IpAddressType} from ".";
 
-/** @deprecated Use IpAddressType.Ipv4 instead. */
+/** Use IpAddressType.Ipv4 instead. */
 export const Ipv4:      IpAddressType = "ipv4";
-/** @deprecated Use IpAddressType.Dualstack instead. */
+/** Use IpAddressType.Dualstack instead. */
 export const Dualstack: IpAddressType = "dualstack";

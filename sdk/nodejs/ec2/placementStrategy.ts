@@ -12,19 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains two categories of exports:
+// This file contains individual constants for each EC2 Placement strategy.
 //
-//     1) A union type, PlacementStrategy, that accepts any valid Placement Strategy type
-//     2) Individual constants for each such Placement Strategy type
-//
-// These give a better developer experience and are just sugared strings.
+// These constants will not be updated with new values.
+// It is recommended to use PlacementStrategy.[Value] instead.
 
 import {PlacementStrategy} from ".";
 
 /**
  * A `spread` placement group places instances on distinct hardware.
  *
- * @deprecated Use PlacementStrategy.Spread instead.
+ * Use PlacementStrategy.Spread instead.
  */
 export let SpreadStrategy: PlacementStrategy = "spread";
 
@@ -32,7 +30,7 @@ export let SpreadStrategy: PlacementStrategy = "spread";
  * A `cluster` placement group is a logical grouping of instances within a single
  * Availability Zone that benefit from low network latency, high network throughput.
  *
- * @deprecated Use PlacementStrategy.Cluster instead.
+ * Use PlacementStrategy.Cluster instead.
  */
 export let ClusterStrategy: PlacementStrategy = "cluster";
 

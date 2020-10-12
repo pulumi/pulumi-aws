@@ -12,20 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains two categories of exports:
+// This file contains individual constants for each RDS Tenancy type.
 //
-//     1) A union type, Tenancy, that accepts any valid EC2 tenancy description.
-//     2) Individual constants for each such tenancy description.
-//
-// These just give a better developer experience and are just sugared strings.
+// These constants will not be updated with new values.
+// It is recommended to use Tenancy.[Value] instead.
 
 import {Tenancy} from ".";
 
-/** @deprecated Use Tenancy instead. */
+/** Use Tenancy instead. */
 export module Tenancies {
-    /** @deprecated Use Tenancy.Default instead. */
+    /** Use Tenancy.Default instead. */
     export const DefaultTenancy: Tenancy = "default";
-    /** @deprecated Use Tenancy.Dedicated instead. */
+    /** Use Tenancy.Dedicated instead. */
     export const DedicatedTenancy: Tenancy = "dedicated";
 }
 
