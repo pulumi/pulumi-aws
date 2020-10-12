@@ -167,7 +167,7 @@ class GetGroupResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Auto Scaling group.
+        Name of the Auto Scaling Group.
         """
         return pulumi.get(self, "name")
 

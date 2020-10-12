@@ -85,7 +85,7 @@ type LookupCertificateArgs struct {
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
-	// Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+	// Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
 	Arn    string `pulumi:"arn"`
 	Domain string `pulumi:"domain"`
 	// The provider-assigned unique ID for this managed resource.

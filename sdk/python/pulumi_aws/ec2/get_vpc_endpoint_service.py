@@ -158,9 +158,6 @@ class GetVpcEndpointServiceResult:
     @property
     @pulumi.getter(name="serviceType")
     def service_type(self) -> str:
-        """
-        The service type, `Gateway` or `Interface`.
-        """
         return pulumi.get(self, "service_type")
 
     @property
@@ -206,6 +203,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
 def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']]] = None,
                              service: Optional[str] = None,
                              service_name: Optional[str] = None,
+                             service_type: Optional[str] = None,
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointServiceResult:
     """
@@ -219,7 +217,8 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
     import pulumi
     import pulumi_aws as aws
 
-    s3 = aws.ec2.get_vpc_endpoint_service(service="s3")
+    s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
+        service_type="Gateway")
     # Create a VPC
     foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
     # Create a VPC endpoint
@@ -251,12 +250,14 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str service: The common name of an AWS service (e.g. `s3`).
     :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param str service_type: The service type, `Gateway` or `Interface`.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['service'] = service
     __args__['serviceName'] = service_name
+    __args__['serviceType'] = service_type
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()

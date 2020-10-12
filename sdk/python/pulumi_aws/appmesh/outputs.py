@@ -22,6 +22,9 @@ __all__ = [
     'RouteSpecGrpcRouteMatchMetadataMatchRange',
     'RouteSpecGrpcRouteRetryPolicy',
     'RouteSpecGrpcRouteRetryPolicyPerRetryTimeout',
+    'RouteSpecGrpcRouteTimeout',
+    'RouteSpecGrpcRouteTimeoutIdle',
+    'RouteSpecGrpcRouteTimeoutPerRequest',
     'RouteSpecHttp2Route',
     'RouteSpecHttp2RouteAction',
     'RouteSpecHttp2RouteActionWeightedTarget',
@@ -31,6 +34,9 @@ __all__ = [
     'RouteSpecHttp2RouteMatchHeaderMatchRange',
     'RouteSpecHttp2RouteRetryPolicy',
     'RouteSpecHttp2RouteRetryPolicyPerRetryTimeout',
+    'RouteSpecHttp2RouteTimeout',
+    'RouteSpecHttp2RouteTimeoutIdle',
+    'RouteSpecHttp2RouteTimeoutPerRequest',
     'RouteSpecHttpRoute',
     'RouteSpecHttpRouteAction',
     'RouteSpecHttpRouteActionWeightedTarget',
@@ -40,9 +46,14 @@ __all__ = [
     'RouteSpecHttpRouteMatchHeaderMatchRange',
     'RouteSpecHttpRouteRetryPolicy',
     'RouteSpecHttpRouteRetryPolicyPerRetryTimeout',
+    'RouteSpecHttpRouteTimeout',
+    'RouteSpecHttpRouteTimeoutIdle',
+    'RouteSpecHttpRouteTimeoutPerRequest',
     'RouteSpecTcpRoute',
     'RouteSpecTcpRouteAction',
     'RouteSpecTcpRouteActionWeightedTarget',
+    'RouteSpecTcpRouteTimeout',
+    'RouteSpecTcpRouteTimeoutIdle',
     'VirtualNodeSpec',
     'VirtualNodeSpecBackend',
     'VirtualNodeSpecBackendDefaults',
@@ -62,6 +73,18 @@ __all__ = [
     'VirtualNodeSpecListener',
     'VirtualNodeSpecListenerHealthCheck',
     'VirtualNodeSpecListenerPortMapping',
+    'VirtualNodeSpecListenerTimeout',
+    'VirtualNodeSpecListenerTimeoutGrpc',
+    'VirtualNodeSpecListenerTimeoutGrpcIdle',
+    'VirtualNodeSpecListenerTimeoutGrpcPerRequest',
+    'VirtualNodeSpecListenerTimeoutHttp2',
+    'VirtualNodeSpecListenerTimeoutHttp2Idle',
+    'VirtualNodeSpecListenerTimeoutHttp2PerRequest',
+    'VirtualNodeSpecListenerTimeoutHttp',
+    'VirtualNodeSpecListenerTimeoutHttpIdle',
+    'VirtualNodeSpecListenerTimeoutHttpPerRequest',
+    'VirtualNodeSpecListenerTimeoutTcp',
+    'VirtualNodeSpecListenerTimeoutTcpIdle',
     'VirtualNodeSpecListenerTls',
     'VirtualNodeSpecListenerTlsCertificate',
     'VirtualNodeSpecListenerTlsCertificateAcm',
@@ -204,16 +227,20 @@ class RouteSpecGrpcRoute(dict):
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecGrpcRouteAction',
                  match: 'outputs.RouteSpecGrpcRouteMatch',
-                 retry_policy: Optional['outputs.RouteSpecGrpcRouteRetryPolicy'] = None):
+                 retry_policy: Optional['outputs.RouteSpecGrpcRouteRetryPolicy'] = None,
+                 timeout: Optional['outputs.RouteSpecGrpcRouteTimeout'] = None):
         """
         :param 'RouteSpecGrpcRouteActionArgs' action: The action to take if a match is determined.
         :param 'RouteSpecGrpcRouteMatchArgs' match: The criteria for determining an gRPC request match.
         :param 'RouteSpecGrpcRouteRetryPolicyArgs' retry_policy: The retry policy.
+        :param 'RouteSpecGrpcRouteTimeoutArgs' timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -238,6 +265,14 @@ class RouteSpecGrpcRoute(dict):
         The retry policy.
         """
         return pulumi.get(self, "retry_policy")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional['outputs.RouteSpecGrpcRouteTimeout']:
+        """
+        The types of timeouts.
+        """
+        return pulumi.get(self, "timeout")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -303,16 +338,21 @@ class RouteSpecGrpcRouteMatch(dict):
     def __init__(__self__, *,
                  metadatas: Optional[Sequence['outputs.RouteSpecGrpcRouteMatchMetadata']] = None,
                  method_name: Optional[str] = None,
+                 prefix: Optional[str] = None,
                  service_name: Optional[str] = None):
         """
         :param Sequence['RouteSpecGrpcRouteMatchMetadataArgs'] metadatas: The data to match from the gRPC request.
         :param str method_name: The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        :param str prefix: The value sent by the client must begin with the specified characters.
+               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param str service_name: The fully qualified domain name for the service to match from the request.
         """
         if metadatas is not None:
             pulumi.set(__self__, "metadatas", metadatas)
         if method_name is not None:
             pulumi.set(__self__, "method_name", method_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
 
@@ -331,6 +371,15 @@ class RouteSpecGrpcRouteMatch(dict):
         The method name to match from the request. If you specify a name, you must also specify a `service_name`.
         """
         return pulumi.get(self, "method_name")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The value sent by the client must begin with the specified characters.
+        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        """
+        return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="serviceName")
@@ -600,20 +649,122 @@ class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
 
 
 @pulumi.output_type
+class RouteSpecGrpcRouteTimeout(dict):
+    def __init__(__self__, *,
+                 idle: Optional['outputs.RouteSpecGrpcRouteTimeoutIdle'] = None,
+                 per_request: Optional['outputs.RouteSpecGrpcRouteTimeoutPerRequest'] = None):
+        """
+        :param 'RouteSpecGrpcRouteTimeoutIdleArgs' idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'RouteSpecGrpcRouteTimeoutPerRequestArgs' per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional['outputs.RouteSpecGrpcRouteTimeoutIdle']:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional['outputs.RouteSpecGrpcRouteTimeoutPerRequest']:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteTimeoutIdle(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecGrpcRouteTimeoutPerRequest(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RouteSpecHttp2Route(dict):
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecHttp2RouteAction',
                  match: 'outputs.RouteSpecHttp2RouteMatch',
-                 retry_policy: Optional['outputs.RouteSpecHttp2RouteRetryPolicy'] = None):
+                 retry_policy: Optional['outputs.RouteSpecHttp2RouteRetryPolicy'] = None,
+                 timeout: Optional['outputs.RouteSpecHttp2RouteTimeout'] = None):
         """
         :param 'RouteSpecHttp2RouteActionArgs' action: The action to take if a match is determined.
         :param 'RouteSpecHttp2RouteMatchArgs' match: The criteria for determining an gRPC request match.
         :param 'RouteSpecHttp2RouteRetryPolicyArgs' retry_policy: The retry policy.
+        :param 'RouteSpecHttp2RouteTimeoutArgs' timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -638,6 +789,14 @@ class RouteSpecHttp2Route(dict):
         The retry policy.
         """
         return pulumi.get(self, "retry_policy")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional['outputs.RouteSpecHttp2RouteTimeout']:
+        """
+        The types of timeouts.
+        """
+        return pulumi.get(self, "timeout")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -999,20 +1158,122 @@ class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
 
 
 @pulumi.output_type
+class RouteSpecHttp2RouteTimeout(dict):
+    def __init__(__self__, *,
+                 idle: Optional['outputs.RouteSpecHttp2RouteTimeoutIdle'] = None,
+                 per_request: Optional['outputs.RouteSpecHttp2RouteTimeoutPerRequest'] = None):
+        """
+        :param 'RouteSpecHttp2RouteTimeoutIdleArgs' idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'RouteSpecHttp2RouteTimeoutPerRequestArgs' per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional['outputs.RouteSpecHttp2RouteTimeoutIdle']:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional['outputs.RouteSpecHttp2RouteTimeoutPerRequest']:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteTimeoutIdle(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttp2RouteTimeoutPerRequest(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RouteSpecHttpRoute(dict):
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecHttpRouteAction',
                  match: 'outputs.RouteSpecHttpRouteMatch',
-                 retry_policy: Optional['outputs.RouteSpecHttpRouteRetryPolicy'] = None):
+                 retry_policy: Optional['outputs.RouteSpecHttpRouteRetryPolicy'] = None,
+                 timeout: Optional['outputs.RouteSpecHttpRouteTimeout'] = None):
         """
         :param 'RouteSpecHttpRouteActionArgs' action: The action to take if a match is determined.
         :param 'RouteSpecHttpRouteMatchArgs' match: The criteria for determining an HTTP request match.
         :param 'RouteSpecHttpRouteRetryPolicyArgs' retry_policy: The retry policy.
+        :param 'RouteSpecHttpRouteTimeoutArgs' timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1037,6 +1298,14 @@ class RouteSpecHttpRoute(dict):
         The retry policy.
         """
         return pulumi.get(self, "retry_policy")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional['outputs.RouteSpecHttpRouteTimeout']:
+        """
+        The types of timeouts.
+        """
+        return pulumi.get(self, "timeout")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1398,13 +1667,115 @@ class RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
 
 
 @pulumi.output_type
+class RouteSpecHttpRouteTimeout(dict):
+    def __init__(__self__, *,
+                 idle: Optional['outputs.RouteSpecHttpRouteTimeoutIdle'] = None,
+                 per_request: Optional['outputs.RouteSpecHttpRouteTimeoutPerRequest'] = None):
+        """
+        :param 'RouteSpecHttpRouteTimeoutIdleArgs' idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'RouteSpecHttpRouteTimeoutPerRequestArgs' per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional['outputs.RouteSpecHttpRouteTimeoutIdle']:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional['outputs.RouteSpecHttpRouteTimeoutPerRequest']:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttpRouteTimeoutIdle(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecHttpRouteTimeoutPerRequest(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RouteSpecTcpRoute(dict):
     def __init__(__self__, *,
-                 action: 'outputs.RouteSpecTcpRouteAction'):
+                 action: 'outputs.RouteSpecTcpRouteAction',
+                 timeout: Optional['outputs.RouteSpecTcpRouteTimeout'] = None):
         """
         :param 'RouteSpecTcpRouteActionArgs' action: The action to take if a match is determined.
+        :param 'RouteSpecTcpRouteTimeoutArgs' timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1413,6 +1784,14 @@ class RouteSpecTcpRoute(dict):
         The action to take if a match is determined.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional['outputs.RouteSpecTcpRouteTimeout']:
+        """
+        The types of timeouts.
+        """
+        return pulumi.get(self, "timeout")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1468,6 +1847,60 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
         The relative weight of the weighted target. An integer between 0 and 100.
         """
         return pulumi.get(self, "weight")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecTcpRouteTimeout(dict):
+    def __init__(__self__, *,
+                 idle: Optional['outputs.RouteSpecTcpRouteTimeoutIdle'] = None):
+        """
+        :param 'RouteSpecTcpRouteTimeoutIdleArgs' idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional['outputs.RouteSpecTcpRouteTimeoutIdle']:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RouteSpecTcpRouteTimeoutIdle(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1676,7 +2109,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
                  acm: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
                  file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file.
         """
         if acm is not None:
@@ -1688,7 +2121,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
     @pulumi.getter
     def acm(self) -> Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm']:
         """
-        The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         """
         return pulumi.get(self, "acm")
 
@@ -1869,7 +2302,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
                  acm: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm'] = None,
                  file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile'] = None):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file.
         """
         if acm is not None:
@@ -1881,7 +2314,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
     @pulumi.getter
     def acm(self) -> Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm']:
         """
-        The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         """
         return pulumi.get(self, "acm")
 
@@ -1944,15 +2377,19 @@ class VirtualNodeSpecListener(dict):
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualNodeSpecListenerPortMapping',
                  health_check: Optional['outputs.VirtualNodeSpecListenerHealthCheck'] = None,
+                 timeout: Optional['outputs.VirtualNodeSpecListenerTimeout'] = None,
                  tls: Optional['outputs.VirtualNodeSpecListenerTls'] = None):
         """
         :param 'VirtualNodeSpecListenerPortMappingArgs' port_mapping: The port mapping information for the listener.
         :param 'VirtualNodeSpecListenerHealthCheckArgs' health_check: The health check information for the listener.
+        :param 'VirtualNodeSpecListenerTimeoutArgs' timeout: Timeouts for different protocols.
         :param 'VirtualNodeSpecListenerTlsArgs' tls: The Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
 
@@ -1971,6 +2408,14 @@ class VirtualNodeSpecListener(dict):
         The health check information for the listener.
         """
         return pulumi.get(self, "health_check")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional['outputs.VirtualNodeSpecListenerTimeout']:
+        """
+        Timeouts for different protocols.
+        """
+        return pulumi.get(self, "timeout")
 
     @property
     @pulumi.getter
@@ -2106,6 +2551,412 @@ class VirtualNodeSpecListenerPortMapping(dict):
 
 
 @pulumi.output_type
+class VirtualNodeSpecListenerTimeout(dict):
+    def __init__(__self__, *,
+                 grpc: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpc'] = None,
+                 http: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp'] = None,
+                 http2: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2'] = None,
+                 tcp: Optional['outputs.VirtualNodeSpecListenerTimeoutTcp'] = None):
+        """
+        :param 'VirtualNodeSpecListenerTimeoutGrpcArgs' grpc: Timeouts for gRPC listeners.
+        :param 'VirtualNodeSpecListenerTimeoutHttpArgs' http: Timeouts for HTTP listeners.
+        :param 'VirtualNodeSpecListenerTimeoutHttp2Args' http2: Timeouts for HTTP2 listeners.
+        :param 'VirtualNodeSpecListenerTimeoutTcpArgs' tcp: Timeouts for TCP listeners.
+        """
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
+
+    @property
+    @pulumi.getter
+    def grpc(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutGrpc']:
+        """
+        Timeouts for gRPC listeners.
+        """
+        return pulumi.get(self, "grpc")
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutHttp']:
+        """
+        Timeouts for HTTP listeners.
+        """
+        return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def http2(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2']:
+        """
+        Timeouts for HTTP2 listeners.
+        """
+        return pulumi.get(self, "http2")
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutTcp']:
+        """
+        Timeouts for TCP listeners.
+        """
+        return pulumi.get(self, "tcp")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutGrpc(dict):
+    def __init__(__self__, *,
+                 idle: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcIdle'] = None,
+                 per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcPerRequest'] = None):
+        """
+        :param 'VirtualNodeSpecListenerTimeoutGrpcIdleArgs' idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs' per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcIdle']:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcPerRequest']:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutGrpcIdle(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutHttp2(dict):
+    def __init__(__self__, *,
+                 idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2Idle'] = None,
+                 per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2PerRequest'] = None):
+        """
+        :param 'VirtualNodeSpecListenerTimeoutHttp2IdleArgs' idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs' per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2Idle']:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2PerRequest']:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutHttp2Idle(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutHttp(dict):
+    def __init__(__self__, *,
+                 idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpIdle'] = None,
+                 per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpPerRequest'] = None):
+        """
+        :param 'VirtualNodeSpecListenerTimeoutHttpIdleArgs' idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'VirtualNodeSpecListenerTimeoutHttpPerRequestArgs' per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutHttpIdle']:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutHttpPerRequest']:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutHttpIdle(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutTcp(dict):
+    def __init__(__self__, *,
+                 idle: Optional['outputs.VirtualNodeSpecListenerTimeoutTcpIdle'] = None):
+        """
+        :param 'VirtualNodeSpecListenerTimeoutTcpIdleArgs' idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional['outputs.VirtualNodeSpecListenerTimeoutTcpIdle']:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNodeSpecListenerTimeoutTcpIdle(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time. Valid values: `ms`, `s`.
+        :param int value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class VirtualNodeSpecListenerTls(dict):
     def __init__(__self__, *,
                  certificate: 'outputs.VirtualNodeSpecListenerTlsCertificate',
@@ -2143,7 +2994,7 @@ class VirtualNodeSpecListenerTlsCertificate(dict):
                  acm: Optional['outputs.VirtualNodeSpecListenerTlsCertificateAcm'] = None,
                  file: Optional['outputs.VirtualNodeSpecListenerTlsCertificateFile'] = None):
         """
-        :param 'VirtualNodeSpecListenerTlsCertificateAcmArgs' acm: An AWS Certicate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecListenerTlsCertificateAcmArgs' acm: An AWS Certificate Manager (ACM) certificate.
         :param 'VirtualNodeSpecListenerTlsCertificateFileArgs' file: A local file certificate.
         """
         if acm is not None:
@@ -2155,7 +3006,7 @@ class VirtualNodeSpecListenerTlsCertificate(dict):
     @pulumi.getter
     def acm(self) -> Optional['outputs.VirtualNodeSpecListenerTlsCertificateAcm']:
         """
-        An AWS Certicate Manager (ACM) certificate.
+        An AWS Certificate Manager (ACM) certificate.
         """
         return pulumi.get(self, "acm")
 

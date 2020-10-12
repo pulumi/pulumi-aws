@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust
     {
         /// <summary>
-        /// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        /// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm? Acm;
         /// <summary>

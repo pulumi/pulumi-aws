@@ -71,7 +71,6 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
-               describe-db-parameters.html) after initial creation of the group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -151,7 +150,6 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
-               describe-db-parameters.html) after initial creation of the group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -264,7 +262,6 @@ class Proxy(pulumi.CustomResource):
     def vpc_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         One or more VPC subnet IDs to associate with the new proxy.
-        describe-db-parameters.html) after initial creation of the group.
         """
         return pulumi.get(self, "vpc_subnet_ids")
 

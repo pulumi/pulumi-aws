@@ -10,15 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
-    /// Provides an AutoScaling Attachment resource.
+    /// Provides an Auto Scaling Attachment resource.
     /// 
-    /// &gt; **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
-    /// both a standalone ASG Attachment resource (describing an ASG attached to
-    /// an ELB or ALB), and an AutoScaling Group resource with
-    /// `load_balancers` and `target_group_arns` defined in-line. At this time you can use an ASG with in-line
-    /// `load balancers` or `target_group_arns` in conjunction with an ASG Attachment resource, however, to prevent
-    /// unintended resource updates, the `aws.autoscaling.Group` resource must be configured
-    /// to ignore changes to the `load_balancers` and `target_group_arns` arguments within a [`lifecycle` configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle-lifecycle-customizations).
+    /// &gt; **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
+    /// both a standalone `aws.autoscaling.Attachment` resource
+    /// (describing an ASG attached to an ELB or ALB), and an `aws.autoscaling.Group`
+    /// with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
+    /// mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
+    /// `load_balancers` or `target_group_arns`, the `aws.autoscaling.Group` resource must be configured
+    /// to [ignore changes](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to the `load_balancers` and `target_group_arns` arguments.
     /// 
     /// ## Example Usage
     /// 

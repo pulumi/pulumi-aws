@@ -32,6 +32,7 @@ export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions):
     }
     return pulumi.runtime.invoke("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -43,6 +44,10 @@ export interface GetJobQueueArgs {
      * The name of the job queue.
      */
     readonly name: string;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -83,4 +88,8 @@ export interface GetJobQueueResult {
      * of the job queue.
      */
     readonly statusReason: string;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags: {[key: string]: string};
 }

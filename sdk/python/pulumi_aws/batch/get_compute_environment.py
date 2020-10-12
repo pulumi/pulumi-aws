@@ -19,7 +19,7 @@ class GetComputeEnvironmentResult:
     """
     A collection of values returned by getComputeEnvironment.
     """
-    def __init__(__self__, arn=None, compute_environment_name=None, ecs_cluster_arn=None, id=None, service_role=None, state=None, status=None, status_reason=None, type=None):
+    def __init__(__self__, arn=None, compute_environment_name=None, ecs_cluster_arn=None, id=None, service_role=None, state=None, status=None, status_reason=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetComputeEnvironmentResult:
         if status_reason and not isinstance(status_reason, str):
             raise TypeError("Expected argument 'status_reason' to be a str")
         pulumi.set(__self__, "status_reason", status_reason)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -111,6 +114,14 @@ class GetComputeEnvironmentResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
@@ -132,10 +143,12 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
             state=self.state,
             status=self.status,
             status_reason=self.status_reason,
+            tags=self.tags,
             type=self.type)
 
 
 def get_compute_environment(compute_environment_name: Optional[str] = None,
+                            tags: Optional[Mapping[str, str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComputeEnvironmentResult:
     """
     The Batch Compute Environment data source allows access to details of a specific
@@ -152,9 +165,11 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
 
 
     :param str compute_environment_name: The name of the Batch Compute Environment
+    :param Mapping[str, str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['computeEnvironmentName'] = compute_environment_name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -170,4 +185,5 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
         state=__ret__.state,
         status=__ret__.status,
         status_reason=__ret__.status_reason,
+        tags=__ret__.tags,
         type=__ret__.type)

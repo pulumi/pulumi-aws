@@ -5,6 +5,8 @@
 # Export this package's modules as members:
 from .domain import *
 from .domain_permissions import *
+from .get_authorization_token import *
 from .repository import *
+from .repository_permissions_policy import *
 from ._inputs import *
 from . import outputs

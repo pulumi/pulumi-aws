@@ -18,9 +18,9 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly Outputs.IntentFollowUpPromptPrompt Prompt;
         /// <summary>
-        /// When the user answers "no" to the question defined in
-        /// `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        /// canceled.
+        /// If the user answers "no" to the question defined in the prompt field,
+        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+        /// documented below under statement.
         /// </summary>
         public readonly Outputs.IntentFollowUpPromptRejectionStatement RejectionStatement;
 

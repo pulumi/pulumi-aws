@@ -69,7 +69,7 @@ type LookupGroupResult struct {
 	MaxSize int `pulumi:"maxSize"`
 	// The minimum size of the group.
 	MinSize int `pulumi:"minSize"`
-	// The name of the Auto Scaling group.
+	// Name of the Auto Scaling Group.
 	Name                             string `pulumi:"name"`
 	NewInstancesProtectedFromScaleIn bool   `pulumi:"newInstancesProtectedFromScaleIn"`
 	// The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.

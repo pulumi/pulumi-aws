@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerTlsCertificateGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Certicate Manager (ACM) certificate.
+        /// An AWS Certificate Manager (ACM) certificate.
         /// </summary>
         [Input("acm")]
         public Input<Inputs.VirtualNodeSpecListenerTlsCertificateAcmGetArgs>? Acm { get; set; }

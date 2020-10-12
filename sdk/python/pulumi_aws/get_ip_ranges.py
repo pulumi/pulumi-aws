@@ -123,7 +123,7 @@ def get_ip_ranges(regions: Optional[Sequence[str]] = None,
                   url: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
     """
-    Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
+    Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
 
     ## Example Usage
 
@@ -159,7 +159,7 @@ def get_ip_ranges(regions: Optional[Sequence[str]] = None,
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
            [`service` attribute][2] documentation for other possible values.
-    :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+    :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
     """
     __args__ = dict()
     __args__['regions'] = regions

@@ -239,6 +239,7 @@ export interface ProviderEndpoint {
     sts?: string;
     swf?: string;
     synthetics?: string;
+    timestreamwrite?: string;
     transfer?: string;
     waf?: string;
     wafregional?: string;
@@ -996,7 +997,7 @@ export namespace alb {
 
     export interface TargetGroupStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+         * Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
          */
         cookieDuration?: number;
         /**
@@ -1004,7 +1005,7 @@ export namespace alb {
          */
         enabled?: boolean;
         /**
-         * The type of sticky sessions. The only current possible value is `lbCookie`.
+         * The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -2026,7 +2027,7 @@ export namespace applicationloadbalancing {
 
     export interface TargetGroupStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+         * Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
          */
         cookieDuration?: number;
         /**
@@ -2034,7 +2035,7 @@ export namespace applicationloadbalancing {
          */
         enabled?: boolean;
         /**
-         * The type of sticky sessions. The only current possible value is `lbCookie`.
+         * The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -2093,6 +2094,10 @@ export namespace appmesh {
          * The retry policy.
          */
         retryPolicy?: outputs.appmesh.RouteSpecGrpcRouteRetryPolicy;
+        /**
+         * The types of timeouts.
+         */
+        timeout?: outputs.appmesh.RouteSpecGrpcRouteTimeout;
     }
 
     export interface RouteSpecGrpcRouteAction {
@@ -2123,6 +2128,11 @@ export namespace appmesh {
          * The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
          */
         methodName?: string;
+        /**
+         * The value sent by the client must begin with the specified characters.
+         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         */
+        prefix?: string;
         /**
          * The fully qualified domain name for the service to match from the request.
          */
@@ -2216,6 +2226,39 @@ export namespace appmesh {
         value: number;
     }
 
+    export interface RouteSpecGrpcRouteTimeout {
+        /**
+         * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         */
+        idle?: outputs.appmesh.RouteSpecGrpcRouteTimeoutIdle;
+        /**
+         * The per request timeout.
+         */
+        perRequest?: outputs.appmesh.RouteSpecGrpcRouteTimeoutPerRequest;
+    }
+
+    export interface RouteSpecGrpcRouteTimeoutIdle {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface RouteSpecGrpcRouteTimeoutPerRequest {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
     export interface RouteSpecHttp2Route {
         /**
          * The action to take if a match is determined.
@@ -2229,6 +2272,10 @@ export namespace appmesh {
          * The retry policy.
          */
         retryPolicy?: outputs.appmesh.RouteSpecHttp2RouteRetryPolicy;
+        /**
+         * The types of timeouts.
+         */
+        timeout?: outputs.appmesh.RouteSpecHttp2RouteTimeout;
     }
 
     export interface RouteSpecHttp2RouteAction {
@@ -2352,6 +2399,39 @@ export namespace appmesh {
         value: number;
     }
 
+    export interface RouteSpecHttp2RouteTimeout {
+        /**
+         * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         */
+        idle?: outputs.appmesh.RouteSpecHttp2RouteTimeoutIdle;
+        /**
+         * The per request timeout.
+         */
+        perRequest?: outputs.appmesh.RouteSpecHttp2RouteTimeoutPerRequest;
+    }
+
+    export interface RouteSpecHttp2RouteTimeoutIdle {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface RouteSpecHttp2RouteTimeoutPerRequest {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
     export interface RouteSpecHttpRoute {
         /**
          * The action to take if a match is determined.
@@ -2365,6 +2445,10 @@ export namespace appmesh {
          * The retry policy.
          */
         retryPolicy?: outputs.appmesh.RouteSpecHttpRouteRetryPolicy;
+        /**
+         * The types of timeouts.
+         */
+        timeout?: outputs.appmesh.RouteSpecHttpRouteTimeout;
     }
 
     export interface RouteSpecHttpRouteAction {
@@ -2488,11 +2572,48 @@ export namespace appmesh {
         value: number;
     }
 
+    export interface RouteSpecHttpRouteTimeout {
+        /**
+         * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         */
+        idle?: outputs.appmesh.RouteSpecHttpRouteTimeoutIdle;
+        /**
+         * The per request timeout.
+         */
+        perRequest?: outputs.appmesh.RouteSpecHttpRouteTimeoutPerRequest;
+    }
+
+    export interface RouteSpecHttpRouteTimeoutIdle {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface RouteSpecHttpRouteTimeoutPerRequest {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
     export interface RouteSpecTcpRoute {
         /**
          * The action to take if a match is determined.
          */
         action: outputs.appmesh.RouteSpecTcpRouteAction;
+        /**
+         * The types of timeouts.
+         */
+        timeout?: outputs.appmesh.RouteSpecTcpRouteTimeout;
     }
 
     export interface RouteSpecTcpRouteAction {
@@ -2512,6 +2633,24 @@ export namespace appmesh {
          * The relative weight of the weighted target. An integer between 0 and 100.
          */
         weight: number;
+    }
+
+    export interface RouteSpecTcpRouteTimeout {
+        /**
+         * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         */
+        idle?: outputs.appmesh.RouteSpecTcpRouteTimeoutIdle;
+    }
+
+    export interface RouteSpecTcpRouteTimeoutIdle {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
     }
 
     export interface VirtualNodeSpec {
@@ -2579,7 +2718,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
         /**
-         * The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+         * The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
          */
         acm?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
         /**
@@ -2641,7 +2780,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
         /**
-         * The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+         * The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
          */
         acm?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm;
         /**
@@ -2673,6 +2812,10 @@ export namespace appmesh {
          * The port mapping information for the listener.
          */
         portMapping: outputs.appmesh.VirtualNodeSpecListenerPortMapping;
+        /**
+         * Timeouts for different protocols.
+         */
+        timeout?: outputs.appmesh.VirtualNodeSpecListenerTimeout;
         /**
          * The Transport Layer Security (TLS) properties for the listener
          */
@@ -2721,6 +2864,142 @@ export namespace appmesh {
         protocol: string;
     }
 
+    export interface VirtualNodeSpecListenerTimeout {
+        /**
+         * Timeouts for gRPC listeners.
+         */
+        grpc?: outputs.appmesh.VirtualNodeSpecListenerTimeoutGrpc;
+        /**
+         * Timeouts for HTTP listeners.
+         */
+        http?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttp;
+        /**
+         * Timeouts for HTTP2 listeners.
+         */
+        http2?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttp2;
+        /**
+         * Timeouts for TCP listeners.
+         */
+        tcp?: outputs.appmesh.VirtualNodeSpecListenerTimeoutTcp;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutGrpc {
+        /**
+         * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         */
+        idle?: outputs.appmesh.VirtualNodeSpecListenerTimeoutGrpcIdle;
+        /**
+         * The per request timeout.
+         */
+        perRequest?: outputs.appmesh.VirtualNodeSpecListenerTimeoutGrpcPerRequest;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutGrpcIdle {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutGrpcPerRequest {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutHttp {
+        /**
+         * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         */
+        idle?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttpIdle;
+        /**
+         * The per request timeout.
+         */
+        perRequest?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttpPerRequest;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutHttp2 {
+        /**
+         * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         */
+        idle?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttp2Idle;
+        /**
+         * The per request timeout.
+         */
+        perRequest?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttp2PerRequest;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutHttp2Idle {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutHttp2PerRequest {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutHttpIdle {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutHttpPerRequest {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutTcp {
+        /**
+         * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         */
+        idle?: outputs.appmesh.VirtualNodeSpecListenerTimeoutTcpIdle;
+    }
+
+    export interface VirtualNodeSpecListenerTimeoutTcpIdle {
+        /**
+         * The unit of time. Valid values: `ms`, `s`.
+         */
+        unit: string;
+        /**
+         * The number of time units. Minimum value of `0`.
+         */
+        value: number;
+    }
+
     export interface VirtualNodeSpecListenerTls {
         /**
          * The listener's TLS certificate.
@@ -2734,7 +3013,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerTlsCertificate {
         /**
-         * An AWS Certicate Manager (ACM) certificate.
+         * An AWS Certificate Manager (ACM) certificate.
          */
         acm?: outputs.appmesh.VirtualNodeSpecListenerTlsCertificateAcm;
         /**
@@ -5753,6 +6032,7 @@ export namespace config {
         sts?: string;
         swf?: string;
         synthetics?: string;
+        timestreamwrite?: string;
         transfer?: string;
         waf?: string;
         wafregional?: string;
@@ -6904,6 +7184,38 @@ export namespace ec2 {
          * The type of the volume.
          */
         volumeType: string;
+    }
+
+    export interface GetInstanceTypeFpga {
+        count: number;
+        manufacturer: string;
+        /**
+         * Size of the instance memory, in MiB.
+         */
+        memorySize: number;
+        name: string;
+    }
+
+    export interface GetInstanceTypeGpus {
+        count: number;
+        manufacturer: string;
+        /**
+         * Size of the instance memory, in MiB.
+         */
+        memorySize: number;
+        name: string;
+    }
+
+    export interface GetInstanceTypeInferenceAccelerator {
+        count: number;
+        manufacturer: string;
+        name: string;
+    }
+
+    export interface GetInstanceTypeInstanceDisk {
+        count: number;
+        size: number;
+        type: string;
     }
 
     export interface GetInstanceTypeOfferingFilter {
@@ -10217,7 +10529,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface TargetGroupStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+         * Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
          */
         cookieDuration?: number;
         /**
@@ -10225,7 +10537,7 @@ export namespace elasticloadbalancingv2 {
          */
         enabled?: boolean;
         /**
-         * The type of sticky sessions. The only current possible value is `lbCookie`.
+         * The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -14983,7 +15295,7 @@ export namespace lb {
 
     export interface TargetGroupStickiness {
         /**
-         * The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+         * Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
          */
         cookieDuration?: number;
         /**
@@ -14991,7 +15303,7 @@ export namespace lb {
          */
         enabled?: boolean;
         /**
-         * The type of sticky sessions. The only current possible value is `lbCookie`.
+         * The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -15027,6 +15339,40 @@ export namespace lex {
          * is assigned to a message, Amazon Lex returns one message from each group in the response.
          */
         groupNumber?: number;
+    }
+
+    export interface BotAliasConversationLogs {
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+         */
+        iamRoleArn: string;
+        /**
+         * The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+         */
+        logSettings?: outputs.lex.BotAliasConversationLogsLogSetting[];
+    }
+
+    export interface BotAliasConversationLogsLogSetting {
+        /**
+         * The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
+         */
+        destination: string;
+        /**
+         * The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+         */
+        kmsKeyArn?: string;
+        /**
+         * The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
+         */
+        logType: string;
+        /**
+         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+         */
+        resourceArn: string;
+        /**
+         * The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
+         */
+        resourcePrefix: string;
     }
 
     export interface BotClarificationPrompt {
@@ -15165,9 +15511,9 @@ export namespace lex {
          */
         prompt: outputs.lex.IntentFollowUpPromptPrompt;
         /**
-         * When the user answers "no" to the question defined in
-         * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-         * canceled.
+         * If the user answers "no" to the question defined in the prompt field,
+         * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+         * documented below under statement.
          */
         rejectionStatement: outputs.lex.IntentFollowUpPromptRejectionStatement;
     }
@@ -15307,7 +15653,8 @@ export namespace lex {
         /**
          * Directs Lex the order in which to elicit this slot value from the user.
          * For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
-         * the slot with priority 1.
+         * the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
+         * values is arbitrary.
          */
         priority?: number;
         /**
@@ -17099,6 +17446,13 @@ export namespace s3 {
          * The number of years that you want to specify for the default retention period.
          */
         years?: number;
+    }
+
+    export interface BucketOwnershipControlsRule {
+        /**
+         * Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+         */
+        objectOwnership: string;
     }
 
     export interface BucketReplicationConfiguration {

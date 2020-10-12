@@ -178,13 +178,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+        /// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
         /// </summary>
         [Output("bootstrapBrokers")]
         public Output<string> BootstrapBrokers { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
         /// </summary>
         [Output("bootstrapBrokersTls")]
         public Output<string> BootstrapBrokersTls { get; private set; } = null!;
@@ -400,13 +400,13 @@ namespace Pulumi.Aws.Msk
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+        /// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
         /// </summary>
         [Input("bootstrapBrokers")]
         public Input<string>? BootstrapBrokers { get; set; }
 
         /// <summary>
-        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+        /// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
         /// </summary>
         [Input("bootstrapBrokersTls")]
         public Input<string>? BootstrapBrokersTls { get; set; }

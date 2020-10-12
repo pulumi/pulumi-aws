@@ -223,6 +223,7 @@ class Endpoints(dict):
                  sts: Optional[str] = None,
                  swf: Optional[str] = None,
                  synthetics: Optional[str] = None,
+                 timestreamwrite: Optional[str] = None,
                  transfer: Optional[str] = None,
                  waf: Optional[str] = None,
                  wafregional: Optional[str] = None,
@@ -499,6 +500,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "swf", swf)
         if synthetics is not None:
             pulumi.set(__self__, "synthetics", synthetics)
+        if timestreamwrite is not None:
+            pulumi.set(__self__, "timestreamwrite", timestreamwrite)
         if transfer is not None:
             pulumi.set(__self__, "transfer", transfer)
         if waf is not None:
@@ -1185,6 +1188,11 @@ class Endpoints(dict):
     @pulumi.getter
     def synthetics(self) -> Optional[str]:
         return pulumi.get(self, "synthetics")
+
+    @property
+    @pulumi.getter
+    def timestreamwrite(self) -> Optional[str]:
+        return pulumi.get(self, "timestreamwrite")
 
     @property
     @pulumi.getter

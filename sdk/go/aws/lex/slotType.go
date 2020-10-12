@@ -26,7 +26,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := lex.NewSlotType(ctx, "flowerTypes", &lex.SlotTypeArgs{
-// 			CreateVersion: pulumi.Bool(false),
+// 			CreateVersion: pulumi.Bool(true),
 // 			Description:   pulumi.String("Types of flowers to order"),
 // 			EnumerationValues: lex.SlotTypeEnumerationValueArray{
 // 				&lex.SlotTypeEnumerationValueArgs{
@@ -60,7 +60,7 @@ type SlotType struct {
 	// not included as an argument because the resource will add it automatically when updating the slot type.
 	Checksum pulumi.StringOutput `pulumi:"checksum"`
 	// Determines if a new slot type version is created when the initial resource is created and on each
-	// update. Defaults to true.
+	// update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
 	// The date when the slot type version was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
@@ -78,7 +78,7 @@ type SlotType struct {
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
 	// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-	// if there is a resolution list for the slot, otherwise null is returned.
+	// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
 	ValueSelectionStrategy pulumi.StringPtrOutput `pulumi:"valueSelectionStrategy"`
 	// The version of the slot type.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -119,7 +119,7 @@ type slotTypeState struct {
 	// not included as an argument because the resource will add it automatically when updating the slot type.
 	Checksum *string `pulumi:"checksum"`
 	// Determines if a new slot type version is created when the initial resource is created and on each
-	// update. Defaults to true.
+	// update. Defaults to `false`.
 	CreateVersion *bool `pulumi:"createVersion"`
 	// The date when the slot type version was created.
 	CreatedDate *string `pulumi:"createdDate"`
@@ -137,7 +137,7 @@ type slotTypeState struct {
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
 	// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-	// if there is a resolution list for the slot, otherwise null is returned.
+	// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
 	ValueSelectionStrategy *string `pulumi:"valueSelectionStrategy"`
 	// The version of the slot type.
 	Version *string `pulumi:"version"`
@@ -148,7 +148,7 @@ type SlotTypeState struct {
 	// not included as an argument because the resource will add it automatically when updating the slot type.
 	Checksum pulumi.StringPtrInput
 	// Determines if a new slot type version is created when the initial resource is created and on each
-	// update. Defaults to true.
+	// update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrInput
 	// The date when the slot type version was created.
 	CreatedDate pulumi.StringPtrInput
@@ -166,7 +166,7 @@ type SlotTypeState struct {
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
 	// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-	// if there is a resolution list for the slot, otherwise null is returned.
+	// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
 	ValueSelectionStrategy pulumi.StringPtrInput
 	// The version of the slot type.
 	Version pulumi.StringPtrInput
@@ -178,7 +178,7 @@ func (SlotTypeState) ElementType() reflect.Type {
 
 type slotTypeArgs struct {
 	// Determines if a new slot type version is created when the initial resource is created and on each
-	// update. Defaults to true.
+	// update. Defaults to `false`.
 	CreateVersion *bool `pulumi:"createVersion"`
 	// A description of the slot type.
 	Description *string `pulumi:"description"`
@@ -192,14 +192,14 @@ type slotTypeArgs struct {
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
 	// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-	// if there is a resolution list for the slot, otherwise null is returned.
+	// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
 	ValueSelectionStrategy *string `pulumi:"valueSelectionStrategy"`
 }
 
 // The set of arguments for constructing a SlotType resource.
 type SlotTypeArgs struct {
 	// Determines if a new slot type version is created when the initial resource is created and on each
-	// update. Defaults to true.
+	// update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrInput
 	// A description of the slot type.
 	Description pulumi.StringPtrInput
@@ -213,7 +213,7 @@ type SlotTypeArgs struct {
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
 	// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-	// if there is a resolution list for the slot, otherwise null is returned.
+	// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
 	ValueSelectionStrategy pulumi.StringPtrInput
 }
 

@@ -51,6 +51,18 @@ namespace Pulumi.Aws.Batch
         [Input("computeEnvironmentName", required: true)]
         public string ComputeEnvironmentName { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetComputeEnvironmentArgs()
         {
         }
@@ -90,6 +102,10 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         /// </summary>
         public readonly string Type;
@@ -112,6 +128,8 @@ namespace Pulumi.Aws.Batch
 
             string statusReason,
 
+            ImmutableDictionary<string, string> tags,
+
             string type)
         {
             Arn = arn;
@@ -122,6 +140,7 @@ namespace Pulumi.Aws.Batch
             State = state;
             Status = status;
             StatusReason = statusReason;
+            Tags = tags;
             Type = type;
         }
     }

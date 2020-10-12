@@ -147,6 +147,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Sts;
         public readonly string? Swf;
         public readonly string? Synthetics;
+        public readonly string? Timestreamwrite;
         public readonly string? Transfer;
         public readonly string? Waf;
         public readonly string? Wafregional;
@@ -426,6 +427,8 @@ namespace Pulumi.Aws.Outputs
 
             string? synthetics,
 
+            string? timestreamwrite,
+
             string? transfer,
 
             string? waf,
@@ -576,6 +579,7 @@ namespace Pulumi.Aws.Outputs
             Sts = sts;
             Swf = swf;
             Synthetics = synthetics;
+            Timestreamwrite = timestreamwrite;
             Transfer = transfer;
             Waf = waf;
             Wafregional = wafregional;

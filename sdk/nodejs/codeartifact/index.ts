@@ -4,4 +4,6 @@
 // Export members:
 export * from "./domain";
 export * from "./domainPermissions";
+export * from "./getAuthorizationToken";
 export * from "./repository";
+export * from "./repositoryPermissionsPolicy";

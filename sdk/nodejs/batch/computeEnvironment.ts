@@ -154,6 +154,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
+     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */
     public readonly type!: pulumi.Output<string>;
@@ -179,6 +183,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["state"] = state ? state.state : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["statusReason"] = state ? state.statusReason : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
@@ -193,6 +198,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["computeResources"] = args ? args.computeResources : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
             inputs["state"] = args ? args.state : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ecsClusterArn"] = undefined /*out*/;
@@ -251,6 +257,10 @@ export interface ComputeEnvironmentState {
      */
     readonly statusReason?: pulumi.Input<string>;
     /**
+     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */
     readonly type?: pulumi.Input<string>;
@@ -280,6 +290,10 @@ export interface ComputeEnvironmentArgs {
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     readonly state?: pulumi.Input<string>;
+    /**
+     * Key-value pair tags to be applied to resources that are launched in the compute environment.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */

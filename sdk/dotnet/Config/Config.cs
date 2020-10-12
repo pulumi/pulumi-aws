@@ -243,6 +243,7 @@ namespace Pulumi.Aws
                 public string? Sts { get; set; } = null!;
                 public string? Swf { get; set; } = null!;
                 public string? Synthetics { get; set; } = null!;
+                public string? Timestreamwrite { get; set; } = null!;
                 public string? Transfer { get; set; } = null!;
                 public string? Waf { get; set; } = null!;
                 public string? Wafregional { get; set; } = null!;

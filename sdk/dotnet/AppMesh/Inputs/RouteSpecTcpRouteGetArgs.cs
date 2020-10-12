@@ -18,6 +18,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("action", required: true)]
         public Input<Inputs.RouteSpecTcpRouteActionGetArgs> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The types of timeouts.
+        /// </summary>
+        [Input("timeout")]
+        public Input<Inputs.RouteSpecTcpRouteTimeoutGetArgs>? Timeout { get; set; }
+
         public RouteSpecTcpRouteGetArgs()
         {
         }

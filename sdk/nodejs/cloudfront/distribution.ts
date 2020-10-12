@@ -371,11 +371,13 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly waitForDeployment!: pulumi.Output<boolean | undefined>;
     /**
-     * If you're using AWS WAF to filter CloudFront
-     * requests, the Id of the AWS WAF web ACL that is associated with the
-     * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-     * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
+     * A unique identifier that specifies the AWS WAF web ACL,
+     * if any, to associate with this distribution.
+     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
+     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      */
     public readonly webAclId!: pulumi.Output<string | undefined>;
 
@@ -619,11 +621,13 @@ export interface DistributionState {
      */
     readonly waitForDeployment?: pulumi.Input<boolean>;
     /**
-     * If you're using AWS WAF to filter CloudFront
-     * requests, the Id of the AWS WAF web ACL that is associated with the
-     * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-     * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
+     * A unique identifier that specifies the AWS WAF web ACL,
+     * if any, to associate with this distribution.
+     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
+     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      */
     readonly webAclId?: pulumi.Input<string>;
 }
@@ -726,11 +730,13 @@ export interface DistributionArgs {
      */
     readonly waitForDeployment?: pulumi.Input<boolean>;
     /**
-     * If you're using AWS WAF to filter CloudFront
-     * requests, the Id of the AWS WAF web ACL that is associated with the
-     * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-     * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
+     * A unique identifier that specifies the AWS WAF web ACL,
+     * if any, to associate with this distribution.
+     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
+     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      */
     readonly webAclId?: pulumi.Input<string>;
 }

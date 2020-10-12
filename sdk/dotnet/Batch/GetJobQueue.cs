@@ -51,6 +51,18 @@ namespace Pulumi.Aws.Batch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetJobQueueArgs()
         {
         }
@@ -94,6 +106,10 @@ namespace Pulumi.Aws.Batch
         /// of the job queue.
         /// </summary>
         public readonly string StatusReason;
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetJobQueueResult(
@@ -111,7 +127,9 @@ namespace Pulumi.Aws.Batch
 
             string status,
 
-            string statusReason)
+            string statusReason,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             ComputeEnvironmentOrders = computeEnvironmentOrders;
@@ -121,6 +139,7 @@ namespace Pulumi.Aws.Batch
             State = state;
             Status = status;
             StatusReason = statusReason;
+            Tags = tags;
         }
     }
 }

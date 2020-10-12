@@ -37,7 +37,6 @@ type Proxy struct {
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 	// One or more VPC subnet IDs to associate with the new proxy.
-	// describe-db-parameters.html) after initial creation of the group.
 	VpcSubnetIds pulumi.StringArrayOutput `pulumi:"vpcSubnetIds"`
 }
 
@@ -104,7 +103,6 @@ type proxyState struct {
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 	// One or more VPC subnet IDs to associate with the new proxy.
-	// describe-db-parameters.html) after initial creation of the group.
 	VpcSubnetIds []string `pulumi:"vpcSubnetIds"`
 }
 
@@ -132,7 +130,6 @@ type ProxyState struct {
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 	// One or more VPC subnet IDs to associate with the new proxy.
-	// describe-db-parameters.html) after initial creation of the group.
 	VpcSubnetIds pulumi.StringArrayInput
 }
 
@@ -160,7 +157,6 @@ type proxyArgs struct {
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 	// One or more VPC subnet IDs to associate with the new proxy.
-	// describe-db-parameters.html) after initial creation of the group.
 	VpcSubnetIds []string `pulumi:"vpcSubnetIds"`
 }
 
@@ -185,7 +181,6 @@ type ProxyArgs struct {
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 	// One or more VPC subnet IDs to associate with the new proxy.
-	// describe-db-parameters.html) after initial creation of the group.
 	VpcSubnetIds pulumi.StringArrayInput
 }
 

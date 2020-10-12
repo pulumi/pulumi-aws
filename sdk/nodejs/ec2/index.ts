@@ -24,6 +24,7 @@ export * from "./getCoipPool";
 export * from "./getCoipPools";
 export * from "./getCustomerGateway";
 export * from "./getInstance";
+export * from "./getInstanceType";
 export * from "./getInstanceTypeOffering";
 export * from "./getInstanceTypeOfferings";
 export * from "./getInstances";

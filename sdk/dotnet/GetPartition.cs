@@ -60,11 +60,17 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetPartitionResult
     {
+        /// <summary>
+        /// Base DNS domain name for the current partition (e.g. `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+        /// </summary>
         public readonly string DnsSuffix;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// </summary>
         public readonly string Partition;
 
         [OutputConstructor]

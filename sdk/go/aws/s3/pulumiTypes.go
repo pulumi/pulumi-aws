@@ -3189,6 +3189,137 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Years() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+type BucketOwnershipControlsRule struct {
+	// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+	ObjectOwnership string `pulumi:"objectOwnership"`
+}
+
+// BucketOwnershipControlsRuleInput is an input type that accepts BucketOwnershipControlsRuleArgs and BucketOwnershipControlsRuleOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsRuleInput` via:
+//
+//          BucketOwnershipControlsRuleArgs{...}
+type BucketOwnershipControlsRuleInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput
+	ToBucketOwnershipControlsRuleOutputWithContext(context.Context) BucketOwnershipControlsRuleOutput
+}
+
+type BucketOwnershipControlsRuleArgs struct {
+	// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+	ObjectOwnership pulumi.StringInput `pulumi:"objectOwnership"`
+}
+
+func (BucketOwnershipControlsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput {
+	return i.ToBucketOwnershipControlsRuleOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleOutput)
+}
+
+func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
+	return i.ToBucketOwnershipControlsRulePtrOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleOutput).ToBucketOwnershipControlsRulePtrOutputWithContext(ctx)
+}
+
+// BucketOwnershipControlsRulePtrInput is an input type that accepts BucketOwnershipControlsRuleArgs, BucketOwnershipControlsRulePtr and BucketOwnershipControlsRulePtrOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsRulePtrInput` via:
+//
+//          BucketOwnershipControlsRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketOwnershipControlsRulePtrInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput
+	ToBucketOwnershipControlsRulePtrOutputWithContext(context.Context) BucketOwnershipControlsRulePtrOutput
+}
+
+type bucketOwnershipControlsRulePtrType BucketOwnershipControlsRuleArgs
+
+func BucketOwnershipControlsRulePtr(v *BucketOwnershipControlsRuleArgs) BucketOwnershipControlsRulePtrInput {
+	return (*bucketOwnershipControlsRulePtrType)(v)
+}
+
+func (*bucketOwnershipControlsRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (i *bucketOwnershipControlsRulePtrType) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
+	return i.ToBucketOwnershipControlsRulePtrOutputWithContext(context.Background())
+}
+
+func (i *bucketOwnershipControlsRulePtrType) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRulePtrOutput)
+}
+
+type BucketOwnershipControlsRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
+	return o.ToBucketOwnershipControlsRulePtrOutputWithContext(context.Background())
+}
+
+func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
+	return o.ApplyT(func(v BucketOwnershipControlsRule) *BucketOwnershipControlsRule {
+		return &v
+	}).(BucketOwnershipControlsRulePtrOutput)
+}
+
+// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+func (o BucketOwnershipControlsRuleOutput) ObjectOwnership() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketOwnershipControlsRule) string { return v.ObjectOwnership }).(pulumi.StringOutput)
+}
+
+type BucketOwnershipControlsRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsRulePtrOutput) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRulePtrOutput) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRulePtrOutput) Elem() BucketOwnershipControlsRuleOutput {
+	return o.ApplyT(func(v *BucketOwnershipControlsRule) BucketOwnershipControlsRule { return *v }).(BucketOwnershipControlsRuleOutput)
+}
+
+// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+func (o BucketOwnershipControlsRulePtrOutput) ObjectOwnership() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketOwnershipControlsRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectOwnership
+	}).(pulumi.StringPtrOutput)
+}
+
 type BucketReplicationConfiguration struct {
 	// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role string `pulumi:"role"`
@@ -5960,6 +6091,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRulePtrOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleDefaultRetentionOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsRuleOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsRulePtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleOutput{})

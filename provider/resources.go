@@ -2014,7 +2014,8 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "s3_bucket_analysis_configuration.html.markdown",
 				},
 			},
-			"aws_s3_access_point": {Tok: awsResource(s3Mod, "AccessPoint")},
+			"aws_s3_access_point":              {Tok: awsResource(s3Mod, "AccessPoint")},
+			"aws_s3_bucket_ownership_controls": {Tok: awsResource(s3Mod, "BucketOwnershipControls")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
@@ -2167,11 +2168,14 @@ func Provider() tfbridge.ProviderInfo {
 			// Access Analyzer
 			"aws_accessanalyzer_analyzer": {Tok: awsResource(accessAnalyzerMod, "Analyzer")},
 			// CodeStar Notifications
-			"aws_codestarnotifications_notification_rule": {Tok: awsResource(codestarNotificiationsMod, "NotificationRule")},
+			"aws_codestarnotifications_notification_rule": {
+				Tok: awsResource(codestarNotificiationsMod, "NotificationRule"),
+			},
 			// Lex
 			"aws_lex_slot_type": {Tok: awsResource(lexMod, "SlotType")},
 			"aws_lex_bot":       {Tok: awsResource(lexMod, "Bot")},
 			"aws_lex_intent":    {Tok: awsResource(lexMod, "Intent")},
+			"aws_lex_bot_alias": {Tok: awsResource(lexMod, "BotAlias")},
 			// Codeartifact
 			"aws_codeartifact_domain": {
 				Tok: awsResource(codeartifactMod, "Domain"),
@@ -2190,6 +2194,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_codeartifact_domain_permissions_policy": {Tok: awsResource(codeartifactMod, "DomainPermissions")},
+			"aws_codeartifact_repository_permissions_policy": {
+				Tok: awsResource(codeartifactMod, "RepositoryPermissionsPolicy"),
+			},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws::Region": {
@@ -3027,6 +3034,7 @@ func Provider() tfbridge.ProviderInfo {
 			// EC2
 			"aws_customer_gateway":     {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
 			"aws_instance":             {Tok: awsDataSource(ec2Mod, "getInstance")},
+			"aws_ec2_instance_type":    {Tok: awsDataSource(ec2Mod, "getInstanceType")},
 			"aws_instances":            {Tok: awsDataSource(ec2Mod, "getInstances")},
 			"aws_internet_gateway":     {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
 			"aws_launch_configuration": {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
@@ -3222,8 +3230,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift
-			"aws_redshift_cluster":         {Tok: awsDataSource(redshiftMod, "getCluster")},
-			"aws_redshift_service_account": {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
+			"aws_redshift_cluster":           {Tok: awsDataSource(redshiftMod, "getCluster")},
+			"aws_redshift_service_account":   {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
+			"aws_redshift_orderable_cluster": {Tok: awsDataSource(redshiftMod, "getOrderableCluster")},
 			// Route53
 			"aws_route53_zone":           {Tok: awsDataSource(route53Mod, "getZone")},
 			"aws_route53_delegation_set": {Tok: awsDataSource(route53Mod, "getDelegationSet")},
@@ -3296,19 +3305,21 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafv2_web_acl":           {Tok: awsDataSource(wafV2Mod, "getWebAcl")},
 			"aws_wafv2_rule_group":        {Tok: awsDataSource(wafV2Mod, "getRuleGroup")},
 			// Outposts
-			"aws_outposts_outpost":                {Tok: awsDataSource(outpostsMod, "getOutpost")},
-			"aws_outposts_outposts":               {Tok: awsDataSource(outpostsMod, "getOutposts")},
-			"aws_outposts_outpost_instance_type":  {Tok: awsDataSource(outpostsMod, "getOutpostInstanceType")},
-			"aws_outposts_outpost_instance_types": {Tok: awsDataSource(outpostsMod, "getOutpostInstanceTypes")},
-			"aws_outposts_site":                   {Tok: awsDataSource(outpostsMod, "getSite")},
-			"aws_outposts_sites":                  {Tok: awsDataSource(outpostsMod, "getSites")},
-			"aws_docdb_orderable_db_instance":     {Tok: awsDataSource(docdbMod, "getOrderableDbInstance")},
-			"aws_docdb_engine_version":            {Tok: awsDataSource(docdbMod, "getEngineVersion")},
-			"aws_lex_slot_type":                   {Tok: awsDataSource(lexMod, "getSlotType")},
-			"aws_lex_bot":                         {Tok: awsDataSource(lexMod, "getBot")},
-			"aws_lex_intent":                      {Tok: awsDataSource(lexMod, "getIntent")},
-			"aws_neptune_orderable_db_instance":   {Tok: awsDataSource(neptuneMod, "getOrderableDbInstance")},
-			"aws_neptune_engine_version":          {Tok: awsDataSource(neptuneMod, "getEngineVersion")},
+			"aws_outposts_outpost":                 {Tok: awsDataSource(outpostsMod, "getOutpost")},
+			"aws_outposts_outposts":                {Tok: awsDataSource(outpostsMod, "getOutposts")},
+			"aws_outposts_outpost_instance_type":   {Tok: awsDataSource(outpostsMod, "getOutpostInstanceType")},
+			"aws_outposts_outpost_instance_types":  {Tok: awsDataSource(outpostsMod, "getOutpostInstanceTypes")},
+			"aws_outposts_site":                    {Tok: awsDataSource(outpostsMod, "getSite")},
+			"aws_outposts_sites":                   {Tok: awsDataSource(outpostsMod, "getSites")},
+			"aws_docdb_orderable_db_instance":      {Tok: awsDataSource(docdbMod, "getOrderableDbInstance")},
+			"aws_docdb_engine_version":             {Tok: awsDataSource(docdbMod, "getEngineVersion")},
+			"aws_lex_slot_type":                    {Tok: awsDataSource(lexMod, "getSlotType")},
+			"aws_lex_bot":                          {Tok: awsDataSource(lexMod, "getBot")},
+			"aws_lex_bot_alias":                    {Tok: awsDataSource(lexMod, "getBotAlias")},
+			"aws_lex_intent":                       {Tok: awsDataSource(lexMod, "getIntent")},
+			"aws_neptune_orderable_db_instance":    {Tok: awsDataSource(neptuneMod, "getOrderableDbInstance")},
+			"aws_neptune_engine_version":           {Tok: awsDataSource(neptuneMod, "getEngineVersion")},
+			"aws_codeartifact_authorization_token": {Tok: awsDataSource(codeartifactMod, "getAuthorizationToken")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

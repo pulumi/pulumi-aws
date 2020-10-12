@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v3.10.0 of the AWS Terraform Provider
 * Disable autonaming on `directoryservice.Directory` as the `name` needs to be a fully qualified name for the directory
 * Schematize enums, generate new constants and update existing constants for Nodejs. [#1151](https://github.com/pulumi/pulumi-aws/pull/1151)
 * Upgrade to pulumi-terraform-bridge v2.11.0

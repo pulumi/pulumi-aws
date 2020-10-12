@@ -45,6 +45,8 @@ func LookupComputeEnvironment(ctx *pulumi.Context, args *LookupComputeEnvironmen
 type LookupComputeEnvironmentArgs struct {
 	// The name of the Batch Compute Environment
 	ComputeEnvironmentName string `pulumi:"computeEnvironmentName"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getComputeEnvironment.
@@ -64,6 +66,8 @@ type LookupComputeEnvironmentResult struct {
 	Status string `pulumi:"status"`
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason string `pulumi:"statusReason"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 	Type string `pulumi:"type"`
 }

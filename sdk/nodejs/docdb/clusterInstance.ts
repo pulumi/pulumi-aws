@@ -114,11 +114,11 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     public readonly identifierPrefix!: pulumi.Output<string>;
     /**
@@ -295,11 +295,11 @@ export interface ClusterInstanceState {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
      */
     readonly identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
@@ -379,11 +379,11 @@ export interface ClusterInstanceArgs {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
      */
     readonly identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**

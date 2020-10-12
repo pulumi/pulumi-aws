@@ -49,7 +49,7 @@ class GetCertificateResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+        Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
         """
         return pulumi.get(self, "arn")
 

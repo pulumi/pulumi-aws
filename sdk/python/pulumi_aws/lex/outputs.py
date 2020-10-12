@@ -12,6 +12,8 @@ from . import outputs
 __all__ = [
     'BotAbortStatement',
     'BotAbortStatementMessage',
+    'BotAliasConversationLogs',
+    'BotAliasConversationLogsLogSetting',
     'BotClarificationPrompt',
     'BotClarificationPromptMessage',
     'BotIntent',
@@ -118,6 +120,106 @@ class BotAbortStatementMessage(dict):
         is assigned to a message, Amazon Lex returns one message from each group in the response.
         """
         return pulumi.get(self, "group_number")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BotAliasConversationLogs(dict):
+    def __init__(__self__, *,
+                 iam_role_arn: str,
+                 log_settings: Optional[Sequence['outputs.BotAliasConversationLogsLogSetting']] = None):
+        """
+        :param str iam_role_arn: The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+        :param Sequence['BotAliasConversationLogsLogSettingArgs'] log_settings: The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+        """
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if log_settings is not None:
+            pulumi.set(__self__, "log_settings", log_settings)
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @property
+    @pulumi.getter(name="logSettings")
+    def log_settings(self) -> Optional[Sequence['outputs.BotAliasConversationLogsLogSetting']]:
+        """
+        The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+        """
+        return pulumi.get(self, "log_settings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BotAliasConversationLogsLogSetting(dict):
+    def __init__(__self__, *,
+                 destination: str,
+                 log_type: str,
+                 resource_arn: str,
+                 kms_key_arn: Optional[str] = None,
+                 resource_prefix: Optional[str] = None):
+        """
+        :param str destination: The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
+        :param str log_type: The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
+        :param str resource_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+        :param str kms_key_arn: The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+        :param str resource_prefix: The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "log_type", log_type)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if resource_prefix is not None:
+            pulumi.set(__self__, "resource_prefix", resource_prefix)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> str:
+        """
+        The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
+        """
+        return pulumi.get(self, "log_type")
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="resourcePrefix")
+    def resource_prefix(self) -> Optional[str]:
+        """
+        The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
+        """
+        return pulumi.get(self, "resource_prefix")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -481,9 +583,9 @@ class IntentFollowUpPrompt(dict):
                  rejection_statement: 'outputs.IntentFollowUpPromptRejectionStatement'):
         """
         :param 'IntentFollowUpPromptPromptArgs' prompt: Prompts for information from the user. Attributes are documented under prompt.
-        :param 'IntentFollowUpPromptRejectionStatementArgs' rejection_statement: When the user answers "no" to the question defined in
-               `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-               canceled.
+        :param 'IntentFollowUpPromptRejectionStatementArgs' rejection_statement: If the user answers "no" to the question defined in the prompt field,
+               Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+               documented below under statement.
         """
         pulumi.set(__self__, "prompt", prompt)
         pulumi.set(__self__, "rejection_statement", rejection_statement)
@@ -500,9 +602,9 @@ class IntentFollowUpPrompt(dict):
     @pulumi.getter(name="rejectionStatement")
     def rejection_statement(self) -> 'outputs.IntentFollowUpPromptRejectionStatement':
         """
-        When the user answers "no" to the question defined in
-        `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        canceled.
+        If the user answers "no" to the question defined in the prompt field,
+        Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+        documented below under statement.
         """
         return pulumi.get(self, "rejection_statement")
 
@@ -875,7 +977,8 @@ class IntentSlot(dict):
         :param str description: A description of the bot.
         :param int priority: Directs Lex the order in which to elicit this slot value from the user.
                For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
-               the slot with priority 1.
+               the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
+               values is arbitrary.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
@@ -941,7 +1044,8 @@ class IntentSlot(dict):
         """
         Directs Lex the order in which to elicit this slot value from the user.
         For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
-        the slot with priority 1.
+        the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
+        values is arbitrary.
         """
         return pulumi.get(self, "priority")
 

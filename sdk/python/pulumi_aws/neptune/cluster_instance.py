@@ -75,7 +75,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
         :param pulumi.Input[str] engine_version: The neptune engine version.
-        :param pulumi.Input[str] identifier: The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use.
         :param pulumi.Input[str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
@@ -185,7 +185,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
         :param pulumi.Input[str] engine_version: The neptune engine version.
-        :param pulumi.Input[str] identifier: The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key if one is set to the neptune cluster.
@@ -316,7 +316,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter
     def identifier(self) -> pulumi.Output[str]:
         """
-        The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+        The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         """
         return pulumi.get(self, "identifier")
 

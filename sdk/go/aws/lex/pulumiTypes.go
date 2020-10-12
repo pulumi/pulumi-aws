@@ -294,6 +294,289 @@ func (o BotAbortStatementMessageArrayOutput) Index(i pulumi.IntInput) BotAbortSt
 	}).(BotAbortStatementMessageOutput)
 }
 
+type BotAliasConversationLogs struct {
+	// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+	IamRoleArn string `pulumi:"iamRoleArn"`
+	// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+	LogSettings []BotAliasConversationLogsLogSetting `pulumi:"logSettings"`
+}
+
+// BotAliasConversationLogsInput is an input type that accepts BotAliasConversationLogsArgs and BotAliasConversationLogsOutput values.
+// You can construct a concrete instance of `BotAliasConversationLogsInput` via:
+//
+//          BotAliasConversationLogsArgs{...}
+type BotAliasConversationLogsInput interface {
+	pulumi.Input
+
+	ToBotAliasConversationLogsOutput() BotAliasConversationLogsOutput
+	ToBotAliasConversationLogsOutputWithContext(context.Context) BotAliasConversationLogsOutput
+}
+
+type BotAliasConversationLogsArgs struct {
+	// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+	// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+	LogSettings BotAliasConversationLogsLogSettingArrayInput `pulumi:"logSettings"`
+}
+
+func (BotAliasConversationLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAliasConversationLogs)(nil)).Elem()
+}
+
+func (i BotAliasConversationLogsArgs) ToBotAliasConversationLogsOutput() BotAliasConversationLogsOutput {
+	return i.ToBotAliasConversationLogsOutputWithContext(context.Background())
+}
+
+func (i BotAliasConversationLogsArgs) ToBotAliasConversationLogsOutputWithContext(ctx context.Context) BotAliasConversationLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsOutput)
+}
+
+func (i BotAliasConversationLogsArgs) ToBotAliasConversationLogsPtrOutput() BotAliasConversationLogsPtrOutput {
+	return i.ToBotAliasConversationLogsPtrOutputWithContext(context.Background())
+}
+
+func (i BotAliasConversationLogsArgs) ToBotAliasConversationLogsPtrOutputWithContext(ctx context.Context) BotAliasConversationLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsOutput).ToBotAliasConversationLogsPtrOutputWithContext(ctx)
+}
+
+// BotAliasConversationLogsPtrInput is an input type that accepts BotAliasConversationLogsArgs, BotAliasConversationLogsPtr and BotAliasConversationLogsPtrOutput values.
+// You can construct a concrete instance of `BotAliasConversationLogsPtrInput` via:
+//
+//          BotAliasConversationLogsArgs{...}
+//
+//  or:
+//
+//          nil
+type BotAliasConversationLogsPtrInput interface {
+	pulumi.Input
+
+	ToBotAliasConversationLogsPtrOutput() BotAliasConversationLogsPtrOutput
+	ToBotAliasConversationLogsPtrOutputWithContext(context.Context) BotAliasConversationLogsPtrOutput
+}
+
+type botAliasConversationLogsPtrType BotAliasConversationLogsArgs
+
+func BotAliasConversationLogsPtr(v *BotAliasConversationLogsArgs) BotAliasConversationLogsPtrInput {
+	return (*botAliasConversationLogsPtrType)(v)
+}
+
+func (*botAliasConversationLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAliasConversationLogs)(nil)).Elem()
+}
+
+func (i *botAliasConversationLogsPtrType) ToBotAliasConversationLogsPtrOutput() BotAliasConversationLogsPtrOutput {
+	return i.ToBotAliasConversationLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *botAliasConversationLogsPtrType) ToBotAliasConversationLogsPtrOutputWithContext(ctx context.Context) BotAliasConversationLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsPtrOutput)
+}
+
+type BotAliasConversationLogsOutput struct{ *pulumi.OutputState }
+
+func (BotAliasConversationLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAliasConversationLogs)(nil)).Elem()
+}
+
+func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsOutput() BotAliasConversationLogsOutput {
+	return o
+}
+
+func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsOutputWithContext(ctx context.Context) BotAliasConversationLogsOutput {
+	return o
+}
+
+func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsPtrOutput() BotAliasConversationLogsPtrOutput {
+	return o.ToBotAliasConversationLogsPtrOutputWithContext(context.Background())
+}
+
+func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsPtrOutputWithContext(ctx context.Context) BotAliasConversationLogsPtrOutput {
+	return o.ApplyT(func(v BotAliasConversationLogs) *BotAliasConversationLogs {
+		return &v
+	}).(BotAliasConversationLogsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+func (o BotAliasConversationLogsOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotAliasConversationLogs) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+func (o BotAliasConversationLogsOutput) LogSettings() BotAliasConversationLogsLogSettingArrayOutput {
+	return o.ApplyT(func(v BotAliasConversationLogs) []BotAliasConversationLogsLogSetting { return v.LogSettings }).(BotAliasConversationLogsLogSettingArrayOutput)
+}
+
+type BotAliasConversationLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (BotAliasConversationLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotAliasConversationLogs)(nil)).Elem()
+}
+
+func (o BotAliasConversationLogsPtrOutput) ToBotAliasConversationLogsPtrOutput() BotAliasConversationLogsPtrOutput {
+	return o
+}
+
+func (o BotAliasConversationLogsPtrOutput) ToBotAliasConversationLogsPtrOutputWithContext(ctx context.Context) BotAliasConversationLogsPtrOutput {
+	return o
+}
+
+func (o BotAliasConversationLogsPtrOutput) Elem() BotAliasConversationLogsOutput {
+	return o.ApplyT(func(v *BotAliasConversationLogs) BotAliasConversationLogs { return *v }).(BotAliasConversationLogsOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+func (o BotAliasConversationLogsPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotAliasConversationLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+func (o BotAliasConversationLogsPtrOutput) LogSettings() BotAliasConversationLogsLogSettingArrayOutput {
+	return o.ApplyT(func(v *BotAliasConversationLogs) []BotAliasConversationLogsLogSetting {
+		if v == nil {
+			return nil
+		}
+		return v.LogSettings
+	}).(BotAliasConversationLogsLogSettingArrayOutput)
+}
+
+type BotAliasConversationLogsLogSetting struct {
+	// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
+	Destination string `pulumi:"destination"`
+	// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
+	LogType string `pulumi:"logType"`
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+	ResourceArn string `pulumi:"resourceArn"`
+	// The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
+	ResourcePrefix *string `pulumi:"resourcePrefix"`
+}
+
+// BotAliasConversationLogsLogSettingInput is an input type that accepts BotAliasConversationLogsLogSettingArgs and BotAliasConversationLogsLogSettingOutput values.
+// You can construct a concrete instance of `BotAliasConversationLogsLogSettingInput` via:
+//
+//          BotAliasConversationLogsLogSettingArgs{...}
+type BotAliasConversationLogsLogSettingInput interface {
+	pulumi.Input
+
+	ToBotAliasConversationLogsLogSettingOutput() BotAliasConversationLogsLogSettingOutput
+	ToBotAliasConversationLogsLogSettingOutputWithContext(context.Context) BotAliasConversationLogsLogSettingOutput
+}
+
+type BotAliasConversationLogsLogSettingArgs struct {
+	// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
+	LogType pulumi.StringInput `pulumi:"logType"`
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
+	ResourcePrefix pulumi.StringPtrInput `pulumi:"resourcePrefix"`
+}
+
+func (BotAliasConversationLogsLogSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAliasConversationLogsLogSetting)(nil)).Elem()
+}
+
+func (i BotAliasConversationLogsLogSettingArgs) ToBotAliasConversationLogsLogSettingOutput() BotAliasConversationLogsLogSettingOutput {
+	return i.ToBotAliasConversationLogsLogSettingOutputWithContext(context.Background())
+}
+
+func (i BotAliasConversationLogsLogSettingArgs) ToBotAliasConversationLogsLogSettingOutputWithContext(ctx context.Context) BotAliasConversationLogsLogSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsLogSettingOutput)
+}
+
+// BotAliasConversationLogsLogSettingArrayInput is an input type that accepts BotAliasConversationLogsLogSettingArray and BotAliasConversationLogsLogSettingArrayOutput values.
+// You can construct a concrete instance of `BotAliasConversationLogsLogSettingArrayInput` via:
+//
+//          BotAliasConversationLogsLogSettingArray{ BotAliasConversationLogsLogSettingArgs{...} }
+type BotAliasConversationLogsLogSettingArrayInput interface {
+	pulumi.Input
+
+	ToBotAliasConversationLogsLogSettingArrayOutput() BotAliasConversationLogsLogSettingArrayOutput
+	ToBotAliasConversationLogsLogSettingArrayOutputWithContext(context.Context) BotAliasConversationLogsLogSettingArrayOutput
+}
+
+type BotAliasConversationLogsLogSettingArray []BotAliasConversationLogsLogSettingInput
+
+func (BotAliasConversationLogsLogSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotAliasConversationLogsLogSetting)(nil)).Elem()
+}
+
+func (i BotAliasConversationLogsLogSettingArray) ToBotAliasConversationLogsLogSettingArrayOutput() BotAliasConversationLogsLogSettingArrayOutput {
+	return i.ToBotAliasConversationLogsLogSettingArrayOutputWithContext(context.Background())
+}
+
+func (i BotAliasConversationLogsLogSettingArray) ToBotAliasConversationLogsLogSettingArrayOutputWithContext(ctx context.Context) BotAliasConversationLogsLogSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasConversationLogsLogSettingArrayOutput)
+}
+
+type BotAliasConversationLogsLogSettingOutput struct{ *pulumi.OutputState }
+
+func (BotAliasConversationLogsLogSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAliasConversationLogsLogSetting)(nil)).Elem()
+}
+
+func (o BotAliasConversationLogsLogSettingOutput) ToBotAliasConversationLogsLogSettingOutput() BotAliasConversationLogsLogSettingOutput {
+	return o
+}
+
+func (o BotAliasConversationLogsLogSettingOutput) ToBotAliasConversationLogsLogSettingOutputWithContext(ctx context.Context) BotAliasConversationLogsLogSettingOutput {
+	return o
+}
+
+// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
+func (o BotAliasConversationLogsLogSettingOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+func (o BotAliasConversationLogsLogSettingOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
+func (o BotAliasConversationLogsLogSettingOutput) LogType() pulumi.StringOutput {
+	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.LogType }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+func (o BotAliasConversationLogsLogSettingOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
+func (o BotAliasConversationLogsLogSettingOutput) ResourcePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) *string { return v.ResourcePrefix }).(pulumi.StringPtrOutput)
+}
+
+type BotAliasConversationLogsLogSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (BotAliasConversationLogsLogSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotAliasConversationLogsLogSetting)(nil)).Elem()
+}
+
+func (o BotAliasConversationLogsLogSettingArrayOutput) ToBotAliasConversationLogsLogSettingArrayOutput() BotAliasConversationLogsLogSettingArrayOutput {
+	return o
+}
+
+func (o BotAliasConversationLogsLogSettingArrayOutput) ToBotAliasConversationLogsLogSettingArrayOutputWithContext(ctx context.Context) BotAliasConversationLogsLogSettingArrayOutput {
+	return o
+}
+
+func (o BotAliasConversationLogsLogSettingArrayOutput) Index(i pulumi.IntInput) BotAliasConversationLogsLogSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotAliasConversationLogsLogSetting {
+		return vs[0].([]BotAliasConversationLogsLogSetting)[vs[1].(int)]
+	}).(BotAliasConversationLogsLogSettingOutput)
+}
+
 type BotClarificationPrompt struct {
 	// The number of times to prompt the user for information.
 	MaxAttempts int `pulumi:"maxAttempts"`
@@ -1451,9 +1734,9 @@ func (o IntentDialogCodeHookPtrOutput) Uri() pulumi.StringPtrOutput {
 type IntentFollowUpPrompt struct {
 	// Prompts for information from the user. Attributes are documented under prompt.
 	Prompt IntentFollowUpPromptPrompt `pulumi:"prompt"`
-	// When the user answers "no" to the question defined in
-	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-	// canceled.
+	// If the user answers "no" to the question defined in the prompt field,
+	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+	// documented below under statement.
 	RejectionStatement IntentFollowUpPromptRejectionStatement `pulumi:"rejectionStatement"`
 }
 
@@ -1471,9 +1754,9 @@ type IntentFollowUpPromptInput interface {
 type IntentFollowUpPromptArgs struct {
 	// Prompts for information from the user. Attributes are documented under prompt.
 	Prompt IntentFollowUpPromptPromptInput `pulumi:"prompt"`
-	// When the user answers "no" to the question defined in
-	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-	// canceled.
+	// If the user answers "no" to the question defined in the prompt field,
+	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+	// documented below under statement.
 	RejectionStatement IntentFollowUpPromptRejectionStatementInput `pulumi:"rejectionStatement"`
 }
 
@@ -1559,9 +1842,9 @@ func (o IntentFollowUpPromptOutput) Prompt() IntentFollowUpPromptPromptOutput {
 	return o.ApplyT(func(v IntentFollowUpPrompt) IntentFollowUpPromptPrompt { return v.Prompt }).(IntentFollowUpPromptPromptOutput)
 }
 
-// When the user answers "no" to the question defined in
-// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-// canceled.
+// If the user answers "no" to the question defined in the prompt field,
+// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+// documented below under statement.
 func (o IntentFollowUpPromptOutput) RejectionStatement() IntentFollowUpPromptRejectionStatementOutput {
 	return o.ApplyT(func(v IntentFollowUpPrompt) IntentFollowUpPromptRejectionStatement { return v.RejectionStatement }).(IntentFollowUpPromptRejectionStatementOutput)
 }
@@ -1594,9 +1877,9 @@ func (o IntentFollowUpPromptPtrOutput) Prompt() IntentFollowUpPromptPromptPtrOut
 	}).(IntentFollowUpPromptPromptPtrOutput)
 }
 
-// When the user answers "no" to the question defined in
-// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-// canceled.
+// If the user answers "no" to the question defined in the prompt field,
+// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+// documented below under statement.
 func (o IntentFollowUpPromptPtrOutput) RejectionStatement() IntentFollowUpPromptRejectionStatementPtrOutput {
 	return o.ApplyT(func(v *IntentFollowUpPrompt) *IntentFollowUpPromptRejectionStatement {
 		if v == nil {
@@ -2802,7 +3085,8 @@ type IntentSlot struct {
 	Name string `pulumi:"name"`
 	// Directs Lex the order in which to elicit this slot value from the user.
 	// For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
-	// the slot with priority 1.
+	// the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
+	// values is arbitrary.
 	Priority *int `pulumi:"priority"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
@@ -2842,7 +3126,8 @@ type IntentSlotArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Directs Lex the order in which to elicit this slot value from the user.
 	// For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
-	// the slot with priority 1.
+	// the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
+	// values is arbitrary.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
@@ -2927,7 +3212,8 @@ func (o IntentSlotOutput) Name() pulumi.StringOutput {
 
 // Directs Lex the order in which to elicit this slot value from the user.
 // For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
-// the slot with priority 1.
+// the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
+// values is arbitrary.
 func (o IntentSlotOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntentSlot) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
@@ -3502,6 +3788,10 @@ func init() {
 	pulumi.RegisterOutputType(BotAbortStatementPtrOutput{})
 	pulumi.RegisterOutputType(BotAbortStatementMessageOutput{})
 	pulumi.RegisterOutputType(BotAbortStatementMessageArrayOutput{})
+	pulumi.RegisterOutputType(BotAliasConversationLogsOutput{})
+	pulumi.RegisterOutputType(BotAliasConversationLogsPtrOutput{})
+	pulumi.RegisterOutputType(BotAliasConversationLogsLogSettingOutput{})
+	pulumi.RegisterOutputType(BotAliasConversationLogsLogSettingArrayOutput{})
 	pulumi.RegisterOutputType(BotClarificationPromptOutput{})
 	pulumi.RegisterOutputType(BotClarificationPromptPtrOutput{})
 	pulumi.RegisterOutputType(BotClarificationPromptMessageOutput{})

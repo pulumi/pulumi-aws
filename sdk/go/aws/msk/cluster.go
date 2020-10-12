@@ -175,9 +175,9 @@ type Cluster struct {
 
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
 	BootstrapBrokers pulumi.StringOutput `pulumi:"bootstrapBrokers"`
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
 	BootstrapBrokersTls pulumi.StringOutput `pulumi:"bootstrapBrokersTls"`
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoOutput `pulumi:"brokerNodeGroupInfo"`
@@ -250,9 +250,9 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 	Arn *string `pulumi:"arn"`
-	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
 	BootstrapBrokers *string `pulumi:"bootstrapBrokers"`
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
 	BootstrapBrokersTls *string `pulumi:"bootstrapBrokersTls"`
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo *ClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfo"`
@@ -286,9 +286,9 @@ type clusterState struct {
 type ClusterState struct {
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 	Arn pulumi.StringPtrInput
-	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
 	BootstrapBrokers pulumi.StringPtrInput
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to bootstrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
 	BootstrapBrokersTls pulumi.StringPtrInput
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoPtrInput

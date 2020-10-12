@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Acm
     public sealed class GetCertificateResult
     {
         /// <summary>
-        /// Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+        /// Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
         /// </summary>
         public readonly string Arn;
         public readonly string Domain;

@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *
  * const s3 = aws.ec2.getVpcEndpointService({
  *     service: "s3",
+ *     serviceType: "Gateway",
  * });
  * // Create a VPC
  * const foo = new aws.ec2.Vpc("foo", {cidrBlock: "10.0.0.0/16"});
@@ -66,6 +67,7 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: p
         "filters": args.filters,
         "service": args.service,
         "serviceName": args.serviceName,
+        "serviceType": args.serviceType,
         "tags": args.tags,
     }, opts);
 }
@@ -86,6 +88,10 @@ export interface GetVpcEndpointServiceArgs {
      * The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     readonly serviceName?: string;
+    /**
+     * The service type, `Gateway` or `Interface`.
+     */
+    readonly serviceType?: string;
     /**
      * A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      */
@@ -135,9 +141,6 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly serviceId: string;
     readonly serviceName: string;
-    /**
-     * The service type, `Gateway` or `Interface`.
-     */
     readonly serviceType: string;
     /**
      * A map of tags assigned to the resource.

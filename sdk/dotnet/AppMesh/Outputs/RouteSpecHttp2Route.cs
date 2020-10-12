@@ -25,6 +25,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// The retry policy.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteRetryPolicy? RetryPolicy;
+        /// <summary>
+        /// The types of timeouts.
+        /// </summary>
+        public readonly Outputs.RouteSpecHttp2RouteTimeout? Timeout;
 
         [OutputConstructor]
         private RouteSpecHttp2Route(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             Outputs.RouteSpecHttp2RouteMatch match,
 
-            Outputs.RouteSpecHttp2RouteRetryPolicy? retryPolicy)
+            Outputs.RouteSpecHttp2RouteRetryPolicy? retryPolicy,
+
+            Outputs.RouteSpecHttp2RouteTimeout? timeout)
         {
             Action = action;
             Match = match;
             RetryPolicy = retryPolicy;
+            Timeout = timeout;
         }
     }
 }

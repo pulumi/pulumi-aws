@@ -21,6 +21,7 @@ class JobDefinition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -80,6 +81,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the parameter substitution placeholders to set in the job definition.
         :param pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']] retry_strategy: Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
                Maximum number of `retry_strategy` is `1`.  Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition.  Must be `container`
         """
@@ -104,6 +106,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__['name'] = name
             __props__['parameters'] = parameters
             __props__['retry_strategy'] = retry_strategy
+            __props__['tags'] = tags
             __props__['timeout'] = timeout
             if type is None:
                 raise TypeError("Missing required property 'type'")
@@ -126,6 +129,7 @@ class JobDefinition(pulumi.CustomResource):
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
             revision: Optional[pulumi.Input[int]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'JobDefinition':
         """
@@ -143,6 +147,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']] retry_strategy: Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
                Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[int] revision: The revision of the job definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition.  Must be `container`
         """
@@ -156,6 +161,7 @@ class JobDefinition(pulumi.CustomResource):
         __props__["parameters"] = parameters
         __props__["retry_strategy"] = retry_strategy
         __props__["revision"] = revision
+        __props__["tags"] = tags
         __props__["timeout"] = timeout
         __props__["type"] = type
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
@@ -209,6 +215,14 @@ class JobDefinition(pulumi.CustomResource):
         The revision of the job definition.
         """
         return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

@@ -1992,8 +1992,8 @@ class TargetGroupStickinessArgs:
                  cookie_duration: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] type: The type of sticky sessions. The only current possible value is `lb_cookie`.
-        :param pulumi.Input[int] cookie_duration: The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+        :param pulumi.Input[str] type: The type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
+        :param pulumi.Input[int] cookie_duration: Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         :param pulumi.Input[bool] enabled: Indicates whether  health checks are enabled. Defaults to true.
         """
         pulumi.set(__self__, "type", type)
@@ -2006,7 +2006,7 @@ class TargetGroupStickinessArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of sticky sessions. The only current possible value is `lb_cookie`.
+        The type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
         """
         return pulumi.get(self, "type")
 
@@ -2018,7 +2018,7 @@ class TargetGroupStickinessArgs:
     @pulumi.getter(name="cookieDuration")
     def cookie_duration(self) -> Optional[pulumi.Input[int]]:
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+        Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         """
         return pulumi.get(self, "cookie_duration")
 

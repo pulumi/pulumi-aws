@@ -33,6 +33,9 @@ class GetPartitionResult:
     @property
     @pulumi.getter(name="dnsSuffix")
     def dns_suffix(self) -> str:
+        """
+        Base DNS domain name for the current partition (e.g. `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+        """
         return pulumi.get(self, "dns_suffix")
 
     @property
@@ -46,6 +49,9 @@ class GetPartitionResult:
     @property
     @pulumi.getter
     def partition(self) -> str:
+        """
+        Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
+        """
         return pulumi.get(self, "partition")
 
 

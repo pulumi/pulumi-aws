@@ -93,6 +93,10 @@ __all__ = [
     'GetInstanceFilterResult',
     'GetInstanceMetadataOptionResult',
     'GetInstanceRootBlockDeviceResult',
+    'GetInstanceTypeFpgaResult',
+    'GetInstanceTypeGpusResult',
+    'GetInstanceTypeInferenceAcceleratorResult',
+    'GetInstanceTypeInstanceDiskResult',
     'GetInstanceTypeOfferingFilterResult',
     'GetInstanceTypeOfferingsFilterResult',
     'GetInstancesFilterResult',
@@ -5276,6 +5280,136 @@ class GetInstanceRootBlockDeviceResult(dict):
         The type of the volume.
         """
         return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class GetInstanceTypeFpgaResult(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 manufacturer: str,
+                 memory_size: int,
+                 name: str):
+        """
+        :param int memory_size: Size of the instance memory, in MiB.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "memory_size", memory_size)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> str:
+        return pulumi.get(self, "manufacturer")
+
+    @property
+    @pulumi.getter(name="memorySize")
+    def memory_size(self) -> int:
+        """
+        Size of the instance memory, in MiB.
+        """
+        return pulumi.get(self, "memory_size")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetInstanceTypeGpusResult(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 manufacturer: str,
+                 memory_size: int,
+                 name: str):
+        """
+        :param int memory_size: Size of the instance memory, in MiB.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "memory_size", memory_size)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> str:
+        return pulumi.get(self, "manufacturer")
+
+    @property
+    @pulumi.getter(name="memorySize")
+    def memory_size(self) -> int:
+        """
+        Size of the instance memory, in MiB.
+        """
+        return pulumi.get(self, "memory_size")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetInstanceTypeInferenceAcceleratorResult(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 manufacturer: str,
+                 name: str):
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> str:
+        return pulumi.get(self, "manufacturer")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetInstanceTypeInstanceDiskResult(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 size: int,
+                 type: str):
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -158,7 +158,7 @@ namespace Pulumi.Aws.LB
         public Output<int?> SlowStart { get; private set; } = null!;
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        /// A Stickiness block. Stickiness blocks are documented below.
         /// </summary>
         [Output("stickiness")]
         public Output<Outputs.TargetGroupStickiness> Stickiness { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.LB
         public Input<int>? SlowStart { get; set; }
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        /// A Stickiness block. Stickiness blocks are documented below.
         /// </summary>
         [Input("stickiness")]
         public Input<Inputs.TargetGroupStickinessArgs>? Stickiness { get; set; }
@@ -411,7 +411,7 @@ namespace Pulumi.Aws.LB
         public Input<int>? SlowStart { get; set; }
 
         /// <summary>
-        /// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        /// A Stickiness block. Stickiness blocks are documented below.
         /// </summary>
         [Input("stickiness")]
         public Input<Inputs.TargetGroupStickinessGetArgs>? Stickiness { get; set; }

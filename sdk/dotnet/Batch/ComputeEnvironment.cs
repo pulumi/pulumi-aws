@@ -193,6 +193,12 @@ namespace Pulumi.Aws.Batch
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The type of compute environment. Valid items are `EC2` or `SPOT`.
         /// </summary>
         [Output("type")]
@@ -274,6 +280,18 @@ namespace Pulumi.Aws.Batch
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The type of compute environment. Valid items are `EC2` or `SPOT`.
         /// </summary>
@@ -340,6 +358,18 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pair tags to be applied to resources that are launched in the compute environment.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The type of compute environment. Valid items are `EC2` or `SPOT`.

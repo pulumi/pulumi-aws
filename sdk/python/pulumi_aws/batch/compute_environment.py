@@ -22,6 +22,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -109,6 +110,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment.
         :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
         """
         if __name__ is not None:
@@ -135,6 +137,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_role'")
             __props__['service_role'] = service_role
             __props__['state'] = state
+            __props__['tags'] = tags
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
@@ -161,6 +164,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             state: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             status_reason: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ComputeEnvironment':
         """
         Get an existing ComputeEnvironment resource's state with the given name, id, and optional extra
@@ -178,6 +182,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[str] status: The current status of the compute environment (for example, CREATING or VALID).
         :param pulumi.Input[str] status_reason: A short, human-readable string to provide additional details about the current status of the compute environment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment.
         :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -193,6 +198,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__["state"] = state
         __props__["status"] = status
         __props__["status_reason"] = status_reason
+        __props__["tags"] = tags
         __props__["type"] = type
         return ComputeEnvironment(resource_name, opts=opts, __props__=__props__)
 
@@ -267,6 +273,14 @@ class ComputeEnvironment(pulumi.CustomResource):
         A short, human-readable string to provide additional details about the current status of the compute environment.
         """
         return pulumi.get(self, "status_reason")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value pair tags to be applied to resources that are launched in the compute environment.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

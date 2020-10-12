@@ -75,6 +75,10 @@ export class JobQueue extends pulumi.CustomResource {
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     public readonly state!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a JobQueue resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["state"] = state ? state.state : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as JobQueueArgs | undefined;
             if (!args || args.computeEnvironments === undefined) {
@@ -108,6 +113,7 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["state"] = args ? args.state : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -149,6 +155,10 @@ export interface JobQueueState {
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     readonly state?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -175,4 +185,8 @@ export interface JobQueueArgs {
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
     readonly state: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

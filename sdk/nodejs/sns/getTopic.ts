@@ -51,7 +51,7 @@ export interface GetTopicArgs {
  */
 export interface GetTopicResult {
     /**
-     * Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
+     * Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
      */
     readonly arn: string;
     /**

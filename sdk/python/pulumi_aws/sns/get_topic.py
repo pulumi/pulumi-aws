@@ -34,7 +34,7 @@ class GetTopicResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
+        Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
         """
         return pulumi.get(self, "arn")
 

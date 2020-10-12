@@ -4,7 +4,9 @@
 
 # Export this package's modules as members:
 from .bot import *
+from .bot_alias import *
 from .get_bot import *
+from .get_bot_alias import *
 from .get_intent import *
 from .get_slot_type import *
 from .intent import *

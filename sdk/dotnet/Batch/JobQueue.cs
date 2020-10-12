@@ -73,6 +73,12 @@ namespace Pulumi.Aws.Batch
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a JobQueue resource with the given unique name, arguments, and options.
@@ -153,6 +159,18 @@ namespace Pulumi.Aws.Batch
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public JobQueueArgs()
         {
         }
@@ -199,6 +217,18 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public JobQueueState()
         {

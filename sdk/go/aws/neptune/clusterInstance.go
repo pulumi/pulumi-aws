@@ -82,7 +82,7 @@ type ClusterInstance struct {
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The neptune engine version.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
@@ -168,7 +168,7 @@ type clusterInstanceState struct {
 	Engine *string `pulumi:"engine"`
 	// The neptune engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
@@ -221,7 +221,7 @@ type ClusterInstanceState struct {
 	Engine pulumi.StringPtrInput
 	// The neptune engine version.
 	EngineVersion pulumi.StringPtrInput
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
@@ -270,7 +270,7 @@ type clusterInstanceArgs struct {
 	Engine *string `pulumi:"engine"`
 	// The neptune engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
@@ -310,7 +310,7 @@ type ClusterInstanceArgs struct {
 	Engine pulumi.StringPtrInput
 	// The neptune engine version.
 	EngineVersion pulumi.StringPtrInput
-	// The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput

@@ -86,7 +86,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[bool] proxy_protocol_v2: Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         :param pulumi.Input[int] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group.
                The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -176,7 +176,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[bool] proxy_protocol_v2: Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         :param pulumi.Input[int] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group.
                The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -308,7 +308,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def stickiness(self) -> pulumi.Output['outputs.TargetGroupStickiness']:
         """
-        A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        A Stickiness block. Stickiness blocks are documented below.
         """
         return pulumi.get(self, "stickiness")
 

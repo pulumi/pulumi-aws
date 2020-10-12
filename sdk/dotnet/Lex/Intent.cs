@@ -160,7 +160,10 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// The statement that you want Amazon Lex to convey to the user
-        /// after the intent is successfully fulfilled by the Lambda function.
+        /// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+        /// you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
+        /// application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
+        /// mutually exclusive. You can specify only one. Attributes are documented under statement.
         /// </summary>
         [Output("conclusionStatement")]
         public Output<Outputs.IntentConclusionStatement?> ConclusionStatement { get; private set; } = null!;
@@ -175,7 +178,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial
-        /// resource is created and on each update. Defaults to true.
+        /// resource is created and on each update. Defaults to `false`.
         /// </summary>
         [Output("createVersion")]
         public Output<bool?> CreateVersion { get; private set; } = null!;
@@ -202,7 +205,8 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Amazon Lex uses this prompt to solicit additional activity after
         /// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-        /// user to order a drink.
+        /// user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
+        /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
         /// </summary>
         [Output("followUpPrompt")]
         public Output<Outputs.IntentFollowUpPrompt?> FollowUpPrompt { get; private set; } = null!;
@@ -210,7 +214,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Describes how the intent is fulfilled. For example, after a
         /// user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-        /// places an order with a local pizza store.
+        /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
         /// </summary>
         [Output("fulfillmentActivity")]
         public Output<Outputs.IntentFulfillmentActivity> FulfillmentActivity { get; private set; } = null!;
@@ -237,9 +241,9 @@ namespace Pulumi.Aws.Lex
         public Output<string?> ParentIntentSignature { get; private set; } = null!;
 
         /// <summary>
-        /// When the user answers "no" to the question defined in
-        /// `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        /// canceled.
+        /// If the user answers "no" to the question defined in the prompt field,
+        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+        /// documented below under statement.
         /// </summary>
         [Output("rejectionStatement")]
         public Output<Outputs.IntentRejectionStatement?> RejectionStatement { get; private set; } = null!;
@@ -313,7 +317,10 @@ namespace Pulumi.Aws.Lex
     {
         /// <summary>
         /// The statement that you want Amazon Lex to convey to the user
-        /// after the intent is successfully fulfilled by the Lambda function.
+        /// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+        /// you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
+        /// application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
+        /// mutually exclusive. You can specify only one. Attributes are documented under statement.
         /// </summary>
         [Input("conclusionStatement")]
         public Input<Inputs.IntentConclusionStatementArgs>? ConclusionStatement { get; set; }
@@ -328,7 +335,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial
-        /// resource is created and on each update. Defaults to true.
+        /// resource is created and on each update. Defaults to `false`.
         /// </summary>
         [Input("createVersion")]
         public Input<bool>? CreateVersion { get; set; }
@@ -349,7 +356,8 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Amazon Lex uses this prompt to solicit additional activity after
         /// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-        /// user to order a drink.
+        /// user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
+        /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
         /// </summary>
         [Input("followUpPrompt")]
         public Input<Inputs.IntentFollowUpPromptArgs>? FollowUpPrompt { get; set; }
@@ -357,7 +365,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Describes how the intent is fulfilled. For example, after a
         /// user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-        /// places an order with a local pizza store.
+        /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
         /// </summary>
         [Input("fulfillmentActivity", required: true)]
         public Input<Inputs.IntentFulfillmentActivityArgs> FulfillmentActivity { get; set; } = null!;
@@ -378,9 +386,9 @@ namespace Pulumi.Aws.Lex
         public Input<string>? ParentIntentSignature { get; set; }
 
         /// <summary>
-        /// When the user answers "no" to the question defined in
-        /// `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        /// canceled.
+        /// If the user answers "no" to the question defined in the prompt field,
+        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+        /// documented below under statement.
         /// </summary>
         [Input("rejectionStatement")]
         public Input<Inputs.IntentRejectionStatementArgs>? RejectionStatement { get; set; }
@@ -434,7 +442,10 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// The statement that you want Amazon Lex to convey to the user
-        /// after the intent is successfully fulfilled by the Lambda function.
+        /// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+        /// you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
+        /// application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
+        /// mutually exclusive. You can specify only one. Attributes are documented under statement.
         /// </summary>
         [Input("conclusionStatement")]
         public Input<Inputs.IntentConclusionStatementGetArgs>? ConclusionStatement { get; set; }
@@ -449,7 +460,7 @@ namespace Pulumi.Aws.Lex
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial
-        /// resource is created and on each update. Defaults to true.
+        /// resource is created and on each update. Defaults to `false`.
         /// </summary>
         [Input("createVersion")]
         public Input<bool>? CreateVersion { get; set; }
@@ -476,7 +487,8 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Amazon Lex uses this prompt to solicit additional activity after
         /// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-        /// user to order a drink.
+        /// user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
+        /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
         /// </summary>
         [Input("followUpPrompt")]
         public Input<Inputs.IntentFollowUpPromptGetArgs>? FollowUpPrompt { get; set; }
@@ -484,7 +496,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Describes how the intent is fulfilled. For example, after a
         /// user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-        /// places an order with a local pizza store.
+        /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
         /// </summary>
         [Input("fulfillmentActivity")]
         public Input<Inputs.IntentFulfillmentActivityGetArgs>? FulfillmentActivity { get; set; }
@@ -511,9 +523,9 @@ namespace Pulumi.Aws.Lex
         public Input<string>? ParentIntentSignature { get; set; }
 
         /// <summary>
-        /// When the user answers "no" to the question defined in
-        /// `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        /// canceled.
+        /// If the user answers "no" to the question defined in the prompt field,
+        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+        /// documented below under statement.
         /// </summary>
         [Input("rejectionStatement")]
         public Input<Inputs.IntentRejectionStatementGetArgs>? RejectionStatement { get; set; }

@@ -25,6 +25,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.VirtualNodeSpecListenerPortMappingArgs> PortMapping { get; set; } = null!;
 
         /// <summary>
+        /// Timeouts for different protocols.
+        /// </summary>
+        [Input("timeout")]
+        public Input<Inputs.VirtualNodeSpecListenerTimeoutArgs>? Timeout { get; set; }
+
+        /// <summary>
         /// The Transport Layer Security (TLS) properties for the listener
         /// </summary>
         [Input("tls")]
