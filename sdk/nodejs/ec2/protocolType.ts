@@ -12,13 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// This file contains individual constants for each EC2 Protocol type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use ProtocolType.[Value] instead.
+
 import {ProtocolType} from ".";
 
-/** @deprecated Use ProtocolType.All instead. */
+/** Use ProtocolType.All instead. */
 export const AllProtocols:  ProtocolType = "all";
-/** @deprecated Use ProtocolType.TCP. instead. */
+/** Use ProtocolType.TCP. instead. */
 export const TCPProtocol:   ProtocolType = "tcp";
-/** @deprecated Use ProtocolType.UDP instead. */
+/** Use ProtocolType.UDP instead. */
 export const UDPProtocol:   ProtocolType = "udp";
-/** @deprecated Use ProtocolType.ICMP instead. */
+/** Use ProtocolType.ICMP instead. */
 export const ICMPProtocol:  ProtocolType = "icmp";

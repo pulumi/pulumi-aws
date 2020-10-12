@@ -12,32 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains two categories of exports:
+// This file contains individual constants for each EC2 Instance platform.
 //
-//     1) A union type, InstancePlatform, that accepts any valid EC2 platform.
-//     2) Individual constants for each such EC2 platform.
-//
-// These just give a better developer experience and are just sugared strings.
+// These constants will not be updated with new values.
+// It is recommended to use InstancePlatform.[Value] instead.
 
 import {InstancePlatform} from ".";
 
-/** @deprecated Use InstancePlatform instead. */
+/** Use InstancePlatform instead. */
 export module InstancePlatforms {
-    /** @deprecated Use InstancePlatform.LinuxUnix instead. */
+    /** Use InstancePlatform.LinuxUnix instead. */
     export const LinuxUnixPlatform: InstancePlatform = "Linux/UNIX";
-    /** @deprecated Use InstancePlatform.RedHatEnterpriseLinux instead. */
+    /** Use InstancePlatform.RedHatEnterpriseLinux instead. */
     export const RedHatEnterpriseLinuxPlatform: InstancePlatform = "Red Hat Enterprise Linux";
-    /** @deprecated Use InstancePlatform.SuseLinux instead. */
+    /** Use InstancePlatform.SuseLinux instead. */
     export const SuseLinuxPlatform: InstancePlatform = "SUSE Linux";
-    /** @deprecated Use InstancePlatform.Windows instead. */
+    /** Use InstancePlatform.Windows instead. */
     export const WindowsPlatform: InstancePlatform = "Windows";
-    /** @deprecated Use InstancePlatform.WindowsWithSqlServer instead. */
+    /** Use InstancePlatform.WindowsWithSqlServer instead. */
     export const WindowsWithSqlServerPlatform: InstancePlatform = "Windows with SQL Server";
-    /** @deprecated Use InstancePlatform.WindowsWithSqlServerEnterprise instead. */
+    /** Use InstancePlatform.WindowsWithSqlServerEnterprise instead. */
     export const WindowsWithSqlServerEnterprisePlatform: InstancePlatform = "Windows with SQL Server Enterprise";
-    /** @deprecated Use InstancePlatform.WindowsWithSqlServerStandard instead. */
+    /** Use InstancePlatform.WindowsWithSqlServerStandard instead. */
     export const WindowsWithSqlServerStandardPlatform: InstancePlatform = "Windows with SQL Server Standard";
-    /** @deprecated Use InstancePlatform.WindowsWithSqlServerWeb instead. */
+    /** Use InstancePlatform.WindowsWithSqlServerWeb instead. */
     export const WindowsWithSqlServerWebPlatform: InstancePlatform = "Windows with SQL Server Web";
 }
 
