@@ -12,11 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// This file contains individual constants for each RDS Engine type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use EngineType.[Value] instead.
+
 import {EngineType} from ".";
 
-/** @deprecated Use EngineType.Aurora instead. */
+/** Use EngineType.Aurora instead. */
 export let AuroraEngine:           EngineType = "aurora";
-/** @deprecated Use EngineType.AuroraMysql instead. */
+/** Use EngineType.AuroraMysql instead. */
 export let AuroraMysqlEngine:      EngineType = "aurora-mysql";
-/** @deprecated Use EngineType.AuroraPostgresql instead. */
+/** Use EngineType.AuroraPostgresql instead. */
 export let AuroraPostgresqlEngine: EngineType = "aurora-postgresql";

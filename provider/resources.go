@@ -3326,7 +3326,7 @@ func Provider() tfbridge.ProviderInfo {
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
 					"arn.ts",    // ARN typedef
-					"region.ts", // Region union type and constants
+					"region.ts", // Region constants
 					"tags.ts",   // Tags typedef (currently unused but left for compatibility)
 					"utils.ts",  // Helpers,
 					"awsMixins.ts",
@@ -3334,20 +3334,20 @@ func Provider() tfbridge.ProviderInfo {
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
 						DestFiles: []string{
-							"metrics.ts",          // Deprecated Metric and MetricsGranularity constants
-							"notificationType.ts", // Deprecated NotificationType constants
+							"metrics.ts",          // Metric and MetricsGranularity constants
+							"notificationType.ts", // NotificationType constants
 						},
 					},
 					"alb": {
 						DestFiles: []string{
-							"ipAddressType.ts",    // Deprecated IpAddressType constants
-							"loadBalancerType.ts", // Deprecated LoadBalancerType constants
+							"ipAddressType.ts",    // IpAddressType constants
+							"loadBalancerType.ts", // LoadBalancerType constants
 						},
 					},
 					"applicationloadbalancing": {
 						DestFiles: []string{
-							"ipAddressType.ts",    // Deprecated IpAddressType constants
-							"loadBalancerType.ts", // Deprecated LoadBalancerType constants
+							"ipAddressType.ts",    // IpAddressType constants
+							"loadBalancerType.ts", // LoadBalancerType constants
 						},
 					},
 					"cloudwatch": {
@@ -3369,11 +3369,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"ec2": {
 						DestFiles: []string{
-							"instanceType.ts",      // Deprecated InstanceType constants
-							"instancePlatform.ts",  // Deprecated InstancePlatform constants
-							"placementStrategy.ts", // Deprecated PlacementStrategy constants
-							"protocolType.ts",      // Deprecated ProtocolType constants
-							"tenancy.ts",           // Deprecated Tenancy constants
+							"instanceType.ts",      // InstanceType constants
+							"instancePlatform.ts",  // InstancePlatform constants
+							"placementStrategy.ts", // PlacementStrategy constants
+							"protocolType.ts",      // ProtocolType constants
+							"tenancy.ts",           // Tenancy constants
 						},
 					},
 					"ecr": {
@@ -3400,26 +3400,26 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"lambda": {
 						DestFiles: []string{
-							"runtimes.ts", // Deprecated lambda Runtime constants
+							"runtimes.ts", // Runtime constants
 							"lambdaMixins.ts",
 						},
 					},
 					"rds": {
 						DestFiles: []string{
-							"engineMode.ts",   // Deprecated EngineMode constants
-							"engineType.ts",   // Deprecated EngineType constants
-							"instanceType.ts", // Deprecated InstanceType constants
-							"storageType.ts",  // Deprecated StorageType constants
+							"engineMode.ts",   // EngineMode constants
+							"engineType.ts",   // EngineType constants
+							"instanceType.ts", // InstanceType constants
+							"storageType.ts",  // StorageType constants
 						},
 					},
 					"route53": {
 						DestFiles: []string{
-							"recordType.ts", // Deprecated RecordType constants
+							"recordType.ts", // RecordType constants
 						},
 					},
 					"s3": {
 						DestFiles: []string{
-							"cannedAcl.ts", // Deprecated CannedAcl constants
+							"cannedAcl.ts", // CannedAcl constants
 							"routingRules.ts",
 							"s3Mixins.ts",
 						},

@@ -12,22 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This file contains two categories of exports:
+// This file contains individual constants for each autoscaling Notification type.
 //
-//     1) A union type, NotificationType, that accepts any valid AutoScaling Notification type
-//     2) Individual constants for each such AutoScaling Notification type
-//
-// These give a better developer experience and are just sugared strings.
+// These constants will not be updated with new values.
+// It is recommended to use NotificationType.[Value] instead.
 
 import {NotificationType} from ".";
 
-/** @deprecated Use NotificationType.InstanceLaunch instead. */
+/** Use NotificationType.InstanceLaunch instead. */
 export let InstanceLaunchNotification:         NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH";
-/** @deprecated Use NotificationType.InstanceTerminate instead. */
+/** Use NotificationType.InstanceTerminate instead. */
 export let InstanceTerminateNotification:      NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE";
-/** @deprecated Use NotificationType.InstanceLaunchError instead. */
+/** Use NotificationType.InstanceLaunchError instead. */
 export let InstanceLaunchErrorNotification:    NotificationType = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR";
-/** @deprecated Use NotificationType.InstanceTerminateError instead. */
+/** Use NotificationType.InstanceTerminateError instead. */
 export let InstanceTerminateErrorNotification: NotificationType = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR";
-/** @deprecated Use NotificationType.TestNotification instead. */
+/** Use NotificationType.TestNotification instead. */
 export let TestNotification:                   NotificationType = "autoscaling:TEST_NOTIFICATION";

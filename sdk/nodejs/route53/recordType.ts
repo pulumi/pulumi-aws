@@ -12,32 +12,37 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// This file contains individual constants for each Route53 Record Type.
+//
+// These constants will not be updated with new values.
+// It is recommended to use RecordType.[Value] instead.
+
 import {RecordType} from ".";
 
-/** @deprecated Use RecordType instead. */
+/** Use RecordType instead. */
 export module RecordTypes {
-    /** @deprecated Use RecordType.A instead. */
+    /** Use RecordType.A instead. */
     export const A:     RecordType = "A";
-    /** @deprecated Use RecordType.AAAA instead. */
+    /** Use RecordType.AAAA instead. */
     export const AAAA:  RecordType = "AAAA";
-    /** @deprecated Use RecordType.CNAME instead. */
+    /** Use RecordType.CNAME instead. */
     export const CNAME: RecordType = "CNAME";
-    /** @deprecated Use RecordType.CAA instead. */
+    /** Use RecordType.CAA instead. */
     export const CAA:   RecordType = "CAA";
-    /** @deprecated Use RecordType.MX instead. */
+    /** Use RecordType.MX instead. */
     export const MX:    RecordType = "MX";
-    /** @deprecated Use RecordType.NAPTR instead. */
+    /** Use RecordType.NAPTR instead. */
     export const NAPTR: RecordType = "NAPTR";
-    /** @deprecated Use RecordType.NS instead. */
+    /** Use RecordType.NS instead. */
     export const NS:    RecordType = "NS";
-    /** @deprecated Use RecordType.PTR instead. */
+    /** Use RecordType.PTR instead. */
     export const PTR:   RecordType = "PTR";
-    /** @deprecated Use RecordType.SOA instead. */
+    /** Use RecordType.SOA instead. */
     export const SOA:   RecordType = "SOA";
-    /** @deprecated Use RecordType.SPF instead. */
+    /** Use RecordType.SPF instead. */
     export const SPF:   RecordType = "SPF";
-    /** @deprecated Use RecordType.SRV instead. */
+    /** Use RecordType.SRV instead. */
     export const SRV:   RecordType = "SRV";
-    /** @deprecated Use RecordType.TXT instead. */
+    /** Use RecordType.TXT instead. */
     export const TXT:   RecordType = "TXT";
 }
