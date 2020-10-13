@@ -108,6 +108,10 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly revision!: pulumi.Output<number>;
     /**
+     * Key-value map of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
     public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
@@ -134,6 +138,7 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["retryStrategy"] = state ? state.retryStrategy : undefined;
             inputs["revision"] = state ? state.revision : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
@@ -145,6 +150,7 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["retryStrategy"] = args ? args.retryStrategy : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -192,6 +198,10 @@ export interface JobDefinitionState {
      */
     readonly revision?: pulumi.Input<number>;
     /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
     readonly timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
@@ -223,6 +233,10 @@ export interface JobDefinitionArgs {
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     readonly retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */

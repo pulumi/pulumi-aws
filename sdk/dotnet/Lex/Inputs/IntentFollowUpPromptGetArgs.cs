@@ -19,9 +19,9 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<Inputs.IntentFollowUpPromptPromptGetArgs> Prompt { get; set; } = null!;
 
         /// <summary>
-        /// When the user answers "no" to the question defined in
-        /// `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-        /// canceled.
+        /// If the user answers "no" to the question defined in the prompt field,
+        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+        /// documented below under statement.
         /// </summary>
         [Input("rejectionStatement", required: true)]
         public Input<Inputs.IntentFollowUpPromptRejectionStatementGetArgs> RejectionStatement { get; set; } = null!;

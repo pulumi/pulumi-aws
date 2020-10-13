@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     "Id": "ExamplePolicy01",
  *     "Statement": [
  *         {
- *             "Sid": "ExampleSatement01",
+ *             "Sid": "ExampleStatement01",
  *             "Effect": "Allow",
  *             "Principal": {
  *                 "AWS": "*"

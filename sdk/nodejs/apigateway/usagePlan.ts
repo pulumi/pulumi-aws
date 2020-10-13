@@ -96,7 +96,7 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     public readonly productCode!: pulumi.Output<string | undefined>;
     /**
@@ -175,7 +175,7 @@ export interface UsagePlanState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     readonly productCode?: pulumi.Input<string>;
     /**
@@ -209,7 +209,7 @@ export interface UsagePlanArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
     readonly productCode?: pulumi.Input<string>;
     /**

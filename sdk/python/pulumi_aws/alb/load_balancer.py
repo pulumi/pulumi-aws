@@ -52,7 +52,7 @@ class LoadBalancer(pulumi.CustomResource):
             internal=False,
             load_balancer_type="application",
             security_groups=[aws_security_group["lb_sg"]["id"]],
-            subnets=[[__item["id"] for __item in aws_subnet["public"]]],
+            subnets=[__item["id"] for __item in aws_subnet["public"]],
             enable_deletion_protection=True,
             access_logs=aws.lb.LoadBalancerAccessLogsArgs(
                 bucket=aws_s3_bucket["lb_logs"]["bucket"],
@@ -72,7 +72,7 @@ class LoadBalancer(pulumi.CustomResource):
         test = aws.lb.LoadBalancer("test",
             internal=False,
             load_balancer_type="network",
-            subnets=[[__item["id"] for __item in aws_subnet["public"]]],
+            subnets=[__item["id"] for __item in aws_subnet["public"]],
             enable_deletion_protection=True,
             tags={
                 "Environment": "production",

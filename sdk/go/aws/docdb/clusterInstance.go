@@ -88,9 +88,9 @@ type ClusterInstance struct {
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
@@ -178,9 +178,9 @@ type clusterInstanceState struct {
 	Engine *string `pulumi:"engine"`
 	// The database engine version
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
@@ -235,9 +235,9 @@ type ClusterInstanceState struct {
 	Engine pulumi.StringPtrInput
 	// The database engine version
 	EngineVersion pulumi.StringPtrInput
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
@@ -286,9 +286,9 @@ type clusterInstanceArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine *string `pulumi:"engine"`
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
@@ -323,9 +323,9 @@ type ClusterInstanceArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine pulumi.StringPtrInput
-	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.

@@ -133,14 +133,17 @@ type Intent struct {
 	// included as an argument because the resource will add it automatically when updating the intent.
 	Checksum pulumi.StringOutput `pulumi:"checksum"`
 	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function.
+	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
+	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
+	// mutually exclusive. You can specify only one. Attributes are documented under statement.
 	ConclusionStatement IntentConclusionStatementPtrOutput `pulumi:"conclusionStatement"`
 	// Prompts the user to confirm the intent. This question should
 	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
 	// or neither. Attributes are documented under prompt.
 	ConfirmationPrompt IntentConfirmationPromptPtrOutput `pulumi:"confirmationPrompt"`
 	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to true.
+	// resource is created and on each update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
 	// The date when the intent version was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
@@ -151,11 +154,12 @@ type Intent struct {
 	DialogCodeHook IntentDialogCodeHookPtrOutput `pulumi:"dialogCodeHook"`
 	// Amazon Lex uses this prompt to solicit additional activity after
 	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink.
+	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
+	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
 	FollowUpPrompt IntentFollowUpPromptPtrOutput `pulumi:"followUpPrompt"`
 	// Describes how the intent is fulfilled. For example, after a
 	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store.
+	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 	FulfillmentActivity IntentFulfillmentActivityOutput `pulumi:"fulfillmentActivity"`
 	// The date when the $LATEST version of this intent was updated.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
@@ -166,9 +170,9 @@ type Intent struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature pulumi.StringPtrOutput `pulumi:"parentIntentSignature"`
-	// When the user answers "no" to the question defined in
-	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-	// canceled.
+	// If the user answers "no" to the question defined in the prompt field,
+	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+	// documented below under statement.
 	RejectionStatement IntentRejectionStatementPtrOutput `pulumi:"rejectionStatement"`
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
@@ -218,14 +222,17 @@ type intentState struct {
 	// included as an argument because the resource will add it automatically when updating the intent.
 	Checksum *string `pulumi:"checksum"`
 	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function.
+	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
+	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
+	// mutually exclusive. You can specify only one. Attributes are documented under statement.
 	ConclusionStatement *IntentConclusionStatement `pulumi:"conclusionStatement"`
 	// Prompts the user to confirm the intent. This question should
 	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
 	// or neither. Attributes are documented under prompt.
 	ConfirmationPrompt *IntentConfirmationPrompt `pulumi:"confirmationPrompt"`
 	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to true.
+	// resource is created and on each update. Defaults to `false`.
 	CreateVersion *bool `pulumi:"createVersion"`
 	// The date when the intent version was created.
 	CreatedDate *string `pulumi:"createdDate"`
@@ -236,11 +243,12 @@ type intentState struct {
 	DialogCodeHook *IntentDialogCodeHook `pulumi:"dialogCodeHook"`
 	// Amazon Lex uses this prompt to solicit additional activity after
 	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink.
+	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
+	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
 	FollowUpPrompt *IntentFollowUpPrompt `pulumi:"followUpPrompt"`
 	// Describes how the intent is fulfilled. For example, after a
 	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store.
+	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 	FulfillmentActivity *IntentFulfillmentActivity `pulumi:"fulfillmentActivity"`
 	// The date when the $LATEST version of this intent was updated.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
@@ -251,9 +259,9 @@ type intentState struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
-	// When the user answers "no" to the question defined in
-	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-	// canceled.
+	// If the user answers "no" to the question defined in the prompt field,
+	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+	// documented below under statement.
 	RejectionStatement *IntentRejectionStatement `pulumi:"rejectionStatement"`
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
@@ -273,14 +281,17 @@ type IntentState struct {
 	// included as an argument because the resource will add it automatically when updating the intent.
 	Checksum pulumi.StringPtrInput
 	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function.
+	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
+	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
+	// mutually exclusive. You can specify only one. Attributes are documented under statement.
 	ConclusionStatement IntentConclusionStatementPtrInput
 	// Prompts the user to confirm the intent. This question should
 	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
 	// or neither. Attributes are documented under prompt.
 	ConfirmationPrompt IntentConfirmationPromptPtrInput
 	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to true.
+	// resource is created and on each update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrInput
 	// The date when the intent version was created.
 	CreatedDate pulumi.StringPtrInput
@@ -291,11 +302,12 @@ type IntentState struct {
 	DialogCodeHook IntentDialogCodeHookPtrInput
 	// Amazon Lex uses this prompt to solicit additional activity after
 	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink.
+	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
+	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
 	FollowUpPrompt IntentFollowUpPromptPtrInput
 	// Describes how the intent is fulfilled. For example, after a
 	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store.
+	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 	FulfillmentActivity IntentFulfillmentActivityPtrInput
 	// The date when the $LATEST version of this intent was updated.
 	LastUpdatedDate pulumi.StringPtrInput
@@ -306,9 +318,9 @@ type IntentState struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature pulumi.StringPtrInput
-	// When the user answers "no" to the question defined in
-	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-	// canceled.
+	// If the user answers "no" to the question defined in the prompt field,
+	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+	// documented below under statement.
 	RejectionStatement IntentRejectionStatementPtrInput
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
@@ -327,14 +339,17 @@ func (IntentState) ElementType() reflect.Type {
 
 type intentArgs struct {
 	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function.
+	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
+	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
+	// mutually exclusive. You can specify only one. Attributes are documented under statement.
 	ConclusionStatement *IntentConclusionStatement `pulumi:"conclusionStatement"`
 	// Prompts the user to confirm the intent. This question should
 	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
 	// or neither. Attributes are documented under prompt.
 	ConfirmationPrompt *IntentConfirmationPrompt `pulumi:"confirmationPrompt"`
 	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to true.
+	// resource is created and on each update. Defaults to `false`.
 	CreateVersion *bool `pulumi:"createVersion"`
 	// A description of the bot.
 	Description *string `pulumi:"description"`
@@ -343,11 +358,12 @@ type intentArgs struct {
 	DialogCodeHook *IntentDialogCodeHook `pulumi:"dialogCodeHook"`
 	// Amazon Lex uses this prompt to solicit additional activity after
 	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink.
+	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
+	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
 	FollowUpPrompt *IntentFollowUpPrompt `pulumi:"followUpPrompt"`
 	// Describes how the intent is fulfilled. For example, after a
 	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store.
+	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 	FulfillmentActivity IntentFulfillmentActivity `pulumi:"fulfillmentActivity"`
 	// The name of the intent slot that you want to create. The name is case sensitive.
 	Name *string `pulumi:"name"`
@@ -356,9 +372,9 @@ type intentArgs struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
-	// When the user answers "no" to the question defined in
-	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-	// canceled.
+	// If the user answers "no" to the question defined in the prompt field,
+	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+	// documented below under statement.
 	RejectionStatement *IntentRejectionStatement `pulumi:"rejectionStatement"`
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
@@ -372,14 +388,17 @@ type intentArgs struct {
 // The set of arguments for constructing a Intent resource.
 type IntentArgs struct {
 	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function.
+	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
+	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
+	// mutually exclusive. You can specify only one. Attributes are documented under statement.
 	ConclusionStatement IntentConclusionStatementPtrInput
 	// Prompts the user to confirm the intent. This question should
 	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
 	// or neither. Attributes are documented under prompt.
 	ConfirmationPrompt IntentConfirmationPromptPtrInput
 	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to true.
+	// resource is created and on each update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrInput
 	// A description of the bot.
 	Description pulumi.StringPtrInput
@@ -388,11 +407,12 @@ type IntentArgs struct {
 	DialogCodeHook IntentDialogCodeHookPtrInput
 	// Amazon Lex uses this prompt to solicit additional activity after
 	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink.
+	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
+	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
 	FollowUpPrompt IntentFollowUpPromptPtrInput
 	// Describes how the intent is fulfilled. For example, after a
 	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store.
+	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 	FulfillmentActivity IntentFulfillmentActivityInput
 	// The name of the intent slot that you want to create. The name is case sensitive.
 	Name pulumi.StringPtrInput
@@ -401,9 +421,9 @@ type IntentArgs struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature pulumi.StringPtrInput
-	// When the user answers "no" to the question defined in
-	// `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
-	// canceled.
+	// If the user answers "no" to the question defined in the prompt field,
+	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
+	// documented below under statement.
 	RejectionStatement IntentRejectionStatementPtrInput
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This

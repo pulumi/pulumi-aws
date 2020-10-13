@@ -22,6 +22,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerPortMapping PortMapping;
         /// <summary>
+        /// Timeouts for different protocols.
+        /// </summary>
+        public readonly Outputs.VirtualNodeSpecListenerTimeout? Timeout;
+        /// <summary>
         /// The Transport Layer Security (TLS) properties for the listener
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTls? Tls;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             Outputs.VirtualNodeSpecListenerPortMapping portMapping,
 
+            Outputs.VirtualNodeSpecListenerTimeout? timeout,
+
             Outputs.VirtualNodeSpecListenerTls? tls)
         {
             HealthCheck = healthCheck;
             PortMapping = portMapping;
+            Timeout = timeout;
             Tls = tls;
         }
     }

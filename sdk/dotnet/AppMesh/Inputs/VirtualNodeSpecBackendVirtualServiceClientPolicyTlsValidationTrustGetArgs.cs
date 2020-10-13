@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        /// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         /// </summary>
         [Input("acm")]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmGetArgs>? Acm { get; set; }

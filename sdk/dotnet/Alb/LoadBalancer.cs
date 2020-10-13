@@ -34,10 +34,7 @@ namespace Pulumi.Aws.Alb
     ///             {
     ///                 aws_security_group.Lb_sg.Id,
     ///             },
-    ///             Subnets = 
-    ///             {
-    ///                 aws_subnet.Public.Select(__item =&gt; __item.Id).ToList(),
-    ///             },
+    ///             Subnets = aws_subnet.Public.Select(__item =&gt; __item.Id).ToList(),
     ///             EnableDeletionProtection = true,
     ///             AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
     ///             {
@@ -69,10 +66,7 @@ namespace Pulumi.Aws.Alb
     ///         {
     ///             Internal = false,
     ///             LoadBalancerType = "network",
-    ///             Subnets = 
-    ///             {
-    ///                 aws_subnet.Public.Select(__item =&gt; __item.Id).ToList(),
-    ///             },
+    ///             Subnets = aws_subnet.Public.Select(__item =&gt; __item.Id).ToList(),
     ///             EnableDeletionProtection = true,
     ///             Tags = 
     ///             {

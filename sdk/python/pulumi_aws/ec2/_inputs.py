@@ -87,6 +87,10 @@ __all__ = [
     'GetCoipPoolsFilterArgs',
     'GetCustomerGatewayFilterArgs',
     'GetInstanceFilterArgs',
+    'GetInstanceTypeFpgaArgs',
+    'GetInstanceTypeGpusArgs',
+    'GetInstanceTypeInferenceAcceleratorArgs',
+    'GetInstanceTypeInstanceDiskArgs',
     'GetInstanceTypeOfferingFilterArgs',
     'GetInstanceTypeOfferingsFilterArgs',
     'GetInstancesFilterArgs',
@@ -6150,6 +6154,192 @@ class GetInstanceFilterArgs:
     @values.setter
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetInstanceTypeFpgaArgs:
+    def __init__(__self__, *,
+                 count: int,
+                 manufacturer: str,
+                 memory_size: int,
+                 name: str):
+        """
+        :param int memory_size: Size of the instance memory, in MiB.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "memory_size", memory_size)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: int):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> str:
+        return pulumi.get(self, "manufacturer")
+
+    @manufacturer.setter
+    def manufacturer(self, value: str):
+        pulumi.set(self, "manufacturer", value)
+
+    @property
+    @pulumi.getter(name="memorySize")
+    def memory_size(self) -> int:
+        """
+        Size of the instance memory, in MiB.
+        """
+        return pulumi.get(self, "memory_size")
+
+    @memory_size.setter
+    def memory_size(self, value: int):
+        pulumi.set(self, "memory_size", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class GetInstanceTypeGpusArgs:
+    def __init__(__self__, *,
+                 count: int,
+                 manufacturer: str,
+                 memory_size: int,
+                 name: str):
+        """
+        :param int memory_size: Size of the instance memory, in MiB.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "memory_size", memory_size)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: int):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> str:
+        return pulumi.get(self, "manufacturer")
+
+    @manufacturer.setter
+    def manufacturer(self, value: str):
+        pulumi.set(self, "manufacturer", value)
+
+    @property
+    @pulumi.getter(name="memorySize")
+    def memory_size(self) -> int:
+        """
+        Size of the instance memory, in MiB.
+        """
+        return pulumi.get(self, "memory_size")
+
+    @memory_size.setter
+    def memory_size(self, value: int):
+        pulumi.set(self, "memory_size", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class GetInstanceTypeInferenceAcceleratorArgs:
+    def __init__(__self__, *,
+                 count: int,
+                 manufacturer: str,
+                 name: str):
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: int):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> str:
+        return pulumi.get(self, "manufacturer")
+
+    @manufacturer.setter
+    def manufacturer(self, value: str):
+        pulumi.set(self, "manufacturer", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class GetInstanceTypeInstanceDiskArgs:
+    def __init__(__self__, *,
+                 count: int,
+                 size: int,
+                 type: str):
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: int):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: int):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

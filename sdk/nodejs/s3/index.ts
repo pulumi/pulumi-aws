@@ -9,6 +9,7 @@ export * from "./bucket";
 export * from "./bucketMetric";
 export * from "./bucketNotification";
 export * from "./bucketObject";
+export * from "./bucketOwnershipControls";
 export * from "./bucketPolicy";
 export * from "./bucketPublicAccessBlock";
 export * from "./cannedAcl";

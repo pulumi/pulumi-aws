@@ -260,6 +260,7 @@ class ProviderEndpointArgs:
                  sts: Optional[pulumi.Input[str]] = None,
                  swf: Optional[pulumi.Input[str]] = None,
                  synthetics: Optional[pulumi.Input[str]] = None,
+                 timestreamwrite: Optional[pulumi.Input[str]] = None,
                  transfer: Optional[pulumi.Input[str]] = None,
                  waf: Optional[pulumi.Input[str]] = None,
                  wafregional: Optional[pulumi.Input[str]] = None,
@@ -536,6 +537,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "swf", swf)
         if synthetics is not None:
             pulumi.set(__self__, "synthetics", synthetics)
+        if timestreamwrite is not None:
+            pulumi.set(__self__, "timestreamwrite", timestreamwrite)
         if transfer is not None:
             pulumi.set(__self__, "transfer", transfer)
         if waf is not None:
@@ -1758,6 +1761,15 @@ class ProviderEndpointArgs:
     @synthetics.setter
     def synthetics(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "synthetics", value)
+
+    @property
+    @pulumi.getter
+    def timestreamwrite(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "timestreamwrite")
+
+    @timestreamwrite.setter
+    def timestreamwrite(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timestreamwrite", value)
 
     @property
     @pulumi.getter

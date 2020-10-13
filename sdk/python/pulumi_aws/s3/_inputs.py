@@ -31,6 +31,7 @@ __all__ = [
     'BucketObjectLockConfigurationArgs',
     'BucketObjectLockConfigurationRuleArgs',
     'BucketObjectLockConfigurationRuleDefaultRetentionArgs',
+    'BucketOwnershipControlsRuleArgs',
     'BucketReplicationConfigurationArgs',
     'BucketReplicationConfigurationRuleArgs',
     'BucketReplicationConfigurationRuleDestinationArgs',
@@ -1267,6 +1268,28 @@ class BucketObjectLockConfigurationRuleDefaultRetentionArgs:
     @years.setter
     def years(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "years", value)
+
+
+@pulumi.input_type
+class BucketOwnershipControlsRuleArgs:
+    def __init__(__self__, *,
+                 object_ownership: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] object_ownership: Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+        """
+        pulumi.set(__self__, "object_ownership", object_ownership)
+
+    @property
+    @pulumi.getter(name="objectOwnership")
+    def object_ownership(self) -> pulumi.Input[str]:
+        """
+        Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+        """
+        return pulumi.get(self, "object_ownership")
+
+    @object_ownership.setter
+    def object_ownership(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_ownership", value)
 
 
 @pulumi.input_type

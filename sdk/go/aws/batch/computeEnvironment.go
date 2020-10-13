@@ -145,6 +145,8 @@ type ComputeEnvironment struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of compute environment. Valid items are `EC2` or `SPOT`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -201,6 +203,8 @@ type computeEnvironmentState struct {
 	Status *string `pulumi:"status"`
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason *string `pulumi:"statusReason"`
+	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of compute environment. Valid items are `EC2` or `SPOT`.
 	Type *string `pulumi:"type"`
 }
@@ -224,6 +228,8 @@ type ComputeEnvironmentState struct {
 	Status pulumi.StringPtrInput
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
 	StatusReason pulumi.StringPtrInput
+	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	Tags pulumi.StringMapInput
 	// The type of compute environment. Valid items are `EC2` or `SPOT`.
 	Type pulumi.StringPtrInput
 }
@@ -243,6 +249,8 @@ type computeEnvironmentArgs struct {
 	ServiceRole string `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
+	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of compute environment. Valid items are `EC2` or `SPOT`.
 	Type string `pulumi:"type"`
 }
@@ -259,6 +267,8 @@ type ComputeEnvironmentArgs struct {
 	ServiceRole pulumi.StringInput
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
+	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	Tags pulumi.StringMapInput
 	// The type of compute environment. Valid items are `EC2` or `SPOT`.
 	Type pulumi.StringInput
 }

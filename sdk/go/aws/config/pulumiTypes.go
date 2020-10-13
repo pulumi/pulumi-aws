@@ -236,6 +236,7 @@ type Endpoints struct {
 	Sts                      *string `pulumi:"sts"`
 	Swf                      *string `pulumi:"swf"`
 	Synthetics               *string `pulumi:"synthetics"`
+	Timestreamwrite          *string `pulumi:"timestreamwrite"`
 	Transfer                 *string `pulumi:"transfer"`
 	Waf                      *string `pulumi:"waf"`
 	Wafregional              *string `pulumi:"wafregional"`
@@ -392,6 +393,7 @@ type EndpointsArgs struct {
 	Sts                      pulumi.StringPtrInput `pulumi:"sts"`
 	Swf                      pulumi.StringPtrInput `pulumi:"swf"`
 	Synthetics               pulumi.StringPtrInput `pulumi:"synthetics"`
+	Timestreamwrite          pulumi.StringPtrInput `pulumi:"timestreamwrite"`
 	Transfer                 pulumi.StringPtrInput `pulumi:"transfer"`
 	Waf                      pulumi.StringPtrInput `pulumi:"waf"`
 	Wafregional              pulumi.StringPtrInput `pulumi:"wafregional"`
@@ -987,6 +989,10 @@ func (o EndpointsOutput) Swf() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Synthetics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Synthetics }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Timestreamwrite() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Timestreamwrite }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Transfer() pulumi.StringPtrOutput {

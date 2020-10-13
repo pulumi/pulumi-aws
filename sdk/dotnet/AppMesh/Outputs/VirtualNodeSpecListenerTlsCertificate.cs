@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTlsCertificate
     {
         /// <summary>
-        /// An AWS Certicate Manager (ACM) certificate.
+        /// An AWS Certificate Manager (ACM) certificate.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificateAcm? Acm;
         /// <summary>

@@ -72,8 +72,8 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        :param pulumi.Input[str] identifier: The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+        :param pulumi.Input[str] identifier: The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
                supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
                - db.r4.large
@@ -183,8 +183,8 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version
-        :param pulumi.Input[str] identifier: The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+        :param pulumi.Input[str] identifier: The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
                supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
                - db.r4.large
@@ -325,7 +325,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter
     def identifier(self) -> pulumi.Output[str]:
         """
-        The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+        The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
         """
         return pulumi.get(self, "identifier")
 
@@ -333,7 +333,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> pulumi.Output[str]:
         """
-        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         """
         return pulumi.get(self, "identifier_prefix")
 

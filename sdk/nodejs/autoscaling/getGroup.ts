@@ -90,7 +90,7 @@ export interface GetGroupResult {
      */
     readonly minSize: number;
     /**
-     * The name of the Auto Scaling group.
+     * Name of the Auto Scaling Group.
      */
     readonly name: string;
     readonly newInstancesProtectedFromScaleIn: boolean;

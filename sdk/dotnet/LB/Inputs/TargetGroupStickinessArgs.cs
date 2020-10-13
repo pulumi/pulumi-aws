@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LB.Inputs
     public sealed class TargetGroupStickinessArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+        /// Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         /// </summary>
         [Input("cookieDuration")]
         public Input<int>? CookieDuration { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The type of sticky sessions. The only current possible value is `lb_cookie`.
+        /// The type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

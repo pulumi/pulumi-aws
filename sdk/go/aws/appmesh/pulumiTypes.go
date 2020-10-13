@@ -494,6 +494,8 @@ type RouteSpecGrpcRoute struct {
 	Match RouteSpecGrpcRouteMatch `pulumi:"match"`
 	// The retry policy.
 	RetryPolicy *RouteSpecGrpcRouteRetryPolicy `pulumi:"retryPolicy"`
+	// The types of timeouts.
+	Timeout *RouteSpecGrpcRouteTimeout `pulumi:"timeout"`
 }
 
 // RouteSpecGrpcRouteInput is an input type that accepts RouteSpecGrpcRouteArgs and RouteSpecGrpcRouteOutput values.
@@ -514,6 +516,8 @@ type RouteSpecGrpcRouteArgs struct {
 	Match RouteSpecGrpcRouteMatchInput `pulumi:"match"`
 	// The retry policy.
 	RetryPolicy RouteSpecGrpcRouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
+	// The types of timeouts.
+	Timeout RouteSpecGrpcRouteTimeoutPtrInput `pulumi:"timeout"`
 }
 
 func (RouteSpecGrpcRouteArgs) ElementType() reflect.Type {
@@ -608,6 +612,11 @@ func (o RouteSpecGrpcRouteOutput) RetryPolicy() RouteSpecGrpcRouteRetryPolicyPtr
 	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRouteRetryPolicy { return v.RetryPolicy }).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
 }
 
+// The types of timeouts.
+func (o RouteSpecGrpcRouteOutput) Timeout() RouteSpecGrpcRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRouteTimeout { return v.Timeout }).(RouteSpecGrpcRouteTimeoutPtrOutput)
+}
+
 type RouteSpecGrpcRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecGrpcRoutePtrOutput) ElementType() reflect.Type {
@@ -654,6 +663,16 @@ func (o RouteSpecGrpcRoutePtrOutput) RetryPolicy() RouteSpecGrpcRouteRetryPolicy
 		}
 		return v.RetryPolicy
 	}).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
+}
+
+// The types of timeouts.
+func (o RouteSpecGrpcRoutePtrOutput) Timeout() RouteSpecGrpcRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRoute) *RouteSpecGrpcRouteTimeout {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(RouteSpecGrpcRouteTimeoutPtrOutput)
 }
 
 type RouteSpecGrpcRouteAction struct {
@@ -902,6 +921,9 @@ type RouteSpecGrpcRouteMatch struct {
 	Metadatas []RouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
 	// The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName *string `pulumi:"methodName"`
+	// The value sent by the client must begin with the specified characters.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix *string `pulumi:"prefix"`
 	// The fully qualified domain name for the service to match from the request.
 	ServiceName *string `pulumi:"serviceName"`
 }
@@ -922,6 +944,9 @@ type RouteSpecGrpcRouteMatchArgs struct {
 	Metadatas RouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
 	// The method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName pulumi.StringPtrInput `pulumi:"methodName"`
+	// The value sent by the client must begin with the specified characters.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The fully qualified domain name for the service to match from the request.
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 }
@@ -1013,6 +1038,12 @@ func (o RouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.MethodName }).(pulumi.StringPtrOutput)
 }
 
+// The value sent by the client must begin with the specified characters.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
 // The fully qualified domain name for the service to match from the request.
 func (o RouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
@@ -1053,6 +1084,17 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) MethodName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.MethodName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value sent by the client must begin with the specified characters.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecGrpcRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1919,6 +1961,456 @@ func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+type RouteSpecGrpcRouteTimeout struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle *RouteSpecGrpcRouteTimeoutIdle `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest *RouteSpecGrpcRouteTimeoutPerRequest `pulumi:"perRequest"`
+}
+
+// RouteSpecGrpcRouteTimeoutInput is an input type that accepts RouteSpecGrpcRouteTimeoutArgs and RouteSpecGrpcRouteTimeoutOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteTimeoutInput` via:
+//
+//          RouteSpecGrpcRouteTimeoutArgs{...}
+type RouteSpecGrpcRouteTimeoutInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteTimeoutOutput() RouteSpecGrpcRouteTimeoutOutput
+	ToRouteSpecGrpcRouteTimeoutOutputWithContext(context.Context) RouteSpecGrpcRouteTimeoutOutput
+}
+
+type RouteSpecGrpcRouteTimeoutArgs struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle RouteSpecGrpcRouteTimeoutIdlePtrInput `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest RouteSpecGrpcRouteTimeoutPerRequestPtrInput `pulumi:"perRequest"`
+}
+
+func (RouteSpecGrpcRouteTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteTimeout)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteTimeoutArgs) ToRouteSpecGrpcRouteTimeoutOutput() RouteSpecGrpcRouteTimeoutOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteTimeoutArgs) ToRouteSpecGrpcRouteTimeoutOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutOutput)
+}
+
+func (i RouteSpecGrpcRouteTimeoutArgs) ToRouteSpecGrpcRouteTimeoutPtrOutput() RouteSpecGrpcRouteTimeoutPtrOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteTimeoutArgs) ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutOutput).ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteTimeoutPtrInput is an input type that accepts RouteSpecGrpcRouteTimeoutArgs, RouteSpecGrpcRouteTimeoutPtr and RouteSpecGrpcRouteTimeoutPtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteTimeoutPtrInput` via:
+//
+//          RouteSpecGrpcRouteTimeoutArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteTimeoutPtrOutput() RouteSpecGrpcRouteTimeoutPtrOutput
+	ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(context.Context) RouteSpecGrpcRouteTimeoutPtrOutput
+}
+
+type routeSpecGrpcRouteTimeoutPtrType RouteSpecGrpcRouteTimeoutArgs
+
+func RouteSpecGrpcRouteTimeoutPtr(v *RouteSpecGrpcRouteTimeoutArgs) RouteSpecGrpcRouteTimeoutPtrInput {
+	return (*routeSpecGrpcRouteTimeoutPtrType)(v)
+}
+
+func (*routeSpecGrpcRouteTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteTimeout)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteTimeoutPtrType) ToRouteSpecGrpcRouteTimeoutPtrOutput() RouteSpecGrpcRouteTimeoutPtrOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteTimeoutPtrType) ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutPtrOutput)
+}
+
+type RouteSpecGrpcRouteTimeoutOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteTimeoutOutput) ToRouteSpecGrpcRouteTimeoutOutput() RouteSpecGrpcRouteTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutOutput) ToRouteSpecGrpcRouteTimeoutOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutOutput) ToRouteSpecGrpcRouteTimeoutPtrOutput() RouteSpecGrpcRouteTimeoutPtrOutput {
+	return o.ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteTimeoutOutput) ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeout {
+		return &v
+	}).(RouteSpecGrpcRouteTimeoutPtrOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o RouteSpecGrpcRouteTimeoutOutput) Idle() RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeoutIdle { return v.Idle }).(RouteSpecGrpcRouteTimeoutIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o RouteSpecGrpcRouteTimeoutOutput) PerRequest() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeoutPerRequest { return v.PerRequest }).(RouteSpecGrpcRouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecGrpcRouteTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteTimeoutPtrOutput) ToRouteSpecGrpcRouteTimeoutPtrOutput() RouteSpecGrpcRouteTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutPtrOutput) ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutPtrOutput) Elem() RouteSpecGrpcRouteTimeoutOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeout) RouteSpecGrpcRouteTimeout { return *v }).(RouteSpecGrpcRouteTimeoutOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o RouteSpecGrpcRouteTimeoutPtrOutput) Idle() RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeoutIdle {
+		if v == nil {
+			return nil
+		}
+		return v.Idle
+	}).(RouteSpecGrpcRouteTimeoutIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o RouteSpecGrpcRouteTimeoutPtrOutput) PerRequest() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeoutPerRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PerRequest
+	}).(RouteSpecGrpcRouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecGrpcRouteTimeoutIdle struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecGrpcRouteTimeoutIdleInput is an input type that accepts RouteSpecGrpcRouteTimeoutIdleArgs and RouteSpecGrpcRouteTimeoutIdleOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteTimeoutIdleInput` via:
+//
+//          RouteSpecGrpcRouteTimeoutIdleArgs{...}
+type RouteSpecGrpcRouteTimeoutIdleInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteTimeoutIdleOutput() RouteSpecGrpcRouteTimeoutIdleOutput
+	ToRouteSpecGrpcRouteTimeoutIdleOutputWithContext(context.Context) RouteSpecGrpcRouteTimeoutIdleOutput
+}
+
+type RouteSpecGrpcRouteTimeoutIdleArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecGrpcRouteTimeoutIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteTimeoutIdleArgs) ToRouteSpecGrpcRouteTimeoutIdleOutput() RouteSpecGrpcRouteTimeoutIdleOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutIdleOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteTimeoutIdleArgs) ToRouteSpecGrpcRouteTimeoutIdleOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutIdleOutput)
+}
+
+func (i RouteSpecGrpcRouteTimeoutIdleArgs) ToRouteSpecGrpcRouteTimeoutIdlePtrOutput() RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteTimeoutIdleArgs) ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutIdleOutput).ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteTimeoutIdlePtrInput is an input type that accepts RouteSpecGrpcRouteTimeoutIdleArgs, RouteSpecGrpcRouteTimeoutIdlePtr and RouteSpecGrpcRouteTimeoutIdlePtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteTimeoutIdlePtrInput` via:
+//
+//          RouteSpecGrpcRouteTimeoutIdleArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteTimeoutIdlePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteTimeoutIdlePtrOutput() RouteSpecGrpcRouteTimeoutIdlePtrOutput
+	ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(context.Context) RouteSpecGrpcRouteTimeoutIdlePtrOutput
+}
+
+type routeSpecGrpcRouteTimeoutIdlePtrType RouteSpecGrpcRouteTimeoutIdleArgs
+
+func RouteSpecGrpcRouteTimeoutIdlePtr(v *RouteSpecGrpcRouteTimeoutIdleArgs) RouteSpecGrpcRouteTimeoutIdlePtrInput {
+	return (*routeSpecGrpcRouteTimeoutIdlePtrType)(v)
+}
+
+func (*routeSpecGrpcRouteTimeoutIdlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteTimeoutIdlePtrType) ToRouteSpecGrpcRouteTimeoutIdlePtrOutput() RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteTimeoutIdlePtrType) ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutIdlePtrOutput)
+}
+
+type RouteSpecGrpcRouteTimeoutIdleOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteTimeoutIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteTimeoutIdleOutput) ToRouteSpecGrpcRouteTimeoutIdleOutput() RouteSpecGrpcRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutIdleOutput) ToRouteSpecGrpcRouteTimeoutIdleOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutIdleOutput) ToRouteSpecGrpcRouteTimeoutIdlePtrOutput() RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return o.ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteTimeoutIdleOutput) ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutIdle) *RouteSpecGrpcRouteTimeoutIdle {
+		return &v
+	}).(RouteSpecGrpcRouteTimeoutIdlePtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecGrpcRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecGrpcRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecGrpcRouteTimeoutIdlePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteTimeoutIdlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) ToRouteSpecGrpcRouteTimeoutIdlePtrOutput() RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutIdlePtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Elem() RouteSpecGrpcRouteTimeoutIdleOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutIdle) RouteSpecGrpcRouteTimeoutIdle { return *v }).(RouteSpecGrpcRouteTimeoutIdleOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutIdle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutIdle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecGrpcRouteTimeoutPerRequest struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecGrpcRouteTimeoutPerRequestInput is an input type that accepts RouteSpecGrpcRouteTimeoutPerRequestArgs and RouteSpecGrpcRouteTimeoutPerRequestOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteTimeoutPerRequestInput` via:
+//
+//          RouteSpecGrpcRouteTimeoutPerRequestArgs{...}
+type RouteSpecGrpcRouteTimeoutPerRequestInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteTimeoutPerRequestOutput() RouteSpecGrpcRouteTimeoutPerRequestOutput
+	ToRouteSpecGrpcRouteTimeoutPerRequestOutputWithContext(context.Context) RouteSpecGrpcRouteTimeoutPerRequestOutput
+}
+
+type RouteSpecGrpcRouteTimeoutPerRequestArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecGrpcRouteTimeoutPerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i RouteSpecGrpcRouteTimeoutPerRequestArgs) ToRouteSpecGrpcRouteTimeoutPerRequestOutput() RouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutPerRequestOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteTimeoutPerRequestArgs) ToRouteSpecGrpcRouteTimeoutPerRequestOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutPerRequestOutput)
+}
+
+func (i RouteSpecGrpcRouteTimeoutPerRequestArgs) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutput() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecGrpcRouteTimeoutPerRequestArgs) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutPerRequestOutput).ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(ctx)
+}
+
+// RouteSpecGrpcRouteTimeoutPerRequestPtrInput is an input type that accepts RouteSpecGrpcRouteTimeoutPerRequestArgs, RouteSpecGrpcRouteTimeoutPerRequestPtr and RouteSpecGrpcRouteTimeoutPerRequestPtrOutput values.
+// You can construct a concrete instance of `RouteSpecGrpcRouteTimeoutPerRequestPtrInput` via:
+//
+//          RouteSpecGrpcRouteTimeoutPerRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecGrpcRouteTimeoutPerRequestPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutput() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput
+	ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(context.Context) RouteSpecGrpcRouteTimeoutPerRequestPtrOutput
+}
+
+type routeSpecGrpcRouteTimeoutPerRequestPtrType RouteSpecGrpcRouteTimeoutPerRequestArgs
+
+func RouteSpecGrpcRouteTimeoutPerRequestPtr(v *RouteSpecGrpcRouteTimeoutPerRequestArgs) RouteSpecGrpcRouteTimeoutPerRequestPtrInput {
+	return (*routeSpecGrpcRouteTimeoutPerRequestPtrType)(v)
+}
+
+func (*routeSpecGrpcRouteTimeoutPerRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i *routeSpecGrpcRouteTimeoutPerRequestPtrType) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutput() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return i.ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecGrpcRouteTimeoutPerRequestPtrType) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecGrpcRouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecGrpcRouteTimeoutPerRequestOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteTimeoutPerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecGrpcRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) ToRouteSpecGrpcRouteTimeoutPerRequestOutput() RouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) ToRouteSpecGrpcRouteTimeoutPerRequestOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutput() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return o.ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutPerRequest) *RouteSpecGrpcRouteTimeoutPerRequest {
+		return &v
+	}).(RouteSpecGrpcRouteTimeoutPerRequestPtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecGrpcRouteTimeoutPerRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecGrpcRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutput() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
+	return o
+}
+
+func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Elem() RouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutPerRequest) RouteSpecGrpcRouteTimeoutPerRequest { return *v }).(RouteSpecGrpcRouteTimeoutPerRequestOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutPerRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutPerRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type RouteSpecHttp2Route struct {
 	// The action to take if a match is determined.
 	Action RouteSpecHttp2RouteAction `pulumi:"action"`
@@ -1926,6 +2418,8 @@ type RouteSpecHttp2Route struct {
 	Match RouteSpecHttp2RouteMatch `pulumi:"match"`
 	// The retry policy.
 	RetryPolicy *RouteSpecHttp2RouteRetryPolicy `pulumi:"retryPolicy"`
+	// The types of timeouts.
+	Timeout *RouteSpecHttp2RouteTimeout `pulumi:"timeout"`
 }
 
 // RouteSpecHttp2RouteInput is an input type that accepts RouteSpecHttp2RouteArgs and RouteSpecHttp2RouteOutput values.
@@ -1946,6 +2440,8 @@ type RouteSpecHttp2RouteArgs struct {
 	Match RouteSpecHttp2RouteMatchInput `pulumi:"match"`
 	// The retry policy.
 	RetryPolicy RouteSpecHttp2RouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
+	// The types of timeouts.
+	Timeout RouteSpecHttp2RouteTimeoutPtrInput `pulumi:"timeout"`
 }
 
 func (RouteSpecHttp2RouteArgs) ElementType() reflect.Type {
@@ -2040,6 +2536,11 @@ func (o RouteSpecHttp2RouteOutput) RetryPolicy() RouteSpecHttp2RouteRetryPolicyP
 	return o.ApplyT(func(v RouteSpecHttp2Route) *RouteSpecHttp2RouteRetryPolicy { return v.RetryPolicy }).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
 }
 
+// The types of timeouts.
+func (o RouteSpecHttp2RouteOutput) Timeout() RouteSpecHttp2RouteTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2Route) *RouteSpecHttp2RouteTimeout { return v.Timeout }).(RouteSpecHttp2RouteTimeoutPtrOutput)
+}
+
 type RouteSpecHttp2RoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttp2RoutePtrOutput) ElementType() reflect.Type {
@@ -2086,6 +2587,16 @@ func (o RouteSpecHttp2RoutePtrOutput) RetryPolicy() RouteSpecHttp2RouteRetryPoli
 		}
 		return v.RetryPolicy
 	}).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
+}
+
+// The types of timeouts.
+func (o RouteSpecHttp2RoutePtrOutput) Timeout() RouteSpecHttp2RouteTimeoutPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteTimeout {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(RouteSpecHttp2RouteTimeoutPtrOutput)
 }
 
 type RouteSpecHttp2RouteAction struct {
@@ -3347,6 +3858,456 @@ func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+type RouteSpecHttp2RouteTimeout struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle *RouteSpecHttp2RouteTimeoutIdle `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest *RouteSpecHttp2RouteTimeoutPerRequest `pulumi:"perRequest"`
+}
+
+// RouteSpecHttp2RouteTimeoutInput is an input type that accepts RouteSpecHttp2RouteTimeoutArgs and RouteSpecHttp2RouteTimeoutOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteTimeoutInput` via:
+//
+//          RouteSpecHttp2RouteTimeoutArgs{...}
+type RouteSpecHttp2RouteTimeoutInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteTimeoutOutput() RouteSpecHttp2RouteTimeoutOutput
+	ToRouteSpecHttp2RouteTimeoutOutputWithContext(context.Context) RouteSpecHttp2RouteTimeoutOutput
+}
+
+type RouteSpecHttp2RouteTimeoutArgs struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle RouteSpecHttp2RouteTimeoutIdlePtrInput `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest RouteSpecHttp2RouteTimeoutPerRequestPtrInput `pulumi:"perRequest"`
+}
+
+func (RouteSpecHttp2RouteTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteTimeout)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteTimeoutArgs) ToRouteSpecHttp2RouteTimeoutOutput() RouteSpecHttp2RouteTimeoutOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteTimeoutArgs) ToRouteSpecHttp2RouteTimeoutOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutOutput)
+}
+
+func (i RouteSpecHttp2RouteTimeoutArgs) ToRouteSpecHttp2RouteTimeoutPtrOutput() RouteSpecHttp2RouteTimeoutPtrOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteTimeoutArgs) ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutOutput).ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteTimeoutPtrInput is an input type that accepts RouteSpecHttp2RouteTimeoutArgs, RouteSpecHttp2RouteTimeoutPtr and RouteSpecHttp2RouteTimeoutPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteTimeoutPtrInput` via:
+//
+//          RouteSpecHttp2RouteTimeoutArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteTimeoutPtrOutput() RouteSpecHttp2RouteTimeoutPtrOutput
+	ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(context.Context) RouteSpecHttp2RouteTimeoutPtrOutput
+}
+
+type routeSpecHttp2RouteTimeoutPtrType RouteSpecHttp2RouteTimeoutArgs
+
+func RouteSpecHttp2RouteTimeoutPtr(v *RouteSpecHttp2RouteTimeoutArgs) RouteSpecHttp2RouteTimeoutPtrInput {
+	return (*routeSpecHttp2RouteTimeoutPtrType)(v)
+}
+
+func (*routeSpecHttp2RouteTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteTimeout)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteTimeoutPtrType) ToRouteSpecHttp2RouteTimeoutPtrOutput() RouteSpecHttp2RouteTimeoutPtrOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteTimeoutPtrType) ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutPtrOutput)
+}
+
+type RouteSpecHttp2RouteTimeoutOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteTimeoutOutput) ToRouteSpecHttp2RouteTimeoutOutput() RouteSpecHttp2RouteTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutOutput) ToRouteSpecHttp2RouteTimeoutOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutOutput) ToRouteSpecHttp2RouteTimeoutPtrOutput() RouteSpecHttp2RouteTimeoutPtrOutput {
+	return o.ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteTimeoutOutput) ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeout {
+		return &v
+	}).(RouteSpecHttp2RouteTimeoutPtrOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o RouteSpecHttp2RouteTimeoutOutput) Idle() RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeoutIdle { return v.Idle }).(RouteSpecHttp2RouteTimeoutIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o RouteSpecHttp2RouteTimeoutOutput) PerRequest() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeoutPerRequest { return v.PerRequest }).(RouteSpecHttp2RouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecHttp2RouteTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteTimeoutPtrOutput) ToRouteSpecHttp2RouteTimeoutPtrOutput() RouteSpecHttp2RouteTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutPtrOutput) ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutPtrOutput) Elem() RouteSpecHttp2RouteTimeoutOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeout) RouteSpecHttp2RouteTimeout { return *v }).(RouteSpecHttp2RouteTimeoutOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o RouteSpecHttp2RouteTimeoutPtrOutput) Idle() RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeoutIdle {
+		if v == nil {
+			return nil
+		}
+		return v.Idle
+	}).(RouteSpecHttp2RouteTimeoutIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o RouteSpecHttp2RouteTimeoutPtrOutput) PerRequest() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeoutPerRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PerRequest
+	}).(RouteSpecHttp2RouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecHttp2RouteTimeoutIdle struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecHttp2RouteTimeoutIdleInput is an input type that accepts RouteSpecHttp2RouteTimeoutIdleArgs and RouteSpecHttp2RouteTimeoutIdleOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteTimeoutIdleInput` via:
+//
+//          RouteSpecHttp2RouteTimeoutIdleArgs{...}
+type RouteSpecHttp2RouteTimeoutIdleInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteTimeoutIdleOutput() RouteSpecHttp2RouteTimeoutIdleOutput
+	ToRouteSpecHttp2RouteTimeoutIdleOutputWithContext(context.Context) RouteSpecHttp2RouteTimeoutIdleOutput
+}
+
+type RouteSpecHttp2RouteTimeoutIdleArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecHttp2RouteTimeoutIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteTimeoutIdleArgs) ToRouteSpecHttp2RouteTimeoutIdleOutput() RouteSpecHttp2RouteTimeoutIdleOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutIdleOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteTimeoutIdleArgs) ToRouteSpecHttp2RouteTimeoutIdleOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutIdleOutput)
+}
+
+func (i RouteSpecHttp2RouteTimeoutIdleArgs) ToRouteSpecHttp2RouteTimeoutIdlePtrOutput() RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteTimeoutIdleArgs) ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutIdleOutput).ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteTimeoutIdlePtrInput is an input type that accepts RouteSpecHttp2RouteTimeoutIdleArgs, RouteSpecHttp2RouteTimeoutIdlePtr and RouteSpecHttp2RouteTimeoutIdlePtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteTimeoutIdlePtrInput` via:
+//
+//          RouteSpecHttp2RouteTimeoutIdleArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteTimeoutIdlePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteTimeoutIdlePtrOutput() RouteSpecHttp2RouteTimeoutIdlePtrOutput
+	ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(context.Context) RouteSpecHttp2RouteTimeoutIdlePtrOutput
+}
+
+type routeSpecHttp2RouteTimeoutIdlePtrType RouteSpecHttp2RouteTimeoutIdleArgs
+
+func RouteSpecHttp2RouteTimeoutIdlePtr(v *RouteSpecHttp2RouteTimeoutIdleArgs) RouteSpecHttp2RouteTimeoutIdlePtrInput {
+	return (*routeSpecHttp2RouteTimeoutIdlePtrType)(v)
+}
+
+func (*routeSpecHttp2RouteTimeoutIdlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteTimeoutIdlePtrType) ToRouteSpecHttp2RouteTimeoutIdlePtrOutput() RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteTimeoutIdlePtrType) ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutIdlePtrOutput)
+}
+
+type RouteSpecHttp2RouteTimeoutIdleOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteTimeoutIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteTimeoutIdleOutput) ToRouteSpecHttp2RouteTimeoutIdleOutput() RouteSpecHttp2RouteTimeoutIdleOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutIdleOutput) ToRouteSpecHttp2RouteTimeoutIdleOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutIdleOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutIdleOutput) ToRouteSpecHttp2RouteTimeoutIdlePtrOutput() RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return o.ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteTimeoutIdleOutput) ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutIdle) *RouteSpecHttp2RouteTimeoutIdle {
+		return &v
+	}).(RouteSpecHttp2RouteTimeoutIdlePtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecHttp2RouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecHttp2RouteTimeoutIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttp2RouteTimeoutIdlePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteTimeoutIdlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) ToRouteSpecHttp2RouteTimeoutIdlePtrOutput() RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutIdlePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Elem() RouteSpecHttp2RouteTimeoutIdleOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutIdle) RouteSpecHttp2RouteTimeoutIdle { return *v }).(RouteSpecHttp2RouteTimeoutIdleOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutIdle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutIdle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecHttp2RouteTimeoutPerRequest struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecHttp2RouteTimeoutPerRequestInput is an input type that accepts RouteSpecHttp2RouteTimeoutPerRequestArgs and RouteSpecHttp2RouteTimeoutPerRequestOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteTimeoutPerRequestInput` via:
+//
+//          RouteSpecHttp2RouteTimeoutPerRequestArgs{...}
+type RouteSpecHttp2RouteTimeoutPerRequestInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteTimeoutPerRequestOutput() RouteSpecHttp2RouteTimeoutPerRequestOutput
+	ToRouteSpecHttp2RouteTimeoutPerRequestOutputWithContext(context.Context) RouteSpecHttp2RouteTimeoutPerRequestOutput
+}
+
+type RouteSpecHttp2RouteTimeoutPerRequestArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecHttp2RouteTimeoutPerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i RouteSpecHttp2RouteTimeoutPerRequestArgs) ToRouteSpecHttp2RouteTimeoutPerRequestOutput() RouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutPerRequestOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteTimeoutPerRequestArgs) ToRouteSpecHttp2RouteTimeoutPerRequestOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutPerRequestOutput)
+}
+
+func (i RouteSpecHttp2RouteTimeoutPerRequestArgs) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutput() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttp2RouteTimeoutPerRequestArgs) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutPerRequestOutput).ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttp2RouteTimeoutPerRequestPtrInput is an input type that accepts RouteSpecHttp2RouteTimeoutPerRequestArgs, RouteSpecHttp2RouteTimeoutPerRequestPtr and RouteSpecHttp2RouteTimeoutPerRequestPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttp2RouteTimeoutPerRequestPtrInput` via:
+//
+//          RouteSpecHttp2RouteTimeoutPerRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttp2RouteTimeoutPerRequestPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutput() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput
+	ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(context.Context) RouteSpecHttp2RouteTimeoutPerRequestPtrOutput
+}
+
+type routeSpecHttp2RouteTimeoutPerRequestPtrType RouteSpecHttp2RouteTimeoutPerRequestArgs
+
+func RouteSpecHttp2RouteTimeoutPerRequestPtr(v *RouteSpecHttp2RouteTimeoutPerRequestArgs) RouteSpecHttp2RouteTimeoutPerRequestPtrInput {
+	return (*routeSpecHttp2RouteTimeoutPerRequestPtrType)(v)
+}
+
+func (*routeSpecHttp2RouteTimeoutPerRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i *routeSpecHttp2RouteTimeoutPerRequestPtrType) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutput() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return i.ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttp2RouteTimeoutPerRequestPtrType) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttp2RouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecHttp2RouteTimeoutPerRequestOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteTimeoutPerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttp2RouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) ToRouteSpecHttp2RouteTimeoutPerRequestOutput() RouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) ToRouteSpecHttp2RouteTimeoutPerRequestOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutput() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return o.ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutPerRequest) *RouteSpecHttp2RouteTimeoutPerRequest {
+		return &v
+	}).(RouteSpecHttp2RouteTimeoutPerRequestPtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttp2RouteTimeoutPerRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttp2RouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutput() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Elem() RouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutPerRequest) RouteSpecHttp2RouteTimeoutPerRequest { return *v }).(RouteSpecHttp2RouteTimeoutPerRequestOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutPerRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutPerRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type RouteSpecHttpRoute struct {
 	// The action to take if a match is determined.
 	Action RouteSpecHttpRouteAction `pulumi:"action"`
@@ -3354,6 +4315,8 @@ type RouteSpecHttpRoute struct {
 	Match RouteSpecHttpRouteMatch `pulumi:"match"`
 	// The retry policy.
 	RetryPolicy *RouteSpecHttpRouteRetryPolicy `pulumi:"retryPolicy"`
+	// The types of timeouts.
+	Timeout *RouteSpecHttpRouteTimeout `pulumi:"timeout"`
 }
 
 // RouteSpecHttpRouteInput is an input type that accepts RouteSpecHttpRouteArgs and RouteSpecHttpRouteOutput values.
@@ -3374,6 +4337,8 @@ type RouteSpecHttpRouteArgs struct {
 	Match RouteSpecHttpRouteMatchInput `pulumi:"match"`
 	// The retry policy.
 	RetryPolicy RouteSpecHttpRouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
+	// The types of timeouts.
+	Timeout RouteSpecHttpRouteTimeoutPtrInput `pulumi:"timeout"`
 }
 
 func (RouteSpecHttpRouteArgs) ElementType() reflect.Type {
@@ -3468,6 +4433,11 @@ func (o RouteSpecHttpRouteOutput) RetryPolicy() RouteSpecHttpRouteRetryPolicyPtr
 	return o.ApplyT(func(v RouteSpecHttpRoute) *RouteSpecHttpRouteRetryPolicy { return v.RetryPolicy }).(RouteSpecHttpRouteRetryPolicyPtrOutput)
 }
 
+// The types of timeouts.
+func (o RouteSpecHttpRouteOutput) Timeout() RouteSpecHttpRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRoute) *RouteSpecHttpRouteTimeout { return v.Timeout }).(RouteSpecHttpRouteTimeoutPtrOutput)
+}
+
 type RouteSpecHttpRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRoutePtrOutput) ElementType() reflect.Type {
@@ -3514,6 +4484,16 @@ func (o RouteSpecHttpRoutePtrOutput) RetryPolicy() RouteSpecHttpRouteRetryPolicy
 		}
 		return v.RetryPolicy
 	}).(RouteSpecHttpRouteRetryPolicyPtrOutput)
+}
+
+// The types of timeouts.
+func (o RouteSpecHttpRoutePtrOutput) Timeout() RouteSpecHttpRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRoute) *RouteSpecHttpRouteTimeout {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(RouteSpecHttpRouteTimeoutPtrOutput)
 }
 
 type RouteSpecHttpRouteAction struct {
@@ -4775,9 +5755,461 @@ func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+type RouteSpecHttpRouteTimeout struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle *RouteSpecHttpRouteTimeoutIdle `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest *RouteSpecHttpRouteTimeoutPerRequest `pulumi:"perRequest"`
+}
+
+// RouteSpecHttpRouteTimeoutInput is an input type that accepts RouteSpecHttpRouteTimeoutArgs and RouteSpecHttpRouteTimeoutOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteTimeoutInput` via:
+//
+//          RouteSpecHttpRouteTimeoutArgs{...}
+type RouteSpecHttpRouteTimeoutInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteTimeoutOutput() RouteSpecHttpRouteTimeoutOutput
+	ToRouteSpecHttpRouteTimeoutOutputWithContext(context.Context) RouteSpecHttpRouteTimeoutOutput
+}
+
+type RouteSpecHttpRouteTimeoutArgs struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle RouteSpecHttpRouteTimeoutIdlePtrInput `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest RouteSpecHttpRouteTimeoutPerRequestPtrInput `pulumi:"perRequest"`
+}
+
+func (RouteSpecHttpRouteTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteTimeout)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteTimeoutArgs) ToRouteSpecHttpRouteTimeoutOutput() RouteSpecHttpRouteTimeoutOutput {
+	return i.ToRouteSpecHttpRouteTimeoutOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteTimeoutArgs) ToRouteSpecHttpRouteTimeoutOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutOutput)
+}
+
+func (i RouteSpecHttpRouteTimeoutArgs) ToRouteSpecHttpRouteTimeoutPtrOutput() RouteSpecHttpRouteTimeoutPtrOutput {
+	return i.ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteTimeoutArgs) ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutOutput).ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttpRouteTimeoutPtrInput is an input type that accepts RouteSpecHttpRouteTimeoutArgs, RouteSpecHttpRouteTimeoutPtr and RouteSpecHttpRouteTimeoutPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteTimeoutPtrInput` via:
+//
+//          RouteSpecHttpRouteTimeoutArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttpRouteTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteTimeoutPtrOutput() RouteSpecHttpRouteTimeoutPtrOutput
+	ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(context.Context) RouteSpecHttpRouteTimeoutPtrOutput
+}
+
+type routeSpecHttpRouteTimeoutPtrType RouteSpecHttpRouteTimeoutArgs
+
+func RouteSpecHttpRouteTimeoutPtr(v *RouteSpecHttpRouteTimeoutArgs) RouteSpecHttpRouteTimeoutPtrInput {
+	return (*routeSpecHttpRouteTimeoutPtrType)(v)
+}
+
+func (*routeSpecHttpRouteTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteTimeout)(nil)).Elem()
+}
+
+func (i *routeSpecHttpRouteTimeoutPtrType) ToRouteSpecHttpRouteTimeoutPtrOutput() RouteSpecHttpRouteTimeoutPtrOutput {
+	return i.ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttpRouteTimeoutPtrType) ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutPtrOutput)
+}
+
+type RouteSpecHttpRouteTimeoutOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteTimeoutOutput) ToRouteSpecHttpRouteTimeoutOutput() RouteSpecHttpRouteTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutOutput) ToRouteSpecHttpRouteTimeoutOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutOutput) ToRouteSpecHttpRouteTimeoutPtrOutput() RouteSpecHttpRouteTimeoutPtrOutput {
+	return o.ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttpRouteTimeoutOutput) ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeout {
+		return &v
+	}).(RouteSpecHttpRouteTimeoutPtrOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o RouteSpecHttpRouteTimeoutOutput) Idle() RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeoutIdle { return v.Idle }).(RouteSpecHttpRouteTimeoutIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o RouteSpecHttpRouteTimeoutOutput) PerRequest() RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeoutPerRequest { return v.PerRequest }).(RouteSpecHttpRouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecHttpRouteTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteTimeoutPtrOutput) ToRouteSpecHttpRouteTimeoutPtrOutput() RouteSpecHttpRouteTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutPtrOutput) ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutPtrOutput) Elem() RouteSpecHttpRouteTimeoutOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeout) RouteSpecHttpRouteTimeout { return *v }).(RouteSpecHttpRouteTimeoutOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o RouteSpecHttpRouteTimeoutPtrOutput) Idle() RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeoutIdle {
+		if v == nil {
+			return nil
+		}
+		return v.Idle
+	}).(RouteSpecHttpRouteTimeoutIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o RouteSpecHttpRouteTimeoutPtrOutput) PerRequest() RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeoutPerRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PerRequest
+	}).(RouteSpecHttpRouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecHttpRouteTimeoutIdle struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecHttpRouteTimeoutIdleInput is an input type that accepts RouteSpecHttpRouteTimeoutIdleArgs and RouteSpecHttpRouteTimeoutIdleOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteTimeoutIdleInput` via:
+//
+//          RouteSpecHttpRouteTimeoutIdleArgs{...}
+type RouteSpecHttpRouteTimeoutIdleInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteTimeoutIdleOutput() RouteSpecHttpRouteTimeoutIdleOutput
+	ToRouteSpecHttpRouteTimeoutIdleOutputWithContext(context.Context) RouteSpecHttpRouteTimeoutIdleOutput
+}
+
+type RouteSpecHttpRouteTimeoutIdleArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecHttpRouteTimeoutIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteTimeoutIdleArgs) ToRouteSpecHttpRouteTimeoutIdleOutput() RouteSpecHttpRouteTimeoutIdleOutput {
+	return i.ToRouteSpecHttpRouteTimeoutIdleOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteTimeoutIdleArgs) ToRouteSpecHttpRouteTimeoutIdleOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutIdleOutput)
+}
+
+func (i RouteSpecHttpRouteTimeoutIdleArgs) ToRouteSpecHttpRouteTimeoutIdlePtrOutput() RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return i.ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteTimeoutIdleArgs) ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutIdleOutput).ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttpRouteTimeoutIdlePtrInput is an input type that accepts RouteSpecHttpRouteTimeoutIdleArgs, RouteSpecHttpRouteTimeoutIdlePtr and RouteSpecHttpRouteTimeoutIdlePtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteTimeoutIdlePtrInput` via:
+//
+//          RouteSpecHttpRouteTimeoutIdleArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttpRouteTimeoutIdlePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteTimeoutIdlePtrOutput() RouteSpecHttpRouteTimeoutIdlePtrOutput
+	ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(context.Context) RouteSpecHttpRouteTimeoutIdlePtrOutput
+}
+
+type routeSpecHttpRouteTimeoutIdlePtrType RouteSpecHttpRouteTimeoutIdleArgs
+
+func RouteSpecHttpRouteTimeoutIdlePtr(v *RouteSpecHttpRouteTimeoutIdleArgs) RouteSpecHttpRouteTimeoutIdlePtrInput {
+	return (*routeSpecHttpRouteTimeoutIdlePtrType)(v)
+}
+
+func (*routeSpecHttpRouteTimeoutIdlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i *routeSpecHttpRouteTimeoutIdlePtrType) ToRouteSpecHttpRouteTimeoutIdlePtrOutput() RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return i.ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttpRouteTimeoutIdlePtrType) ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutIdlePtrOutput)
+}
+
+type RouteSpecHttpRouteTimeoutIdleOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteTimeoutIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteTimeoutIdleOutput) ToRouteSpecHttpRouteTimeoutIdleOutput() RouteSpecHttpRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutIdleOutput) ToRouteSpecHttpRouteTimeoutIdleOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutIdleOutput) ToRouteSpecHttpRouteTimeoutIdlePtrOutput() RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return o.ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttpRouteTimeoutIdleOutput) ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutIdle) *RouteSpecHttpRouteTimeoutIdle {
+		return &v
+	}).(RouteSpecHttpRouteTimeoutIdlePtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecHttpRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecHttpRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttpRouteTimeoutIdlePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteTimeoutIdlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) ToRouteSpecHttpRouteTimeoutIdlePtrOutput() RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutIdlePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Elem() RouteSpecHttpRouteTimeoutIdleOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutIdle) RouteSpecHttpRouteTimeoutIdle { return *v }).(RouteSpecHttpRouteTimeoutIdleOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutIdle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutIdle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecHttpRouteTimeoutPerRequest struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecHttpRouteTimeoutPerRequestInput is an input type that accepts RouteSpecHttpRouteTimeoutPerRequestArgs and RouteSpecHttpRouteTimeoutPerRequestOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteTimeoutPerRequestInput` via:
+//
+//          RouteSpecHttpRouteTimeoutPerRequestArgs{...}
+type RouteSpecHttpRouteTimeoutPerRequestInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteTimeoutPerRequestOutput() RouteSpecHttpRouteTimeoutPerRequestOutput
+	ToRouteSpecHttpRouteTimeoutPerRequestOutputWithContext(context.Context) RouteSpecHttpRouteTimeoutPerRequestOutput
+}
+
+type RouteSpecHttpRouteTimeoutPerRequestArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecHttpRouteTimeoutPerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteTimeoutPerRequestArgs) ToRouteSpecHttpRouteTimeoutPerRequestOutput() RouteSpecHttpRouteTimeoutPerRequestOutput {
+	return i.ToRouteSpecHttpRouteTimeoutPerRequestOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteTimeoutPerRequestArgs) ToRouteSpecHttpRouteTimeoutPerRequestOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutPerRequestOutput)
+}
+
+func (i RouteSpecHttpRouteTimeoutPerRequestArgs) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutput() RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return i.ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteTimeoutPerRequestArgs) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutPerRequestOutput).ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(ctx)
+}
+
+// RouteSpecHttpRouteTimeoutPerRequestPtrInput is an input type that accepts RouteSpecHttpRouteTimeoutPerRequestArgs, RouteSpecHttpRouteTimeoutPerRequestPtr and RouteSpecHttpRouteTimeoutPerRequestPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteTimeoutPerRequestPtrInput` via:
+//
+//          RouteSpecHttpRouteTimeoutPerRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecHttpRouteTimeoutPerRequestPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteTimeoutPerRequestPtrOutput() RouteSpecHttpRouteTimeoutPerRequestPtrOutput
+	ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(context.Context) RouteSpecHttpRouteTimeoutPerRequestPtrOutput
+}
+
+type routeSpecHttpRouteTimeoutPerRequestPtrType RouteSpecHttpRouteTimeoutPerRequestArgs
+
+func RouteSpecHttpRouteTimeoutPerRequestPtr(v *RouteSpecHttpRouteTimeoutPerRequestArgs) RouteSpecHttpRouteTimeoutPerRequestPtrInput {
+	return (*routeSpecHttpRouteTimeoutPerRequestPtrType)(v)
+}
+
+func (*routeSpecHttpRouteTimeoutPerRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i *routeSpecHttpRouteTimeoutPerRequestPtrType) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutput() RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return i.ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttpRouteTimeoutPerRequestPtrType) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteTimeoutPerRequestPtrOutput)
+}
+
+type RouteSpecHttpRouteTimeoutPerRequestOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteTimeoutPerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteTimeoutPerRequestOutput) ToRouteSpecHttpRouteTimeoutPerRequestOutput() RouteSpecHttpRouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutPerRequestOutput) ToRouteSpecHttpRouteTimeoutPerRequestOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutPerRequestOutput) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutput() RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return o.ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttpRouteTimeoutPerRequestOutput) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutPerRequest) *RouteSpecHttpRouteTimeoutPerRequest {
+		return &v
+	}).(RouteSpecHttpRouteTimeoutPerRequestPtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecHttpRouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecHttpRouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttpRouteTimeoutPerRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecHttpRouteTimeoutPerRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutput() RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Elem() RouteSpecHttpRouteTimeoutPerRequestOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutPerRequest) RouteSpecHttpRouteTimeoutPerRequest { return *v }).(RouteSpecHttpRouteTimeoutPerRequestOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutPerRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutPerRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type RouteSpecTcpRoute struct {
 	// The action to take if a match is determined.
 	Action RouteSpecTcpRouteAction `pulumi:"action"`
+	// The types of timeouts.
+	Timeout *RouteSpecTcpRouteTimeout `pulumi:"timeout"`
 }
 
 // RouteSpecTcpRouteInput is an input type that accepts RouteSpecTcpRouteArgs and RouteSpecTcpRouteOutput values.
@@ -4794,6 +6226,8 @@ type RouteSpecTcpRouteInput interface {
 type RouteSpecTcpRouteArgs struct {
 	// The action to take if a match is determined.
 	Action RouteSpecTcpRouteActionInput `pulumi:"action"`
+	// The types of timeouts.
+	Timeout RouteSpecTcpRouteTimeoutPtrInput `pulumi:"timeout"`
 }
 
 func (RouteSpecTcpRouteArgs) ElementType() reflect.Type {
@@ -4878,6 +6312,11 @@ func (o RouteSpecTcpRouteOutput) Action() RouteSpecTcpRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
 }
 
+// The types of timeouts.
+func (o RouteSpecTcpRouteOutput) Timeout() RouteSpecTcpRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRoute) *RouteSpecTcpRouteTimeout { return v.Timeout }).(RouteSpecTcpRouteTimeoutPtrOutput)
+}
+
 type RouteSpecTcpRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecTcpRoutePtrOutput) ElementType() reflect.Type {
@@ -4904,6 +6343,16 @@ func (o RouteSpecTcpRoutePtrOutput) Action() RouteSpecTcpRouteActionPtrOutput {
 		}
 		return &v.Action
 	}).(RouteSpecTcpRouteActionPtrOutput)
+}
+
+// The types of timeouts.
+func (o RouteSpecTcpRoutePtrOutput) Timeout() RouteSpecTcpRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRoute) *RouteSpecTcpRouteTimeout {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(RouteSpecTcpRouteTimeoutPtrOutput)
 }
 
 type RouteSpecTcpRouteAction struct {
@@ -5145,6 +6594,287 @@ func (o RouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecTcpRouteActionWeightedTarget {
 		return vs[0].([]RouteSpecTcpRouteActionWeightedTarget)[vs[1].(int)]
 	}).(RouteSpecTcpRouteActionWeightedTargetOutput)
+}
+
+type RouteSpecTcpRouteTimeout struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle *RouteSpecTcpRouteTimeoutIdle `pulumi:"idle"`
+}
+
+// RouteSpecTcpRouteTimeoutInput is an input type that accepts RouteSpecTcpRouteTimeoutArgs and RouteSpecTcpRouteTimeoutOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteTimeoutInput` via:
+//
+//          RouteSpecTcpRouteTimeoutArgs{...}
+type RouteSpecTcpRouteTimeoutInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteTimeoutOutput() RouteSpecTcpRouteTimeoutOutput
+	ToRouteSpecTcpRouteTimeoutOutputWithContext(context.Context) RouteSpecTcpRouteTimeoutOutput
+}
+
+type RouteSpecTcpRouteTimeoutArgs struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle RouteSpecTcpRouteTimeoutIdlePtrInput `pulumi:"idle"`
+}
+
+func (RouteSpecTcpRouteTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecTcpRouteTimeout)(nil)).Elem()
+}
+
+func (i RouteSpecTcpRouteTimeoutArgs) ToRouteSpecTcpRouteTimeoutOutput() RouteSpecTcpRouteTimeoutOutput {
+	return i.ToRouteSpecTcpRouteTimeoutOutputWithContext(context.Background())
+}
+
+func (i RouteSpecTcpRouteTimeoutArgs) ToRouteSpecTcpRouteTimeoutOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteTimeoutOutput)
+}
+
+func (i RouteSpecTcpRouteTimeoutArgs) ToRouteSpecTcpRouteTimeoutPtrOutput() RouteSpecTcpRouteTimeoutPtrOutput {
+	return i.ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecTcpRouteTimeoutArgs) ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteTimeoutOutput).ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(ctx)
+}
+
+// RouteSpecTcpRouteTimeoutPtrInput is an input type that accepts RouteSpecTcpRouteTimeoutArgs, RouteSpecTcpRouteTimeoutPtr and RouteSpecTcpRouteTimeoutPtrOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteTimeoutPtrInput` via:
+//
+//          RouteSpecTcpRouteTimeoutArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecTcpRouteTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteTimeoutPtrOutput() RouteSpecTcpRouteTimeoutPtrOutput
+	ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(context.Context) RouteSpecTcpRouteTimeoutPtrOutput
+}
+
+type routeSpecTcpRouteTimeoutPtrType RouteSpecTcpRouteTimeoutArgs
+
+func RouteSpecTcpRouteTimeoutPtr(v *RouteSpecTcpRouteTimeoutArgs) RouteSpecTcpRouteTimeoutPtrInput {
+	return (*routeSpecTcpRouteTimeoutPtrType)(v)
+}
+
+func (*routeSpecTcpRouteTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecTcpRouteTimeout)(nil)).Elem()
+}
+
+func (i *routeSpecTcpRouteTimeoutPtrType) ToRouteSpecTcpRouteTimeoutPtrOutput() RouteSpecTcpRouteTimeoutPtrOutput {
+	return i.ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecTcpRouteTimeoutPtrType) ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteTimeoutPtrOutput)
+}
+
+type RouteSpecTcpRouteTimeoutOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecTcpRouteTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecTcpRouteTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecTcpRouteTimeoutOutput) ToRouteSpecTcpRouteTimeoutOutput() RouteSpecTcpRouteTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteTimeoutOutput) ToRouteSpecTcpRouteTimeoutOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteTimeoutOutput) ToRouteSpecTcpRouteTimeoutPtrOutput() RouteSpecTcpRouteTimeoutPtrOutput {
+	return o.ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecTcpRouteTimeoutOutput) ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutPtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteTimeout) *RouteSpecTcpRouteTimeout {
+		return &v
+	}).(RouteSpecTcpRouteTimeoutPtrOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o RouteSpecTcpRouteTimeoutOutput) Idle() RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteTimeout) *RouteSpecTcpRouteTimeoutIdle { return v.Idle }).(RouteSpecTcpRouteTimeoutIdlePtrOutput)
+}
+
+type RouteSpecTcpRouteTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecTcpRouteTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecTcpRouteTimeout)(nil)).Elem()
+}
+
+func (o RouteSpecTcpRouteTimeoutPtrOutput) ToRouteSpecTcpRouteTimeoutPtrOutput() RouteSpecTcpRouteTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteTimeoutPtrOutput) ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutPtrOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteTimeoutPtrOutput) Elem() RouteSpecTcpRouteTimeoutOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteTimeout) RouteSpecTcpRouteTimeout { return *v }).(RouteSpecTcpRouteTimeoutOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o RouteSpecTcpRouteTimeoutPtrOutput) Idle() RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteTimeout) *RouteSpecTcpRouteTimeoutIdle {
+		if v == nil {
+			return nil
+		}
+		return v.Idle
+	}).(RouteSpecTcpRouteTimeoutIdlePtrOutput)
+}
+
+type RouteSpecTcpRouteTimeoutIdle struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// RouteSpecTcpRouteTimeoutIdleInput is an input type that accepts RouteSpecTcpRouteTimeoutIdleArgs and RouteSpecTcpRouteTimeoutIdleOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteTimeoutIdleInput` via:
+//
+//          RouteSpecTcpRouteTimeoutIdleArgs{...}
+type RouteSpecTcpRouteTimeoutIdleInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteTimeoutIdleOutput() RouteSpecTcpRouteTimeoutIdleOutput
+	ToRouteSpecTcpRouteTimeoutIdleOutputWithContext(context.Context) RouteSpecTcpRouteTimeoutIdleOutput
+}
+
+type RouteSpecTcpRouteTimeoutIdleArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (RouteSpecTcpRouteTimeoutIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecTcpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i RouteSpecTcpRouteTimeoutIdleArgs) ToRouteSpecTcpRouteTimeoutIdleOutput() RouteSpecTcpRouteTimeoutIdleOutput {
+	return i.ToRouteSpecTcpRouteTimeoutIdleOutputWithContext(context.Background())
+}
+
+func (i RouteSpecTcpRouteTimeoutIdleArgs) ToRouteSpecTcpRouteTimeoutIdleOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteTimeoutIdleOutput)
+}
+
+func (i RouteSpecTcpRouteTimeoutIdleArgs) ToRouteSpecTcpRouteTimeoutIdlePtrOutput() RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return i.ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecTcpRouteTimeoutIdleArgs) ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteTimeoutIdleOutput).ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(ctx)
+}
+
+// RouteSpecTcpRouteTimeoutIdlePtrInput is an input type that accepts RouteSpecTcpRouteTimeoutIdleArgs, RouteSpecTcpRouteTimeoutIdlePtr and RouteSpecTcpRouteTimeoutIdlePtrOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteTimeoutIdlePtrInput` via:
+//
+//          RouteSpecTcpRouteTimeoutIdleArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteSpecTcpRouteTimeoutIdlePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteTimeoutIdlePtrOutput() RouteSpecTcpRouteTimeoutIdlePtrOutput
+	ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(context.Context) RouteSpecTcpRouteTimeoutIdlePtrOutput
+}
+
+type routeSpecTcpRouteTimeoutIdlePtrType RouteSpecTcpRouteTimeoutIdleArgs
+
+func RouteSpecTcpRouteTimeoutIdlePtr(v *RouteSpecTcpRouteTimeoutIdleArgs) RouteSpecTcpRouteTimeoutIdlePtrInput {
+	return (*routeSpecTcpRouteTimeoutIdlePtrType)(v)
+}
+
+func (*routeSpecTcpRouteTimeoutIdlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecTcpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i *routeSpecTcpRouteTimeoutIdlePtrType) ToRouteSpecTcpRouteTimeoutIdlePtrOutput() RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return i.ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecTcpRouteTimeoutIdlePtrType) ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteTimeoutIdlePtrOutput)
+}
+
+type RouteSpecTcpRouteTimeoutIdleOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecTcpRouteTimeoutIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecTcpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o RouteSpecTcpRouteTimeoutIdleOutput) ToRouteSpecTcpRouteTimeoutIdleOutput() RouteSpecTcpRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteTimeoutIdleOutput) ToRouteSpecTcpRouteTimeoutIdleOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteTimeoutIdleOutput) ToRouteSpecTcpRouteTimeoutIdlePtrOutput() RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return o.ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecTcpRouteTimeoutIdleOutput) ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteTimeoutIdle) *RouteSpecTcpRouteTimeoutIdle {
+		return &v
+	}).(RouteSpecTcpRouteTimeoutIdlePtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecTcpRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecTcpRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type RouteSpecTcpRouteTimeoutIdlePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecTcpRouteTimeoutIdlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecTcpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) ToRouteSpecTcpRouteTimeoutIdlePtrOutput() RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutIdlePtrOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Elem() RouteSpecTcpRouteTimeoutIdleOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteTimeoutIdle) RouteSpecTcpRouteTimeoutIdle { return *v }).(RouteSpecTcpRouteTimeoutIdleOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteTimeoutIdle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteTimeoutIdle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualNodeSpec struct {
@@ -6023,7 +7753,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Trust(
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust struct {
-	// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
 	// The TLS validation context trust for a local file.
 	File *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile `pulumi:"file"`
@@ -6041,7 +7771,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput interface
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs struct {
-	// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
 	// The TLS validation context trust for a local file.
 	File VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
@@ -6124,7 +7854,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVi
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
 }
 
-// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Acm() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
 		return v.Acm
@@ -6158,7 +7888,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) E
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput)
 }
 
-// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Acm() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
 		if v == nil {
@@ -6950,7 +8680,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) 
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust struct {
-	// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
 	// The TLS validation context trust for a local file.
 	File *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile `pulumi:"file"`
@@ -6968,7 +8698,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput int
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs struct {
-	// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+	// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 	Acm VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
 	// The TLS validation context trust for a local file.
 	File VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
@@ -7051,7 +8781,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput)
 }
 
-// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) Acm() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
 		return v.Acm
@@ -7085,7 +8815,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput)
 }
 
-// The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) Acm() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
 		if v == nil {
@@ -7380,6 +9110,8 @@ type VirtualNodeSpecListener struct {
 	HealthCheck *VirtualNodeSpecListenerHealthCheck `pulumi:"healthCheck"`
 	// The port mapping information for the listener.
 	PortMapping VirtualNodeSpecListenerPortMapping `pulumi:"portMapping"`
+	// Timeouts for different protocols.
+	Timeout *VirtualNodeSpecListenerTimeout `pulumi:"timeout"`
 	// The Transport Layer Security (TLS) properties for the listener
 	Tls *VirtualNodeSpecListenerTls `pulumi:"tls"`
 }
@@ -7400,6 +9132,8 @@ type VirtualNodeSpecListenerArgs struct {
 	HealthCheck VirtualNodeSpecListenerHealthCheckPtrInput `pulumi:"healthCheck"`
 	// The port mapping information for the listener.
 	PortMapping VirtualNodeSpecListenerPortMappingInput `pulumi:"portMapping"`
+	// Timeouts for different protocols.
+	Timeout VirtualNodeSpecListenerTimeoutPtrInput `pulumi:"timeout"`
 	// The Transport Layer Security (TLS) properties for the listener
 	Tls VirtualNodeSpecListenerTlsPtrInput `pulumi:"tls"`
 }
@@ -7491,6 +9225,11 @@ func (o VirtualNodeSpecListenerOutput) PortMapping() VirtualNodeSpecListenerPort
 	return o.ApplyT(func(v VirtualNodeSpecListener) VirtualNodeSpecListenerPortMapping { return v.PortMapping }).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
+// Timeouts for different protocols.
+func (o VirtualNodeSpecListenerOutput) Timeout() VirtualNodeSpecListenerTimeoutPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerTimeout { return v.Timeout }).(VirtualNodeSpecListenerTimeoutPtrOutput)
+}
+
 // The Transport Layer Security (TLS) properties for the listener
 func (o VirtualNodeSpecListenerOutput) Tls() VirtualNodeSpecListenerTlsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerTls { return v.Tls }).(VirtualNodeSpecListenerTlsPtrOutput)
@@ -7532,6 +9271,16 @@ func (o VirtualNodeSpecListenerPtrOutput) PortMapping() VirtualNodeSpecListenerP
 		}
 		return &v.PortMapping
 	}).(VirtualNodeSpecListenerPortMappingPtrOutput)
+}
+
+// Timeouts for different protocols.
+func (o VirtualNodeSpecListenerPtrOutput) Timeout() VirtualNodeSpecListenerTimeoutPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerTimeout {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(VirtualNodeSpecListenerTimeoutPtrOutput)
 }
 
 // The Transport Layer Security (TLS) properties for the listener
@@ -7939,6 +9688,1837 @@ func (o VirtualNodeSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type VirtualNodeSpecListenerTimeout struct {
+	// Timeouts for gRPC listeners.
+	Grpc *VirtualNodeSpecListenerTimeoutGrpc `pulumi:"grpc"`
+	// Timeouts for HTTP listeners.
+	Http *VirtualNodeSpecListenerTimeoutHttp `pulumi:"http"`
+	// Timeouts for HTTP2 listeners.
+	Http2 *VirtualNodeSpecListenerTimeoutHttp2 `pulumi:"http2"`
+	// Timeouts for TCP listeners.
+	Tcp *VirtualNodeSpecListenerTimeoutTcp `pulumi:"tcp"`
+}
+
+// VirtualNodeSpecListenerTimeoutInput is an input type that accepts VirtualNodeSpecListenerTimeoutArgs and VirtualNodeSpecListenerTimeoutOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutArgs{...}
+type VirtualNodeSpecListenerTimeoutInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutOutput() VirtualNodeSpecListenerTimeoutOutput
+	ToVirtualNodeSpecListenerTimeoutOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutOutput
+}
+
+type VirtualNodeSpecListenerTimeoutArgs struct {
+	// Timeouts for gRPC listeners.
+	Grpc VirtualNodeSpecListenerTimeoutGrpcPtrInput `pulumi:"grpc"`
+	// Timeouts for HTTP listeners.
+	Http VirtualNodeSpecListenerTimeoutHttpPtrInput `pulumi:"http"`
+	// Timeouts for HTTP2 listeners.
+	Http2 VirtualNodeSpecListenerTimeoutHttp2PtrInput `pulumi:"http2"`
+	// Timeouts for TCP listeners.
+	Tcp VirtualNodeSpecListenerTimeoutTcpPtrInput `pulumi:"tcp"`
+}
+
+func (VirtualNodeSpecListenerTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeout)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutArgs) ToVirtualNodeSpecListenerTimeoutOutput() VirtualNodeSpecListenerTimeoutOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutArgs) ToVirtualNodeSpecListenerTimeoutOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutArgs) ToVirtualNodeSpecListenerTimeoutPtrOutput() VirtualNodeSpecListenerTimeoutPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutArgs) ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutOutput).ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutPtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutArgs, VirtualNodeSpecListenerTimeoutPtr and VirtualNodeSpecListenerTimeoutPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutPtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutPtrOutput() VirtualNodeSpecListenerTimeoutPtrOutput
+	ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutPtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutPtrType VirtualNodeSpecListenerTimeoutArgs
+
+func VirtualNodeSpecListenerTimeoutPtr(v *VirtualNodeSpecListenerTimeoutArgs) VirtualNodeSpecListenerTimeoutPtrInput {
+	return (*virtualNodeSpecListenerTimeoutPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeout)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutPtrType) ToVirtualNodeSpecListenerTimeoutPtrOutput() VirtualNodeSpecListenerTimeoutPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutPtrType) ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeout)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutOutput) ToVirtualNodeSpecListenerTimeoutOutput() VirtualNodeSpecListenerTimeoutOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutOutput) ToVirtualNodeSpecListenerTimeoutOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutOutput) ToVirtualNodeSpecListenerTimeoutPtrOutput() VirtualNodeSpecListenerTimeoutPtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutOutput) ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeout {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutPtrOutput)
+}
+
+// Timeouts for gRPC listeners.
+func (o VirtualNodeSpecListenerTimeoutOutput) Grpc() VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutGrpc { return v.Grpc }).(VirtualNodeSpecListenerTimeoutGrpcPtrOutput)
+}
+
+// Timeouts for HTTP listeners.
+func (o VirtualNodeSpecListenerTimeoutOutput) Http() VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutHttp { return v.Http }).(VirtualNodeSpecListenerTimeoutHttpPtrOutput)
+}
+
+// Timeouts for HTTP2 listeners.
+func (o VirtualNodeSpecListenerTimeoutOutput) Http2() VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutHttp2 { return v.Http2 }).(VirtualNodeSpecListenerTimeoutHttp2PtrOutput)
+}
+
+// Timeouts for TCP listeners.
+func (o VirtualNodeSpecListenerTimeoutOutput) Tcp() VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutTcp { return v.Tcp }).(VirtualNodeSpecListenerTimeoutTcpPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeout)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutPtrOutput) ToVirtualNodeSpecListenerTimeoutPtrOutput() VirtualNodeSpecListenerTimeoutPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutPtrOutput) ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutPtrOutput) Elem() VirtualNodeSpecListenerTimeoutOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) VirtualNodeSpecListenerTimeout { return *v }).(VirtualNodeSpecListenerTimeoutOutput)
+}
+
+// Timeouts for gRPC listeners.
+func (o VirtualNodeSpecListenerTimeoutPtrOutput) Grpc() VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutGrpc {
+		if v == nil {
+			return nil
+		}
+		return v.Grpc
+	}).(VirtualNodeSpecListenerTimeoutGrpcPtrOutput)
+}
+
+// Timeouts for HTTP listeners.
+func (o VirtualNodeSpecListenerTimeoutPtrOutput) Http() VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutHttp {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(VirtualNodeSpecListenerTimeoutHttpPtrOutput)
+}
+
+// Timeouts for HTTP2 listeners.
+func (o VirtualNodeSpecListenerTimeoutPtrOutput) Http2() VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutHttp2 {
+		if v == nil {
+			return nil
+		}
+		return v.Http2
+	}).(VirtualNodeSpecListenerTimeoutHttp2PtrOutput)
+}
+
+// Timeouts for TCP listeners.
+func (o VirtualNodeSpecListenerTimeoutPtrOutput) Tcp() VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutTcp {
+		if v == nil {
+			return nil
+		}
+		return v.Tcp
+	}).(VirtualNodeSpecListenerTimeoutTcpPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpc struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle *VirtualNodeSpecListenerTimeoutGrpcIdle `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest *VirtualNodeSpecListenerTimeoutGrpcPerRequest `pulumi:"perRequest"`
+}
+
+// VirtualNodeSpecListenerTimeoutGrpcInput is an input type that accepts VirtualNodeSpecListenerTimeoutGrpcArgs and VirtualNodeSpecListenerTimeoutGrpcOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutGrpcInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutGrpcArgs{...}
+type VirtualNodeSpecListenerTimeoutGrpcInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutGrpcOutput() VirtualNodeSpecListenerTimeoutGrpcOutput
+	ToVirtualNodeSpecListenerTimeoutGrpcOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutGrpcOutput
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcArgs struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle VirtualNodeSpecListenerTimeoutGrpcIdlePtrInput `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrInput `pulumi:"perRequest"`
+}
+
+func (VirtualNodeSpecListenerTimeoutGrpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutGrpc)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcArgs) ToVirtualNodeSpecListenerTimeoutGrpcOutput() VirtualNodeSpecListenerTimeoutGrpcOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcArgs) ToVirtualNodeSpecListenerTimeoutGrpcOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcArgs) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcArgs) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcOutput).ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutGrpcPtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutGrpcArgs, VirtualNodeSpecListenerTimeoutGrpcPtr and VirtualNodeSpecListenerTimeoutGrpcPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutGrpcPtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutGrpcArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutGrpcPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutGrpcPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPtrOutput
+	ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutGrpcPtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutGrpcPtrType VirtualNodeSpecListenerTimeoutGrpcArgs
+
+func VirtualNodeSpecListenerTimeoutGrpcPtr(v *VirtualNodeSpecListenerTimeoutGrpcArgs) VirtualNodeSpecListenerTimeoutGrpcPtrInput {
+	return (*virtualNodeSpecListenerTimeoutGrpcPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutGrpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutGrpc)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutGrpcPtrType) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutGrpcPtrType) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutGrpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutGrpc)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcOutput) ToVirtualNodeSpecListenerTimeoutGrpcOutput() VirtualNodeSpecListenerTimeoutGrpcOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcOutput) ToVirtualNodeSpecListenerTimeoutGrpcOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcOutput) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcOutput) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpc {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutGrpcPtrOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o VirtualNodeSpecListenerTimeoutGrpcOutput) Idle() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpcIdle { return v.Idle }).(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o VirtualNodeSpecListenerTimeoutGrpcOutput) PerRequest() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpcPerRequest {
+		return v.PerRequest
+	}).(VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutGrpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutGrpc)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) Elem() VirtualNodeSpecListenerTimeoutGrpcOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpc) VirtualNodeSpecListenerTimeoutGrpc { return *v }).(VirtualNodeSpecListenerTimeoutGrpcOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) Idle() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpcIdle {
+		if v == nil {
+			return nil
+		}
+		return v.Idle
+	}).(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) PerRequest() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpcPerRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PerRequest
+	}).(VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcIdle struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerTimeoutGrpcIdleInput is an input type that accepts VirtualNodeSpecListenerTimeoutGrpcIdleArgs and VirtualNodeSpecListenerTimeoutGrpcIdleOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutGrpcIdleInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutGrpcIdleArgs{...}
+type VirtualNodeSpecListenerTimeoutGrpcIdleInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutGrpcIdleOutput() VirtualNodeSpecListenerTimeoutGrpcIdleOutput
+	ToVirtualNodeSpecListenerTimeoutGrpcIdleOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutGrpcIdleOutput
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcIdleArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerTimeoutGrpcIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutGrpcIdle)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcIdleArgs) ToVirtualNodeSpecListenerTimeoutGrpcIdleOutput() VirtualNodeSpecListenerTimeoutGrpcIdleOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcIdleOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcIdleArgs) ToVirtualNodeSpecListenerTimeoutGrpcIdleOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcIdleOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcIdleArgs) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcIdleArgs) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcIdleOutput).ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutGrpcIdlePtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutGrpcIdleArgs, VirtualNodeSpecListenerTimeoutGrpcIdlePtr and VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutGrpcIdlePtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutGrpcIdleArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutGrpcIdlePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput
+	ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutGrpcIdlePtrType VirtualNodeSpecListenerTimeoutGrpcIdleArgs
+
+func VirtualNodeSpecListenerTimeoutGrpcIdlePtr(v *VirtualNodeSpecListenerTimeoutGrpcIdleArgs) VirtualNodeSpecListenerTimeoutGrpcIdlePtrInput {
+	return (*virtualNodeSpecListenerTimeoutGrpcIdlePtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutGrpcIdlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutGrpcIdle)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutGrpcIdlePtrType) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutGrpcIdlePtrType) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcIdleOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutGrpcIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutGrpcIdle)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToVirtualNodeSpecListenerTimeoutGrpcIdleOutput() VirtualNodeSpecListenerTimeoutGrpcIdleOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToVirtualNodeSpecListenerTimeoutGrpcIdleOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcIdleOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcIdle) *VirtualNodeSpecListenerTimeoutGrpcIdle {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutGrpcIdle)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Elem() VirtualNodeSpecListenerTimeoutGrpcIdleOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcIdle) VirtualNodeSpecListenerTimeoutGrpcIdle { return *v }).(VirtualNodeSpecListenerTimeoutGrpcIdleOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcIdle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcIdle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcPerRequest struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerTimeoutGrpcPerRequestInput is an input type that accepts VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs and VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutGrpcPerRequestInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs{...}
+type VirtualNodeSpecListenerTimeoutGrpcPerRequestInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput() VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput
+	ToVirtualNodeSpecListenerTimeoutGrpcPerRequestOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutGrpcPerRequest)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput() VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcPerRequestOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput).ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs, VirtualNodeSpecListenerTimeoutGrpcPerRequestPtr and VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput
+	ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutGrpcPerRequestPtrType VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs
+
+func VirtualNodeSpecListenerTimeoutGrpcPerRequestPtr(v *VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrInput {
+	return (*virtualNodeSpecListenerTimeoutGrpcPerRequestPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutGrpcPerRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutGrpcPerRequest)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutGrpcPerRequestPtrType) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutGrpcPerRequestPtrType) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutGrpcPerRequest)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestOutput() VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcPerRequest) *VirtualNodeSpecListenerTimeoutGrpcPerRequest {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcPerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutGrpcPerRequest)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Elem() VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcPerRequest) VirtualNodeSpecListenerTimeoutGrpcPerRequest {
+		return *v
+	}).(VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcPerRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcPerRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2 struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle *VirtualNodeSpecListenerTimeoutHttp2Idle `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest *VirtualNodeSpecListenerTimeoutHttp2PerRequest `pulumi:"perRequest"`
+}
+
+// VirtualNodeSpecListenerTimeoutHttp2Input is an input type that accepts VirtualNodeSpecListenerTimeoutHttp2Args and VirtualNodeSpecListenerTimeoutHttp2Output values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttp2Input` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttp2Args{...}
+type VirtualNodeSpecListenerTimeoutHttp2Input interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttp2Output() VirtualNodeSpecListenerTimeoutHttp2Output
+	ToVirtualNodeSpecListenerTimeoutHttp2OutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttp2Output
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2Args struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle VirtualNodeSpecListenerTimeoutHttp2IdlePtrInput `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrInput `pulumi:"perRequest"`
+}
+
+func (VirtualNodeSpecListenerTimeoutHttp2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttp2)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2Args) ToVirtualNodeSpecListenerTimeoutHttp2Output() VirtualNodeSpecListenerTimeoutHttp2Output {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2OutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2Args) ToVirtualNodeSpecListenerTimeoutHttp2OutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2Output)
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2Args) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutput() VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2Args) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2Output).ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutHttp2PtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttp2Args, VirtualNodeSpecListenerTimeoutHttp2Ptr and VirtualNodeSpecListenerTimeoutHttp2PtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttp2PtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttp2Args{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutHttp2PtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttp2PtrOutput() VirtualNodeSpecListenerTimeoutHttp2PtrOutput
+	ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttp2PtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutHttp2PtrType VirtualNodeSpecListenerTimeoutHttp2Args
+
+func VirtualNodeSpecListenerTimeoutHttp2Ptr(v *VirtualNodeSpecListenerTimeoutHttp2Args) VirtualNodeSpecListenerTimeoutHttp2PtrInput {
+	return (*virtualNodeSpecListenerTimeoutHttp2PtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutHttp2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttp2)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttp2PtrType) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutput() VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttp2PtrType) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2PtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2Output struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttp2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttp2)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2Output) ToVirtualNodeSpecListenerTimeoutHttp2Output() VirtualNodeSpecListenerTimeoutHttp2Output {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2Output) ToVirtualNodeSpecListenerTimeoutHttp2OutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2Output {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2Output) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutput() VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2Output) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2 {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutHttp2PtrOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o VirtualNodeSpecListenerTimeoutHttp2Output) Idle() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2Idle { return v.Idle }).(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput)
+}
+
+// The per request timeout.
+func (o VirtualNodeSpecListenerTimeoutHttp2Output) PerRequest() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2PerRequest {
+		return v.PerRequest
+	}).(VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2PtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttp2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttp2)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutput() VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttp2Output {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2) VirtualNodeSpecListenerTimeoutHttp2 { return *v }).(VirtualNodeSpecListenerTimeoutHttp2Output)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) Idle() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2Idle {
+		if v == nil {
+			return nil
+		}
+		return v.Idle
+	}).(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput)
+}
+
+// The per request timeout.
+func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) PerRequest() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2PerRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PerRequest
+	}).(VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2Idle struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerTimeoutHttp2IdleInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttp2IdleArgs and VirtualNodeSpecListenerTimeoutHttp2IdleOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttp2IdleInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttp2IdleArgs{...}
+type VirtualNodeSpecListenerTimeoutHttp2IdleInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttp2IdleOutput() VirtualNodeSpecListenerTimeoutHttp2IdleOutput
+	ToVirtualNodeSpecListenerTimeoutHttp2IdleOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttp2IdleOutput
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2IdleArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerTimeoutHttp2IdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttp2Idle)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2IdleArgs) ToVirtualNodeSpecListenerTimeoutHttp2IdleOutput() VirtualNodeSpecListenerTimeoutHttp2IdleOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2IdleOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2IdleArgs) ToVirtualNodeSpecListenerTimeoutHttp2IdleOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2IdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2IdleOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2IdleArgs) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2IdleArgs) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2IdleOutput).ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutHttp2IdlePtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttp2IdleArgs, VirtualNodeSpecListenerTimeoutHttp2IdlePtr and VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttp2IdlePtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttp2IdleArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutHttp2IdlePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput
+	ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutHttp2IdlePtrType VirtualNodeSpecListenerTimeoutHttp2IdleArgs
+
+func VirtualNodeSpecListenerTimeoutHttp2IdlePtr(v *VirtualNodeSpecListenerTimeoutHttp2IdleArgs) VirtualNodeSpecListenerTimeoutHttp2IdlePtrInput {
+	return (*virtualNodeSpecListenerTimeoutHttp2IdlePtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutHttp2IdlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttp2Idle)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttp2IdlePtrType) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttp2IdlePtrType) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2IdleOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttp2IdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttp2Idle)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToVirtualNodeSpecListenerTimeoutHttp2IdleOutput() VirtualNodeSpecListenerTimeoutHttp2IdleOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToVirtualNodeSpecListenerTimeoutHttp2IdleOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2IdleOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2Idle) *VirtualNodeSpecListenerTimeoutHttp2Idle {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2Idle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2Idle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttp2Idle)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttp2IdleOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2Idle) VirtualNodeSpecListenerTimeoutHttp2Idle { return *v }).(VirtualNodeSpecListenerTimeoutHttp2IdleOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2Idle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2Idle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2PerRequest struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerTimeoutHttp2PerRequestInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs and VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttp2PerRequestInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs{...}
+type VirtualNodeSpecListenerTimeoutHttp2PerRequestInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput() VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput
+	ToVirtualNodeSpecListenerTimeoutHttp2PerRequestOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttp2PerRequest)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput() VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2PerRequestOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput).ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs, VirtualNodeSpecListenerTimeoutHttp2PerRequestPtr and VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput
+	ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutHttp2PerRequestPtrType VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs
+
+func VirtualNodeSpecListenerTimeoutHttp2PerRequestPtr(v *VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrInput {
+	return (*virtualNodeSpecListenerTimeoutHttp2PerRequestPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutHttp2PerRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttp2PerRequest)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttp2PerRequestPtrType) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttp2PerRequestPtrType) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttp2PerRequest)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestOutput() VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2PerRequest) *VirtualNodeSpecListenerTimeoutHttp2PerRequest {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2PerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2PerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttp2PerRequest)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2PerRequest) VirtualNodeSpecListenerTimeoutHttp2PerRequest {
+		return *v
+	}).(VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2PerRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2PerRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttp struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle *VirtualNodeSpecListenerTimeoutHttpIdle `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest *VirtualNodeSpecListenerTimeoutHttpPerRequest `pulumi:"perRequest"`
+}
+
+// VirtualNodeSpecListenerTimeoutHttpInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttpArgs and VirtualNodeSpecListenerTimeoutHttpOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttpInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttpArgs{...}
+type VirtualNodeSpecListenerTimeoutHttpInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttpOutput() VirtualNodeSpecListenerTimeoutHttpOutput
+	ToVirtualNodeSpecListenerTimeoutHttpOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttpOutput
+}
+
+type VirtualNodeSpecListenerTimeoutHttpArgs struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle VirtualNodeSpecListenerTimeoutHttpIdlePtrInput `pulumi:"idle"`
+	// The per request timeout.
+	PerRequest VirtualNodeSpecListenerTimeoutHttpPerRequestPtrInput `pulumi:"perRequest"`
+}
+
+func (VirtualNodeSpecListenerTimeoutHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttp)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpArgs) ToVirtualNodeSpecListenerTimeoutHttpOutput() VirtualNodeSpecListenerTimeoutHttpOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpArgs) ToVirtualNodeSpecListenerTimeoutHttpOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpArgs) ToVirtualNodeSpecListenerTimeoutHttpPtrOutput() VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpArgs) ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpOutput).ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutHttpPtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttpArgs, VirtualNodeSpecListenerTimeoutHttpPtr and VirtualNodeSpecListenerTimeoutHttpPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttpPtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttpArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutHttpPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttpPtrOutput() VirtualNodeSpecListenerTimeoutHttpPtrOutput
+	ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttpPtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutHttpPtrType VirtualNodeSpecListenerTimeoutHttpArgs
+
+func VirtualNodeSpecListenerTimeoutHttpPtr(v *VirtualNodeSpecListenerTimeoutHttpArgs) VirtualNodeSpecListenerTimeoutHttpPtrInput {
+	return (*virtualNodeSpecListenerTimeoutHttpPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttp)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttpPtrType) ToVirtualNodeSpecListenerTimeoutHttpPtrOutput() VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttpPtrType) ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttpOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttp)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpOutput) ToVirtualNodeSpecListenerTimeoutHttpOutput() VirtualNodeSpecListenerTimeoutHttpOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpOutput) ToVirtualNodeSpecListenerTimeoutHttpOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpOutput) ToVirtualNodeSpecListenerTimeoutHttpPtrOutput() VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpOutput) ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttp {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutHttpPtrOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o VirtualNodeSpecListenerTimeoutHttpOutput) Idle() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttpIdle { return v.Idle }).(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o VirtualNodeSpecListenerTimeoutHttpOutput) PerRequest() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttpPerRequest {
+		return v.PerRequest
+	}).(VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttp)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) ToVirtualNodeSpecListenerTimeoutHttpPtrOutput() VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttpOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp) VirtualNodeSpecListenerTimeoutHttp { return *v }).(VirtualNodeSpecListenerTimeoutHttpOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) Idle() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttpIdle {
+		if v == nil {
+			return nil
+		}
+		return v.Idle
+	}).(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput)
+}
+
+// The per request timeout.
+func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) PerRequest() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttpPerRequest {
+		if v == nil {
+			return nil
+		}
+		return v.PerRequest
+	}).(VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttpIdle struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerTimeoutHttpIdleInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttpIdleArgs and VirtualNodeSpecListenerTimeoutHttpIdleOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttpIdleInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttpIdleArgs{...}
+type VirtualNodeSpecListenerTimeoutHttpIdleInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttpIdleOutput() VirtualNodeSpecListenerTimeoutHttpIdleOutput
+	ToVirtualNodeSpecListenerTimeoutHttpIdleOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttpIdleOutput
+}
+
+type VirtualNodeSpecListenerTimeoutHttpIdleArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerTimeoutHttpIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttpIdle)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpIdleArgs) ToVirtualNodeSpecListenerTimeoutHttpIdleOutput() VirtualNodeSpecListenerTimeoutHttpIdleOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpIdleOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpIdleArgs) ToVirtualNodeSpecListenerTimeoutHttpIdleOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpIdleOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpIdleArgs) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutput() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpIdleArgs) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpIdleOutput).ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutHttpIdlePtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttpIdleArgs, VirtualNodeSpecListenerTimeoutHttpIdlePtr and VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttpIdlePtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttpIdleArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutHttpIdlePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutput() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput
+	ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutHttpIdlePtrType VirtualNodeSpecListenerTimeoutHttpIdleArgs
+
+func VirtualNodeSpecListenerTimeoutHttpIdlePtr(v *VirtualNodeSpecListenerTimeoutHttpIdleArgs) VirtualNodeSpecListenerTimeoutHttpIdlePtrInput {
+	return (*virtualNodeSpecListenerTimeoutHttpIdlePtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutHttpIdlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttpIdle)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttpIdlePtrType) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutput() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttpIdlePtrType) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttpIdleOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttpIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttpIdle)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) ToVirtualNodeSpecListenerTimeoutHttpIdleOutput() VirtualNodeSpecListenerTimeoutHttpIdleOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) ToVirtualNodeSpecListenerTimeoutHttpIdleOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpIdleOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutput() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpIdle) *VirtualNodeSpecListenerTimeoutHttpIdle {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttpIdle)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutput() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttpIdleOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpIdle) VirtualNodeSpecListenerTimeoutHttpIdle { return *v }).(VirtualNodeSpecListenerTimeoutHttpIdleOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpIdle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpIdle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttpPerRequest struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerTimeoutHttpPerRequestInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttpPerRequestArgs and VirtualNodeSpecListenerTimeoutHttpPerRequestOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttpPerRequestInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttpPerRequestArgs{...}
+type VirtualNodeSpecListenerTimeoutHttpPerRequestInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttpPerRequestOutput() VirtualNodeSpecListenerTimeoutHttpPerRequestOutput
+	ToVirtualNodeSpecListenerTimeoutHttpPerRequestOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestOutput
+}
+
+type VirtualNodeSpecListenerTimeoutHttpPerRequestArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerTimeoutHttpPerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttpPerRequest)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpPerRequestArgs) ToVirtualNodeSpecListenerTimeoutHttpPerRequestOutput() VirtualNodeSpecListenerTimeoutHttpPerRequestOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpPerRequestOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpPerRequestArgs) ToVirtualNodeSpecListenerTimeoutHttpPerRequestOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpPerRequestOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpPerRequestArgs) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutHttpPerRequestArgs) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpPerRequestOutput).ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutHttpPerRequestPtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttpPerRequestArgs, VirtualNodeSpecListenerTimeoutHttpPerRequestPtr and VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutHttpPerRequestPtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutHttpPerRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutHttpPerRequestPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput
+	ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutHttpPerRequestPtrType VirtualNodeSpecListenerTimeoutHttpPerRequestArgs
+
+func VirtualNodeSpecListenerTimeoutHttpPerRequestPtr(v *VirtualNodeSpecListenerTimeoutHttpPerRequestArgs) VirtualNodeSpecListenerTimeoutHttpPerRequestPtrInput {
+	return (*virtualNodeSpecListenerTimeoutHttpPerRequestPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutHttpPerRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttpPerRequest)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttpPerRequestPtrType) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutHttpPerRequestPtrType) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttpPerRequestOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutHttpPerRequest)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttpPerRequestOutput() VirtualNodeSpecListenerTimeoutHttpPerRequestOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttpPerRequestOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpPerRequest) *VirtualNodeSpecListenerTimeoutHttpPerRequest {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpPerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutHttpPerRequest)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttpPerRequestOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpPerRequest) VirtualNodeSpecListenerTimeoutHttpPerRequest {
+		return *v
+	}).(VirtualNodeSpecListenerTimeoutHttpPerRequestOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpPerRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpPerRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutTcp struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle *VirtualNodeSpecListenerTimeoutTcpIdle `pulumi:"idle"`
+}
+
+// VirtualNodeSpecListenerTimeoutTcpInput is an input type that accepts VirtualNodeSpecListenerTimeoutTcpArgs and VirtualNodeSpecListenerTimeoutTcpOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutTcpInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutTcpArgs{...}
+type VirtualNodeSpecListenerTimeoutTcpInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutTcpOutput() VirtualNodeSpecListenerTimeoutTcpOutput
+	ToVirtualNodeSpecListenerTimeoutTcpOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutTcpOutput
+}
+
+type VirtualNodeSpecListenerTimeoutTcpArgs struct {
+	// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+	Idle VirtualNodeSpecListenerTimeoutTcpIdlePtrInput `pulumi:"idle"`
+}
+
+func (VirtualNodeSpecListenerTimeoutTcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutTcp)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutTcpArgs) ToVirtualNodeSpecListenerTimeoutTcpOutput() VirtualNodeSpecListenerTimeoutTcpOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutTcpOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutTcpArgs) ToVirtualNodeSpecListenerTimeoutTcpOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutTcpOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutTcpArgs) ToVirtualNodeSpecListenerTimeoutTcpPtrOutput() VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutTcpArgs) ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutTcpOutput).ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutTcpPtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutTcpArgs, VirtualNodeSpecListenerTimeoutTcpPtr and VirtualNodeSpecListenerTimeoutTcpPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutTcpPtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutTcpArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutTcpPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutTcpPtrOutput() VirtualNodeSpecListenerTimeoutTcpPtrOutput
+	ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutTcpPtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutTcpPtrType VirtualNodeSpecListenerTimeoutTcpArgs
+
+func VirtualNodeSpecListenerTimeoutTcpPtr(v *VirtualNodeSpecListenerTimeoutTcpArgs) VirtualNodeSpecListenerTimeoutTcpPtrInput {
+	return (*virtualNodeSpecListenerTimeoutTcpPtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutTcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutTcp)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutTcpPtrType) ToVirtualNodeSpecListenerTimeoutTcpPtrOutput() VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutTcpPtrType) ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutTcpPtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutTcpOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutTcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutTcp)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpOutput) ToVirtualNodeSpecListenerTimeoutTcpOutput() VirtualNodeSpecListenerTimeoutTcpOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpOutput) ToVirtualNodeSpecListenerTimeoutTcpOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpOutput) ToVirtualNodeSpecListenerTimeoutTcpPtrOutput() VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpOutput) ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcp) *VirtualNodeSpecListenerTimeoutTcp {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutTcpPtrOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o VirtualNodeSpecListenerTimeoutTcpOutput) Idle() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcp) *VirtualNodeSpecListenerTimeoutTcpIdle { return v.Idle }).(VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutTcpPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutTcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutTcp)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) ToVirtualNodeSpecListenerTimeoutTcpPtrOutput() VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) Elem() VirtualNodeSpecListenerTimeoutTcpOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcp) VirtualNodeSpecListenerTimeoutTcp { return *v }).(VirtualNodeSpecListenerTimeoutTcpOutput)
+}
+
+// The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) Idle() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcp) *VirtualNodeSpecListenerTimeoutTcpIdle {
+		if v == nil {
+			return nil
+		}
+		return v.Idle
+	}).(VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutTcpIdle struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit string `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value int `pulumi:"value"`
+}
+
+// VirtualNodeSpecListenerTimeoutTcpIdleInput is an input type that accepts VirtualNodeSpecListenerTimeoutTcpIdleArgs and VirtualNodeSpecListenerTimeoutTcpIdleOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutTcpIdleInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutTcpIdleArgs{...}
+type VirtualNodeSpecListenerTimeoutTcpIdleInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutTcpIdleOutput() VirtualNodeSpecListenerTimeoutTcpIdleOutput
+	ToVirtualNodeSpecListenerTimeoutTcpIdleOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutTcpIdleOutput
+}
+
+type VirtualNodeSpecListenerTimeoutTcpIdleArgs struct {
+	// The unit of time. Valid values: `ms`, `s`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The number of time units. Minimum value of `0`.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecListenerTimeoutTcpIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutTcpIdle)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecListenerTimeoutTcpIdleArgs) ToVirtualNodeSpecListenerTimeoutTcpIdleOutput() VirtualNodeSpecListenerTimeoutTcpIdleOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutTcpIdleOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutTcpIdleArgs) ToVirtualNodeSpecListenerTimeoutTcpIdleOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutTcpIdleOutput)
+}
+
+func (i VirtualNodeSpecListenerTimeoutTcpIdleArgs) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutput() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecListenerTimeoutTcpIdleArgs) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutTcpIdleOutput).ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecListenerTimeoutTcpIdlePtrInput is an input type that accepts VirtualNodeSpecListenerTimeoutTcpIdleArgs, VirtualNodeSpecListenerTimeoutTcpIdlePtr and VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerTimeoutTcpIdlePtrInput` via:
+//
+//          VirtualNodeSpecListenerTimeoutTcpIdleArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecListenerTimeoutTcpIdlePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutput() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput
+	ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(context.Context) VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput
+}
+
+type virtualNodeSpecListenerTimeoutTcpIdlePtrType VirtualNodeSpecListenerTimeoutTcpIdleArgs
+
+func VirtualNodeSpecListenerTimeoutTcpIdlePtr(v *VirtualNodeSpecListenerTimeoutTcpIdleArgs) VirtualNodeSpecListenerTimeoutTcpIdlePtrInput {
+	return (*virtualNodeSpecListenerTimeoutTcpIdlePtrType)(v)
+}
+
+func (*virtualNodeSpecListenerTimeoutTcpIdlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutTcpIdle)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecListenerTimeoutTcpIdlePtrType) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutput() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return i.ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecListenerTimeoutTcpIdlePtrType) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutTcpIdleOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutTcpIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecListenerTimeoutTcpIdle)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) ToVirtualNodeSpecListenerTimeoutTcpIdleOutput() VirtualNodeSpecListenerTimeoutTcpIdleOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) ToVirtualNodeSpecListenerTimeoutTcpIdleOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpIdleOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutput() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return o.ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcpIdle) *VirtualNodeSpecListenerTimeoutTcpIdle {
+		return &v
+	}).(VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcpIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcpIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecListenerTimeoutTcpIdle)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutput() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Elem() VirtualNodeSpecListenerTimeoutTcpIdleOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcpIdle) VirtualNodeSpecListenerTimeoutTcpIdle { return *v }).(VirtualNodeSpecListenerTimeoutTcpIdleOutput)
+}
+
+// The unit of time. Valid values: `ms`, `s`.
+func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcpIdle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of time units. Minimum value of `0`.
+func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcpIdle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type VirtualNodeSpecListenerTls struct {
 	// The listener's TLS certificate.
 	Certificate VirtualNodeSpecListenerTlsCertificate `pulumi:"certificate"`
@@ -8090,7 +11670,7 @@ func (o VirtualNodeSpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type VirtualNodeSpecListenerTlsCertificate struct {
-	// An AWS Certicate Manager (ACM) certificate.
+	// An AWS Certificate Manager (ACM) certificate.
 	Acm *VirtualNodeSpecListenerTlsCertificateAcm `pulumi:"acm"`
 	// A local file certificate.
 	File *VirtualNodeSpecListenerTlsCertificateFile `pulumi:"file"`
@@ -8108,7 +11688,7 @@ type VirtualNodeSpecListenerTlsCertificateInput interface {
 }
 
 type VirtualNodeSpecListenerTlsCertificateArgs struct {
-	// An AWS Certicate Manager (ACM) certificate.
+	// An AWS Certificate Manager (ACM) certificate.
 	Acm VirtualNodeSpecListenerTlsCertificateAcmPtrInput `pulumi:"acm"`
 	// A local file certificate.
 	File VirtualNodeSpecListenerTlsCertificateFilePtrInput `pulumi:"file"`
@@ -8191,7 +11771,7 @@ func (o VirtualNodeSpecListenerTlsCertificateOutput) ToVirtualNodeSpecListenerTl
 	}).(VirtualNodeSpecListenerTlsCertificatePtrOutput)
 }
 
-// An AWS Certicate Manager (ACM) certificate.
+// An AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecListenerTlsCertificateOutput) Acm() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateAcm { return v.Acm }).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
 }
@@ -8221,7 +11801,7 @@ func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Elem() VirtualNodeSpecLi
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) VirtualNodeSpecListenerTlsCertificate { return *v }).(VirtualNodeSpecListenerTlsCertificateOutput)
 }
 
-// An AWS Certicate Manager (ACM) certificate.
+// An AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Acm() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateAcm {
 		if v == nil {
@@ -10359,6 +13939,12 @@ func init() {
 	pulumi.RegisterOutputType(RouteSpecGrpcRouteRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput{})
 	pulumi.RegisterOutputType(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteTimeoutOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteTimeoutIdleOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteTimeoutIdlePtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteTimeoutPerRequestOutput{})
+	pulumi.RegisterOutputType(RouteSpecGrpcRouteTimeoutPerRequestPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttp2RouteOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttp2RoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttp2RouteActionOutput{})
@@ -10377,6 +13963,12 @@ func init() {
 	pulumi.RegisterOutputType(RouteSpecHttp2RouteRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteTimeoutOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteTimeoutIdleOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteTimeoutIdlePtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteTimeoutPerRequestOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttp2RouteTimeoutPerRequestPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteActionOutput{})
@@ -10395,12 +13987,22 @@ func init() {
 	pulumi.RegisterOutputType(RouteSpecHttpRouteRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteTimeoutOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteTimeoutIdleOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteTimeoutIdlePtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteTimeoutPerRequestOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteTimeoutPerRequestPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionWeightedTargetOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutOutput{})
+	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutIdleOutput{})
+	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutIdlePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendOutput{})
@@ -10438,6 +14040,30 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutGrpcOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutGrpcPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutGrpcIdleOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttp2Output{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttp2PtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttp2IdleOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttpOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttpPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttpIdleOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttpPerRequestOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutTcpOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutTcpPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutTcpIdleOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTlsCertificateOutput{})

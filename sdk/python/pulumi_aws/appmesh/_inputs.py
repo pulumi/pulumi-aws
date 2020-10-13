@@ -21,6 +21,9 @@ __all__ = [
     'RouteSpecGrpcRouteMatchMetadataMatchRangeArgs',
     'RouteSpecGrpcRouteRetryPolicyArgs',
     'RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs',
+    'RouteSpecGrpcRouteTimeoutArgs',
+    'RouteSpecGrpcRouteTimeoutIdleArgs',
+    'RouteSpecGrpcRouteTimeoutPerRequestArgs',
     'RouteSpecHttp2RouteArgs',
     'RouteSpecHttp2RouteActionArgs',
     'RouteSpecHttp2RouteActionWeightedTargetArgs',
@@ -30,6 +33,9 @@ __all__ = [
     'RouteSpecHttp2RouteMatchHeaderMatchRangeArgs',
     'RouteSpecHttp2RouteRetryPolicyArgs',
     'RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs',
+    'RouteSpecHttp2RouteTimeoutArgs',
+    'RouteSpecHttp2RouteTimeoutIdleArgs',
+    'RouteSpecHttp2RouteTimeoutPerRequestArgs',
     'RouteSpecHttpRouteArgs',
     'RouteSpecHttpRouteActionArgs',
     'RouteSpecHttpRouteActionWeightedTargetArgs',
@@ -39,9 +45,14 @@ __all__ = [
     'RouteSpecHttpRouteMatchHeaderMatchRangeArgs',
     'RouteSpecHttpRouteRetryPolicyArgs',
     'RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs',
+    'RouteSpecHttpRouteTimeoutArgs',
+    'RouteSpecHttpRouteTimeoutIdleArgs',
+    'RouteSpecHttpRouteTimeoutPerRequestArgs',
     'RouteSpecTcpRouteArgs',
     'RouteSpecTcpRouteActionArgs',
     'RouteSpecTcpRouteActionWeightedTargetArgs',
+    'RouteSpecTcpRouteTimeoutArgs',
+    'RouteSpecTcpRouteTimeoutIdleArgs',
     'VirtualNodeSpecArgs',
     'VirtualNodeSpecBackendArgs',
     'VirtualNodeSpecBackendDefaultsArgs',
@@ -61,6 +72,18 @@ __all__ = [
     'VirtualNodeSpecListenerArgs',
     'VirtualNodeSpecListenerHealthCheckArgs',
     'VirtualNodeSpecListenerPortMappingArgs',
+    'VirtualNodeSpecListenerTimeoutArgs',
+    'VirtualNodeSpecListenerTimeoutGrpcArgs',
+    'VirtualNodeSpecListenerTimeoutGrpcIdleArgs',
+    'VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs',
+    'VirtualNodeSpecListenerTimeoutHttp2Args',
+    'VirtualNodeSpecListenerTimeoutHttp2IdleArgs',
+    'VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs',
+    'VirtualNodeSpecListenerTimeoutHttpArgs',
+    'VirtualNodeSpecListenerTimeoutHttpIdleArgs',
+    'VirtualNodeSpecListenerTimeoutHttpPerRequestArgs',
+    'VirtualNodeSpecListenerTimeoutTcpArgs',
+    'VirtualNodeSpecListenerTimeoutTcpIdleArgs',
     'VirtualNodeSpecListenerTlsArgs',
     'VirtualNodeSpecListenerTlsCertificateArgs',
     'VirtualNodeSpecListenerTlsCertificateAcmArgs',
@@ -222,16 +245,20 @@ class RouteSpecGrpcRouteArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['RouteSpecGrpcRouteActionArgs'],
                  match: pulumi.Input['RouteSpecGrpcRouteMatchArgs'],
-                 retry_policy: Optional[pulumi.Input['RouteSpecGrpcRouteRetryPolicyArgs']] = None):
+                 retry_policy: Optional[pulumi.Input['RouteSpecGrpcRouteRetryPolicyArgs']] = None,
+                 timeout: Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutArgs']] = None):
         """
         :param pulumi.Input['RouteSpecGrpcRouteActionArgs'] action: The action to take if a match is determined.
         :param pulumi.Input['RouteSpecGrpcRouteMatchArgs'] match: The criteria for determining an gRPC request match.
         :param pulumi.Input['RouteSpecGrpcRouteRetryPolicyArgs'] retry_policy: The retry policy.
+        :param pulumi.Input['RouteSpecGrpcRouteTimeoutArgs'] timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -268,6 +295,18 @@ class RouteSpecGrpcRouteArgs:
     @retry_policy.setter
     def retry_policy(self, value: Optional[pulumi.Input['RouteSpecGrpcRouteRetryPolicyArgs']]):
         pulumi.set(self, "retry_policy", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutArgs']]:
+        """
+        The types of timeouts.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutArgs']]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
@@ -336,16 +375,21 @@ class RouteSpecGrpcRouteMatchArgs:
     def __init__(__self__, *,
                  metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['RouteSpecGrpcRouteMatchMetadataArgs']]]] = None,
                  method_name: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RouteSpecGrpcRouteMatchMetadataArgs']]] metadatas: The data to match from the gRPC request.
         :param pulumi.Input[str] method_name: The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        :param pulumi.Input[str] prefix: The value sent by the client must begin with the specified characters.
+               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param pulumi.Input[str] service_name: The fully qualified domain name for the service to match from the request.
         """
         if metadatas is not None:
             pulumi.set(__self__, "metadatas", metadatas)
         if method_name is not None:
             pulumi.set(__self__, "method_name", method_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
 
@@ -372,6 +416,19 @@ class RouteSpecGrpcRouteMatchArgs:
     @method_name.setter
     def method_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "method_name", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value sent by the client must begin with the specified characters.
+        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -695,20 +752,137 @@ class RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs:
 
 
 @pulumi.input_type
+class RouteSpecGrpcRouteTimeoutArgs:
+    def __init__(__self__, *,
+                 idle: Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutIdleArgs']] = None,
+                 per_request: Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutPerRequestArgs']] = None):
+        """
+        :param pulumi.Input['RouteSpecGrpcRouteTimeoutIdleArgs'] idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param pulumi.Input['RouteSpecGrpcRouteTimeoutPerRequestArgs'] per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutIdleArgs']]:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @idle.setter
+    def idle(self, value: Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutIdleArgs']]):
+        pulumi.set(self, "idle", value)
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutPerRequestArgs']]:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    @per_request.setter
+    def per_request(self, value: Optional[pulumi.Input['RouteSpecGrpcRouteTimeoutPerRequestArgs']]):
+        pulumi.set(self, "per_request", value)
+
+
+@pulumi.input_type
+class RouteSpecGrpcRouteTimeoutIdleArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RouteSpecGrpcRouteTimeoutPerRequestArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class RouteSpecHttp2RouteArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['RouteSpecHttp2RouteActionArgs'],
                  match: pulumi.Input['RouteSpecHttp2RouteMatchArgs'],
-                 retry_policy: Optional[pulumi.Input['RouteSpecHttp2RouteRetryPolicyArgs']] = None):
+                 retry_policy: Optional[pulumi.Input['RouteSpecHttp2RouteRetryPolicyArgs']] = None,
+                 timeout: Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutArgs']] = None):
         """
         :param pulumi.Input['RouteSpecHttp2RouteActionArgs'] action: The action to take if a match is determined.
         :param pulumi.Input['RouteSpecHttp2RouteMatchArgs'] match: The criteria for determining an gRPC request match.
         :param pulumi.Input['RouteSpecHttp2RouteRetryPolicyArgs'] retry_policy: The retry policy.
+        :param pulumi.Input['RouteSpecHttp2RouteTimeoutArgs'] timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -745,6 +919,18 @@ class RouteSpecHttp2RouteArgs:
     @retry_policy.setter
     def retry_policy(self, value: Optional[pulumi.Input['RouteSpecHttp2RouteRetryPolicyArgs']]):
         pulumi.set(self, "retry_policy", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutArgs']]:
+        """
+        The types of timeouts.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutArgs']]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
@@ -1171,20 +1357,137 @@ class RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs:
 
 
 @pulumi.input_type
+class RouteSpecHttp2RouteTimeoutArgs:
+    def __init__(__self__, *,
+                 idle: Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutIdleArgs']] = None,
+                 per_request: Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutPerRequestArgs']] = None):
+        """
+        :param pulumi.Input['RouteSpecHttp2RouteTimeoutIdleArgs'] idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param pulumi.Input['RouteSpecHttp2RouteTimeoutPerRequestArgs'] per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutIdleArgs']]:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @idle.setter
+    def idle(self, value: Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutIdleArgs']]):
+        pulumi.set(self, "idle", value)
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutPerRequestArgs']]:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    @per_request.setter
+    def per_request(self, value: Optional[pulumi.Input['RouteSpecHttp2RouteTimeoutPerRequestArgs']]):
+        pulumi.set(self, "per_request", value)
+
+
+@pulumi.input_type
+class RouteSpecHttp2RouteTimeoutIdleArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RouteSpecHttp2RouteTimeoutPerRequestArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class RouteSpecHttpRouteArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['RouteSpecHttpRouteActionArgs'],
                  match: pulumi.Input['RouteSpecHttpRouteMatchArgs'],
-                 retry_policy: Optional[pulumi.Input['RouteSpecHttpRouteRetryPolicyArgs']] = None):
+                 retry_policy: Optional[pulumi.Input['RouteSpecHttpRouteRetryPolicyArgs']] = None,
+                 timeout: Optional[pulumi.Input['RouteSpecHttpRouteTimeoutArgs']] = None):
         """
         :param pulumi.Input['RouteSpecHttpRouteActionArgs'] action: The action to take if a match is determined.
         :param pulumi.Input['RouteSpecHttpRouteMatchArgs'] match: The criteria for determining an HTTP request match.
         :param pulumi.Input['RouteSpecHttpRouteRetryPolicyArgs'] retry_policy: The retry policy.
+        :param pulumi.Input['RouteSpecHttpRouteTimeoutArgs'] timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1221,6 +1524,18 @@ class RouteSpecHttpRouteArgs:
     @retry_policy.setter
     def retry_policy(self, value: Optional[pulumi.Input['RouteSpecHttpRouteRetryPolicyArgs']]):
         pulumi.set(self, "retry_policy", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input['RouteSpecHttpRouteTimeoutArgs']]:
+        """
+        The types of timeouts.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input['RouteSpecHttpRouteTimeoutArgs']]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
@@ -1647,13 +1962,130 @@ class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs:
 
 
 @pulumi.input_type
+class RouteSpecHttpRouteTimeoutArgs:
+    def __init__(__self__, *,
+                 idle: Optional[pulumi.Input['RouteSpecHttpRouteTimeoutIdleArgs']] = None,
+                 per_request: Optional[pulumi.Input['RouteSpecHttpRouteTimeoutPerRequestArgs']] = None):
+        """
+        :param pulumi.Input['RouteSpecHttpRouteTimeoutIdleArgs'] idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param pulumi.Input['RouteSpecHttpRouteTimeoutPerRequestArgs'] per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional[pulumi.Input['RouteSpecHttpRouteTimeoutIdleArgs']]:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @idle.setter
+    def idle(self, value: Optional[pulumi.Input['RouteSpecHttpRouteTimeoutIdleArgs']]):
+        pulumi.set(self, "idle", value)
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional[pulumi.Input['RouteSpecHttpRouteTimeoutPerRequestArgs']]:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    @per_request.setter
+    def per_request(self, value: Optional[pulumi.Input['RouteSpecHttpRouteTimeoutPerRequestArgs']]):
+        pulumi.set(self, "per_request", value)
+
+
+@pulumi.input_type
+class RouteSpecHttpRouteTimeoutIdleArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RouteSpecHttpRouteTimeoutPerRequestArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class RouteSpecTcpRouteArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['RouteSpecTcpRouteActionArgs']):
+                 action: pulumi.Input['RouteSpecTcpRouteActionArgs'],
+                 timeout: Optional[pulumi.Input['RouteSpecTcpRouteTimeoutArgs']] = None):
         """
         :param pulumi.Input['RouteSpecTcpRouteActionArgs'] action: The action to take if a match is determined.
+        :param pulumi.Input['RouteSpecTcpRouteTimeoutArgs'] timeout: The types of timeouts.
         """
         pulumi.set(__self__, "action", action)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1666,6 +2098,18 @@ class RouteSpecTcpRouteArgs:
     @action.setter
     def action(self, value: pulumi.Input['RouteSpecTcpRouteActionArgs']):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input['RouteSpecTcpRouteTimeoutArgs']]:
+        """
+        The types of timeouts.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input['RouteSpecTcpRouteTimeoutArgs']]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
@@ -1727,6 +2171,66 @@ class RouteSpecTcpRouteActionWeightedTargetArgs:
     @weight.setter
     def weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "weight", value)
+
+
+@pulumi.input_type
+class RouteSpecTcpRouteTimeoutArgs:
+    def __init__(__self__, *,
+                 idle: Optional[pulumi.Input['RouteSpecTcpRouteTimeoutIdleArgs']] = None):
+        """
+        :param pulumi.Input['RouteSpecTcpRouteTimeoutIdleArgs'] idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional[pulumi.Input['RouteSpecTcpRouteTimeoutIdleArgs']]:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @idle.setter
+    def idle(self, value: Optional[pulumi.Input['RouteSpecTcpRouteTimeoutIdleArgs']]):
+        pulumi.set(self, "idle", value)
+
+
+@pulumi.input_type
+class RouteSpecTcpRouteTimeoutIdleArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1962,7 +2466,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs:
                  acm: Optional[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs']] = None,
                  file: Optional[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs']] = None):
         """
-        :param pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs'] acm: The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        :param pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs'] acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         :param pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs'] file: The TLS validation context trust for a local file.
         """
         if acm is not None:
@@ -1974,7 +2478,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs:
     @pulumi.getter
     def acm(self) -> Optional[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs']]:
         """
-        The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         """
         return pulumi.get(self, "acm")
 
@@ -2178,7 +2682,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs:
                  acm: Optional[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs']] = None,
                  file: Optional[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs']] = None):
         """
-        :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs'] acm: The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs'] acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs'] file: The TLS validation context trust for a local file.
         """
         if acm is not None:
@@ -2190,7 +2694,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs:
     @pulumi.getter
     def acm(self) -> Optional[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs']]:
         """
-        The TLS validation context trust for an AWS Certicate Manager (ACM) certificate.
+        The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         """
         return pulumi.get(self, "acm")
 
@@ -2260,15 +2764,19 @@ class VirtualNodeSpecListenerArgs:
     def __init__(__self__, *,
                  port_mapping: pulumi.Input['VirtualNodeSpecListenerPortMappingArgs'],
                  health_check: Optional[pulumi.Input['VirtualNodeSpecListenerHealthCheckArgs']] = None,
+                 timeout: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutArgs']] = None,
                  tls: Optional[pulumi.Input['VirtualNodeSpecListenerTlsArgs']] = None):
         """
         :param pulumi.Input['VirtualNodeSpecListenerPortMappingArgs'] port_mapping: The port mapping information for the listener.
         :param pulumi.Input['VirtualNodeSpecListenerHealthCheckArgs'] health_check: The health check information for the listener.
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutArgs'] timeout: Timeouts for different protocols.
         :param pulumi.Input['VirtualNodeSpecListenerTlsArgs'] tls: The Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
 
@@ -2295,6 +2803,18 @@ class VirtualNodeSpecListenerArgs:
     @health_check.setter
     def health_check(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerHealthCheckArgs']]):
         pulumi.set(self, "health_check", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutArgs']]:
+        """
+        Timeouts for different protocols.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutArgs']]):
+        pulumi.set(self, "timeout", value)
 
     @property
     @pulumi.getter
@@ -2461,6 +2981,476 @@ class VirtualNodeSpecListenerPortMappingArgs:
 
 
 @pulumi.input_type
+class VirtualNodeSpecListenerTimeoutArgs:
+    def __init__(__self__, *,
+                 grpc: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcArgs']] = None,
+                 http: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpArgs']] = None,
+                 http2: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2Args']] = None,
+                 tcp: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpArgs']] = None):
+        """
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcArgs'] grpc: Timeouts for gRPC listeners.
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutHttpArgs'] http: Timeouts for HTTP listeners.
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2Args'] http2: Timeouts for HTTP2 listeners.
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutTcpArgs'] tcp: Timeouts for TCP listeners.
+        """
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
+
+    @property
+    @pulumi.getter
+    def grpc(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcArgs']]:
+        """
+        Timeouts for gRPC listeners.
+        """
+        return pulumi.get(self, "grpc")
+
+    @grpc.setter
+    def grpc(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcArgs']]):
+        pulumi.set(self, "grpc", value)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpArgs']]:
+        """
+        Timeouts for HTTP listeners.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpArgs']]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def http2(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2Args']]:
+        """
+        Timeouts for HTTP2 listeners.
+        """
+        return pulumi.get(self, "http2")
+
+    @http2.setter
+    def http2(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2Args']]):
+        pulumi.set(self, "http2", value)
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpArgs']]:
+        """
+        Timeouts for TCP listeners.
+        """
+        return pulumi.get(self, "tcp")
+
+    @tcp.setter
+    def tcp(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpArgs']]):
+        pulumi.set(self, "tcp", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutGrpcArgs:
+    def __init__(__self__, *,
+                 idle: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcIdleArgs']] = None,
+                 per_request: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs']] = None):
+        """
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcIdleArgs'] idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs'] per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcIdleArgs']]:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @idle.setter
+    def idle(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcIdleArgs']]):
+        pulumi.set(self, "idle", value)
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs']]:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    @per_request.setter
+    def per_request(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs']]):
+        pulumi.set(self, "per_request", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutGrpcIdleArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutHttp2Args:
+    def __init__(__self__, *,
+                 idle: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2IdleArgs']] = None,
+                 per_request: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs']] = None):
+        """
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2IdleArgs'] idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs'] per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2IdleArgs']]:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @idle.setter
+    def idle(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2IdleArgs']]):
+        pulumi.set(self, "idle", value)
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs']]:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    @per_request.setter
+    def per_request(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs']]):
+        pulumi.set(self, "per_request", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutHttp2IdleArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutHttpArgs:
+    def __init__(__self__, *,
+                 idle: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpIdleArgs']] = None,
+                 per_request: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpPerRequestArgs']] = None):
+        """
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutHttpIdleArgs'] idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutHttpPerRequestArgs'] per_request: The per request timeout.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+        if per_request is not None:
+            pulumi.set(__self__, "per_request", per_request)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpIdleArgs']]:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @idle.setter
+    def idle(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpIdleArgs']]):
+        pulumi.set(self, "idle", value)
+
+    @property
+    @pulumi.getter(name="perRequest")
+    def per_request(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpPerRequestArgs']]:
+        """
+        The per request timeout.
+        """
+        return pulumi.get(self, "per_request")
+
+    @per_request.setter
+    def per_request(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpPerRequestArgs']]):
+        pulumi.set(self, "per_request", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutHttpIdleArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutHttpPerRequestArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutTcpArgs:
+    def __init__(__self__, *,
+                 idle: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpIdleArgs']] = None):
+        """
+        :param pulumi.Input['VirtualNodeSpecListenerTimeoutTcpIdleArgs'] idle: The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        if idle is not None:
+            pulumi.set(__self__, "idle", idle)
+
+    @property
+    @pulumi.getter
+    def idle(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpIdleArgs']]:
+        """
+        The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        """
+        return pulumi.get(self, "idle")
+
+    @idle.setter
+    def idle(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpIdleArgs']]):
+        pulumi.set(self, "idle", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecListenerTimeoutTcpIdleArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: The unit of time. Valid values: `ms`, `s`.
+        :param pulumi.Input[int] value: The number of time units. Minimum value of `0`.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time. Valid values: `ms`, `s`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of time units. Minimum value of `0`.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class VirtualNodeSpecListenerTlsArgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input['VirtualNodeSpecListenerTlsCertificateArgs'],
@@ -2503,7 +3493,7 @@ class VirtualNodeSpecListenerTlsCertificateArgs:
                  acm: Optional[pulumi.Input['VirtualNodeSpecListenerTlsCertificateAcmArgs']] = None,
                  file: Optional[pulumi.Input['VirtualNodeSpecListenerTlsCertificateFileArgs']] = None):
         """
-        :param pulumi.Input['VirtualNodeSpecListenerTlsCertificateAcmArgs'] acm: An AWS Certicate Manager (ACM) certificate.
+        :param pulumi.Input['VirtualNodeSpecListenerTlsCertificateAcmArgs'] acm: An AWS Certificate Manager (ACM) certificate.
         :param pulumi.Input['VirtualNodeSpecListenerTlsCertificateFileArgs'] file: A local file certificate.
         """
         if acm is not None:
@@ -2515,7 +3505,7 @@ class VirtualNodeSpecListenerTlsCertificateArgs:
     @pulumi.getter
     def acm(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerTlsCertificateAcmArgs']]:
         """
-        An AWS Certicate Manager (ACM) certificate.
+        An AWS Certificate Manager (ACM) certificate.
         """
         return pulumi.get(self, "acm")
 

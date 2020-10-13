@@ -50,7 +50,7 @@ type LookupTopicArgs struct {
 
 // A collection of values returned by getTopic.
 type LookupTopicResult struct {
-	// Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
+	// Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`

@@ -131,7 +131,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly slowStart!: pulumi.Output<number | undefined>;
     /**
-     * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+     * A Stickiness block. Stickiness blocks are documented below.
      */
     public readonly stickiness!: pulumi.Output<outputs.applicationloadbalancing.TargetGroupStickiness>;
     /**
@@ -266,7 +266,7 @@ export interface TargetGroupState {
      */
     readonly slowStart?: pulumi.Input<number>;
     /**
-     * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+     * A Stickiness block. Stickiness blocks are documented below.
      */
     readonly stickiness?: pulumi.Input<inputs.applicationloadbalancing.TargetGroupStickiness>;
     /**
@@ -333,7 +333,7 @@ export interface TargetGroupArgs {
      */
     readonly slowStart?: pulumi.Input<number>;
     /**
-     * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+     * A Stickiness block. Stickiness blocks are documented below.
      */
     readonly stickiness?: pulumi.Input<inputs.applicationloadbalancing.TargetGroupStickiness>;
     /**

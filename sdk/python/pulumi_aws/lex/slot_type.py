@@ -36,7 +36,7 @@ class SlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         flower_types = aws.lex.SlotType("flowerTypes",
-            create_version=False,
+            create_version=True,
             description="Types of flowers to order",
             enumeration_values=[
                 aws.lex.SlotTypeEnumerationValueArgs(
@@ -60,7 +60,7 @@ class SlotType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
-               update. Defaults to true.
+               update. Defaults to `false`.
         :param pulumi.Input[str] description: A description of the slot type.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
@@ -70,7 +70,7 @@ class SlotType(pulumi.CustomResource):
         :param pulumi.Input[str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-               if there is a resolution list for the slot, otherwise null is returned.
+               if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,7 +129,7 @@ class SlotType(pulumi.CustomResource):
         :param pulumi.Input[str] checksum: Checksum identifying the version of the slot type that was created. The checksum is
                not included as an argument because the resource will add it automatically when updating the slot type.
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
-               update. Defaults to true.
+               update. Defaults to `false`.
         :param pulumi.Input[str] created_date: The date when the slot type version was created.
         :param pulumi.Input[str] description: A description of the slot type.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
@@ -141,7 +141,7 @@ class SlotType(pulumi.CustomResource):
         :param pulumi.Input[str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-               if there is a resolution list for the slot, otherwise null is returned.
+               if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         :param pulumi.Input[str] version: The version of the slot type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -173,7 +173,7 @@ class SlotType(pulumi.CustomResource):
     def create_version(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines if a new slot type version is created when the initial resource is created and on each
-        update. Defaults to true.
+        update. Defaults to `false`.
         """
         return pulumi.get(self, "create_version")
 
@@ -227,7 +227,7 @@ class SlotType(pulumi.CustomResource):
         Determines the slot resolution strategy that Amazon Lex
         uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
         value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-        if there is a resolution list for the slot, otherwise null is returned.
+        if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         """
         return pulumi.get(self, "value_selection_strategy")
 

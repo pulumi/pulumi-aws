@@ -160,13 +160,7 @@ export class BucketObject extends pulumi.CustomResource {
      * The name of the object once it is in the bucket.
      */
     public readonly key!: pulumi.Output<string>;
-    /**
-     * Specifies the AWS KMS Key ARN to use for object encryption.
-     * This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
-     * use the exported `arn` attribute:
-     * `kmsKeyId = "${aws_kms_key.foo.arn}"`
-     */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
@@ -339,12 +333,6 @@ export interface BucketObjectState {
      * The name of the object once it is in the bucket.
      */
     readonly key?: pulumi.Input<string>;
-    /**
-     * Specifies the AWS KMS Key ARN to use for object encryption.
-     * This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
-     * use the exported `arn` attribute:
-     * `kmsKeyId = "${aws_kms_key.foo.arn}"`
-     */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -444,12 +432,6 @@ export interface BucketObjectArgs {
      * The name of the object once it is in the bucket.
      */
     readonly key?: pulumi.Input<string>;
-    /**
-     * Specifies the AWS KMS Key ARN to use for object encryption.
-     * This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
-     * use the exported `arn` attribute:
-     * `kmsKeyId = "${aws_kms_key.foo.arn}"`
-     */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).

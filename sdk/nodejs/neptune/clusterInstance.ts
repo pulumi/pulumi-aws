@@ -108,7 +108,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
@@ -291,7 +291,7 @@ export interface ClusterInstanceState {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      */
     readonly identifier?: pulumi.Input<string>;
     /**
@@ -379,7 +379,7 @@ export interface ClusterInstanceArgs {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      */
     readonly identifier?: pulumi.Input<string>;
     /**

@@ -126,7 +126,7 @@ type TargetGroup struct {
 	ProxyProtocolV2 pulumi.BoolPtrOutput `pulumi:"proxyProtocolV2"`
 	// The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
 	SlowStart pulumi.IntPtrOutput `pulumi:"slowStart"`
-	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+	// A Stickiness block. Stickiness blocks are documented below.
 	Stickiness TargetGroupStickinessOutput `pulumi:"stickiness"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -199,7 +199,7 @@ type targetGroupState struct {
 	ProxyProtocolV2 *bool `pulumi:"proxyProtocolV2"`
 	// The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
 	SlowStart *int `pulumi:"slowStart"`
-	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+	// A Stickiness block. Stickiness blocks are documented below.
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -239,7 +239,7 @@ type TargetGroupState struct {
 	ProxyProtocolV2 pulumi.BoolPtrInput
 	// The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
 	SlowStart pulumi.IntPtrInput
-	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+	// A Stickiness block. Stickiness blocks are documented below.
 	Stickiness TargetGroupStickinessPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -279,7 +279,7 @@ type targetGroupArgs struct {
 	ProxyProtocolV2 *bool `pulumi:"proxyProtocolV2"`
 	// The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
 	SlowStart *int `pulumi:"slowStart"`
-	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+	// A Stickiness block. Stickiness blocks are documented below.
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -316,7 +316,7 @@ type TargetGroupArgs struct {
 	ProxyProtocolV2 pulumi.BoolPtrInput
 	// The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
 	SlowStart pulumi.IntPtrInput
-	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+	// A Stickiness block. Stickiness blocks are documented below.
 	Stickiness TargetGroupStickinessPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput

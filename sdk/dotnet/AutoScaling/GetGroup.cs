@@ -101,7 +101,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly int MinSize;
         /// <summary>
-        /// The name of the Auto Scaling group.
+        /// Name of the Auto Scaling Group.
         /// </summary>
         public readonly string Name;
         public readonly bool NewInstancesProtectedFromScaleIn;

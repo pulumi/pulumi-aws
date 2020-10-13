@@ -20,7 +20,7 @@ class GetJobQueueResult:
     """
     A collection of values returned by getJobQueue.
     """
-    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, name=None, priority=None, state=None, status=None, status_reason=None):
+    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, name=None, priority=None, state=None, status=None, status_reason=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetJobQueueResult:
         if status_reason and not isinstance(status_reason, str):
             raise TypeError("Expected argument 'status_reason' to be a str")
         pulumi.set(__self__, "status_reason", status_reason)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -112,6 +115,14 @@ class GetJobQueueResult:
         """
         return pulumi.get(self, "status_reason")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetJobQueueResult(GetJobQueueResult):
     # pylint: disable=using-constant-test
@@ -126,10 +137,12 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
             priority=self.priority,
             state=self.state,
             status=self.status,
-            status_reason=self.status_reason)
+            status_reason=self.status_reason,
+            tags=self.tags)
 
 
 def get_job_queue(name: Optional[str] = None,
+                  tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobQueueResult:
     """
     The Batch Job Queue data source allows access to details of a specific
@@ -146,9 +159,11 @@ def get_job_queue(name: Optional[str] = None,
 
 
     :param str name: The name of the job queue.
+    :param Mapping[str, str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -163,4 +178,5 @@ def get_job_queue(name: Optional[str] = None,
         priority=__ret__.priority,
         state=__ret__.state,
         status=__ret__.status,
-        status_reason=__ret__.status_reason)
+        status_reason=__ret__.status_reason,
+        tags=__ret__.tags)

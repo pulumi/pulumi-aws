@@ -5,6 +5,7 @@
 export * from "./cluster";
 export * from "./eventSubscription";
 export * from "./getCluster";
+export * from "./getOrderableCluster";
 export * from "./getServiceAccount";
 export * from "./parameterGroup";
 export * from "./securityGroup";

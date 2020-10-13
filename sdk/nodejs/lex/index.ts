@@ -3,7 +3,9 @@
 
 // Export members:
 export * from "./bot";
+export * from "./botAlias";
 export * from "./getBot";
+export * from "./getBotAlias";
 export * from "./getIntent";
 export * from "./getSlotType";
 export * from "./intent";

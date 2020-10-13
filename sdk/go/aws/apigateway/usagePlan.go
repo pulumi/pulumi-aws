@@ -82,7 +82,7 @@ type UsagePlan struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the usage plan.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	// The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
 	ProductCode pulumi.StringPtrOutput `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrOutput `pulumi:"quotaSettings"`
@@ -128,7 +128,7 @@ type usagePlanState struct {
 	Description *string `pulumi:"description"`
 	// The name of the usage plan.
 	Name *string `pulumi:"name"`
-	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	// The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
 	ProductCode *string `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
@@ -147,7 +147,7 @@ type UsagePlanState struct {
 	Description pulumi.StringPtrInput
 	// The name of the usage plan.
 	Name pulumi.StringPtrInput
-	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	// The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
 	ProductCode pulumi.StringPtrInput
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrInput
@@ -168,7 +168,7 @@ type usagePlanArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the usage plan.
 	Name *string `pulumi:"name"`
-	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	// The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
 	ProductCode *string `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
@@ -186,7 +186,7 @@ type UsagePlanArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the usage plan.
 	Name pulumi.StringPtrInput
-	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	// The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
 	ProductCode pulumi.StringPtrInput
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrInput

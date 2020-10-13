@@ -128,7 +128,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// One or more VPC subnet IDs to associate with the new proxy.
-        /// describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         [Output("vpcSubnetIds")]
         public Output<ImmutableArray<string>> VpcSubnetIds { get; private set; } = null!;
@@ -256,7 +255,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// One or more VPC subnet IDs to associate with the new proxy.
-        /// describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         public InputList<string> VpcSubnetIds
         {
@@ -360,7 +358,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// One or more VPC subnet IDs to associate with the new proxy.
-        /// describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         public InputList<string> VpcSubnetIds
         {

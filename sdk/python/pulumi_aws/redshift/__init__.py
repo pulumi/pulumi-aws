@@ -6,6 +6,7 @@
 from .cluster import *
 from .event_subscription import *
 from .get_cluster import *
+from .get_orderable_cluster import *
 from .get_service_account import *
 from .parameter_group import *
 from .security_group import *

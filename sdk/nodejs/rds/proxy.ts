@@ -111,7 +111,6 @@ export class Proxy extends pulumi.CustomResource {
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
-     * describe-db-parameters.html) after initial creation of the group.
      */
     public readonly vpcSubnetIds!: pulumi.Output<string[]>;
 
@@ -227,7 +226,6 @@ export interface ProxyState {
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
-     * describe-db-parameters.html) after initial creation of the group.
      */
     readonly vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -274,7 +272,6 @@ export interface ProxyArgs {
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
-     * describe-db-parameters.html) after initial creation of the group.
      */
     readonly vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

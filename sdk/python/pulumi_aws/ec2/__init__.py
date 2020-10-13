@@ -25,6 +25,7 @@ from .get_coip_pool import *
 from .get_coip_pools import *
 from .get_customer_gateway import *
 from .get_instance import *
+from .get_instance_type import *
 from .get_instance_type_offering import *
 from .get_instance_type_offerings import *
 from .get_instances import *

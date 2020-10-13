@@ -108,11 +108,13 @@ type Distribution struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrOutput `pulumi:"waitForDeployment"`
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId pulumi.StringPtrOutput `pulumi:"webAclId"`
 }
 
@@ -243,11 +245,13 @@ type distributionState struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment *bool `pulumi:"waitForDeployment"`
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId *string `pulumi:"webAclId"`
 }
 
@@ -336,11 +340,13 @@ type DistributionState struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrInput
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId pulumi.StringPtrInput
 }
 
@@ -406,11 +412,13 @@ type distributionArgs struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment *bool `pulumi:"waitForDeployment"`
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId *string `pulumi:"webAclId"`
 }
 
@@ -473,11 +481,13 @@ type DistributionArgs struct {
 	// the distribution status to change from `InProgress` to `Deployed`. Setting
 	// this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrInput
-	// If you're using AWS WAF to filter CloudFront
-	// requests, the Id of the AWS WAF web ACL that is associated with the
-	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
-	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
+	// A unique identifier that specifies the AWS WAF web ACL,
+	// if any, to associate with this distribution.
+	// To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
+	// for example `aws_wafv2_web_acl.example.arn`. To specify a web
+	// ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
+	// The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
+	// credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 	WebAclId pulumi.StringPtrInput
 }
 

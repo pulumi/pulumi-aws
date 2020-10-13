@@ -414,6 +414,9 @@ namespace Pulumi.Aws.Inputs
         [Input("synthetics")]
         public Input<string>? Synthetics { get; set; }
 
+        [Input("timestreamwrite")]
+        public Input<string>? Timestreamwrite { get; set; }
+
         [Input("transfer")]
         public Input<string>? Transfer { get; set; }
 

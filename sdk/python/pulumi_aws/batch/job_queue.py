@@ -19,6 +19,7 @@ class JobQueue(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,6 +51,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,6 +80,7 @@ class JobQueue(pulumi.CustomResource):
             if state is None:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(JobQueue, __self__).__init__(
             'aws:batch/jobQueue:JobQueue',
@@ -93,7 +96,8 @@ class JobQueue(pulumi.CustomResource):
             compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
-            state: Optional[pulumi.Input[str]] = None) -> 'JobQueue':
+            state: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'JobQueue':
         """
         Get an existing JobQueue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -110,6 +114,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -120,6 +125,7 @@ class JobQueue(pulumi.CustomResource):
         __props__["name"] = name
         __props__["priority"] = priority
         __props__["state"] = state
+        __props__["tags"] = tags
         return JobQueue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -165,6 +171,14 @@ class JobQueue(pulumi.CustomResource):
         The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

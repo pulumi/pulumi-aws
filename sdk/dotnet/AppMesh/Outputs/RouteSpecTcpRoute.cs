@@ -17,11 +17,19 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// The action to take if a match is determined.
         /// </summary>
         public readonly Outputs.RouteSpecTcpRouteAction Action;
+        /// <summary>
+        /// The types of timeouts.
+        /// </summary>
+        public readonly Outputs.RouteSpecTcpRouteTimeout? Timeout;
 
         [OutputConstructor]
-        private RouteSpecTcpRoute(Outputs.RouteSpecTcpRouteAction action)
+        private RouteSpecTcpRoute(
+            Outputs.RouteSpecTcpRouteAction action,
+
+            Outputs.RouteSpecTcpRouteTimeout? timeout)
         {
             Action = action;
+            Timeout = timeout;
         }
     }
 }

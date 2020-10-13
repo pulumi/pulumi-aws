@@ -32,6 +32,7 @@ export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pu
     }
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "computeEnvironmentName": args.computeEnvironmentName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -43,6 +44,10 @@ export interface GetComputeEnvironmentArgs {
      * The name of the Batch Compute Environment
      */
     readonly computeEnvironmentName: string;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -78,6 +83,10 @@ export interface GetComputeEnvironmentResult {
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      */
     readonly statusReason: string;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags: {[key: string]: string};
     /**
      * The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */

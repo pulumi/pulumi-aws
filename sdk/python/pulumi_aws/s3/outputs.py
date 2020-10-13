@@ -32,6 +32,7 @@ __all__ = [
     'BucketObjectLockConfiguration',
     'BucketObjectLockConfigurationRule',
     'BucketObjectLockConfigurationRuleDefaultRetention',
+    'BucketOwnershipControlsRule',
     'BucketReplicationConfiguration',
     'BucketReplicationConfigurationRule',
     'BucketReplicationConfigurationRuleDestination',
@@ -1063,6 +1064,27 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
         The number of years that you want to specify for the default retention period.
         """
         return pulumi.get(self, "years")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BucketOwnershipControlsRule(dict):
+    def __init__(__self__, *,
+                 object_ownership: str):
+        """
+        :param str object_ownership: Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+        """
+        pulumi.set(__self__, "object_ownership", object_ownership)
+
+    @property
+    @pulumi.getter(name="objectOwnership")
+    def object_ownership(self) -> str:
+        """
+        Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+        """
+        return pulumi.get(self, "object_ownership")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

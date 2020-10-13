@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const flowerTypes = new aws.lex.SlotType("flower_types", {
- *     createVersion: false,
+ *     createVersion: true,
  *     description: "Types of flowers to order",
  *     enumerationValues: [
  *         {
@@ -75,7 +75,7 @@ export class SlotType extends pulumi.CustomResource {
     public /*out*/ readonly checksum!: pulumi.Output<string>;
     /**
      * Determines if a new slot type version is created when the initial resource is created and on each
-     * update. Defaults to true.
+     * update. Defaults to `false`.
      */
     public readonly createVersion!: pulumi.Output<boolean | undefined>;
     /**
@@ -105,7 +105,7 @@ export class SlotType extends pulumi.CustomResource {
      * Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
      * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-     * if there is a resolution list for the slot, otherwise null is returned.
+     * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
      */
     public readonly valueSelectionStrategy!: pulumi.Output<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface SlotTypeState {
     readonly checksum?: pulumi.Input<string>;
     /**
      * Determines if a new slot type version is created when the initial resource is created and on each
-     * update. Defaults to true.
+     * update. Defaults to `false`.
      */
     readonly createVersion?: pulumi.Input<boolean>;
     /**
@@ -201,7 +201,7 @@ export interface SlotTypeState {
      * Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
      * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-     * if there is a resolution list for the slot, otherwise null is returned.
+     * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
      */
     readonly valueSelectionStrategy?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface SlotTypeState {
 export interface SlotTypeArgs {
     /**
      * Determines if a new slot type version is created when the initial resource is created and on each
-     * update. Defaults to true.
+     * update. Defaults to `false`.
      */
     readonly createVersion?: pulumi.Input<boolean>;
     /**
@@ -238,7 +238,7 @@ export interface SlotTypeArgs {
      * Determines the slot resolution strategy that Amazon Lex
      * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
      * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-     * if there is a resolution list for the slot, otherwise null is returned.
+     * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
      */
     readonly valueSelectionStrategy?: pulumi.Input<string>;
 }

@@ -37,7 +37,7 @@ class FileSystemPolicy(pulumi.CustomResource):
             "Id": "ExamplePolicy01",
             "Statement": [
                 {{
-                    "Sid": "ExampleSatement01",
+                    "Sid": "ExampleStatement01",
                     "Effect": "Allow",
                     "Principal": {{
                         "AWS": "*"

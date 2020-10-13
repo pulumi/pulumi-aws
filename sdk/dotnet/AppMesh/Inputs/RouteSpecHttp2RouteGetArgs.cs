@@ -30,6 +30,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("retryPolicy")]
         public Input<Inputs.RouteSpecHttp2RouteRetryPolicyGetArgs>? RetryPolicy { get; set; }
 
+        /// <summary>
+        /// The types of timeouts.
+        /// </summary>
+        [Input("timeout")]
+        public Input<Inputs.RouteSpecHttp2RouteTimeoutGetArgs>? Timeout { get; set; }
+
         public RouteSpecHttp2RouteGetArgs()
         {
         }

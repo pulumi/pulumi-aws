@@ -4594,11 +4594,11 @@ func (o TargetGroupHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutpu
 }
 
 type TargetGroupStickiness struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+	// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 	CookieDuration *int `pulumi:"cookieDuration"`
 	// Indicates whether  health checks are enabled. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// The type of sticky sessions. The only current possible value is `lbCookie`.
+	// The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
 	Type string `pulumi:"type"`
 }
 
@@ -4614,11 +4614,11 @@ type TargetGroupStickinessInput interface {
 }
 
 type TargetGroupStickinessArgs struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+	// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 	CookieDuration pulumi.IntPtrInput `pulumi:"cookieDuration"`
 	// Indicates whether  health checks are enabled. Defaults to true.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The type of sticky sessions. The only current possible value is `lbCookie`.
+	// The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4699,7 +4699,7 @@ func (o TargetGroupStickinessOutput) ToTargetGroupStickinessPtrOutputWithContext
 	}).(TargetGroupStickinessPtrOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 func (o TargetGroupStickinessOutput) CookieDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) *int { return v.CookieDuration }).(pulumi.IntPtrOutput)
 }
@@ -4709,7 +4709,7 @@ func (o TargetGroupStickinessOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The type of sticky sessions. The only current possible value is `lbCookie`.
+// The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
 func (o TargetGroupStickinessOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4732,7 +4732,7 @@ func (o TargetGroupStickinessPtrOutput) Elem() TargetGroupStickinessOutput {
 	return o.ApplyT(func(v *TargetGroupStickiness) TargetGroupStickiness { return *v }).(TargetGroupStickinessOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 func (o TargetGroupStickinessPtrOutput) CookieDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupStickiness) *int {
 		if v == nil {
@@ -4752,7 +4752,7 @@ func (o TargetGroupStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of sticky sessions. The only current possible value is `lbCookie`.
+// The type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
 func (o TargetGroupStickinessPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupStickiness) *string {
 		if v == nil {

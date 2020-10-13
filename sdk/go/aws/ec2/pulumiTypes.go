@@ -12603,6 +12603,448 @@ func (o GetInstanceRootBlockDeviceArrayOutput) Index(i pulumi.IntInput) GetInsta
 	}).(GetInstanceRootBlockDeviceOutput)
 }
 
+type GetInstanceTypeFpga struct {
+	Count        int    `pulumi:"count"`
+	Manufacturer string `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize int    `pulumi:"memorySize"`
+	Name       string `pulumi:"name"`
+}
+
+// GetInstanceTypeFpgaInput is an input type that accepts GetInstanceTypeFpgaArgs and GetInstanceTypeFpgaOutput values.
+// You can construct a concrete instance of `GetInstanceTypeFpgaInput` via:
+//
+//          GetInstanceTypeFpgaArgs{...}
+type GetInstanceTypeFpgaInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeFpgaOutput() GetInstanceTypeFpgaOutput
+	ToGetInstanceTypeFpgaOutputWithContext(context.Context) GetInstanceTypeFpgaOutput
+}
+
+type GetInstanceTypeFpgaArgs struct {
+	Count        pulumi.IntInput    `pulumi:"count"`
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize pulumi.IntInput    `pulumi:"memorySize"`
+	Name       pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeFpgaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeFpga)(nil)).Elem()
+}
+
+func (i GetInstanceTypeFpgaArgs) ToGetInstanceTypeFpgaOutput() GetInstanceTypeFpgaOutput {
+	return i.ToGetInstanceTypeFpgaOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeFpgaArgs) ToGetInstanceTypeFpgaOutputWithContext(ctx context.Context) GetInstanceTypeFpgaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeFpgaOutput)
+}
+
+// GetInstanceTypeFpgaArrayInput is an input type that accepts GetInstanceTypeFpgaArray and GetInstanceTypeFpgaArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeFpgaArrayInput` via:
+//
+//          GetInstanceTypeFpgaArray{ GetInstanceTypeFpgaArgs{...} }
+type GetInstanceTypeFpgaArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeFpgaArrayOutput() GetInstanceTypeFpgaArrayOutput
+	ToGetInstanceTypeFpgaArrayOutputWithContext(context.Context) GetInstanceTypeFpgaArrayOutput
+}
+
+type GetInstanceTypeFpgaArray []GetInstanceTypeFpgaInput
+
+func (GetInstanceTypeFpgaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeFpga)(nil)).Elem()
+}
+
+func (i GetInstanceTypeFpgaArray) ToGetInstanceTypeFpgaArrayOutput() GetInstanceTypeFpgaArrayOutput {
+	return i.ToGetInstanceTypeFpgaArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeFpgaArray) ToGetInstanceTypeFpgaArrayOutputWithContext(ctx context.Context) GetInstanceTypeFpgaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeFpgaArrayOutput)
+}
+
+type GetInstanceTypeFpgaOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeFpgaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeFpga)(nil)).Elem()
+}
+
+func (o GetInstanceTypeFpgaOutput) ToGetInstanceTypeFpgaOutput() GetInstanceTypeFpgaOutput {
+	return o
+}
+
+func (o GetInstanceTypeFpgaOutput) ToGetInstanceTypeFpgaOutputWithContext(ctx context.Context) GetInstanceTypeFpgaOutput {
+	return o
+}
+
+func (o GetInstanceTypeFpgaOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeFpga) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeFpgaOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeFpga) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+// Size of the instance memory, in MiB.
+func (o GetInstanceTypeFpgaOutput) MemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeFpga) int { return v.MemorySize }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeFpgaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeFpga) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeFpgaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeFpgaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeFpga)(nil)).Elem()
+}
+
+func (o GetInstanceTypeFpgaArrayOutput) ToGetInstanceTypeFpgaArrayOutput() GetInstanceTypeFpgaArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeFpgaArrayOutput) ToGetInstanceTypeFpgaArrayOutputWithContext(ctx context.Context) GetInstanceTypeFpgaArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeFpgaArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeFpgaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeFpga {
+		return vs[0].([]GetInstanceTypeFpga)[vs[1].(int)]
+	}).(GetInstanceTypeFpgaOutput)
+}
+
+type GetInstanceTypeGpus struct {
+	Count        int    `pulumi:"count"`
+	Manufacturer string `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize int    `pulumi:"memorySize"`
+	Name       string `pulumi:"name"`
+}
+
+// GetInstanceTypeGpusInput is an input type that accepts GetInstanceTypeGpusArgs and GetInstanceTypeGpusOutput values.
+// You can construct a concrete instance of `GetInstanceTypeGpusInput` via:
+//
+//          GetInstanceTypeGpusArgs{...}
+type GetInstanceTypeGpusInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeGpusOutput() GetInstanceTypeGpusOutput
+	ToGetInstanceTypeGpusOutputWithContext(context.Context) GetInstanceTypeGpusOutput
+}
+
+type GetInstanceTypeGpusArgs struct {
+	Count        pulumi.IntInput    `pulumi:"count"`
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize pulumi.IntInput    `pulumi:"memorySize"`
+	Name       pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeGpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeGpus)(nil)).Elem()
+}
+
+func (i GetInstanceTypeGpusArgs) ToGetInstanceTypeGpusOutput() GetInstanceTypeGpusOutput {
+	return i.ToGetInstanceTypeGpusOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeGpusArgs) ToGetInstanceTypeGpusOutputWithContext(ctx context.Context) GetInstanceTypeGpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeGpusOutput)
+}
+
+// GetInstanceTypeGpusArrayInput is an input type that accepts GetInstanceTypeGpusArray and GetInstanceTypeGpusArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeGpusArrayInput` via:
+//
+//          GetInstanceTypeGpusArray{ GetInstanceTypeGpusArgs{...} }
+type GetInstanceTypeGpusArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeGpusArrayOutput() GetInstanceTypeGpusArrayOutput
+	ToGetInstanceTypeGpusArrayOutputWithContext(context.Context) GetInstanceTypeGpusArrayOutput
+}
+
+type GetInstanceTypeGpusArray []GetInstanceTypeGpusInput
+
+func (GetInstanceTypeGpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeGpus)(nil)).Elem()
+}
+
+func (i GetInstanceTypeGpusArray) ToGetInstanceTypeGpusArrayOutput() GetInstanceTypeGpusArrayOutput {
+	return i.ToGetInstanceTypeGpusArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeGpusArray) ToGetInstanceTypeGpusArrayOutputWithContext(ctx context.Context) GetInstanceTypeGpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeGpusArrayOutput)
+}
+
+type GetInstanceTypeGpusOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeGpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeGpus)(nil)).Elem()
+}
+
+func (o GetInstanceTypeGpusOutput) ToGetInstanceTypeGpusOutput() GetInstanceTypeGpusOutput {
+	return o
+}
+
+func (o GetInstanceTypeGpusOutput) ToGetInstanceTypeGpusOutputWithContext(ctx context.Context) GetInstanceTypeGpusOutput {
+	return o
+}
+
+func (o GetInstanceTypeGpusOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeGpus) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeGpusOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeGpus) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+// Size of the instance memory, in MiB.
+func (o GetInstanceTypeGpusOutput) MemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeGpus) int { return v.MemorySize }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeGpusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeGpus) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeGpusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeGpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeGpus)(nil)).Elem()
+}
+
+func (o GetInstanceTypeGpusArrayOutput) ToGetInstanceTypeGpusArrayOutput() GetInstanceTypeGpusArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeGpusArrayOutput) ToGetInstanceTypeGpusArrayOutputWithContext(ctx context.Context) GetInstanceTypeGpusArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeGpusArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeGpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeGpus {
+		return vs[0].([]GetInstanceTypeGpus)[vs[1].(int)]
+	}).(GetInstanceTypeGpusOutput)
+}
+
+type GetInstanceTypeInferenceAccelerator struct {
+	Count        int    `pulumi:"count"`
+	Manufacturer string `pulumi:"manufacturer"`
+	Name         string `pulumi:"name"`
+}
+
+// GetInstanceTypeInferenceAcceleratorInput is an input type that accepts GetInstanceTypeInferenceAcceleratorArgs and GetInstanceTypeInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `GetInstanceTypeInferenceAcceleratorInput` via:
+//
+//          GetInstanceTypeInferenceAcceleratorArgs{...}
+type GetInstanceTypeInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeInferenceAcceleratorOutput() GetInstanceTypeInferenceAcceleratorOutput
+	ToGetInstanceTypeInferenceAcceleratorOutputWithContext(context.Context) GetInstanceTypeInferenceAcceleratorOutput
+}
+
+type GetInstanceTypeInferenceAcceleratorArgs struct {
+	Count        pulumi.IntInput    `pulumi:"count"`
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	Name         pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeInferenceAccelerator)(nil)).Elem()
+}
+
+func (i GetInstanceTypeInferenceAcceleratorArgs) ToGetInstanceTypeInferenceAcceleratorOutput() GetInstanceTypeInferenceAcceleratorOutput {
+	return i.ToGetInstanceTypeInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeInferenceAcceleratorArgs) ToGetInstanceTypeInferenceAcceleratorOutputWithContext(ctx context.Context) GetInstanceTypeInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeInferenceAcceleratorOutput)
+}
+
+// GetInstanceTypeInferenceAcceleratorArrayInput is an input type that accepts GetInstanceTypeInferenceAcceleratorArray and GetInstanceTypeInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeInferenceAcceleratorArrayInput` via:
+//
+//          GetInstanceTypeInferenceAcceleratorArray{ GetInstanceTypeInferenceAcceleratorArgs{...} }
+type GetInstanceTypeInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeInferenceAcceleratorArrayOutput() GetInstanceTypeInferenceAcceleratorArrayOutput
+	ToGetInstanceTypeInferenceAcceleratorArrayOutputWithContext(context.Context) GetInstanceTypeInferenceAcceleratorArrayOutput
+}
+
+type GetInstanceTypeInferenceAcceleratorArray []GetInstanceTypeInferenceAcceleratorInput
+
+func (GetInstanceTypeInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeInferenceAccelerator)(nil)).Elem()
+}
+
+func (i GetInstanceTypeInferenceAcceleratorArray) ToGetInstanceTypeInferenceAcceleratorArrayOutput() GetInstanceTypeInferenceAcceleratorArrayOutput {
+	return i.ToGetInstanceTypeInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeInferenceAcceleratorArray) ToGetInstanceTypeInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetInstanceTypeInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeInferenceAcceleratorArrayOutput)
+}
+
+type GetInstanceTypeInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeInferenceAccelerator)(nil)).Elem()
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) ToGetInstanceTypeInferenceAcceleratorOutput() GetInstanceTypeInferenceAcceleratorOutput {
+	return o
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) ToGetInstanceTypeInferenceAcceleratorOutputWithContext(ctx context.Context) GetInstanceTypeInferenceAcceleratorOutput {
+	return o
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeInferenceAccelerator) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeInferenceAccelerator) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+func (o GetInstanceTypeInferenceAcceleratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeInferenceAccelerator) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeInferenceAccelerator)(nil)).Elem()
+}
+
+func (o GetInstanceTypeInferenceAcceleratorArrayOutput) ToGetInstanceTypeInferenceAcceleratorArrayOutput() GetInstanceTypeInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeInferenceAcceleratorArrayOutput) ToGetInstanceTypeInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetInstanceTypeInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeInferenceAccelerator {
+		return vs[0].([]GetInstanceTypeInferenceAccelerator)[vs[1].(int)]
+	}).(GetInstanceTypeInferenceAcceleratorOutput)
+}
+
+type GetInstanceTypeInstanceDisk struct {
+	Count int    `pulumi:"count"`
+	Size  int    `pulumi:"size"`
+	Type  string `pulumi:"type"`
+}
+
+// GetInstanceTypeInstanceDiskInput is an input type that accepts GetInstanceTypeInstanceDiskArgs and GetInstanceTypeInstanceDiskOutput values.
+// You can construct a concrete instance of `GetInstanceTypeInstanceDiskInput` via:
+//
+//          GetInstanceTypeInstanceDiskArgs{...}
+type GetInstanceTypeInstanceDiskInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeInstanceDiskOutput() GetInstanceTypeInstanceDiskOutput
+	ToGetInstanceTypeInstanceDiskOutputWithContext(context.Context) GetInstanceTypeInstanceDiskOutput
+}
+
+type GetInstanceTypeInstanceDiskArgs struct {
+	Count pulumi.IntInput    `pulumi:"count"`
+	Size  pulumi.IntInput    `pulumi:"size"`
+	Type  pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetInstanceTypeInstanceDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeInstanceDisk)(nil)).Elem()
+}
+
+func (i GetInstanceTypeInstanceDiskArgs) ToGetInstanceTypeInstanceDiskOutput() GetInstanceTypeInstanceDiskOutput {
+	return i.ToGetInstanceTypeInstanceDiskOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeInstanceDiskArgs) ToGetInstanceTypeInstanceDiskOutputWithContext(ctx context.Context) GetInstanceTypeInstanceDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeInstanceDiskOutput)
+}
+
+// GetInstanceTypeInstanceDiskArrayInput is an input type that accepts GetInstanceTypeInstanceDiskArray and GetInstanceTypeInstanceDiskArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeInstanceDiskArrayInput` via:
+//
+//          GetInstanceTypeInstanceDiskArray{ GetInstanceTypeInstanceDiskArgs{...} }
+type GetInstanceTypeInstanceDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeInstanceDiskArrayOutput() GetInstanceTypeInstanceDiskArrayOutput
+	ToGetInstanceTypeInstanceDiskArrayOutputWithContext(context.Context) GetInstanceTypeInstanceDiskArrayOutput
+}
+
+type GetInstanceTypeInstanceDiskArray []GetInstanceTypeInstanceDiskInput
+
+func (GetInstanceTypeInstanceDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeInstanceDisk)(nil)).Elem()
+}
+
+func (i GetInstanceTypeInstanceDiskArray) ToGetInstanceTypeInstanceDiskArrayOutput() GetInstanceTypeInstanceDiskArrayOutput {
+	return i.ToGetInstanceTypeInstanceDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeInstanceDiskArray) ToGetInstanceTypeInstanceDiskArrayOutputWithContext(ctx context.Context) GetInstanceTypeInstanceDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeInstanceDiskArrayOutput)
+}
+
+type GetInstanceTypeInstanceDiskOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeInstanceDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeInstanceDisk)(nil)).Elem()
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) ToGetInstanceTypeInstanceDiskOutput() GetInstanceTypeInstanceDiskOutput {
+	return o
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) ToGetInstanceTypeInstanceDiskOutputWithContext(ctx context.Context) GetInstanceTypeInstanceDiskOutput {
+	return o
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeInstanceDisk) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeInstanceDisk) int { return v.Size }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeInstanceDiskOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeInstanceDisk) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeInstanceDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeInstanceDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeInstanceDisk)(nil)).Elem()
+}
+
+func (o GetInstanceTypeInstanceDiskArrayOutput) ToGetInstanceTypeInstanceDiskArrayOutput() GetInstanceTypeInstanceDiskArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeInstanceDiskArrayOutput) ToGetInstanceTypeInstanceDiskArrayOutputWithContext(ctx context.Context) GetInstanceTypeInstanceDiskArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeInstanceDiskArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeInstanceDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeInstanceDisk {
+		return vs[0].([]GetInstanceTypeInstanceDisk)[vs[1].(int)]
+	}).(GetInstanceTypeInstanceDiskOutput)
+}
+
 type GetInstanceTypeOfferingFilter struct {
 	// Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
 	Name string `pulumi:"name"`
@@ -18894,6 +19336,14 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeFpgaOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeFpgaArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeGpusOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeGpusArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeInstanceDiskOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeInstanceDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingsFilterOutput{})

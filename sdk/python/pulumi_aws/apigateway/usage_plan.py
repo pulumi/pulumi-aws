@@ -73,7 +73,7 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of the usage plan.
         :param pulumi.Input[str] description: The description of a usage plan.
         :param pulumi.Input[str] name: The name of the usage plan.
-        :param pulumi.Input[str] product_code: The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        :param pulumi.Input[str] product_code: The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle_settings: The throttling limits of the usage plan.
@@ -132,7 +132,7 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[str] description: The description of a usage plan.
         :param pulumi.Input[str] name: The name of the usage plan.
-        :param pulumi.Input[str] product_code: The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        :param pulumi.Input[str] product_code: The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle_settings: The throttling limits of the usage plan.
@@ -187,7 +187,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="productCode")
     def product_code(self) -> pulumi.Output[Optional[str]]:
         """
-        The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         """
         return pulumi.get(self, "product_code")
 

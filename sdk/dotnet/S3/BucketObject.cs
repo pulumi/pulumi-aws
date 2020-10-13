@@ -206,14 +206,8 @@ namespace Pulumi.Aws.S3
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the AWS KMS Key ARN to use for object encryption.
-        /// This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
-        /// use the exported `arn` attribute:
-        /// `kms_key_id = "${aws_kms_key.foo.arn}"`
-        /// </summary>
         [Output("kmsKeyId")]
-        public Output<string?> KmsKeyId { get; private set; } = null!;
+        public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -397,12 +391,6 @@ namespace Pulumi.Aws.S3
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Specifies the AWS KMS Key ARN to use for object encryption.
-        /// This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
-        /// use the exported `arn` attribute:
-        /// `kms_key_id = "${aws_kms_key.foo.arn}"`
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -554,12 +542,6 @@ namespace Pulumi.Aws.S3
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Specifies the AWS KMS Key ARN to use for object encryption.
-        /// This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
-        /// use the exported `arn` attribute:
-        /// `kms_key_id = "${aws_kms_key.foo.arn}"`
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

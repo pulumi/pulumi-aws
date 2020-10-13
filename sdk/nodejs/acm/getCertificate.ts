@@ -91,7 +91,7 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
-     * Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
+     * Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
      */
     readonly arn: string;
     readonly domain: string;

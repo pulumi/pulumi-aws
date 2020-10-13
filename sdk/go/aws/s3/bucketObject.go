@@ -182,12 +182,8 @@ type BucketObject struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key pulumi.StringOutput `pulumi:"key"`
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	Key      pulumi.StringOutput `pulumi:"key"`
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
@@ -268,11 +264,7 @@ type bucketObjectState struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key *string `pulumi:"key"`
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
+	Key      *string `pulumi:"key"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
@@ -324,11 +316,7 @@ type BucketObjectState struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// The name of the object once it is in the bucket.
-	Key pulumi.StringPtrInput
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
+	Key      pulumi.StringPtrInput
 	KmsKeyId pulumi.StringPtrInput
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
@@ -384,11 +372,7 @@ type bucketObjectArgs struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The name of the object once it is in the bucket.
-	Key *string `pulumi:"key"`
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
+	Key      *string `pulumi:"key"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
@@ -438,11 +422,7 @@ type BucketObjectArgs struct {
 	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// The name of the object once it is in the bucket.
-	Key pulumi.StringPtrInput
-	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
-	// use the exported `arn` attribute:
-	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
+	Key      pulumi.StringPtrInput
 	KmsKeyId pulumi.StringPtrInput
 	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput

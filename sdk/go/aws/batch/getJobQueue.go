@@ -45,6 +45,8 @@ func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulum
 type LookupJobQueueArgs struct {
 	// The name of the job queue.
 	Name string `pulumi:"name"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getJobQueue.
@@ -69,4 +71,6 @@ type LookupJobQueueResult struct {
 	// A short, human-readable string to provide additional details about the current status
 	// of the job queue.
 	StatusReason string `pulumi:"statusReason"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }

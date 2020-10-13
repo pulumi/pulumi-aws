@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Ec2
         ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
         ///         {
         ///             Service = "s3",
+        ///             ServiceType = "Gateway",
         ///         }));
         ///         // Create a VPC
         ///         var foo = new Aws.Ec2.Vpc("foo", new Aws.Ec2.VpcArgs
@@ -131,6 +132,12 @@ namespace Pulumi.Aws.Ec2
         [Input("serviceName")]
         public string? ServiceName { get; set; }
 
+        /// <summary>
+        /// The service type, `Gateway` or `Interface`.
+        /// </summary>
+        [Input("serviceType")]
+        public string? ServiceType { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -191,9 +198,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string ServiceId;
         public readonly string ServiceName;
-        /// <summary>
-        /// The service type, `Gateway` or `Interface`.
-        /// </summary>
         public readonly string ServiceType;
         /// <summary>
         /// A map of tags assigned to the resource.

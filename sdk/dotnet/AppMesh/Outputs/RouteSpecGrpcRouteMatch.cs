@@ -22,6 +22,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? MethodName;
         /// <summary>
+        /// The value sent by the client must begin with the specified characters.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        /// </summary>
+        public readonly string? Prefix;
+        /// <summary>
         /// The fully qualified domain name for the service to match from the request.
         /// </summary>
         public readonly string? ServiceName;
@@ -32,10 +37,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             string? methodName,
 
+            string? prefix,
+
             string? serviceName)
         {
             Metadatas = metadatas;
             MethodName = methodName;
+            Prefix = prefix;
             ServiceName = serviceName;
         }
     }
