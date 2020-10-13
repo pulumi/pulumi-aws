@@ -2212,7 +2212,7 @@ type CrawlerS3Target struct {
 	ConnectionName *string `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The name of the DynamoDB table to crawl.
+	// The name of the S3 bucket to crawl.
 	Path string `pulumi:"path"`
 }
 
@@ -2232,7 +2232,7 @@ type CrawlerS3TargetArgs struct {
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The name of the DynamoDB table to crawl.
+	// The name of the S3 bucket to crawl.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -2297,7 +2297,7 @@ func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The name of the DynamoDB table to crawl.
+// The name of the S3 bucket to crawl.
 func (o CrawlerS3TargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerS3Target) string { return v.Path }).(pulumi.StringOutput)
 }

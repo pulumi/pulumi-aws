@@ -12282,7 +12282,7 @@ export namespace glue {
          */
         exclusions?: string[];
         /**
-         * The name of the DynamoDB table to crawl.
+         * The name of the S3 bucket to crawl.
          */
         path: string;
     }

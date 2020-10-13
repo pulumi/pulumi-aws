@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The name of the DynamoDB table to crawl.
+        /// The name of the S3 bucket to crawl.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

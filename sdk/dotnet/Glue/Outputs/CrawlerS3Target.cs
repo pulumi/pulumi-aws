@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The name of the DynamoDB table to crawl.
+        /// The name of the S3 bucket to crawl.
         /// </summary>
         public readonly string Path;
 

@@ -10997,7 +10997,7 @@ export namespace glue {
          */
         exclusions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the DynamoDB table to crawl.
+         * The name of the S3 bucket to crawl.
          */
         path: pulumi.Input<string>;
     }

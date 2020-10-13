@@ -928,7 +928,7 @@ class CrawlerS3TargetArgs:
                  connection_name: Optional[pulumi.Input[str]] = None,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
+        :param pulumi.Input[str] path: The name of the S3 bucket to crawl.
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         """
@@ -942,7 +942,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The name of the DynamoDB table to crawl.
+        The name of the S3 bucket to crawl.
         """
         return pulumi.get(self, "path")
 
