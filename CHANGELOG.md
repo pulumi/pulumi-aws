@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Fix typo in CrawlerS3Target documentation for path field, correcting the description of the target to crawl (should be S3 bucket, not DynamoDB table)
 * Upgrade to v3.10.0 of the AWS Terraform Provider
 * Disable autonaming on `directoryservice.Directory` as the `name` needs to be a fully qualified name for the directory
 * Schematize enums, generate new constants and update existing constants for Nodejs. [#1151](https://github.com/pulumi/pulumi-aws/pull/1151)
@@ -30,7 +31,7 @@ CHANGELOG
 * Upgrade to pulumi-terraform-bridge v2.9.2
 * Upgrade to Pulumi v2.10.1
 * Upgrade to v3.6.0 of the AWS Terraform Provider
-
+                                        
 ## 3.2.1 (2020-08-26)
 * Upgrade to pulumi-terraform-bridge v2.7.3
 
