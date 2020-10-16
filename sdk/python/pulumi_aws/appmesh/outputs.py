@@ -10,6 +10,22 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'GatewayRouteSpec',
+    'GatewayRouteSpecGrpcRoute',
+    'GatewayRouteSpecGrpcRouteAction',
+    'GatewayRouteSpecGrpcRouteActionTarget',
+    'GatewayRouteSpecGrpcRouteActionTargetVirtualService',
+    'GatewayRouteSpecGrpcRouteMatch',
+    'GatewayRouteSpecHttp2Route',
+    'GatewayRouteSpecHttp2RouteAction',
+    'GatewayRouteSpecHttp2RouteActionTarget',
+    'GatewayRouteSpecHttp2RouteActionTargetVirtualService',
+    'GatewayRouteSpecHttp2RouteMatch',
+    'GatewayRouteSpecHttpRoute',
+    'GatewayRouteSpecHttpRouteAction',
+    'GatewayRouteSpecHttpRouteActionTarget',
+    'GatewayRouteSpecHttpRouteActionTargetVirtualService',
+    'GatewayRouteSpecHttpRouteMatch',
     'MeshSpec',
     'MeshSpecEgressFilter',
     'RouteSpec',
@@ -54,6 +70,24 @@ __all__ = [
     'RouteSpecTcpRouteActionWeightedTarget',
     'RouteSpecTcpRouteTimeout',
     'RouteSpecTcpRouteTimeoutIdle',
+    'VirtualGatewaySpec',
+    'VirtualGatewaySpecBackendDefaults',
+    'VirtualGatewaySpecBackendDefaultsClientPolicy',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTls',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile',
+    'VirtualGatewaySpecListener',
+    'VirtualGatewaySpecListenerHealthCheck',
+    'VirtualGatewaySpecListenerPortMapping',
+    'VirtualGatewaySpecListenerTls',
+    'VirtualGatewaySpecListenerTlsCertificate',
+    'VirtualGatewaySpecListenerTlsCertificateAcm',
+    'VirtualGatewaySpecListenerTlsCertificateFile',
+    'VirtualGatewaySpecLogging',
+    'VirtualGatewaySpecLoggingAccessLog',
+    'VirtualGatewaySpecLoggingAccessLogFile',
     'VirtualNodeSpec',
     'VirtualNodeSpecBackend',
     'VirtualNodeSpecBackendDefaults',
@@ -103,6 +137,400 @@ __all__ = [
     'VirtualServiceSpecProviderVirtualNode',
     'VirtualServiceSpecProviderVirtualRouter',
 ]
+
+@pulumi.output_type
+class GatewayRouteSpec(dict):
+    def __init__(__self__, *,
+                 grpc_route: Optional['outputs.GatewayRouteSpecGrpcRoute'] = None,
+                 http2_route: Optional['outputs.GatewayRouteSpecHttp2Route'] = None,
+                 http_route: Optional['outputs.GatewayRouteSpecHttpRoute'] = None):
+        """
+        :param 'GatewayRouteSpecGrpcRouteArgs' grpc_route: The specification of a gRPC gateway route.
+        :param 'GatewayRouteSpecHttp2RouteArgs' http2_route: The specification of an HTTP/2 gateway route.
+        :param 'GatewayRouteSpecHttpRouteArgs' http_route: The specification of an HTTP gateway route.
+        """
+        if grpc_route is not None:
+            pulumi.set(__self__, "grpc_route", grpc_route)
+        if http2_route is not None:
+            pulumi.set(__self__, "http2_route", http2_route)
+        if http_route is not None:
+            pulumi.set(__self__, "http_route", http_route)
+
+    @property
+    @pulumi.getter(name="grpcRoute")
+    def grpc_route(self) -> Optional['outputs.GatewayRouteSpecGrpcRoute']:
+        """
+        The specification of a gRPC gateway route.
+        """
+        return pulumi.get(self, "grpc_route")
+
+    @property
+    @pulumi.getter(name="http2Route")
+    def http2_route(self) -> Optional['outputs.GatewayRouteSpecHttp2Route']:
+        """
+        The specification of an HTTP/2 gateway route.
+        """
+        return pulumi.get(self, "http2_route")
+
+    @property
+    @pulumi.getter(name="httpRoute")
+    def http_route(self) -> Optional['outputs.GatewayRouteSpecHttpRoute']:
+        """
+        The specification of an HTTP gateway route.
+        """
+        return pulumi.get(self, "http_route")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecGrpcRoute(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.GatewayRouteSpecGrpcRouteAction',
+                 match: 'outputs.GatewayRouteSpecGrpcRouteMatch'):
+        """
+        :param 'GatewayRouteSpecGrpcRouteActionArgs' action: The action to take if a match is determined.
+        :param 'GatewayRouteSpecGrpcRouteMatchArgs' match: The criteria for determining a request match.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'outputs.GatewayRouteSpecGrpcRouteAction':
+        """
+        The action to take if a match is determined.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.GatewayRouteSpecGrpcRouteMatch':
+        """
+        The criteria for determining a request match.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecGrpcRouteAction(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.GatewayRouteSpecGrpcRouteActionTarget'):
+        """
+        :param 'GatewayRouteSpecGrpcRouteActionTargetArgs' target: The target that traffic is routed to when a request matches the gateway route.
+        """
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.GatewayRouteSpecGrpcRouteActionTarget':
+        """
+        The target that traffic is routed to when a request matches the gateway route.
+        """
+        return pulumi.get(self, "target")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecGrpcRouteActionTarget(dict):
+    def __init__(__self__, *,
+                 virtual_service: 'outputs.GatewayRouteSpecGrpcRouteActionTargetVirtualService'):
+        """
+        :param 'GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs' virtual_service: The virtual service gateway route target.
+        """
+        pulumi.set(__self__, "virtual_service", virtual_service)
+
+    @property
+    @pulumi.getter(name="virtualService")
+    def virtual_service(self) -> 'outputs.GatewayRouteSpecGrpcRouteActionTargetVirtualService':
+        """
+        The virtual service gateway route target.
+        """
+        return pulumi.get(self, "virtual_service")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
+    def __init__(__self__, *,
+                 virtual_service_name: str):
+        """
+        :param str virtual_service_name: The name of the virtual service that traffic is routed to.
+        """
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+
+    @property
+    @pulumi.getter(name="virtualServiceName")
+    def virtual_service_name(self) -> str:
+        """
+        The name of the virtual service that traffic is routed to.
+        """
+        return pulumi.get(self, "virtual_service_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecGrpcRouteMatch(dict):
+    def __init__(__self__, *,
+                 service_name: str):
+        """
+        :param str service_name: The fully qualified domain name for the service to match from the request.
+        """
+        pulumi.set(__self__, "service_name", service_name)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> str:
+        """
+        The fully qualified domain name for the service to match from the request.
+        """
+        return pulumi.get(self, "service_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttp2Route(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.GatewayRouteSpecHttp2RouteAction',
+                 match: 'outputs.GatewayRouteSpecHttp2RouteMatch'):
+        """
+        :param 'GatewayRouteSpecHttp2RouteActionArgs' action: The action to take if a match is determined.
+        :param 'GatewayRouteSpecHttp2RouteMatchArgs' match: The criteria for determining a request match.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'outputs.GatewayRouteSpecHttp2RouteAction':
+        """
+        The action to take if a match is determined.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.GatewayRouteSpecHttp2RouteMatch':
+        """
+        The criteria for determining a request match.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttp2RouteAction(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.GatewayRouteSpecHttp2RouteActionTarget'):
+        """
+        :param 'GatewayRouteSpecHttp2RouteActionTargetArgs' target: The target that traffic is routed to when a request matches the gateway route.
+        """
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.GatewayRouteSpecHttp2RouteActionTarget':
+        """
+        The target that traffic is routed to when a request matches the gateway route.
+        """
+        return pulumi.get(self, "target")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttp2RouteActionTarget(dict):
+    def __init__(__self__, *,
+                 virtual_service: 'outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService'):
+        """
+        :param 'GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs' virtual_service: The virtual service gateway route target.
+        """
+        pulumi.set(__self__, "virtual_service", virtual_service)
+
+    @property
+    @pulumi.getter(name="virtualService")
+    def virtual_service(self) -> 'outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService':
+        """
+        The virtual service gateway route target.
+        """
+        return pulumi.get(self, "virtual_service")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
+    def __init__(__self__, *,
+                 virtual_service_name: str):
+        """
+        :param str virtual_service_name: The name of the virtual service that traffic is routed to.
+        """
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+
+    @property
+    @pulumi.getter(name="virtualServiceName")
+    def virtual_service_name(self) -> str:
+        """
+        The name of the virtual service that traffic is routed to.
+        """
+        return pulumi.get(self, "virtual_service_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttp2RouteMatch(dict):
+    def __init__(__self__, *,
+                 prefix: str):
+        """
+        :param str prefix: Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        """
+        return pulumi.get(self, "prefix")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttpRoute(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.GatewayRouteSpecHttpRouteAction',
+                 match: 'outputs.GatewayRouteSpecHttpRouteMatch'):
+        """
+        :param 'GatewayRouteSpecHttpRouteActionArgs' action: The action to take if a match is determined.
+        :param 'GatewayRouteSpecHttpRouteMatchArgs' match: The criteria for determining a request match.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'outputs.GatewayRouteSpecHttpRouteAction':
+        """
+        The action to take if a match is determined.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.GatewayRouteSpecHttpRouteMatch':
+        """
+        The criteria for determining a request match.
+        """
+        return pulumi.get(self, "match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttpRouteAction(dict):
+    def __init__(__self__, *,
+                 target: 'outputs.GatewayRouteSpecHttpRouteActionTarget'):
+        """
+        :param 'GatewayRouteSpecHttpRouteActionTargetArgs' target: The target that traffic is routed to when a request matches the gateway route.
+        """
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.GatewayRouteSpecHttpRouteActionTarget':
+        """
+        The target that traffic is routed to when a request matches the gateway route.
+        """
+        return pulumi.get(self, "target")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttpRouteActionTarget(dict):
+    def __init__(__self__, *,
+                 virtual_service: 'outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService'):
+        """
+        :param 'GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs' virtual_service: The virtual service gateway route target.
+        """
+        pulumi.set(__self__, "virtual_service", virtual_service)
+
+    @property
+    @pulumi.getter(name="virtualService")
+    def virtual_service(self) -> 'outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService':
+        """
+        The virtual service gateway route target.
+        """
+        return pulumi.get(self, "virtual_service")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
+    def __init__(__self__, *,
+                 virtual_service_name: str):
+        """
+        :param str virtual_service_name: The name of the virtual service that traffic is routed to.
+        """
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+
+    @property
+    @pulumi.getter(name="virtualServiceName")
+    def virtual_service_name(self) -> str:
+        """
+        The name of the virtual service that traffic is routed to.
+        """
+        return pulumi.get(self, "virtual_service_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GatewayRouteSpecHttpRouteMatch(dict):
+    def __init__(__self__, *,
+                 prefix: str):
+        """
+        :param str prefix: Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        """
+        return pulumi.get(self, "prefix")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class MeshSpec(dict):
@@ -1901,6 +2329,583 @@ class RouteSpecTcpRouteTimeoutIdle(dict):
         The number of time units. Minimum value of `0`.
         """
         return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpec(dict):
+    def __init__(__self__, *,
+                 listener: 'outputs.VirtualGatewaySpecListener',
+                 backend_defaults: Optional['outputs.VirtualGatewaySpecBackendDefaults'] = None,
+                 logging: Optional['outputs.VirtualGatewaySpecLogging'] = None):
+        """
+        :param 'VirtualGatewaySpecListenerArgs' listener: The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        :param 'VirtualGatewaySpecBackendDefaultsArgs' backend_defaults: The defaults for backends.
+        :param 'VirtualGatewaySpecLoggingArgs' logging: The inbound and outbound access logging information for the virtual gateway.
+        """
+        pulumi.set(__self__, "listener", listener)
+        if backend_defaults is not None:
+            pulumi.set(__self__, "backend_defaults", backend_defaults)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+
+    @property
+    @pulumi.getter
+    def listener(self) -> 'outputs.VirtualGatewaySpecListener':
+        """
+        The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        """
+        return pulumi.get(self, "listener")
+
+    @property
+    @pulumi.getter(name="backendDefaults")
+    def backend_defaults(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaults']:
+        """
+        The defaults for backends.
+        """
+        return pulumi.get(self, "backend_defaults")
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional['outputs.VirtualGatewaySpecLogging']:
+        """
+        The inbound and outbound access logging information for the virtual gateway.
+        """
+        return pulumi.get(self, "logging")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaults(dict):
+    def __init__(__self__, *,
+                 client_policy: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicy'] = None):
+        """
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyArgs' client_policy: The default client policy for virtual gateway backends.
+        """
+        if client_policy is not None:
+            pulumi.set(__self__, "client_policy", client_policy)
+
+    @property
+    @pulumi.getter(name="clientPolicy")
+    def client_policy(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicy']:
+        """
+        The default client policy for virtual gateway backends.
+        """
+        return pulumi.get(self, "client_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicy(dict):
+    def __init__(__self__, *,
+                 tls: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTls'] = None):
+        """
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs' tls: The Transport Layer Security (TLS) client policy.
+        """
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTls']:
+        """
+        The Transport Layer Security (TLS) client policy.
+        """
+        return pulumi.get(self, "tls")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
+    def __init__(__self__, *,
+                 validation: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation',
+                 enforce: Optional[bool] = None,
+                 ports: Optional[Sequence[int]] = None):
+        """
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs' validation: The TLS validation context.
+        :param Sequence[int] ports: One or more ports that the policy is enforced for.
+        """
+        pulumi.set(__self__, "validation", validation)
+        if enforce is not None:
+            pulumi.set(__self__, "enforce", enforce)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation':
+        """
+        The TLS validation context.
+        """
+        return pulumi.get(self, "validation")
+
+    @property
+    @pulumi.getter
+    def enforce(self) -> Optional[bool]:
+        return pulumi.get(self, "enforce")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence[int]]:
+        """
+        One or more ports that the policy is enforced for.
+        """
+        return pulumi.get(self, "ports")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
+    def __init__(__self__, *,
+                 trust: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust'):
+        """
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: The TLS validation context trust.
+        """
+        pulumi.set(__self__, "trust", trust)
+
+    @property
+    @pulumi.getter
+    def trust(self) -> 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust':
+        """
+        The TLS validation context trust.
+        """
+        return pulumi.get(self, "trust")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
+    def __init__(__self__, *,
+                 acm: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
+                 file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None):
+        """
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs' acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: The TLS validation context trust for a local file.
+        """
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def acm(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm']:
+        """
+        The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acm")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile']:
+        """
+        The TLS validation context trust for a local file.
+        """
+        return pulumi.get(self, "file")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
+    def __init__(__self__, *,
+                 certificate_authority_arns: Sequence[str]):
+        """
+        :param Sequence[str] certificate_authority_arns: One or more ACM Amazon Resource Name (ARN)s.
+        """
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArns")
+    def certificate_authority_arns(self) -> Sequence[str]:
+        """
+        One or more ACM Amazon Resource Name (ARN)s.
+        """
+        return pulumi.get(self, "certificate_authority_arns")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str):
+        """
+        :param str certificate_chain: The certificate chain for the certificate.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate chain for the certificate.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListener(dict):
+    def __init__(__self__, *,
+                 port_mapping: 'outputs.VirtualGatewaySpecListenerPortMapping',
+                 health_check: Optional['outputs.VirtualGatewaySpecListenerHealthCheck'] = None,
+                 tls: Optional['outputs.VirtualGatewaySpecListenerTls'] = None):
+        """
+        :param 'VirtualGatewaySpecListenerPortMappingArgs' port_mapping: The port mapping information for the listener.
+        :param 'VirtualGatewaySpecListenerHealthCheckArgs' health_check: The health check information for the listener.
+        :param 'VirtualGatewaySpecListenerTlsArgs' tls: The Transport Layer Security (TLS) properties for the listener
+        """
+        pulumi.set(__self__, "port_mapping", port_mapping)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter(name="portMapping")
+    def port_mapping(self) -> 'outputs.VirtualGatewaySpecListenerPortMapping':
+        """
+        The port mapping information for the listener.
+        """
+        return pulumi.get(self, "port_mapping")
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional['outputs.VirtualGatewaySpecListenerHealthCheck']:
+        """
+        The health check information for the listener.
+        """
+        return pulumi.get(self, "health_check")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.VirtualGatewaySpecListenerTls']:
+        """
+        The Transport Layer Security (TLS) properties for the listener
+        """
+        return pulumi.get(self, "tls")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerHealthCheck(dict):
+    def __init__(__self__, *,
+                 healthy_threshold: int,
+                 interval_millis: int,
+                 protocol: str,
+                 timeout_millis: int,
+                 unhealthy_threshold: int,
+                 path: Optional[str] = None,
+                 port: Optional[int] = None):
+        """
+        :param int healthy_threshold: The number of consecutive successful health checks that must occur before declaring listener healthy.
+        :param int interval_millis: The time period in milliseconds between each health check execution.
+        :param str protocol: The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        :param int timeout_millis: The amount of time to wait when receiving a response from the health check, in milliseconds.
+        :param int unhealthy_threshold: The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+        :param str path: The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        :param int port: The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        """
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "interval_millis", interval_millis)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "timeout_millis", timeout_millis)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="healthyThreshold")
+    def healthy_threshold(self) -> int:
+        """
+        The number of consecutive successful health checks that must occur before declaring listener healthy.
+        """
+        return pulumi.get(self, "healthy_threshold")
+
+    @property
+    @pulumi.getter(name="intervalMillis")
+    def interval_millis(self) -> int:
+        """
+        The time period in milliseconds between each health check execution.
+        """
+        return pulumi.get(self, "interval_millis")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="timeoutMillis")
+    def timeout_millis(self) -> int:
+        """
+        The amount of time to wait when receiving a response from the health check, in milliseconds.
+        """
+        return pulumi.get(self, "timeout_millis")
+
+    @property
+    @pulumi.getter(name="unhealthyThreshold")
+    def unhealthy_threshold(self) -> int:
+        """
+        The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+        """
+        return pulumi.get(self, "unhealthy_threshold")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        """
+        return pulumi.get(self, "port")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerPortMapping(dict):
+    def __init__(__self__, *,
+                 port: int,
+                 protocol: str):
+        """
+        :param int port: The port used for the port mapping.
+        :param str protocol: The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port used for the port mapping.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+        """
+        return pulumi.get(self, "protocol")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTls(dict):
+    def __init__(__self__, *,
+                 certificate: 'outputs.VirtualGatewaySpecListenerTlsCertificate',
+                 mode: str):
+        """
+        :param 'VirtualGatewaySpecListenerTlsCertificateArgs' certificate: The listener's TLS certificate.
+        :param str mode: The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        """
+        pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> 'outputs.VirtualGatewaySpecListenerTlsCertificate':
+        """
+        The listener's TLS certificate.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        """
+        return pulumi.get(self, "mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsCertificate(dict):
+    def __init__(__self__, *,
+                 acm: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateAcm'] = None,
+                 file: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateFile'] = None):
+        """
+        :param 'VirtualGatewaySpecListenerTlsCertificateAcmArgs' acm: An AWS Certificate Manager (ACM) certificate.
+        :param 'VirtualGatewaySpecListenerTlsCertificateFileArgs' file: A local file certificate.
+        """
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def acm(self) -> Optional['outputs.VirtualGatewaySpecListenerTlsCertificateAcm']:
+        """
+        An AWS Certificate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acm")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualGatewaySpecListenerTlsCertificateFile']:
+        """
+        A local file certificate.
+        """
+        return pulumi.get(self, "file")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsCertificateAcm(dict):
+    def __init__(__self__, *,
+                 certificate_arn: str):
+        """
+        :param str certificate_arn: The Amazon Resource Name (ARN) for the certificate.
+        """
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for the certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecListenerTlsCertificateFile(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str,
+                 private_key: str):
+        """
+        :param str certificate_chain: The certificate chain for the certificate.
+        :param str private_key: The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        The certificate chain for the certificate.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
+        return pulumi.get(self, "private_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecLogging(dict):
+    def __init__(__self__, *,
+                 access_log: Optional['outputs.VirtualGatewaySpecLoggingAccessLog'] = None):
+        """
+        :param 'VirtualGatewaySpecLoggingAccessLogArgs' access_log: The access log configuration for a virtual gateway.
+        """
+        if access_log is not None:
+            pulumi.set(__self__, "access_log", access_log)
+
+    @property
+    @pulumi.getter(name="accessLog")
+    def access_log(self) -> Optional['outputs.VirtualGatewaySpecLoggingAccessLog']:
+        """
+        The access log configuration for a virtual gateway.
+        """
+        return pulumi.get(self, "access_log")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecLoggingAccessLog(dict):
+    def __init__(__self__, *,
+                 file: Optional['outputs.VirtualGatewaySpecLoggingAccessLogFile'] = None):
+        """
+        :param 'VirtualGatewaySpecLoggingAccessLogFileArgs' file: The file object to send virtual gateway access logs to.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.VirtualGatewaySpecLoggingAccessLogFile']:
+        """
+        The file object to send virtual gateway access logs to.
+        """
+        return pulumi.get(self, "file")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualGatewaySpecLoggingAccessLogFile(dict):
+    def __init__(__self__, *,
+                 path: str):
+        """
+        :param str path: The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+        """
+        return pulumi.get(self, "path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

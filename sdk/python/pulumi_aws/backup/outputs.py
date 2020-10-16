@@ -10,12 +10,47 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'PlanAdvancedBackupSetting',
     'PlanRule',
     'PlanRuleCopyAction',
     'PlanRuleCopyActionLifecycle',
     'PlanRuleLifecycle',
     'SelectionSelectionTag',
 ]
+
+@pulumi.output_type
+class PlanAdvancedBackupSetting(dict):
+    def __init__(__self__, *,
+                 backup_options: Optional[Mapping[str, str]] = None,
+                 resource_type: Optional[str] = None):
+        """
+        :param Mapping[str, str] backup_options: Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        :param str resource_type: The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        """
+        if backup_options is not None:
+            pulumi.set(__self__, "backup_options", backup_options)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="backupOptions")
+    def backup_options(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        """
+        return pulumi.get(self, "backup_options")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        """
+        The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class PlanRule(dict):

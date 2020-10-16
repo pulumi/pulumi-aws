@@ -6,6 +6,7 @@
 from .domain import *
 from .domain_permissions import *
 from .get_authorization_token import *
+from .get_repository_endpoint import *
 from .repository import *
 from .repository_permissions_policy import *
 from ._inputs import *

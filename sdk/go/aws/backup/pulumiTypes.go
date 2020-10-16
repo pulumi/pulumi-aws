@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type PlanAdvancedBackupSetting struct {
+	// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+	BackupOptions map[string]string `pulumi:"backupOptions"`
+	// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// PlanAdvancedBackupSettingInput is an input type that accepts PlanAdvancedBackupSettingArgs and PlanAdvancedBackupSettingOutput values.
+// You can construct a concrete instance of `PlanAdvancedBackupSettingInput` via:
+//
+//          PlanAdvancedBackupSettingArgs{...}
+type PlanAdvancedBackupSettingInput interface {
+	pulumi.Input
+
+	ToPlanAdvancedBackupSettingOutput() PlanAdvancedBackupSettingOutput
+	ToPlanAdvancedBackupSettingOutputWithContext(context.Context) PlanAdvancedBackupSettingOutput
+}
+
+type PlanAdvancedBackupSettingArgs struct {
+	// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+	BackupOptions pulumi.StringMapInput `pulumi:"backupOptions"`
+	// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (PlanAdvancedBackupSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanAdvancedBackupSetting)(nil)).Elem()
+}
+
+func (i PlanAdvancedBackupSettingArgs) ToPlanAdvancedBackupSettingOutput() PlanAdvancedBackupSettingOutput {
+	return i.ToPlanAdvancedBackupSettingOutputWithContext(context.Background())
+}
+
+func (i PlanAdvancedBackupSettingArgs) ToPlanAdvancedBackupSettingOutputWithContext(ctx context.Context) PlanAdvancedBackupSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanAdvancedBackupSettingOutput)
+}
+
+// PlanAdvancedBackupSettingArrayInput is an input type that accepts PlanAdvancedBackupSettingArray and PlanAdvancedBackupSettingArrayOutput values.
+// You can construct a concrete instance of `PlanAdvancedBackupSettingArrayInput` via:
+//
+//          PlanAdvancedBackupSettingArray{ PlanAdvancedBackupSettingArgs{...} }
+type PlanAdvancedBackupSettingArrayInput interface {
+	pulumi.Input
+
+	ToPlanAdvancedBackupSettingArrayOutput() PlanAdvancedBackupSettingArrayOutput
+	ToPlanAdvancedBackupSettingArrayOutputWithContext(context.Context) PlanAdvancedBackupSettingArrayOutput
+}
+
+type PlanAdvancedBackupSettingArray []PlanAdvancedBackupSettingInput
+
+func (PlanAdvancedBackupSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanAdvancedBackupSetting)(nil)).Elem()
+}
+
+func (i PlanAdvancedBackupSettingArray) ToPlanAdvancedBackupSettingArrayOutput() PlanAdvancedBackupSettingArrayOutput {
+	return i.ToPlanAdvancedBackupSettingArrayOutputWithContext(context.Background())
+}
+
+func (i PlanAdvancedBackupSettingArray) ToPlanAdvancedBackupSettingArrayOutputWithContext(ctx context.Context) PlanAdvancedBackupSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanAdvancedBackupSettingArrayOutput)
+}
+
+type PlanAdvancedBackupSettingOutput struct{ *pulumi.OutputState }
+
+func (PlanAdvancedBackupSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanAdvancedBackupSetting)(nil)).Elem()
+}
+
+func (o PlanAdvancedBackupSettingOutput) ToPlanAdvancedBackupSettingOutput() PlanAdvancedBackupSettingOutput {
+	return o
+}
+
+func (o PlanAdvancedBackupSettingOutput) ToPlanAdvancedBackupSettingOutputWithContext(ctx context.Context) PlanAdvancedBackupSettingOutput {
+	return o
+}
+
+// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+func (o PlanAdvancedBackupSettingOutput) BackupOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanAdvancedBackupSetting) map[string]string { return v.BackupOptions }).(pulumi.StringMapOutput)
+}
+
+// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+func (o PlanAdvancedBackupSettingOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanAdvancedBackupSetting) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type PlanAdvancedBackupSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanAdvancedBackupSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanAdvancedBackupSetting)(nil)).Elem()
+}
+
+func (o PlanAdvancedBackupSettingArrayOutput) ToPlanAdvancedBackupSettingArrayOutput() PlanAdvancedBackupSettingArrayOutput {
+	return o
+}
+
+func (o PlanAdvancedBackupSettingArrayOutput) ToPlanAdvancedBackupSettingArrayOutputWithContext(ctx context.Context) PlanAdvancedBackupSettingArrayOutput {
+	return o
+}
+
+func (o PlanAdvancedBackupSettingArrayOutput) Index(i pulumi.IntInput) PlanAdvancedBackupSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanAdvancedBackupSetting {
+		return vs[0].([]PlanAdvancedBackupSetting)[vs[1].(int)]
+	}).(PlanAdvancedBackupSettingOutput)
+}
+
 type PlanRule struct {
 	// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
 	CompletionWindow *int `pulumi:"completionWindow"`
@@ -692,6 +798,8 @@ func (o SelectionSelectionTagArrayOutput) Index(i pulumi.IntInput) SelectionSele
 }
 
 func init() {
+	pulumi.RegisterOutputType(PlanAdvancedBackupSettingOutput{})
+	pulumi.RegisterOutputType(PlanAdvancedBackupSettingArrayOutput{})
 	pulumi.RegisterOutputType(PlanRuleOutput{})
 	pulumi.RegisterOutputType(PlanRuleArrayOutput{})
 	pulumi.RegisterOutputType(PlanRuleCopyActionOutput{})

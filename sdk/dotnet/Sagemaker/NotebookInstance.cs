@@ -47,6 +47,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The Git repository associated with the notebook instance as its default code repository
+        /// </summary>
+        [Output("defaultCodeRepository")]
+        public Output<string?> DefaultCodeRepository { get; private set; } = null!;
+
+        /// <summary>
         /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
         [Output("directInternetAccess")]
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Sagemaker
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+        /// </summary>
+        [Output("volumeSize")]
+        public Output<int?> VolumeSize { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NotebookInstance resource with the given unique name, arguments, and options.
@@ -152,6 +164,12 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class NotebookInstanceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Git repository associated with the notebook instance as its default code repository
+        /// </summary>
+        [Input("defaultCodeRepository")]
+        public Input<string>? DefaultCodeRepository { get; set; }
+
         /// <summary>
         /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
@@ -224,6 +242,12 @@ namespace Pulumi.Aws.Sagemaker
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+        /// </summary>
+        [Input("volumeSize")]
+        public Input<int>? VolumeSize { get; set; }
+
         public NotebookInstanceArgs()
         {
         }
@@ -236,6 +260,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The Git repository associated with the notebook instance as its default code repository
+        /// </summary>
+        [Input("defaultCodeRepository")]
+        public Input<string>? DefaultCodeRepository { get; set; }
 
         /// <summary>
         /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
@@ -308,6 +338,12 @@ namespace Pulumi.Aws.Sagemaker
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+        /// </summary>
+        [Input("volumeSize")]
+        public Input<int>? VolumeSize { get; set; }
 
         public NotebookInstanceState()
         {

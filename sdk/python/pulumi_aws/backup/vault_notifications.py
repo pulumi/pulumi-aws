@@ -47,7 +47,7 @@ class VaultNotifications(pulumi.CustomResource):
             policy=test_policy_document.json)
         test_vault_notifications = aws.backup.VaultNotifications("testVaultNotifications",
             backup_vault_name="example_backup_vault",
-            sns_topic_arn=sns_topic_arn["test"]["arn"],
+            sns_topic_arn=test_topic.arn,
             backup_vault_events=[
                 "BACKUP_JOB_STARTED",
                 "RESTORE_JOB_COMPLETED",

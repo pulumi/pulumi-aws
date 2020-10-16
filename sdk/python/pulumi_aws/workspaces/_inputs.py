@@ -10,8 +10,10 @@ from .. import _utilities, _tables
 
 __all__ = [
     'DirectorySelfServicePermissionsArgs',
+    'DirectoryWorkspaceCreationPropertiesArgs',
     'IpGroupRuleArgs',
     'WorkspaceWorkspacePropertiesArgs',
+    'GetDirectoryWorkspaceCreationPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -99,6 +101,93 @@ class DirectorySelfServicePermissionsArgs:
     @switch_running_mode.setter
     def switch_running_mode(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "switch_running_mode", value)
+
+
+@pulumi.input_type
+class DirectoryWorkspaceCreationPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_security_group_id: Optional[pulumi.Input[str]] = None,
+                 default_ou: Optional[pulumi.Input[str]] = None,
+                 enable_internet_access: Optional[pulumi.Input[bool]] = None,
+                 enable_maintenance_mode: Optional[pulumi.Input[bool]] = None,
+                 user_enabled_as_local_administrator: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        :param pulumi.Input[str] default_ou: The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+        :param pulumi.Input[bool] enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
+        :param pulumi.Input[bool] enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        :param pulumi.Input[bool] user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces.
+        """
+        if custom_security_group_id is not None:
+            pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
+        if default_ou is not None:
+            pulumi.set(__self__, "default_ou", default_ou)
+        if enable_internet_access is not None:
+            pulumi.set(__self__, "enable_internet_access", enable_internet_access)
+        if enable_maintenance_mode is not None:
+            pulumi.set(__self__, "enable_maintenance_mode", enable_maintenance_mode)
+        if user_enabled_as_local_administrator is not None:
+            pulumi.set(__self__, "user_enabled_as_local_administrator", user_enabled_as_local_administrator)
+
+    @property
+    @pulumi.getter(name="customSecurityGroupId")
+    def custom_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        """
+        return pulumi.get(self, "custom_security_group_id")
+
+    @custom_security_group_id.setter
+    def custom_security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_security_group_id", value)
+
+    @property
+    @pulumi.getter(name="defaultOu")
+    def default_ou(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+        """
+        return pulumi.get(self, "default_ou")
+
+    @default_ou.setter
+    def default_ou(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_ou", value)
+
+    @property
+    @pulumi.getter(name="enableInternetAccess")
+    def enable_internet_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether internet access is enabled for your WorkSpaces.
+        """
+        return pulumi.get(self, "enable_internet_access")
+
+    @enable_internet_access.setter
+    def enable_internet_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_internet_access", value)
+
+    @property
+    @pulumi.getter(name="enableMaintenanceMode")
+    def enable_maintenance_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        """
+        return pulumi.get(self, "enable_maintenance_mode")
+
+    @enable_maintenance_mode.setter
+    def enable_maintenance_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_maintenance_mode", value)
+
+    @property
+    @pulumi.getter(name="userEnabledAsLocalAdministrator")
+    def user_enabled_as_local_administrator(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether users are local administrators of their WorkSpaces.
+        """
+        return pulumi.get(self, "user_enabled_as_local_administrator")
+
+    @user_enabled_as_local_administrator.setter
+    def user_enabled_as_local_administrator(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "user_enabled_as_local_administrator", value)
 
 
 @pulumi.input_type
@@ -224,5 +313,91 @@ class WorkspaceWorkspacePropertiesArgs:
     @user_volume_size_gib.setter
     def user_volume_size_gib(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "user_volume_size_gib", value)
+
+
+@pulumi.input_type
+class GetDirectoryWorkspaceCreationPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_security_group_id: str,
+                 default_ou: Optional[str] = None,
+                 enable_internet_access: Optional[bool] = None,
+                 enable_maintenance_mode: Optional[bool] = None,
+                 user_enabled_as_local_administrator: Optional[bool] = None):
+        """
+        :param str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        :param str default_ou: The default organizational unit (OU) for your WorkSpace directories.
+        :param bool enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
+        :param bool enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
+        :param bool user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces.
+        """
+        pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
+        if default_ou is not None:
+            pulumi.set(__self__, "default_ou", default_ou)
+        if enable_internet_access is not None:
+            pulumi.set(__self__, "enable_internet_access", enable_internet_access)
+        if enable_maintenance_mode is not None:
+            pulumi.set(__self__, "enable_maintenance_mode", enable_maintenance_mode)
+        if user_enabled_as_local_administrator is not None:
+            pulumi.set(__self__, "user_enabled_as_local_administrator", user_enabled_as_local_administrator)
+
+    @property
+    @pulumi.getter(name="customSecurityGroupId")
+    def custom_security_group_id(self) -> str:
+        """
+        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        """
+        return pulumi.get(self, "custom_security_group_id")
+
+    @custom_security_group_id.setter
+    def custom_security_group_id(self, value: str):
+        pulumi.set(self, "custom_security_group_id", value)
+
+    @property
+    @pulumi.getter(name="defaultOu")
+    def default_ou(self) -> Optional[str]:
+        """
+        The default organizational unit (OU) for your WorkSpace directories.
+        """
+        return pulumi.get(self, "default_ou")
+
+    @default_ou.setter
+    def default_ou(self, value: Optional[str]):
+        pulumi.set(self, "default_ou", value)
+
+    @property
+    @pulumi.getter(name="enableInternetAccess")
+    def enable_internet_access(self) -> Optional[bool]:
+        """
+        Indicates whether internet access is enabled for your WorkSpaces.
+        """
+        return pulumi.get(self, "enable_internet_access")
+
+    @enable_internet_access.setter
+    def enable_internet_access(self, value: Optional[bool]):
+        pulumi.set(self, "enable_internet_access", value)
+
+    @property
+    @pulumi.getter(name="enableMaintenanceMode")
+    def enable_maintenance_mode(self) -> Optional[bool]:
+        """
+        Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
+        """
+        return pulumi.get(self, "enable_maintenance_mode")
+
+    @enable_maintenance_mode.setter
+    def enable_maintenance_mode(self, value: Optional[bool]):
+        pulumi.set(self, "enable_maintenance_mode", value)
+
+    @property
+    @pulumi.getter(name="userEnabledAsLocalAdministrator")
+    def user_enabled_as_local_administrator(self) -> Optional[bool]:
+        """
+        Indicates whether users are local administrators of their WorkSpaces.
+        """
+        return pulumi.get(self, "user_enabled_as_local_administrator")
+
+    @user_enabled_as_local_administrator.setter
+    def user_enabled_as_local_administrator(self, value: Optional[bool]):
+        pulumi.set(self, "user_enabled_as_local_administrator", value)
 
 

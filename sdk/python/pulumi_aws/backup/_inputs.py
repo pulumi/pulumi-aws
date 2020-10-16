@@ -9,12 +9,52 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'PlanAdvancedBackupSettingArgs',
     'PlanRuleArgs',
     'PlanRuleCopyActionArgs',
     'PlanRuleCopyActionLifecycleArgs',
     'PlanRuleLifecycleArgs',
     'SelectionSelectionTagArgs',
 ]
+
+@pulumi.input_type
+class PlanAdvancedBackupSettingArgs:
+    def __init__(__self__, *,
+                 backup_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_options: Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        :param pulumi.Input[str] resource_type: The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        """
+        if backup_options is not None:
+            pulumi.set(__self__, "backup_options", backup_options)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="backupOptions")
+    def backup_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+        """
+        return pulumi.get(self, "backup_options")
+
+    @backup_options.setter
+    def backup_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "backup_options", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
 
 @pulumi.input_type
 class PlanRuleArgs:

@@ -16,11 +16,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Plan("example", {rules: [{
- *     ruleName: "tf_example_backup_rule",
- *     targetVaultName: aws_backup_vault.test.name,
- *     schedule: "cron(0 12 * * ? *)",
- * }]});
+ * const example = new aws.backup.Plan("example", {
+ *     rules: [{
+ *         ruleName: "tf_example_backup_rule",
+ *         targetVaultName: aws_backup_vault.test.name,
+ *         schedule: "cron(0 12 * * ? *)",
+ *     }],
+ *     advancedBackupSettings: [{
+ *         backupOptions: {
+ *             WindowsVSS: "enabled",
+ *         },
+ *         resourceType: "EC2",
+ *     }],
+ * });
  * ```
  */
 export class Plan extends pulumi.CustomResource {
@@ -51,6 +59,10 @@ export class Plan extends pulumi.CustomResource {
         return obj['__pulumiType'] === Plan.__pulumiType;
     }
 
+    /**
+     * An object that specifies backup options for each resource type.
+     */
+    public readonly advancedBackupSettings!: pulumi.Output<outputs.backup.PlanAdvancedBackupSetting[] | undefined>;
     /**
      * The ARN of the backup plan.
      */
@@ -84,6 +96,7 @@ export class Plan extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PlanState | undefined;
+            inputs["advancedBackupSettings"] = state ? state.advancedBackupSettings : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;
@@ -94,6 +107,7 @@ export class Plan extends pulumi.CustomResource {
             if (!args || args.rules === undefined) {
                 throw new Error("Missing required property 'rules'");
             }
+            inputs["advancedBackupSettings"] = args ? args.advancedBackupSettings : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -115,6 +129,10 @@ export class Plan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Plan resources.
  */
 export interface PlanState {
+    /**
+     * An object that specifies backup options for each resource type.
+     */
+    readonly advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
     /**
      * The ARN of the backup plan.
      */
@@ -141,6 +159,10 @@ export interface PlanState {
  * The set of arguments for constructing a Plan resource.
  */
 export interface PlanArgs {
+    /**
+     * An object that specifies backup options for each resource type.
+     */
+    readonly advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
     /**
      * The display name of a backup plan.
      */

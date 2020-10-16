@@ -224,6 +224,7 @@ namespace Pulumi.Aws
                 public string? Route53resolver { get; set; } = null!;
                 public string? S3 { get; set; } = null!;
                 public string? S3control { get; set; } = null!;
+                public string? S3outposts { get; set; } = null!;
                 public string? Sagemaker { get; set; } = null!;
                 public string? Sdb { get; set; } = null!;
                 public string? Secretsmanager { get; set; } = null!;

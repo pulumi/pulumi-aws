@@ -220,6 +220,7 @@ export interface ProviderEndpoint {
     route53resolver?: string;
     s3?: string;
     s3control?: string;
+    s3outposts?: string;
     sagemaker?: string;
     sdb?: string;
     secretsmanager?: string;
@@ -2042,6 +2043,138 @@ export namespace applicationloadbalancing {
 }
 
 export namespace appmesh {
+    export interface GatewayRouteSpec {
+        /**
+         * The specification of a gRPC gateway route.
+         */
+        grpcRoute?: outputs.appmesh.GatewayRouteSpecGrpcRoute;
+        /**
+         * The specification of an HTTP/2 gateway route.
+         */
+        http2Route?: outputs.appmesh.GatewayRouteSpecHttp2Route;
+        /**
+         * The specification of an HTTP gateway route.
+         */
+        httpRoute?: outputs.appmesh.GatewayRouteSpecHttpRoute;
+    }
+
+    export interface GatewayRouteSpecGrpcRoute {
+        /**
+         * The action to take if a match is determined.
+         */
+        action: outputs.appmesh.GatewayRouteSpecGrpcRouteAction;
+        /**
+         * The criteria for determining a request match.
+         */
+        match: outputs.appmesh.GatewayRouteSpecGrpcRouteMatch;
+    }
+
+    export interface GatewayRouteSpecGrpcRouteAction {
+        /**
+         * The target that traffic is routed to when a request matches the gateway route.
+         */
+        target: outputs.appmesh.GatewayRouteSpecGrpcRouteActionTarget;
+    }
+
+    export interface GatewayRouteSpecGrpcRouteActionTarget {
+        /**
+         * The virtual service gateway route target.
+         */
+        virtualService: outputs.appmesh.GatewayRouteSpecGrpcRouteActionTargetVirtualService;
+    }
+
+    export interface GatewayRouteSpecGrpcRouteActionTargetVirtualService {
+        /**
+         * The name of the virtual service that traffic is routed to.
+         */
+        virtualServiceName: string;
+    }
+
+    export interface GatewayRouteSpecGrpcRouteMatch {
+        /**
+         * The fully qualified domain name for the service to match from the request.
+         */
+        serviceName: string;
+    }
+
+    export interface GatewayRouteSpecHttp2Route {
+        /**
+         * The action to take if a match is determined.
+         */
+        action: outputs.appmesh.GatewayRouteSpecHttp2RouteAction;
+        /**
+         * The criteria for determining a request match.
+         */
+        match: outputs.appmesh.GatewayRouteSpecHttp2RouteMatch;
+    }
+
+    export interface GatewayRouteSpecHttp2RouteAction {
+        /**
+         * The target that traffic is routed to when a request matches the gateway route.
+         */
+        target: outputs.appmesh.GatewayRouteSpecHttp2RouteActionTarget;
+    }
+
+    export interface GatewayRouteSpecHttp2RouteActionTarget {
+        /**
+         * The virtual service gateway route target.
+         */
+        virtualService: outputs.appmesh.GatewayRouteSpecHttp2RouteActionTargetVirtualService;
+    }
+
+    export interface GatewayRouteSpecHttp2RouteActionTargetVirtualService {
+        /**
+         * The name of the virtual service that traffic is routed to.
+         */
+        virtualServiceName: string;
+    }
+
+    export interface GatewayRouteSpecHttp2RouteMatch {
+        /**
+         * Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+         */
+        prefix: string;
+    }
+
+    export interface GatewayRouteSpecHttpRoute {
+        /**
+         * The action to take if a match is determined.
+         */
+        action: outputs.appmesh.GatewayRouteSpecHttpRouteAction;
+        /**
+         * The criteria for determining a request match.
+         */
+        match: outputs.appmesh.GatewayRouteSpecHttpRouteMatch;
+    }
+
+    export interface GatewayRouteSpecHttpRouteAction {
+        /**
+         * The target that traffic is routed to when a request matches the gateway route.
+         */
+        target: outputs.appmesh.GatewayRouteSpecHttpRouteActionTarget;
+    }
+
+    export interface GatewayRouteSpecHttpRouteActionTarget {
+        /**
+         * The virtual service gateway route target.
+         */
+        virtualService: outputs.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualService;
+    }
+
+    export interface GatewayRouteSpecHttpRouteActionTargetVirtualService {
+        /**
+         * The name of the virtual service that traffic is routed to.
+         */
+        virtualServiceName: string;
+    }
+
+    export interface GatewayRouteSpecHttpRouteMatch {
+        /**
+         * Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+         */
+        prefix: string;
+    }
+
     export interface MeshSpec {
         /**
          * The egress filter rules for the service mesh.
@@ -2651,6 +2784,197 @@ export namespace appmesh {
          * The number of time units. Minimum value of `0`.
          */
         value: number;
+    }
+
+    export interface VirtualGatewaySpec {
+        /**
+         * The defaults for backends.
+         */
+        backendDefaults?: outputs.appmesh.VirtualGatewaySpecBackendDefaults;
+        /**
+         * The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+         */
+        listener: outputs.appmesh.VirtualGatewaySpecListener;
+        /**
+         * The inbound and outbound access logging information for the virtual gateway.
+         */
+        logging?: outputs.appmesh.VirtualGatewaySpecLogging;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaults {
+        /**
+         * The default client policy for virtual gateway backends.
+         */
+        clientPolicy?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicy;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicy {
+        /**
+         * The Transport Layer Security (TLS) client policy.
+         */
+        tls?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTls;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTls {
+        enforce?: boolean;
+        /**
+         * One or more ports that the policy is enforced for.
+         */
+        ports?: number[];
+        /**
+         * The TLS validation context.
+         */
+        validation: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
+        /**
+         * The TLS validation context trust.
+         */
+        trust: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
+        /**
+         * The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+         */
+        acm?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
+        /**
+         * The TLS validation context trust for a local file.
+         */
+        file?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile;
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+        /**
+         * One or more ACM Amazon Resource Name (ARN)s.
+         */
+        certificateAuthorityArns: string[];
+    }
+
+    export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
+        /**
+         * The certificate chain for the certificate.
+         */
+        certificateChain: string;
+    }
+
+    export interface VirtualGatewaySpecListener {
+        /**
+         * The health check information for the listener.
+         */
+        healthCheck?: outputs.appmesh.VirtualGatewaySpecListenerHealthCheck;
+        /**
+         * The port mapping information for the listener.
+         */
+        portMapping: outputs.appmesh.VirtualGatewaySpecListenerPortMapping;
+        /**
+         * The Transport Layer Security (TLS) properties for the listener
+         */
+        tls?: outputs.appmesh.VirtualGatewaySpecListenerTls;
+    }
+
+    export interface VirtualGatewaySpecListenerHealthCheck {
+        /**
+         * The number of consecutive successful health checks that must occur before declaring listener healthy.
+         */
+        healthyThreshold: number;
+        /**
+         * The time period in milliseconds between each health check execution.
+         */
+        intervalMillis: number;
+        /**
+         * The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+         */
+        path?: string;
+        /**
+         * The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+         */
+        port: number;
+        /**
+         * The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+         */
+        protocol: string;
+        /**
+         * The amount of time to wait when receiving a response from the health check, in milliseconds.
+         */
+        timeoutMillis: number;
+        /**
+         * The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+         */
+        unhealthyThreshold: number;
+    }
+
+    export interface VirtualGatewaySpecListenerPortMapping {
+        /**
+         * The port used for the port mapping.
+         */
+        port: number;
+        /**
+         * The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+         */
+        protocol: string;
+    }
+
+    export interface VirtualGatewaySpecListenerTls {
+        /**
+         * The listener's TLS certificate.
+         */
+        certificate: outputs.appmesh.VirtualGatewaySpecListenerTlsCertificate;
+        /**
+         * The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+         */
+        mode: string;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsCertificate {
+        /**
+         * An AWS Certificate Manager (ACM) certificate.
+         */
+        acm?: outputs.appmesh.VirtualGatewaySpecListenerTlsCertificateAcm;
+        /**
+         * A local file certificate.
+         */
+        file?: outputs.appmesh.VirtualGatewaySpecListenerTlsCertificateFile;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsCertificateAcm {
+        /**
+         * The Amazon Resource Name (ARN) for the certificate.
+         */
+        certificateArn: string;
+    }
+
+    export interface VirtualGatewaySpecListenerTlsCertificateFile {
+        /**
+         * The certificate chain for the certificate.
+         */
+        certificateChain: string;
+        /**
+         * The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+         */
+        privateKey: string;
+    }
+
+    export interface VirtualGatewaySpecLogging {
+        /**
+         * The access log configuration for a virtual gateway.
+         */
+        accessLog?: outputs.appmesh.VirtualGatewaySpecLoggingAccessLog;
+    }
+
+    export interface VirtualGatewaySpecLoggingAccessLog {
+        /**
+         * The file object to send virtual gateway access logs to.
+         */
+        file?: outputs.appmesh.VirtualGatewaySpecLoggingAccessLogFile;
+    }
+
+    export interface VirtualGatewaySpecLoggingAccessLogFile {
+        /**
+         * The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+         */
+        path: string;
     }
 
     export interface VirtualNodeSpec {
@@ -3578,6 +3902,17 @@ export namespace autoscaling {
 }
 
 export namespace backup {
+    export interface PlanAdvancedBackupSetting {
+        /**
+         * Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
+         */
+        backupOptions?: {[key: string]: string};
+        /**
+         * The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
+         */
+        resourceType?: string;
+    }
+
     export interface PlanRule {
         /**
          * The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
@@ -6013,6 +6348,7 @@ export namespace config {
         route53resolver?: string;
         s3?: string;
         s3control?: string;
+        s3outposts?: string;
         sagemaker?: string;
         sdb?: string;
         secretsmanager?: string;
@@ -32921,7 +33257,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementExcludedRule {
         /**
-         * The name of the rule to exclude.
+         * The name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
          */
         name: string;
     }
@@ -53316,7 +53652,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRuleGroupReferenceStatementExcludedRule {
         /**
-         * The name of the rule to exclude.
+         * The name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
          */
         name: string;
     }
@@ -53658,6 +53994,29 @@ export namespace workspaces {
         switchRunningMode?: boolean;
     }
 
+    export interface DirectoryWorkspaceCreationProperties {
+        /**
+         * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+         */
+        customSecurityGroupId?: string;
+        /**
+         * The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+         */
+        defaultOu?: string;
+        /**
+         * Indicates whether internet access is enabled for your WorkSpaces.
+         */
+        enableInternetAccess?: boolean;
+        /**
+         * Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+         */
+        enableMaintenanceMode?: boolean;
+        /**
+         * Indicates whether users are local administrators of their WorkSpaces.
+         */
+        userEnabledAsLocalAdministrator?: boolean;
+    }
+
     export interface GetBundleComputeType {
         /**
          * The name of the bundle. You cannot combine this parameter with `bundleId`.
@@ -53700,6 +54059,29 @@ export namespace workspaces {
          * Whether WorkSpaces directory users can switch the running mode of their workspace.
          */
         switchRunningMode: boolean;
+    }
+
+    export interface GetDirectoryWorkspaceCreationProperties {
+        /**
+         * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+         */
+        customSecurityGroupId: string;
+        /**
+         * The default organizational unit (OU) for your WorkSpace directories.
+         */
+        defaultOu?: string;
+        /**
+         * Indicates whether internet access is enabled for your WorkSpaces.
+         */
+        enableInternetAccess?: boolean;
+        /**
+         * Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
+         */
+        enableMaintenanceMode?: boolean;
+        /**
+         * Indicates whether users are local administrators of their WorkSpaces.
+         */
+        userEnabledAsLocalAdministrator?: boolean;
     }
 
     export interface IpGroupRule {
