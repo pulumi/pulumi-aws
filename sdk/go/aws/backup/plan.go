@@ -32,6 +32,14 @@ import (
 // 					Schedule:        pulumi.String("cron(0 12 * * ? *)"),
 // 				},
 // 			},
+// 			AdvancedBackupSettings: backup.PlanAdvancedBackupSettingArray{
+// 				&backup.PlanAdvancedBackupSettingArgs{
+// 					BackupOptions: pulumi.StringMap{
+// 						"WindowsVSS": pulumi.String("enabled"),
+// 					},
+// 					ResourceType: pulumi.String("EC2"),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -43,6 +51,8 @@ import (
 type Plan struct {
 	pulumi.CustomResourceState
 
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings PlanAdvancedBackupSettingArrayOutput `pulumi:"advancedBackupSettings"`
 	// The ARN of the backup plan.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The display name of a backup plan.
@@ -86,6 +96,8 @@ func GetPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Plan resources.
 type planState struct {
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`
 	// The ARN of the backup plan.
 	Arn *string `pulumi:"arn"`
 	// The display name of a backup plan.
@@ -99,6 +111,8 @@ type planState struct {
 }
 
 type PlanState struct {
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings PlanAdvancedBackupSettingArrayInput
 	// The ARN of the backup plan.
 	Arn pulumi.StringPtrInput
 	// The display name of a backup plan.
@@ -116,6 +130,8 @@ func (PlanState) ElementType() reflect.Type {
 }
 
 type planArgs struct {
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`
 	// The display name of a backup plan.
 	Name *string `pulumi:"name"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
@@ -126,6 +142,8 @@ type planArgs struct {
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
+	// An object that specifies backup options for each resource type.
+	AdvancedBackupSettings PlanAdvancedBackupSettingArrayInput
 	// The display name of a backup plan.
 	Name pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.

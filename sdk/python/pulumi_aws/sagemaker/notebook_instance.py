@@ -15,6 +15,7 @@ class NotebookInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_code_repository: Optional[pulumi.Input[str]] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -25,6 +26,7 @@ class NotebookInstance(pulumi.CustomResource):
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_size: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -49,6 +51,7 @@ class NotebookInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_code_repository: The Git repository associated with the notebook instance as its default code repository
         :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
@@ -59,6 +62,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,6 +81,7 @@ class NotebookInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['default_code_repository'] = default_code_repository
             __props__['direct_internet_access'] = direct_internet_access
             if instance_type is None:
                 raise TypeError("Missing required property 'instance_type'")
@@ -91,6 +96,7 @@ class NotebookInstance(pulumi.CustomResource):
             __props__['security_groups'] = security_groups
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            __props__['volume_size'] = volume_size
             __props__['arn'] = None
         super(NotebookInstance, __self__).__init__(
             'aws:sagemaker/notebookInstance:NotebookInstance',
@@ -103,6 +109,7 @@ class NotebookInstance(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            default_code_repository: Optional[pulumi.Input[str]] = None,
             direct_internet_access: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -112,7 +119,8 @@ class NotebookInstance(pulumi.CustomResource):
             root_access: Optional[pulumi.Input[str]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NotebookInstance':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            volume_size: Optional[pulumi.Input[int]] = None) -> 'NotebookInstance':
         """
         Get an existing NotebookInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -121,6 +129,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+        :param pulumi.Input[str] default_code_repository: The Git repository associated with the notebook instance as its default code repository
         :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
@@ -131,12 +140,14 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
         __props__["arn"] = arn
+        __props__["default_code_repository"] = default_code_repository
         __props__["direct_internet_access"] = direct_internet_access
         __props__["instance_type"] = instance_type
         __props__["kms_key_id"] = kms_key_id
@@ -147,6 +158,7 @@ class NotebookInstance(pulumi.CustomResource):
         __props__["security_groups"] = security_groups
         __props__["subnet_id"] = subnet_id
         __props__["tags"] = tags
+        __props__["volume_size"] = volume_size
         return NotebookInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -156,6 +168,14 @@ class NotebookInstance(pulumi.CustomResource):
         The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="defaultCodeRepository")
+    def default_code_repository(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Git repository associated with the notebook instance as its default code repository
+        """
+        return pulumi.get(self, "default_code_repository")
 
     @property
     @pulumi.getter(name="directInternetAccess")
@@ -236,6 +256,14 @@ class NotebookInstance(pulumi.CustomResource):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+        """
+        return pulumi.get(self, "volume_size")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

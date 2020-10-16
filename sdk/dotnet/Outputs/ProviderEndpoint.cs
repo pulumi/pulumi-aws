@@ -128,6 +128,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Route53resolver;
         public readonly string? S3;
         public readonly string? S3control;
+        public readonly string? S3outposts;
         public readonly string? Sagemaker;
         public readonly string? Sdb;
         public readonly string? Secretsmanager;
@@ -389,6 +390,8 @@ namespace Pulumi.Aws.Outputs
 
             string? s3control,
 
+            string? s3outposts,
+
             string? sagemaker,
 
             string? sdb,
@@ -560,6 +563,7 @@ namespace Pulumi.Aws.Outputs
             Route53resolver = route53resolver;
             S3 = s3;
             S3control = s3control;
+            S3outposts = s3outposts;
             Sagemaker = sagemaker;
             Sdb = sdb;
             Secretsmanager = secretsmanager;

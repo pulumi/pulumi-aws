@@ -58,7 +58,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
         :param pulumi.Input[str] operation_name: The operation name for the route.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: The request models for the route.
-        :param pulumi.Input[str] route_key: The route key for the route.
+        :param pulumi.Input[str] route_key: The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         :param pulumi.Input[str] route_response_selection_expression: The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
         :param pulumi.Input[str] target: The target for the route.
         """
@@ -133,7 +133,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
         :param pulumi.Input[str] operation_name: The operation name for the route.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: The request models for the route.
-        :param pulumi.Input[str] route_key: The route key for the route.
+        :param pulumi.Input[str] route_key: The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         :param pulumi.Input[str] route_response_selection_expression: The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
         :param pulumi.Input[str] target: The target for the route.
         """
@@ -225,7 +225,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="routeKey")
     def route_key(self) -> pulumi.Output[str]:
         """
-        The route key for the route.
+        The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         """
         return pulumi.get(self, "route_key")
 

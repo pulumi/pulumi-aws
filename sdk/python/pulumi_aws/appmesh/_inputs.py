@@ -9,6 +9,22 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'GatewayRouteSpecArgs',
+    'GatewayRouteSpecGrpcRouteArgs',
+    'GatewayRouteSpecGrpcRouteActionArgs',
+    'GatewayRouteSpecGrpcRouteActionTargetArgs',
+    'GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs',
+    'GatewayRouteSpecGrpcRouteMatchArgs',
+    'GatewayRouteSpecHttp2RouteArgs',
+    'GatewayRouteSpecHttp2RouteActionArgs',
+    'GatewayRouteSpecHttp2RouteActionTargetArgs',
+    'GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs',
+    'GatewayRouteSpecHttp2RouteMatchArgs',
+    'GatewayRouteSpecHttpRouteArgs',
+    'GatewayRouteSpecHttpRouteActionArgs',
+    'GatewayRouteSpecHttpRouteActionTargetArgs',
+    'GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs',
+    'GatewayRouteSpecHttpRouteMatchArgs',
     'MeshSpecArgs',
     'MeshSpecEgressFilterArgs',
     'RouteSpecArgs',
@@ -53,6 +69,24 @@ __all__ = [
     'RouteSpecTcpRouteActionWeightedTargetArgs',
     'RouteSpecTcpRouteTimeoutArgs',
     'RouteSpecTcpRouteTimeoutIdleArgs',
+    'VirtualGatewaySpecArgs',
+    'VirtualGatewaySpecBackendDefaultsArgs',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyArgs',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs',
+    'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs',
+    'VirtualGatewaySpecListenerArgs',
+    'VirtualGatewaySpecListenerHealthCheckArgs',
+    'VirtualGatewaySpecListenerPortMappingArgs',
+    'VirtualGatewaySpecListenerTlsArgs',
+    'VirtualGatewaySpecListenerTlsCertificateArgs',
+    'VirtualGatewaySpecListenerTlsCertificateAcmArgs',
+    'VirtualGatewaySpecListenerTlsCertificateFileArgs',
+    'VirtualGatewaySpecLoggingArgs',
+    'VirtualGatewaySpecLoggingAccessLogArgs',
+    'VirtualGatewaySpecLoggingAccessLogFileArgs',
     'VirtualNodeSpecArgs',
     'VirtualNodeSpecBackendArgs',
     'VirtualNodeSpecBackendDefaultsArgs',
@@ -102,6 +136,436 @@ __all__ = [
     'VirtualServiceSpecProviderVirtualNodeArgs',
     'VirtualServiceSpecProviderVirtualRouterArgs',
 ]
+
+@pulumi.input_type
+class GatewayRouteSpecArgs:
+    def __init__(__self__, *,
+                 grpc_route: Optional[pulumi.Input['GatewayRouteSpecGrpcRouteArgs']] = None,
+                 http2_route: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteArgs']] = None,
+                 http_route: Optional[pulumi.Input['GatewayRouteSpecHttpRouteArgs']] = None):
+        """
+        :param pulumi.Input['GatewayRouteSpecGrpcRouteArgs'] grpc_route: The specification of a gRPC gateway route.
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteArgs'] http2_route: The specification of an HTTP/2 gateway route.
+        :param pulumi.Input['GatewayRouteSpecHttpRouteArgs'] http_route: The specification of an HTTP gateway route.
+        """
+        if grpc_route is not None:
+            pulumi.set(__self__, "grpc_route", grpc_route)
+        if http2_route is not None:
+            pulumi.set(__self__, "http2_route", http2_route)
+        if http_route is not None:
+            pulumi.set(__self__, "http_route", http_route)
+
+    @property
+    @pulumi.getter(name="grpcRoute")
+    def grpc_route(self) -> Optional[pulumi.Input['GatewayRouteSpecGrpcRouteArgs']]:
+        """
+        The specification of a gRPC gateway route.
+        """
+        return pulumi.get(self, "grpc_route")
+
+    @grpc_route.setter
+    def grpc_route(self, value: Optional[pulumi.Input['GatewayRouteSpecGrpcRouteArgs']]):
+        pulumi.set(self, "grpc_route", value)
+
+    @property
+    @pulumi.getter(name="http2Route")
+    def http2_route(self) -> Optional[pulumi.Input['GatewayRouteSpecHttp2RouteArgs']]:
+        """
+        The specification of an HTTP/2 gateway route.
+        """
+        return pulumi.get(self, "http2_route")
+
+    @http2_route.setter
+    def http2_route(self, value: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteArgs']]):
+        pulumi.set(self, "http2_route", value)
+
+    @property
+    @pulumi.getter(name="httpRoute")
+    def http_route(self) -> Optional[pulumi.Input['GatewayRouteSpecHttpRouteArgs']]:
+        """
+        The specification of an HTTP gateway route.
+        """
+        return pulumi.get(self, "http_route")
+
+    @http_route.setter
+    def http_route(self, value: Optional[pulumi.Input['GatewayRouteSpecHttpRouteArgs']]):
+        pulumi.set(self, "http_route", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecGrpcRouteArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['GatewayRouteSpecGrpcRouteActionArgs'],
+                 match: pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecGrpcRouteActionArgs'] action: The action to take if a match is determined.
+        :param pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgs'] match: The criteria for determining a request match.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['GatewayRouteSpecGrpcRouteActionArgs']:
+        """
+        The action to take if a match is determined.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['GatewayRouteSpecGrpcRouteActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def match(self) -> pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgs']:
+        """
+        The criteria for determining a request match.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgs']):
+        pulumi.set(self, "match", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecGrpcRouteActionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetArgs'] target: The target that traffic is routed to when a request matches the gateway route.
+        """
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetArgs']:
+        """
+        The target that traffic is routed to when a request matches the gateway route.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetArgs']):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecGrpcRouteActionTargetArgs:
+    def __init__(__self__, *,
+                 virtual_service: pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs'] virtual_service: The virtual service gateway route target.
+        """
+        pulumi.set(__self__, "virtual_service", virtual_service)
+
+    @property
+    @pulumi.getter(name="virtualService")
+    def virtual_service(self) -> pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs']:
+        """
+        The virtual service gateway route target.
+        """
+        return pulumi.get(self, "virtual_service")
+
+    @virtual_service.setter
+    def virtual_service(self, value: pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs']):
+        pulumi.set(self, "virtual_service", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs:
+    def __init__(__self__, *,
+                 virtual_service_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] virtual_service_name: The name of the virtual service that traffic is routed to.
+        """
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+
+    @property
+    @pulumi.getter(name="virtualServiceName")
+    def virtual_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the virtual service that traffic is routed to.
+        """
+        return pulumi.get(self, "virtual_service_name")
+
+    @virtual_service_name.setter
+    def virtual_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_service_name", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecGrpcRouteMatchArgs:
+    def __init__(__self__, *,
+                 service_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] service_name: The fully qualified domain name for the service to match from the request.
+        """
+        pulumi.set(__self__, "service_name", service_name)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        The fully qualified domain name for the service to match from the request.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttp2RouteArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['GatewayRouteSpecHttp2RouteActionArgs'],
+                 match: pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteActionArgs'] action: The action to take if a match is determined.
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgs'] match: The criteria for determining a request match.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['GatewayRouteSpecHttp2RouteActionArgs']:
+        """
+        The action to take if a match is determined.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['GatewayRouteSpecHttp2RouteActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def match(self) -> pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgs']:
+        """
+        The criteria for determining a request match.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgs']):
+        pulumi.set(self, "match", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttp2RouteActionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetArgs'] target: The target that traffic is routed to when a request matches the gateway route.
+        """
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetArgs']:
+        """
+        The target that traffic is routed to when a request matches the gateway route.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetArgs']):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttp2RouteActionTargetArgs:
+    def __init__(__self__, *,
+                 virtual_service: pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs'] virtual_service: The virtual service gateway route target.
+        """
+        pulumi.set(__self__, "virtual_service", virtual_service)
+
+    @property
+    @pulumi.getter(name="virtualService")
+    def virtual_service(self) -> pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs']:
+        """
+        The virtual service gateway route target.
+        """
+        return pulumi.get(self, "virtual_service")
+
+    @virtual_service.setter
+    def virtual_service(self, value: pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs']):
+        pulumi.set(self, "virtual_service", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs:
+    def __init__(__self__, *,
+                 virtual_service_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] virtual_service_name: The name of the virtual service that traffic is routed to.
+        """
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+
+    @property
+    @pulumi.getter(name="virtualServiceName")
+    def virtual_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the virtual service that traffic is routed to.
+        """
+        return pulumi.get(self, "virtual_service_name")
+
+    @virtual_service_name.setter
+    def virtual_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_service_name", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttp2RouteMatchArgs:
+    def __init__(__self__, *,
+                 prefix: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] prefix: Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        """
+        Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttpRouteArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['GatewayRouteSpecHttpRouteActionArgs'],
+                 match: pulumi.Input['GatewayRouteSpecHttpRouteMatchArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecHttpRouteActionArgs'] action: The action to take if a match is determined.
+        :param pulumi.Input['GatewayRouteSpecHttpRouteMatchArgs'] match: The criteria for determining a request match.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['GatewayRouteSpecHttpRouteActionArgs']:
+        """
+        The action to take if a match is determined.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['GatewayRouteSpecHttpRouteActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def match(self) -> pulumi.Input['GatewayRouteSpecHttpRouteMatchArgs']:
+        """
+        The criteria for determining a request match.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: pulumi.Input['GatewayRouteSpecHttpRouteMatchArgs']):
+        pulumi.set(self, "match", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttpRouteActionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input['GatewayRouteSpecHttpRouteActionTargetArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecHttpRouteActionTargetArgs'] target: The target that traffic is routed to when a request matches the gateway route.
+        """
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['GatewayRouteSpecHttpRouteActionTargetArgs']:
+        """
+        The target that traffic is routed to when a request matches the gateway route.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['GatewayRouteSpecHttpRouteActionTargetArgs']):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttpRouteActionTargetArgs:
+    def __init__(__self__, *,
+                 virtual_service: pulumi.Input['GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs']):
+        """
+        :param pulumi.Input['GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs'] virtual_service: The virtual service gateway route target.
+        """
+        pulumi.set(__self__, "virtual_service", virtual_service)
+
+    @property
+    @pulumi.getter(name="virtualService")
+    def virtual_service(self) -> pulumi.Input['GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs']:
+        """
+        The virtual service gateway route target.
+        """
+        return pulumi.get(self, "virtual_service")
+
+    @virtual_service.setter
+    def virtual_service(self, value: pulumi.Input['GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs']):
+        pulumi.set(self, "virtual_service", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs:
+    def __init__(__self__, *,
+                 virtual_service_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] virtual_service_name: The name of the virtual service that traffic is routed to.
+        """
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+
+    @property
+    @pulumi.getter(name="virtualServiceName")
+    def virtual_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the virtual service that traffic is routed to.
+        """
+        return pulumi.get(self, "virtual_service_name")
+
+    @virtual_service_name.setter
+    def virtual_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_service_name", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttpRouteMatchArgs:
+    def __init__(__self__, *,
+                 prefix: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] prefix: Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        """
+        Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
 
 @pulumi.input_type
 class MeshSpecArgs:
@@ -2231,6 +2695,669 @@ class RouteSpecTcpRouteTimeoutIdleArgs:
     @value.setter
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecArgs:
+    def __init__(__self__, *,
+                 listener: pulumi.Input['VirtualGatewaySpecListenerArgs'],
+                 backend_defaults: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsArgs']] = None,
+                 logging: Optional[pulumi.Input['VirtualGatewaySpecLoggingArgs']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecListenerArgs'] listener: The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsArgs'] backend_defaults: The defaults for backends.
+        :param pulumi.Input['VirtualGatewaySpecLoggingArgs'] logging: The inbound and outbound access logging information for the virtual gateway.
+        """
+        pulumi.set(__self__, "listener", listener)
+        if backend_defaults is not None:
+            pulumi.set(__self__, "backend_defaults", backend_defaults)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+
+    @property
+    @pulumi.getter
+    def listener(self) -> pulumi.Input['VirtualGatewaySpecListenerArgs']:
+        """
+        The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        """
+        return pulumi.get(self, "listener")
+
+    @listener.setter
+    def listener(self, value: pulumi.Input['VirtualGatewaySpecListenerArgs']):
+        pulumi.set(self, "listener", value)
+
+    @property
+    @pulumi.getter(name="backendDefaults")
+    def backend_defaults(self) -> Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsArgs']]:
+        """
+        The defaults for backends.
+        """
+        return pulumi.get(self, "backend_defaults")
+
+    @backend_defaults.setter
+    def backend_defaults(self, value: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsArgs']]):
+        pulumi.set(self, "backend_defaults", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input['VirtualGatewaySpecLoggingArgs']]:
+        """
+        The inbound and outbound access logging information for the virtual gateway.
+        """
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input['VirtualGatewaySpecLoggingArgs']]):
+        pulumi.set(self, "logging", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecBackendDefaultsArgs:
+    def __init__(__self__, *,
+                 client_policy: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyArgs']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyArgs'] client_policy: The default client policy for virtual gateway backends.
+        """
+        if client_policy is not None:
+            pulumi.set(__self__, "client_policy", client_policy)
+
+    @property
+    @pulumi.getter(name="clientPolicy")
+    def client_policy(self) -> Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyArgs']]:
+        """
+        The default client policy for virtual gateway backends.
+        """
+        return pulumi.get(self, "client_policy")
+
+    @client_policy.setter
+    def client_policy(self, value: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyArgs']]):
+        pulumi.set(self, "client_policy", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyArgs:
+    def __init__(__self__, *,
+                 tls: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs'] tls: The Transport Layer Security (TLS) client policy.
+        """
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs']]:
+        """
+        The Transport Layer Security (TLS) client policy.
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs']]):
+        pulumi.set(self, "tls", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs:
+    def __init__(__self__, *,
+                 validation: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs'],
+                 enforce: Optional[pulumi.Input[bool]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs'] validation: The TLS validation context.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] ports: One or more ports that the policy is enforced for.
+        """
+        pulumi.set(__self__, "validation", validation)
+        if enforce is not None:
+            pulumi.set(__self__, "enforce", enforce)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs']:
+        """
+        The TLS validation context.
+        """
+        return pulumi.get(self, "validation")
+
+    @validation.setter
+    def validation(self, value: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs']):
+        pulumi.set(self, "validation", value)
+
+    @property
+    @pulumi.getter
+    def enforce(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enforce")
+
+    @enforce.setter
+    def enforce(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        One or more ports that the policy is enforced for.
+        """
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "ports", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs:
+    def __init__(__self__, *,
+                 trust: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs']):
+        """
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs'] trust: The TLS validation context trust.
+        """
+        pulumi.set(__self__, "trust", trust)
+
+    @property
+    @pulumi.getter
+    def trust(self) -> pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs']:
+        """
+        The TLS validation context trust.
+        """
+        return pulumi.get(self, "trust")
+
+    @trust.setter
+    def trust(self, value: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs']):
+        pulumi.set(self, "trust", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs:
+    def __init__(__self__, *,
+                 acm: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs']] = None,
+                 file: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs'] acm: The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs'] file: The TLS validation context trust for a local file.
+        """
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def acm(self) -> Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs']]:
+        """
+        The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acm")
+
+    @acm.setter
+    def acm(self, value: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs']]):
+        pulumi.set(self, "acm", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs']]:
+        """
+        The TLS validation context trust for a local file.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs']]):
+        pulumi.set(self, "file", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs:
+    def __init__(__self__, *,
+                 certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_authority_arns: One or more ACM Amazon Resource Name (ARN)s.
+        """
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArns")
+    def certificate_authority_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One or more ACM Amazon Resource Name (ARN)s.
+        """
+        return pulumi.get(self, "certificate_authority_arns")
+
+    @certificate_authority_arns.setter
+    def certificate_authority_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "certificate_authority_arns", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs:
+    def __init__(__self__, *,
+                 certificate_chain: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] certificate_chain: The certificate chain for the certificate.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> pulumi.Input[str]:
+        """
+        The certificate chain for the certificate.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_chain", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerArgs:
+    def __init__(__self__, *,
+                 port_mapping: pulumi.Input['VirtualGatewaySpecListenerPortMappingArgs'],
+                 health_check: Optional[pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgs']] = None,
+                 tls: Optional[pulumi.Input['VirtualGatewaySpecListenerTlsArgs']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecListenerPortMappingArgs'] port_mapping: The port mapping information for the listener.
+        :param pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgs'] health_check: The health check information for the listener.
+        :param pulumi.Input['VirtualGatewaySpecListenerTlsArgs'] tls: The Transport Layer Security (TLS) properties for the listener
+        """
+        pulumi.set(__self__, "port_mapping", port_mapping)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter(name="portMapping")
+    def port_mapping(self) -> pulumi.Input['VirtualGatewaySpecListenerPortMappingArgs']:
+        """
+        The port mapping information for the listener.
+        """
+        return pulumi.get(self, "port_mapping")
+
+    @port_mapping.setter
+    def port_mapping(self, value: pulumi.Input['VirtualGatewaySpecListenerPortMappingArgs']):
+        pulumi.set(self, "port_mapping", value)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional[pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgs']]:
+        """
+        The health check information for the listener.
+        """
+        return pulumi.get(self, "health_check")
+
+    @health_check.setter
+    def health_check(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgs']]):
+        pulumi.set(self, "health_check", value)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['VirtualGatewaySpecListenerTlsArgs']]:
+        """
+        The Transport Layer Security (TLS) properties for the listener
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerTlsArgs']]):
+        pulumi.set(self, "tls", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerHealthCheckArgs:
+    def __init__(__self__, *,
+                 healthy_threshold: pulumi.Input[int],
+                 interval_millis: pulumi.Input[int],
+                 protocol: pulumi.Input[str],
+                 timeout_millis: pulumi.Input[int],
+                 unhealthy_threshold: pulumi.Input[int],
+                 path: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] healthy_threshold: The number of consecutive successful health checks that must occur before declaring listener healthy.
+        :param pulumi.Input[int] interval_millis: The time period in milliseconds between each health check execution.
+        :param pulumi.Input[str] protocol: The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        :param pulumi.Input[int] timeout_millis: The amount of time to wait when receiving a response from the health check, in milliseconds.
+        :param pulumi.Input[int] unhealthy_threshold: The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+        :param pulumi.Input[str] path: The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        :param pulumi.Input[int] port: The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        """
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "interval_millis", interval_millis)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "timeout_millis", timeout_millis)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="healthyThreshold")
+    def healthy_threshold(self) -> pulumi.Input[int]:
+        """
+        The number of consecutive successful health checks that must occur before declaring listener healthy.
+        """
+        return pulumi.get(self, "healthy_threshold")
+
+    @healthy_threshold.setter
+    def healthy_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "healthy_threshold", value)
+
+    @property
+    @pulumi.getter(name="intervalMillis")
+    def interval_millis(self) -> pulumi.Input[int]:
+        """
+        The time period in milliseconds between each health check execution.
+        """
+        return pulumi.get(self, "interval_millis")
+
+    @interval_millis.setter
+    def interval_millis(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval_millis", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="timeoutMillis")
+    def timeout_millis(self) -> pulumi.Input[int]:
+        """
+        The amount of time to wait when receiving a response from the health check, in milliseconds.
+        """
+        return pulumi.get(self, "timeout_millis")
+
+    @timeout_millis.setter
+    def timeout_millis(self, value: pulumi.Input[int]):
+        pulumi.set(self, "timeout_millis", value)
+
+    @property
+    @pulumi.getter(name="unhealthyThreshold")
+    def unhealthy_threshold(self) -> pulumi.Input[int]:
+        """
+        The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+        """
+        return pulumi.get(self, "unhealthy_threshold")
+
+    @unhealthy_threshold.setter
+    def unhealthy_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "unhealthy_threshold", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerPortMappingArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 protocol: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] port: The port used for the port mapping.
+        :param pulumi.Input[str] protocol: The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port used for the port mapping.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        The protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerTlsArgs:
+    def __init__(__self__, *,
+                 certificate: pulumi.Input['VirtualGatewaySpecListenerTlsCertificateArgs'],
+                 mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input['VirtualGatewaySpecListenerTlsCertificateArgs'] certificate: The listener's TLS certificate.
+        :param pulumi.Input[str] mode: The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        """
+        pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> pulumi.Input['VirtualGatewaySpecListenerTlsCertificateArgs']:
+        """
+        The listener's TLS certificate.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: pulumi.Input['VirtualGatewaySpecListenerTlsCertificateArgs']):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerTlsCertificateArgs:
+    def __init__(__self__, *,
+                 acm: Optional[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateAcmArgs']] = None,
+                 file: Optional[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateFileArgs']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecListenerTlsCertificateAcmArgs'] acm: An AWS Certificate Manager (ACM) certificate.
+        :param pulumi.Input['VirtualGatewaySpecListenerTlsCertificateFileArgs'] file: A local file certificate.
+        """
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def acm(self) -> Optional[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateAcmArgs']]:
+        """
+        An AWS Certificate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acm")
+
+    @acm.setter
+    def acm(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateAcmArgs']]):
+        pulumi.set(self, "acm", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateFileArgs']]:
+        """
+        A local file certificate.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateFileArgs']]):
+        pulumi.set(self, "file", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerTlsCertificateAcmArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
+        """
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) for the certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_arn", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecListenerTlsCertificateFileArgs:
+    def __init__(__self__, *,
+                 certificate_chain: pulumi.Input[str],
+                 private_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] certificate_chain: The certificate chain for the certificate.
+        :param pulumi.Input[str] private_key: The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> pulumi.Input[str]:
+        """
+        The certificate chain for the certificate.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @certificate_chain.setter
+    def certificate_chain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_chain", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> pulumi.Input[str]:
+        """
+        The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecLoggingArgs:
+    def __init__(__self__, *,
+                 access_log: Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogArgs']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecLoggingAccessLogArgs'] access_log: The access log configuration for a virtual gateway.
+        """
+        if access_log is not None:
+            pulumi.set(__self__, "access_log", access_log)
+
+    @property
+    @pulumi.getter(name="accessLog")
+    def access_log(self) -> Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogArgs']]:
+        """
+        The access log configuration for a virtual gateway.
+        """
+        return pulumi.get(self, "access_log")
+
+    @access_log.setter
+    def access_log(self, value: Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogArgs']]):
+        pulumi.set(self, "access_log", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecLoggingAccessLogArgs:
+    def __init__(__self__, *,
+                 file: Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileArgs']] = None):
+        """
+        :param pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileArgs'] file: The file object to send virtual gateway access logs to.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileArgs']]:
+        """
+        The file object to send virtual gateway access logs to.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileArgs']]):
+        pulumi.set(self, "file", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecLoggingAccessLogFileArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] path: The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type

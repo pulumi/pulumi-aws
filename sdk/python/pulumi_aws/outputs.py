@@ -214,6 +214,7 @@ class ProviderEndpoint(dict):
                  route53resolver: Optional[str] = None,
                  s3: Optional[str] = None,
                  s3control: Optional[str] = None,
+                 s3outposts: Optional[str] = None,
                  sagemaker: Optional[str] = None,
                  sdb: Optional[str] = None,
                  secretsmanager: Optional[str] = None,
@@ -472,6 +473,8 @@ class ProviderEndpoint(dict):
             pulumi.set(__self__, "s3", s3)
         if s3control is not None:
             pulumi.set(__self__, "s3control", s3control)
+        if s3outposts is not None:
+            pulumi.set(__self__, "s3outposts", s3outposts)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
         if sdb is not None:
@@ -1103,6 +1106,11 @@ class ProviderEndpoint(dict):
     @pulumi.getter
     def s3control(self) -> Optional[str]:
         return pulumi.get(self, "s3control")
+
+    @property
+    @pulumi.getter
+    def s3outposts(self) -> Optional[str]:
+        return pulumi.get(self, "s3outposts")
 
     @property
     @pulumi.getter

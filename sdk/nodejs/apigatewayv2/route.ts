@@ -85,7 +85,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The route key for the route.
+     * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
     public readonly routeKey!: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export interface RouteState {
      */
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The route key for the route.
+     * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
     readonly routeKey?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface RouteArgs {
      */
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The route key for the route.
+     * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
     readonly routeKey: pulumi.Input<string>;
     /**

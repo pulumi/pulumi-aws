@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * });
  * const testVaultNotifications = new aws.backup.VaultNotifications("testVaultNotifications", {
  *     backupVaultName: "example_backup_vault",
- *     snsTopicArn: sns_topic_arn.test.arn,
+ *     snsTopicArn: testTopic.arn,
  *     backupVaultEvents: [
  *         "BACKUP_JOB_STARTED",
  *         "RESTORE_JOB_COMPLETED",

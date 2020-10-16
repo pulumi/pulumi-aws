@@ -5,5 +5,6 @@
 export * from "./domain";
 export * from "./domainPermissions";
 export * from "./getAuthorizationToken";
+export * from "./getRepositoryEndpoint";
 export * from "./repository";
 export * from "./repositoryPermissionsPolicy";

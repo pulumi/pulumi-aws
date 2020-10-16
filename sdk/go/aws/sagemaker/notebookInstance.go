@@ -45,6 +45,8 @@ type NotebookInstance struct {
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Git repository associated with the notebook instance as its default code repository
+	DefaultCodeRepository pulumi.StringPtrOutput `pulumi:"defaultCodeRepository"`
 	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
 	DirectInternetAccess pulumi.StringPtrOutput `pulumi:"directInternetAccess"`
 	// The name of ML compute instance type.
@@ -65,6 +67,8 @@ type NotebookInstance struct {
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+	VolumeSize pulumi.IntPtrOutput `pulumi:"volumeSize"`
 }
 
 // NewNotebookInstance registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +107,8 @@ func GetNotebookInstance(ctx *pulumi.Context,
 type notebookInstanceState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
 	Arn *string `pulumi:"arn"`
+	// The Git repository associated with the notebook instance as its default code repository
+	DefaultCodeRepository *string `pulumi:"defaultCodeRepository"`
 	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
 	DirectInternetAccess *string `pulumi:"directInternetAccess"`
 	// The name of ML compute instance type.
@@ -123,11 +129,15 @@ type notebookInstanceState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+	VolumeSize *int `pulumi:"volumeSize"`
 }
 
 type NotebookInstanceState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
 	Arn pulumi.StringPtrInput
+	// The Git repository associated with the notebook instance as its default code repository
+	DefaultCodeRepository pulumi.StringPtrInput
 	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
 	DirectInternetAccess pulumi.StringPtrInput
 	// The name of ML compute instance type.
@@ -148,6 +158,8 @@ type NotebookInstanceState struct {
 	SubnetId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+	VolumeSize pulumi.IntPtrInput
 }
 
 func (NotebookInstanceState) ElementType() reflect.Type {
@@ -155,6 +167,8 @@ func (NotebookInstanceState) ElementType() reflect.Type {
 }
 
 type notebookInstanceArgs struct {
+	// The Git repository associated with the notebook instance as its default code repository
+	DefaultCodeRepository *string `pulumi:"defaultCodeRepository"`
 	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
 	DirectInternetAccess *string `pulumi:"directInternetAccess"`
 	// The name of ML compute instance type.
@@ -175,10 +189,14 @@ type notebookInstanceArgs struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+	VolumeSize *int `pulumi:"volumeSize"`
 }
 
 // The set of arguments for constructing a NotebookInstance resource.
 type NotebookInstanceArgs struct {
+	// The Git repository associated with the notebook instance as its default code repository
+	DefaultCodeRepository pulumi.StringPtrInput
 	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
 	DirectInternetAccess pulumi.StringPtrInput
 	// The name of ML compute instance type.
@@ -199,6 +217,8 @@ type NotebookInstanceArgs struct {
 	SubnetId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+	VolumeSize pulumi.IntPtrInput
 }
 
 func (NotebookInstanceArgs) ElementType() reflect.Type {

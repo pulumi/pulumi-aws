@@ -61,7 +61,7 @@ type Route struct {
 	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
 	// The request models for the route.
 	RequestModels pulumi.StringMapOutput `pulumi:"requestModels"`
-	// The route key for the route.
+	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringOutput `pulumi:"routeKey"`
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
 	RouteResponseSelectionExpression pulumi.StringPtrOutput `pulumi:"routeResponseSelectionExpression"`
@@ -122,7 +122,7 @@ type routeState struct {
 	OperationName *string `pulumi:"operationName"`
 	// The request models for the route.
 	RequestModels map[string]string `pulumi:"requestModels"`
-	// The route key for the route.
+	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey *string `pulumi:"routeKey"`
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
 	RouteResponseSelectionExpression *string `pulumi:"routeResponseSelectionExpression"`
@@ -150,7 +150,7 @@ type RouteState struct {
 	OperationName pulumi.StringPtrInput
 	// The request models for the route.
 	RequestModels pulumi.StringMapInput
-	// The route key for the route.
+	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringPtrInput
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
 	RouteResponseSelectionExpression pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type routeArgs struct {
 	OperationName *string `pulumi:"operationName"`
 	// The request models for the route.
 	RequestModels map[string]string `pulumi:"requestModels"`
-	// The route key for the route.
+	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey string `pulumi:"routeKey"`
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
 	RouteResponseSelectionExpression *string `pulumi:"routeResponseSelectionExpression"`
@@ -211,7 +211,7 @@ type RouteArgs struct {
 	OperationName pulumi.StringPtrInput
 	// The request models for the route.
 	RequestModels pulumi.StringMapInput
-	// The route key for the route.
+	// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringInput
 	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
 	RouteResponseSelectionExpression pulumi.StringPtrInput

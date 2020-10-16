@@ -33,6 +33,17 @@ namespace Pulumi.Aws.Backup
     ///                     Schedule = "cron(0 12 * * ? *)",
     ///                 },
     ///             },
+    ///             AdvancedBackupSettings = 
+    ///             {
+    ///                 new Aws.Backup.Inputs.PlanAdvancedBackupSettingArgs
+    ///                 {
+    ///                     BackupOptions = 
+    ///                     {
+    ///                         { "WindowsVSS", "enabled" },
+    ///                     },
+    ///                     ResourceType = "EC2",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -41,6 +52,12 @@ namespace Pulumi.Aws.Backup
     /// </summary>
     public partial class Plan : Pulumi.CustomResource
     {
+        /// <summary>
+        /// An object that specifies backup options for each resource type.
+        /// </summary>
+        [Output("advancedBackupSettings")]
+        public Output<ImmutableArray<Outputs.PlanAdvancedBackupSetting>> AdvancedBackupSettings { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the backup plan.
         /// </summary>
@@ -117,6 +134,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class PlanArgs : Pulumi.ResourceArgs
     {
+        [Input("advancedBackupSettings")]
+        private InputList<Inputs.PlanAdvancedBackupSettingArgs>? _advancedBackupSettings;
+
+        /// <summary>
+        /// An object that specifies backup options for each resource type.
+        /// </summary>
+        public InputList<Inputs.PlanAdvancedBackupSettingArgs> AdvancedBackupSettings
+        {
+            get => _advancedBackupSettings ?? (_advancedBackupSettings = new InputList<Inputs.PlanAdvancedBackupSettingArgs>());
+            set => _advancedBackupSettings = value;
+        }
+
         /// <summary>
         /// The display name of a backup plan.
         /// </summary>
@@ -154,6 +183,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class PlanState : Pulumi.ResourceArgs
     {
+        [Input("advancedBackupSettings")]
+        private InputList<Inputs.PlanAdvancedBackupSettingGetArgs>? _advancedBackupSettings;
+
+        /// <summary>
+        /// An object that specifies backup options for each resource type.
+        /// </summary>
+        public InputList<Inputs.PlanAdvancedBackupSettingGetArgs> AdvancedBackupSettings
+        {
+            get => _advancedBackupSettings ?? (_advancedBackupSettings = new InputList<Inputs.PlanAdvancedBackupSettingGetArgs>());
+            set => _advancedBackupSettings = value;
+        }
+
         /// <summary>
         /// The ARN of the backup plan.
         /// </summary>

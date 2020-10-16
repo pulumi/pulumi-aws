@@ -88,7 +88,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableDictionary<string, string>?> RequestModels { get; private set; } = null!;
 
         /// <summary>
-        /// The route key for the route.
+        /// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         /// </summary>
         [Output("routeKey")]
         public Output<string> RouteKey { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The route key for the route.
+        /// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         /// </summary>
         [Input("routeKey", required: true)]
         public Input<string> RouteKey { get; set; } = null!;
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The route key for the route.
+        /// The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         /// </summary>
         [Input("routeKey")]
         public Input<string>? RouteKey { get; set; }

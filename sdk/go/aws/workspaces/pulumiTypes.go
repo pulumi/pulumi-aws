@@ -217,6 +217,213 @@ func (o DirectorySelfServicePermissionsPtrOutput) SwitchRunningMode() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DirectoryWorkspaceCreationProperties struct {
+	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+	CustomSecurityGroupId *string `pulumi:"customSecurityGroupId"`
+	// The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+	DefaultOu *string `pulumi:"defaultOu"`
+	// Indicates whether internet access is enabled for your WorkSpaces.
+	EnableInternetAccess *bool `pulumi:"enableInternetAccess"`
+	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+	EnableMaintenanceMode *bool `pulumi:"enableMaintenanceMode"`
+	// Indicates whether users are local administrators of their WorkSpaces.
+	UserEnabledAsLocalAdministrator *bool `pulumi:"userEnabledAsLocalAdministrator"`
+}
+
+// DirectoryWorkspaceCreationPropertiesInput is an input type that accepts DirectoryWorkspaceCreationPropertiesArgs and DirectoryWorkspaceCreationPropertiesOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceCreationPropertiesInput` via:
+//
+//          DirectoryWorkspaceCreationPropertiesArgs{...}
+type DirectoryWorkspaceCreationPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceCreationPropertiesOutput() DirectoryWorkspaceCreationPropertiesOutput
+	ToDirectoryWorkspaceCreationPropertiesOutputWithContext(context.Context) DirectoryWorkspaceCreationPropertiesOutput
+}
+
+type DirectoryWorkspaceCreationPropertiesArgs struct {
+	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+	CustomSecurityGroupId pulumi.StringPtrInput `pulumi:"customSecurityGroupId"`
+	// The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+	DefaultOu pulumi.StringPtrInput `pulumi:"defaultOu"`
+	// Indicates whether internet access is enabled for your WorkSpaces.
+	EnableInternetAccess pulumi.BoolPtrInput `pulumi:"enableInternetAccess"`
+	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+	EnableMaintenanceMode pulumi.BoolPtrInput `pulumi:"enableMaintenanceMode"`
+	// Indicates whether users are local administrators of their WorkSpaces.
+	UserEnabledAsLocalAdministrator pulumi.BoolPtrInput `pulumi:"userEnabledAsLocalAdministrator"`
+}
+
+func (DirectoryWorkspaceCreationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (i DirectoryWorkspaceCreationPropertiesArgs) ToDirectoryWorkspaceCreationPropertiesOutput() DirectoryWorkspaceCreationPropertiesOutput {
+	return i.ToDirectoryWorkspaceCreationPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceCreationPropertiesArgs) ToDirectoryWorkspaceCreationPropertiesOutputWithContext(ctx context.Context) DirectoryWorkspaceCreationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceCreationPropertiesOutput)
+}
+
+func (i DirectoryWorkspaceCreationPropertiesArgs) ToDirectoryWorkspaceCreationPropertiesPtrOutput() DirectoryWorkspaceCreationPropertiesPtrOutput {
+	return i.ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceCreationPropertiesArgs) ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceCreationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceCreationPropertiesOutput).ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectoryWorkspaceCreationPropertiesPtrInput is an input type that accepts DirectoryWorkspaceCreationPropertiesArgs, DirectoryWorkspaceCreationPropertiesPtr and DirectoryWorkspaceCreationPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceCreationPropertiesPtrInput` via:
+//
+//          DirectoryWorkspaceCreationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DirectoryWorkspaceCreationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceCreationPropertiesPtrOutput() DirectoryWorkspaceCreationPropertiesPtrOutput
+	ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(context.Context) DirectoryWorkspaceCreationPropertiesPtrOutput
+}
+
+type directoryWorkspaceCreationPropertiesPtrType DirectoryWorkspaceCreationPropertiesArgs
+
+func DirectoryWorkspaceCreationPropertiesPtr(v *DirectoryWorkspaceCreationPropertiesArgs) DirectoryWorkspaceCreationPropertiesPtrInput {
+	return (*directoryWorkspaceCreationPropertiesPtrType)(v)
+}
+
+func (*directoryWorkspaceCreationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (i *directoryWorkspaceCreationPropertiesPtrType) ToDirectoryWorkspaceCreationPropertiesPtrOutput() DirectoryWorkspaceCreationPropertiesPtrOutput {
+	return i.ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryWorkspaceCreationPropertiesPtrType) ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceCreationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceCreationPropertiesPtrOutput)
+}
+
+type DirectoryWorkspaceCreationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceCreationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceCreationPropertiesOutput) ToDirectoryWorkspaceCreationPropertiesOutput() DirectoryWorkspaceCreationPropertiesOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceCreationPropertiesOutput) ToDirectoryWorkspaceCreationPropertiesOutputWithContext(ctx context.Context) DirectoryWorkspaceCreationPropertiesOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceCreationPropertiesOutput) ToDirectoryWorkspaceCreationPropertiesPtrOutput() DirectoryWorkspaceCreationPropertiesPtrOutput {
+	return o.ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceCreationPropertiesOutput) ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceCreationPropertiesPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *DirectoryWorkspaceCreationProperties {
+		return &v
+	}).(DirectoryWorkspaceCreationPropertiesPtrOutput)
+}
+
+// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+func (o DirectoryWorkspaceCreationPropertiesOutput) CustomSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *string { return v.CustomSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+func (o DirectoryWorkspaceCreationPropertiesOutput) DefaultOu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *string { return v.DefaultOu }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether internet access is enabled for your WorkSpaces.
+func (o DirectoryWorkspaceCreationPropertiesOutput) EnableInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *bool { return v.EnableInternetAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+func (o DirectoryWorkspaceCreationPropertiesOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *bool { return v.EnableMaintenanceMode }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether users are local administrators of their WorkSpaces.
+func (o DirectoryWorkspaceCreationPropertiesOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolPtrOutput)
+}
+
+type DirectoryWorkspaceCreationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceCreationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) ToDirectoryWorkspaceCreationPropertiesPtrOutput() DirectoryWorkspaceCreationPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceCreationPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) Elem() DirectoryWorkspaceCreationPropertiesOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) DirectoryWorkspaceCreationProperties { return *v }).(DirectoryWorkspaceCreationPropertiesOutput)
+}
+
+// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) CustomSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomSecurityGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) DefaultOu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultOu
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether internet access is enabled for your WorkSpaces.
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) EnableInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableInternetAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMaintenanceMode
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether users are local administrators of their WorkSpaces.
+func (o DirectoryWorkspaceCreationPropertiesPtrOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserEnabledAsLocalAdministrator
+	}).(pulumi.BoolPtrOutput)
+}
+
 type IpGroupRule struct {
 	// The description.
 	Description *string `pulumi:"description"`
@@ -954,9 +1161,99 @@ func (o GetDirectorySelfServicePermissionArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetDirectorySelfServicePermissionOutput)
 }
 
+type GetDirectoryWorkspaceCreationProperties struct {
+	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+	CustomSecurityGroupId string `pulumi:"customSecurityGroupId"`
+	// The default organizational unit (OU) for your WorkSpace directories.
+	DefaultOu *string `pulumi:"defaultOu"`
+	// Indicates whether internet access is enabled for your WorkSpaces.
+	EnableInternetAccess *bool `pulumi:"enableInternetAccess"`
+	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
+	EnableMaintenanceMode *bool `pulumi:"enableMaintenanceMode"`
+	// Indicates whether users are local administrators of their WorkSpaces.
+	UserEnabledAsLocalAdministrator *bool `pulumi:"userEnabledAsLocalAdministrator"`
+}
+
+// GetDirectoryWorkspaceCreationPropertiesInput is an input type that accepts GetDirectoryWorkspaceCreationPropertiesArgs and GetDirectoryWorkspaceCreationPropertiesOutput values.
+// You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertiesInput` via:
+//
+//          GetDirectoryWorkspaceCreationPropertiesArgs{...}
+type GetDirectoryWorkspaceCreationPropertiesInput interface {
+	pulumi.Input
+
+	ToGetDirectoryWorkspaceCreationPropertiesOutput() GetDirectoryWorkspaceCreationPropertiesOutput
+	ToGetDirectoryWorkspaceCreationPropertiesOutputWithContext(context.Context) GetDirectoryWorkspaceCreationPropertiesOutput
+}
+
+type GetDirectoryWorkspaceCreationPropertiesArgs struct {
+	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+	CustomSecurityGroupId pulumi.StringInput `pulumi:"customSecurityGroupId"`
+	// The default organizational unit (OU) for your WorkSpace directories.
+	DefaultOu pulumi.StringPtrInput `pulumi:"defaultOu"`
+	// Indicates whether internet access is enabled for your WorkSpaces.
+	EnableInternetAccess pulumi.BoolPtrInput `pulumi:"enableInternetAccess"`
+	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
+	EnableMaintenanceMode pulumi.BoolPtrInput `pulumi:"enableMaintenanceMode"`
+	// Indicates whether users are local administrators of their WorkSpaces.
+	UserEnabledAsLocalAdministrator pulumi.BoolPtrInput `pulumi:"userEnabledAsLocalAdministrator"`
+}
+
+func (GetDirectoryWorkspaceCreationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (i GetDirectoryWorkspaceCreationPropertiesArgs) ToGetDirectoryWorkspaceCreationPropertiesOutput() GetDirectoryWorkspaceCreationPropertiesOutput {
+	return i.ToGetDirectoryWorkspaceCreationPropertiesOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryWorkspaceCreationPropertiesArgs) ToGetDirectoryWorkspaceCreationPropertiesOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceCreationPropertiesOutput)
+}
+
+type GetDirectoryWorkspaceCreationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryWorkspaceCreationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryWorkspaceCreationProperties)(nil)).Elem()
+}
+
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) ToGetDirectoryWorkspaceCreationPropertiesOutput() GetDirectoryWorkspaceCreationPropertiesOutput {
+	return o
+}
+
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) ToGetDirectoryWorkspaceCreationPropertiesOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertiesOutput {
+	return o
+}
+
+// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) CustomSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) string { return v.CustomSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// The default organizational unit (OU) for your WorkSpace directories.
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) DefaultOu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *string { return v.DefaultOu }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether internet access is enabled for your WorkSpaces.
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) EnableInternetAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *bool { return v.EnableInternetAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *bool { return v.EnableMaintenanceMode }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether users are local administrators of their WorkSpaces.
+func (o GetDirectoryWorkspaceCreationPropertiesOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceCreationPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IpGroupRuleOutput{})
 	pulumi.RegisterOutputType(IpGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesOutput{})
@@ -969,4 +1266,5 @@ func init() {
 	pulumi.RegisterOutputType(GetBundleUserStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionOutput{})
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetDirectoryWorkspaceCreationPropertiesOutput{})
 }

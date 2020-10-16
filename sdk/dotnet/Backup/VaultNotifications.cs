@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Backup
     ///         var testVaultNotifications = new Aws.Backup.VaultNotifications("testVaultNotifications", new Aws.Backup.VaultNotificationsArgs
     ///         {
     ///             BackupVaultName = "example_backup_vault",
-    ///             SnsTopicArn = sns_topic_arn.Test.Arn,
+    ///             SnsTopicArn = testTopic.Arn,
     ///             BackupVaultEvents = 
     ///             {
     ///                 "BACKUP_JOB_STARTED",

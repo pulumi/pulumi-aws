@@ -32,7 +32,7 @@ import (
 // 		_, err := rds.NewRoleAssociation(ctx, "example", &rds.RoleAssociationArgs{
 // 			DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
 // 			FeatureName:          pulumi.String("S3_INTEGRATION"),
-// 			RoleArn:              pulumi.Any(aws_iam_role.Example.Id),
+// 			RoleArn:              pulumi.Any(aws_iam_role.Example.Arn),
 // 		})
 // 		if err != nil {
 // 			return err

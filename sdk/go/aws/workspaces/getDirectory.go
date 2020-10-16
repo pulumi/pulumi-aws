@@ -46,6 +46,8 @@ type LookupDirectoryArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
+	// The default properties that are used for creating WorkSpaces. Defined below.
+	WorkspaceCreationProperties *GetDirectoryWorkspaceCreationProperties `pulumi:"workspaceCreationProperties"`
 }
 
 // A collection of values returned by getDirectory.
@@ -75,6 +77,8 @@ type LookupDirectoryResult struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
-	// The identifier of the security group that is assigned to new WorkSpaces.
+	// The default properties that are used for creating WorkSpaces. Defined below.
+	WorkspaceCreationProperties GetDirectoryWorkspaceCreationProperties `pulumi:"workspaceCreationProperties"`
+	// The identifier of the security group that is assigned to new WorkSpaces. Defined below.
 	WorkspaceSecurityGroupId string `pulumi:"workspaceSecurityGroupId"`
 }

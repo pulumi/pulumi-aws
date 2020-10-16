@@ -41,7 +41,7 @@ import (
 // 		}
 // 		_, err = backup.NewVaultNotifications(ctx, "testVaultNotifications", &backup.VaultNotificationsArgs{
 // 			BackupVaultName: pulumi.String("example_backup_vault"),
-// 			SnsTopicArn:     pulumi.Any(sns_topic_arn.Test.Arn),
+// 			SnsTopicArn:     testTopic.Arn,
 // 			BackupVaultEvents: pulumi.StringArray{
 // 				pulumi.String("BACKUP_JOB_STARTED"),
 // 				pulumi.String("RESTORE_JOB_COMPLETED"),

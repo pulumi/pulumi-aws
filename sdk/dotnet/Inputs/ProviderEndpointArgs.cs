@@ -357,6 +357,9 @@ namespace Pulumi.Aws.Inputs
         [Input("s3control")]
         public Input<string>? S3control { get; set; }
 
+        [Input("s3outposts")]
+        public Input<string>? S3outposts { get; set; }
+
         [Input("sagemaker")]
         public Input<string>? Sagemaker { get; set; }
 

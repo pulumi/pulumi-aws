@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Workspaces
 {
     /// <summary>
-    /// Provides a directory registration in AWS WorkSpaces Service
+    /// Provides a WorkSpaces directory in AWS WorkSpaces Service.
     /// 
     /// ## Example Usage
     /// 
@@ -22,44 +22,76 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     public MyStack()
     ///     {
-    ///         var mainVpc = new Aws.Ec2.Vpc("mainVpc", new Aws.Ec2.VpcArgs
+    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.0.0.0/16",
     ///         });
-    ///         var private_a = new Aws.Ec2.Subnet("private-a", new Aws.Ec2.SubnetArgs
+    ///         var exampleA = new Aws.Ec2.Subnet("exampleA", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             VpcId = mainVpc.Id,
+    ///             VpcId = exampleVpc.Id,
     ///             AvailabilityZone = "us-east-1a",
     ///             CidrBlock = "10.0.0.0/24",
     ///         });
-    ///         var private_b = new Aws.Ec2.Subnet("private-b", new Aws.Ec2.SubnetArgs
+    ///         var exampleB = new Aws.Ec2.Subnet("exampleB", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             VpcId = mainVpc.Id,
+    ///             VpcId = exampleVpc.Id,
     ///             AvailabilityZone = "us-east-1b",
     ///             CidrBlock = "10.0.1.0/24",
     ///         });
-    ///         var mainDirectory = new Aws.DirectoryService.Directory("mainDirectory", new Aws.DirectoryService.DirectoryArgs
+    ///         var exampleC = new Aws.Ec2.Subnet("exampleC", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             AvailabilityZone = "us-east-1c",
+    ///             CidrBlock = "10.0.2.0/24",
+    ///         });
+    ///         var exampleD = new Aws.Ec2.Subnet("exampleD", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             AvailabilityZone = "us-east-1d",
+    ///             CidrBlock = "10.0.3.0/24",
+    ///         });
+    ///         var exampleDirectory = new Aws.DirectoryService.Directory("exampleDirectory", new Aws.DirectoryService.DirectoryArgs
     ///         {
     ///             Name = "corp.example.com",
     ///             Password = "#S1ncerely",
     ///             Size = "Small",
     ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///             {
-    ///                 VpcId = mainVpc.Id,
+    ///                 VpcId = exampleVpc.Id,
     ///                 SubnetIds = 
     ///                 {
-    ///                     private_a.Id,
-    ///                     private_b.Id,
+    ///                     exampleA.Id,
+    ///                     exampleB.Id,
     ///                 },
     ///             },
     ///         });
-    ///         var mainWorkspaces_directoryDirectory = new Aws.Workspaces.Directory("mainWorkspaces/directoryDirectory", new Aws.Workspaces.DirectoryArgs
+    ///         var exampleWorkspaces_directoryDirectory = new Aws.Workspaces.Directory("exampleWorkspaces/directoryDirectory", new Aws.Workspaces.DirectoryArgs
     ///         {
-    ///             DirectoryId = mainDirectory.Id,
+    ///             DirectoryId = exampleDirectory.Id,
+    ///             SubnetIds = 
+    ///             {
+    ///                 exampleC.Id,
+    ///                 exampleD.Id,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Example", "true" },
+    ///             },
     ///             SelfServicePermissions = new Aws.Workspaces.Inputs.DirectorySelfServicePermissionsArgs
     ///             {
+    ///                 ChangeComputeType = true,
     ///                 IncreaseVolumeSize = true,
     ///                 RebuildWorkspace = true,
+    ///                 RestartWorkspace = true,
+    ///                 SwitchRunningMode = true,
+    ///             },
+    ///             WorkspaceCreationProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceCreationPropertiesArgs
+    ///             {
+    ///                 CustomSecurityGroupId = aws_security_group.Example.Id,
+    ///                 DefaultOu = "OU=AWS,DC=Workgroup,DC=Example,DC=com",
+    ///                 EnableInternetAccess = true,
+    ///                 EnableMaintenanceMode = true,
+    ///                 UserEnabledAsLocalAdministrator = true,
     ///             },
     ///         });
     ///     }
@@ -124,13 +156,13 @@ namespace Pulumi.Aws.Workspaces
         public Output<string> RegistrationCode { get; private set; } = null!;
 
         /// <summary>
-        /// The permissions to enable or disable self-service capabilities.
+        /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
         [Output("selfServicePermissions")]
         public Output<Outputs.DirectorySelfServicePermissions> SelfServicePermissions { get; private set; } = null!;
 
         /// <summary>
-        /// The identifiers of the subnets where the directory resides.
+        /// The subnets identifiers where the workspaces are created.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -140,6 +172,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Default properties that are used for creating WorkSpaces. Defined below.
+        /// </summary>
+        [Output("workspaceCreationProperties")]
+        public Output<Outputs.DirectoryWorkspaceCreationProperties> WorkspaceCreationProperties { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces.
@@ -200,7 +238,7 @@ namespace Pulumi.Aws.Workspaces
         public Input<string> DirectoryId { get; set; } = null!;
 
         /// <summary>
-        /// The permissions to enable or disable self-service capabilities.
+        /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
         [Input("selfServicePermissions")]
         public Input<Inputs.DirectorySelfServicePermissionsArgs>? SelfServicePermissions { get; set; }
@@ -209,7 +247,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The identifiers of the subnets where the directory resides.
+        /// The subnets identifiers where the workspaces are created.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -228,6 +266,12 @@ namespace Pulumi.Aws.Workspaces
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Default properties that are used for creating WorkSpaces. Defined below.
+        /// </summary>
+        [Input("workspaceCreationProperties")]
+        public Input<Inputs.DirectoryWorkspaceCreationPropertiesArgs>? WorkspaceCreationProperties { get; set; }
 
         public DirectoryArgs()
         {
@@ -303,7 +347,7 @@ namespace Pulumi.Aws.Workspaces
         public Input<string>? RegistrationCode { get; set; }
 
         /// <summary>
-        /// The permissions to enable or disable self-service capabilities.
+        /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
         [Input("selfServicePermissions")]
         public Input<Inputs.DirectorySelfServicePermissionsGetArgs>? SelfServicePermissions { get; set; }
@@ -312,7 +356,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The identifiers of the subnets where the directory resides.
+        /// The subnets identifiers where the workspaces are created.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -331,6 +375,12 @@ namespace Pulumi.Aws.Workspaces
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Default properties that are used for creating WorkSpaces. Defined below.
+        /// </summary>
+        [Input("workspaceCreationProperties")]
+        public Input<Inputs.DirectoryWorkspaceCreationPropertiesGetArgs>? WorkspaceCreationProperties { get; set; }
 
         /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces.

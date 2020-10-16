@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<bool?> Blackhole { get; private set; } = null!;
 
         /// <summary>
-        /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+        /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<bool>? Blackhole { get; set; }
 
         /// <summary>
-        /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+        /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<bool>? Blackhole { get; set; }
 
         /// <summary>
-        /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+        /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }

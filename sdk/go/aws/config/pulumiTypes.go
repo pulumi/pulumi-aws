@@ -217,6 +217,7 @@ type Endpoints struct {
 	Route53resolver          *string `pulumi:"route53resolver"`
 	S3                       *string `pulumi:"s3"`
 	S3control                *string `pulumi:"s3control"`
+	S3outposts               *string `pulumi:"s3outposts"`
 	Sagemaker                *string `pulumi:"sagemaker"`
 	Sdb                      *string `pulumi:"sdb"`
 	Secretsmanager           *string `pulumi:"secretsmanager"`
@@ -374,6 +375,7 @@ type EndpointsArgs struct {
 	Route53resolver          pulumi.StringPtrInput `pulumi:"route53resolver"`
 	S3                       pulumi.StringPtrInput `pulumi:"s3"`
 	S3control                pulumi.StringPtrInput `pulumi:"s3control"`
+	S3outposts               pulumi.StringPtrInput `pulumi:"s3outposts"`
 	Sagemaker                pulumi.StringPtrInput `pulumi:"sagemaker"`
 	Sdb                      pulumi.StringPtrInput `pulumi:"sdb"`
 	Secretsmanager           pulumi.StringPtrInput `pulumi:"secretsmanager"`
@@ -913,6 +915,10 @@ func (o EndpointsOutput) S3() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) S3control() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.S3control }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) S3outposts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.S3outposts }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Sagemaker() pulumi.StringPtrOutput {

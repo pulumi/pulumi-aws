@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetDirectoryResult',
@@ -20,7 +21,7 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, alias=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, registration_code=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_security_group_id=None):
+    def __init__(__self__, alias=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, registration_code=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_creation_properties=None, workspace_security_group_id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -60,6 +61,9 @@ class GetDirectoryResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if workspace_creation_properties and not isinstance(workspace_creation_properties, dict):
+            raise TypeError("Expected argument 'workspace_creation_properties' to be a dict")
+        pulumi.set(__self__, "workspace_creation_properties", workspace_creation_properties)
         if workspace_security_group_id and not isinstance(workspace_security_group_id, str):
             raise TypeError("Expected argument 'workspace_security_group_id' to be a str")
         pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
@@ -166,10 +170,18 @@ class GetDirectoryResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="workspaceCreationProperties")
+    def workspace_creation_properties(self) -> 'outputs.GetDirectoryWorkspaceCreationPropertiesResult':
+        """
+        The default properties that are used for creating WorkSpaces. Defined below.
+        """
+        return pulumi.get(self, "workspace_creation_properties")
+
+    @property
     @pulumi.getter(name="workspaceSecurityGroupId")
     def workspace_security_group_id(self) -> str:
         """
-        The identifier of the security group that is assigned to new WorkSpaces.
+        The identifier of the security group that is assigned to new WorkSpaces. Defined below.
         """
         return pulumi.get(self, "workspace_security_group_id")
 
@@ -193,11 +205,13 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             self_service_permissions=self.self_service_permissions,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
+            workspace_creation_properties=self.workspace_creation_properties,
             workspace_security_group_id=self.workspace_security_group_id)
 
 
 def get_directory(directory_id: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,
+                  workspace_creation_properties: Optional[pulumi.InputType['GetDirectoryWorkspaceCreationPropertiesArgs']] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryResult:
     """
     Retrieve information about an AWS WorkSpaces directory.
@@ -214,10 +228,12 @@ def get_directory(directory_id: Optional[str] = None,
 
     :param str directory_id: The directory identifier for registration in WorkSpaces service.
     :param Mapping[str, str] tags: A map of tags assigned to the WorkSpaces directory.
+    :param pulumi.InputType['GetDirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: The default properties that are used for creating WorkSpaces. Defined below.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
     __args__['tags'] = tags
+    __args__['workspaceCreationProperties'] = workspace_creation_properties
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -238,4 +254,5 @@ def get_directory(directory_id: Optional[str] = None,
         self_service_permissions=__ret__.self_service_permissions,
         subnet_ids=__ret__.subnet_ids,
         tags=__ret__.tags,
+        workspace_creation_properties=__ret__.workspace_creation_properties,
         workspace_security_group_id=__ret__.workspace_security_group_id)

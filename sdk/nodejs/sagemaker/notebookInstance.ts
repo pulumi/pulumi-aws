@@ -57,6 +57,10 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The Git repository associated with the notebook instance as its default code repository
+     */
+    public readonly defaultCodeRepository!: pulumi.Output<string | undefined>;
+    /**
      * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
      */
     public readonly directInternetAccess!: pulumi.Output<string | undefined>;
@@ -96,6 +100,10 @@ export class NotebookInstance extends pulumi.CustomResource {
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+     */
+    public readonly volumeSize!: pulumi.Output<number | undefined>;
 
     /**
      * Create a NotebookInstance resource with the given unique name, arguments, and options.
@@ -110,6 +118,7 @@ export class NotebookInstance extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as NotebookInstanceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["defaultCodeRepository"] = state ? state.defaultCodeRepository : undefined;
             inputs["directInternetAccess"] = state ? state.directInternetAccess : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
@@ -120,6 +129,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as NotebookInstanceArgs | undefined;
             if (!args || args.instanceType === undefined) {
@@ -128,6 +138,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["defaultCodeRepository"] = args ? args.defaultCodeRepository : undefined;
             inputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -138,6 +149,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["volumeSize"] = args ? args.volumeSize : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -159,6 +171,10 @@ export interface NotebookInstanceState {
      * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The Git repository associated with the notebook instance as its default code repository
+     */
+    readonly defaultCodeRepository?: pulumi.Input<string>;
     /**
      * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
      */
@@ -199,12 +215,20 @@ export interface NotebookInstanceState {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+     */
+    readonly volumeSize?: pulumi.Input<number>;
 }
 
 /**
  * The set of arguments for constructing a NotebookInstance resource.
  */
 export interface NotebookInstanceArgs {
+    /**
+     * The Git repository associated with the notebook instance as its default code repository
+     */
+    readonly defaultCodeRepository?: pulumi.Input<string>;
     /**
      * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
      */
@@ -245,4 +269,8 @@ export interface NotebookInstanceArgs {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+     */
+    readonly volumeSize?: pulumi.Input<number>;
 }

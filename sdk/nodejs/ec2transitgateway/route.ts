@@ -66,7 +66,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly blackhole!: pulumi.Output<boolean | undefined>;
     /**
-     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
     public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export interface RouteState {
      */
     readonly blackhole?: pulumi.Input<boolean>;
     /**
-     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
     readonly destinationCidrBlock?: pulumi.Input<string>;
     /**
@@ -149,7 +149,7 @@ export interface RouteArgs {
      */
     readonly blackhole?: pulumi.Input<boolean>;
     /**
-     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
     readonly destinationCidrBlock: pulumi.Input<string>;
     /**

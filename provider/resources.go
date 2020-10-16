@@ -328,6 +328,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appmesh_virtual_node":    {Tok: awsResource(appmeshMod, "VirtualNode")},
 			"aws_appmesh_virtual_router":  {Tok: awsResource(appmeshMod, "VirtualRouter")},
 			"aws_appmesh_virtual_service": {Tok: awsResource(appmeshMod, "VirtualService")},
+			"aws_appmesh_gateway_route":   {Tok: awsResource(appmeshMod, "GatewayRoute")},
+			"aws_appmesh_virtual_gateway": {Tok: awsResource(appmeshMod, "VirtualGateway")},
 			// API Gateway
 			"aws_api_gateway_account": {
 				Tok: awsResource(apigatewayMod, "Account"),
@@ -3320,6 +3322,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_neptune_orderable_db_instance":    {Tok: awsDataSource(neptuneMod, "getOrderableDbInstance")},
 			"aws_neptune_engine_version":           {Tok: awsDataSource(neptuneMod, "getEngineVersion")},
 			"aws_codeartifact_authorization_token": {Tok: awsDataSource(codeartifactMod, "getAuthorizationToken")},
+			"aws_codeartifact_repository_endpoint": {Tok: awsDataSource(codeartifactMod, "getRepositoryEndpoint")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
