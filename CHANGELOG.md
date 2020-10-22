@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Upgrade to Pulumi v2.12.0
 * Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
+* Improving the accuracy of previews leading to a more accurate understanding of what will actually change rather than assuming all output properties will change
 
 ---
 
