@@ -91,7 +91,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+     * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
     public readonly automaticBackupRetentionDays!: pulumi.Output<number | undefined>;
     /**
@@ -269,7 +269,7 @@ export interface WindowsFileSystemState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+     * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
     readonly automaticBackupRetentionDays?: pulumi.Input<number>;
     /**
@@ -363,7 +363,7 @@ export interface WindowsFileSystemArgs {
      */
     readonly activeDirectoryId?: pulumi.Input<string>;
     /**
-     * The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+     * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
     readonly automaticBackupRetentionDays?: pulumi.Input<number>;
     /**

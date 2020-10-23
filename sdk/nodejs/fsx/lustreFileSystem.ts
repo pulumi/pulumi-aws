@@ -57,9 +57,13 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly autoImportPolicy!: pulumi.Output<string>;
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
      */
     public readonly automaticBackupRetentionDays!: pulumi.Output<number>;
+    /**
+     * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
+     */
+    public readonly copyTagsToBackups!: pulumi.Output<boolean | undefined>;
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
@@ -89,7 +93,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly importedFileChunkSize!: pulumi.Output<number>;
     /**
-     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -152,6 +156,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoImportPolicy"] = state ? state.autoImportPolicy : undefined;
             inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
+            inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
             inputs["deploymentType"] = state ? state.deploymentType : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
@@ -181,6 +186,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             }
             inputs["autoImportPolicy"] = args ? args.autoImportPolicy : undefined;
             inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
+            inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
             inputs["deploymentType"] = args ? args.deploymentType : undefined;
             inputs["driveCacheType"] = args ? args.driveCacheType : undefined;
@@ -226,9 +232,13 @@ export interface LustreFileSystemState {
      */
     readonly autoImportPolicy?: pulumi.Input<string>;
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
      */
     readonly automaticBackupRetentionDays?: pulumi.Input<number>;
+    /**
+     * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
+     */
+    readonly copyTagsToBackups?: pulumi.Input<boolean>;
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
@@ -258,7 +268,7 @@ export interface LustreFileSystemState {
      */
     readonly importedFileChunkSize?: pulumi.Input<number>;
     /**
-     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -316,9 +326,13 @@ export interface LustreFileSystemArgs {
      */
     readonly autoImportPolicy?: pulumi.Input<string>;
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 35 days. only valid for `PERSISTENT_1` deployment_type.
+     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
      */
     readonly automaticBackupRetentionDays?: pulumi.Input<number>;
+    /**
+     * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
+     */
+    readonly copyTagsToBackups?: pulumi.Input<boolean>;
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
@@ -344,7 +358,7 @@ export interface LustreFileSystemArgs {
      */
     readonly importedFileChunkSize?: pulumi.Input<number>;
     /**
-     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1`. Defaults to an AWS managed KMS Key.
+     * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**

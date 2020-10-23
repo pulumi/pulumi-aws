@@ -764,6 +764,9 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Subnets() pulumi.Stri
 
 type EventTargetInputTransformer struct {
 	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+	// * You can have as many as 10 key-value pairs.
+	// * You must use JSON dot notation, not bracket notation.
+	// * The keys can't start with "AWS".
 	InputPaths map[string]string `pulumi:"inputPaths"`
 	// Structure containing the template body.
 	InputTemplate string `pulumi:"inputTemplate"`
@@ -782,6 +785,9 @@ type EventTargetInputTransformerInput interface {
 
 type EventTargetInputTransformerArgs struct {
 	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+	// * You can have as many as 10 key-value pairs.
+	// * You must use JSON dot notation, not bracket notation.
+	// * The keys can't start with "AWS".
 	InputPaths pulumi.StringMapInput `pulumi:"inputPaths"`
 	// Structure containing the template body.
 	InputTemplate pulumi.StringInput `pulumi:"inputTemplate"`
@@ -865,6 +871,9 @@ func (o EventTargetInputTransformerOutput) ToEventTargetInputTransformerPtrOutpu
 }
 
 // Key value pairs specified in the form of JSONPath (for example, time = $.time)
+// * You can have as many as 10 key-value pairs.
+// * You must use JSON dot notation, not bracket notation.
+// * The keys can't start with "AWS".
 func (o EventTargetInputTransformerOutput) InputPaths() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) map[string]string { return v.InputPaths }).(pulumi.StringMapOutput)
 }
@@ -893,6 +902,9 @@ func (o EventTargetInputTransformerPtrOutput) Elem() EventTargetInputTransformer
 }
 
 // Key value pairs specified in the form of JSONPath (for example, time = $.time)
+// * You can have as many as 10 key-value pairs.
+// * You must use JSON dot notation, not bracket notation.
+// * The keys can't start with "AWS".
 func (o EventTargetInputTransformerPtrOutput) InputPaths() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventTargetInputTransformer) map[string]string {
 		if v == nil {

@@ -256,6 +256,9 @@ class EventTargetInputTransformer(dict):
         """
         :param str input_template: Structure containing the template body.
         :param Mapping[str, str] input_paths: Key value pairs specified in the form of JSONPath (for example, time = $.time)
+               * You can have as many as 10 key-value pairs.
+               * You must use JSON dot notation, not bracket notation.
+               * The keys can't start with "AWS".
         """
         pulumi.set(__self__, "input_template", input_template)
         if input_paths is not None:
@@ -274,6 +277,9 @@ class EventTargetInputTransformer(dict):
     def input_paths(self) -> Optional[Mapping[str, str]]:
         """
         Key value pairs specified in the form of JSONPath (for example, time = $.time)
+        * You can have as many as 10 key-value pairs.
+        * You must use JSON dot notation, not bracket notation.
+        * The keys can't start with "AWS".
         """
         return pulumi.get(self, "input_paths")
 

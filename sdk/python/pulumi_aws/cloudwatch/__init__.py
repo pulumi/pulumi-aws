@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .dashboard import *
+from .event_bus import *
 from .event_permission import *
 from .event_rule import *
 from .event_target import *

@@ -75,7 +75,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                     weighted_capacity="35",
                     root_block_devices=[{
                         "volume_size": "300",
-                        "volumeType": "gp2",
+                        "volume_type": "gp2",
                     }],
                     tags={
                         "Name": "spot-fleet-example",

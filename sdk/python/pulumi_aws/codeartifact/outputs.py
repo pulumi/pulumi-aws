@@ -9,23 +9,20 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
-    'RepositoryExternalConnection',
+    'RepositoryExternalConnections',
     'RepositoryUpstream',
 ]
 
 @pulumi.output_type
-class RepositoryExternalConnection(dict):
+class RepositoryExternalConnections(dict):
     def __init__(__self__, *,
-                 external_connection_name: Optional[str] = None,
+                 external_connection_name: str,
                  package_format: Optional[str] = None,
                  status: Optional[str] = None):
         """
         :param str external_connection_name: The name of the external connection associated with a repository.
-        :param str package_format: The package format associated with a repository's external connection.
-        :param str status: The status of the external connection of a repository.
         """
-        if external_connection_name is not None:
-            pulumi.set(__self__, "external_connection_name", external_connection_name)
+        pulumi.set(__self__, "external_connection_name", external_connection_name)
         if package_format is not None:
             pulumi.set(__self__, "package_format", package_format)
         if status is not None:
@@ -33,7 +30,7 @@ class RepositoryExternalConnection(dict):
 
     @property
     @pulumi.getter(name="externalConnectionName")
-    def external_connection_name(self) -> Optional[str]:
+    def external_connection_name(self) -> str:
         """
         The name of the external connection associated with a repository.
         """
@@ -42,17 +39,11 @@ class RepositoryExternalConnection(dict):
     @property
     @pulumi.getter(name="packageFormat")
     def package_format(self) -> Optional[str]:
-        """
-        The package format associated with a repository's external connection.
-        """
         return pulumi.get(self, "package_format")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
-        """
-        The status of the external connection of a repository.
-        """
         return pulumi.get(self, "status")
 
     def _translate_property(self, prop):

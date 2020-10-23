@@ -20,6 +20,7 @@ class Repository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_owner: Optional[pulumi.Input[str]] = None,
+                 external_connections: Optional[pulumi.Input[pulumi.InputType['RepositoryExternalConnectionsArgs']]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryUpstreamArgs']]]]] = None,
                  __props__=None,
@@ -58,12 +59,29 @@ class Repository(pulumi.CustomResource):
                 repository_name=upstream.repository,
             )])
         ```
+        ### With External Connection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        upstream = aws.codeartifact.Repository("upstream",
+            repository="upstream",
+            domain=aws_codeartifact_domain["test"]["domain"])
+        test = aws.codeartifact.Repository("test",
+            repository="example",
+            domain=aws_codeartifact_domain["example"]["domain"],
+            external_connections=aws.codeartifact.RepositoryExternalConnectionsArgs(
+                external_connection_name="public:npmjs",
+            ))
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the repository.
         :param pulumi.Input[str] domain: The domain that contains the created repository.
         :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
+        :param pulumi.Input[pulumi.InputType['RepositoryExternalConnectionsArgs']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         :param pulumi.Input[str] repository: The name of the repository to create.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryUpstreamArgs']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
@@ -89,13 +107,13 @@ class Repository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain'")
             __props__['domain'] = domain
             __props__['domain_owner'] = domain_owner
+            __props__['external_connections'] = external_connections
             if repository is None:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
             __props__['upstreams'] = upstreams
             __props__['administrator_account'] = None
             __props__['arn'] = None
-            __props__['external_connections'] = None
         super(Repository, __self__).__init__(
             'aws:codeartifact/repository:Repository',
             resource_name,
@@ -111,7 +129,7 @@ class Repository(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             domain_owner: Optional[pulumi.Input[str]] = None,
-            external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryExternalConnectionArgs']]]]] = None,
+            external_connections: Optional[pulumi.Input[pulumi.InputType['RepositoryExternalConnectionsArgs']]] = None,
             repository: Optional[pulumi.Input[str]] = None,
             upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryUpstreamArgs']]]]] = None) -> 'Repository':
         """
@@ -126,7 +144,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the repository.
         :param pulumi.Input[str] domain: The domain that contains the created repository.
         :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryExternalConnectionArgs']]]] external_connections: An array of external connections associated with the repository. see External Connections
+        :param pulumi.Input[pulumi.InputType['RepositoryExternalConnectionsArgs']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         :param pulumi.Input[str] repository: The name of the repository to create.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryUpstreamArgs']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
@@ -186,9 +204,9 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalConnections")
-    def external_connections(self) -> pulumi.Output[Sequence['outputs.RepositoryExternalConnection']]:
+    def external_connections(self) -> pulumi.Output[Optional['outputs.RepositoryExternalConnections']]:
         """
-        An array of external connections associated with the repository. see External Connections
+        An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         """
         return pulumi.get(self, "external_connections")
 
