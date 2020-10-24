@@ -2182,10 +2182,70 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(codestarNotificiationsMod, "NotificationRule"),
 			},
 			// Lex
-			"aws_lex_slot_type": {Tok: awsResource(lexMod, "SlotType")},
-			"aws_lex_bot":       {Tok: awsResource(lexMod, "Bot")},
-			"aws_lex_intent":    {Tok: awsResource(lexMod, "Intent")},
-			"aws_lex_bot_alias": {Tok: awsResource(lexMod, "BotAlias")},
+			"aws_lex_slot_type": {
+				Tok: awsResource(lexMod, "SlotType"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							// This means the name will adhere to ^([A-Za-z]_?)+$  as per
+							// https://docs.aws.amazon.com/lex/latest/dg/API_PutSlotType.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Transform: func(name string) string {
+									return fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
+								},
+							}),
+						},
+					},
+				},
+			},
+			"aws_lex_bot": {
+				Tok: awsResource(lexMod, "Bot"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							// This means the name will adhere to ^([A-Za-z]_?)+$  as per
+							// https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Transform: func(name string) string {
+									return fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
+								},
+							}),
+						},
+					},
+				},
+			},
+			"aws_lex_intent": {
+				Tok: awsResource(lexMod, "Intent"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							// This means the name will adhere to ^([A-Za-z]_?)+$  as per
+							// https://docs.aws.amazon.com/lex/latest/dg/API_PutIntent.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Transform: func(name string) string {
+									return fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
+								},
+							}),
+						},
+					},
+				},
+			},
+			"aws_lex_bot_alias": {
+				Tok: awsResource(lexMod, "BotAlias"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							// This means the name will adhere to ^([A-Za-z]_?)+$  as per
+							// https://docs.aws.amazon.com/lex/latest/dg/API_PutBotAlias.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Transform: func(name string) string {
+									return fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
+								},
+							}),
+						},
+					},
+				},
+			},
 			// Codeartifact
 			"aws_codeartifact_domain": {
 				Tok: awsResource(codeartifactMod, "Domain"),

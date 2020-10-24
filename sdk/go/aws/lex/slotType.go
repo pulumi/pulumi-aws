@@ -44,6 +44,7 @@ import (
 // 					Value: pulumi.String("tulips"),
 // 				},
 // 			},
+// 			Name:                   pulumi.String("FlowerTypes"),
 // 			ValueSelectionStrategy: pulumi.String("ORIGINAL_VALUE"),
 // 		})
 // 		if err != nil {

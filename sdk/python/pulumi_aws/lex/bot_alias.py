@@ -38,7 +38,8 @@ class BotAlias(pulumi.CustomResource):
         order_flowers_prod = aws.lex.BotAlias("orderFlowersProd",
             bot_name="OrderFlowers",
             bot_version="1",
-            description="Production Version of the OrderFlowers Bot.")
+            description="Production Version of the OrderFlowers Bot.",
+            name="OrderFlowersProd")
         ```
 
         :param str resource_name: The name of the resource.

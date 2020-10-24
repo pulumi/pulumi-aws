@@ -40,6 +40,7 @@ import * as utilities from "../utilities";
  *         intentVersion: "1",
  *     }],
  *     locale: "en-US",
+ *     name: "OrderFlowers",
  *     processBehavior: "BUILD",
  *     voiceId: "Salli",
  * });

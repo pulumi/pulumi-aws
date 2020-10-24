@@ -54,6 +54,7 @@ import (
 // 				},
 // 			},
 // 			Locale:          pulumi.String("en-US"),
+// 			Name:            pulumi.String("OrderFlowers"),
 // 			ProcessBehavior: pulumi.String("BUILD"),
 // 			VoiceId:         pulumi.String("Salli"),
 // 		})
