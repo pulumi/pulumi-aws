@@ -44,6 +44,24 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### With External Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const upstream = new aws.codeartifact.Repository("upstream", {
+ *     repository: "upstream",
+ *     domain: aws_codeartifact_domain.test.domain,
+ * });
+ * const test = new aws.codeartifact.Repository("test", {
+ *     repository: "example",
+ *     domain: aws_codeartifact_domain.example.domain,
+ *     externalConnections: {
+ *         externalConnectionName: "public:npmjs",
+ *     },
+ * });
+ * ```
  */
 export class Repository extends pulumi.CustomResource {
     /**
@@ -94,9 +112,9 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly domainOwner!: pulumi.Output<string>;
     /**
-     * An array of external connections associated with the repository. see External Connections
+     * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    public /*out*/ readonly externalConnections!: pulumi.Output<outputs.codeartifact.RepositoryExternalConnection[]>;
+    public readonly externalConnections!: pulumi.Output<outputs.codeartifact.RepositoryExternalConnections | undefined>;
     /**
      * The name of the repository to create.
      */
@@ -137,11 +155,11 @@ export class Repository extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["domain"] = args ? args.domain : undefined;
             inputs["domainOwner"] = args ? args.domainOwner : undefined;
+            inputs["externalConnections"] = args ? args.externalConnections : undefined;
             inputs["repository"] = args ? args.repository : undefined;
             inputs["upstreams"] = args ? args.upstreams : undefined;
             inputs["administratorAccount"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
-            inputs["externalConnections"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -179,9 +197,9 @@ export interface RepositoryState {
      */
     readonly domainOwner?: pulumi.Input<string>;
     /**
-     * An array of external connections associated with the repository. see External Connections
+     * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    readonly externalConnections?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryExternalConnection>[]>;
+    readonly externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
     /**
      * The name of the repository to create.
      */
@@ -208,6 +226,10 @@ export interface RepositoryArgs {
      * The account number of the AWS account that owns the domain.
      */
     readonly domainOwner?: pulumi.Input<string>;
+    /**
+     * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+     */
+    readonly externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
     /**
      * The name of the repository to create.
      */

@@ -3901,6 +3901,197 @@ export namespace autoscaling {
     }
 }
 
+export namespace autoscalingplans {
+    export interface ScalingPlanApplicationSource {
+        /**
+         * The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+         */
+        cloudformationStackArn?: string;
+        /**
+         * A set of tags.
+         */
+        tagFilters?: outputs.autoscalingplans.ScalingPlanApplicationSourceTagFilter[];
+    }
+
+    export interface ScalingPlanApplicationSourceTagFilter {
+        /**
+         * The tag key.
+         */
+        key: string;
+        /**
+         * The tag values.
+         */
+        values?: string[];
+    }
+
+    export interface ScalingPlanScalingInstruction {
+        /**
+         * The customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
+         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
+         */
+        customizedLoadMetricSpecification?: outputs.autoscalingplans.ScalingPlanScalingInstructionCustomizedLoadMetricSpecification;
+        /**
+         * Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
+         */
+        disableDynamicScaling?: boolean;
+        /**
+         * The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
+         */
+        maxCapacity: number;
+        /**
+         * The minimum capacity of the resource.
+         */
+        minCapacity: number;
+        /**
+         * The predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
+         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
+         */
+        predefinedLoadMetricSpecification?: outputs.autoscalingplans.ScalingPlanScalingInstructionPredefinedLoadMetricSpecification;
+        /**
+         * Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
+         * Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
+         */
+        predictiveScalingMaxCapacityBehavior?: string;
+        /**
+         * The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+         */
+        predictiveScalingMaxCapacityBuffer?: number;
+        /**
+         * The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+         */
+        predictiveScalingMode?: string;
+        /**
+         * The ID of the resource. This string consists of the resource type and unique identifier.
+         */
+        resourceId: string;
+        /**
+         * The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+         */
+        scalableDimension: string;
+        /**
+         * Controls whether a resource's externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
+         */
+        scalingPolicyUpdateBehavior?: string;
+        /**
+         * The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+         */
+        scheduledActionBufferTime?: number;
+        /**
+         * The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+         */
+        serviceNamespace: string;
+        /**
+         * The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
+         */
+        targetTrackingConfigurations: outputs.autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfiguration[];
+    }
+
+    export interface ScalingPlanScalingInstructionCustomizedLoadMetricSpecification {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: {[key: string]: string};
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: string;
+        /**
+         * The statistic of the metric. Currently, the value must always be `Sum`.
+         */
+        statistic: string;
+        /**
+         * The unit of the metric.
+         */
+        unit?: string;
+    }
+
+    export interface ScalingPlanScalingInstructionPredefinedLoadMetricSpecification {
+        /**
+         * The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+         */
+        predefinedLoadMetricType: string;
+        /**
+         * Identifies the resource associated with the metric type.
+         */
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPlanScalingInstructionTargetTrackingConfiguration {
+        /**
+         * A customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
+         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
+         */
+        customizedScalingMetricSpecification?: outputs.autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification;
+        /**
+         * Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
+         */
+        disableScaleIn?: boolean;
+        /**
+         * The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+         * This value is used only if the resource is an Auto Scaling group.
+         */
+        estimatedInstanceWarmup?: number;
+        /**
+         * A predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
+         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
+         */
+        predefinedScalingMetricSpecification?: outputs.autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification;
+        /**
+         * The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+         * This value is not used if the scalable resource is an Auto Scaling group.
+         */
+        scaleInCooldown?: number;
+        /**
+         * The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+         * This value is not used if the scalable resource is an Auto Scaling group.
+         */
+        scaleOutCooldown?: number;
+        /**
+         * The target value for the metric.
+         */
+        targetValue: number;
+    }
+
+    export interface ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification {
+        /**
+         * The dimensions of the metric.
+         */
+        dimensions?: {[key: string]: string};
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace: string;
+        /**
+         * The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+         */
+        statistic: string;
+        /**
+         * The unit of the metric.
+         */
+        unit?: string;
+    }
+
+    export interface ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification {
+        /**
+         * The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
+         */
+        predefinedScalingMetricType: string;
+        /**
+         * Identifies the resource associated with the metric type.
+         */
+        resourceLabel?: string;
+    }
+}
+
 export namespace backup {
     export interface PlanAdvancedBackupSetting {
         /**
@@ -4945,6 +5136,9 @@ export namespace cloudwatch {
     export interface EventTargetInputTransformer {
         /**
          * Key value pairs specified in the form of JSONPath (for example, time = $.time)
+         * * You can have as many as 10 key-value pairs.
+         * * You must use JSON dot notation, not bracket notation.
+         * * The keys can't start with "AWS".
          */
         inputPaths?: {[key: string]: string};
         /**
@@ -5052,18 +5246,12 @@ export namespace cloudwatch {
 }
 
 export namespace codeartifact {
-    export interface RepositoryExternalConnection {
+    export interface RepositoryExternalConnections {
         /**
          * The name of the external connection associated with a repository.
          */
         externalConnectionName: string;
-        /**
-         * The package format associated with a repository's external connection.
-         */
         packageFormat: string;
-        /**
-         * The status of the external connection of a repository.
-         */
         status: string;
     }
 
@@ -14858,6 +15046,493 @@ export namespace kinesis {
          * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
          */
         parameterValue: string;
+    }
+}
+
+export namespace kinesisanalyticsv2 {
+    export interface ApplicationApplicationConfiguration {
+        /**
+         * The code location and type parameters for the application.
+         */
+        applicationCodeConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfiguration;
+        /**
+         * Describes whether snapshots are enabled for a Flink-based application.
+         */
+        applicationSnapshotConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationSnapshotConfiguration;
+        /**
+         * Describes execution properties for a Flink-based application.
+         */
+        environmentProperties?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentProperties;
+        /**
+         * The configuration of a Flink-based application.
+         */
+        flinkApplicationConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfiguration;
+        /**
+         * The configuration of a SQL-based application.
+         */
+        sqlApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfiguration;
+        /**
+         * The VPC configuration of a Flink-based application.
+         */
+        vpcConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfiguration;
+    }
+
+    export interface ApplicationApplicationConfigurationApplicationCodeConfiguration {
+        /**
+         * The location and type of the application code.
+         */
+        codeContent?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent;
+        /**
+         * Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+         */
+        codeContentType: string;
+    }
+
+    export interface ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent {
+        /**
+         * Information about the Amazon S3 bucket containing the application code.
+         */
+        s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation;
+        /**
+         * The text-format code for the application.
+         */
+        textContent?: string;
+    }
+
+    export interface ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
+        /**
+         * The ARN for the S3 bucket containing the application code.
+         */
+        bucketArn: string;
+        /**
+         * The file key for the object containing the application code.
+         */
+        fileKey: string;
+        /**
+         * The version of the object containing the application code.
+         */
+        objectVersion?: string;
+    }
+
+    export interface ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
+        /**
+         * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+         */
+        snapshotsEnabled: boolean;
+    }
+
+    export interface ApplicationApplicationConfigurationEnvironmentProperties {
+        /**
+         * Describes the execution property groups.
+         */
+        propertyGroups: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup[];
+    }
+
+    export interface ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup {
+        /**
+         * The key of the application execution property key-value map.
+         */
+        propertyGroupId: string;
+        /**
+         * Application execution property key-value map.
+         */
+        propertyMap: {[key: string]: string};
+    }
+
+    export interface ApplicationApplicationConfigurationFlinkApplicationConfiguration {
+        /**
+         * Describes an application's checkpointing configuration.
+         */
+        checkpointConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration;
+        /**
+         * Describes configuration parameters for CloudWatch logging for an application.
+         */
+        monitoringConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration;
+        /**
+         * Describes parameters for how an application executes multiple tasks simultaneously.
+         */
+        parallelismConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration;
+    }
+
+    export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
+        /**
+         * Describes the interval in milliseconds between checkpoint operations.
+         */
+        checkpointInterval: number;
+        /**
+         * Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+         */
+        checkpointingEnabled: boolean;
+        /**
+         * Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
+         * * `checkpointingEnabled = true`
+         * * `checkpointInterval = 60000`
+         * * `minPauseBetweenCheckpoints = 5000`
+         */
+        configurationType: string;
+        /**
+         * Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
+         */
+        minPauseBetweenCheckpoints: number;
+    }
+
+    export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
+        /**
+         * Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+         */
+        configurationType: string;
+        /**
+         * Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+         */
+        logLevel: string;
+        /**
+         * Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+         */
+        metricsLevel: string;
+    }
+
+    export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
+        /**
+         * Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+         */
+        autoScalingEnabled: boolean;
+        /**
+         * Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
+         */
+        configurationType: string;
+        /**
+         * Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+         */
+        parallelism: number;
+        /**
+         * Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
+         */
+        parallelismPerKpu: number;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfiguration {
+        /**
+         * The input stream used by the application.
+         */
+        input?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInput;
+        /**
+         * The destination streams used by the application.
+         */
+        outputs?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutput[];
+        /**
+         * The reference data source used by the application.
+         */
+        referenceDataSource?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
+        inAppStreamNames: string[];
+        inputId: string;
+        /**
+         * Describes the number of in-application streams to create.
+         */
+        inputParallelism: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism;
+        /**
+         * The input processing configuration for the input.
+         * An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+         */
+        inputProcessingConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration;
+        /**
+         * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+         */
+        inputSchema: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema;
+        inputStartingPositionConfigurations: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration[];
+        /**
+         * If the streaming source is a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html), identifies the delivery stream's ARN.
+         */
+        kinesisFirehoseInput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput;
+        /**
+         * If the streaming source is a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html), identifies the stream's Amazon Resource Name (ARN).
+         */
+        kinesisStreamsInput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput;
+        /**
+         * The name prefix to use when creating an in-application stream.
+         */
+        namePrefix: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
+        /**
+         * The number of in-application streams to create.
+         */
+        count: number;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
+        /**
+         * Describes the [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) that is used to preprocess the records in the stream before being processed by your application code.
+         */
+        inputLambdaProcessor: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
+        /**
+         * The ARN of the Lambda function that operates on records in the stream.
+         */
+        resourceArn: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
+        /**
+         * Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+         */
+        recordColumns: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn[];
+        /**
+         * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+         */
+        recordEncoding?: string;
+        /**
+         * Specifies the format of the records on the streaming source.
+         */
+        recordFormat: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn {
+        /**
+         * A reference to the data element in the streaming input or the reference data source.
+         */
+        mapping?: string;
+        /**
+         * The name of the column that is created in the in-application input stream or reference table.
+         */
+        name: string;
+        /**
+         * The type of column created in the in-application input stream or reference table.
+         */
+        sqlType: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
+        /**
+         * Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+         */
+        mappingParameters: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters;
+        /**
+         * The type of record format. Valid values: `CSV`, `JSON`.
+         */
+        recordFormatType: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
+        /**
+         * Provides additional mapping information when the record format uses delimiters (for example, CSV).
+         */
+        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters;
+        /**
+         * Provides additional mapping information when JSON is the record format on the streaming source.
+         */
+        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters {
+        /**
+         * The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+         */
+        recordColumnDelimiter: string;
+        /**
+         * The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+         */
+        recordRowDelimiter: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters {
+        /**
+         * The path to the top-level parent that contains the records.
+         */
+        recordRowPath: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
+        inputStartingPosition: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
+        /**
+         * The ARN of the delivery stream.
+         */
+        resourceArn: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
+        /**
+         * The ARN of the input Kinesis data stream to read.
+         */
+        resourceArn: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutput {
+        /**
+         * Describes the data format when records are written to the destination.
+         */
+        destinationSchema: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema;
+        /**
+         * Identifies a [Kinesis Data Firehose delivery stream](https://www.terraform.io/docs/providers/aws/r/kinesis_firehose_delivery_stream.html) as the destination.
+         */
+        kinesisFirehoseOutput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput;
+        /**
+         * Identifies a [Kinesis data stream](https://www.terraform.io/docs/providers/aws/r/kinesis_stream.html) as the destination.
+         */
+        kinesisStreamsOutput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput;
+        /**
+         * Identifies a [Lambda function](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) as the destination.
+         */
+        lambdaOutput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput;
+        /**
+         * The name of the in-application stream.
+         */
+        name: string;
+        outputId: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema {
+        /**
+         * Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+         */
+        recordFormatType: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
+        /**
+         * The ARN of the destination delivery stream to write to.
+         */
+        resourceArn: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
+        /**
+         * The ARN of the destination Kinesis data stream to write to.
+         */
+        resourceArn: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
+        /**
+         * The ARN of the destination Lambda function to write to.
+         */
+        resourceArn: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
+        referenceId: string;
+        /**
+         * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+         */
+        referenceSchema: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema;
+        /**
+         * Identifies the S3 bucket and object that contains the reference data.
+         */
+        s3ReferenceDataSource: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource;
+        /**
+         * The name of the in-application table to create.
+         */
+        tableName: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
+        /**
+         * Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+         */
+        recordColumns: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn[];
+        /**
+         * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+         */
+        recordEncoding?: string;
+        /**
+         * Specifies the format of the records on the streaming source.
+         */
+        recordFormat: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn {
+        /**
+         * A reference to the data element in the streaming input or the reference data source.
+         */
+        mapping?: string;
+        /**
+         * The name of the column that is created in the in-application input stream or reference table.
+         */
+        name: string;
+        /**
+         * The type of column created in the in-application input stream or reference table.
+         */
+        sqlType: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat {
+        /**
+         * Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+         */
+        mappingParameters: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters;
+        /**
+         * The type of record format. Valid values: `CSV`, `JSON`.
+         */
+        recordFormatType: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
+        /**
+         * Provides additional mapping information when the record format uses delimiters (for example, CSV).
+         */
+        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters;
+        /**
+         * Provides additional mapping information when JSON is the record format on the streaming source.
+         */
+        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
+        /**
+         * The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+         */
+        recordColumnDelimiter: string;
+        /**
+         * The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+         */
+        recordRowDelimiter: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters {
+        /**
+         * The path to the top-level parent that contains the records.
+         */
+        recordRowPath: string;
+    }
+
+    export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
+        /**
+         * The ARN for the S3 bucket containing the application code.
+         */
+        bucketArn: string;
+        /**
+         * The file key for the object containing the application code.
+         */
+        fileKey: string;
+    }
+
+    export interface ApplicationApplicationConfigurationVpcConfiguration {
+        /**
+         * The [Security Group](https://www.terraform.io/docs/providers/aws/r/security_group.html) IDs used by the VPC configuration.
+         */
+        securityGroupIds: string[];
+        /**
+         * The [Subnet](https://www.terraform.io/docs/providers/aws/r/subnet.html) IDs used by the VPC configuration.
+         */
+        subnetIds: string[];
+        vpcConfigurationId: string;
+        vpcId: string;
+    }
+
+    export interface ApplicationCloudwatchLoggingOptions {
+        cloudwatchLoggingOptionId: string;
+        /**
+         * The ARN of the CloudWatch log stream to receive application messages.
+         */
+        logStreamArn: string;
     }
 }
 

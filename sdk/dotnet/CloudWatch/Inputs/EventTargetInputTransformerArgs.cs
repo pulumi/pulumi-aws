@@ -17,6 +17,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
         /// <summary>
         /// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+        /// * You can have as many as 10 key-value pairs.
+        /// * You must use JSON dot notation, not bracket notation.
+        /// * The keys can't start with "AWS".
         /// </summary>
         public InputMap<string> InputPaths
         {

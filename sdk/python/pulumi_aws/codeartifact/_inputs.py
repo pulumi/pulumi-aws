@@ -9,23 +9,20 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
-    'RepositoryExternalConnectionArgs',
+    'RepositoryExternalConnectionsArgs',
     'RepositoryUpstreamArgs',
 ]
 
 @pulumi.input_type
-class RepositoryExternalConnectionArgs:
+class RepositoryExternalConnectionsArgs:
     def __init__(__self__, *,
-                 external_connection_name: Optional[pulumi.Input[str]] = None,
+                 external_connection_name: pulumi.Input[str],
                  package_format: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] external_connection_name: The name of the external connection associated with a repository.
-        :param pulumi.Input[str] package_format: The package format associated with a repository's external connection.
-        :param pulumi.Input[str] status: The status of the external connection of a repository.
         """
-        if external_connection_name is not None:
-            pulumi.set(__self__, "external_connection_name", external_connection_name)
+        pulumi.set(__self__, "external_connection_name", external_connection_name)
         if package_format is not None:
             pulumi.set(__self__, "package_format", package_format)
         if status is not None:
@@ -33,22 +30,19 @@ class RepositoryExternalConnectionArgs:
 
     @property
     @pulumi.getter(name="externalConnectionName")
-    def external_connection_name(self) -> Optional[pulumi.Input[str]]:
+    def external_connection_name(self) -> pulumi.Input[str]:
         """
         The name of the external connection associated with a repository.
         """
         return pulumi.get(self, "external_connection_name")
 
     @external_connection_name.setter
-    def external_connection_name(self, value: Optional[pulumi.Input[str]]):
+    def external_connection_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "external_connection_name", value)
 
     @property
     @pulumi.getter(name="packageFormat")
     def package_format(self) -> Optional[pulumi.Input[str]]:
-        """
-        The package format associated with a repository's external connection.
-        """
         return pulumi.get(self, "package_format")
 
     @package_format.setter
@@ -58,9 +52,6 @@ class RepositoryExternalConnectionArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status of the external connection of a repository.
-        """
         return pulumi.get(self, "status")
 
     @status.setter

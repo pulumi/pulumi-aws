@@ -10,27 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeArtifact.Inputs
 {
 
-    public sealed class RepositoryExternalConnectionGetArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryExternalConnectionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the external connection associated with a repository.
         /// </summary>
-        [Input("externalConnectionName")]
-        public Input<string>? ExternalConnectionName { get; set; }
+        [Input("externalConnectionName", required: true)]
+        public Input<string> ExternalConnectionName { get; set; } = null!;
 
-        /// <summary>
-        /// The package format associated with a repository's external connection.
-        /// </summary>
         [Input("packageFormat")]
         public Input<string>? PackageFormat { get; set; }
 
-        /// <summary>
-        /// The status of the external connection of a repository.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        public RepositoryExternalConnectionGetArgs()
+        public RepositoryExternalConnectionsArgs()
         {
         }
     }

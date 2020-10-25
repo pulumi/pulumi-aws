@@ -11,24 +11,18 @@ namespace Pulumi.Aws.CodeArtifact.Outputs
 {
 
     [OutputType]
-    public sealed class RepositoryExternalConnection
+    public sealed class RepositoryExternalConnections
     {
         /// <summary>
         /// The name of the external connection associated with a repository.
         /// </summary>
-        public readonly string? ExternalConnectionName;
-        /// <summary>
-        /// The package format associated with a repository's external connection.
-        /// </summary>
+        public readonly string ExternalConnectionName;
         public readonly string? PackageFormat;
-        /// <summary>
-        /// The status of the external connection of a repository.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]
-        private RepositoryExternalConnection(
-            string? externalConnectionName,
+        private RepositoryExternalConnections(
+            string externalConnectionName,
 
             string? packageFormat,
 

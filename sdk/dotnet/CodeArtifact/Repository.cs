@@ -71,6 +71,34 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// }
     /// ```
+    /// ### With External Connection
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var upstream = new Aws.CodeArtifact.Repository("upstream", new Aws.CodeArtifact.RepositoryArgs
+    ///         {
+    ///             Repository = "upstream",
+    ///             Domain = aws_codeartifact_domain.Test.Domain,
+    ///         });
+    ///         var test = new Aws.CodeArtifact.Repository("test", new Aws.CodeArtifact.RepositoryArgs
+    ///         {
+    ///             Repository = "example",
+    ///             Domain = aws_codeartifact_domain.Example.Domain,
+    ///             ExternalConnections = new Aws.CodeArtifact.Inputs.RepositoryExternalConnectionsArgs
+    ///             {
+    ///                 ExternalConnectionName = "public:npmjs",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {
@@ -105,10 +133,10 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<string> DomainOwner { get; private set; } = null!;
 
         /// <summary>
-        /// An array of external connections associated with the repository. see External Connections
+        /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         /// </summary>
         [Output("externalConnections")]
-        public Output<ImmutableArray<Outputs.RepositoryExternalConnection>> ExternalConnections { get; private set; } = null!;
+        public Output<Outputs.RepositoryExternalConnections?> ExternalConnections { get; private set; } = null!;
 
         /// <summary>
         /// The name of the repository to create.
@@ -187,6 +215,12 @@ namespace Pulumi.Aws.CodeArtifact
         public Input<string>? DomainOwner { get; set; }
 
         /// <summary>
+        /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+        /// </summary>
+        [Input("externalConnections")]
+        public Input<Inputs.RepositoryExternalConnectionsArgs>? ExternalConnections { get; set; }
+
+        /// <summary>
         /// The name of the repository to create.
         /// </summary>
         [Input("repository", required: true)]
@@ -241,17 +275,11 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("domainOwner")]
         public Input<string>? DomainOwner { get; set; }
 
-        [Input("externalConnections")]
-        private InputList<Inputs.RepositoryExternalConnectionGetArgs>? _externalConnections;
-
         /// <summary>
-        /// An array of external connections associated with the repository. see External Connections
+        /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         /// </summary>
-        public InputList<Inputs.RepositoryExternalConnectionGetArgs> ExternalConnections
-        {
-            get => _externalConnections ?? (_externalConnections = new InputList<Inputs.RepositoryExternalConnectionGetArgs>());
-            set => _externalConnections = value;
-        }
+        [Input("externalConnections")]
+        public Input<Inputs.RepositoryExternalConnectionsGetArgs>? ExternalConnections { get; set; }
 
         /// <summary>
         /// The name of the repository to create.

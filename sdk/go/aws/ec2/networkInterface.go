@@ -18,6 +18,10 @@ type NetworkInterface struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
 	// A description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
 	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
@@ -73,6 +77,10 @@ type networkInterfaceState struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The MAC address of the network interface.
 	MacAddress *string `pulumi:"macAddress"`
 	OutpostArn *string `pulumi:"outpostArn"`
@@ -98,6 +106,10 @@ type NetworkInterfaceState struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount pulumi.IntPtrInput
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses pulumi.StringArrayInput
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringPtrInput
 	OutpostArn pulumi.StringPtrInput
@@ -127,7 +139,11 @@ type networkInterfaceArgs struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
-	PrivateIp   *string `pulumi:"privateIp"`
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
+	PrivateIp     *string  `pulumi:"privateIp"`
 	// List of private IPs to assign to the ENI.
 	PrivateIps []string `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
@@ -148,7 +164,11 @@ type NetworkInterfaceArgs struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
-	PrivateIp   pulumi.StringPtrInput
+	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+	Ipv6AddressCount pulumi.IntPtrInput
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
+	Ipv6Addresses pulumi.StringArrayInput
+	PrivateIp     pulumi.StringPtrInput
 	// List of private IPs to assign to the ENI.
 	PrivateIps pulumi.StringArrayInput
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.

@@ -10,119 +10,165 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type RepositoryExternalConnection struct {
+type RepositoryExternalConnections struct {
 	// The name of the external connection associated with a repository.
-	ExternalConnectionName *string `pulumi:"externalConnectionName"`
-	// The package format associated with a repository's external connection.
-	PackageFormat *string `pulumi:"packageFormat"`
-	// The status of the external connection of a repository.
-	Status *string `pulumi:"status"`
+	ExternalConnectionName string  `pulumi:"externalConnectionName"`
+	PackageFormat          *string `pulumi:"packageFormat"`
+	Status                 *string `pulumi:"status"`
 }
 
-// RepositoryExternalConnectionInput is an input type that accepts RepositoryExternalConnectionArgs and RepositoryExternalConnectionOutput values.
-// You can construct a concrete instance of `RepositoryExternalConnectionInput` via:
+// RepositoryExternalConnectionsInput is an input type that accepts RepositoryExternalConnectionsArgs and RepositoryExternalConnectionsOutput values.
+// You can construct a concrete instance of `RepositoryExternalConnectionsInput` via:
 //
-//          RepositoryExternalConnectionArgs{...}
-type RepositoryExternalConnectionInput interface {
+//          RepositoryExternalConnectionsArgs{...}
+type RepositoryExternalConnectionsInput interface {
 	pulumi.Input
 
-	ToRepositoryExternalConnectionOutput() RepositoryExternalConnectionOutput
-	ToRepositoryExternalConnectionOutputWithContext(context.Context) RepositoryExternalConnectionOutput
+	ToRepositoryExternalConnectionsOutput() RepositoryExternalConnectionsOutput
+	ToRepositoryExternalConnectionsOutputWithContext(context.Context) RepositoryExternalConnectionsOutput
 }
 
-type RepositoryExternalConnectionArgs struct {
+type RepositoryExternalConnectionsArgs struct {
 	// The name of the external connection associated with a repository.
-	ExternalConnectionName pulumi.StringPtrInput `pulumi:"externalConnectionName"`
-	// The package format associated with a repository's external connection.
-	PackageFormat pulumi.StringPtrInput `pulumi:"packageFormat"`
-	// The status of the external connection of a repository.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	ExternalConnectionName pulumi.StringInput    `pulumi:"externalConnectionName"`
+	PackageFormat          pulumi.StringPtrInput `pulumi:"packageFormat"`
+	Status                 pulumi.StringPtrInput `pulumi:"status"`
 }
 
-func (RepositoryExternalConnectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryExternalConnection)(nil)).Elem()
+func (RepositoryExternalConnectionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryExternalConnections)(nil)).Elem()
 }
 
-func (i RepositoryExternalConnectionArgs) ToRepositoryExternalConnectionOutput() RepositoryExternalConnectionOutput {
-	return i.ToRepositoryExternalConnectionOutputWithContext(context.Background())
+func (i RepositoryExternalConnectionsArgs) ToRepositoryExternalConnectionsOutput() RepositoryExternalConnectionsOutput {
+	return i.ToRepositoryExternalConnectionsOutputWithContext(context.Background())
 }
 
-func (i RepositoryExternalConnectionArgs) ToRepositoryExternalConnectionOutputWithContext(ctx context.Context) RepositoryExternalConnectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryExternalConnectionOutput)
+func (i RepositoryExternalConnectionsArgs) ToRepositoryExternalConnectionsOutputWithContext(ctx context.Context) RepositoryExternalConnectionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryExternalConnectionsOutput)
 }
 
-// RepositoryExternalConnectionArrayInput is an input type that accepts RepositoryExternalConnectionArray and RepositoryExternalConnectionArrayOutput values.
-// You can construct a concrete instance of `RepositoryExternalConnectionArrayInput` via:
+func (i RepositoryExternalConnectionsArgs) ToRepositoryExternalConnectionsPtrOutput() RepositoryExternalConnectionsPtrOutput {
+	return i.ToRepositoryExternalConnectionsPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryExternalConnectionsArgs) ToRepositoryExternalConnectionsPtrOutputWithContext(ctx context.Context) RepositoryExternalConnectionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryExternalConnectionsOutput).ToRepositoryExternalConnectionsPtrOutputWithContext(ctx)
+}
+
+// RepositoryExternalConnectionsPtrInput is an input type that accepts RepositoryExternalConnectionsArgs, RepositoryExternalConnectionsPtr and RepositoryExternalConnectionsPtrOutput values.
+// You can construct a concrete instance of `RepositoryExternalConnectionsPtrInput` via:
 //
-//          RepositoryExternalConnectionArray{ RepositoryExternalConnectionArgs{...} }
-type RepositoryExternalConnectionArrayInput interface {
+//          RepositoryExternalConnectionsArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryExternalConnectionsPtrInput interface {
 	pulumi.Input
 
-	ToRepositoryExternalConnectionArrayOutput() RepositoryExternalConnectionArrayOutput
-	ToRepositoryExternalConnectionArrayOutputWithContext(context.Context) RepositoryExternalConnectionArrayOutput
+	ToRepositoryExternalConnectionsPtrOutput() RepositoryExternalConnectionsPtrOutput
+	ToRepositoryExternalConnectionsPtrOutputWithContext(context.Context) RepositoryExternalConnectionsPtrOutput
 }
 
-type RepositoryExternalConnectionArray []RepositoryExternalConnectionInput
+type repositoryExternalConnectionsPtrType RepositoryExternalConnectionsArgs
 
-func (RepositoryExternalConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryExternalConnection)(nil)).Elem()
+func RepositoryExternalConnectionsPtr(v *RepositoryExternalConnectionsArgs) RepositoryExternalConnectionsPtrInput {
+	return (*repositoryExternalConnectionsPtrType)(v)
 }
 
-func (i RepositoryExternalConnectionArray) ToRepositoryExternalConnectionArrayOutput() RepositoryExternalConnectionArrayOutput {
-	return i.ToRepositoryExternalConnectionArrayOutputWithContext(context.Background())
+func (*repositoryExternalConnectionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryExternalConnections)(nil)).Elem()
 }
 
-func (i RepositoryExternalConnectionArray) ToRepositoryExternalConnectionArrayOutputWithContext(ctx context.Context) RepositoryExternalConnectionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryExternalConnectionArrayOutput)
+func (i *repositoryExternalConnectionsPtrType) ToRepositoryExternalConnectionsPtrOutput() RepositoryExternalConnectionsPtrOutput {
+	return i.ToRepositoryExternalConnectionsPtrOutputWithContext(context.Background())
 }
 
-type RepositoryExternalConnectionOutput struct{ *pulumi.OutputState }
-
-func (RepositoryExternalConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryExternalConnection)(nil)).Elem()
+func (i *repositoryExternalConnectionsPtrType) ToRepositoryExternalConnectionsPtrOutputWithContext(ctx context.Context) RepositoryExternalConnectionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryExternalConnectionsPtrOutput)
 }
 
-func (o RepositoryExternalConnectionOutput) ToRepositoryExternalConnectionOutput() RepositoryExternalConnectionOutput {
+type RepositoryExternalConnectionsOutput struct{ *pulumi.OutputState }
+
+func (RepositoryExternalConnectionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryExternalConnections)(nil)).Elem()
+}
+
+func (o RepositoryExternalConnectionsOutput) ToRepositoryExternalConnectionsOutput() RepositoryExternalConnectionsOutput {
 	return o
 }
 
-func (o RepositoryExternalConnectionOutput) ToRepositoryExternalConnectionOutputWithContext(ctx context.Context) RepositoryExternalConnectionOutput {
+func (o RepositoryExternalConnectionsOutput) ToRepositoryExternalConnectionsOutputWithContext(ctx context.Context) RepositoryExternalConnectionsOutput {
 	return o
+}
+
+func (o RepositoryExternalConnectionsOutput) ToRepositoryExternalConnectionsPtrOutput() RepositoryExternalConnectionsPtrOutput {
+	return o.ToRepositoryExternalConnectionsPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryExternalConnectionsOutput) ToRepositoryExternalConnectionsPtrOutputWithContext(ctx context.Context) RepositoryExternalConnectionsPtrOutput {
+	return o.ApplyT(func(v RepositoryExternalConnections) *RepositoryExternalConnections {
+		return &v
+	}).(RepositoryExternalConnectionsPtrOutput)
 }
 
 // The name of the external connection associated with a repository.
-func (o RepositoryExternalConnectionOutput) ExternalConnectionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryExternalConnection) *string { return v.ExternalConnectionName }).(pulumi.StringPtrOutput)
+func (o RepositoryExternalConnectionsOutput) ExternalConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryExternalConnections) string { return v.ExternalConnectionName }).(pulumi.StringOutput)
 }
 
-// The package format associated with a repository's external connection.
-func (o RepositoryExternalConnectionOutput) PackageFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryExternalConnection) *string { return v.PackageFormat }).(pulumi.StringPtrOutput)
+func (o RepositoryExternalConnectionsOutput) PackageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryExternalConnections) *string { return v.PackageFormat }).(pulumi.StringPtrOutput)
 }
 
-// The status of the external connection of a repository.
-func (o RepositoryExternalConnectionOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryExternalConnection) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o RepositoryExternalConnectionsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryExternalConnections) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-type RepositoryExternalConnectionArrayOutput struct{ *pulumi.OutputState }
+type RepositoryExternalConnectionsPtrOutput struct{ *pulumi.OutputState }
 
-func (RepositoryExternalConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryExternalConnection)(nil)).Elem()
+func (RepositoryExternalConnectionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryExternalConnections)(nil)).Elem()
 }
 
-func (o RepositoryExternalConnectionArrayOutput) ToRepositoryExternalConnectionArrayOutput() RepositoryExternalConnectionArrayOutput {
+func (o RepositoryExternalConnectionsPtrOutput) ToRepositoryExternalConnectionsPtrOutput() RepositoryExternalConnectionsPtrOutput {
 	return o
 }
 
-func (o RepositoryExternalConnectionArrayOutput) ToRepositoryExternalConnectionArrayOutputWithContext(ctx context.Context) RepositoryExternalConnectionArrayOutput {
+func (o RepositoryExternalConnectionsPtrOutput) ToRepositoryExternalConnectionsPtrOutputWithContext(ctx context.Context) RepositoryExternalConnectionsPtrOutput {
 	return o
 }
 
-func (o RepositoryExternalConnectionArrayOutput) Index(i pulumi.IntInput) RepositoryExternalConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryExternalConnection {
-		return vs[0].([]RepositoryExternalConnection)[vs[1].(int)]
-	}).(RepositoryExternalConnectionOutput)
+func (o RepositoryExternalConnectionsPtrOutput) Elem() RepositoryExternalConnectionsOutput {
+	return o.ApplyT(func(v *RepositoryExternalConnections) RepositoryExternalConnections { return *v }).(RepositoryExternalConnectionsOutput)
+}
+
+// The name of the external connection associated with a repository.
+func (o RepositoryExternalConnectionsPtrOutput) ExternalConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryExternalConnections) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryExternalConnectionsPtrOutput) PackageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryExternalConnections) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PackageFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryExternalConnectionsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryExternalConnections) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type RepositoryUpstream struct {
@@ -223,8 +269,8 @@ func (o RepositoryUpstreamArrayOutput) Index(i pulumi.IntInput) RepositoryUpstre
 }
 
 func init() {
-	pulumi.RegisterOutputType(RepositoryExternalConnectionOutput{})
-	pulumi.RegisterOutputType(RepositoryExternalConnectionArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryExternalConnectionsOutput{})
+	pulumi.RegisterOutputType(RepositoryExternalConnectionsPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryUpstreamOutput{})
 	pulumi.RegisterOutputType(RepositoryUpstreamArrayOutput{})
 }

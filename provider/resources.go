@@ -50,6 +50,7 @@ const (
 	appautoscalingMod         = "AppAutoScaling"        // Application Auto Scaling
 	athenaMod                 = "Athena"                // Athena
 	autoscalingMod            = "AutoScaling"           // Auto Scaling
+	autoscalingPlansMod       = "AutoScalingPlans"      // Auto Scaling Plans
 	backupMod                 = "Backup"                // Backup
 	batchMod                  = "Batch"                 // Batch
 	budgetsMod                = "Budgets"               // Budgets
@@ -105,6 +106,7 @@ const (
 	inspectorMod              = "Inspector"             // Inspector
 	iotMod                    = "Iot"                   // Internet of Things (IoT)
 	kinesisMod                = "Kinesis"               // Kinesis
+	kinesisAnalyticsMod       = "KinesisAnalyticsV2"    // Kinesis Analytics V2
 	kmsMod                    = "Kms"                   // Key Management Service (KMS)
 	lambdaMod                 = "Lambda"                // Lambda
 	lexMod                    = "Lex"                   // Lex
@@ -582,6 +584,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_autoscaling_policy":   {Tok: awsResource(autoscalingMod, "Policy")},
 			"aws_autoscaling_schedule": {Tok: awsResource(autoscalingMod, "Schedule")},
+			// Autoscaling Plans
+			"aws_autoscalingplans_scaling_plan": {Tok: awsResource(autoscalingPlansMod, "ScalingPlan")},
 			// Backup
 			"aws_backup_plan":                {Tok: awsResource(backupMod, "Plan")},
 			"aws_backup_selection":           {Tok: awsResource(backupMod, "Selection")},
@@ -646,6 +650,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_log_metric_filter":   {Tok: awsResource(cloudwatchMod, "LogMetricFilter")},
 			"aws_cloudwatch_log_resource_policy": {Tok: awsResource(cloudwatchMod, "LogResourcePolicy")},
 			"aws_cloudwatch_log_stream":          {Tok: awsResource(cloudwatchMod, "LogStream")},
+			"aws_cloudwatch_event_bus":           {Tok: awsResource(cloudwatchMod, "EventBus")},
 			"aws_cloudwatch_log_subscription_filter": {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1583,6 +1588,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			// Kinesis Data Analytics V2
+			"aws_kinesisanalyticsv2_application": {Tok: awsResource(kinesisAnalyticsMod, "Application")},
 			// Key Management Service (KMS)
 			"aws_kms_alias":        {Tok: awsResource(kmsMod, "Alias")},
 			"aws_kms_ciphertext":   {Tok: awsResource(kmsMod, "Ciphertext")},
@@ -2070,6 +2077,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_storagegateway_smb_file_share":      {Tok: awsResource(storagegatewayMod, "SmbFileShare")},
 			"aws_storagegateway_upload_buffer":       {Tok: awsResource(storagegatewayMod, "UploadBuffer")},
 			"aws_storagegateway_working_storage":     {Tok: awsResource(storagegatewayMod, "WorkingStorage")},
+			"aws_storagegateway_stored_iscsi_volume": {Tok: awsResource(storagegatewayMod, "StoredIscsiVolume")},
 			// Simple Notification Service (SNS)
 			"aws_sns_platform_application": {Tok: awsResource(snsMod, "PlatformApplication")},
 			"aws_sns_sms_preferences":      {Tok: awsResource(snsMod, "SmsPreferences")},
@@ -3229,6 +3237,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_subnet_group":           {Tok: awsDataSource(rdsMod, "getSubnetGroup")},
 			"aws_rds_orderable_db_instance": {Tok: awsDataSource(rdsMod, "getOrderableDbInstance")},
 			"aws_rds_engine_version":        {Tok: awsDataSource(rdsMod, "getEngineVersion")},
+			"aws_rds_certificate":           {Tok: awsDataSource(rdsMod, "getCertificate")},
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift

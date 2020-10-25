@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
         [Output("automaticBackupRetentionDays")]
         public Output<int?> AutomaticBackupRetentionDays { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? ActiveDirectoryId { get; set; }
 
         /// <summary>
-        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
@@ -400,7 +400,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `35`. Defaults to `7`. Set to `0` to disable.
+        /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }

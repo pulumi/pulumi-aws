@@ -84,6 +84,39 @@ import (
 // 	})
 // }
 // ```
+// ### With External Connection
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/codeartifact"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := codeartifact.NewRepository(ctx, "upstream", &codeartifact.RepositoryArgs{
+// 			Repository: pulumi.String("upstream"),
+// 			Domain:     pulumi.Any(aws_codeartifact_domain.Test.Domain),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = codeartifact.NewRepository(ctx, "test", &codeartifact.RepositoryArgs{
+// 			Repository: pulumi.String("example"),
+// 			Domain:     pulumi.Any(aws_codeartifact_domain.Example.Domain),
+// 			ExternalConnections: &codeartifact.RepositoryExternalConnectionsArgs{
+// 				ExternalConnectionName: pulumi.String("public:npmjs"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Repository struct {
 	pulumi.CustomResourceState
 
@@ -97,8 +130,8 @@ type Repository struct {
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// The account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringOutput `pulumi:"domainOwner"`
-	// An array of external connections associated with the repository. see External Connections
-	ExternalConnections RepositoryExternalConnectionArrayOutput `pulumi:"externalConnections"`
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+	ExternalConnections RepositoryExternalConnectionsPtrOutput `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
@@ -149,8 +182,8 @@ type repositoryState struct {
 	Domain *string `pulumi:"domain"`
 	// The account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
-	// An array of external connections associated with the repository. see External Connections
-	ExternalConnections []RepositoryExternalConnection `pulumi:"externalConnections"`
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository *string `pulumi:"repository"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
@@ -168,8 +201,8 @@ type RepositoryState struct {
 	Domain pulumi.StringPtrInput
 	// The account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput
-	// An array of external connections associated with the repository. see External Connections
-	ExternalConnections RepositoryExternalConnectionArrayInput
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+	ExternalConnections RepositoryExternalConnectionsPtrInput
 	// The name of the repository to create.
 	Repository pulumi.StringPtrInput
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
@@ -187,6 +220,8 @@ type repositoryArgs struct {
 	Domain string `pulumi:"domain"`
 	// The account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository string `pulumi:"repository"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
@@ -201,6 +236,8 @@ type RepositoryArgs struct {
 	Domain pulumi.StringInput
 	// The account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput
+	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+	ExternalConnections RepositoryExternalConnectionsPtrInput
 	// The name of the repository to create.
 	Repository pulumi.StringInput
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream

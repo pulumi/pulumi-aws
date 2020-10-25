@@ -19,6 +19,8 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 ipv6_address_count: Optional[pulumi.Input[int]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_ips_count: Optional[pulumi.Input[int]] = None,
@@ -52,6 +54,8 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI.
         :param pulumi.Input[int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
@@ -78,6 +82,8 @@ class NetworkInterface(pulumi.CustomResource):
 
             __props__['attachments'] = attachments
             __props__['description'] = description
+            __props__['ipv6_address_count'] = ipv6_address_count
+            __props__['ipv6_addresses'] = ipv6_addresses
             __props__['private_ip'] = private_ip
             __props__['private_ips'] = private_ips
             __props__['private_ips_count'] = private_ips_count
@@ -102,6 +108,8 @@ class NetworkInterface(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            ipv6_address_count: Optional[pulumi.Input[int]] = None,
+            ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mac_address: Optional[pulumi.Input[str]] = None,
             outpost_arn: Optional[pulumi.Input[str]] = None,
             private_dns_name: Optional[pulumi.Input[str]] = None,
@@ -121,6 +129,8 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentArgs']]]] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[str] mac_address: The MAC address of the network interface.
         :param pulumi.Input[str] private_dns_name: The private DNS name of the network interface (IPv4).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI.
@@ -136,6 +146,8 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__["attachments"] = attachments
         __props__["description"] = description
+        __props__["ipv6_address_count"] = ipv6_address_count
+        __props__["ipv6_addresses"] = ipv6_addresses
         __props__["mac_address"] = mac_address
         __props__["outpost_arn"] = outpost_arn
         __props__["private_dns_name"] = private_dns_name
@@ -163,6 +175,22 @@ class NetworkInterface(pulumi.CustomResource):
         A description for the network interface.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> pulumi.Output[int]:
+        """
+        The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        """
+        return pulumi.get(self, "ipv6_address_count")
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6_address_count`.
+        """
+        return pulumi.get(self, "ipv6_addresses")
 
     @property
     @pulumi.getter(name="macAddress")
