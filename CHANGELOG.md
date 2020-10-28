@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.10.1 (2020-10-28)
 * Ensure `aws.lex.BotAlias`, `aws.lex.Bot`, `aws.lex.Intent` and `aws.lex.SlotType` have autonaming rules in place that adhere to AWS requirements
 * Add missing enum values for `aws.autoscaling.Group` `EnabledMetrics`
 * Add enum value for `aws.iam.ManagedPolicy` `AWSLambdaSQSQueueExecutionRole`
-
----
 
 ## 3.10.0 (2020-10-26)
 * Upgrade to v3.12.0 of the AWS Terraform Provider
