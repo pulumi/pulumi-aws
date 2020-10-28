@@ -209,6 +209,7 @@ export const ManagedPolicy = {
     AmazonSNSRole: "arn:aws:iam::aws:policy/service-role/AmazonSNSRole",
     AmazonSQSFullAccess: "arn:aws:iam::aws:policy/AmazonSQSFullAccess",
     AmazonSQSReadOnlyAccess: "arn:aws:iam::aws:policy/AmazonSQSReadOnlyAccess",
+    AWSLambdaSQSQueueExecutionRole: "arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole",
     AmazonSSMAutomationRole: "arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole",
     AmazonSSMFullAccess: "arn:aws:iam::aws:policy/AmazonSSMFullAccess",
     AmazonSSMMaintenanceWindowRole: "arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole",

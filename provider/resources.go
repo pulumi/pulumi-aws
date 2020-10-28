@@ -2810,6 +2810,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "AmazonSNSRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonSNSRole"},
 					{Name: "AmazonSQSFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSQSFullAccess"},
 					{Name: "AmazonSQSReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AmazonSQSReadOnlyAccess"},
+					{Name: "AWSLambdaSQSQueueExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole"},
 					{Name: "AmazonSSMAutomationRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole"},
 					{Name: "AmazonSSMFullAccess", Value: "arn:aws:iam::aws:policy/AmazonSSMFullAccess"},
 					{Name: "AmazonSSMMaintenanceWindowRole", Value: "arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole"},
