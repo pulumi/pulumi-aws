@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     botName: "OrderFlowers",
  *     botVersion: "1",
  *     description: "Production Version of the OrderFlowers Bot.",
+ *     name: "OrderFlowersProd",
  * });
  * ```
  */

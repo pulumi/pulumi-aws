@@ -36,6 +36,7 @@ import * as utilities from "../utilities";
  *             value: "tulips",
  *         },
  *     ],
+ *     name: "FlowerTypes",
  *     valueSelectionStrategy: "ORIGINAL_VALUE",
  * });
  * ```

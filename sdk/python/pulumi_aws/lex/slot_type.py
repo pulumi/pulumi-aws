@@ -54,6 +54,7 @@ class SlotType(pulumi.CustomResource):
                     value="tulips",
                 ),
             ],
+            name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```
 

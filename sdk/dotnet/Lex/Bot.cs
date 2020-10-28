@@ -61,6 +61,7 @@ namespace Pulumi.Aws.Lex
     ///                 },
     ///             },
     ///             Locale = "en-US",
+    ///             Name = "OrderFlowers",
     ///             ProcessBehavior = "BUILD",
     ///             VoiceId = "Salli",
     ///         });

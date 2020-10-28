@@ -48,6 +48,7 @@ namespace Pulumi.Aws.Lex
     ///                     Value = "tulips",
     ///                 },
     ///             },
+    ///             Name = "FlowerTypes",
     ///             ValueSelectionStrategy = "ORIGINAL_VALUE",
     ///         });
     ///     }

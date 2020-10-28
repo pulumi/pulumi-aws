@@ -67,6 +67,7 @@ class Bot(pulumi.CustomResource):
                 intent_version="1",
             )],
             locale="en-US",
+            name="OrderFlowers",
             process_behavior="BUILD",
             voice_id="Salli")
         ```

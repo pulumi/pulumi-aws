@@ -29,6 +29,7 @@ import (
 // 			BotName:     pulumi.String("OrderFlowers"),
 // 			BotVersion:  pulumi.String("1"),
 // 			Description: pulumi.String("Production Version of the OrderFlowers Bot."),
+// 			Name:        pulumi.String("OrderFlowersProd"),
 // 		})
 // 		if err != nil {
 // 			return err

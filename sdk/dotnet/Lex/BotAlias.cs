@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Lex
     ///             BotName = "OrderFlowers",
     ///             BotVersion = "1",
     ///             Description = "Production Version of the OrderFlowers Bot.",
+    ///             Name = "OrderFlowersProd",
     ///         });
     ///     }
     /// 

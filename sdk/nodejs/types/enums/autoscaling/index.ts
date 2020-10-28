@@ -7,10 +7,15 @@ export const Metric = {
     GroupMaxSize: "GroupMaxSize",
     GroupDesiredCapacity: "GroupDesiredCapacity",
     GroupInServiceInstances: "GroupInServiceInstances",
+    GroupInServiceCapacity: "GroupInServiceCapacity",
     GroupPendingInstances: "GroupPendingInstances",
+    GroupPendingCapacity: "GroupPendingCapacity",
     GroupStandbyInstances: "GroupStandbyInstances",
+    GroupStandbyCapacity: "GroupStandbyCapacity",
     GroupTerminatingInstances: "GroupTerminatingInstances",
+    GroupTerminatingCapacity: "GroupTerminatingCapacity",
     GroupTotalInstances: "GroupTotalInstances",
+    GroupTotalCapacity: "GroupTotalCapacity",
 } as const;
 
 /**
