@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Ensure `aws.lex.BotAlias`, `aws.lex.Bot`, `aws.lex.Intent` and `aws.lex.SlotType` have autonaming rules in place that adhere to AWS requirements
+* Add missing enum values for `aws.autoscaling.Group` `EnabledMetrics`
 
 ---
 
