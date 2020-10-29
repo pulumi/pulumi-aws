@@ -4576,7 +4576,9 @@ func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCa
 
 // Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
 func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string {
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
 }
 
 // Used to target a specific Capacity Reservation:

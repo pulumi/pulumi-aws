@@ -4680,7 +4680,9 @@ func (o PartitionStorageDescriptorSkewedInfoOutput) SkewedColumnNames() pulumi.S
 
 // A list of values that appear so frequently as to be considered skewed.
 func (o PartitionStorageDescriptorSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) map[string]string { return v.SkewedColumnValueLocationMaps }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) map[string]string {
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.StringMapOutput)
 }
 
 // A map of skewed values to the columns that contain them.
@@ -5275,7 +5277,9 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
 
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string {
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput struct{ *pulumi.OutputState }

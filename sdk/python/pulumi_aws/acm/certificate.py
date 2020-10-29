@@ -73,10 +73,10 @@ class Certificate(pulumi.CustomResource):
         example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
             key_algorithm="RSA",
             private_key_pem=example_private_key.private_key_pem,
-            subjects=[{
-                "commonName": "example.com",
-                "organization": "ACME Examples, Inc",
-            }],
+            subjects=[tls.SelfSignedCertSubjectArgs(
+                common_name="example.com",
+                organization="ACME Examples, Inc",
+            )],
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",

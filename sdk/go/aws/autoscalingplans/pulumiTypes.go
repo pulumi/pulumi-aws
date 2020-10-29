@@ -820,7 +820,9 @@ func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput) Pr
 
 // Identifies the resource associated with the metric type.
 func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalingPlanScalingInstructionPredefinedLoadMetricSpecification) *string { return v.ResourceLabel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScalingPlanScalingInstructionPredefinedLoadMetricSpecification) *string {
+		return v.ResourceLabel
+	}).(pulumi.StringPtrOutput)
 }
 
 type ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput struct{ *pulumi.OutputState }

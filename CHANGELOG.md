@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add enum values for `aws.iam.ManagedPolicy`: `AmazonSSMAutomationApproverAccess`, `AmazonSSMDirectoryServiceAccess`, `AmazonSSMPatchAssociation`
 
 ---
 
