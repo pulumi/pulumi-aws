@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.13.0 of the AWS Terraform Provider
-* Add enum values for `aws.iam.ManagedPolicy`: `AmazonSSMAutomationApproverAccess`, `AmazonSSMDirectoryServiceAccess`, `AmazonSSMPatchAssociation`
+_(none)_
 
 ---
+
+## 3.11.0 (2020-10-30)
+* Upgrade to v3.13.0 of the AWS Terraform Provider
+* Add enum values for `aws.iam.ManagedPolicy`: `AmazonSSMAutomationApproverAccess`, `AmazonSSMDirectoryServiceAccess`, `AmazonSSMPatchAssociation`
 
 ## 3.10.1 (2020-10-28)
 * Ensure `aws.lex.BotAlias`, `aws.lex.Bot`, `aws.lex.Intent` and `aws.lex.SlotType` have autonaming rules in place that adhere to AWS requirements
