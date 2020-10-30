@@ -223,6 +223,7 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonSNSRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSNSRole");
         public static ManagedPolicy AmazonSQSFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonSQSFullAccess");
         public static ManagedPolicy AmazonSQSReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonSQSReadOnlyAccess");
+        public static ManagedPolicy AWSLambdaSQSQueueExecutionRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole");
         public static ManagedPolicy AmazonSSMAutomationRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole");
         public static ManagedPolicy AmazonSSMFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMFullAccess");
         public static ManagedPolicy AmazonSSMMaintenanceWindowRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole");
@@ -284,6 +285,8 @@ namespace Pulumi.Aws.Iam
 
         public static bool operator ==(ManagedPolicy left, ManagedPolicy right) => left.Equals(right);
         public static bool operator !=(ManagedPolicy left, ManagedPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedPolicy value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedPolicy other && Equals(other);

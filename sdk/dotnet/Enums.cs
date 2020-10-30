@@ -48,6 +48,8 @@ namespace Pulumi.Aws
         public static bool operator ==(Region left, Region right) => left.Equals(right);
         public static bool operator !=(Region left, Region right) => !left.Equals(right);
 
+        public static explicit operator string(Region value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Region other && Equals(other);
         public bool Equals(Region other) => string.Equals(_value, other._value, StringComparison.Ordinal);

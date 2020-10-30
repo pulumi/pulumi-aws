@@ -40,6 +40,8 @@ namespace Pulumi.Aws.Lambda
         public static bool operator ==(Runtime left, Runtime right) => left.Equals(right);
         public static bool operator !=(Runtime left, Runtime right) => !left.Equals(right);
 
+        public static explicit operator string(Runtime value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Runtime other && Equals(other);
         public bool Equals(Runtime other) => string.Equals(_value, other._value, StringComparison.Ordinal);

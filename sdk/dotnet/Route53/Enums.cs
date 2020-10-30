@@ -33,6 +33,8 @@ namespace Pulumi.Aws.Route53
         public static bool operator ==(RecordType left, RecordType right) => left.Equals(right);
         public static bool operator !=(RecordType left, RecordType right) => !left.Equals(right);
 
+        public static explicit operator string(RecordType value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RecordType other && Equals(other);
         public bool Equals(RecordType other) => string.Equals(_value, other._value, StringComparison.Ordinal);

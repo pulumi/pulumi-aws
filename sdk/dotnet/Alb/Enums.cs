@@ -23,6 +23,8 @@ namespace Pulumi.Aws.Alb
         public static bool operator ==(IpAddressType left, IpAddressType right) => left.Equals(right);
         public static bool operator !=(IpAddressType left, IpAddressType right) => !left.Equals(right);
 
+        public static explicit operator string(IpAddressType value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IpAddressType other && Equals(other);
         public bool Equals(IpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
@@ -48,6 +50,8 @@ namespace Pulumi.Aws.Alb
 
         public static bool operator ==(LoadBalancerType left, LoadBalancerType right) => left.Equals(right);
         public static bool operator !=(LoadBalancerType left, LoadBalancerType right) => !left.Equals(right);
+
+        public static explicit operator string(LoadBalancerType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LoadBalancerType other && Equals(other);

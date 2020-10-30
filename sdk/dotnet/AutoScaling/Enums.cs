@@ -24,13 +24,20 @@ namespace Pulumi.Aws.AutoScaling
         public static Metric GroupMaxSize { get; } = new Metric("GroupMaxSize");
         public static Metric GroupDesiredCapacity { get; } = new Metric("GroupDesiredCapacity");
         public static Metric GroupInServiceInstances { get; } = new Metric("GroupInServiceInstances");
+        public static Metric GroupInServiceCapacity { get; } = new Metric("GroupInServiceCapacity");
         public static Metric GroupPendingInstances { get; } = new Metric("GroupPendingInstances");
+        public static Metric GroupPendingCapacity { get; } = new Metric("GroupPendingCapacity");
         public static Metric GroupStandbyInstances { get; } = new Metric("GroupStandbyInstances");
+        public static Metric GroupStandbyCapacity { get; } = new Metric("GroupStandbyCapacity");
         public static Metric GroupTerminatingInstances { get; } = new Metric("GroupTerminatingInstances");
+        public static Metric GroupTerminatingCapacity { get; } = new Metric("GroupTerminatingCapacity");
         public static Metric GroupTotalInstances { get; } = new Metric("GroupTotalInstances");
+        public static Metric GroupTotalCapacity { get; } = new Metric("GroupTotalCapacity");
 
         public static bool operator ==(Metric left, Metric right) => left.Equals(right);
         public static bool operator !=(Metric left, Metric right) => !left.Equals(right);
+
+        public static explicit operator string(Metric value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Metric other && Equals(other);
@@ -59,6 +66,8 @@ namespace Pulumi.Aws.AutoScaling
 
         public static bool operator ==(MetricsGranularity left, MetricsGranularity right) => left.Equals(right);
         public static bool operator !=(MetricsGranularity left, MetricsGranularity right) => !left.Equals(right);
+
+        public static explicit operator string(MetricsGranularity value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MetricsGranularity other && Equals(other);
@@ -91,6 +100,8 @@ namespace Pulumi.Aws.AutoScaling
 
         public static bool operator ==(NotificationType left, NotificationType right) => left.Equals(right);
         public static bool operator !=(NotificationType left, NotificationType right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NotificationType other && Equals(other);

@@ -32,6 +32,8 @@ namespace Pulumi.Aws.S3
         public static bool operator ==(CannedAcl left, CannedAcl right) => left.Equals(right);
         public static bool operator !=(CannedAcl left, CannedAcl right) => !left.Equals(right);
 
+        public static explicit operator string(CannedAcl value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CannedAcl other && Equals(other);
         public bool Equals(CannedAcl other) => string.Equals(_value, other._value, StringComparison.Ordinal);

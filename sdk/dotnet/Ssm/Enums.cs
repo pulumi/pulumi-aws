@@ -24,6 +24,8 @@ namespace Pulumi.Aws.Ssm
         public static bool operator ==(ParameterType left, ParameterType right) => left.Equals(right);
         public static bool operator !=(ParameterType left, ParameterType right) => !left.Equals(right);
 
+        public static explicit operator string(ParameterType value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ParameterType other && Equals(other);
         public bool Equals(ParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);

@@ -25,6 +25,8 @@ namespace Pulumi.Aws.Rds
         public static bool operator ==(EngineMode left, EngineMode right) => left.Equals(right);
         public static bool operator !=(EngineMode left, EngineMode right) => !left.Equals(right);
 
+        public static explicit operator string(EngineMode value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EngineMode other && Equals(other);
         public bool Equals(EngineMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
@@ -51,6 +53,8 @@ namespace Pulumi.Aws.Rds
 
         public static bool operator ==(EngineType left, EngineType right) => left.Equals(right);
         public static bool operator !=(EngineType left, EngineType right) => !left.Equals(right);
+
+        public static explicit operator string(EngineType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EngineType other && Equals(other);
@@ -135,6 +139,8 @@ namespace Pulumi.Aws.Rds
         public static bool operator ==(InstanceType left, InstanceType right) => left.Equals(right);
         public static bool operator !=(InstanceType left, InstanceType right) => !left.Equals(right);
 
+        public static explicit operator string(InstanceType value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InstanceType other && Equals(other);
         public bool Equals(InstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
@@ -161,6 +167,8 @@ namespace Pulumi.Aws.Rds
 
         public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
         public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageType other && Equals(other);

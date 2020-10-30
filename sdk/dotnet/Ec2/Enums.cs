@@ -29,6 +29,8 @@ namespace Pulumi.Aws.Ec2
         public static bool operator ==(InstancePlatform left, InstancePlatform right) => left.Equals(right);
         public static bool operator !=(InstancePlatform left, InstancePlatform right) => !left.Equals(right);
 
+        public static explicit operator string(InstancePlatform value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InstancePlatform other && Equals(other);
         public bool Equals(InstancePlatform other) => string.Equals(_value, other._value, StringComparison.Ordinal);
@@ -220,6 +222,8 @@ namespace Pulumi.Aws.Ec2
         public static bool operator ==(InstanceType left, InstanceType right) => left.Equals(right);
         public static bool operator !=(InstanceType left, InstanceType right) => !left.Equals(right);
 
+        public static explicit operator string(InstanceType value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InstanceType other && Equals(other);
         public bool Equals(InstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
@@ -257,6 +261,8 @@ namespace Pulumi.Aws.Ec2
         public static bool operator ==(PlacementStrategy left, PlacementStrategy right) => left.Equals(right);
         public static bool operator !=(PlacementStrategy left, PlacementStrategy right) => !left.Equals(right);
 
+        public static explicit operator string(PlacementStrategy value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PlacementStrategy other && Equals(other);
         public bool Equals(PlacementStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
@@ -285,6 +291,8 @@ namespace Pulumi.Aws.Ec2
         public static bool operator ==(ProtocolType left, ProtocolType right) => left.Equals(right);
         public static bool operator !=(ProtocolType left, ProtocolType right) => !left.Equals(right);
 
+        public static explicit operator string(ProtocolType value) => value._value;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProtocolType other && Equals(other);
         public bool Equals(ProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
@@ -310,6 +318,8 @@ namespace Pulumi.Aws.Ec2
 
         public static bool operator ==(Tenancy left, Tenancy right) => left.Equals(right);
         public static bool operator !=(Tenancy left, Tenancy right) => !left.Equals(right);
+
+        public static explicit operator string(Tenancy value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Tenancy other && Equals(other);
