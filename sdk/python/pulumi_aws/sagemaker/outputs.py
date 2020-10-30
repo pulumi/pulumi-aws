@@ -9,11 +9,43 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'CodeRepositoryGitConfig',
     'EndpointConfigurationProductionVariant',
     'ModelContainer',
     'ModelPrimaryContainer',
     'ModelVpcConfig',
 ]
+
+@pulumi.output_type
+class CodeRepositoryGitConfig(dict):
+    def __init__(__self__, *,
+                 repository_url: str,
+                 branch: Optional[str] = None,
+                 secret_arn: Optional[str] = None):
+        pulumi.set(__self__, "repository_url", repository_url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> str:
+        return pulumi.get(self, "repository_url")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        return pulumi.get(self, "secret_arn")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class EndpointConfigurationProductionVariant(dict):
@@ -100,12 +132,14 @@ class ModelContainer(dict):
                  image: str,
                  container_hostname: Optional[str] = None,
                  environment: Optional[Mapping[str, str]] = None,
+                 mode: Optional[str] = None,
                  model_data_url: Optional[str] = None):
         """
         :param str image: The registry path where the inference code image is stored in Amazon ECR.
         :param str container_hostname: The DNS host name for the container.
         :param Mapping[str, str] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param str model_data_url: The URL for the S3 location where model artifacts are stored.
         """
         pulumi.set(__self__, "image", image)
@@ -113,6 +147,8 @@ class ModelContainer(dict):
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
 
@@ -140,6 +176,14 @@ class ModelContainer(dict):
         A list of key value pairs.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
+        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter(name="modelDataUrl")
@@ -159,12 +203,14 @@ class ModelPrimaryContainer(dict):
                  image: str,
                  container_hostname: Optional[str] = None,
                  environment: Optional[Mapping[str, str]] = None,
+                 mode: Optional[str] = None,
                  model_data_url: Optional[str] = None):
         """
         :param str image: The registry path where the inference code image is stored in Amazon ECR.
         :param str container_hostname: The DNS host name for the container.
         :param Mapping[str, str] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param str model_data_url: The URL for the S3 location where model artifacts are stored.
         """
         pulumi.set(__self__, "image", image)
@@ -172,6 +218,8 @@ class ModelPrimaryContainer(dict):
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
 
@@ -199,6 +247,14 @@ class ModelPrimaryContainer(dict):
         A list of key value pairs.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
+        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter(name="modelDataUrl")

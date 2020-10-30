@@ -128,8 +128,7 @@ type GlobalCluster struct {
 	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
 	GlobalClusterResourceId   pulumi.StringOutput `pulumi:"globalClusterResourceId"`
 	SourceDbClusterIdentifier pulumi.StringOutput `pulumi:"sourceDbClusterIdentifier"`
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	StorageEncrypted          pulumi.BoolOutput   `pulumi:"storageEncrypted"`
 }
 
 // NewGlobalCluster registers a new resource with the given unique name, arguments, and options.
@@ -182,8 +181,7 @@ type globalClusterState struct {
 	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
 	GlobalClusterResourceId   *string `pulumi:"globalClusterResourceId"`
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	StorageEncrypted          *bool   `pulumi:"storageEncrypted"`
 }
 
 type GlobalClusterState struct {
@@ -206,8 +204,7 @@ type GlobalClusterState struct {
 	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
 	GlobalClusterResourceId   pulumi.StringPtrInput
 	SourceDbClusterIdentifier pulumi.StringPtrInput
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted pulumi.BoolPtrInput
+	StorageEncrypted          pulumi.BoolPtrInput
 }
 
 func (GlobalClusterState) ElementType() reflect.Type {
@@ -228,8 +225,7 @@ type globalClusterArgs struct {
 	// The global cluster identifier.
 	GlobalClusterIdentifier   string  `pulumi:"globalClusterIdentifier"`
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	StorageEncrypted          *bool   `pulumi:"storageEncrypted"`
 }
 
 // The set of arguments for constructing a GlobalCluster resource.
@@ -247,8 +243,7 @@ type GlobalClusterArgs struct {
 	// The global cluster identifier.
 	GlobalClusterIdentifier   pulumi.StringInput
 	SourceDbClusterIdentifier pulumi.StringPtrInput
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted pulumi.BoolPtrInput
+	StorageEncrypted          pulumi.BoolPtrInput
 }
 
 func (GlobalClusterArgs) ElementType() reflect.Type {

@@ -135,6 +135,8 @@ const (
 	securityhubMod            = "SecurityHub"           // SecurityHub
 	sesMod                    = "Ses"                   // Simple Email Service (SES)
 	s3Mod                     = "S3"                    // Simple Storage (S3)
+	s3ControlMod              = "S3Control"             // S3 Control
+	s3OutpostsMod             = "S3Outposts"            // S3 Outposts
 	ssmMod                    = "Ssm"                   // System Manager
 	secretsmanagerMod         = "SecretsManager"        // Secrets Manager
 	servicecatalogMod         = "ServiceCatalog"        // Service Catalog
@@ -1342,8 +1344,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_glue_ml_transform": {Tok: awsResource(glueMod, "MLTransform")},
-			"aws_glue_partition":    {Tok: awsResource(glueMod, "Partition")},
+			"aws_glue_ml_transform":    {Tok: awsResource(glueMod, "MLTransform")},
+			"aws_glue_partition":       {Tok: awsResource(glueMod, "Partition")},
+			"aws_glue_resource_policy": {Tok: awsResource(glueMod, "ResourcePolicy")},
 			// GuardDuty
 			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},
@@ -1906,6 +1909,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_endpoint_configuration": {Tok: awsResource(sagemakerMod, "EndpointConfiguration")},
 			"aws_sagemaker_model":                  {Tok: awsResource(sagemakerMod, "Model")},
 			"aws_sagemaker_notebook_instance":      {Tok: awsResource(sagemakerMod, "NotebookInstance")},
+			"aws_sagemaker_code_repository":        {Tok: awsResource(sagemakerMod, "CodeRepository")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
@@ -2025,6 +2029,19 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_s3_access_point":              {Tok: awsResource(s3Mod, "AccessPoint")},
 			"aws_s3_bucket_ownership_controls": {Tok: awsResource(s3Mod, "BucketOwnershipControls")},
+			//S3 Control
+			"aws_s3control_bucket": {
+				Tok: awsResource(s3ControlMod, "Bucket"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"bucket": {
+						CSharpName: "BucketName",
+					},
+				},
+			},
+			"aws_s3control_bucket_lifecycle_configuration": {Tok: awsResource(s3ControlMod, "BucketLifecycleConfiguration")},
+			"aws_s3control_bucket_policy":                  {Tok: awsResource(s3ControlMod, "BucketPolicy")},
+			// S3 Outposts
+			"aws_s3outposts_endpoint": {Tok: awsResource(s3OutpostsMod, "Endpoint")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
@@ -2078,6 +2095,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_storagegateway_upload_buffer":       {Tok: awsResource(storagegatewayMod, "UploadBuffer")},
 			"aws_storagegateway_working_storage":     {Tok: awsResource(storagegatewayMod, "WorkingStorage")},
 			"aws_storagegateway_stored_iscsi_volume": {Tok: awsResource(storagegatewayMod, "StoredIscsiVolume")},
+			"aws_storagegateway_tape_pool":           {Tok: awsResource(storagegatewayMod, "TapePool")},
 			// Simple Notification Service (SNS)
 			"aws_sns_platform_application": {Tok: awsResource(snsMod, "PlatformApplication")},
 			"aws_sns_sms_preferences":      {Tok: awsResource(snsMod, "SmsPreferences")},

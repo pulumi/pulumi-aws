@@ -120,6 +120,8 @@ from . import (
     resourcegroups,
     route53,
     s3,
+    s3control,
+    s3outposts,
     sagemaker,
     secretsmanager,
     securityhub,

@@ -27,6 +27,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string Image;
         /// <summary>
+        /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        /// </summary>
+        public readonly string? Mode;
+        /// <summary>
         /// The URL for the S3 location where model artifacts are stored.
         /// </summary>
         public readonly string? ModelDataUrl;
@@ -39,11 +43,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             string image,
 
+            string? mode,
+
             string? modelDataUrl)
         {
             ContainerHostname = containerHostname;
             Environment = environment;
             Image = image;
+            Mode = mode;
             ModelDataUrl = modelDataUrl;
         }
     }

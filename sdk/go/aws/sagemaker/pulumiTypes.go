@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type CodeRepositoryGitConfig struct {
+	Branch        *string `pulumi:"branch"`
+	RepositoryUrl string  `pulumi:"repositoryUrl"`
+	SecretArn     *string `pulumi:"secretArn"`
+}
+
+// CodeRepositoryGitConfigInput is an input type that accepts CodeRepositoryGitConfigArgs and CodeRepositoryGitConfigOutput values.
+// You can construct a concrete instance of `CodeRepositoryGitConfigInput` via:
+//
+//          CodeRepositoryGitConfigArgs{...}
+type CodeRepositoryGitConfigInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryGitConfigOutput() CodeRepositoryGitConfigOutput
+	ToCodeRepositoryGitConfigOutputWithContext(context.Context) CodeRepositoryGitConfigOutput
+}
+
+type CodeRepositoryGitConfigArgs struct {
+	Branch        pulumi.StringPtrInput `pulumi:"branch"`
+	RepositoryUrl pulumi.StringInput    `pulumi:"repositoryUrl"`
+	SecretArn     pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (CodeRepositoryGitConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepositoryGitConfig)(nil)).Elem()
+}
+
+func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigOutput() CodeRepositoryGitConfigOutput {
+	return i.ToCodeRepositoryGitConfigOutputWithContext(context.Background())
+}
+
+func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigOutputWithContext(ctx context.Context) CodeRepositoryGitConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigOutput)
+}
+
+func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
+	return i.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigOutput).ToCodeRepositoryGitConfigPtrOutputWithContext(ctx)
+}
+
+// CodeRepositoryGitConfigPtrInput is an input type that accepts CodeRepositoryGitConfigArgs, CodeRepositoryGitConfigPtr and CodeRepositoryGitConfigPtrOutput values.
+// You can construct a concrete instance of `CodeRepositoryGitConfigPtrInput` via:
+//
+//          CodeRepositoryGitConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CodeRepositoryGitConfigPtrInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput
+	ToCodeRepositoryGitConfigPtrOutputWithContext(context.Context) CodeRepositoryGitConfigPtrOutput
+}
+
+type codeRepositoryGitConfigPtrType CodeRepositoryGitConfigArgs
+
+func CodeRepositoryGitConfigPtr(v *CodeRepositoryGitConfigArgs) CodeRepositoryGitConfigPtrInput {
+	return (*codeRepositoryGitConfigPtrType)(v)
+}
+
+func (*codeRepositoryGitConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepositoryGitConfig)(nil)).Elem()
+}
+
+func (i *codeRepositoryGitConfigPtrType) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
+	return i.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *codeRepositoryGitConfigPtrType) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigPtrOutput)
+}
+
+type CodeRepositoryGitConfigOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryGitConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepositoryGitConfig)(nil)).Elem()
+}
+
+func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigOutput() CodeRepositoryGitConfigOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigOutputWithContext(ctx context.Context) CodeRepositoryGitConfigOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
+	return o.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
+	return o.ApplyT(func(v CodeRepositoryGitConfig) *CodeRepositoryGitConfig {
+		return &v
+	}).(CodeRepositoryGitConfigPtrOutput)
+}
+func (o CodeRepositoryGitConfigOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+func (o CodeRepositoryGitConfigOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeRepositoryGitConfig) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+func (o CodeRepositoryGitConfigOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type CodeRepositoryGitConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryGitConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepositoryGitConfig)(nil)).Elem()
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) Elem() CodeRepositoryGitConfigOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) CodeRepositoryGitConfig { return *v }).(CodeRepositoryGitConfigOutput)
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointConfigurationProductionVariant struct {
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
 	AcceleratorType *string `pulumi:"acceleratorType"`
@@ -160,6 +316,8 @@ type ModelContainer struct {
 	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image string `pulumi:"image"`
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode *string `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
 }
@@ -183,6 +341,8 @@ type ModelContainerArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringInput `pulumi:"image"`
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
 }
@@ -254,6 +414,11 @@ func (o ModelContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+func (o ModelContainerOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
 // The URL for the S3 location where model artifacts are stored.
 func (o ModelContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
@@ -287,6 +452,8 @@ type ModelPrimaryContainer struct {
 	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image string `pulumi:"image"`
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode *string `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
 }
@@ -310,6 +477,8 @@ type ModelPrimaryContainerArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringInput `pulumi:"image"`
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
 }
@@ -407,6 +576,11 @@ func (o ModelPrimaryContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+func (o ModelPrimaryContainerOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
 // The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
@@ -458,6 +632,16 @@ func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -613,6 +797,8 @@ func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})

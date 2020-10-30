@@ -9,7 +9,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a CloudWatch Events/EventBridge event bus resource.
+// Provides an EventBridge event bus resource.
+//
+// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
 //

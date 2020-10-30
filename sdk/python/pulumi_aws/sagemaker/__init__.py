@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .code_repository import *
 from .endpoint import *
 from .endpoint_configuration import *
 from .model import *

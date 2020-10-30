@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch
 {
     /// <summary>
-    /// Provides a CloudWatch Events/EventBridge event bus resource.
+    /// Provides an EventBridge event bus resource.
+    /// 
+    /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
     /// 

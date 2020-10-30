@@ -160,11 +160,8 @@ namespace Pulumi.Aws.Rds
         [Output("sourceDbClusterIdentifier")]
         public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
-        /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool?> StorageEncrypted { get; private set; } = null!;
+        public Output<bool> StorageEncrypted { get; private set; } = null!;
 
 
         /// <summary>
@@ -249,9 +246,6 @@ namespace Pulumi.Aws.Rds
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
-        /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
@@ -323,9 +317,6 @@ namespace Pulumi.Aws.Rds
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false`.
-        /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 

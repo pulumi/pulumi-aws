@@ -77,6 +77,9 @@ export interface GetSnapshotIdsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Set of EBS snapshot IDs, sorted by creation time in descending order.
+     */
     readonly ids: string[];
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];

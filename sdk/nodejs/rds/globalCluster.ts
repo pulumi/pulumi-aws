@@ -122,10 +122,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
-    /**
-     * Specifies whether the DB cluster is encrypted. The default is `false`.
-     */
-    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
+    public readonly storageEncrypted!: pulumi.Output<boolean>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.
@@ -217,9 +214,6 @@ export interface GlobalClusterState {
      */
     readonly globalClusterResourceId?: pulumi.Input<string>;
     readonly sourceDbClusterIdentifier?: pulumi.Input<string>;
-    /**
-     * Specifies whether the DB cluster is encrypted. The default is `false`.
-     */
     readonly storageEncrypted?: pulumi.Input<boolean>;
 }
 
@@ -250,8 +244,5 @@ export interface GlobalClusterArgs {
      */
     readonly globalClusterIdentifier: pulumi.Input<string>;
     readonly sourceDbClusterIdentifier?: pulumi.Input<string>;
-    /**
-     * Specifies whether the DB cluster is encrypted. The default is `false`.
-     */
     readonly storageEncrypted?: pulumi.Input<boolean>;
 }

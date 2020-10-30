@@ -38,6 +38,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
+        /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        /// </summary>
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
+
+        /// <summary>
         /// The URL for the S3 location where model artifacts are stored.
         /// </summary>
         [Input("modelDataUrl")]
