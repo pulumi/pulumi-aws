@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3
     /// Provides a resource to manage an S3 Access Point.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
+    /// ### AWS Partition Bucket
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// ### Access Point Restricted to a VPC
+    /// ### S3 on Outposts Bucket
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -44,8 +44,9 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         var exampleBucket = new Aws.S3Control.Bucket("exampleBucket", new Aws.S3Control.BucketArgs
     ///         {
+    ///             Bucket = "example",
     ///         });
     ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
     ///         {
@@ -53,7 +54,7 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
     ///         {
-    ///             Bucket = exampleBucket.Id,
+    ///             Bucket = exampleBucket.Arn,
     ///             VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
     ///             {
     ///                 VpcId = exampleVpc.Id,
@@ -79,7 +80,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
+        /// The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -122,7 +123,7 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.AccessPointPublicAccessBlockConfiguration?> PublicAccessBlockConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Detailed below.
+        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
         /// </summary>
         [Output("vpcConfiguration")]
         public Output<Outputs.AccessPointVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
@@ -180,7 +181,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
+        /// The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -204,7 +205,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.AccessPointPublicAccessBlockConfigurationArgs>? PublicAccessBlockConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Detailed below.
+        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.AccessPointVpcConfigurationArgs>? VpcConfiguration { get; set; }
@@ -229,7 +230,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
+        /// The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
@@ -272,7 +273,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.AccessPointPublicAccessBlockConfigurationGetArgs>? PublicAccessBlockConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Detailed below.
+        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.AccessPointVpcConfigurationGetArgs>? VpcConfiguration { get; set; }

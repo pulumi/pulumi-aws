@@ -516,7 +516,7 @@ class GetOrganizationalUnitsChildrenResult(dict):
                  name: str):
         """
         :param str arn: ARN of the organizational unit
-        :param str id: ID of the organizational unit
+        :param str id: Parent identifier of the organizational units.
         :param str name: Name of the organizational unit
         """
         pulumi.set(__self__, "arn", arn)
@@ -535,7 +535,7 @@ class GetOrganizationalUnitsChildrenResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        ID of the organizational unit
+        Parent identifier of the organizational units.
         """
         return pulumi.get(self, "id")
 

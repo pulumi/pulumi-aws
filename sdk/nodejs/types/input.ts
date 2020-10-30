@@ -3559,7 +3559,7 @@ export namespace autoscaling {
          */
         onDemandBaseCapacity?: pulumi.Input<number>;
         /**
-         * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+         * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
          */
         onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>;
         /**
@@ -17154,7 +17154,80 @@ export namespace s3 {
     }
 }
 
+export namespace s3control {
+    export interface BucketLifecycleConfigurationRule {
+        /**
+         * Configuration block containing settings for abort incomplete multipart upload.
+         */
+        abortIncompleteMultipartUpload?: pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload>;
+        /**
+         * Configuration block containing settings for expiration of objects.
+         */
+        expiration?: pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRuleExpiration>;
+        /**
+         * Configuration block containing settings for filtering.
+         */
+        filter?: pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRuleFilter>;
+        /**
+         * Unique identifier for the rule.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
+        /**
+         * Number of days after which Amazon S3 aborts an incomplete multipart upload.
+         */
+        daysAfterInitiation: pulumi.Input<number>;
+    }
+
+    export interface BucketLifecycleConfigurationRuleExpiration {
+        /**
+         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+         */
+        date?: pulumi.Input<string>;
+        /**
+         * Number of days before the object is to be deleted.
+         */
+        days?: pulumi.Input<number>;
+        /**
+         * Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+         */
+        expiredObjectDeleteMarker?: pulumi.Input<boolean>;
+    }
+
+    export interface BucketLifecycleConfigurationRuleFilter {
+        /**
+         * Object prefix for rule filtering.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * Key-value map of object tags for rule filtering.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+}
+
+export namespace s3outposts {
+    export interface EndpointNetworkInterface {
+        /**
+         * Identifier of the Elastic Network Interface (ENI).
+         */
+        networkInterfaceId?: pulumi.Input<string>;
+    }
+}
+
 export namespace sagemaker {
+    export interface CodeRepositoryGitConfig {
+        branch?: pulumi.Input<string>;
+        repositoryUrl: pulumi.Input<string>;
+        secretArn?: pulumi.Input<string>;
+    }
+
     export interface EndpointConfigurationProductionVariant {
         /**
          * The size of the Elastic Inference (EI) instance to use for the production variant.
@@ -17197,6 +17270,10 @@ export namespace sagemaker {
          */
         image: pulumi.Input<string>;
         /**
+         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         */
+        mode?: pulumi.Input<string>;
+        /**
          * The URL for the S3 location where model artifacts are stored.
          */
         modelDataUrl?: pulumi.Input<string>;
@@ -17216,6 +17293,10 @@ export namespace sagemaker {
          * The registry path where the inference code image is stored in Amazon ECR.
          */
         image: pulumi.Input<string>;
+        /**
+         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         */
+        mode?: pulumi.Input<string>;
         /**
          * The URL for the S3 location where model artifacts are stored.
          */

@@ -469,7 +469,7 @@ type GroupMixedInstancesPolicyInstancesDistribution struct {
 	OnDemandAllocationStrategy *string `pulumi:"onDemandAllocationStrategy"`
 	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
 	OnDemandBaseCapacity *int `pulumi:"onDemandBaseCapacity"`
-	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
 	OnDemandPercentageAboveBaseCapacity *int `pulumi:"onDemandPercentageAboveBaseCapacity"`
 	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
 	SpotAllocationStrategy *string `pulumi:"spotAllocationStrategy"`
@@ -495,7 +495,7 @@ type GroupMixedInstancesPolicyInstancesDistributionArgs struct {
 	OnDemandAllocationStrategy pulumi.StringPtrInput `pulumi:"onDemandAllocationStrategy"`
 	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
 	OnDemandBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandBaseCapacity"`
-	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
 	OnDemandPercentageAboveBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
 	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
 	SpotAllocationStrategy pulumi.StringPtrInput `pulumi:"spotAllocationStrategy"`
@@ -592,7 +592,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandBaseCapaci
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *int { return v.OnDemandBaseCapacity }).(pulumi.IntPtrOutput)
 }
 
-// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandPercentageAboveBaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *int {
 		return v.OnDemandPercentageAboveBaseCapacity
@@ -654,7 +654,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandBaseCap
 	}).(pulumi.IntPtrOutput)
 }
 
-// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandPercentageAboveBaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *int {
 		if v == nil {

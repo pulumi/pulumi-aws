@@ -9,5 +9,6 @@ export * from "./getLocalDisk";
 export * from "./nfsFileShare";
 export * from "./smbFileShare";
 export * from "./storedIscsiVolume";
+export * from "./tapePool";
 export * from "./uploadBuffer";
 export * from "./workingStorage";

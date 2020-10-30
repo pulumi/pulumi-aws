@@ -222,7 +222,7 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
         """
         :param pulumi.Input[str] on_demand_allocation_strategy: Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
         :param pulumi.Input[int] on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-        :param pulumi.Input[int] on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+        :param pulumi.Input[int] on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
         :param pulumi.Input[str] spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
         :param pulumi.Input[int] spot_instance_pools: Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
         :param pulumi.Input[str] spot_max_price: Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
@@ -268,7 +268,7 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @pulumi.getter(name="onDemandPercentageAboveBaseCapacity")
     def on_demand_percentage_above_base_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+        Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
         """
         return pulumi.get(self, "on_demand_percentage_above_base_capacity")
 

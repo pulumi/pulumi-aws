@@ -1123,7 +1123,7 @@ func (o GetOrganizationRootPolicyTypeArrayOutput) Index(i pulumi.IntInput) GetOr
 type GetOrganizationalUnitsChildren struct {
 	// ARN of the organizational unit
 	Arn string `pulumi:"arn"`
-	// ID of the organizational unit
+	// Parent identifier of the organizational units.
 	Id string `pulumi:"id"`
 	// Name of the organizational unit
 	Name string `pulumi:"name"`
@@ -1143,7 +1143,7 @@ type GetOrganizationalUnitsChildrenInput interface {
 type GetOrganizationalUnitsChildrenArgs struct {
 	// ARN of the organizational unit
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// ID of the organizational unit
+	// Parent identifier of the organizational units.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the organizational unit
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1205,7 +1205,7 @@ func (o GetOrganizationalUnitsChildrenOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitsChildren) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the organizational unit
+// Parent identifier of the organizational units.
 func (o GetOrganizationalUnitsChildrenOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitsChildren) string { return v.Id }).(pulumi.StringOutput)
 }

@@ -3744,7 +3744,7 @@ export namespace autoscaling {
          */
         onDemandBaseCapacity: number;
         /**
-         * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+         * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
          */
         onDemandPercentageAboveBaseCapacity: number;
         /**
@@ -17567,7 +17567,7 @@ export namespace organizations {
          */
         arn: string;
         /**
-         * ID of the organizational unit
+         * Parent identifier of the organizational units.
          */
         id: string;
         /**
@@ -18688,7 +18688,80 @@ export namespace s3 {
     }
 }
 
+export namespace s3control {
+    export interface BucketLifecycleConfigurationRule {
+        /**
+         * Configuration block containing settings for abort incomplete multipart upload.
+         */
+        abortIncompleteMultipartUpload?: outputs.s3control.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload;
+        /**
+         * Configuration block containing settings for expiration of objects.
+         */
+        expiration?: outputs.s3control.BucketLifecycleConfigurationRuleExpiration;
+        /**
+         * Configuration block containing settings for filtering.
+         */
+        filter?: outputs.s3control.BucketLifecycleConfigurationRuleFilter;
+        /**
+         * Unique identifier for the rule.
+         */
+        id: string;
+        /**
+         * Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
+         */
+        status?: string;
+    }
+
+    export interface BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
+        /**
+         * Number of days after which Amazon S3 aborts an incomplete multipart upload.
+         */
+        daysAfterInitiation: number;
+    }
+
+    export interface BucketLifecycleConfigurationRuleExpiration {
+        /**
+         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+         */
+        date?: string;
+        /**
+         * Number of days before the object is to be deleted.
+         */
+        days?: number;
+        /**
+         * Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+         */
+        expiredObjectDeleteMarker?: boolean;
+    }
+
+    export interface BucketLifecycleConfigurationRuleFilter {
+        /**
+         * Object prefix for rule filtering.
+         */
+        prefix?: string;
+        /**
+         * Key-value map of object tags for rule filtering.
+         */
+        tags?: {[key: string]: string};
+    }
+}
+
+export namespace s3outposts {
+    export interface EndpointNetworkInterface {
+        /**
+         * Identifier of the Elastic Network Interface (ENI).
+         */
+        networkInterfaceId: string;
+    }
+}
+
 export namespace sagemaker {
+    export interface CodeRepositoryGitConfig {
+        branch?: string;
+        repositoryUrl: string;
+        secretArn?: string;
+    }
+
     export interface EndpointConfigurationProductionVariant {
         /**
          * The size of the Elastic Inference (EI) instance to use for the production variant.
@@ -18731,6 +18804,10 @@ export namespace sagemaker {
          */
         image: string;
         /**
+         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         */
+        mode?: string;
+        /**
          * The URL for the S3 location where model artifacts are stored.
          */
         modelDataUrl?: string;
@@ -18750,6 +18827,10 @@ export namespace sagemaker {
          * The registry path where the inference code image is stored in Amazon ECR.
          */
         image: string;
+        /**
+         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         */
+        mode?: string;
         /**
          * The URL for the S3 location where model artifacts are stored.
          */

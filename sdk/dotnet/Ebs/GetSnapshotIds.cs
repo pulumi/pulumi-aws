@@ -119,6 +119,9 @@ namespace Pulumi.Aws.Ebs
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Set of EBS snapshot IDs, sorted by creation time in descending order.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableArray<string> Owners;
         public readonly ImmutableArray<string> RestorableByUserIds;

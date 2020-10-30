@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
+ * Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
+ *
+ * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
  * ### Account Access

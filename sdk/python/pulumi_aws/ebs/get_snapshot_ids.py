@@ -54,6 +54,9 @@ class GetSnapshotIdsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        Set of EBS snapshot IDs, sorted by creation time in descending order.
+        """
         return pulumi.get(self, "ids")
 
     @property

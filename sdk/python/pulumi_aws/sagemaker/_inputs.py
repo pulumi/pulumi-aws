@@ -9,11 +9,52 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'CodeRepositoryGitConfigArgs',
     'EndpointConfigurationProductionVariantArgs',
     'ModelContainerArgs',
     'ModelPrimaryContainerArgs',
     'ModelVpcConfigArgs',
 ]
+
+@pulumi.input_type
+class CodeRepositoryGitConfigArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str],
+                 branch: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "repository_url", repository_url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
 
 @pulumi.input_type
 class EndpointConfigurationProductionVariantArgs:
@@ -121,12 +162,14 @@ class ModelContainerArgs:
                  image: pulumi.Input[str],
                  container_hostname: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         """
         pulumi.set(__self__, "image", image)
@@ -134,6 +177,8 @@ class ModelContainerArgs:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
 
@@ -173,6 +218,18 @@ class ModelContainerArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
 
     @property
     @pulumi.getter(name="modelDataUrl")
@@ -193,12 +250,14 @@ class ModelPrimaryContainerArgs:
                  image: pulumi.Input[str],
                  container_hostname: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         """
         pulumi.set(__self__, "image", image)
@@ -206,6 +265,8 @@ class ModelPrimaryContainerArgs:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
 
@@ -245,6 +306,18 @@ class ModelPrimaryContainerArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
 
     @property
     @pulumi.getter(name="modelDataUrl")

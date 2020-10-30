@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<int>? OnDemandBaseCapacity { get; set; }
 
         /// <summary>
-        /// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+        /// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
         /// </summary>
         [Input("onDemandPercentageAboveBaseCapacity")]
         public Input<int>? OnDemandPercentageAboveBaseCapacity { get; set; }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Provides a resource to manage an S3 Access Point.
  *
  * ## Example Usage
- * ### Basic Usage
+ * ### AWS Partition Bucket
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,16 +20,16 @@ import * as utilities from "../utilities";
  * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
  * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucket.id});
  * ```
- * ### Access Point Restricted to a VPC
+ * ### S3 on Outposts Bucket
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
+ * const exampleBucket = new aws.s3control.Bucket("exampleBucket", {bucket: "example"});
  * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
  * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
- *     bucket: exampleBucket.id,
+ *     bucket: exampleBucket.arn,
  *     vpcConfiguration: {
  *         vpcId: exampleVpc.id,
  *     },
@@ -73,7 +73,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the bucket that you want to associate this access point with.
+     * The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -102,7 +102,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
     public readonly vpcConfiguration!: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
 
@@ -168,7 +168,7 @@ export interface AccessPointState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The name of the bucket that you want to associate this access point with.
+     * The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
      */
     readonly bucket?: pulumi.Input<string>;
     /**
@@ -197,7 +197,7 @@ export interface AccessPointState {
      */
     readonly publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
     readonly vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
 }
@@ -211,7 +211,7 @@ export interface AccessPointArgs {
      */
     readonly accountId?: pulumi.Input<string>;
     /**
-     * The name of the bucket that you want to associate this access point with.
+     * The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
      */
     readonly bucket: pulumi.Input<string>;
     /**
@@ -227,7 +227,7 @@ export interface AccessPointArgs {
      */
     readonly publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
     readonly vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
 }

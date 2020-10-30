@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Organizations.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// ID of the organizational unit
+        /// Parent identifier of the organizational units.
         /// </summary>
         public readonly string Id;
         /// <summary>
