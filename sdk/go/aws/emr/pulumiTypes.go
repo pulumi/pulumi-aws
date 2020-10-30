@@ -2985,9 +2985,7 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) B
 
 // The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) TimeoutAction() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) string {
-		return v.TimeoutAction
-	}).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) string { return v.TimeoutAction }).(pulumi.StringOutput)
 }
 
 // The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
