@@ -395,7 +395,7 @@ export interface FunctionState {
     /**
      * See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    readonly runtime?: pulumi.Input<string>;
+    readonly runtime?: pulumi.Input<string | enums.lambda.Runtime>;
     /**
      * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
@@ -494,7 +494,7 @@ export interface FunctionArgs {
     /**
      * See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    readonly runtime: pulumi.Input<string>;
+    readonly runtime: pulumi.Input<string | enums.lambda.Runtime>;
     /**
      * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */

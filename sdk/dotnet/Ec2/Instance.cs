@@ -512,7 +512,7 @@ namespace Pulumi.Aws.Ec2
         /// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ec2.InstanceType> InstanceType { get; set; } = null!;
 
         /// <summary>
         /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -812,7 +812,7 @@ namespace Pulumi.Aws.Ec2
         /// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
 
         /// <summary>
         /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.

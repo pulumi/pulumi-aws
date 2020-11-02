@@ -304,7 +304,7 @@ type functionArgs struct {
 	// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
 	Role string `pulumi:"role"`
 	// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-	Runtime string `pulumi:"runtime"`
+	Runtime interface{} `pulumi:"runtime"`
 	// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
@@ -351,7 +351,7 @@ type FunctionArgs struct {
 	// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
 	Role pulumi.StringInput
 	// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-	Runtime pulumi.StringInput
+	Runtime pulumi.Input
 	// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
 	S3Bucket pulumi.StringPtrInput
 	// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
