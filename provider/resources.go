@@ -974,7 +974,8 @@ func Provider() tfbridge.ProviderInfo {
 						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
 					},
 					"instance_type": {
-						Type: awsTypeDefaultFile(ec2Mod, "InstanceType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod, "InstanceType", "InstanceType")},
 					},
 					"instance_state": {
 						CSharpName: "State",
@@ -1626,6 +1627,10 @@ func Provider() tfbridge.ProviderInfo {
 							Format:    resource.ZIPArchive,
 							HashField: "source_code_hash",
 						},
+					},
+					"runtime": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(lambdaMod, "Runtime", "Runtime")},
 					},
 				},
 			},

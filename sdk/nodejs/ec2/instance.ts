@@ -6,7 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {InstanceProfile} from "../iam";
-import {InstanceType} from "./index";
 
 /**
  * Provides an EC2 instance resource. This allows instances to be created, updated,
@@ -161,7 +160,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    public readonly instanceType!: pulumi.Output<InstanceType>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
@@ -481,7 +480,7 @@ export interface InstanceState {
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    readonly instanceType?: pulumi.Input<InstanceType>;
+    readonly instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
      * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
@@ -676,7 +675,7 @@ export interface InstanceArgs {
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    readonly instanceType: pulumi.Input<InstanceType>;
+    readonly instanceType: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
      * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
