@@ -148,6 +148,10 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly instance!: pulumi.Output<string>;
     /**
+     * The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+     */
+    public readonly networkBorderGroup!: pulumi.Output<string>;
+    /**
      * Network interface ID to associate with.
      */
     public readonly networkInterface!: pulumi.Output<string>;
@@ -199,6 +203,7 @@ export class Eip extends pulumi.CustomResource {
             inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["instance"] = state ? state.instance : undefined;
+            inputs["networkBorderGroup"] = state ? state.networkBorderGroup : undefined;
             inputs["networkInterface"] = state ? state.networkInterface : undefined;
             inputs["privateDns"] = state ? state.privateDns : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
@@ -212,6 +217,7 @@ export class Eip extends pulumi.CustomResource {
             inputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
             inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             inputs["instance"] = args ? args.instance : undefined;
+            inputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
             inputs["networkInterface"] = args ? args.networkInterface : undefined;
             inputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -265,6 +271,10 @@ export interface EipState {
      */
     readonly instance?: pulumi.Input<string>;
     /**
+     * The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+     */
+    readonly networkBorderGroup?: pulumi.Input<string>;
+    /**
      * Network interface ID to associate with.
      */
     readonly networkInterface?: pulumi.Input<string>;
@@ -316,6 +326,10 @@ export interface EipArgs {
      * EC2 instance ID.
      */
     readonly instance?: pulumi.Input<string>;
+    /**
+     * The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+     */
+    readonly networkBorderGroup?: pulumi.Input<string>;
     /**
      * Network interface ID to associate with.
      */

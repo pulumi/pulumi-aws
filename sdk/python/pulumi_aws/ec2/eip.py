@@ -18,6 +18,7 @@ class Eip(pulumi.CustomResource):
                  associate_with_private_ip: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
+                 network_border_group: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -112,6 +113,7 @@ class Eip(pulumi.CustomResource):
                the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         :param pulumi.Input[str] instance: EC2 instance ID.
+        :param pulumi.Input[str] network_border_group: The location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC.
@@ -137,6 +139,7 @@ class Eip(pulumi.CustomResource):
             __props__['associate_with_private_ip'] = associate_with_private_ip
             __props__['customer_owned_ipv4_pool'] = customer_owned_ipv4_pool
             __props__['instance'] = instance
+            __props__['network_border_group'] = network_border_group
             __props__['network_interface'] = network_interface
             __props__['public_ipv4_pool'] = public_ipv4_pool
             __props__['tags'] = tags
@@ -166,6 +169,7 @@ class Eip(pulumi.CustomResource):
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             instance: Optional[pulumi.Input[str]] = None,
+            network_border_group: Optional[pulumi.Input[str]] = None,
             network_interface: Optional[pulumi.Input[str]] = None,
             private_dns: Optional[pulumi.Input[str]] = None,
             private_ip: Optional[pulumi.Input[str]] = None,
@@ -188,6 +192,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] customer_owned_ipv4_pool: The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
         :param pulumi.Input[str] instance: EC2 instance ID.
+        :param pulumi.Input[str] network_border_group: The location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
         :param pulumi.Input[str] private_ip: Contains the private IP address (if in VPC).
@@ -208,6 +213,7 @@ class Eip(pulumi.CustomResource):
         __props__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__["domain"] = domain
         __props__["instance"] = instance
+        __props__["network_border_group"] = network_border_group
         __props__["network_interface"] = network_interface
         __props__["private_dns"] = private_dns
         __props__["private_ip"] = private_ip
@@ -269,6 +275,14 @@ class Eip(pulumi.CustomResource):
         EC2 instance ID.
         """
         return pulumi.get(self, "instance")
+
+    @property
+    @pulumi.getter(name="networkBorderGroup")
+    def network_border_group(self) -> pulumi.Output[str]:
+        """
+        The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+        """
+        return pulumi.get(self, "network_border_group")
 
     @property
     @pulumi.getter(name="networkInterface")

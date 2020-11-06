@@ -356,22 +356,23 @@ class AnalyticsApplicationInputsKinesisStreamArgs:
 @pulumi.input_type
 class AnalyticsApplicationInputsParallelismArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[int]):
+                 count: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The Count of streams.
         """
-        pulumi.set(__self__, "count", count)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[int]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         The Count of streams.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[int]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
 

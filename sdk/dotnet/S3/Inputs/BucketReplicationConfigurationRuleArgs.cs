@@ -25,13 +25,13 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<Inputs.BucketReplicationConfigurationRuleFilterArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Object keyname prefix identifying one or more objects to which the rule applies.
+        /// Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

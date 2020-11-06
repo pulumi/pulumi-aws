@@ -76,6 +76,10 @@ export class Domain extends pulumi.CustomResource {
      * The number of repositories in the domain.
      */
     public /*out*/ readonly repositoryCount!: pulumi.Output<number>;
+    /**
+     * Key-value map of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -96,6 +100,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["encryptionKey"] = state ? state.encryptionKey : undefined;
             inputs["owner"] = state ? state.owner : undefined;
             inputs["repositoryCount"] = state ? state.repositoryCount : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
             if (!args || args.domain === undefined) {
@@ -106,6 +111,7 @@ export class Domain extends pulumi.CustomResource {
             }
             inputs["domain"] = args ? args.domain : undefined;
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["assetSizeBytes"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
@@ -155,6 +161,10 @@ export interface DomainState {
      * The number of repositories in the domain.
      */
     readonly repositoryCount?: pulumi.Input<number>;
+    /**
+     * Key-value map of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -169,4 +179,8 @@ export interface DomainArgs {
      * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
      */
     readonly encryptionKey: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

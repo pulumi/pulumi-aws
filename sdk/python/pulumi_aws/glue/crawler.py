@@ -24,6 +24,7 @@ class Crawler(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
+                 mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]]] = None,
@@ -103,6 +104,20 @@ class Crawler(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        ### MongoDB Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
+            mongodb_targets=[aws.glue.CrawlerMongodbTargetArgs(
+                connection_name=aws_glue_connection["example"]["name"],
+                path="database-name/%",
+            )])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,6 +127,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List nested MongoDB target arguments. See below.
         :param pulumi.Input[str] name: Name of the crawler.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List nested Amazon S3 target arguments. See below.
@@ -147,6 +163,7 @@ class Crawler(pulumi.CustomResource):
             __props__['description'] = description
             __props__['dynamodb_targets'] = dynamodb_targets
             __props__['jdbc_targets'] = jdbc_targets
+            __props__['mongodb_targets'] = mongodb_targets
             __props__['name'] = name
             if role is None:
                 raise TypeError("Missing required property 'role'")
@@ -176,6 +193,7 @@ class Crawler(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
             jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
+            mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
             s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]]] = None,
@@ -198,6 +216,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List nested MongoDB target arguments. See below.
         :param pulumi.Input[str] name: Name of the crawler.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List nested Amazon S3 target arguments. See below.
@@ -219,6 +238,7 @@ class Crawler(pulumi.CustomResource):
         __props__["description"] = description
         __props__["dynamodb_targets"] = dynamodb_targets
         __props__["jdbc_targets"] = jdbc_targets
+        __props__["mongodb_targets"] = mongodb_targets
         __props__["name"] = name
         __props__["role"] = role
         __props__["s3_targets"] = s3_targets
@@ -289,6 +309,14 @@ class Crawler(pulumi.CustomResource):
         List of nested JBDC target arguments. See below.
         """
         return pulumi.get(self, "jdbc_targets")
+
+    @property
+    @pulumi.getter(name="mongodbTargets")
+    def mongodb_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerMongodbTarget']]]:
+        """
+        List nested MongoDB target arguments. See below.
+        """
+        return pulumi.get(self, "mongodb_targets")
 
     @property
     @pulumi.getter

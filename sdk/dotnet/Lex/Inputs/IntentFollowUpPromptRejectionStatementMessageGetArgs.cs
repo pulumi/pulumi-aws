@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class IntentFollowUpPromptRejectionStatementMessageGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The text of the message.
+        /// The text of the message. Must be less than or equal to 1000 characters in length.
         /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// Identifies the message group that the message belongs to. When a group
-        /// is assigned to a message, Amazon Lex returns one message from each group in the response.
+        /// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         /// </summary>
         [Input("groupNumber")]
         public Input<int>? GroupNumber { get; set; }

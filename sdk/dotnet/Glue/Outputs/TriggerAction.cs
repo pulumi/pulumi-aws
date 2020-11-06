@@ -26,6 +26,14 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? JobName;
         /// <summary>
+        /// Specifies configuration properties of a job run notification. see Notification Property details below.
+        /// </summary>
+        public readonly Outputs.TriggerActionNotificationProperty? NotificationProperty;
+        /// <summary>
+        /// The name of the Security Configuration structure to be used with this action.
+        /// </summary>
+        public readonly string? SecurityConfiguration;
+        /// <summary>
         /// The job run timeout in minutes. It overrides the timeout value of the job.
         /// </summary>
         public readonly int? Timeout;
@@ -38,11 +46,17 @@ namespace Pulumi.Aws.Glue.Outputs
 
             string? jobName,
 
+            Outputs.TriggerActionNotificationProperty? notificationProperty,
+
+            string? securityConfiguration,
+
             int? timeout)
         {
             Arguments = arguments;
             CrawlerName = crawlerName;
             JobName = jobName;
+            NotificationProperty = notificationProperty;
+            SecurityConfiguration = securityConfiguration;
             Timeout = timeout;
         }
     }

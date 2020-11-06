@@ -75,6 +75,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventPermissionCondition?> Condition { get; private set; } = null!;
 
         /// <summary>
+        /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        /// </summary>
+        [Output("eventBusName")]
+        public Output<string?> EventBusName { get; private set; } = null!;
+
+        /// <summary>
         /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         /// </summary>
         [Output("principal")]
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventPermissionConditionArgs>? Condition { get; set; }
 
         /// <summary>
+        /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        /// </summary>
+        [Input("eventBusName")]
+        public Input<string>? EventBusName { get; set; }
+
+        /// <summary>
         /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         /// </summary>
         [Input("principal", required: true)]
@@ -174,6 +186,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("condition")]
         public Input<Inputs.EventPermissionConditionGetArgs>? Condition { get; set; }
+
+        /// <summary>
+        /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        /// </summary>
+        [Input("eventBusName")]
+        public Input<string>? EventBusName { get; set; }
 
         /// <summary>
         /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.

@@ -205,7 +205,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[Optional[str]]:
+    def policy(self) -> pulumi.Output[str]:
         """
         A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
         """

@@ -143,7 +143,7 @@ class BotAliasConversationLogsArgs:
                  iam_role_arn: pulumi.Input[str],
                  log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]]] = None):
         """
-        :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+        :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]] log_settings: The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -154,7 +154,7 @@ class BotAliasConversationLogsArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+        The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -186,8 +186,8 @@ class BotAliasConversationLogsLogSettingArgs:
         """
         :param pulumi.Input[str] destination: The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
         :param pulumi.Input[str] log_type: The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
-        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
-        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
         :param pulumi.Input[str] resource_prefix: The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
         """
         pulumi.set(__self__, "destination", destination)
@@ -226,7 +226,7 @@ class BotAliasConversationLogsLogSettingArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -238,7 +238,7 @@ class BotAliasConversationLogsLogSettingArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+        The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -381,8 +381,8 @@ class BotIntentArgs:
                  intent_name: pulumi.Input[str],
                  intent_version: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] intent_name: The name of the intent.
-        :param pulumi.Input[str] intent_version: The version of the intent.
+        :param pulumi.Input[str] intent_name: The name of the intent. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[str] intent_version: The version of the intent. Must be less than or equal to 64 characters in length.
         """
         pulumi.set(__self__, "intent_name", intent_name)
         pulumi.set(__self__, "intent_version", intent_version)
@@ -391,7 +391,7 @@ class BotIntentArgs:
     @pulumi.getter(name="intentName")
     def intent_name(self) -> pulumi.Input[str]:
         """
-        The name of the intent.
+        The name of the intent. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "intent_name")
 
@@ -403,7 +403,7 @@ class BotIntentArgs:
     @pulumi.getter(name="intentVersion")
     def intent_version(self) -> pulumi.Input[str]:
         """
-        The version of the intent.
+        The version of the intent. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "intent_version")
 
@@ -420,10 +420,10 @@ class IntentConclusionStatementArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message.
+               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
                slot values into the response card. For more information, see
-               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         pulumi.set(__self__, "messages", messages)
         if response_card is not None:
@@ -435,7 +435,7 @@ class IntentConclusionStatementArgs:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message.
+        Attributes are documented under message. Must contain between 1 and 15 messages.
         """
         return pulumi.get(self, "messages")
 
@@ -449,7 +449,7 @@ class IntentConclusionStatementArgs:
         """
         The response card. Amazon Lex will substitute session attributes and
         slot values into the response card. For more information, see
-        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         return pulumi.get(self, "response_card")
 
@@ -465,10 +465,10 @@ class IntentConclusionStatementMessageArgs:
                  content_type: pulumi.Input[str],
                  group_number: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] content: The text of the message.
+        :param pulumi.Input[str] content: The text of the message. Must be less than or equal to 1000 characters in length.
         :param pulumi.Input[str] content_type: The content type of the message string.
         :param pulumi.Input[int] group_number: Identifies the message group that the message belongs to. When a group
-               is assigned to a message, Amazon Lex returns one message from each group in the response.
+               is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_type", content_type)
@@ -479,7 +479,7 @@ class IntentConclusionStatementMessageArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        The text of the message.
+        The text of the message. Must be less than or equal to 1000 characters in length.
         """
         return pulumi.get(self, "content")
 
@@ -504,7 +504,7 @@ class IntentConclusionStatementMessageArgs:
     def group_number(self) -> Optional[pulumi.Input[int]]:
         """
         Identifies the message group that the message belongs to. When a group
-        is assigned to a message, Amazon Lex returns one message from each group in the response.
+        is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "group_number")
 
@@ -520,13 +520,13 @@ class IntentConfirmationPromptArgs:
                  messages: pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information.
+        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
         :param pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message.
+               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
                slot values into the response card. For more information, see
-               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         pulumi.set(__self__, "max_attempts", max_attempts)
         pulumi.set(__self__, "messages", messages)
@@ -537,7 +537,7 @@ class IntentConfirmationPromptArgs:
     @pulumi.getter(name="maxAttempts")
     def max_attempts(self) -> pulumi.Input[int]:
         """
-        The number of times to prompt the user for information.
+        The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "max_attempts")
 
@@ -551,7 +551,7 @@ class IntentConfirmationPromptArgs:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message.
+        Attributes are documented under message. Must contain between 1 and 15 messages.
         """
         return pulumi.get(self, "messages")
 
@@ -565,7 +565,7 @@ class IntentConfirmationPromptArgs:
         """
         The response card. Amazon Lex will substitute session attributes and
         slot values into the response card. For more information, see
-        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         return pulumi.get(self, "response_card")
 
@@ -581,10 +581,10 @@ class IntentConfirmationPromptMessageArgs:
                  content_type: pulumi.Input[str],
                  group_number: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] content: The text of the message.
+        :param pulumi.Input[str] content: The text of the message. Must be less than or equal to 1000 characters in length.
         :param pulumi.Input[str] content_type: The content type of the message string.
         :param pulumi.Input[int] group_number: Identifies the message group that the message belongs to. When a group
-               is assigned to a message, Amazon Lex returns one message from each group in the response.
+               is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_type", content_type)
@@ -595,7 +595,7 @@ class IntentConfirmationPromptMessageArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        The text of the message.
+        The text of the message. Must be less than or equal to 1000 characters in length.
         """
         return pulumi.get(self, "content")
 
@@ -620,7 +620,7 @@ class IntentConfirmationPromptMessageArgs:
     def group_number(self) -> Optional[pulumi.Input[int]]:
         """
         Identifies the message group that the message belongs to. When a group
-        is assigned to a message, Amazon Lex returns one message from each group in the response.
+        is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "group_number")
 
@@ -637,7 +637,7 @@ class IntentDialogCodeHookArgs:
         """
         :param pulumi.Input[str] message_version: The version of the request-response that you want Amazon Lex to use
                to invoke your Lambda function. For more information, see
-               [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+               [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
         :param pulumi.Input[str] uri: The Amazon Resource Name (ARN) of the Lambda function.
         """
         pulumi.set(__self__, "message_version", message_version)
@@ -649,7 +649,7 @@ class IntentDialogCodeHookArgs:
         """
         The version of the request-response that you want Amazon Lex to use
         to invoke your Lambda function. For more information, see
-        [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+        [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
         """
         return pulumi.get(self, "message_version")
 
@@ -718,13 +718,13 @@ class IntentFollowUpPromptPromptArgs:
                  messages: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information.
+        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
         :param pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message.
+               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
                slot values into the response card. For more information, see
-               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         pulumi.set(__self__, "max_attempts", max_attempts)
         pulumi.set(__self__, "messages", messages)
@@ -735,7 +735,7 @@ class IntentFollowUpPromptPromptArgs:
     @pulumi.getter(name="maxAttempts")
     def max_attempts(self) -> pulumi.Input[int]:
         """
-        The number of times to prompt the user for information.
+        The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "max_attempts")
 
@@ -749,7 +749,7 @@ class IntentFollowUpPromptPromptArgs:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message.
+        Attributes are documented under message. Must contain between 1 and 15 messages.
         """
         return pulumi.get(self, "messages")
 
@@ -763,7 +763,7 @@ class IntentFollowUpPromptPromptArgs:
         """
         The response card. Amazon Lex will substitute session attributes and
         slot values into the response card. For more information, see
-        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         return pulumi.get(self, "response_card")
 
@@ -779,10 +779,10 @@ class IntentFollowUpPromptPromptMessageArgs:
                  content_type: pulumi.Input[str],
                  group_number: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] content: The text of the message.
+        :param pulumi.Input[str] content: The text of the message. Must be less than or equal to 1000 characters in length.
         :param pulumi.Input[str] content_type: The content type of the message string.
         :param pulumi.Input[int] group_number: Identifies the message group that the message belongs to. When a group
-               is assigned to a message, Amazon Lex returns one message from each group in the response.
+               is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_type", content_type)
@@ -793,7 +793,7 @@ class IntentFollowUpPromptPromptMessageArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        The text of the message.
+        The text of the message. Must be less than or equal to 1000 characters in length.
         """
         return pulumi.get(self, "content")
 
@@ -818,7 +818,7 @@ class IntentFollowUpPromptPromptMessageArgs:
     def group_number(self) -> Optional[pulumi.Input[int]]:
         """
         Identifies the message group that the message belongs to. When a group
-        is assigned to a message, Amazon Lex returns one message from each group in the response.
+        is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "group_number")
 
@@ -835,10 +835,10 @@ class IntentFollowUpPromptRejectionStatementArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message.
+               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
                slot values into the response card. For more information, see
-               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         pulumi.set(__self__, "messages", messages)
         if response_card is not None:
@@ -850,7 +850,7 @@ class IntentFollowUpPromptRejectionStatementArgs:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message.
+        Attributes are documented under message. Must contain between 1 and 15 messages.
         """
         return pulumi.get(self, "messages")
 
@@ -864,7 +864,7 @@ class IntentFollowUpPromptRejectionStatementArgs:
         """
         The response card. Amazon Lex will substitute session attributes and
         slot values into the response card. For more information, see
-        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         return pulumi.get(self, "response_card")
 
@@ -880,10 +880,10 @@ class IntentFollowUpPromptRejectionStatementMessageArgs:
                  content_type: pulumi.Input[str],
                  group_number: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] content: The text of the message.
+        :param pulumi.Input[str] content: The text of the message. Must be less than or equal to 1000 characters in length.
         :param pulumi.Input[str] content_type: The content type of the message string.
         :param pulumi.Input[int] group_number: Identifies the message group that the message belongs to. When a group
-               is assigned to a message, Amazon Lex returns one message from each group in the response.
+               is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_type", content_type)
@@ -894,7 +894,7 @@ class IntentFollowUpPromptRejectionStatementMessageArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        The text of the message.
+        The text of the message. Must be less than or equal to 1000 characters in length.
         """
         return pulumi.get(self, "content")
 
@@ -919,7 +919,7 @@ class IntentFollowUpPromptRejectionStatementMessageArgs:
     def group_number(self) -> Optional[pulumi.Input[int]]:
         """
         Identifies the message group that the message belongs to. When a group
-        is assigned to a message, Amazon Lex returns one message from each group in the response.
+        is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "group_number")
 
@@ -978,7 +978,7 @@ class IntentFulfillmentActivityCodeHookArgs:
         """
         :param pulumi.Input[str] message_version: The version of the request-response that you want Amazon Lex to use
                to invoke your Lambda function. For more information, see
-               [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+               [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
         :param pulumi.Input[str] uri: The Amazon Resource Name (ARN) of the Lambda function.
         """
         pulumi.set(__self__, "message_version", message_version)
@@ -990,7 +990,7 @@ class IntentFulfillmentActivityCodeHookArgs:
         """
         The version of the request-response that you want Amazon Lex to use
         to invoke your Lambda function. For more information, see
-        [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+        [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
         """
         return pulumi.get(self, "message_version")
 
@@ -1019,10 +1019,10 @@ class IntentRejectionStatementArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message.
+               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
                slot values into the response card. For more information, see
-               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         pulumi.set(__self__, "messages", messages)
         if response_card is not None:
@@ -1034,7 +1034,7 @@ class IntentRejectionStatementArgs:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message.
+        Attributes are documented under message. Must contain between 1 and 15 messages.
         """
         return pulumi.get(self, "messages")
 
@@ -1048,7 +1048,7 @@ class IntentRejectionStatementArgs:
         """
         The response card. Amazon Lex will substitute session attributes and
         slot values into the response card. For more information, see
-        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         return pulumi.get(self, "response_card")
 
@@ -1064,10 +1064,10 @@ class IntentRejectionStatementMessageArgs:
                  content_type: pulumi.Input[str],
                  group_number: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] content: The text of the message.
+        :param pulumi.Input[str] content: The text of the message. Must be less than or equal to 1000 characters in length.
         :param pulumi.Input[str] content_type: The content type of the message string.
         :param pulumi.Input[int] group_number: Identifies the message group that the message belongs to. When a group
-               is assigned to a message, Amazon Lex returns one message from each group in the response.
+               is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_type", content_type)
@@ -1078,7 +1078,7 @@ class IntentRejectionStatementMessageArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        The text of the message.
+        The text of the message. Must be less than or equal to 1000 characters in length.
         """
         return pulumi.get(self, "content")
 
@@ -1103,7 +1103,7 @@ class IntentRejectionStatementMessageArgs:
     def group_number(self) -> Optional[pulumi.Input[int]]:
         """
         Identifies the message group that the message belongs to. When a group
-        is assigned to a message, Amazon Lex returns one message from each group in the response.
+        is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "group_number")
 
@@ -1125,22 +1125,22 @@ class IntentSlotArgs:
                  slot_type_version: Optional[pulumi.Input[str]] = None,
                  value_elicitation_prompt: Optional[pulumi.Input['IntentSlotValueElicitationPromptArgs']] = None):
         """
-        :param pulumi.Input[str] name: The name of the intent slot that you want to create. The name is case sensitive.
+        :param pulumi.Input[str] name: The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         :param pulumi.Input[str] slot_constraint: Specifies whether the slot is required or optional.
         :param pulumi.Input[str] slot_type: The type of the slot, either a custom slot type that you defined or one of
-               the built-in slot types.
-        :param pulumi.Input[str] description: A description of the bot.
+               the built-in slot types. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[str] description: A description of the bot. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[int] priority: Directs Lex the order in which to elicit this slot value from the user.
                For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
                the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
-               values is arbitrary.
+               values is arbitrary. Must be between 1 and 100.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
                slot values into the response card. For more information, see
-               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sample_utterances: If you know a specific pattern with which users might respond to
                an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-               is optional. In most cases, Amazon Lex is capable of understanding user utterances.
-        :param pulumi.Input[str] slot_type_version: The version of the slot type.
+               is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+        :param pulumi.Input[str] slot_type_version: The version of the slot type. Must be less than or equal to 64 characters in length.
         :param pulumi.Input['IntentSlotValueElicitationPromptArgs'] value_elicitation_prompt: The prompt that Amazon Lex uses to elicit the slot value
                from the user. Attributes are documented under prompt.
         """
@@ -1164,7 +1164,7 @@ class IntentSlotArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the intent slot that you want to create. The name is case sensitive.
+        The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -1189,7 +1189,7 @@ class IntentSlotArgs:
     def slot_type(self) -> pulumi.Input[str]:
         """
         The type of the slot, either a custom slot type that you defined or one of
-        the built-in slot types.
+        the built-in slot types. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "slot_type")
 
@@ -1201,7 +1201,7 @@ class IntentSlotArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the bot.
+        A description of the bot. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -1216,7 +1216,7 @@ class IntentSlotArgs:
         Directs Lex the order in which to elicit this slot value from the user.
         For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
         the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
-        values is arbitrary.
+        values is arbitrary. Must be between 1 and 100.
         """
         return pulumi.get(self, "priority")
 
@@ -1230,7 +1230,7 @@ class IntentSlotArgs:
         """
         The response card. Amazon Lex will substitute session attributes and
         slot values into the response card. For more information, see
-        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         return pulumi.get(self, "response_card")
 
@@ -1244,7 +1244,7 @@ class IntentSlotArgs:
         """
         If you know a specific pattern with which users might respond to
         an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-        is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+        is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "sample_utterances")
 
@@ -1256,7 +1256,7 @@ class IntentSlotArgs:
     @pulumi.getter(name="slotTypeVersion")
     def slot_type_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the slot type.
+        The version of the slot type. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "slot_type_version")
 
@@ -1285,13 +1285,13 @@ class IntentSlotValueElicitationPromptArgs:
                  messages: pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information.
+        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
         :param pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message.
+               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
                slot values into the response card. For more information, see
-               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         pulumi.set(__self__, "max_attempts", max_attempts)
         pulumi.set(__self__, "messages", messages)
@@ -1302,7 +1302,7 @@ class IntentSlotValueElicitationPromptArgs:
     @pulumi.getter(name="maxAttempts")
     def max_attempts(self) -> pulumi.Input[int]:
         """
-        The number of times to prompt the user for information.
+        The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "max_attempts")
 
@@ -1316,7 +1316,7 @@ class IntentSlotValueElicitationPromptArgs:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message.
+        Attributes are documented under message. Must contain between 1 and 15 messages.
         """
         return pulumi.get(self, "messages")
 
@@ -1330,7 +1330,7 @@ class IntentSlotValueElicitationPromptArgs:
         """
         The response card. Amazon Lex will substitute session attributes and
         slot values into the response card. For more information, see
-        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
         return pulumi.get(self, "response_card")
 
@@ -1346,10 +1346,10 @@ class IntentSlotValueElicitationPromptMessageArgs:
                  content_type: pulumi.Input[str],
                  group_number: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] content: The text of the message.
+        :param pulumi.Input[str] content: The text of the message. Must be less than or equal to 1000 characters in length.
         :param pulumi.Input[str] content_type: The content type of the message string.
         :param pulumi.Input[int] group_number: Identifies the message group that the message belongs to. When a group
-               is assigned to a message, Amazon Lex returns one message from each group in the response.
+               is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_type", content_type)
@@ -1360,7 +1360,7 @@ class IntentSlotValueElicitationPromptMessageArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        The text of the message.
+        The text of the message. Must be less than or equal to 1000 characters in length.
         """
         return pulumi.get(self, "content")
 
@@ -1385,7 +1385,7 @@ class IntentSlotValueElicitationPromptMessageArgs:
     def group_number(self) -> Optional[pulumi.Input[int]]:
         """
         Identifies the message group that the message belongs to. When a group
-        is assigned to a message, Amazon Lex returns one message from each group in the response.
+        is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
         return pulumi.get(self, "group_number")
 
@@ -1400,8 +1400,8 @@ class SlotTypeEnumerationValueArgs:
                  value: pulumi.Input[str],
                  synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] value: The value of the slot type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] synonyms: Additional values related to the slot type value.
+        :param pulumi.Input[str] value: The value of the slot type. Must be less than or equal to 140 characters in length.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] synonyms: Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
         """
         pulumi.set(__self__, "value", value)
         if synonyms is not None:
@@ -1411,7 +1411,7 @@ class SlotTypeEnumerationValueArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of the slot type.
+        The value of the slot type. Must be less than or equal to 140 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -1423,7 +1423,7 @@ class SlotTypeEnumerationValueArgs:
     @pulumi.getter
     def synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Additional values related to the slot type value.
+        Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
         """
         return pulumi.get(self, "synonyms")
 

@@ -47,8 +47,8 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.Input[str] bot_name: The name of the bot.
         :param pulumi.Input[str] bot_version: The name of the bot.
         :param pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-        :param pulumi.Input[str] description: A description of the alias.
-        :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive.
+        :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
+        :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,9 +112,9 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.Input[str] checksum: Checksum of the bot alias.
         :param pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] created_date: The date that the bot alias was created.
-        :param pulumi.Input[str] description: A description of the alias.
+        :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] last_updated_date: The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-        :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive.
+        :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -183,7 +183,7 @@ class BotAlias(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the alias.
+        A description of the alias. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -199,7 +199,7 @@ class BotAlias(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the alias. The name is not case sensitive.
+        The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
 

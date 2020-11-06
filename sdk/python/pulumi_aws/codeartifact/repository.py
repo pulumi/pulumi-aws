@@ -22,6 +22,7 @@ class Repository(pulumi.CustomResource):
                  domain_owner: Optional[pulumi.Input[str]] = None,
                  external_connections: Optional[pulumi.Input[pulumi.InputType['RepositoryExternalConnectionsArgs']]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryUpstreamArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -83,6 +84,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[pulumi.InputType['RepositoryExternalConnectionsArgs']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         :param pulumi.Input[str] repository: The name of the repository to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryUpstreamArgs']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         if __name__ is not None:
@@ -111,6 +113,7 @@ class Repository(pulumi.CustomResource):
             if repository is None:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
+            __props__['tags'] = tags
             __props__['upstreams'] = upstreams
             __props__['administrator_account'] = None
             __props__['arn'] = None
@@ -131,6 +134,7 @@ class Repository(pulumi.CustomResource):
             domain_owner: Optional[pulumi.Input[str]] = None,
             external_connections: Optional[pulumi.Input[pulumi.InputType['RepositoryExternalConnectionsArgs']]] = None,
             repository: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryUpstreamArgs']]]]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
@@ -146,6 +150,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[pulumi.InputType['RepositoryExternalConnectionsArgs']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         :param pulumi.Input[str] repository: The name of the repository to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryUpstreamArgs']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -159,6 +164,7 @@ class Repository(pulumi.CustomResource):
         __props__["domain_owner"] = domain_owner
         __props__["external_connections"] = external_connections
         __props__["repository"] = repository
+        __props__["tags"] = tags
         __props__["upstreams"] = upstreams
         return Repository(resource_name, opts=opts, __props__=__props__)
 
@@ -217,6 +223,14 @@ class Repository(pulumi.CustomResource):
         The name of the repository to create.
         """
         return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

@@ -119,6 +119,7 @@ class Endpoints(dict):
                  codecommit: Optional[str] = None,
                  codedeploy: Optional[str] = None,
                  codepipeline: Optional[str] = None,
+                 codestarconnections: Optional[str] = None,
                  cognitoidentity: Optional[str] = None,
                  cognitoidp: Optional[str] = None,
                  configservice: Optional[str] = None,
@@ -293,6 +294,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "codedeploy", codedeploy)
         if codepipeline is not None:
             pulumi.set(__self__, "codepipeline", codepipeline)
+        if codestarconnections is not None:
+            pulumi.set(__self__, "codestarconnections", codestarconnections)
         if cognitoidentity is not None:
             pulumi.set(__self__, "cognitoidentity", cognitoidentity)
         if cognitoidp is not None:
@@ -671,6 +674,11 @@ class Endpoints(dict):
     @pulumi.getter
     def codepipeline(self) -> Optional[str]:
         return pulumi.get(self, "codepipeline")
+
+    @property
+    @pulumi.getter
+    def codestarconnections(self) -> Optional[str]:
+        return pulumi.get(self, "codestarconnections")
 
     @property
     @pulumi.getter

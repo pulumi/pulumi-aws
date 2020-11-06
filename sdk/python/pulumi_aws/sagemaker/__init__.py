@@ -6,6 +6,7 @@
 from .code_repository import *
 from .endpoint import *
 from .endpoint_configuration import *
+from .get_prebuilt_ecr_image import *
 from .model import *
 from .notebook_instance import *
 from .notebook_instance_lifecycle_configuration import *

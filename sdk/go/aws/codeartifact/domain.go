@@ -59,6 +59,8 @@ type Domain struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The number of repositories in the domain.
 	RepositoryCount pulumi.IntOutput `pulumi:"repositoryCount"`
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -109,6 +111,8 @@ type domainState struct {
 	Owner *string `pulumi:"owner"`
 	// The number of repositories in the domain.
 	RepositoryCount *int `pulumi:"repositoryCount"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type DomainState struct {
@@ -126,6 +130,8 @@ type DomainState struct {
 	Owner pulumi.StringPtrInput
 	// The number of repositories in the domain.
 	RepositoryCount pulumi.IntPtrInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -137,6 +143,8 @@ type domainArgs struct {
 	Domain string `pulumi:"domain"`
 	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
 	EncryptionKey string `pulumi:"encryptionKey"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -145,6 +153,8 @@ type DomainArgs struct {
 	Domain pulumi.StringInput
 	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
 	EncryptionKey pulumi.StringInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {

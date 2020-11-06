@@ -295,7 +295,7 @@ func (o BotAbortStatementMessageArrayOutput) Index(i pulumi.IntInput) BotAbortSt
 }
 
 type BotAliasConversationLogs struct {
-	// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+	// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
 	LogSettings []BotAliasConversationLogsLogSetting `pulumi:"logSettings"`
@@ -313,7 +313,7 @@ type BotAliasConversationLogsInput interface {
 }
 
 type BotAliasConversationLogsArgs struct {
-	// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+	// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 	// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
 	LogSettings BotAliasConversationLogsLogSettingArrayInput `pulumi:"logSettings"`
@@ -396,7 +396,7 @@ func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsPtrOutputWithC
 	}).(BotAliasConversationLogsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 func (o BotAliasConversationLogsOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasConversationLogs) string { return v.IamRoleArn }).(pulumi.StringOutput)
 }
@@ -424,7 +424,7 @@ func (o BotAliasConversationLogsPtrOutput) Elem() BotAliasConversationLogsOutput
 	return o.ApplyT(func(v *BotAliasConversationLogs) BotAliasConversationLogs { return *v }).(BotAliasConversationLogsOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 func (o BotAliasConversationLogsPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotAliasConversationLogs) *string {
 		if v == nil {
@@ -447,11 +447,11 @@ func (o BotAliasConversationLogsPtrOutput) LogSettings() BotAliasConversationLog
 type BotAliasConversationLogsLogSetting struct {
 	// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
 	Destination string `pulumi:"destination"`
-	// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+	// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
 	LogType string `pulumi:"logType"`
-	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
 	ResourceArn string `pulumi:"resourceArn"`
 	// The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
 	ResourcePrefix *string `pulumi:"resourcePrefix"`
@@ -471,11 +471,11 @@ type BotAliasConversationLogsLogSettingInput interface {
 type BotAliasConversationLogsLogSettingArgs struct {
 	// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
 	Destination pulumi.StringInput `pulumi:"destination"`
-	// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+	// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
 	LogType pulumi.StringInput `pulumi:"logType"`
-	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 	// The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
 	ResourcePrefix pulumi.StringPtrInput `pulumi:"resourcePrefix"`
@@ -537,7 +537,7 @@ func (o BotAliasConversationLogsLogSettingOutput) Destination() pulumi.StringOut
 	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
 func (o BotAliasConversationLogsLogSettingOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -547,7 +547,7 @@ func (o BotAliasConversationLogsLogSettingOutput) LogType() pulumi.StringOutput 
 	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.LogType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
 func (o BotAliasConversationLogsLogSettingOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -881,9 +881,9 @@ func (o BotClarificationPromptMessageArrayOutput) Index(i pulumi.IntInput) BotCl
 }
 
 type BotIntent struct {
-	// The name of the intent.
+	// The name of the intent. Must be less than or equal to 100 characters in length.
 	IntentName string `pulumi:"intentName"`
-	// The version of the intent.
+	// The version of the intent. Must be less than or equal to 64 characters in length.
 	IntentVersion string `pulumi:"intentVersion"`
 }
 
@@ -899,9 +899,9 @@ type BotIntentInput interface {
 }
 
 type BotIntentArgs struct {
-	// The name of the intent.
+	// The name of the intent. Must be less than or equal to 100 characters in length.
 	IntentName pulumi.StringInput `pulumi:"intentName"`
-	// The version of the intent.
+	// The version of the intent. Must be less than or equal to 64 characters in length.
 	IntentVersion pulumi.StringInput `pulumi:"intentVersion"`
 }
 
@@ -956,12 +956,12 @@ func (o BotIntentOutput) ToBotIntentOutputWithContext(ctx context.Context) BotIn
 	return o
 }
 
-// The name of the intent.
+// The name of the intent. Must be less than or equal to 100 characters in length.
 func (o BotIntentOutput) IntentName() pulumi.StringOutput {
 	return o.ApplyT(func(v BotIntent) string { return v.IntentName }).(pulumi.StringOutput)
 }
 
-// The version of the intent.
+// The version of the intent. Must be less than or equal to 64 characters in length.
 func (o BotIntentOutput) IntentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v BotIntent) string { return v.IntentVersion }).(pulumi.StringOutput)
 }
@@ -989,11 +989,11 @@ func (o BotIntentArrayOutput) Index(i pulumi.IntInput) BotIntentOutput {
 type IntentConclusionStatement struct {
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages []IntentConclusionStatementMessage `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard *string `pulumi:"responseCard"`
 }
 
@@ -1011,11 +1011,11 @@ type IntentConclusionStatementInput interface {
 type IntentConclusionStatementArgs struct {
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages IntentConclusionStatementMessageArrayInput `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
 }
 
@@ -1098,14 +1098,14 @@ func (o IntentConclusionStatementOutput) ToIntentConclusionStatementPtrOutputWit
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentConclusionStatementOutput) Messages() IntentConclusionStatementMessageArrayOutput {
 	return o.ApplyT(func(v IntentConclusionStatement) []IntentConclusionStatementMessage { return v.Messages }).(IntentConclusionStatementMessageArrayOutput)
 }
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentConclusionStatementOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentConclusionStatement) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
 }
@@ -1130,7 +1130,7 @@ func (o IntentConclusionStatementPtrOutput) Elem() IntentConclusionStatementOutp
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentConclusionStatementPtrOutput) Messages() IntentConclusionStatementMessageArrayOutput {
 	return o.ApplyT(func(v *IntentConclusionStatement) []IntentConclusionStatementMessage {
 		if v == nil {
@@ -1142,7 +1142,7 @@ func (o IntentConclusionStatementPtrOutput) Messages() IntentConclusionStatement
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentConclusionStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentConclusionStatement) *string {
 		if v == nil {
@@ -1153,12 +1153,12 @@ func (o IntentConclusionStatementPtrOutput) ResponseCard() pulumi.StringPtrOutpu
 }
 
 type IntentConclusionStatementMessage struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content string `pulumi:"content"`
 	// The content type of the message string.
 	ContentType string `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber *int `pulumi:"groupNumber"`
 }
 
@@ -1174,12 +1174,12 @@ type IntentConclusionStatementMessageInput interface {
 }
 
 type IntentConclusionStatementMessageArgs struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content pulumi.StringInput `pulumi:"content"`
 	// The content type of the message string.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
 }
 
@@ -1234,7 +1234,7 @@ func (o IntentConclusionStatementMessageOutput) ToIntentConclusionStatementMessa
 	return o
 }
 
-// The text of the message.
+// The text of the message. Must be less than or equal to 1000 characters in length.
 func (o IntentConclusionStatementMessageOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentConclusionStatementMessage) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -1245,7 +1245,7 @@ func (o IntentConclusionStatementMessageOutput) ContentType() pulumi.StringOutpu
 }
 
 // Identifies the message group that the message belongs to. When a group
-// is assigned to a message, Amazon Lex returns one message from each group in the response.
+// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 func (o IntentConclusionStatementMessageOutput) GroupNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntentConclusionStatementMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
 }
@@ -1271,15 +1271,15 @@ func (o IntentConclusionStatementMessageArrayOutput) Index(i pulumi.IntInput) In
 }
 
 type IntentConfirmationPrompt struct {
-	// The number of times to prompt the user for information.
+	// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 	MaxAttempts int `pulumi:"maxAttempts"`
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages []IntentConfirmationPromptMessage `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard *string `pulumi:"responseCard"`
 }
 
@@ -1295,15 +1295,15 @@ type IntentConfirmationPromptInput interface {
 }
 
 type IntentConfirmationPromptArgs struct {
-	// The number of times to prompt the user for information.
+	// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 	MaxAttempts pulumi.IntInput `pulumi:"maxAttempts"`
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages IntentConfirmationPromptMessageArrayInput `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
 }
 
@@ -1384,21 +1384,21 @@ func (o IntentConfirmationPromptOutput) ToIntentConfirmationPromptPtrOutputWithC
 	}).(IntentConfirmationPromptPtrOutput)
 }
 
-// The number of times to prompt the user for information.
+// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 func (o IntentConfirmationPromptOutput) MaxAttempts() pulumi.IntOutput {
 	return o.ApplyT(func(v IntentConfirmationPrompt) int { return v.MaxAttempts }).(pulumi.IntOutput)
 }
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentConfirmationPromptOutput) Messages() IntentConfirmationPromptMessageArrayOutput {
 	return o.ApplyT(func(v IntentConfirmationPrompt) []IntentConfirmationPromptMessage { return v.Messages }).(IntentConfirmationPromptMessageArrayOutput)
 }
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentConfirmationPromptOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentConfirmationPrompt) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
 }
@@ -1421,7 +1421,7 @@ func (o IntentConfirmationPromptPtrOutput) Elem() IntentConfirmationPromptOutput
 	return o.ApplyT(func(v *IntentConfirmationPrompt) IntentConfirmationPrompt { return *v }).(IntentConfirmationPromptOutput)
 }
 
-// The number of times to prompt the user for information.
+// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 func (o IntentConfirmationPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IntentConfirmationPrompt) *int {
 		if v == nil {
@@ -1433,7 +1433,7 @@ func (o IntentConfirmationPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentConfirmationPromptPtrOutput) Messages() IntentConfirmationPromptMessageArrayOutput {
 	return o.ApplyT(func(v *IntentConfirmationPrompt) []IntentConfirmationPromptMessage {
 		if v == nil {
@@ -1445,7 +1445,7 @@ func (o IntentConfirmationPromptPtrOutput) Messages() IntentConfirmationPromptMe
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentConfirmationPromptPtrOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentConfirmationPrompt) *string {
 		if v == nil {
@@ -1456,12 +1456,12 @@ func (o IntentConfirmationPromptPtrOutput) ResponseCard() pulumi.StringPtrOutput
 }
 
 type IntentConfirmationPromptMessage struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content string `pulumi:"content"`
 	// The content type of the message string.
 	ContentType string `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber *int `pulumi:"groupNumber"`
 }
 
@@ -1477,12 +1477,12 @@ type IntentConfirmationPromptMessageInput interface {
 }
 
 type IntentConfirmationPromptMessageArgs struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content pulumi.StringInput `pulumi:"content"`
 	// The content type of the message string.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
 }
 
@@ -1537,7 +1537,7 @@ func (o IntentConfirmationPromptMessageOutput) ToIntentConfirmationPromptMessage
 	return o
 }
 
-// The text of the message.
+// The text of the message. Must be less than or equal to 1000 characters in length.
 func (o IntentConfirmationPromptMessageOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentConfirmationPromptMessage) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -1548,7 +1548,7 @@ func (o IntentConfirmationPromptMessageOutput) ContentType() pulumi.StringOutput
 }
 
 // Identifies the message group that the message belongs to. When a group
-// is assigned to a message, Amazon Lex returns one message from each group in the response.
+// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 func (o IntentConfirmationPromptMessageOutput) GroupNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntentConfirmationPromptMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
 }
@@ -1576,7 +1576,7 @@ func (o IntentConfirmationPromptMessageArrayOutput) Index(i pulumi.IntInput) Int
 type IntentDialogCodeHook struct {
 	// The version of the request-response that you want Amazon Lex to use
 	// to invoke your Lambda function. For more information, see
-	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 	MessageVersion string `pulumi:"messageVersion"`
 	// The Amazon Resource Name (ARN) of the Lambda function.
 	Uri string `pulumi:"uri"`
@@ -1596,7 +1596,7 @@ type IntentDialogCodeHookInput interface {
 type IntentDialogCodeHookArgs struct {
 	// The version of the request-response that you want Amazon Lex to use
 	// to invoke your Lambda function. For more information, see
-	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
 	// The Amazon Resource Name (ARN) of the Lambda function.
 	Uri pulumi.StringInput `pulumi:"uri"`
@@ -1681,7 +1681,7 @@ func (o IntentDialogCodeHookOutput) ToIntentDialogCodeHookPtrOutputWithContext(c
 
 // The version of the request-response that you want Amazon Lex to use
 // to invoke your Lambda function. For more information, see
-// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 func (o IntentDialogCodeHookOutput) MessageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentDialogCodeHook) string { return v.MessageVersion }).(pulumi.StringOutput)
 }
@@ -1711,7 +1711,7 @@ func (o IntentDialogCodeHookPtrOutput) Elem() IntentDialogCodeHookOutput {
 
 // The version of the request-response that you want Amazon Lex to use
 // to invoke your Lambda function. For more information, see
-// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 func (o IntentDialogCodeHookPtrOutput) MessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentDialogCodeHook) *string {
 		if v == nil {
@@ -1890,15 +1890,15 @@ func (o IntentFollowUpPromptPtrOutput) RejectionStatement() IntentFollowUpPrompt
 }
 
 type IntentFollowUpPromptPrompt struct {
-	// The number of times to prompt the user for information.
+	// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 	MaxAttempts int `pulumi:"maxAttempts"`
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages []IntentFollowUpPromptPromptMessage `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard *string `pulumi:"responseCard"`
 }
 
@@ -1914,15 +1914,15 @@ type IntentFollowUpPromptPromptInput interface {
 }
 
 type IntentFollowUpPromptPromptArgs struct {
-	// The number of times to prompt the user for information.
+	// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 	MaxAttempts pulumi.IntInput `pulumi:"maxAttempts"`
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages IntentFollowUpPromptPromptMessageArrayInput `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
 }
 
@@ -2003,21 +2003,21 @@ func (o IntentFollowUpPromptPromptOutput) ToIntentFollowUpPromptPromptPtrOutputW
 	}).(IntentFollowUpPromptPromptPtrOutput)
 }
 
-// The number of times to prompt the user for information.
+// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 func (o IntentFollowUpPromptPromptOutput) MaxAttempts() pulumi.IntOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptPrompt) int { return v.MaxAttempts }).(pulumi.IntOutput)
 }
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentFollowUpPromptPromptOutput) Messages() IntentFollowUpPromptPromptMessageArrayOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptPrompt) []IntentFollowUpPromptPromptMessage { return v.Messages }).(IntentFollowUpPromptPromptMessageArrayOutput)
 }
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentFollowUpPromptPromptOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptPrompt) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
 }
@@ -2040,7 +2040,7 @@ func (o IntentFollowUpPromptPromptPtrOutput) Elem() IntentFollowUpPromptPromptOu
 	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) IntentFollowUpPromptPrompt { return *v }).(IntentFollowUpPromptPromptOutput)
 }
 
-// The number of times to prompt the user for information.
+// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 func (o IntentFollowUpPromptPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) *int {
 		if v == nil {
@@ -2052,7 +2052,7 @@ func (o IntentFollowUpPromptPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentFollowUpPromptPromptPtrOutput) Messages() IntentFollowUpPromptPromptMessageArrayOutput {
 	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) []IntentFollowUpPromptPromptMessage {
 		if v == nil {
@@ -2064,7 +2064,7 @@ func (o IntentFollowUpPromptPromptPtrOutput) Messages() IntentFollowUpPromptProm
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentFollowUpPromptPromptPtrOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) *string {
 		if v == nil {
@@ -2075,12 +2075,12 @@ func (o IntentFollowUpPromptPromptPtrOutput) ResponseCard() pulumi.StringPtrOutp
 }
 
 type IntentFollowUpPromptPromptMessage struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content string `pulumi:"content"`
 	// The content type of the message string.
 	ContentType string `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber *int `pulumi:"groupNumber"`
 }
 
@@ -2096,12 +2096,12 @@ type IntentFollowUpPromptPromptMessageInput interface {
 }
 
 type IntentFollowUpPromptPromptMessageArgs struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content pulumi.StringInput `pulumi:"content"`
 	// The content type of the message string.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
 }
 
@@ -2156,7 +2156,7 @@ func (o IntentFollowUpPromptPromptMessageOutput) ToIntentFollowUpPromptPromptMes
 	return o
 }
 
-// The text of the message.
+// The text of the message. Must be less than or equal to 1000 characters in length.
 func (o IntentFollowUpPromptPromptMessageOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptPromptMessage) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -2167,7 +2167,7 @@ func (o IntentFollowUpPromptPromptMessageOutput) ContentType() pulumi.StringOutp
 }
 
 // Identifies the message group that the message belongs to. When a group
-// is assigned to a message, Amazon Lex returns one message from each group in the response.
+// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 func (o IntentFollowUpPromptPromptMessageOutput) GroupNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptPromptMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
 }
@@ -2195,11 +2195,11 @@ func (o IntentFollowUpPromptPromptMessageArrayOutput) Index(i pulumi.IntInput) I
 type IntentFollowUpPromptRejectionStatement struct {
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages []IntentFollowUpPromptRejectionStatementMessage `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard *string `pulumi:"responseCard"`
 }
 
@@ -2217,11 +2217,11 @@ type IntentFollowUpPromptRejectionStatementInput interface {
 type IntentFollowUpPromptRejectionStatementArgs struct {
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages IntentFollowUpPromptRejectionStatementMessageArrayInput `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
 }
 
@@ -2304,7 +2304,7 @@ func (o IntentFollowUpPromptRejectionStatementOutput) ToIntentFollowUpPromptReje
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentFollowUpPromptRejectionStatementOutput) Messages() IntentFollowUpPromptRejectionStatementMessageArrayOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatement) []IntentFollowUpPromptRejectionStatementMessage {
 		return v.Messages
@@ -2313,7 +2313,7 @@ func (o IntentFollowUpPromptRejectionStatementOutput) Messages() IntentFollowUpP
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentFollowUpPromptRejectionStatementOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatement) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
 }
@@ -2338,7 +2338,7 @@ func (o IntentFollowUpPromptRejectionStatementPtrOutput) Elem() IntentFollowUpPr
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentFollowUpPromptRejectionStatementPtrOutput) Messages() IntentFollowUpPromptRejectionStatementMessageArrayOutput {
 	return o.ApplyT(func(v *IntentFollowUpPromptRejectionStatement) []IntentFollowUpPromptRejectionStatementMessage {
 		if v == nil {
@@ -2350,7 +2350,7 @@ func (o IntentFollowUpPromptRejectionStatementPtrOutput) Messages() IntentFollow
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentFollowUpPromptRejectionStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentFollowUpPromptRejectionStatement) *string {
 		if v == nil {
@@ -2361,12 +2361,12 @@ func (o IntentFollowUpPromptRejectionStatementPtrOutput) ResponseCard() pulumi.S
 }
 
 type IntentFollowUpPromptRejectionStatementMessage struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content string `pulumi:"content"`
 	// The content type of the message string.
 	ContentType string `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber *int `pulumi:"groupNumber"`
 }
 
@@ -2382,12 +2382,12 @@ type IntentFollowUpPromptRejectionStatementMessageInput interface {
 }
 
 type IntentFollowUpPromptRejectionStatementMessageArgs struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content pulumi.StringInput `pulumi:"content"`
 	// The content type of the message string.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
 }
 
@@ -2442,7 +2442,7 @@ func (o IntentFollowUpPromptRejectionStatementMessageOutput) ToIntentFollowUpPro
 	return o
 }
 
-// The text of the message.
+// The text of the message. Must be less than or equal to 1000 characters in length.
 func (o IntentFollowUpPromptRejectionStatementMessageOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatementMessage) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -2453,7 +2453,7 @@ func (o IntentFollowUpPromptRejectionStatementMessageOutput) ContentType() pulum
 }
 
 // Identifies the message group that the message belongs to. When a group
-// is assigned to a message, Amazon Lex returns one message from each group in the response.
+// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 func (o IntentFollowUpPromptRejectionStatementMessageOutput) GroupNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatementMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
 }
@@ -2639,7 +2639,7 @@ func (o IntentFulfillmentActivityPtrOutput) Type() pulumi.StringPtrOutput {
 type IntentFulfillmentActivityCodeHook struct {
 	// The version of the request-response that you want Amazon Lex to use
 	// to invoke your Lambda function. For more information, see
-	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 	MessageVersion string `pulumi:"messageVersion"`
 	// The Amazon Resource Name (ARN) of the Lambda function.
 	Uri string `pulumi:"uri"`
@@ -2659,7 +2659,7 @@ type IntentFulfillmentActivityCodeHookInput interface {
 type IntentFulfillmentActivityCodeHookArgs struct {
 	// The version of the request-response that you want Amazon Lex to use
 	// to invoke your Lambda function. For more information, see
-	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
 	// The Amazon Resource Name (ARN) of the Lambda function.
 	Uri pulumi.StringInput `pulumi:"uri"`
@@ -2744,7 +2744,7 @@ func (o IntentFulfillmentActivityCodeHookOutput) ToIntentFulfillmentActivityCode
 
 // The version of the request-response that you want Amazon Lex to use
 // to invoke your Lambda function. For more information, see
-// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 func (o IntentFulfillmentActivityCodeHookOutput) MessageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentFulfillmentActivityCodeHook) string { return v.MessageVersion }).(pulumi.StringOutput)
 }
@@ -2774,7 +2774,7 @@ func (o IntentFulfillmentActivityCodeHookPtrOutput) Elem() IntentFulfillmentActi
 
 // The version of the request-response that you want Amazon Lex to use
 // to invoke your Lambda function. For more information, see
-// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 func (o IntentFulfillmentActivityCodeHookPtrOutput) MessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentFulfillmentActivityCodeHook) *string {
 		if v == nil {
@@ -2797,11 +2797,11 @@ func (o IntentFulfillmentActivityCodeHookPtrOutput) Uri() pulumi.StringPtrOutput
 type IntentRejectionStatement struct {
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages []IntentRejectionStatementMessage `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard *string `pulumi:"responseCard"`
 }
 
@@ -2819,11 +2819,11 @@ type IntentRejectionStatementInput interface {
 type IntentRejectionStatementArgs struct {
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages IntentRejectionStatementMessageArrayInput `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
 }
 
@@ -2906,14 +2906,14 @@ func (o IntentRejectionStatementOutput) ToIntentRejectionStatementPtrOutputWithC
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentRejectionStatementOutput) Messages() IntentRejectionStatementMessageArrayOutput {
 	return o.ApplyT(func(v IntentRejectionStatement) []IntentRejectionStatementMessage { return v.Messages }).(IntentRejectionStatementMessageArrayOutput)
 }
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentRejectionStatementOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentRejectionStatement) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
 }
@@ -2938,7 +2938,7 @@ func (o IntentRejectionStatementPtrOutput) Elem() IntentRejectionStatementOutput
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentRejectionStatementPtrOutput) Messages() IntentRejectionStatementMessageArrayOutput {
 	return o.ApplyT(func(v *IntentRejectionStatement) []IntentRejectionStatementMessage {
 		if v == nil {
@@ -2950,7 +2950,7 @@ func (o IntentRejectionStatementPtrOutput) Messages() IntentRejectionStatementMe
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentRejectionStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentRejectionStatement) *string {
 		if v == nil {
@@ -2961,12 +2961,12 @@ func (o IntentRejectionStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput
 }
 
 type IntentRejectionStatementMessage struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content string `pulumi:"content"`
 	// The content type of the message string.
 	ContentType string `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber *int `pulumi:"groupNumber"`
 }
 
@@ -2982,12 +2982,12 @@ type IntentRejectionStatementMessageInput interface {
 }
 
 type IntentRejectionStatementMessageArgs struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content pulumi.StringInput `pulumi:"content"`
 	// The content type of the message string.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
 }
 
@@ -3042,7 +3042,7 @@ func (o IntentRejectionStatementMessageOutput) ToIntentRejectionStatementMessage
 	return o
 }
 
-// The text of the message.
+// The text of the message. Must be less than or equal to 1000 characters in length.
 func (o IntentRejectionStatementMessageOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentRejectionStatementMessage) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -3053,7 +3053,7 @@ func (o IntentRejectionStatementMessageOutput) ContentType() pulumi.StringOutput
 }
 
 // Identifies the message group that the message belongs to. When a group
-// is assigned to a message, Amazon Lex returns one message from each group in the response.
+// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 func (o IntentRejectionStatementMessageOutput) GroupNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntentRejectionStatementMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
 }
@@ -3079,29 +3079,29 @@ func (o IntentRejectionStatementMessageArrayOutput) Index(i pulumi.IntInput) Int
 }
 
 type IntentSlot struct {
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
-	// The name of the intent slot that you want to create. The name is case sensitive.
+	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 	Name string `pulumi:"name"`
 	// Directs Lex the order in which to elicit this slot value from the user.
 	// For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
 	// the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
-	// values is arbitrary.
+	// values is arbitrary. Must be between 1 and 100.
 	Priority *int `pulumi:"priority"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard *string `pulumi:"responseCard"`
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 	SampleUtterances []string `pulumi:"sampleUtterances"`
 	// Specifies whether the slot is required or optional.
 	SlotConstraint string `pulumi:"slotConstraint"`
 	// The type of the slot, either a custom slot type that you defined or one of
-	// the built-in slot types.
+	// the built-in slot types. Must be less than or equal to 100 characters in length.
 	SlotType string `pulumi:"slotType"`
-	// The version of the slot type.
+	// The version of the slot type. Must be less than or equal to 64 characters in length.
 	SlotTypeVersion *string `pulumi:"slotTypeVersion"`
 	// The prompt that Amazon Lex uses to elicit the slot value
 	// from the user. Attributes are documented under prompt.
@@ -3120,29 +3120,29 @@ type IntentSlotInput interface {
 }
 
 type IntentSlotArgs struct {
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the intent slot that you want to create. The name is case sensitive.
+	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Directs Lex the order in which to elicit this slot value from the user.
 	// For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
 	// the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
-	// values is arbitrary.
+	// values is arbitrary. Must be between 1 and 100.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 	SampleUtterances pulumi.StringArrayInput `pulumi:"sampleUtterances"`
 	// Specifies whether the slot is required or optional.
 	SlotConstraint pulumi.StringInput `pulumi:"slotConstraint"`
 	// The type of the slot, either a custom slot type that you defined or one of
-	// the built-in slot types.
+	// the built-in slot types. Must be less than or equal to 100 characters in length.
 	SlotType pulumi.StringInput `pulumi:"slotType"`
-	// The version of the slot type.
+	// The version of the slot type. Must be less than or equal to 64 characters in length.
 	SlotTypeVersion pulumi.StringPtrInput `pulumi:"slotTypeVersion"`
 	// The prompt that Amazon Lex uses to elicit the slot value
 	// from the user. Attributes are documented under prompt.
@@ -3200,12 +3200,12 @@ func (o IntentSlotOutput) ToIntentSlotOutputWithContext(ctx context.Context) Int
 	return o
 }
 
-// A description of the bot.
+// A description of the bot. Must be less than or equal to 200 characters in length.
 func (o IntentSlotOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentSlot) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the intent slot that you want to create. The name is case sensitive.
+// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 func (o IntentSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentSlot) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3213,21 +3213,21 @@ func (o IntentSlotOutput) Name() pulumi.StringOutput {
 // Directs Lex the order in which to elicit this slot value from the user.
 // For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
 // the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
-// values is arbitrary.
+// values is arbitrary. Must be between 1 and 100.
 func (o IntentSlotOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntentSlot) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentSlotOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentSlot) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
 }
 
 // If you know a specific pattern with which users might respond to
 // an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 func (o IntentSlotOutput) SampleUtterances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntentSlot) []string { return v.SampleUtterances }).(pulumi.StringArrayOutput)
 }
@@ -3238,12 +3238,12 @@ func (o IntentSlotOutput) SlotConstraint() pulumi.StringOutput {
 }
 
 // The type of the slot, either a custom slot type that you defined or one of
-// the built-in slot types.
+// the built-in slot types. Must be less than or equal to 100 characters in length.
 func (o IntentSlotOutput) SlotType() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentSlot) string { return v.SlotType }).(pulumi.StringOutput)
 }
 
-// The version of the slot type.
+// The version of the slot type. Must be less than or equal to 64 characters in length.
 func (o IntentSlotOutput) SlotTypeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentSlot) *string { return v.SlotTypeVersion }).(pulumi.StringPtrOutput)
 }
@@ -3275,15 +3275,15 @@ func (o IntentSlotArrayOutput) Index(i pulumi.IntInput) IntentSlotOutput {
 }
 
 type IntentSlotValueElicitationPrompt struct {
-	// The number of times to prompt the user for information.
+	// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 	MaxAttempts int `pulumi:"maxAttempts"`
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages []IntentSlotValueElicitationPromptMessage `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard *string `pulumi:"responseCard"`
 }
 
@@ -3299,15 +3299,15 @@ type IntentSlotValueElicitationPromptInput interface {
 }
 
 type IntentSlotValueElicitationPromptArgs struct {
-	// The number of times to prompt the user for information.
+	// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 	MaxAttempts pulumi.IntInput `pulumi:"maxAttempts"`
 	// A set of messages, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-	// Attributes are documented under message.
+	// Attributes are documented under message. Must contain between 1 and 15 messages.
 	Messages IntentSlotValueElicitationPromptMessageArrayInput `pulumi:"messages"`
 	// The response card. Amazon Lex will substitute session attributes and
 	// slot values into the response card. For more information, see
-	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+	// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 	ResponseCard pulumi.StringPtrInput `pulumi:"responseCard"`
 }
 
@@ -3388,21 +3388,21 @@ func (o IntentSlotValueElicitationPromptOutput) ToIntentSlotValueElicitationProm
 	}).(IntentSlotValueElicitationPromptPtrOutput)
 }
 
-// The number of times to prompt the user for information.
+// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 func (o IntentSlotValueElicitationPromptOutput) MaxAttempts() pulumi.IntOutput {
 	return o.ApplyT(func(v IntentSlotValueElicitationPrompt) int { return v.MaxAttempts }).(pulumi.IntOutput)
 }
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentSlotValueElicitationPromptOutput) Messages() IntentSlotValueElicitationPromptMessageArrayOutput {
 	return o.ApplyT(func(v IntentSlotValueElicitationPrompt) []IntentSlotValueElicitationPromptMessage { return v.Messages }).(IntentSlotValueElicitationPromptMessageArrayOutput)
 }
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentSlotValueElicitationPromptOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntentSlotValueElicitationPrompt) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
 }
@@ -3425,7 +3425,7 @@ func (o IntentSlotValueElicitationPromptPtrOutput) Elem() IntentSlotValueElicita
 	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) IntentSlotValueElicitationPrompt { return *v }).(IntentSlotValueElicitationPromptOutput)
 }
 
-// The number of times to prompt the user for information.
+// The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
 func (o IntentSlotValueElicitationPromptPtrOutput) MaxAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) *int {
 		if v == nil {
@@ -3437,7 +3437,7 @@ func (o IntentSlotValueElicitationPromptPtrOutput) MaxAttempts() pulumi.IntPtrOu
 
 // A set of messages, each of which provides a message string and its type.
 // You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-// Attributes are documented under message.
+// Attributes are documented under message. Must contain between 1 and 15 messages.
 func (o IntentSlotValueElicitationPromptPtrOutput) Messages() IntentSlotValueElicitationPromptMessageArrayOutput {
 	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) []IntentSlotValueElicitationPromptMessage {
 		if v == nil {
@@ -3449,7 +3449,7 @@ func (o IntentSlotValueElicitationPromptPtrOutput) Messages() IntentSlotValueEli
 
 // The response card. Amazon Lex will substitute session attributes and
 // slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
 func (o IntentSlotValueElicitationPromptPtrOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) *string {
 		if v == nil {
@@ -3460,12 +3460,12 @@ func (o IntentSlotValueElicitationPromptPtrOutput) ResponseCard() pulumi.StringP
 }
 
 type IntentSlotValueElicitationPromptMessage struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content string `pulumi:"content"`
 	// The content type of the message string.
 	ContentType string `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber *int `pulumi:"groupNumber"`
 }
 
@@ -3481,12 +3481,12 @@ type IntentSlotValueElicitationPromptMessageInput interface {
 }
 
 type IntentSlotValueElicitationPromptMessageArgs struct {
-	// The text of the message.
+	// The text of the message. Must be less than or equal to 1000 characters in length.
 	Content pulumi.StringInput `pulumi:"content"`
 	// The content type of the message string.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Identifies the message group that the message belongs to. When a group
-	// is assigned to a message, Amazon Lex returns one message from each group in the response.
+	// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 	GroupNumber pulumi.IntPtrInput `pulumi:"groupNumber"`
 }
 
@@ -3541,7 +3541,7 @@ func (o IntentSlotValueElicitationPromptMessageOutput) ToIntentSlotValueElicitat
 	return o
 }
 
-// The text of the message.
+// The text of the message. Must be less than or equal to 1000 characters in length.
 func (o IntentSlotValueElicitationPromptMessageOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentSlotValueElicitationPromptMessage) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -3552,7 +3552,7 @@ func (o IntentSlotValueElicitationPromptMessageOutput) ContentType() pulumi.Stri
 }
 
 // Identifies the message group that the message belongs to. When a group
-// is assigned to a message, Amazon Lex returns one message from each group in the response.
+// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
 func (o IntentSlotValueElicitationPromptMessageOutput) GroupNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntentSlotValueElicitationPromptMessage) *int { return v.GroupNumber }).(pulumi.IntPtrOutput)
 }
@@ -3578,9 +3578,9 @@ func (o IntentSlotValueElicitationPromptMessageArrayOutput) Index(i pulumi.IntIn
 }
 
 type SlotTypeEnumerationValue struct {
-	// Additional values related to the slot type value.
+	// Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
 	Synonyms []string `pulumi:"synonyms"`
-	// The value of the slot type.
+	// The value of the slot type. Must be less than or equal to 140 characters in length.
 	Value string `pulumi:"value"`
 }
 
@@ -3596,9 +3596,9 @@ type SlotTypeEnumerationValueInput interface {
 }
 
 type SlotTypeEnumerationValueArgs struct {
-	// Additional values related to the slot type value.
+	// Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
 	Synonyms pulumi.StringArrayInput `pulumi:"synonyms"`
-	// The value of the slot type.
+	// The value of the slot type. Must be less than or equal to 140 characters in length.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3653,12 +3653,12 @@ func (o SlotTypeEnumerationValueOutput) ToSlotTypeEnumerationValueOutputWithCont
 	return o
 }
 
-// Additional values related to the slot type value.
+// Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
 func (o SlotTypeEnumerationValueOutput) Synonyms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotTypeEnumerationValue) []string { return v.Synonyms }).(pulumi.StringArrayOutput)
 }
 
-// The value of the slot type.
+// The value of the slot type. Must be less than or equal to 140 characters in length.
 func (o SlotTypeEnumerationValueOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotTypeEnumerationValue) string { return v.Value }).(pulumi.StringOutput)
 }

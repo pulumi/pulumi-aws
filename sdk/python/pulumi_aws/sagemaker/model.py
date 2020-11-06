@@ -38,11 +38,6 @@ class Model(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        model = aws.sagemaker.Model("model",
-            execution_role_arn=aws_iam_role["foo"]["arn"],
-            primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
-                image="174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
-            ))
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -50,7 +45,12 @@ class Model(pulumi.CustomResource):
                 identifiers=["sagemaker.amazonaws.com"],
             )],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_model = aws.sagemaker.Model("exampleModel",
+            execution_role_arn=example_role.arn,
+            primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
+                image="174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
+            ))
         ```
 
         :param str resource_name: The name of the resource.

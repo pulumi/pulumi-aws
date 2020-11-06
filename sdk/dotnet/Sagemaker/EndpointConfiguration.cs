@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// </summary>
+        [Output("dataCaptureConfig")]
+        public Output<Outputs.EndpointConfigurationDataCaptureConfig?> DataCaptureConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         /// </summary>
         [Output("kmsKeyArn")]
@@ -125,6 +131,12 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class EndpointConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// </summary>
+        [Input("dataCaptureConfig")]
+        public Input<Inputs.EndpointConfigurationDataCaptureConfigArgs>? DataCaptureConfig { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         /// </summary>
         [Input("kmsKeyArn")]
@@ -172,6 +184,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        /// </summary>
+        [Input("dataCaptureConfig")]
+        public Input<Inputs.EndpointConfigurationDataCaptureConfigGetArgs>? DataCaptureConfig { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.

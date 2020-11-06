@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Lex
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the bot.
+        /// A description of the bot. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Lex
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the intent slot that you want to create. The name is case sensitive.
+        /// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// If you know a specific pattern with which users might respond to
         /// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-        /// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+        /// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         /// </summary>
         [Output("sampleUtterances")]
         public Output<ImmutableArray<string>> SampleUtterances { get; private set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Lex
         public Input<bool>? CreateVersion { get; set; }
 
         /// <summary>
-        /// A description of the bot.
+        /// A description of the bot. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.IntentFulfillmentActivityArgs> FulfillmentActivity { get; set; } = null!;
 
         /// <summary>
-        /// The name of the intent slot that you want to create. The name is case sensitive.
+        /// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// If you know a specific pattern with which users might respond to
         /// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-        /// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+        /// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         /// </summary>
         public InputList<string> SampleUtterances
         {
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.Lex
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// A description of the bot.
+        /// A description of the bot. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -508,7 +508,7 @@ namespace Pulumi.Aws.Lex
         public Input<string>? LastUpdatedDate { get; set; }
 
         /// <summary>
-        /// The name of the intent slot that you want to create. The name is case sensitive.
+        /// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// If you know a specific pattern with which users might respond to
         /// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-        /// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+        /// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         /// </summary>
         public InputList<string> SampleUtterances
         {

@@ -95,7 +95,7 @@ namespace Pulumi.Aws.SecretsManager
         /// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
         /// </summary>
         [Output("policy")]
-        public Output<string?> Policy { get; private set; } = null!;
+        public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.

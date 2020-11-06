@@ -84,7 +84,7 @@ export class SlotType extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * A description of the slot type.
+     * A description of the slot type. Must be less than or equal to 200 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -99,7 +99,7 @@ export class SlotType extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the slot type. The name is not case sensitive.
+     * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -180,7 +180,7 @@ export interface SlotTypeState {
      */
     readonly createdDate?: pulumi.Input<string>;
     /**
-     * A description of the slot type.
+     * A description of the slot type. Must be less than or equal to 200 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -195,7 +195,7 @@ export interface SlotTypeState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the slot type. The name is not case sensitive.
+     * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface SlotTypeArgs {
      */
     readonly createVersion?: pulumi.Input<boolean>;
     /**
-     * A description of the slot type.
+     * A description of the slot type. Must be less than or equal to 200 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface SlotTypeArgs {
      */
     readonly enumerationValues: pulumi.Input<pulumi.Input<inputs.lex.SlotTypeEnumerationValue>[]>;
     /**
-     * The name of the slot type. The name is not case sensitive.
+     * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**

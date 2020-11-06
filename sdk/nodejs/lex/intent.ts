@@ -154,7 +154,7 @@ export class Intent extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * A description of the bot.
+     * A description of the bot. Must be less than or equal to 200 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -180,7 +180,7 @@ export class Intent extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the intent slot that you want to create. The name is case sensitive.
+     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -199,7 +199,7 @@ export class Intent extends pulumi.CustomResource {
     /**
      * If you know a specific pattern with which users might respond to
      * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      */
     public readonly sampleUtterances!: pulumi.Output<string[] | undefined>;
     /**
@@ -312,7 +312,7 @@ export interface IntentState {
      */
     readonly createdDate?: pulumi.Input<string>;
     /**
-     * A description of the bot.
+     * A description of the bot. Must be less than or equal to 200 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface IntentState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the intent slot that you want to create. The name is case sensitive.
+     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -357,7 +357,7 @@ export interface IntentState {
     /**
      * If you know a specific pattern with which users might respond to
      * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      */
     readonly sampleUtterances?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -395,7 +395,7 @@ export interface IntentArgs {
      */
     readonly createVersion?: pulumi.Input<boolean>;
     /**
-     * A description of the bot.
+     * A description of the bot. Must be less than or equal to 200 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -417,7 +417,7 @@ export interface IntentArgs {
      */
     readonly fulfillmentActivity: pulumi.Input<inputs.lex.IntentFulfillmentActivity>;
     /**
-     * The name of the intent slot that you want to create. The name is case sensitive.
+     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -436,7 +436,7 @@ export interface IntentArgs {
     /**
      * If you know a specific pattern with which users might respond to
      * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      */
     readonly sampleUtterances?: pulumi.Input<pulumi.Input<string>[]>;
     /**

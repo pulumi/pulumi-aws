@@ -54,7 +54,7 @@ import (
 // 		example, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
 // 			CodeRepositoryName: pulumi.String("my-notebook-instance-code-repo"),
 // 			GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-// 				RepositoryUrl: pulumi.String("https://github.com/terraform-providers/terraform-provider-aws.git"),
+// 				RepositoryUrl: pulumi.String("https://github.com/hashicorp/terraform-provider-aws.git"),
 // 			},
 // 		})
 // 		if err != nil {

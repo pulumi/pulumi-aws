@@ -78,6 +78,10 @@ export class EventPermission extends pulumi.CustomResource {
      */
     public readonly condition!: pulumi.Output<outputs.cloudwatch.EventPermissionCondition | undefined>;
     /**
+     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     */
+    public readonly eventBusName!: pulumi.Output<string | undefined>;
+    /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
     public readonly principal!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class EventPermission extends pulumi.CustomResource {
             const state = argsOrState as EventPermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["condition"] = state ? state.condition : undefined;
+            inputs["eventBusName"] = state ? state.eventBusName : undefined;
             inputs["principal"] = state ? state.principal : undefined;
             inputs["statementId"] = state ? state.statementId : undefined;
         } else {
@@ -112,6 +117,7 @@ export class EventPermission extends pulumi.CustomResource {
             }
             inputs["action"] = args ? args.action : undefined;
             inputs["condition"] = args ? args.condition : undefined;
+            inputs["eventBusName"] = args ? args.eventBusName : undefined;
             inputs["principal"] = args ? args.principal : undefined;
             inputs["statementId"] = args ? args.statementId : undefined;
         }
@@ -139,6 +145,10 @@ export interface EventPermissionState {
      */
     readonly condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
     /**
+     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     */
+    readonly eventBusName?: pulumi.Input<string>;
+    /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
     readonly principal?: pulumi.Input<string>;
@@ -160,6 +170,10 @@ export interface EventPermissionArgs {
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
     readonly condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
+    /**
+     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     */
+    readonly eventBusName?: pulumi.Input<string>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */

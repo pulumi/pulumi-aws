@@ -79,6 +79,21 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * ### MongoDB Target
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.Crawler("example", {
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
+ *     mongodbTargets: [{
+ *         connectionName: aws_glue_connection.example.name,
+ *         path: `database-name/%`,
+ *     }],
+ * });
+ * ```
  */
 export class Crawler extends pulumi.CustomResource {
     /**
@@ -138,6 +153,10 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly jdbcTargets!: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
     /**
+     * List nested MongoDB target arguments. See below.
+     */
+    public readonly mongodbTargets!: pulumi.Output<outputs.glue.CrawlerMongodbTarget[] | undefined>;
+    /**
      * Name of the crawler.
      */
     public readonly name!: pulumi.Output<string>;
@@ -190,6 +209,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
+            inputs["mongodbTargets"] = state ? state.mongodbTargets : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["role"] = state ? state.role : undefined;
             inputs["s3Targets"] = state ? state.s3Targets : undefined;
@@ -213,6 +233,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
             inputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
+            inputs["mongodbTargets"] = args ? args.mongodbTargets : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["s3Targets"] = args ? args.s3Targets : undefined;
@@ -267,6 +288,10 @@ export interface CrawlerState {
      * List of nested JBDC target arguments. See below.
      */
     readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    /**
+     * List nested MongoDB target arguments. See below.
+     */
+    readonly mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
      * Name of the crawler.
      */
@@ -330,6 +355,10 @@ export interface CrawlerArgs {
      * List of nested JBDC target arguments. See below.
      */
     readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    /**
+     * List nested MongoDB target arguments. See below.
+     */
+    readonly mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
      * Name of the crawler.
      */

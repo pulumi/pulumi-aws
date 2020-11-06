@@ -155,7 +155,7 @@ class EventTargetEcsTargetArgs:
         """
         :param pulumi.Input[str] task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS cluster.
         :param pulumi.Input[str] group: Specifies an ECS task group for the task. The maximum length is 255 characters.
-        :param pulumi.Input[str] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+        :param pulumi.Input[str] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
         :param pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs'] network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
         :param pulumi.Input[str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[int] task_count: The number of tasks to create based on the TaskDefinition. The default is 1.
@@ -200,7 +200,7 @@ class EventTargetEcsTargetArgs:
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
         """
         return pulumi.get(self, "launch_type")
 
@@ -305,7 +305,6 @@ class EventTargetInputTransformerArgs:
                  input_template: pulumi.Input[str],
                  input_paths: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] input_template: Structure containing the template body.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] input_paths: Key value pairs specified in the form of JSONPath (for example, time = $.time)
                * You can have as many as 10 key-value pairs.
                * You must use JSON dot notation, not bracket notation.
@@ -318,9 +317,6 @@ class EventTargetInputTransformerArgs:
     @property
     @pulumi.getter(name="inputTemplate")
     def input_template(self) -> pulumi.Input[str]:
-        """
-        Structure containing the template body.
-        """
         return pulumi.get(self, "input_template")
 
     @input_template.setter

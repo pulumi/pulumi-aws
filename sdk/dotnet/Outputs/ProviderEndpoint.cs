@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Codecommit;
         public readonly string? Codedeploy;
         public readonly string? Codepipeline;
+        public readonly string? Codestarconnections;
         public readonly string? Cognitoidentity;
         public readonly string? Cognitoidp;
         public readonly string? Configservice;
@@ -219,6 +220,8 @@ namespace Pulumi.Aws.Outputs
             string? codedeploy,
 
             string? codepipeline,
+
+            string? codestarconnections,
 
             string? cognitoidentity,
 
@@ -478,6 +481,7 @@ namespace Pulumi.Aws.Outputs
             Codecommit = codecommit;
             Codedeploy = codedeploy;
             Codepipeline = codepipeline;
+            Codestarconnections = codestarconnections;
             Cognitoidentity = cognitoidentity;
             Cognitoidp = cognitoidp;
             Configservice = configservice;

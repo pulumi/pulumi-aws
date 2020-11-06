@@ -26,7 +26,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketLifecycleRuleExpiration? Expiration;
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
         public readonly string? Id;
         /// <summary>

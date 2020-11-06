@@ -294,9 +294,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly sourceRegion!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+     * Specifies whether the DB cluster is encrypted
      */
-    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
+    public readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
      * A map of tags to assign to the DB cluster.
      */
@@ -575,7 +575,7 @@ export interface ClusterState {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+     * Specifies whether the DB cluster is encrypted
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
@@ -726,7 +726,7 @@ export interface ClusterArgs {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+     * Specifies whether the DB cluster is encrypted
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**

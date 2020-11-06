@@ -242,6 +242,76 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Example Input Transformer Usage - JSON Object
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleEventRule = new Aws.CloudWatch.EventRule("exampleEventRule", new Aws.CloudWatch.EventRuleArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleEventTarget = new Aws.CloudWatch.EventTarget("exampleEventTarget", new Aws.CloudWatch.EventTargetArgs
+    ///         {
+    ///             Arn = aws_lambda_function.Example.Arn,
+    ///             Rule = exampleEventRule.Id,
+    ///             InputTransformer = new Aws.CloudWatch.Inputs.EventTargetInputTransformerArgs
+    ///             {
+    ///                 InputPaths = 
+    ///                 {
+    ///                     { "instance", "$.detail.instance" },
+    ///                     { "status", "$.detail.status" },
+    ///                 },
+    ///                 InputTemplate = @"{
+    ///   ""instance_id"": &lt;instance&gt;,
+    ///   ""instance_status"": &lt;status&gt;
+    /// }
+    /// ",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example Input Transformer Usage - Simple String
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleEventRule = new Aws.CloudWatch.EventRule("exampleEventRule", new Aws.CloudWatch.EventRuleArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleEventTarget = new Aws.CloudWatch.EventTarget("exampleEventTarget", new Aws.CloudWatch.EventTargetArgs
+    ///         {
+    ///             Arn = aws_lambda_function.Example.Arn,
+    ///             Rule = exampleEventRule.Id,
+    ///             InputTransformer = new Aws.CloudWatch.Inputs.EventTargetInputTransformerArgs
+    ///             {
+    ///                 InputPaths = 
+    ///                 {
+    ///                     { "instance", "$.detail.instance" },
+    ///                     { "status", "$.detail.status" },
+    ///                 },
+    ///                 InputTemplate = "\"&lt;instance&gt; is in state &lt;status&gt;\"",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventTarget : Pulumi.CustomResource
     {
@@ -264,20 +334,26 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetEcsTarget?> EcsTarget { get; private set; } = null!;
 
         /// <summary>
-        /// Valid JSON text passed to the target.
+        /// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        /// </summary>
+        [Output("eventBusName")]
+        public Output<string?> EventBusName { get; private set; } = null!;
+
+        /// <summary>
+        /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         /// </summary>
         [Output("input")]
         public Output<string?> Input { get; private set; } = null!;
 
         /// <summary>
         /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-        /// that is used for extracting part of the matched event when passing it to the target.
+        /// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         /// </summary>
         [Output("inputPath")]
         public Output<string?> InputPath { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters used when you are providing a custom input to a target based on certain event data.
+        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         /// </summary>
         [Output("inputTransformer")]
         public Output<Outputs.EventTargetInputTransformer?> InputTransformer { get; private set; } = null!;
@@ -383,20 +459,26 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetEcsTargetArgs>? EcsTarget { get; set; }
 
         /// <summary>
-        /// Valid JSON text passed to the target.
+        /// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        /// </summary>
+        [Input("eventBusName")]
+        public Input<string>? EventBusName { get; set; }
+
+        /// <summary>
+        /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         /// </summary>
         [Input("input")]
         public Input<string>? Input { get; set; }
 
         /// <summary>
         /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-        /// that is used for extracting part of the matched event when passing it to the target.
+        /// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         /// </summary>
         [Input("inputPath")]
         public Input<string>? InputPath { get; set; }
 
         /// <summary>
-        /// Parameters used when you are providing a custom input to a target based on certain event data.
+        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         /// </summary>
         [Input("inputTransformer")]
         public Input<Inputs.EventTargetInputTransformerArgs>? InputTransformer { get; set; }
@@ -469,20 +551,26 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetEcsTargetGetArgs>? EcsTarget { get; set; }
 
         /// <summary>
-        /// Valid JSON text passed to the target.
+        /// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        /// </summary>
+        [Input("eventBusName")]
+        public Input<string>? EventBusName { get; set; }
+
+        /// <summary>
+        /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         /// </summary>
         [Input("input")]
         public Input<string>? Input { get; set; }
 
         /// <summary>
         /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-        /// that is used for extracting part of the matched event when passing it to the target.
+        /// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         /// </summary>
         [Input("inputPath")]
         public Input<string>? InputPath { get; set; }
 
         /// <summary>
-        /// Parameters used when you are providing a custom input to a target based on certain event data.
+        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         /// </summary>
         [Input("inputTransformer")]
         public Input<Inputs.EventTargetInputTransformerGetArgs>? InputTransformer { get; set; }

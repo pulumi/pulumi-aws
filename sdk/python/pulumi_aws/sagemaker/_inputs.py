@@ -10,9 +10,14 @@ from .. import _utilities, _tables
 
 __all__ = [
     'CodeRepositoryGitConfigArgs',
+    'EndpointConfigurationDataCaptureConfigArgs',
+    'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs',
+    'EndpointConfigurationDataCaptureConfigCaptureOptionArgs',
     'EndpointConfigurationProductionVariantArgs',
     'ModelContainerArgs',
+    'ModelContainerImageConfigArgs',
     'ModelPrimaryContainerArgs',
+    'ModelPrimaryContainerImageConfigArgs',
     'ModelVpcConfigArgs',
 ]
 
@@ -54,6 +59,167 @@ class CodeRepositoryGitConfigArgs:
     @secret_arn.setter
     def secret_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_arn", value)
+
+
+@pulumi.input_type
+class EndpointConfigurationDataCaptureConfigArgs:
+    def __init__(__self__, *,
+                 capture_options: pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureOptionArgs']]],
+                 destination_s3_uri: pulumi.Input[str],
+                 initial_sampling_percentage: pulumi.Input[int],
+                 capture_content_type_header: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs']] = None,
+                 enable_capture: Optional[pulumi.Input[bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureOptionArgs']]] capture_options: Specifies what data to capture. Fields are documented below.
+        :param pulumi.Input[str] destination_s3_uri: The URL for S3 location where the captured data is stored.
+        :param pulumi.Input[int] initial_sampling_percentage: Portion of data to capture. Should be between 0 and 100.
+        :param pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs'] capture_content_type_header: The content type headers to capture. Fields are documented below.
+        :param pulumi.Input[bool] enable_capture: Flag to enable data capture. Defaults to `false`.
+        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        """
+        pulumi.set(__self__, "capture_options", capture_options)
+        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
+        pulumi.set(__self__, "initial_sampling_percentage", initial_sampling_percentage)
+        if capture_content_type_header is not None:
+            pulumi.set(__self__, "capture_content_type_header", capture_content_type_header)
+        if enable_capture is not None:
+            pulumi.set(__self__, "enable_capture", enable_capture)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="captureOptions")
+    def capture_options(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureOptionArgs']]]:
+        """
+        Specifies what data to capture. Fields are documented below.
+        """
+        return pulumi.get(self, "capture_options")
+
+    @capture_options.setter
+    def capture_options(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureOptionArgs']]]):
+        pulumi.set(self, "capture_options", value)
+
+    @property
+    @pulumi.getter(name="destinationS3Uri")
+    def destination_s3_uri(self) -> pulumi.Input[str]:
+        """
+        The URL for S3 location where the captured data is stored.
+        """
+        return pulumi.get(self, "destination_s3_uri")
+
+    @destination_s3_uri.setter
+    def destination_s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_s3_uri", value)
+
+    @property
+    @pulumi.getter(name="initialSamplingPercentage")
+    def initial_sampling_percentage(self) -> pulumi.Input[int]:
+        """
+        Portion of data to capture. Should be between 0 and 100.
+        """
+        return pulumi.get(self, "initial_sampling_percentage")
+
+    @initial_sampling_percentage.setter
+    def initial_sampling_percentage(self, value: pulumi.Input[int]):
+        pulumi.set(self, "initial_sampling_percentage", value)
+
+    @property
+    @pulumi.getter(name="captureContentTypeHeader")
+    def capture_content_type_header(self) -> Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs']]:
+        """
+        The content type headers to capture. Fields are documented below.
+        """
+        return pulumi.get(self, "capture_content_type_header")
+
+    @capture_content_type_header.setter
+    def capture_content_type_header(self, value: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs']]):
+        pulumi.set(self, "capture_content_type_header", value)
+
+    @property
+    @pulumi.getter(name="enableCapture")
+    def enable_capture(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to enable data capture. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_capture")
+
+    @enable_capture.setter
+    def enable_capture(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_capture", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs:
+    def __init__(__self__, *,
+                 csv_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 json_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] csv_content_types: The CSV content type headers to capture.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] json_content_types: The JSON content type headers to capture.
+        """
+        if csv_content_types is not None:
+            pulumi.set(__self__, "csv_content_types", csv_content_types)
+        if json_content_types is not None:
+            pulumi.set(__self__, "json_content_types", json_content_types)
+
+    @property
+    @pulumi.getter(name="csvContentTypes")
+    def csv_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The CSV content type headers to capture.
+        """
+        return pulumi.get(self, "csv_content_types")
+
+    @csv_content_types.setter
+    def csv_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "csv_content_types", value)
+
+    @property
+    @pulumi.getter(name="jsonContentTypes")
+    def json_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The JSON content type headers to capture.
+        """
+        return pulumi.get(self, "json_content_types")
+
+    @json_content_types.setter
+    def json_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "json_content_types", value)
+
+
+@pulumi.input_type
+class EndpointConfigurationDataCaptureConfigCaptureOptionArgs:
+    def __init__(__self__, *,
+                 capture_mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] capture_mode: Specifies the data to be captured. Should be one of `Input` or `Output`.
+        """
+        pulumi.set(__self__, "capture_mode", capture_mode)
+
+    @property
+    @pulumi.getter(name="captureMode")
+    def capture_mode(self) -> pulumi.Input[str]:
+        """
+        Specifies the data to be captured. Should be one of `Input` or `Output`.
+        """
+        return pulumi.get(self, "capture_mode")
+
+    @capture_mode.setter
+    def capture_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capture_mode", value)
 
 
 @pulumi.input_type
@@ -162,6 +328,7 @@ class ModelContainerArgs:
                  image: pulumi.Input[str],
                  container_hostname: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 image_config: Optional[pulumi.Input['ModelContainerImageConfigArgs']] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None):
         """
@@ -169,6 +336,7 @@ class ModelContainerArgs:
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param pulumi.Input['ModelContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         """
@@ -177,6 +345,8 @@ class ModelContainerArgs:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if image_config is not None:
+            pulumi.set(__self__, "image_config", image_config)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
@@ -218,6 +388,18 @@ class ModelContainerArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="imageConfig")
+    def image_config(self) -> Optional[pulumi.Input['ModelContainerImageConfigArgs']]:
+        """
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        """
+        return pulumi.get(self, "image_config")
+
+    @image_config.setter
+    def image_config(self, value: Optional[pulumi.Input['ModelContainerImageConfigArgs']]):
+        pulumi.set(self, "image_config", value)
 
     @property
     @pulumi.getter
@@ -245,11 +427,34 @@ class ModelContainerArgs:
 
 
 @pulumi.input_type
+class ModelContainerImageConfigArgs:
+    def __init__(__self__, *,
+                 repository_access_mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_access_mode: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+        """
+        pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+
+    @property
+    @pulumi.getter(name="repositoryAccessMode")
+    def repository_access_mode(self) -> pulumi.Input[str]:
+        """
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+        """
+        return pulumi.get(self, "repository_access_mode")
+
+    @repository_access_mode.setter
+    def repository_access_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_access_mode", value)
+
+
+@pulumi.input_type
 class ModelPrimaryContainerArgs:
     def __init__(__self__, *,
                  image: pulumi.Input[str],
                  container_hostname: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 image_config: Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None):
         """
@@ -257,6 +462,7 @@ class ModelPrimaryContainerArgs:
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param pulumi.Input['ModelPrimaryContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         """
@@ -265,6 +471,8 @@ class ModelPrimaryContainerArgs:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if image_config is not None:
+            pulumi.set(__self__, "image_config", image_config)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
@@ -308,6 +516,18 @@ class ModelPrimaryContainerArgs:
         pulumi.set(self, "environment", value)
 
     @property
+    @pulumi.getter(name="imageConfig")
+    def image_config(self) -> Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']]:
+        """
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        """
+        return pulumi.get(self, "image_config")
+
+    @image_config.setter
+    def image_config(self, value: Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']]):
+        pulumi.set(self, "image_config", value)
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -330,6 +550,28 @@ class ModelPrimaryContainerArgs:
     @model_data_url.setter
     def model_data_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_data_url", value)
+
+
+@pulumi.input_type
+class ModelPrimaryContainerImageConfigArgs:
+    def __init__(__self__, *,
+                 repository_access_mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_access_mode: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+        """
+        pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+
+    @property
+    @pulumi.getter(name="repositoryAccessMode")
+    def repository_access_mode(self) -> pulumi.Input[str]:
+        """
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+        """
+        return pulumi.get(self, "repository_access_mode")
+
+    @repository_access_mode.setter
+    def repository_access_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_access_mode", value)
 
 
 @pulumi.input_type

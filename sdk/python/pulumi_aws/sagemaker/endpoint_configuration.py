@@ -17,6 +17,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_capture_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationProductionVariantArgs']]]]] = None,
@@ -49,6 +50,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']] data_capture_config: Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationProductionVariantArgs']]]] production_variants: Fields are documented below.
@@ -71,6 +73,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['data_capture_config'] = data_capture_config
             __props__['kms_key_arn'] = kms_key_arn
             __props__['name'] = name
             if production_variants is None:
@@ -89,6 +92,7 @@ class EndpointConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            data_capture_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationProductionVariantArgs']]]]] = None,
@@ -101,6 +105,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+        :param pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']] data_capture_config: Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigurationProductionVariantArgs']]]] production_variants: Fields are documented below.
@@ -111,6 +116,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["arn"] = arn
+        __props__["data_capture_config"] = data_capture_config
         __props__["kms_key_arn"] = kms_key_arn
         __props__["name"] = name
         __props__["production_variants"] = production_variants
@@ -124,6 +130,14 @@ class EndpointConfiguration(pulumi.CustomResource):
         The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="dataCaptureConfig")
+    def data_capture_config(self) -> pulumi.Output[Optional['outputs.EndpointConfigurationDataCaptureConfig']]:
+        """
+        Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+        """
+        return pulumi.get(self, "data_capture_config")
 
     @property
     @pulumi.getter(name="kmsKeyArn")

@@ -18,12 +18,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const model = new aws.sagemaker.Model("model", {
- *     executionRoleArn: aws_iam_role.foo.arn,
- *     primaryContainer: {
- *         image: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
- *     },
- * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -33,7 +27,13 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const exampleModel = new aws.sagemaker.Model("exampleModel", {
+ *     executionRoleArn: exampleRole.arn,
+ *     primaryContainer: {
+ *         image: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
+ *     },
+ * });
  * ```
  */
 export class Model extends pulumi.CustomResource {

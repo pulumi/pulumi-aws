@@ -65,7 +65,7 @@ type SlotType struct {
 	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
 	// The date when the slot type version was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// A description of the slot type.
+	// A description of the slot type. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A list of EnumerationValue objects that defines the values that
 	// the slot type can take. Each value can have a list of synonyms, which are additional values that help
@@ -74,7 +74,7 @@ type SlotType struct {
 	EnumerationValues SlotTypeEnumerationValueArrayOutput `pulumi:"enumerationValues"`
 	// The date when the `$LATEST` version of this slot type was updated.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the slot type. The name is not case sensitive.
+	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -124,7 +124,7 @@ type slotTypeState struct {
 	CreateVersion *bool `pulumi:"createVersion"`
 	// The date when the slot type version was created.
 	CreatedDate *string `pulumi:"createdDate"`
-	// A description of the slot type.
+	// A description of the slot type. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
 	// A list of EnumerationValue objects that defines the values that
 	// the slot type can take. Each value can have a list of synonyms, which are additional values that help
@@ -133,7 +133,7 @@ type slotTypeState struct {
 	EnumerationValues []SlotTypeEnumerationValue `pulumi:"enumerationValues"`
 	// The date when the `$LATEST` version of this slot type was updated.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the slot type. The name is not case sensitive.
+	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -153,7 +153,7 @@ type SlotTypeState struct {
 	CreateVersion pulumi.BoolPtrInput
 	// The date when the slot type version was created.
 	CreatedDate pulumi.StringPtrInput
-	// A description of the slot type.
+	// A description of the slot type. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput
 	// A list of EnumerationValue objects that defines the values that
 	// the slot type can take. Each value can have a list of synonyms, which are additional values that help
@@ -162,7 +162,7 @@ type SlotTypeState struct {
 	EnumerationValues SlotTypeEnumerationValueArrayInput
 	// The date when the `$LATEST` version of this slot type was updated.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the slot type. The name is not case sensitive.
+	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -181,14 +181,14 @@ type slotTypeArgs struct {
 	// Determines if a new slot type version is created when the initial resource is created and on each
 	// update. Defaults to `false`.
 	CreateVersion *bool `pulumi:"createVersion"`
-	// A description of the slot type.
+	// A description of the slot type. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
 	// A list of EnumerationValue objects that defines the values that
 	// the slot type can take. Each value can have a list of synonyms, which are additional values that help
 	// train the machine learning model about the values that it resolves for a slot. Attributes are
 	// documented under enumeration_value.
 	EnumerationValues []SlotTypeEnumerationValue `pulumi:"enumerationValues"`
-	// The name of the slot type. The name is not case sensitive.
+	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -202,14 +202,14 @@ type SlotTypeArgs struct {
 	// Determines if a new slot type version is created when the initial resource is created and on each
 	// update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrInput
-	// A description of the slot type.
+	// A description of the slot type. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput
 	// A list of EnumerationValue objects that defines the values that
 	// the slot type can take. Each value can have a list of synonyms, which are additional values that help
 	// train the machine learning model about the values that it resolves for a slot. Attributes are
 	// documented under enumeration_value.
 	EnumerationValues SlotTypeEnumerationValueArrayInput
-	// The name of the slot type. The name is not case sensitive.
+	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user

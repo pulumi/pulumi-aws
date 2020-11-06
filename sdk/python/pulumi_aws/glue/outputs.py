@@ -24,6 +24,7 @@ __all__ = [
     'CrawlerCatalogTarget',
     'CrawlerDynamodbTarget',
     'CrawlerJdbcTarget',
+    'CrawlerMongodbTarget',
     'CrawlerS3Target',
     'CrawlerSchemaChangePolicy',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettings',
@@ -46,6 +47,7 @@ __all__ = [
     'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption',
     'SecurityConfigurationEncryptionConfigurationS3Encryption',
     'TriggerAction',
+    'TriggerActionNotificationProperty',
     'TriggerPredicate',
     'TriggerPredicateCondition',
     'UserDefinedFunctionResourceUri',
@@ -763,6 +765,50 @@ class CrawlerJdbcTarget(dict):
         A list of glob patterns used to exclude from the crawl.
         """
         return pulumi.get(self, "exclusions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CrawlerMongodbTarget(dict):
+    def __init__(__self__, *,
+                 connection_name: str,
+                 path: str,
+                 scan_all: Optional[bool] = None):
+        """
+        :param str connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        :param bool scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        """
+        pulumi.set(__self__, "connection_name", connection_name)
+        pulumi.set(__self__, "path", path)
+        if scan_all is not None:
+            pulumi.set(__self__, "scan_all", scan_all)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> str:
+        """
+        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="scanAll")
+    def scan_all(self) -> Optional[bool]:
+        """
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        """
+        return pulumi.get(self, "scan_all")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1680,11 +1726,15 @@ class TriggerAction(dict):
                  arguments: Optional[Mapping[str, str]] = None,
                  crawler_name: Optional[str] = None,
                  job_name: Optional[str] = None,
+                 notification_property: Optional['outputs.TriggerActionNotificationProperty'] = None,
+                 security_configuration: Optional[str] = None,
                  timeout: Optional[int] = None):
         """
         :param Mapping[str, str] arguments: Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
         :param str crawler_name: The name of the crawler to be executed. Conflicts with `job_name`.
         :param str job_name: The name of a job to be executed. Conflicts with `crawler_name`.
+        :param 'TriggerActionNotificationPropertyArgs' notification_property: Specifies configuration properties of a job run notification. see Notification Property details below.
+        :param str security_configuration: The name of the Security Configuration structure to be used with this action.
         :param int timeout: The job run timeout in minutes. It overrides the timeout value of the job.
         """
         if arguments is not None:
@@ -1693,6 +1743,10 @@ class TriggerAction(dict):
             pulumi.set(__self__, "crawler_name", crawler_name)
         if job_name is not None:
             pulumi.set(__self__, "job_name", job_name)
+        if notification_property is not None:
+            pulumi.set(__self__, "notification_property", notification_property)
+        if security_configuration is not None:
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -1721,12 +1775,50 @@ class TriggerAction(dict):
         return pulumi.get(self, "job_name")
 
     @property
+    @pulumi.getter(name="notificationProperty")
+    def notification_property(self) -> Optional['outputs.TriggerActionNotificationProperty']:
+        """
+        Specifies configuration properties of a job run notification. see Notification Property details below.
+        """
+        return pulumi.get(self, "notification_property")
+
+    @property
+    @pulumi.getter(name="securityConfiguration")
+    def security_configuration(self) -> Optional[str]:
+        """
+        The name of the Security Configuration structure to be used with this action.
+        """
+        return pulumi.get(self, "security_configuration")
+
+    @property
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
         The job run timeout in minutes. It overrides the timeout value of the job.
         """
         return pulumi.get(self, "timeout")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TriggerActionNotificationProperty(dict):
+    def __init__(__self__, *,
+                 notify_delay_after: Optional[int] = None):
+        """
+        :param int notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+        if notify_delay_after is not None:
+            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+
+    @property
+    @pulumi.getter(name="notifyDelayAfter")
+    def notify_delay_after(self) -> Optional[int]:
+        """
+        After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+        return pulumi.get(self, "notify_delay_after")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

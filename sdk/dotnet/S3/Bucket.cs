@@ -472,7 +472,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the bucket. If omitted, this provider will assign a random, unique name.
+        /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
         /// </summary>
         [Output("bucket")]
         public Output<string> BucketName { get; private set; } = null!;
@@ -484,7 +484,7 @@ namespace Pulumi.Aws.S3
         public Output<string> BucketDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+        /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
         /// </summary>
         [Output("bucketPrefix")]
         public Output<string?> BucketPrefix { get; private set; } = null!;
@@ -665,13 +665,13 @@ namespace Pulumi.Aws.S3
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the bucket. If omitted, this provider will assign a random, unique name.
+        /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
         /// </summary>
         [Input("bucket")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
-        /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+        /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
         /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
@@ -831,7 +831,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the bucket. If omitted, this provider will assign a random, unique name.
+        /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
         /// </summary>
         [Input("bucket")]
         public Input<string>? BucketName { get; set; }
@@ -843,7 +843,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? BucketDomainName { get; set; }
 
         /// <summary>
-        /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+        /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
         /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }

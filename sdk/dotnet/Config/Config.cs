@@ -139,6 +139,7 @@ namespace Pulumi.Aws
                 public string? Codecommit { get; set; } = null!;
                 public string? Codedeploy { get; set; } = null!;
                 public string? Codepipeline { get; set; } = null!;
+                public string? Codestarconnections { get; set; } = null!;
                 public string? Cognitoidentity { get; set; } = null!;
                 public string? Cognitoidp { get; set; } = null!;
                 public string? Configservice { get; set; } = null!;

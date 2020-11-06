@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
     public sealed class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+        /// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
         /// </summary>
         [Input("customCname")]
         public Input<string>? CustomCname { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public Input<int> ExpirationInDays { get; set; } = null!;
 
         /// <summary>
-        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
         /// </summary>
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }

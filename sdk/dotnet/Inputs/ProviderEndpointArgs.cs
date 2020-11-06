@@ -102,6 +102,9 @@ namespace Pulumi.Aws.Inputs
         [Input("codepipeline")]
         public Input<string>? Codepipeline { get; set; }
 
+        [Input("codestarconnections")]
+        public Input<string>? Codestarconnections { get; set; }
+
         [Input("cognitoidentity")]
         public Input<string>? Cognitoidentity { get; set; }
 

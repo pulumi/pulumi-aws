@@ -782,7 +782,7 @@ func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) RoleArn() pulumi.Strin
 
 type AnalyticsApplicationInputsParallelism struct {
 	// The Count of streams.
-	Count int `pulumi:"count"`
+	Count *int `pulumi:"count"`
 }
 
 // AnalyticsApplicationInputsParallelismInput is an input type that accepts AnalyticsApplicationInputsParallelismArgs and AnalyticsApplicationInputsParallelismOutput values.
@@ -798,7 +798,7 @@ type AnalyticsApplicationInputsParallelismInput interface {
 
 type AnalyticsApplicationInputsParallelismArgs struct {
 	// The Count of streams.
-	Count pulumi.IntInput `pulumi:"count"`
+	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
 func (AnalyticsApplicationInputsParallelismArgs) ElementType() reflect.Type {
@@ -879,8 +879,8 @@ func (o AnalyticsApplicationInputsParallelismOutput) ToAnalyticsApplicationInput
 }
 
 // The Count of streams.
-func (o AnalyticsApplicationInputsParallelismOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsParallelism) int { return v.Count }).(pulumi.IntOutput)
+func (o AnalyticsApplicationInputsParallelismOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AnalyticsApplicationInputsParallelism) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
 type AnalyticsApplicationInputsParallelismPtrOutput struct{ *pulumi.OutputState }
@@ -907,7 +907,7 @@ func (o AnalyticsApplicationInputsParallelismPtrOutput) Count() pulumi.IntPtrOut
 		if v == nil {
 			return nil
 		}
-		return &v.Count
+		return v.Count
 	}).(pulumi.IntPtrOutput)
 }
 

@@ -194,6 +194,80 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Example Input Transformer Usage - JSON Object
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
+// 			Arn:  pulumi.Any(aws_lambda_function.Example.Arn),
+// 			Rule: exampleEventRule.ID(),
+// 			InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
+// 				InputPaths: pulumi.StringMap{
+// 					"instance": pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.instance")),
+// 					"status":   pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.status")),
+// 				},
+// 				InputTemplate: pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"instance_id\": <instance>,\n", "  \"instance_status\": <status>\n", "}\n")),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Example Input Transformer Usage - Simple String
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
+// 			Arn:  pulumi.Any(aws_lambda_function.Example.Arn),
+// 			Rule: exampleEventRule.ID(),
+// 			InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
+// 				InputPaths: pulumi.StringMap{
+// 					"instance": pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.instance")),
+// 					"status":   pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.status")),
+// 				},
+// 				InputTemplate: pulumi.String("\"<instance> is in state <status>\""),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EventTarget struct {
 	pulumi.CustomResourceState
 
@@ -203,12 +277,14 @@ type EventTarget struct {
 	BatchTarget EventTargetBatchTargetPtrOutput `pulumi:"batchTarget"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrOutput `pulumi:"ecsTarget"`
-	// Valid JSON text passed to the target.
+	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
+	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrOutput `pulumi:"input"`
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target.
+	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath pulumi.StringPtrOutput `pulumi:"inputPath"`
-	// Parameters used when you are providing a custom input to a target based on certain event data.
+	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer EventTargetInputTransformerPtrOutput `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrOutput `pulumi:"kinesisTarget"`
@@ -264,12 +340,14 @@ type eventTargetState struct {
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
-	// Valid JSON text passed to the target.
+	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	EventBusName *string `pulumi:"eventBusName"`
+	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input *string `pulumi:"input"`
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target.
+	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath *string `pulumi:"inputPath"`
-	// Parameters used when you are providing a custom input to a target based on certain event data.
+	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer *EventTargetInputTransformer `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
@@ -292,12 +370,14 @@ type EventTargetState struct {
 	BatchTarget EventTargetBatchTargetPtrInput
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrInput
-	// Valid JSON text passed to the target.
+	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	EventBusName pulumi.StringPtrInput
+	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrInput
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target.
+	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath pulumi.StringPtrInput
-	// Parameters used when you are providing a custom input to a target based on certain event data.
+	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer EventTargetInputTransformerPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrInput
@@ -324,12 +404,14 @@ type eventTargetArgs struct {
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
-	// Valid JSON text passed to the target.
+	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	EventBusName *string `pulumi:"eventBusName"`
+	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input *string `pulumi:"input"`
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target.
+	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath *string `pulumi:"inputPath"`
-	// Parameters used when you are providing a custom input to a target based on certain event data.
+	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer *EventTargetInputTransformer `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
@@ -353,12 +435,14 @@ type EventTargetArgs struct {
 	BatchTarget EventTargetBatchTargetPtrInput
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrInput
-	// Valid JSON text passed to the target.
+	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	EventBusName pulumi.StringPtrInput
+	// Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
 	Input pulumi.StringPtrInput
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-	// that is used for extracting part of the matched event when passing it to the target.
+	// that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
 	InputPath pulumi.StringPtrInput
-	// Parameters used when you are providing a custom input to a target based on certain event data.
+	// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
 	InputTransformer EventTargetInputTransformerPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrInput

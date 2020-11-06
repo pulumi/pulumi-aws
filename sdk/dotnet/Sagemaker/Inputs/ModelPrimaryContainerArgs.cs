@@ -38,6 +38,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        /// </summary>
+        [Input("imageConfig")]
+        public Input<Inputs.ModelPrimaryContainerImageConfigArgs>? ImageConfig { get; set; }
+
+        /// <summary>
         /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         /// </summary>
         [Input("mode")]

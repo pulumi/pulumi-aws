@@ -135,6 +135,7 @@ export interface ProviderEndpoint {
     codecommit?: string;
     codedeploy?: string;
     codepipeline?: string;
+    codestarconnections?: string;
     cognitoidentity?: string;
     cognitoidp?: string;
     configservice?: string;
@@ -301,55 +302,55 @@ export namespace acmpca {
 
     export interface CertificateAuthorityCertificateAuthorityConfigurationSubject {
         /**
-         * Fully qualified domain name (FQDN) associated with the certificate subject.
+         * Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
          */
         commonName?: string;
         /**
-         * Two digit code that specifies the country in which the certificate subject located.
+         * Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
          */
         country?: string;
         /**
-         * Disambiguating information for the certificate subject.
+         * Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
          */
         distinguishedNameQualifier?: string;
         /**
-         * Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+         * Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
          */
         generationQualifier?: string;
         /**
-         * First name.
+         * First name. Must be less than or equal to 16 characters in length.
          */
         givenName?: string;
         /**
-         * Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`.
+         * Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
          */
         initials?: string;
         /**
-         * The locality (such as a city or town) in which the certificate subject is located.
+         * The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
          */
         locality?: string;
         /**
-         * Legal name of the organization with which the certificate subject is affiliated.
+         * Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
          */
         organization?: string;
         /**
-         * A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+         * A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
          */
         organizationalUnit?: string;
         /**
-         * Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+         * Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
          */
         pseudonym?: string;
         /**
-         * State in which the subject of the certificate is located.
+         * State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
          */
         state?: string;
         /**
-         * Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+         * Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
          */
         surname?: string;
         /**
-         * A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
+         * A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
          */
         title?: string;
     }
@@ -363,7 +364,7 @@ export namespace acmpca {
 
     export interface CertificateAuthorityRevocationConfigurationCrlConfiguration {
         /**
-         * Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+         * Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
          */
         customCname?: string;
         /**
@@ -375,7 +376,7 @@ export namespace acmpca {
          */
         expirationInDays: number;
         /**
-         * Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+         * Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
          */
         s3BucketName?: string;
     }
@@ -5097,7 +5098,7 @@ export namespace cloudwatch {
          */
         group?: string;
         /**
-         * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+         * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
          */
         launchType?: string;
         /**
@@ -5141,9 +5142,6 @@ export namespace cloudwatch {
          * * The keys can't start with "AWS".
          */
         inputPaths?: {[key: string]: string};
-        /**
-         * Structure containing the template body.
-         */
         inputTemplate: string;
     }
 
@@ -6451,6 +6449,7 @@ export namespace config {
         codecommit?: string;
         codedeploy?: string;
         codepipeline?: string;
+        codestarconnections?: string;
         cognitoidentity?: string;
         cognitoidp?: string;
         configservice?: string;
@@ -12796,6 +12795,21 @@ export namespace glue {
         path: string;
     }
 
+    export interface CrawlerMongodbTarget {
+        /**
+         * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+         */
+        connectionName: string;
+        /**
+         * The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         */
+        path: string;
+        /**
+         * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+         */
+        scanAll?: boolean;
+    }
+
     export interface CrawlerS3Target {
         /**
          * The name of the connection to use to connect to the JDBC target.
@@ -13156,9 +13170,24 @@ export namespace glue {
          */
         jobName?: string;
         /**
+         * Specifies configuration properties of a job run notification. see Notification Property details below.
+         */
+        notificationProperty?: outputs.glue.TriggerActionNotificationProperty;
+        /**
+         * The name of the Security Configuration structure to be used with this action.
+         */
+        securityConfiguration?: string;
+        /**
          * The job run timeout in minutes. It overrides the timeout value of the job.
          */
         timeout?: number;
+    }
+
+    export interface TriggerActionNotificationProperty {
+        /**
+         * After a job run starts, the number of minutes to wait before sending a job run delay notification.
+         */
+        notifyDelayAfter?: number;
     }
 
     export interface TriggerPredicate {
@@ -13968,7 +13997,7 @@ export namespace kinesis {
          * The number of Parallel in-application streams to create.
          * See Parallelism below for more details.
          */
-        parallelism?: outputs.kinesis.AnalyticsApplicationInputsParallelism;
+        parallelism: outputs.kinesis.AnalyticsApplicationInputsParallelism;
         /**
          * The Processing Configuration to transform records as they are received from the stream.
          * See Processing Configuration below for more details.
@@ -16354,7 +16383,7 @@ export namespace lex {
 
     export interface BotAliasConversationLogs {
         /**
-         * The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+         * The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
          */
         iamRoleArn: string;
         /**
@@ -16369,7 +16398,7 @@ export namespace lex {
          */
         destination: string;
         /**
-         * The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`.
+         * The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
          */
         kmsKeyArn?: string;
         /**
@@ -16377,7 +16406,7 @@ export namespace lex {
          */
         logType: string;
         /**
-         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
+         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
          */
         resourceArn: string;
         /**
@@ -16423,11 +16452,11 @@ export namespace lex {
 
     export interface BotIntent {
         /**
-         * The name of the intent.
+         * The name of the intent. Must be less than or equal to 100 characters in length.
          */
         intentName: string;
         /**
-         * The version of the intent.
+         * The version of the intent. Must be less than or equal to 64 characters in length.
          */
         intentVersion: string;
     }
@@ -16441,20 +16470,20 @@ export namespace lex {
         /**
          * A set of messages, each of which provides a message string and its type.
          * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
          */
         messages: outputs.lex.IntentConclusionStatementMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
          * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
         responseCard?: string;
     }
 
     export interface IntentConclusionStatementMessage {
         /**
-         * The text of the message.
+         * The text of the message. Must be less than or equal to 1000 characters in length.
          */
         content: string;
         /**
@@ -16463,33 +16492,33 @@ export namespace lex {
         contentType: string;
         /**
          * Identifies the message group that the message belongs to. When a group
-         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
          */
         groupNumber?: number;
     }
 
     export interface IntentConfirmationPrompt {
         /**
-         * The number of times to prompt the user for information.
+         * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
          */
         maxAttempts: number;
         /**
          * A set of messages, each of which provides a message string and its type.
          * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
          */
         messages: outputs.lex.IntentConfirmationPromptMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
          * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
         responseCard?: string;
     }
 
     export interface IntentConfirmationPromptMessage {
         /**
-         * The text of the message.
+         * The text of the message. Must be less than or equal to 1000 characters in length.
          */
         content: string;
         /**
@@ -16498,7 +16527,7 @@ export namespace lex {
         contentType: string;
         /**
          * Identifies the message group that the message belongs to. When a group
-         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
          */
         groupNumber?: number;
     }
@@ -16507,7 +16536,7 @@ export namespace lex {
         /**
          * The version of the request-response that you want Amazon Lex to use
          * to invoke your Lambda function. For more information, see
-         * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+         * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
          */
         messageVersion: string;
         /**
@@ -16531,26 +16560,26 @@ export namespace lex {
 
     export interface IntentFollowUpPromptPrompt {
         /**
-         * The number of times to prompt the user for information.
+         * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
          */
         maxAttempts: number;
         /**
          * A set of messages, each of which provides a message string and its type.
          * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
          */
         messages: outputs.lex.IntentFollowUpPromptPromptMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
          * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
         responseCard?: string;
     }
 
     export interface IntentFollowUpPromptPromptMessage {
         /**
-         * The text of the message.
+         * The text of the message. Must be less than or equal to 1000 characters in length.
          */
         content: string;
         /**
@@ -16559,7 +16588,7 @@ export namespace lex {
         contentType: string;
         /**
          * Identifies the message group that the message belongs to. When a group
-         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
          */
         groupNumber?: number;
     }
@@ -16568,20 +16597,20 @@ export namespace lex {
         /**
          * A set of messages, each of which provides a message string and its type.
          * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
          */
         messages: outputs.lex.IntentFollowUpPromptRejectionStatementMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
          * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
         responseCard?: string;
     }
 
     export interface IntentFollowUpPromptRejectionStatementMessage {
         /**
-         * The text of the message.
+         * The text of the message. Must be less than or equal to 1000 characters in length.
          */
         content: string;
         /**
@@ -16590,7 +16619,7 @@ export namespace lex {
         contentType: string;
         /**
          * Identifies the message group that the message belongs to. When a group
-         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
          */
         groupNumber?: number;
     }
@@ -16612,7 +16641,7 @@ export namespace lex {
         /**
          * The version of the request-response that you want Amazon Lex to use
          * to invoke your Lambda function. For more information, see
-         * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+         * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
          */
         messageVersion: string;
         /**
@@ -16625,20 +16654,20 @@ export namespace lex {
         /**
          * A set of messages, each of which provides a message string and its type.
          * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
          */
         messages: outputs.lex.IntentRejectionStatementMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
          * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
         responseCard?: string;
     }
 
     export interface IntentRejectionStatementMessage {
         /**
-         * The text of the message.
+         * The text of the message. Must be less than or equal to 1000 characters in length.
          */
         content: string;
         /**
@@ -16647,37 +16676,37 @@ export namespace lex {
         contentType: string;
         /**
          * Identifies the message group that the message belongs to. When a group
-         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
          */
         groupNumber?: number;
     }
 
     export interface IntentSlot {
         /**
-         * A description of the bot.
+         * A description of the bot. Must be less than or equal to 200 characters in length.
          */
         description?: string;
         /**
-         * The name of the intent slot that you want to create. The name is case sensitive.
+         * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
          */
         name: string;
         /**
          * Directs Lex the order in which to elicit this slot value from the user.
          * For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
          * the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
-         * values is arbitrary.
+         * values is arbitrary. Must be between 1 and 100.
          */
         priority?: number;
         /**
          * The response card. Amazon Lex will substitute session attributes and
          * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
         responseCard?: string;
         /**
          * If you know a specific pattern with which users might respond to
          * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-         * is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+         * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
          */
         sampleUtterances?: string[];
         /**
@@ -16686,11 +16715,11 @@ export namespace lex {
         slotConstraint: string;
         /**
          * The type of the slot, either a custom slot type that you defined or one of
-         * the built-in slot types.
+         * the built-in slot types. Must be less than or equal to 100 characters in length.
          */
         slotType: string;
         /**
-         * The version of the slot type.
+         * The version of the slot type. Must be less than or equal to 64 characters in length.
          */
         slotTypeVersion?: string;
         /**
@@ -16702,26 +16731,26 @@ export namespace lex {
 
     export interface IntentSlotValueElicitationPrompt {
         /**
-         * The number of times to prompt the user for information.
+         * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
          */
         maxAttempts: number;
         /**
          * A set of messages, each of which provides a message string and its type.
          * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-         * Attributes are documented under message.
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
          */
         messages: outputs.lex.IntentSlotValueElicitationPromptMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
          * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
         responseCard?: string;
     }
 
     export interface IntentSlotValueElicitationPromptMessage {
         /**
-         * The text of the message.
+         * The text of the message. Must be less than or equal to 1000 characters in length.
          */
         content: string;
         /**
@@ -16730,18 +16759,18 @@ export namespace lex {
         contentType: string;
         /**
          * Identifies the message group that the message belongs to. When a group
-         * is assigned to a message, Amazon Lex returns one message from each group in the response.
+         * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
          */
         groupNumber?: number;
     }
 
     export interface SlotTypeEnumerationValue {
         /**
-         * Additional values related to the slot type value.
+         * Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
          */
         synonyms?: string[];
         /**
-         * The value of the slot type.
+         * The value of the slot type. Must be less than or equal to 140 characters in length.
          */
         value: string;
     }
@@ -18032,6 +18061,11 @@ export namespace resourcegroups {
 }
 
 export namespace route53 {
+    export interface GetResolverEndpointFilter {
+        name: string;
+        values: string[];
+    }
+
     export interface RecordAlias {
         /**
          * Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
@@ -18262,7 +18296,7 @@ export namespace s3 {
          */
         expiration?: outputs.s3.BucketLifecycleRuleExpiration;
         /**
-         * Unique identifier for the rule.
+         * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
         id: string;
         /**
@@ -18487,11 +18521,11 @@ export namespace s3 {
          */
         filter?: outputs.s3.BucketReplicationConfigurationRuleFilter;
         /**
-         * Unique identifier for the rule.
+         * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
         id?: string;
         /**
-         * Object keyname prefix identifying one or more objects to which the rule applies.
+         * Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
          */
         prefix?: string;
         /**
@@ -18541,7 +18575,7 @@ export namespace s3 {
 
     export interface BucketReplicationConfigurationRuleFilter {
         /**
-         * Object keyname prefix that identifies subset of objects to which the rule applies.
+         * Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
          */
         prefix?: string;
         /**
@@ -18762,6 +18796,51 @@ export namespace sagemaker {
         secretArn?: string;
     }
 
+    export interface EndpointConfigurationDataCaptureConfig {
+        /**
+         * The content type headers to capture. Fields are documented below.
+         */
+        captureContentTypeHeader?: outputs.sagemaker.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader;
+        /**
+         * Specifies what data to capture. Fields are documented below.
+         */
+        captureOptions: outputs.sagemaker.EndpointConfigurationDataCaptureConfigCaptureOption[];
+        /**
+         * The URL for S3 location where the captured data is stored.
+         */
+        destinationS3Uri: string;
+        /**
+         * Flag to enable data capture. Defaults to `false`.
+         */
+        enableCapture?: boolean;
+        /**
+         * Portion of data to capture. Should be between 0 and 100.
+         */
+        initialSamplingPercentage: number;
+        /**
+         * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+         */
+        kmsKeyId?: string;
+    }
+
+    export interface EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
+        /**
+         * The CSV content type headers to capture.
+         */
+        csvContentTypes?: string[];
+        /**
+         * The JSON content type headers to capture.
+         */
+        jsonContentTypes?: string[];
+    }
+
+    export interface EndpointConfigurationDataCaptureConfigCaptureOption {
+        /**
+         * Specifies the data to be captured. Should be one of `Input` or `Output`.
+         */
+        captureMode: string;
+    }
+
     export interface EndpointConfigurationProductionVariant {
         /**
          * The size of the Elastic Inference (EI) instance to use for the production variant.
@@ -18804,6 +18883,10 @@ export namespace sagemaker {
          */
         image: string;
         /**
+         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         */
+        imageConfig?: outputs.sagemaker.ModelContainerImageConfig;
+        /**
          * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          */
         mode?: string;
@@ -18811,6 +18894,13 @@ export namespace sagemaker {
          * The URL for the S3 location where model artifacts are stored.
          */
         modelDataUrl?: string;
+    }
+
+    export interface ModelContainerImageConfig {
+        /**
+         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+         */
+        repositoryAccessMode: string;
     }
 
     export interface ModelPrimaryContainer {
@@ -18828,6 +18918,10 @@ export namespace sagemaker {
          */
         image: string;
         /**
+         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         */
+        imageConfig?: outputs.sagemaker.ModelPrimaryContainerImageConfig;
+        /**
          * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          */
         mode?: string;
@@ -18835,6 +18929,13 @@ export namespace sagemaker {
          * The URL for the S3 location where model artifacts are stored.
          */
         modelDataUrl?: string;
+    }
+
+    export interface ModelPrimaryContainerImageConfig {
+        /**
+         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+         */
+        repositoryAccessMode: string;
     }
 
     export interface ModelVpcConfig {
@@ -54838,6 +54939,29 @@ export namespace workspaces {
          * Indicates whether users are local administrators of their WorkSpaces.
          */
         userEnabledAsLocalAdministrator?: boolean;
+    }
+
+    export interface GetWorkspaceWorkspaceProperty {
+        /**
+         * The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+         */
+        computeTypeName: string;
+        /**
+         * The size of the root volume.
+         */
+        rootVolumeSizeGib: number;
+        /**
+         * The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+         */
+        runningMode: string;
+        /**
+         * The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+         */
+        runningModeAutoStopTimeoutInMinutes: number;
+        /**
+         * The size of the user storage.
+         */
+        userVolumeSizeGib: number;
     }
 
     export interface IpGroupRule {

@@ -27,9 +27,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
             set => _inputPaths = value;
         }
 
-        /// <summary>
-        /// Structure containing the template body.
-        /// </summary>
         [Input("inputTemplate", required: true)]
         public Input<string> InputTemplate { get; set; } = null!;
 

@@ -20,6 +20,7 @@ class EventTarget(pulumi.CustomResource):
                  arn: Optional[pulumi.Input[str]] = None,
                  batch_target: Optional[pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']]] = None,
                  ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
+                 event_bus_name: Optional[pulumi.Input[str]] = None,
                  input: Optional[pulumi.Input[str]] = None,
                  input_path: Optional[pulumi.Input[str]] = None,
                  input_transformer: Optional[pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']]] = None,
@@ -157,15 +158,60 @@ class EventTarget(pulumi.CustomResource):
             )])
         ```
 
+        ## Example Input Transformer Usage - JSON Object
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
+        # ...
+        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
+            arn=aws_lambda_function["example"]["arn"],
+            rule=example_event_rule.id,
+            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
+                input_paths={
+                    "instance": "$.detail.instance",
+                    "status": "$.detail.status",
+                },
+                input_template=\"\"\"{
+          "instance_id": <instance>,
+          "instance_status": <status>
+        }
+        \"\"\",
+            ))
+        ```
+
+        ## Example Input Transformer Usage - Simple String
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
+        # ...
+        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
+            arn=aws_lambda_function["example"]["arn"],
+            rule=example_event_rule.id,
+            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
+                input_paths={
+                    "instance": "$.detail.instance",
+                    "status": "$.detail.status",
+                },
+                input_template="\"<instance> is in state <status>\"",
+            ))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] input: Valid JSON text passed to the target.
+        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-               that is used for extracting part of the matched event when passing it to the target.
-        :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data.
+               that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
@@ -195,6 +241,7 @@ class EventTarget(pulumi.CustomResource):
             __props__['arn'] = arn
             __props__['batch_target'] = batch_target
             __props__['ecs_target'] = ecs_target
+            __props__['event_bus_name'] = event_bus_name
             __props__['input'] = input
             __props__['input_path'] = input_path
             __props__['input_transformer'] = input_transformer
@@ -219,6 +266,7 @@ class EventTarget(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             batch_target: Optional[pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']]] = None,
             ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
+            event_bus_name: Optional[pulumi.Input[str]] = None,
             input: Optional[pulumi.Input[str]] = None,
             input_path: Optional[pulumi.Input[str]] = None,
             input_transformer: Optional[pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']]] = None,
@@ -238,10 +286,11 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] input: Valid JSON text passed to the target.
+        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-               that is used for extracting part of the matched event when passing it to the target.
-        :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data.
+               that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
@@ -256,6 +305,7 @@ class EventTarget(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["batch_target"] = batch_target
         __props__["ecs_target"] = ecs_target
+        __props__["event_bus_name"] = event_bus_name
         __props__["input"] = input
         __props__["input_path"] = input_path
         __props__["input_transformer"] = input_transformer
@@ -292,10 +342,18 @@ class EventTarget(pulumi.CustomResource):
         return pulumi.get(self, "ecs_target")
 
     @property
+    @pulumi.getter(name="eventBusName")
+    def event_bus_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        """
+        return pulumi.get(self, "event_bus_name")
+
+    @property
     @pulumi.getter
     def input(self) -> pulumi.Output[Optional[str]]:
         """
-        Valid JSON text passed to the target.
+        Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         """
         return pulumi.get(self, "input")
 
@@ -304,7 +362,7 @@ class EventTarget(pulumi.CustomResource):
     def input_path(self) -> pulumi.Output[Optional[str]]:
         """
         The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-        that is used for extracting part of the matched event when passing it to the target.
+        that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         """
         return pulumi.get(self, "input_path")
 
@@ -312,7 +370,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter(name="inputTransformer")
     def input_transformer(self) -> pulumi.Output[Optional['outputs.EventTargetInputTransformer']]:
         """
-        Parameters used when you are providing a custom input to a target based on certain event data.
+        Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         """
         return pulumi.get(self, "input_transformer")
 

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<Inputs.BucketLifecycleRuleExpirationArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

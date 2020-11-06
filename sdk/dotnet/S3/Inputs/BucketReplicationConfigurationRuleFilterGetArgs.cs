@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketReplicationConfigurationRuleFilterGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Object keyname prefix that identifies subset of objects to which the rule applies.
+        /// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

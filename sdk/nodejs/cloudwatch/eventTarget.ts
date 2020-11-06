@@ -142,6 +142,52 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * ## Example Input Transformer Usage - JSON Object
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleEventRule = new aws.cloudwatch.EventRule("exampleEventRule", {});
+ * // ...
+ * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
+ *     arn: aws_lambda_function.example.arn,
+ *     rule: exampleEventRule.id,
+ *     inputTransformer: {
+ *         inputPaths: {
+ *             instance: `$.detail.instance`,
+ *             status: `$.detail.status`,
+ *         },
+ *         inputTemplate: `{
+ *   "instance_id": <instance>,
+ *   "instance_status": <status>
+ * }
+ * `,
+ *     },
+ * });
+ * ```
+ *
+ * ## Example Input Transformer Usage - Simple String
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleEventRule = new aws.cloudwatch.EventRule("exampleEventRule", {});
+ * // ...
+ * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
+ *     arn: aws_lambda_function.example.arn,
+ *     rule: exampleEventRule.id,
+ *     inputTransformer: {
+ *         inputPaths: {
+ *             instance: `$.detail.instance`,
+ *             status: `$.detail.status`,
+ *         },
+ *         inputTemplate: "\"<instance> is in state <status>\"",
+ *     },
+ * });
+ * ```
  */
 export class EventTarget extends pulumi.CustomResource {
     /**
@@ -184,16 +230,20 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly ecsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetEcsTarget | undefined>;
     /**
-     * Valid JSON text passed to the target.
+     * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+     */
+    public readonly eventBusName!: pulumi.Output<string | undefined>;
+    /**
+     * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
     public readonly input!: pulumi.Output<string | undefined>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-     * that is used for extracting part of the matched event when passing it to the target.
+     * that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
     public readonly inputPath!: pulumi.Output<string | undefined>;
     /**
-     * Parameters used when you are providing a custom input to a target based on certain event data.
+     * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
     public readonly inputTransformer!: pulumi.Output<outputs.cloudwatch.EventTargetInputTransformer | undefined>;
     /**
@@ -236,6 +286,7 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["batchTarget"] = state ? state.batchTarget : undefined;
             inputs["ecsTarget"] = state ? state.ecsTarget : undefined;
+            inputs["eventBusName"] = state ? state.eventBusName : undefined;
             inputs["input"] = state ? state.input : undefined;
             inputs["inputPath"] = state ? state.inputPath : undefined;
             inputs["inputTransformer"] = state ? state.inputTransformer : undefined;
@@ -256,6 +307,7 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["arn"] = args ? args.arn : undefined;
             inputs["batchTarget"] = args ? args.batchTarget : undefined;
             inputs["ecsTarget"] = args ? args.ecsTarget : undefined;
+            inputs["eventBusName"] = args ? args.eventBusName : undefined;
             inputs["input"] = args ? args.input : undefined;
             inputs["inputPath"] = args ? args.inputPath : undefined;
             inputs["inputTransformer"] = args ? args.inputTransformer : undefined;
@@ -294,16 +346,20 @@ export interface EventTargetState {
      */
     readonly ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
     /**
-     * Valid JSON text passed to the target.
+     * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+     */
+    readonly eventBusName?: pulumi.Input<string>;
+    /**
+     * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
     readonly input?: pulumi.Input<string>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-     * that is used for extracting part of the matched event when passing it to the target.
+     * that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
     readonly inputPath?: pulumi.Input<string>;
     /**
-     * Parameters used when you are providing a custom input to a target based on certain event data.
+     * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
     readonly inputTransformer?: pulumi.Input<inputs.cloudwatch.EventTargetInputTransformer>;
     /**
@@ -349,16 +405,20 @@ export interface EventTargetArgs {
      */
     readonly ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
     /**
-     * Valid JSON text passed to the target.
+     * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+     */
+    readonly eventBusName?: pulumi.Input<string>;
+    /**
+     * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
     readonly input?: pulumi.Input<string>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-     * that is used for extracting part of the matched event when passing it to the target.
+     * that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
     readonly inputPath?: pulumi.Input<string>;
     /**
-     * Parameters used when you are providing a custom input to a target based on certain event data.
+     * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
     readonly inputTransformer?: pulumi.Input<inputs.cloudwatch.EventTargetInputTransformer>;
     /**

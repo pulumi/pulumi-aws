@@ -195,11 +195,8 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Output("templateSelectionExpression")]
         public Output<string?> TemplateSelectionExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
-        /// </summary>
         [Output("timeoutMilliseconds")]
-        public Output<int?> TimeoutMilliseconds { get; private set; } = null!;
+        public Output<int> TimeoutMilliseconds { get; private set; } = null!;
 
         /// <summary>
         /// The TLS configuration for a private integration. Supported only for HTTP APIs.
@@ -359,9 +356,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
 
-        /// <summary>
-        /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
-        /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
 
@@ -490,9 +484,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
 
-        /// <summary>
-        /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
-        /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
 

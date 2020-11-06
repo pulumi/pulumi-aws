@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class BotIntent
     {
         /// <summary>
-        /// The name of the intent.
+        /// The name of the intent. Must be less than or equal to 100 characters in length.
         /// </summary>
         public readonly string IntentName;
         /// <summary>
-        /// The version of the intent.
+        /// The version of the intent. Must be less than or equal to 64 characters in length.
         /// </summary>
         public readonly string IntentVersion;
 

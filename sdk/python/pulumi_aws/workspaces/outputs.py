@@ -18,6 +18,7 @@ __all__ = [
     'GetBundleUserStorageResult',
     'GetDirectorySelfServicePermissionResult',
     'GetDirectoryWorkspaceCreationPropertiesResult',
+    'GetWorkspaceWorkspacePropertyResult',
 ]
 
 @pulumi.output_type
@@ -443,5 +444,67 @@ class GetDirectoryWorkspaceCreationPropertiesResult(dict):
         Indicates whether users are local administrators of their WorkSpaces.
         """
         return pulumi.get(self, "user_enabled_as_local_administrator")
+
+
+@pulumi.output_type
+class GetWorkspaceWorkspacePropertyResult(dict):
+    def __init__(__self__, *,
+                 compute_type_name: str,
+                 root_volume_size_gib: int,
+                 running_mode: str,
+                 running_mode_auto_stop_timeout_in_minutes: int,
+                 user_volume_size_gib: int):
+        """
+        :param str compute_type_name: The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+        :param int root_volume_size_gib: The size of the root volume.
+        :param str running_mode: The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        :param int running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        :param int user_volume_size_gib: The size of the user storage.
+        """
+        pulumi.set(__self__, "compute_type_name", compute_type_name)
+        pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
+        pulumi.set(__self__, "running_mode", running_mode)
+        pulumi.set(__self__, "running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
+        pulumi.set(__self__, "user_volume_size_gib", user_volume_size_gib)
+
+    @property
+    @pulumi.getter(name="computeTypeName")
+    def compute_type_name(self) -> str:
+        """
+        The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+        """
+        return pulumi.get(self, "compute_type_name")
+
+    @property
+    @pulumi.getter(name="rootVolumeSizeGib")
+    def root_volume_size_gib(self) -> int:
+        """
+        The size of the root volume.
+        """
+        return pulumi.get(self, "root_volume_size_gib")
+
+    @property
+    @pulumi.getter(name="runningMode")
+    def running_mode(self) -> str:
+        """
+        The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        """
+        return pulumi.get(self, "running_mode")
+
+    @property
+    @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
+    def running_mode_auto_stop_timeout_in_minutes(self) -> int:
+        """
+        The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        """
+        return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="userVolumeSizeGib")
+    def user_volume_size_gib(self) -> int:
+        """
+        The size of the user storage.
+        """
+        return pulumi.get(self, "user_volume_size_gib")
 
 

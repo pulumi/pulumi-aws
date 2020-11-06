@@ -62,12 +62,12 @@ class SlotType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
                update. Defaults to `false`.
-        :param pulumi.Input[str] description: A description of the slot type.
+        :param pulumi.Input[str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
-        :param pulumi.Input[str] name: The name of the slot type. The name is not case sensitive.
+        :param pulumi.Input[str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         :param pulumi.Input[str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -132,13 +132,13 @@ class SlotType(pulumi.CustomResource):
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
                update. Defaults to `false`.
         :param pulumi.Input[str] created_date: The date when the slot type version was created.
-        :param pulumi.Input[str] description: A description of the slot type.
+        :param pulumi.Input[str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
         :param pulumi.Input[str] last_updated_date: The date when the `$LATEST` version of this slot type was updated.
-        :param pulumi.Input[str] name: The name of the slot type. The name is not case sensitive.
+        :param pulumi.Input[str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         :param pulumi.Input[str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -190,7 +190,7 @@ class SlotType(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the slot type.
+        A description of the slot type. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -217,7 +217,7 @@ class SlotType(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the slot type. The name is not case sensitive.
+        The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
 

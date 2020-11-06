@@ -80,6 +80,12 @@ namespace Pulumi.Aws.CodeArtifact
         [Output("repositoryCount")]
         public Output<int> RepositoryCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Domain resource with the given unique name, arguments, and options.
@@ -138,6 +144,18 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("encryptionKey", required: true)]
         public Input<string> EncryptionKey { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public DomainArgs()
         {
         }
@@ -186,6 +204,18 @@ namespace Pulumi.Aws.CodeArtifact
         /// </summary>
         [Input("repositoryCount")]
         public Input<int>? RepositoryCount { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public DomainState()
         {

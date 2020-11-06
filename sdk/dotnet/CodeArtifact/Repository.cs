@@ -145,6 +145,12 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<string> RepositoryName { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         /// </summary>
         [Output("upstreams")]
@@ -226,6 +232,18 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("repository", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         [Input("upstreams")]
         private InputList<Inputs.RepositoryUpstreamArgs>? _upstreams;
 
@@ -286,6 +304,18 @@ namespace Pulumi.Aws.CodeArtifact
         /// </summary>
         [Input("repository")]
         public Input<string>? RepositoryName { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("upstreams")]
         private InputList<Inputs.RepositoryUpstreamGetArgs>? _upstreams;

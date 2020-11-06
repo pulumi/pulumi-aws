@@ -855,6 +855,106 @@ func (o ZoneVpcArrayOutput) Index(i pulumi.IntInput) ZoneVpcOutput {
 	}).(ZoneVpcOutput)
 }
 
+type GetResolverEndpointFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetResolverEndpointFilterInput is an input type that accepts GetResolverEndpointFilterArgs and GetResolverEndpointFilterOutput values.
+// You can construct a concrete instance of `GetResolverEndpointFilterInput` via:
+//
+//          GetResolverEndpointFilterArgs{...}
+type GetResolverEndpointFilterInput interface {
+	pulumi.Input
+
+	ToGetResolverEndpointFilterOutput() GetResolverEndpointFilterOutput
+	ToGetResolverEndpointFilterOutputWithContext(context.Context) GetResolverEndpointFilterOutput
+}
+
+type GetResolverEndpointFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetResolverEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverEndpointFilter)(nil)).Elem()
+}
+
+func (i GetResolverEndpointFilterArgs) ToGetResolverEndpointFilterOutput() GetResolverEndpointFilterOutput {
+	return i.ToGetResolverEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i GetResolverEndpointFilterArgs) ToGetResolverEndpointFilterOutputWithContext(ctx context.Context) GetResolverEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverEndpointFilterOutput)
+}
+
+// GetResolverEndpointFilterArrayInput is an input type that accepts GetResolverEndpointFilterArray and GetResolverEndpointFilterArrayOutput values.
+// You can construct a concrete instance of `GetResolverEndpointFilterArrayInput` via:
+//
+//          GetResolverEndpointFilterArray{ GetResolverEndpointFilterArgs{...} }
+type GetResolverEndpointFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetResolverEndpointFilterArrayOutput() GetResolverEndpointFilterArrayOutput
+	ToGetResolverEndpointFilterArrayOutputWithContext(context.Context) GetResolverEndpointFilterArrayOutput
+}
+
+type GetResolverEndpointFilterArray []GetResolverEndpointFilterInput
+
+func (GetResolverEndpointFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverEndpointFilter)(nil)).Elem()
+}
+
+func (i GetResolverEndpointFilterArray) ToGetResolverEndpointFilterArrayOutput() GetResolverEndpointFilterArrayOutput {
+	return i.ToGetResolverEndpointFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetResolverEndpointFilterArray) ToGetResolverEndpointFilterArrayOutputWithContext(ctx context.Context) GetResolverEndpointFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverEndpointFilterArrayOutput)
+}
+
+type GetResolverEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (GetResolverEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverEndpointFilter)(nil)).Elem()
+}
+
+func (o GetResolverEndpointFilterOutput) ToGetResolverEndpointFilterOutput() GetResolverEndpointFilterOutput {
+	return o
+}
+
+func (o GetResolverEndpointFilterOutput) ToGetResolverEndpointFilterOutputWithContext(ctx context.Context) GetResolverEndpointFilterOutput {
+	return o
+}
+
+func (o GetResolverEndpointFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetResolverEndpointFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetResolverEndpointFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetResolverEndpointFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResolverEndpointFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverEndpointFilter)(nil)).Elem()
+}
+
+func (o GetResolverEndpointFilterArrayOutput) ToGetResolverEndpointFilterArrayOutput() GetResolverEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetResolverEndpointFilterArrayOutput) ToGetResolverEndpointFilterArrayOutputWithContext(ctx context.Context) GetResolverEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetResolverEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetResolverEndpointFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResolverEndpointFilter {
+		return vs[0].([]GetResolverEndpointFilter)[vs[1].(int)]
+	}).(GetResolverEndpointFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RecordAliasOutput{})
 	pulumi.RegisterOutputType(RecordAliasArrayOutput{})
@@ -872,4 +972,6 @@ func init() {
 	pulumi.RegisterOutputType(ResolverRuleTargetIpArrayOutput{})
 	pulumi.RegisterOutputType(ZoneVpcOutput{})
 	pulumi.RegisterOutputType(ZoneVpcArrayOutput{})
+	pulumi.RegisterOutputType(GetResolverEndpointFilterOutput{})
+	pulumi.RegisterOutputType(GetResolverEndpointFilterArrayOutput{})
 }

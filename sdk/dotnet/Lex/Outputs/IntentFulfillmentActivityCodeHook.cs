@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// The version of the request-response that you want Amazon Lex to use
         /// to invoke your Lambda function. For more information, see
-        /// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html).
+        /// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
         /// </summary>
         public readonly string MessageVersion;
         /// <summary>

@@ -147,7 +147,7 @@ type Intent struct {
 	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
 	// The date when the intent version was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies a Lambda function to invoke for each user input. You can
 	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
@@ -163,7 +163,7 @@ type Intent struct {
 	FulfillmentActivity IntentFulfillmentActivityOutput `pulumi:"fulfillmentActivity"`
 	// The date when the $LATEST version of this intent was updated.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the intent slot that you want to create. The name is case sensitive.
+	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A unique identifier for the built-in intent to base this
 	// intent on. To find the signature for an intent, see
@@ -176,7 +176,7 @@ type Intent struct {
 	RejectionStatement IntentRejectionStatementPtrOutput `pulumi:"rejectionStatement"`
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 	SampleUtterances pulumi.StringArrayOutput `pulumi:"sampleUtterances"`
 	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
 	// from the user using prompts defined in the slots. Attributes are documented under slot.
@@ -236,7 +236,7 @@ type intentState struct {
 	CreateVersion *bool `pulumi:"createVersion"`
 	// The date when the intent version was created.
 	CreatedDate *string `pulumi:"createdDate"`
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
 	// Specifies a Lambda function to invoke for each user input. You can
 	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
@@ -252,7 +252,7 @@ type intentState struct {
 	FulfillmentActivity *IntentFulfillmentActivity `pulumi:"fulfillmentActivity"`
 	// The date when the $LATEST version of this intent was updated.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the intent slot that you want to create. The name is case sensitive.
+	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
 	// A unique identifier for the built-in intent to base this
 	// intent on. To find the signature for an intent, see
@@ -265,7 +265,7 @@ type intentState struct {
 	RejectionStatement *IntentRejectionStatement `pulumi:"rejectionStatement"`
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 	SampleUtterances []string `pulumi:"sampleUtterances"`
 	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
 	// from the user using prompts defined in the slots. Attributes are documented under slot.
@@ -295,7 +295,7 @@ type IntentState struct {
 	CreateVersion pulumi.BoolPtrInput
 	// The date when the intent version was created.
 	CreatedDate pulumi.StringPtrInput
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput
 	// Specifies a Lambda function to invoke for each user input. You can
 	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
@@ -311,7 +311,7 @@ type IntentState struct {
 	FulfillmentActivity IntentFulfillmentActivityPtrInput
 	// The date when the $LATEST version of this intent was updated.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the intent slot that you want to create. The name is case sensitive.
+	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
 	// A unique identifier for the built-in intent to base this
 	// intent on. To find the signature for an intent, see
@@ -324,7 +324,7 @@ type IntentState struct {
 	RejectionStatement IntentRejectionStatementPtrInput
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 	SampleUtterances pulumi.StringArrayInput
 	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
 	// from the user using prompts defined in the slots. Attributes are documented under slot.
@@ -351,7 +351,7 @@ type intentArgs struct {
 	// Determines if a new slot type version is created when the initial
 	// resource is created and on each update. Defaults to `false`.
 	CreateVersion *bool `pulumi:"createVersion"`
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
 	// Specifies a Lambda function to invoke for each user input. You can
 	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
@@ -365,7 +365,7 @@ type intentArgs struct {
 	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
 	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 	FulfillmentActivity IntentFulfillmentActivity `pulumi:"fulfillmentActivity"`
-	// The name of the intent slot that you want to create. The name is case sensitive.
+	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
 	// A unique identifier for the built-in intent to base this
 	// intent on. To find the signature for an intent, see
@@ -378,7 +378,7 @@ type intentArgs struct {
 	RejectionStatement *IntentRejectionStatement `pulumi:"rejectionStatement"`
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 	SampleUtterances []string `pulumi:"sampleUtterances"`
 	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
 	// from the user using prompts defined in the slots. Attributes are documented under slot.
@@ -400,7 +400,7 @@ type IntentArgs struct {
 	// Determines if a new slot type version is created when the initial
 	// resource is created and on each update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrInput
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput
 	// Specifies a Lambda function to invoke for each user input. You can
 	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
@@ -414,7 +414,7 @@ type IntentArgs struct {
 	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
 	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 	FulfillmentActivity IntentFulfillmentActivityInput
-	// The name of the intent slot that you want to create. The name is case sensitive.
+	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
 	// A unique identifier for the built-in intent to base this
 	// intent on. To find the signature for an intent, see
@@ -427,7 +427,7 @@ type IntentArgs struct {
 	RejectionStatement IntentRejectionStatementPtrInput
 	// If you know a specific pattern with which users might respond to
 	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 	SampleUtterances pulumi.StringArrayInput
 	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
 	// from the user using prompts defined in the slots. Attributes are documented under slot.

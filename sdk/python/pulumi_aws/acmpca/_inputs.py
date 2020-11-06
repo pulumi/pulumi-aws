@@ -86,19 +86,19 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
                  surname: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] common_name: Fully qualified domain name (FQDN) associated with the certificate subject.
-        :param pulumi.Input[str] country: Two digit code that specifies the country in which the certificate subject located.
-        :param pulumi.Input[str] distinguished_name_qualifier: Disambiguating information for the certificate subject.
-        :param pulumi.Input[str] generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        :param pulumi.Input[str] given_name: First name.
-        :param pulumi.Input[str] initials: Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`.
-        :param pulumi.Input[str] locality: The locality (such as a city or town) in which the certificate subject is located.
-        :param pulumi.Input[str] organization: Legal name of the organization with which the certificate subject is affiliated.
-        :param pulumi.Input[str] organizational_unit: A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        :param pulumi.Input[str] pseudonym: Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        :param pulumi.Input[str] state: State in which the subject of the certificate is located.
-        :param pulumi.Input[str] surname: Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
-        :param pulumi.Input[str] title: A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
+        :param pulumi.Input[str] common_name: Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[str] country: Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
+        :param pulumi.Input[str] distinguished_name_qualifier: Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[str] generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
+        :param pulumi.Input[str] given_name: First name. Must be less than or equal to 16 characters in length.
+        :param pulumi.Input[str] initials: Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
+        :param pulumi.Input[str] locality: The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+        :param pulumi.Input[str] organization: Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[str] organizational_unit: A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[str] pseudonym: Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
+        :param pulumi.Input[str] state: State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
+        :param pulumi.Input[str] surname: Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
+        :param pulumi.Input[str] title: A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
@@ -131,7 +131,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Fully qualified domain name (FQDN) associated with the certificate subject.
+        Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "common_name")
 
@@ -143,7 +143,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
         """
-        Two digit code that specifies the country in which the certificate subject located.
+        Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
         """
         return pulumi.get(self, "country")
 
@@ -155,7 +155,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Disambiguating information for the certificate subject.
+        Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "distinguished_name_qualifier")
 
@@ -167,7 +167,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
         """
         return pulumi.get(self, "generation_qualifier")
 
@@ -179,7 +179,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[pulumi.Input[str]]:
         """
-        First name.
+        First name. Must be less than or equal to 16 characters in length.
         """
         return pulumi.get(self, "given_name")
 
@@ -191,7 +191,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def initials(self) -> Optional[pulumi.Input[str]]:
         """
-        Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`.
+        Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
         """
         return pulumi.get(self, "initials")
 
@@ -203,7 +203,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def locality(self) -> Optional[pulumi.Input[str]]:
         """
-        The locality (such as a city or town) in which the certificate subject is located.
+        The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "locality")
 
@@ -215,7 +215,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
         """
-        Legal name of the organization with which the certificate subject is affiliated.
+        Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "organization")
 
@@ -227,7 +227,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+        A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "organizational_unit")
 
@@ -239,7 +239,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def pseudonym(self) -> Optional[pulumi.Input[str]]:
         """
-        Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+        Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "pseudonym")
 
@@ -251,7 +251,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        State in which the subject of the certificate is located.
+        State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "state")
 
@@ -263,7 +263,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def surname(self) -> Optional[pulumi.Input[str]]:
         """
-        Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+        Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
         """
         return pulumi.get(self, "surname")
 
@@ -275,7 +275,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
+        A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "title")
 
@@ -316,9 +316,9 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
                  s3_bucket_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
-        :param pulumi.Input[str] custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+        :param pulumi.Input[str] custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
         :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-        :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+        :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
         """
         pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if custom_cname is not None:
@@ -344,7 +344,7 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     @pulumi.getter(name="customCname")
     def custom_cname(self) -> Optional[pulumi.Input[str]]:
         """
-        Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+        Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
         """
         return pulumi.get(self, "custom_cname")
 
@@ -368,7 +368,7 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+        Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
         """
         return pulumi.get(self, "s3_bucket_name")
 

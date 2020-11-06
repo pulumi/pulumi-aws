@@ -37,6 +37,18 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? JobName { get; set; }
 
         /// <summary>
+        /// Specifies configuration properties of a job run notification. see Notification Property details below.
+        /// </summary>
+        [Input("notificationProperty")]
+        public Input<Inputs.TriggerActionNotificationPropertyArgs>? NotificationProperty { get; set; }
+
+        /// <summary>
+        /// The name of the Security Configuration structure to be used with this action.
+        /// </summary>
+        [Input("securityConfiguration")]
+        public Input<string>? SecurityConfiguration { get; set; }
+
+        /// <summary>
         /// The job run timeout in minutes. It overrides the timeout value of the job.
         /// </summary>
         [Input("timeout")]
