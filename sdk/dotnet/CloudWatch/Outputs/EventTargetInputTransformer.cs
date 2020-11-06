@@ -20,9 +20,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// * The keys can't start with "AWS".
         /// </summary>
         public readonly ImmutableDictionary<string, string>? InputPaths;
-        /// <summary>
-        /// Structure containing the template body.
-        /// </summary>
         public readonly string InputTemplate;
 
         [OutputConstructor]

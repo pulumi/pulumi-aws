@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class IntentSlotGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the bot.
+        /// A description of the bot. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the intent slot that you want to create. The name is case sensitive.
+        /// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lex.Inputs
         /// Directs Lex the order in which to elicit this slot value from the user.
         /// For example, if the intent has two slots with priorities 1 and 2, AWS Lex first elicits a value for
         /// the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
-        /// values is arbitrary.
+        /// values is arbitrary. Must be between 1 and 100.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// The response card. Amazon Lex will substitute session attributes and
         /// slot values into the response card. For more information, see
-        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
+        /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         /// </summary>
         [Input("responseCard")]
         public Input<string>? ResponseCard { get; set; }
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Lex.Inputs
         /// <summary>
         /// If you know a specific pattern with which users might respond to
         /// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-        /// is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+        /// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         /// </summary>
         public InputList<string> SampleUtterances
         {
@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// The type of the slot, either a custom slot type that you defined or one of
-        /// the built-in slot types.
+        /// the built-in slot types. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("slotType", required: true)]
         public Input<string> SlotType { get; set; } = null!;
 
         /// <summary>
-        /// The version of the slot type.
+        /// The version of the slot type. Must be less than or equal to 64 characters in length.
         /// </summary>
         [Input("slotTypeVersion")]
         public Input<string>? SlotTypeVersion { get; set; }

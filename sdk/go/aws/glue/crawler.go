@@ -102,6 +102,37 @@ import (
 // 	})
 // }
 // ```
+// ### MongoDB Target
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
+// 			MongodbTargets: glue.CrawlerMongodbTargetArray{
+// 				&glue.CrawlerMongodbTargetArgs{
+// 					ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
+// 					Path:           pulumi.String(fmt.Sprintf("%v%v", "database-name/", "%")),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Crawler struct {
 	pulumi.CustomResourceState
 
@@ -120,6 +151,8 @@ type Crawler struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayOutput `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets CrawlerMongodbTargetArrayOutput `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -187,6 +220,8 @@ type crawlerState struct {
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets []CrawlerMongodbTarget `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name *string `pulumi:"name"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -221,6 +256,8 @@ type CrawlerState struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets CrawlerMongodbTargetArrayInput
 	// Name of the crawler.
 	Name pulumi.StringPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -257,6 +294,8 @@ type crawlerArgs struct {
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets []CrawlerMongodbTarget `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name *string `pulumi:"name"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -290,6 +329,8 @@ type CrawlerArgs struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
 	// List of nested JBDC target arguments. See below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
+	// List nested MongoDB target arguments. See below.
+	MongodbTargets CrawlerMongodbTargetArrayInput
 	// Name of the crawler.
 	Name pulumi.StringPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.

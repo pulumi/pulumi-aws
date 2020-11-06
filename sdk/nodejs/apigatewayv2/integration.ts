@@ -161,10 +161,7 @@ export class Integration extends pulumi.CustomResource {
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */
     public readonly templateSelectionExpression!: pulumi.Output<string | undefined>;
-    /**
-     * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
-     */
-    public readonly timeoutMilliseconds!: pulumi.Output<number | undefined>;
+    public readonly timeoutMilliseconds!: pulumi.Output<number>;
     /**
      * The TLS configuration for a private integration. Supported only for HTTP APIs.
      */
@@ -310,9 +307,6 @@ export interface IntegrationState {
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */
     readonly templateSelectionExpression?: pulumi.Input<string>;
-    /**
-     * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
-     */
     readonly timeoutMilliseconds?: pulumi.Input<number>;
     /**
      * The TLS configuration for a private integration. Supported only for HTTP APIs.
@@ -388,9 +382,6 @@ export interface IntegrationArgs {
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */
     readonly templateSelectionExpression?: pulumi.Input<string>;
-    /**
-     * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
-     */
     readonly timeoutMilliseconds?: pulumi.Input<number>;
     /**
      * The TLS configuration for a private integration. Supported only for HTTP APIs.

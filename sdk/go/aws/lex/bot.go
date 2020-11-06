@@ -82,7 +82,7 @@ type Bot struct {
 	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
 	// The date when the bot version was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
 	DetectSentiment pulumi.BoolPtrOutput `pulumi:"detectSentiment"`
@@ -90,17 +90,17 @@ type Bot struct {
 	EnableModelImprovements pulumi.BoolPtrOutput `pulumi:"enableModelImprovements"`
 	// If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
 	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
-	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`.
+	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds pulumi.IntPtrOutput `pulumi:"idleSessionTtlInSeconds"`
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
 	Intents BotIntentArrayOutput `pulumi:"intents"`
 	// The date when the $LATEST version of this bot was updated.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
 	Locale pulumi.StringPtrOutput `pulumi:"locale"`
-	// The name of the bot that you want to create, case sensitive.
+	// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`.
+	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
 	NluIntentConfidenceThreshold pulumi.Float64PtrOutput `pulumi:"nluIntentConfidenceThreshold"`
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior pulumi.StringPtrOutput `pulumi:"processBehavior"`
@@ -166,7 +166,7 @@ type botState struct {
 	CreateVersion *bool `pulumi:"createVersion"`
 	// The date when the bot version was created.
 	CreatedDate *string `pulumi:"createdDate"`
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
 	// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
 	DetectSentiment *bool `pulumi:"detectSentiment"`
@@ -174,17 +174,17 @@ type botState struct {
 	EnableModelImprovements *bool `pulumi:"enableModelImprovements"`
 	// If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
 	FailureReason *string `pulumi:"failureReason"`
-	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`.
+	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
 	Intents []BotIntent `pulumi:"intents"`
 	// The date when the $LATEST version of this bot was updated.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
 	Locale *string `pulumi:"locale"`
-	// The name of the bot that you want to create, case sensitive.
+	// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
 	Name *string `pulumi:"name"`
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`.
+	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
 	NluIntentConfidenceThreshold *float64 `pulumi:"nluIntentConfidenceThreshold"`
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior *string `pulumi:"processBehavior"`
@@ -214,7 +214,7 @@ type BotState struct {
 	CreateVersion pulumi.BoolPtrInput
 	// The date when the bot version was created.
 	CreatedDate pulumi.StringPtrInput
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput
 	// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
 	DetectSentiment pulumi.BoolPtrInput
@@ -222,17 +222,17 @@ type BotState struct {
 	EnableModelImprovements pulumi.BoolPtrInput
 	// If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
 	FailureReason pulumi.StringPtrInput
-	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`.
+	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
 	Intents BotIntentArrayInput
 	// The date when the $LATEST version of this bot was updated.
 	LastUpdatedDate pulumi.StringPtrInput
 	// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
 	Locale pulumi.StringPtrInput
-	// The name of the bot that you want to create, case sensitive.
+	// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
 	Name pulumi.StringPtrInput
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`.
+	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
 	NluIntentConfidenceThreshold pulumi.Float64PtrInput
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior pulumi.StringPtrInput
@@ -260,21 +260,21 @@ type botArgs struct {
 	ClarificationPrompt *BotClarificationPrompt `pulumi:"clarificationPrompt"`
 	// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
 	CreateVersion *bool `pulumi:"createVersion"`
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
 	// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
 	DetectSentiment *bool `pulumi:"detectSentiment"`
 	// Set to `true` to enable access to natural language understanding improvements. When you set the `enableModelImprovements` parameter to true you can use the `nluIntentConfidenceThreshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enableModelImprovements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
 	EnableModelImprovements *bool `pulumi:"enableModelImprovements"`
-	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`.
+	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
 	Intents []BotIntent `pulumi:"intents"`
 	// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
 	Locale *string `pulumi:"locale"`
-	// The name of the bot that you want to create, case sensitive.
+	// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
 	Name *string `pulumi:"name"`
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`.
+	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
 	NluIntentConfidenceThreshold *float64 `pulumi:"nluIntentConfidenceThreshold"`
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior *string `pulumi:"processBehavior"`
@@ -292,21 +292,21 @@ type BotArgs struct {
 	ClarificationPrompt BotClarificationPromptPtrInput
 	// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
 	CreateVersion pulumi.BoolPtrInput
-	// A description of the bot.
+	// A description of the bot. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput
 	// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
 	DetectSentiment pulumi.BoolPtrInput
 	// Set to `true` to enable access to natural language understanding improvements. When you set the `enableModelImprovements` parameter to true you can use the `nluIntentConfidenceThreshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enableModelImprovements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
 	EnableModelImprovements pulumi.BoolPtrInput
-	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`.
+	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
 	Intents BotIntentArrayInput
 	// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
 	Locale pulumi.StringPtrInput
-	// The name of the bot that you want to create, case sensitive.
+	// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
 	Name pulumi.StringPtrInput
-	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`.
+	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enableModelImprovements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
 	NluIntentConfidenceThreshold pulumi.Float64PtrInput
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior pulumi.StringPtrInput

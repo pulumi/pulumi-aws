@@ -134,6 +134,8 @@ type Repository struct {
 	ExternalConnections RepositoryExternalConnectionsPtrOutput `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository pulumi.StringOutput `pulumi:"repository"`
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams RepositoryUpstreamArrayOutput `pulumi:"upstreams"`
 }
@@ -186,6 +188,8 @@ type repositoryState struct {
 	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository *string `pulumi:"repository"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams []RepositoryUpstream `pulumi:"upstreams"`
 }
@@ -205,6 +209,8 @@ type RepositoryState struct {
 	ExternalConnections RepositoryExternalConnectionsPtrInput
 	// The name of the repository to create.
 	Repository pulumi.StringPtrInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams RepositoryUpstreamArrayInput
 }
@@ -224,6 +230,8 @@ type repositoryArgs struct {
 	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
 	// The name of the repository to create.
 	Repository string `pulumi:"repository"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams []RepositoryUpstream `pulumi:"upstreams"`
 }
@@ -240,6 +248,8 @@ type RepositoryArgs struct {
 	ExternalConnections RepositoryExternalConnectionsPtrInput
 	// The name of the repository to create.
 	Repository pulumi.StringInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 	// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
 	Upstreams RepositoryUpstreamArrayInput
 }

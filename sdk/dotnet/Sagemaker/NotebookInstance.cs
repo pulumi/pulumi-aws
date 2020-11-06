@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Sagemaker
     ///             CodeRepositoryName = "my-notebook-instance-code-repo",
     ///             GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///             {
-    ///                 RepositoryUrl = "https://github.com/terraform-providers/terraform-provider-aws.git",
+    ///                 RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
     ///             },
     ///         });
     ///         var ni = new Aws.Sagemaker.NotebookInstance("ni", new Aws.Sagemaker.NotebookInstanceArgs

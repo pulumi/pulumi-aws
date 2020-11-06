@@ -156,6 +156,7 @@ class ProviderEndpointArgs:
                  codecommit: Optional[pulumi.Input[str]] = None,
                  codedeploy: Optional[pulumi.Input[str]] = None,
                  codepipeline: Optional[pulumi.Input[str]] = None,
+                 codestarconnections: Optional[pulumi.Input[str]] = None,
                  cognitoidentity: Optional[pulumi.Input[str]] = None,
                  cognitoidp: Optional[pulumi.Input[str]] = None,
                  configservice: Optional[pulumi.Input[str]] = None,
@@ -330,6 +331,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "codedeploy", codedeploy)
         if codepipeline is not None:
             pulumi.set(__self__, "codepipeline", codepipeline)
+        if codestarconnections is not None:
+            pulumi.set(__self__, "codestarconnections", codestarconnections)
         if cognitoidentity is not None:
             pulumi.set(__self__, "cognitoidentity", cognitoidentity)
         if cognitoidp is not None:
@@ -828,6 +831,15 @@ class ProviderEndpointArgs:
     @codepipeline.setter
     def codepipeline(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "codepipeline", value)
+
+    @property
+    @pulumi.getter
+    def codestarconnections(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "codestarconnections")
+
+    @codestarconnections.setter
+    def codestarconnections(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "codestarconnections", value)
 
     @property
     @pulumi.getter

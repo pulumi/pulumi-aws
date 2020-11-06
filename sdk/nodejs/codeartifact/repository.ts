@@ -120,6 +120,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly repository!: pulumi.Output<string>;
     /**
+     * Key-value map of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
     public readonly upstreams!: pulumi.Output<outputs.codeartifact.RepositoryUpstream[] | undefined>;
@@ -143,6 +147,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["domainOwner"] = state ? state.domainOwner : undefined;
             inputs["externalConnections"] = state ? state.externalConnections : undefined;
             inputs["repository"] = state ? state.repository : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["upstreams"] = state ? state.upstreams : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
@@ -157,6 +162,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["domainOwner"] = args ? args.domainOwner : undefined;
             inputs["externalConnections"] = args ? args.externalConnections : undefined;
             inputs["repository"] = args ? args.repository : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["upstreams"] = args ? args.upstreams : undefined;
             inputs["administratorAccount"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
@@ -205,6 +211,10 @@ export interface RepositoryState {
      */
     readonly repository?: pulumi.Input<string>;
     /**
+     * Key-value map of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
     readonly upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
@@ -234,6 +244,10 @@ export interface RepositoryArgs {
      * The name of the repository to create.
      */
     readonly repository: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */

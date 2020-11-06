@@ -22,11 +22,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketReplicationConfigurationRuleFilter? Filter;
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Object keyname prefix identifying one or more objects to which the rule applies.
+        /// Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>

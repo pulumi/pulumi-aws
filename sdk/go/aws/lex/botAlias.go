@@ -53,11 +53,11 @@ type BotAlias struct {
 	ConversationLogs BotAliasConversationLogsPtrOutput `pulumi:"conversationLogs"`
 	// The date that the bot alias was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// A description of the alias.
+	// A description of the alias. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the alias. The name is not case sensitive.
+	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -107,11 +107,11 @@ type botAliasState struct {
 	ConversationLogs *BotAliasConversationLogs `pulumi:"conversationLogs"`
 	// The date that the bot alias was created.
 	CreatedDate *string `pulumi:"createdDate"`
-	// A description of the alias.
+	// A description of the alias. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
 	// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the alias. The name is not case sensitive.
+	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
 }
 
@@ -128,11 +128,11 @@ type BotAliasState struct {
 	ConversationLogs BotAliasConversationLogsPtrInput
 	// The date that the bot alias was created.
 	CreatedDate pulumi.StringPtrInput
-	// A description of the alias.
+	// A description of the alias. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput
 	// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the alias. The name is not case sensitive.
+	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
 }
 
@@ -147,9 +147,9 @@ type botAliasArgs struct {
 	BotVersion string `pulumi:"botVersion"`
 	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
 	ConversationLogs *BotAliasConversationLogs `pulumi:"conversationLogs"`
-	// A description of the alias.
+	// A description of the alias. Must be less than or equal to 200 characters in length.
 	Description *string `pulumi:"description"`
-	// The name of the alias. The name is not case sensitive.
+	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
 }
 
@@ -161,9 +161,9 @@ type BotAliasArgs struct {
 	BotVersion pulumi.StringInput
 	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
 	ConversationLogs BotAliasConversationLogsPtrInput
-	// A description of the alias.
+	// A description of the alias. Must be less than or equal to 200 characters in length.
 	Description pulumi.StringPtrInput
-	// The name of the alias. The name is not case sensitive.
+	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
 }
 

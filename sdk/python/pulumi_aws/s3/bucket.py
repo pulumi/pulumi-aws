@@ -319,8 +319,8 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
         :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-        :param pulumi.Input[str] bucket: The name of the bucket. If omitted, this provider will assign a random, unique name.
-        :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+        :param pulumi.Input[str] bucket: The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+        :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketGrantArgs']]]] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
@@ -426,9 +426,9 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
         :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-        :param pulumi.Input[str] bucket: The name of the bucket. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] bucket: The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
         :param pulumi.Input[str] bucket_domain_name: The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-        :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+        :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
         :param pulumi.Input[str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsRuleArgs']]]] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
@@ -509,7 +509,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket. If omitted, this provider will assign a random, unique name.
+        The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
         """
         return pulumi.get(self, "bucket")
 
@@ -525,7 +525,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> pulumi.Output[Optional[str]]:
         """
-        Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+        Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
         """
         return pulumi.get(self, "bucket_prefix")
 

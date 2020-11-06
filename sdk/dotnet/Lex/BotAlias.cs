@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Lex
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the alias.
+        /// A description of the alias. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Lex
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the alias. The name is not case sensitive.
+        /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -156,13 +156,13 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.BotAliasConversationLogsArgs>? ConversationLogs { get; set; }
 
         /// <summary>
-        /// A description of the alias.
+        /// A description of the alias. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the alias. The name is not case sensitive.
+        /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Lex
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// A description of the alias.
+        /// A description of the alias. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Lex
         public Input<string>? LastUpdatedDate { get; set; }
 
         /// <summary>
-        /// The name of the alias. The name is not case sensitive.
+        /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

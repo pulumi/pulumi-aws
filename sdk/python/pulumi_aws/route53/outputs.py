@@ -17,6 +17,7 @@ __all__ = [
     'ResolverEndpointIpAddress',
     'ResolverRuleTargetIp',
     'ZoneVpc',
+    'GetResolverEndpointFilterResult',
 ]
 
 @pulumi.output_type
@@ -276,5 +277,24 @@ class ZoneVpc(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetResolverEndpointFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
 
 

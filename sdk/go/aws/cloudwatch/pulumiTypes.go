@@ -370,7 +370,7 @@ func (o EventTargetBatchTargetPtrOutput) JobName() pulumi.StringPtrOutput {
 type EventTargetEcsTarget struct {
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
 	Group *string `pulumi:"group"`
-	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
 	LaunchType *string `pulumi:"launchType"`
 	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration *EventTargetEcsTargetNetworkConfiguration `pulumi:"networkConfiguration"`
@@ -396,7 +396,7 @@ type EventTargetEcsTargetInput interface {
 type EventTargetEcsTargetArgs struct {
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
 	Group pulumi.StringPtrInput `pulumi:"group"`
-	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
 	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
 	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration EventTargetEcsTargetNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
@@ -490,7 +490,7 @@ func (o EventTargetEcsTargetOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.Group }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
 func (o EventTargetEcsTargetOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
@@ -543,7 +543,7 @@ func (o EventTargetEcsTargetPtrOutput) Group() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
 func (o EventTargetEcsTargetPtrOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {
@@ -767,9 +767,8 @@ type EventTargetInputTransformer struct {
 	// * You can have as many as 10 key-value pairs.
 	// * You must use JSON dot notation, not bracket notation.
 	// * The keys can't start with "AWS".
-	InputPaths map[string]string `pulumi:"inputPaths"`
-	// Structure containing the template body.
-	InputTemplate string `pulumi:"inputTemplate"`
+	InputPaths    map[string]string `pulumi:"inputPaths"`
+	InputTemplate string            `pulumi:"inputTemplate"`
 }
 
 // EventTargetInputTransformerInput is an input type that accepts EventTargetInputTransformerArgs and EventTargetInputTransformerOutput values.
@@ -788,9 +787,8 @@ type EventTargetInputTransformerArgs struct {
 	// * You can have as many as 10 key-value pairs.
 	// * You must use JSON dot notation, not bracket notation.
 	// * The keys can't start with "AWS".
-	InputPaths pulumi.StringMapInput `pulumi:"inputPaths"`
-	// Structure containing the template body.
-	InputTemplate pulumi.StringInput `pulumi:"inputTemplate"`
+	InputPaths    pulumi.StringMapInput `pulumi:"inputPaths"`
+	InputTemplate pulumi.StringInput    `pulumi:"inputTemplate"`
 }
 
 func (EventTargetInputTransformerArgs) ElementType() reflect.Type {
@@ -878,7 +876,6 @@ func (o EventTargetInputTransformerOutput) InputPaths() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) map[string]string { return v.InputPaths }).(pulumi.StringMapOutput)
 }
 
-// Structure containing the template body.
 func (o EventTargetInputTransformerOutput) InputTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) string { return v.InputTemplate }).(pulumi.StringOutput)
 }
@@ -914,7 +911,6 @@ func (o EventTargetInputTransformerPtrOutput) InputPaths() pulumi.StringMapOutpu
 	}).(pulumi.StringMapOutput)
 }
 
-// Structure containing the template body.
 func (o EventTargetInputTransformerPtrOutput) InputTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetInputTransformer) *string {
 		if v == nil {

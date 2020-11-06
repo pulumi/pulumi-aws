@@ -519,7 +519,7 @@ class BucketLifecycleRuleArgs:
         :param pulumi.Input[bool] enabled: Specifies lifecycle rule status.
         :param pulumi.Input[int] abort_incomplete_multipart_upload_days: Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
         :param pulumi.Input['BucketLifecycleRuleExpirationArgs'] expiration: Specifies a period in the object's expire (documented below).
-        :param pulumi.Input[str] id: Unique identifier for the rule.
+        :param pulumi.Input[str] id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         :param pulumi.Input['BucketLifecycleRuleNoncurrentVersionExpirationArgs'] noncurrent_version_expiration: Specifies when noncurrent object versions expire (documented below).
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleNoncurrentVersionTransitionArgs']]] noncurrent_version_transitions: Specifies when noncurrent object versions transitions (documented below).
         :param pulumi.Input[str] prefix: Object key prefix identifying one or more objects to which the rule applies.
@@ -584,7 +584,7 @@ class BucketLifecycleRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Unique identifier for the rule.
+        Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         """
         return pulumi.get(self, "id")
 
@@ -1343,8 +1343,8 @@ class BucketReplicationConfigurationRuleArgs:
         :param pulumi.Input['BucketReplicationConfigurationRuleDestinationArgs'] destination: Specifies the destination for the rule (documented below).
         :param pulumi.Input[str] status: The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         :param pulumi.Input['BucketReplicationConfigurationRuleFilterArgs'] filter: Filter that identifies subset of objects to which the replication rule applies (documented below).
-        :param pulumi.Input[str] id: Unique identifier for the rule.
-        :param pulumi.Input[str] prefix: Object keyname prefix identifying one or more objects to which the rule applies.
+        :param pulumi.Input[str] id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+        :param pulumi.Input[str] prefix: Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[int] priority: is optional (with a default value of `0`) but must be unique between multiple rules
         :param pulumi.Input['BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs'] source_selection_criteria: Specifies special object selection criteria (documented below).
         """
@@ -1401,7 +1401,7 @@ class BucketReplicationConfigurationRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Unique identifier for the rule.
+        Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         """
         return pulumi.get(self, "id")
 
@@ -1413,7 +1413,7 @@ class BucketReplicationConfigurationRuleArgs:
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object keyname prefix identifying one or more objects to which the rule applies.
+        Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "prefix")
 
@@ -1562,7 +1562,7 @@ class BucketReplicationConfigurationRuleFilterArgs:
                  prefix: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] prefix: Object keyname prefix that identifies subset of objects to which the rule applies.
+        :param pulumi.Input[str] prefix: Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags that identifies subset of objects to which the rule applies.
                The rule applies only to objects having all the tags in its tagset.
         """
@@ -1575,7 +1575,7 @@ class BucketReplicationConfigurationRuleFilterArgs:
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object keyname prefix that identifies subset of objects to which the rule applies.
+        Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "prefix")
 

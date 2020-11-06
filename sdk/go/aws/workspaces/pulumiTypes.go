@@ -1249,6 +1249,139 @@ func (o GetDirectoryWorkspaceCreationPropertiesOutput) UserEnabledAsLocalAdminis
 	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperties) *bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolPtrOutput)
 }
 
+type GetWorkspaceWorkspaceProperty struct {
+	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+	ComputeTypeName string `pulumi:"computeTypeName"`
+	// The size of the root volume.
+	RootVolumeSizeGib int `pulumi:"rootVolumeSizeGib"`
+	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+	RunningMode string `pulumi:"runningMode"`
+	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+	RunningModeAutoStopTimeoutInMinutes int `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	// The size of the user storage.
+	UserVolumeSizeGib int `pulumi:"userVolumeSizeGib"`
+}
+
+// GetWorkspaceWorkspacePropertyInput is an input type that accepts GetWorkspaceWorkspacePropertyArgs and GetWorkspaceWorkspacePropertyOutput values.
+// You can construct a concrete instance of `GetWorkspaceWorkspacePropertyInput` via:
+//
+//          GetWorkspaceWorkspacePropertyArgs{...}
+type GetWorkspaceWorkspacePropertyInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceWorkspacePropertyOutput() GetWorkspaceWorkspacePropertyOutput
+	ToGetWorkspaceWorkspacePropertyOutputWithContext(context.Context) GetWorkspaceWorkspacePropertyOutput
+}
+
+type GetWorkspaceWorkspacePropertyArgs struct {
+	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+	ComputeTypeName pulumi.StringInput `pulumi:"computeTypeName"`
+	// The size of the root volume.
+	RootVolumeSizeGib pulumi.IntInput `pulumi:"rootVolumeSizeGib"`
+	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+	RunningMode pulumi.StringInput `pulumi:"runningMode"`
+	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+	RunningModeAutoStopTimeoutInMinutes pulumi.IntInput `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	// The size of the user storage.
+	UserVolumeSizeGib pulumi.IntInput `pulumi:"userVolumeSizeGib"`
+}
+
+func (GetWorkspaceWorkspacePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceWorkspaceProperty)(nil)).Elem()
+}
+
+func (i GetWorkspaceWorkspacePropertyArgs) ToGetWorkspaceWorkspacePropertyOutput() GetWorkspaceWorkspacePropertyOutput {
+	return i.ToGetWorkspaceWorkspacePropertyOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceWorkspacePropertyArgs) ToGetWorkspaceWorkspacePropertyOutputWithContext(ctx context.Context) GetWorkspaceWorkspacePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceWorkspacePropertyOutput)
+}
+
+// GetWorkspaceWorkspacePropertyArrayInput is an input type that accepts GetWorkspaceWorkspacePropertyArray and GetWorkspaceWorkspacePropertyArrayOutput values.
+// You can construct a concrete instance of `GetWorkspaceWorkspacePropertyArrayInput` via:
+//
+//          GetWorkspaceWorkspacePropertyArray{ GetWorkspaceWorkspacePropertyArgs{...} }
+type GetWorkspaceWorkspacePropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceWorkspacePropertyArrayOutput() GetWorkspaceWorkspacePropertyArrayOutput
+	ToGetWorkspaceWorkspacePropertyArrayOutputWithContext(context.Context) GetWorkspaceWorkspacePropertyArrayOutput
+}
+
+type GetWorkspaceWorkspacePropertyArray []GetWorkspaceWorkspacePropertyInput
+
+func (GetWorkspaceWorkspacePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceWorkspaceProperty)(nil)).Elem()
+}
+
+func (i GetWorkspaceWorkspacePropertyArray) ToGetWorkspaceWorkspacePropertyArrayOutput() GetWorkspaceWorkspacePropertyArrayOutput {
+	return i.ToGetWorkspaceWorkspacePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceWorkspacePropertyArray) ToGetWorkspaceWorkspacePropertyArrayOutputWithContext(ctx context.Context) GetWorkspaceWorkspacePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceWorkspacePropertyArrayOutput)
+}
+
+type GetWorkspaceWorkspacePropertyOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceWorkspacePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceWorkspaceProperty)(nil)).Elem()
+}
+
+func (o GetWorkspaceWorkspacePropertyOutput) ToGetWorkspaceWorkspacePropertyOutput() GetWorkspaceWorkspacePropertyOutput {
+	return o
+}
+
+func (o GetWorkspaceWorkspacePropertyOutput) ToGetWorkspaceWorkspacePropertyOutputWithContext(ctx context.Context) GetWorkspaceWorkspacePropertyOutput {
+	return o
+}
+
+// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+func (o GetWorkspaceWorkspacePropertyOutput) ComputeTypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) string { return v.ComputeTypeName }).(pulumi.StringOutput)
+}
+
+// The size of the root volume.
+func (o GetWorkspaceWorkspacePropertyOutput) RootVolumeSizeGib() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.RootVolumeSizeGib }).(pulumi.IntOutput)
+}
+
+// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+func (o GetWorkspaceWorkspacePropertyOutput) RunningMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) string { return v.RunningMode }).(pulumi.StringOutput)
+}
+
+// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+func (o GetWorkspaceWorkspacePropertyOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntOutput)
+}
+
+// The size of the user storage.
+func (o GetWorkspaceWorkspacePropertyOutput) UserVolumeSizeGib() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWorkspaceWorkspaceProperty) int { return v.UserVolumeSizeGib }).(pulumi.IntOutput)
+}
+
+type GetWorkspaceWorkspacePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceWorkspacePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceWorkspaceProperty)(nil)).Elem()
+}
+
+func (o GetWorkspaceWorkspacePropertyArrayOutput) ToGetWorkspaceWorkspacePropertyArrayOutput() GetWorkspaceWorkspacePropertyArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceWorkspacePropertyArrayOutput) ToGetWorkspaceWorkspacePropertyArrayOutputWithContext(ctx context.Context) GetWorkspaceWorkspacePropertyArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceWorkspacePropertyArrayOutput) Index(i pulumi.IntInput) GetWorkspaceWorkspacePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkspaceWorkspaceProperty {
+		return vs[0].([]GetWorkspaceWorkspaceProperty)[vs[1].(int)]
+	}).(GetWorkspaceWorkspacePropertyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
@@ -1267,4 +1400,6 @@ func init() {
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionOutput{})
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectoryWorkspaceCreationPropertiesOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceWorkspacePropertyOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceWorkspacePropertyArrayOutput{})
 }

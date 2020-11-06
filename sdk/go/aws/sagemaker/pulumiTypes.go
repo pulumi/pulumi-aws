@@ -166,6 +166,489 @@ func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointConfigurationDataCaptureConfig struct {
+	// The content type headers to capture. Fields are documented below.
+	CaptureContentTypeHeader *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
+	// Specifies what data to capture. Fields are documented below.
+	CaptureOptions []EndpointConfigurationDataCaptureConfigCaptureOption `pulumi:"captureOptions"`
+	// The URL for S3 location where the captured data is stored.
+	DestinationS3Uri string `pulumi:"destinationS3Uri"`
+	// Flag to enable data capture. Defaults to `false`.
+	EnableCapture *bool `pulumi:"enableCapture"`
+	// Portion of data to capture. Should be between 0 and 100.
+	InitialSamplingPercentage int `pulumi:"initialSamplingPercentage"`
+	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+
+// EndpointConfigurationDataCaptureConfigInput is an input type that accepts EndpointConfigurationDataCaptureConfigArgs and EndpointConfigurationDataCaptureConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigurationDataCaptureConfigInput` via:
+//
+//          EndpointConfigurationDataCaptureConfigArgs{...}
+type EndpointConfigurationDataCaptureConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationDataCaptureConfigOutput() EndpointConfigurationDataCaptureConfigOutput
+	ToEndpointConfigurationDataCaptureConfigOutputWithContext(context.Context) EndpointConfigurationDataCaptureConfigOutput
+}
+
+type EndpointConfigurationDataCaptureConfigArgs struct {
+	// The content type headers to capture. Fields are documented below.
+	CaptureContentTypeHeader EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput `pulumi:"captureContentTypeHeader"`
+	// Specifies what data to capture. Fields are documented below.
+	CaptureOptions EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput `pulumi:"captureOptions"`
+	// The URL for S3 location where the captured data is stored.
+	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
+	// Flag to enable data capture. Defaults to `false`.
+	EnableCapture pulumi.BoolPtrInput `pulumi:"enableCapture"`
+	// Portion of data to capture. Should be between 0 and 100.
+	InitialSamplingPercentage pulumi.IntInput `pulumi:"initialSamplingPercentage"`
+	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (EndpointConfigurationDataCaptureConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationDataCaptureConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationDataCaptureConfigArgs) ToEndpointConfigurationDataCaptureConfigOutput() EndpointConfigurationDataCaptureConfigOutput {
+	return i.ToEndpointConfigurationDataCaptureConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationDataCaptureConfigArgs) ToEndpointConfigurationDataCaptureConfigOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationDataCaptureConfigOutput)
+}
+
+func (i EndpointConfigurationDataCaptureConfigArgs) ToEndpointConfigurationDataCaptureConfigPtrOutput() EndpointConfigurationDataCaptureConfigPtrOutput {
+	return i.ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationDataCaptureConfigArgs) ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationDataCaptureConfigOutput).ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigurationDataCaptureConfigPtrInput is an input type that accepts EndpointConfigurationDataCaptureConfigArgs, EndpointConfigurationDataCaptureConfigPtr and EndpointConfigurationDataCaptureConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigurationDataCaptureConfigPtrInput` via:
+//
+//          EndpointConfigurationDataCaptureConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointConfigurationDataCaptureConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationDataCaptureConfigPtrOutput() EndpointConfigurationDataCaptureConfigPtrOutput
+	ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(context.Context) EndpointConfigurationDataCaptureConfigPtrOutput
+}
+
+type endpointConfigurationDataCaptureConfigPtrType EndpointConfigurationDataCaptureConfigArgs
+
+func EndpointConfigurationDataCaptureConfigPtr(v *EndpointConfigurationDataCaptureConfigArgs) EndpointConfigurationDataCaptureConfigPtrInput {
+	return (*endpointConfigurationDataCaptureConfigPtrType)(v)
+}
+
+func (*endpointConfigurationDataCaptureConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationDataCaptureConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigurationDataCaptureConfigPtrType) ToEndpointConfigurationDataCaptureConfigPtrOutput() EndpointConfigurationDataCaptureConfigPtrOutput {
+	return i.ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationDataCaptureConfigPtrType) ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationDataCaptureConfigPtrOutput)
+}
+
+type EndpointConfigurationDataCaptureConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationDataCaptureConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationDataCaptureConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDataCaptureConfigOutput() EndpointConfigurationDataCaptureConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDataCaptureConfigOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDataCaptureConfigPtrOutput() EndpointConfigurationDataCaptureConfigPtrOutput {
+	return o.ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfig {
+		return &v
+	}).(EndpointConfigurationDataCaptureConfigPtrOutput)
+}
+
+// The content type headers to capture. Fields are documented below.
+func (o EndpointConfigurationDataCaptureConfigOutput) CaptureContentTypeHeader() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
+		return v.CaptureContentTypeHeader
+	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
+}
+
+// Specifies what data to capture. Fields are documented below.
+func (o EndpointConfigurationDataCaptureConfigOutput) CaptureOptions() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) []EndpointConfigurationDataCaptureConfigCaptureOption {
+		return v.CaptureOptions
+	}).(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput)
+}
+
+// The URL for S3 location where the captured data is stored.
+func (o EndpointConfigurationDataCaptureConfigOutput) DestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
+}
+
+// Flag to enable data capture. Defaults to `false`.
+func (o EndpointConfigurationDataCaptureConfigOutput) EnableCapture() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *bool { return v.EnableCapture }).(pulumi.BoolPtrOutput)
+}
+
+// Portion of data to capture. Should be between 0 and 100.
+func (o EndpointConfigurationDataCaptureConfigOutput) InitialSamplingPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) int { return v.InitialSamplingPercentage }).(pulumi.IntOutput)
+}
+
+// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+func (o EndpointConfigurationDataCaptureConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigurationDataCaptureConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationDataCaptureConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationDataCaptureConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) ToEndpointConfigurationDataCaptureConfigPtrOutput() EndpointConfigurationDataCaptureConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) Elem() EndpointConfigurationDataCaptureConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) EndpointConfigurationDataCaptureConfig { return *v }).(EndpointConfigurationDataCaptureConfigOutput)
+}
+
+// The content type headers to capture. Fields are documented below.
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureContentTypeHeader() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
+		if v == nil {
+			return nil
+		}
+		return v.CaptureContentTypeHeader
+	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
+}
+
+// Specifies what data to capture. Fields are documented below.
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureOptions() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) []EndpointConfigurationDataCaptureConfigCaptureOption {
+		if v == nil {
+			return nil
+		}
+		return v.CaptureOptions
+	}).(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput)
+}
+
+// The URL for S3 location where the captured data is stored.
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Flag to enable data capture. Defaults to `false`.
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) EnableCapture() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCapture
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Portion of data to capture. Should be between 0 and 100.
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) InitialSamplingPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InitialSamplingPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+func (o EndpointConfigurationDataCaptureConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader struct {
+	// The CSV content type headers to capture.
+	CsvContentTypes []string `pulumi:"csvContentTypes"`
+	// The JSON content type headers to capture.
+	JsonContentTypes []string `pulumi:"jsonContentTypes"`
+}
+
+// EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderInput is an input type that accepts EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs and EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput values.
+// You can construct a concrete instance of `EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderInput` via:
+//
+//          EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs{...}
+type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput
+	ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutputWithContext(context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs struct {
+	// The CSV content type headers to capture.
+	CsvContentTypes pulumi.StringArrayInput `pulumi:"csvContentTypes"`
+	// The JSON content type headers to capture.
+	JsonContentTypes pulumi.StringArrayInput `pulumi:"jsonContentTypes"`
+}
+
+func (EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (i EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput {
+	return i.ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput)
+}
+
+func (i EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return i.ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput).ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput is an input type that accepts EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs, EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtr and EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput` via:
+//
+//          EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput
+	ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput
+}
+
+type endpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrType EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs
+
+func EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtr(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput {
+	return (*endpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrType)(v)
+}
+
+func (*endpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (i *endpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrType) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return i.ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrType) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return o.ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
+		return &v
+	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
+}
+
+// The CSV content type headers to capture.
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) CsvContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
+		return v.CsvContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The JSON content type headers to capture.
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) JsonContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
+		return v.JsonContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) Elem() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
+		return *v
+	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput)
+}
+
+// The CSV content type headers to capture.
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) CsvContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CsvContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The JSON content type headers to capture.
+func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) JsonContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.JsonContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureOption struct {
+	// Specifies the data to be captured. Should be one of `Input` or `Output`.
+	CaptureMode string `pulumi:"captureMode"`
+}
+
+// EndpointConfigurationDataCaptureConfigCaptureOptionInput is an input type that accepts EndpointConfigurationDataCaptureConfigCaptureOptionArgs and EndpointConfigurationDataCaptureConfigCaptureOptionOutput values.
+// You can construct a concrete instance of `EndpointConfigurationDataCaptureConfigCaptureOptionInput` via:
+//
+//          EndpointConfigurationDataCaptureConfigCaptureOptionArgs{...}
+type EndpointConfigurationDataCaptureConfigCaptureOptionInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationDataCaptureConfigCaptureOptionOutput() EndpointConfigurationDataCaptureConfigCaptureOptionOutput
+	ToEndpointConfigurationDataCaptureConfigCaptureOptionOutputWithContext(context.Context) EndpointConfigurationDataCaptureConfigCaptureOptionOutput
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureOptionArgs struct {
+	// Specifies the data to be captured. Should be one of `Input` or `Output`.
+	CaptureMode pulumi.StringInput `pulumi:"captureMode"`
+}
+
+func (EndpointConfigurationDataCaptureConfigCaptureOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationDataCaptureConfigCaptureOption)(nil)).Elem()
+}
+
+func (i EndpointConfigurationDataCaptureConfigCaptureOptionArgs) ToEndpointConfigurationDataCaptureConfigCaptureOptionOutput() EndpointConfigurationDataCaptureConfigCaptureOptionOutput {
+	return i.ToEndpointConfigurationDataCaptureConfigCaptureOptionOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationDataCaptureConfigCaptureOptionArgs) ToEndpointConfigurationDataCaptureConfigCaptureOptionOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationDataCaptureConfigCaptureOptionOutput)
+}
+
+// EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput is an input type that accepts EndpointConfigurationDataCaptureConfigCaptureOptionArray and EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput` via:
+//
+//          EndpointConfigurationDataCaptureConfigCaptureOptionArray{ EndpointConfigurationDataCaptureConfigCaptureOptionArgs{...} }
+type EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput
+	ToEndpointConfigurationDataCaptureConfigCaptureOptionArrayOutputWithContext(context.Context) EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureOptionArray []EndpointConfigurationDataCaptureConfigCaptureOptionInput
+
+func (EndpointConfigurationDataCaptureConfigCaptureOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigurationDataCaptureConfigCaptureOption)(nil)).Elem()
+}
+
+func (i EndpointConfigurationDataCaptureConfigCaptureOptionArray) ToEndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
+	return i.ToEndpointConfigurationDataCaptureConfigCaptureOptionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationDataCaptureConfigCaptureOptionArray) ToEndpointConfigurationDataCaptureConfigCaptureOptionArrayOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput)
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureOptionOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationDataCaptureConfigCaptureOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationDataCaptureConfigCaptureOption)(nil)).Elem()
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) ToEndpointConfigurationDataCaptureConfigCaptureOptionOutput() EndpointConfigurationDataCaptureConfigCaptureOptionOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) ToEndpointConfigurationDataCaptureConfigCaptureOptionOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureOptionOutput {
+	return o
+}
+
+// Specifies the data to be captured. Should be one of `Input` or `Output`.
+func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) CaptureMode() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureOption) string { return v.CaptureMode }).(pulumi.StringOutput)
+}
+
+type EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigurationDataCaptureConfigCaptureOption)(nil)).Elem()
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput) ToEndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput() EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput) ToEndpointConfigurationDataCaptureConfigCaptureOptionArrayOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput {
+	return o
+}
+
+func (o EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput) Index(i pulumi.IntInput) EndpointConfigurationDataCaptureConfigCaptureOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigurationDataCaptureConfigCaptureOption {
+		return vs[0].([]EndpointConfigurationDataCaptureConfigCaptureOption)[vs[1].(int)]
+	}).(EndpointConfigurationDataCaptureConfigCaptureOptionOutput)
+}
+
 type EndpointConfigurationProductionVariant struct {
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
 	AcceleratorType *string `pulumi:"acceleratorType"`
@@ -316,6 +799,8 @@ type ModelContainer struct {
 	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image string `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	ImageConfig *ModelContainerImageConfig `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
@@ -341,6 +826,8 @@ type ModelContainerArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringInput `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	ImageConfig ModelContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
@@ -414,6 +901,11 @@ func (o ModelContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+func (o ModelContainerOutput) ImageConfig() ModelContainerImageConfigPtrOutput {
+	return o.ApplyT(func(v ModelContainer) *ModelContainerImageConfig { return v.ImageConfig }).(ModelContainerImageConfigPtrOutput)
+}
+
 // The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
@@ -444,6 +936,137 @@ func (o ModelContainerArrayOutput) Index(i pulumi.IntInput) ModelContainerOutput
 	}).(ModelContainerOutput)
 }
 
+type ModelContainerImageConfig struct {
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
+}
+
+// ModelContainerImageConfigInput is an input type that accepts ModelContainerImageConfigArgs and ModelContainerImageConfigOutput values.
+// You can construct a concrete instance of `ModelContainerImageConfigInput` via:
+//
+//          ModelContainerImageConfigArgs{...}
+type ModelContainerImageConfigInput interface {
+	pulumi.Input
+
+	ToModelContainerImageConfigOutput() ModelContainerImageConfigOutput
+	ToModelContainerImageConfigOutputWithContext(context.Context) ModelContainerImageConfigOutput
+}
+
+type ModelContainerImageConfigArgs struct {
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
+}
+
+func (ModelContainerImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerImageConfig)(nil)).Elem()
+}
+
+func (i ModelContainerImageConfigArgs) ToModelContainerImageConfigOutput() ModelContainerImageConfigOutput {
+	return i.ToModelContainerImageConfigOutputWithContext(context.Background())
+}
+
+func (i ModelContainerImageConfigArgs) ToModelContainerImageConfigOutputWithContext(ctx context.Context) ModelContainerImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerImageConfigOutput)
+}
+
+func (i ModelContainerImageConfigArgs) ToModelContainerImageConfigPtrOutput() ModelContainerImageConfigPtrOutput {
+	return i.ToModelContainerImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelContainerImageConfigArgs) ToModelContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerImageConfigOutput).ToModelContainerImageConfigPtrOutputWithContext(ctx)
+}
+
+// ModelContainerImageConfigPtrInput is an input type that accepts ModelContainerImageConfigArgs, ModelContainerImageConfigPtr and ModelContainerImageConfigPtrOutput values.
+// You can construct a concrete instance of `ModelContainerImageConfigPtrInput` via:
+//
+//          ModelContainerImageConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelContainerImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelContainerImageConfigPtrOutput() ModelContainerImageConfigPtrOutput
+	ToModelContainerImageConfigPtrOutputWithContext(context.Context) ModelContainerImageConfigPtrOutput
+}
+
+type modelContainerImageConfigPtrType ModelContainerImageConfigArgs
+
+func ModelContainerImageConfigPtr(v *ModelContainerImageConfigArgs) ModelContainerImageConfigPtrInput {
+	return (*modelContainerImageConfigPtrType)(v)
+}
+
+func (*modelContainerImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerImageConfig)(nil)).Elem()
+}
+
+func (i *modelContainerImageConfigPtrType) ToModelContainerImageConfigPtrOutput() ModelContainerImageConfigPtrOutput {
+	return i.ToModelContainerImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelContainerImageConfigPtrType) ToModelContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerImageConfigPtrOutput)
+}
+
+type ModelContainerImageConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerImageConfig)(nil)).Elem()
+}
+
+func (o ModelContainerImageConfigOutput) ToModelContainerImageConfigOutput() ModelContainerImageConfigOutput {
+	return o
+}
+
+func (o ModelContainerImageConfigOutput) ToModelContainerImageConfigOutputWithContext(ctx context.Context) ModelContainerImageConfigOutput {
+	return o
+}
+
+func (o ModelContainerImageConfigOutput) ToModelContainerImageConfigPtrOutput() ModelContainerImageConfigPtrOutput {
+	return o.ToModelContainerImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerImageConfigOutput) ToModelContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigPtrOutput {
+	return o.ApplyT(func(v ModelContainerImageConfig) *ModelContainerImageConfig {
+		return &v
+	}).(ModelContainerImageConfigPtrOutput)
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+func (o ModelContainerImageConfigOutput) RepositoryAccessMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
+}
+
+type ModelContainerImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerImageConfig)(nil)).Elem()
+}
+
+func (o ModelContainerImageConfigPtrOutput) ToModelContainerImageConfigPtrOutput() ModelContainerImageConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerImageConfigPtrOutput) ToModelContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerImageConfigPtrOutput) Elem() ModelContainerImageConfigOutput {
+	return o.ApplyT(func(v *ModelContainerImageConfig) ModelContainerImageConfig { return *v }).(ModelContainerImageConfigOutput)
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+func (o ModelContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerImageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type ModelPrimaryContainer struct {
 	// The DNS host name for the container.
 	ContainerHostname *string `pulumi:"containerHostname"`
@@ -452,6 +1075,8 @@ type ModelPrimaryContainer struct {
 	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image string `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	ImageConfig *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
@@ -477,6 +1102,8 @@ type ModelPrimaryContainerArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringInput `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	ImageConfig ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
@@ -576,6 +1203,11 @@ func (o ModelPrimaryContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+func (o ModelPrimaryContainerOutput) ImageConfig() ModelPrimaryContainerImageConfigPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainerImageConfig { return v.ImageConfig }).(ModelPrimaryContainerImageConfigPtrOutput)
+}
+
 // The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelPrimaryContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
@@ -635,6 +1267,16 @@ func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+func (o ModelPrimaryContainerPtrOutput) ImageConfig() ModelPrimaryContainerImageConfigPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainer) *ModelPrimaryContainerImageConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ImageConfig
+	}).(ModelPrimaryContainerImageConfigPtrOutput)
+}
+
 // The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
@@ -652,6 +1294,137 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.ModelDataUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPrimaryContainerImageConfig struct {
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
+}
+
+// ModelPrimaryContainerImageConfigInput is an input type that accepts ModelPrimaryContainerImageConfigArgs and ModelPrimaryContainerImageConfigOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerImageConfigInput` via:
+//
+//          ModelPrimaryContainerImageConfigArgs{...}
+type ModelPrimaryContainerImageConfigInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerImageConfigOutput() ModelPrimaryContainerImageConfigOutput
+	ToModelPrimaryContainerImageConfigOutputWithContext(context.Context) ModelPrimaryContainerImageConfigOutput
+}
+
+type ModelPrimaryContainerImageConfigArgs struct {
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
+}
+
+func (ModelPrimaryContainerImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerImageConfig)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerImageConfigArgs) ToModelPrimaryContainerImageConfigOutput() ModelPrimaryContainerImageConfigOutput {
+	return i.ToModelPrimaryContainerImageConfigOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerImageConfigArgs) ToModelPrimaryContainerImageConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerImageConfigOutput)
+}
+
+func (i ModelPrimaryContainerImageConfigArgs) ToModelPrimaryContainerImageConfigPtrOutput() ModelPrimaryContainerImageConfigPtrOutput {
+	return i.ToModelPrimaryContainerImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerImageConfigArgs) ToModelPrimaryContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerImageConfigOutput).ToModelPrimaryContainerImageConfigPtrOutputWithContext(ctx)
+}
+
+// ModelPrimaryContainerImageConfigPtrInput is an input type that accepts ModelPrimaryContainerImageConfigArgs, ModelPrimaryContainerImageConfigPtr and ModelPrimaryContainerImageConfigPtrOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerImageConfigPtrInput` via:
+//
+//          ModelPrimaryContainerImageConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPrimaryContainerImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerImageConfigPtrOutput() ModelPrimaryContainerImageConfigPtrOutput
+	ToModelPrimaryContainerImageConfigPtrOutputWithContext(context.Context) ModelPrimaryContainerImageConfigPtrOutput
+}
+
+type modelPrimaryContainerImageConfigPtrType ModelPrimaryContainerImageConfigArgs
+
+func ModelPrimaryContainerImageConfigPtr(v *ModelPrimaryContainerImageConfigArgs) ModelPrimaryContainerImageConfigPtrInput {
+	return (*modelPrimaryContainerImageConfigPtrType)(v)
+}
+
+func (*modelPrimaryContainerImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerImageConfig)(nil)).Elem()
+}
+
+func (i *modelPrimaryContainerImageConfigPtrType) ToModelPrimaryContainerImageConfigPtrOutput() ModelPrimaryContainerImageConfigPtrOutput {
+	return i.ToModelPrimaryContainerImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPrimaryContainerImageConfigPtrType) ToModelPrimaryContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerImageConfigPtrOutput)
+}
+
+type ModelPrimaryContainerImageConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerImageConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerImageConfigOutput) ToModelPrimaryContainerImageConfigOutput() ModelPrimaryContainerImageConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerImageConfigOutput) ToModelPrimaryContainerImageConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerImageConfigOutput) ToModelPrimaryContainerImageConfigPtrOutput() ModelPrimaryContainerImageConfigPtrOutput {
+	return o.ToModelPrimaryContainerImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPrimaryContainerImageConfigOutput) ToModelPrimaryContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfig {
+		return &v
+	}).(ModelPrimaryContainerImageConfigPtrOutput)
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+func (o ModelPrimaryContainerImageConfigOutput) RepositoryAccessMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
+}
+
+type ModelPrimaryContainerImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerImageConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerImageConfigPtrOutput) ToModelPrimaryContainerImageConfigPtrOutput() ModelPrimaryContainerImageConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerImageConfigPtrOutput) ToModelPrimaryContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerImageConfigPtrOutput) Elem() ModelPrimaryContainerImageConfigOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) ModelPrimaryContainerImageConfig { return *v }).(ModelPrimaryContainerImageConfigOutput)
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryAccessMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -799,12 +1572,22 @@ func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 func init() {
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureOptionOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})
 	pulumi.RegisterOutputType(ModelContainerArrayOutput{})
+	pulumi.RegisterOutputType(ModelContainerImageConfigOutput{})
+	pulumi.RegisterOutputType(ModelContainerImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerPtrOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigPtrOutput{})
 }

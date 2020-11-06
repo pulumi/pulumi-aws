@@ -272,6 +272,7 @@ type ProviderEndpoint struct {
 	Codecommit               *string `pulumi:"codecommit"`
 	Codedeploy               *string `pulumi:"codedeploy"`
 	Codepipeline             *string `pulumi:"codepipeline"`
+	Codestarconnections      *string `pulumi:"codestarconnections"`
 	Cognitoidentity          *string `pulumi:"cognitoidentity"`
 	Cognitoidp               *string `pulumi:"cognitoidp"`
 	Configservice            *string `pulumi:"configservice"`
@@ -430,6 +431,7 @@ type ProviderEndpointArgs struct {
 	Codecommit               pulumi.StringPtrInput `pulumi:"codecommit"`
 	Codedeploy               pulumi.StringPtrInput `pulumi:"codedeploy"`
 	Codepipeline             pulumi.StringPtrInput `pulumi:"codepipeline"`
+	Codestarconnections      pulumi.StringPtrInput `pulumi:"codestarconnections"`
 	Cognitoidentity          pulumi.StringPtrInput `pulumi:"cognitoidentity"`
 	Cognitoidp               pulumi.StringPtrInput `pulumi:"cognitoidp"`
 	Configservice            pulumi.StringPtrInput `pulumi:"configservice"`
@@ -715,6 +717,10 @@ func (o ProviderEndpointOutput) Codedeploy() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Codepipeline() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Codepipeline }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Codestarconnections() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Codestarconnections }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Cognitoidentity() pulumi.StringPtrOutput {

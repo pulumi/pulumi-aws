@@ -5,6 +5,7 @@
 export * from "./codeRepository";
 export * from "./endpoint";
 export * from "./endpointConfiguration";
+export * from "./getPrebuiltEcrImage";
 export * from "./model";
 export * from "./notebookInstance";
 export * from "./notebookInstanceLifecycleConfiguration";

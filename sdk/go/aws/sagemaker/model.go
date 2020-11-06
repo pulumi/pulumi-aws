@@ -27,15 +27,6 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewModel(ctx, "model", &sagemaker.ModelArgs{
-// 			ExecutionRoleArn: pulumi.Any(aws_iam_role.Foo.Arn),
-// 			PrimaryContainer: &sagemaker.ModelPrimaryContainerArgs{
-// 				Image: pulumi.String("174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
 // 		assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
@@ -56,8 +47,17 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRole(ctx, "role", &iam.RoleArgs{
+// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.String(assumeRole.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sagemaker.NewModel(ctx, "exampleModel", &sagemaker.ModelArgs{
+// 			ExecutionRoleArn: exampleRole.Arn,
+// 			PrimaryContainer: &sagemaker.ModelPrimaryContainerArgs{
+// 				Image: pulumi.String("174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

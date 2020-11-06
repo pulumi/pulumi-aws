@@ -51,6 +51,8 @@ type EndpointConfiguration struct {
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrOutput `pulumi:"dataCaptureConfig"`
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -94,6 +96,8 @@ func GetEndpointConfiguration(ctx *pulumi.Context,
 type endpointConfigurationState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
 	Arn *string `pulumi:"arn"`
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig *EndpointConfigurationDataCaptureConfig `pulumi:"dataCaptureConfig"`
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -107,6 +111,8 @@ type endpointConfigurationState struct {
 type EndpointConfigurationState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
 	Arn pulumi.StringPtrInput
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrInput
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -122,6 +128,8 @@ func (EndpointConfigurationState) ElementType() reflect.Type {
 }
 
 type endpointConfigurationArgs struct {
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig *EndpointConfigurationDataCaptureConfig `pulumi:"dataCaptureConfig"`
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -134,6 +142,8 @@ type endpointConfigurationArgs struct {
 
 // The set of arguments for constructing a EndpointConfiguration resource.
 type EndpointConfigurationArgs struct {
+	// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrInput
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.

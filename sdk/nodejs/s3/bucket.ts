@@ -335,7 +335,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -343,7 +343,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly bucketDomainName!: pulumi.Output<string>;
     /**
-     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
      */
     public readonly bucketPrefix!: pulumi.Output<string | undefined>;
     /**
@@ -513,7 +513,7 @@ export interface BucketState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
      */
     readonly bucket?: pulumi.Input<string>;
     /**
@@ -521,7 +521,7 @@ export interface BucketState {
      */
     readonly bucketDomainName?: pulumi.Input<string>;
     /**
-     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
      */
     readonly bucketPrefix?: pulumi.Input<string>;
     /**
@@ -618,11 +618,11 @@ export interface BucketArgs {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
      */
     readonly bucket?: pulumi.Input<string>;
     /**
-     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
+     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
      */
     readonly bucketPrefix?: pulumi.Input<string>;
     /**

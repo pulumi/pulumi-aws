@@ -190,6 +190,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Instance { get; private set; } = null!;
 
         /// <summary>
+        /// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+        /// </summary>
+        [Output("networkBorderGroup")]
+        public Output<string> NetworkBorderGroup { get; private set; } = null!;
+
+        /// <summary>
         /// Network interface ID to associate with.
         /// </summary>
         [Output("networkInterface")]
@@ -304,6 +310,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Instance { get; set; }
 
         /// <summary>
+        /// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+        /// </summary>
+        [Input("networkBorderGroup")]
+        public Input<string>? NetworkBorderGroup { get; set; }
+
+        /// <summary>
         /// Network interface ID to associate with.
         /// </summary>
         [Input("networkInterface")]
@@ -377,6 +389,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instance")]
         public Input<string>? Instance { get; set; }
+
+        /// <summary>
+        /// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+        /// </summary>
+        [Input("networkBorderGroup")]
+        public Input<string>? NetworkBorderGroup { get; set; }
 
         /// <summary>
         /// Network interface ID to associate with.

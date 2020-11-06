@@ -64,6 +64,10 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     */
+    public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationDataCaptureConfig | undefined>;
+    /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
@@ -93,6 +97,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EndpointConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["dataCaptureConfig"] = state ? state.dataCaptureConfig : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["productionVariants"] = state ? state.productionVariants : undefined;
@@ -102,6 +107,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             if (!args || args.productionVariants === undefined) {
                 throw new Error("Missing required property 'productionVariants'");
             }
+            inputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["productionVariants"] = args ? args.productionVariants : undefined;
@@ -128,6 +134,10 @@ export interface EndpointConfigurationState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     */
+    readonly dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
+    /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
@@ -149,6 +159,10 @@ export interface EndpointConfigurationState {
  * The set of arguments for constructing a EndpointConfiguration resource.
  */
 export interface EndpointConfigurationArgs {
+    /**
+     * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
+     */
+    readonly dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */

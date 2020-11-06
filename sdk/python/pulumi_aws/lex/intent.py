@@ -129,7 +129,7 @@ class Intent(pulumi.CustomResource):
                or neither. Attributes are documented under prompt.
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial
                resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[str] description: A description of the bot.
+        :param pulumi.Input[str] description: A description of the bot. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[pulumi.InputType['IntentDialogCodeHookArgs']] dialog_code_hook: Specifies a Lambda function to invoke for each user input. You can
                invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
         :param pulumi.Input[pulumi.InputType['IntentFollowUpPromptArgs']] follow_up_prompt: Amazon Lex uses this prompt to solicit additional activity after
@@ -139,7 +139,7 @@ class Intent(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IntentFulfillmentActivityArgs']] fulfillment_activity: Describes how the intent is fulfilled. For example, after a
                user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
                places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-        :param pulumi.Input[str] name: The name of the intent slot that you want to create. The name is case sensitive.
+        :param pulumi.Input[str] name: The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         :param pulumi.Input[str] parent_intent_signature: A unique identifier for the built-in intent to base this
                intent on. To find the signature for an intent, see
                [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
@@ -149,7 +149,7 @@ class Intent(pulumi.CustomResource):
                documented below under statement.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sample_utterances: If you know a specific pattern with which users might respond to
                an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-               is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+               is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntentSlotArgs']]]] slots: An list of intent slots. At runtime, Amazon Lex elicits required slot values
                from the user using prompts defined in the slots. Attributes are documented under slot.
         """
@@ -237,7 +237,7 @@ class Intent(pulumi.CustomResource):
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial
                resource is created and on each update. Defaults to `false`.
         :param pulumi.Input[str] created_date: The date when the intent version was created.
-        :param pulumi.Input[str] description: A description of the bot.
+        :param pulumi.Input[str] description: A description of the bot. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[pulumi.InputType['IntentDialogCodeHookArgs']] dialog_code_hook: Specifies a Lambda function to invoke for each user input. You can
                invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
         :param pulumi.Input[pulumi.InputType['IntentFollowUpPromptArgs']] follow_up_prompt: Amazon Lex uses this prompt to solicit additional activity after
@@ -248,7 +248,7 @@ class Intent(pulumi.CustomResource):
                user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
                places an order with a local pizza store. Attributes are documented under fulfillment_activity.
         :param pulumi.Input[str] last_updated_date: The date when the $LATEST version of this intent was updated.
-        :param pulumi.Input[str] name: The name of the intent slot that you want to create. The name is case sensitive.
+        :param pulumi.Input[str] name: The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         :param pulumi.Input[str] parent_intent_signature: A unique identifier for the built-in intent to base this
                intent on. To find the signature for an intent, see
                [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
@@ -258,7 +258,7 @@ class Intent(pulumi.CustomResource):
                documented below under statement.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sample_utterances: If you know a specific pattern with which users might respond to
                an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-               is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+               is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntentSlotArgs']]]] slots: An list of intent slots. At runtime, Amazon Lex elicits required slot values
                from the user using prompts defined in the slots. Attributes are documented under slot.
         :param pulumi.Input[str] version: The version of the bot.
@@ -346,7 +346,7 @@ class Intent(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the bot.
+        A description of the bot. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -392,7 +392,7 @@ class Intent(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the intent slot that you want to create. The name is case sensitive.
+        The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -423,7 +423,7 @@ class Intent(pulumi.CustomResource):
         """
         If you know a specific pattern with which users might respond to
         an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-        is optional. In most cases, Amazon Lex is capable of understanding user utterances.
+        is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "sample_utterances")
 

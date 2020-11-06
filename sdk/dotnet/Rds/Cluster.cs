@@ -381,10 +381,10 @@ namespace Pulumi.Aws.Rds
         public Output<string?> SourceRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+        /// Specifies whether the DB cluster is encrypted
         /// </summary>
         [Output("storageEncrypted")]
-        public Output<bool?> StorageEncrypted { get; private set; } = null!;
+        public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the DB cluster.
@@ -670,7 +670,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+        /// Specifies whether the DB cluster is encrypted
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -963,7 +963,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+        /// Specifies whether the DB cluster is encrypted
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

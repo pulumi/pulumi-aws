@@ -78,7 +78,7 @@ export class BotAlias extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * A description of the alias.
+     * A description of the alias. Must be less than or equal to 200 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -86,7 +86,7 @@ export class BotAlias extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the alias. The name is not case sensitive.
+     * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -169,7 +169,7 @@ export interface BotAliasState {
      */
     readonly createdDate?: pulumi.Input<string>;
     /**
-     * A description of the alias.
+     * A description of the alias. Must be less than or equal to 200 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface BotAliasState {
      */
     readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the alias. The name is not case sensitive.
+     * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
     readonly name?: pulumi.Input<string>;
 }
@@ -199,11 +199,11 @@ export interface BotAliasArgs {
      */
     readonly conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs>;
     /**
-     * A description of the alias.
+     * A description of the alias. Must be less than or equal to 200 characters in length.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The name of the alias. The name is not case sensitive.
+     * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
     readonly name?: pulumi.Input<string>;
 }

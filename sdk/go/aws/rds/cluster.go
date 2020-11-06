@@ -238,8 +238,8 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
-	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
-	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	// Specifies whether the DB cluster is encrypted
+	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// List of VPC security groups to associate with the Cluster
@@ -352,7 +352,7 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion *string `pulumi:"sourceRegion"`
-	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+	// Specifies whether the DB cluster is encrypted
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -439,7 +439,7 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrInput
-	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+	// Specifies whether the DB cluster is encrypted
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.StringMapInput
@@ -519,7 +519,7 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion *string `pulumi:"sourceRegion"`
-	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+	// Specifies whether the DB cluster is encrypted
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -596,7 +596,7 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrInput
-	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
+	// Specifies whether the DB cluster is encrypted
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.StringMapInput

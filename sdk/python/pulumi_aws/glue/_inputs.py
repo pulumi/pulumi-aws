@@ -23,6 +23,7 @@ __all__ = [
     'CrawlerCatalogTargetArgs',
     'CrawlerDynamodbTargetArgs',
     'CrawlerJdbcTargetArgs',
+    'CrawlerMongodbTargetArgs',
     'CrawlerS3TargetArgs',
     'CrawlerSchemaChangePolicyArgs',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs',
@@ -45,6 +46,7 @@ __all__ = [
     'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs',
     'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs',
     'TriggerActionArgs',
+    'TriggerActionNotificationPropertyArgs',
     'TriggerPredicateArgs',
     'TriggerPredicateConditionArgs',
     'UserDefinedFunctionResourceUriArgs',
@@ -919,6 +921,59 @@ class CrawlerJdbcTargetArgs:
     @exclusions.setter
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "exclusions", value)
+
+
+@pulumi.input_type
+class CrawlerMongodbTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 scan_all: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        :param pulumi.Input[bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        """
+        pulumi.set(__self__, "connection_name", connection_name)
+        pulumi.set(__self__, "path", path)
+        if scan_all is not None:
+            pulumi.set(__self__, "scan_all", scan_all)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[str]:
+        """
+        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="scanAll")
+    def scan_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        """
+        return pulumi.get(self, "scan_all")
+
+    @scan_all.setter
+    def scan_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scan_all", value)
 
 
 @pulumi.input_type
@@ -2010,11 +2065,15 @@ class TriggerActionArgs:
                  arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  crawler_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
+                 notification_property: Optional[pulumi.Input['TriggerActionNotificationPropertyArgs']] = None,
+                 security_configuration: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
         :param pulumi.Input[str] crawler_name: The name of the crawler to be executed. Conflicts with `job_name`.
         :param pulumi.Input[str] job_name: The name of a job to be executed. Conflicts with `crawler_name`.
+        :param pulumi.Input['TriggerActionNotificationPropertyArgs'] notification_property: Specifies configuration properties of a job run notification. see Notification Property details below.
+        :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this action.
         :param pulumi.Input[int] timeout: The job run timeout in minutes. It overrides the timeout value of the job.
         """
         if arguments is not None:
@@ -2023,6 +2082,10 @@ class TriggerActionArgs:
             pulumi.set(__self__, "crawler_name", crawler_name)
         if job_name is not None:
             pulumi.set(__self__, "job_name", job_name)
+        if notification_property is not None:
+            pulumi.set(__self__, "notification_property", notification_property)
+        if security_configuration is not None:
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -2063,6 +2126,30 @@ class TriggerActionArgs:
         pulumi.set(self, "job_name", value)
 
     @property
+    @pulumi.getter(name="notificationProperty")
+    def notification_property(self) -> Optional[pulumi.Input['TriggerActionNotificationPropertyArgs']]:
+        """
+        Specifies configuration properties of a job run notification. see Notification Property details below.
+        """
+        return pulumi.get(self, "notification_property")
+
+    @notification_property.setter
+    def notification_property(self, value: Optional[pulumi.Input['TriggerActionNotificationPropertyArgs']]):
+        pulumi.set(self, "notification_property", value)
+
+    @property
+    @pulumi.getter(name="securityConfiguration")
+    def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Security Configuration structure to be used with this action.
+        """
+        return pulumi.get(self, "security_configuration")
+
+    @security_configuration.setter
+    def security_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_configuration", value)
+
+    @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2073,6 +2160,29 @@ class TriggerActionArgs:
     @timeout.setter
     def timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class TriggerActionNotificationPropertyArgs:
+    def __init__(__self__, *,
+                 notify_delay_after: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+        if notify_delay_after is not None:
+            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+
+    @property
+    @pulumi.getter(name="notifyDelayAfter")
+    def notify_delay_after(self) -> Optional[pulumi.Input[int]]:
+        """
+        After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+        return pulumi.get(self, "notify_delay_after")
+
+    @notify_delay_after.setter
+    def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "notify_delay_after", value)
 
 
 @pulumi.input_type

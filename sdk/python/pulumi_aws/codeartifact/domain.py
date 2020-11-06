@@ -17,6 +17,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -39,6 +40,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         :param pulumi.Input[str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,6 +65,7 @@ class Domain(pulumi.CustomResource):
             if encryption_key is None:
                 raise TypeError("Missing required property 'encryption_key'")
             __props__['encryption_key'] = encryption_key
+            __props__['tags'] = tags
             __props__['arn'] = None
             __props__['asset_size_bytes'] = None
             __props__['created_time'] = None
@@ -84,7 +87,8 @@ class Domain(pulumi.CustomResource):
             domain: Optional[pulumi.Input[str]] = None,
             encryption_key: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
-            repository_count: Optional[pulumi.Input[int]] = None) -> 'Domain':
+            repository_count: Optional[pulumi.Input[int]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,6 +103,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN).
         :param pulumi.Input[str] owner: The AWS account ID that owns the domain.
         :param pulumi.Input[int] repository_count: The number of repositories in the domain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -111,6 +116,7 @@ class Domain(pulumi.CustomResource):
         __props__["encryption_key"] = encryption_key
         __props__["owner"] = owner
         __props__["repository_count"] = repository_count
+        __props__["tags"] = tags
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -168,6 +174,14 @@ class Domain(pulumi.CustomResource):
         The number of repositories in the domain.
         """
         return pulumi.get(self, "repository_count")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .delegation_set import *
 from .get_delegation_set import *
+from .get_resolver_endpoint import *
 from .get_resolver_rule import *
 from .get_resolver_rules import *
 from .get_zone import *

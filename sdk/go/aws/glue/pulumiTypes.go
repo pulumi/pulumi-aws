@@ -2207,6 +2207,121 @@ func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTarget
 	}).(CrawlerJdbcTargetOutput)
 }
 
+type CrawlerMongodbTarget struct {
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	ConnectionName string `pulumi:"connectionName"`
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	Path string `pulumi:"path"`
+	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+	ScanAll *bool `pulumi:"scanAll"`
+}
+
+// CrawlerMongodbTargetInput is an input type that accepts CrawlerMongodbTargetArgs and CrawlerMongodbTargetOutput values.
+// You can construct a concrete instance of `CrawlerMongodbTargetInput` via:
+//
+//          CrawlerMongodbTargetArgs{...}
+type CrawlerMongodbTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerMongodbTargetOutput() CrawlerMongodbTargetOutput
+	ToCrawlerMongodbTargetOutputWithContext(context.Context) CrawlerMongodbTargetOutput
+}
+
+type CrawlerMongodbTargetArgs struct {
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	Path pulumi.StringInput `pulumi:"path"`
+	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+	ScanAll pulumi.BoolPtrInput `pulumi:"scanAll"`
+}
+
+func (CrawlerMongodbTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerMongodbTarget)(nil)).Elem()
+}
+
+func (i CrawlerMongodbTargetArgs) ToCrawlerMongodbTargetOutput() CrawlerMongodbTargetOutput {
+	return i.ToCrawlerMongodbTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerMongodbTargetArgs) ToCrawlerMongodbTargetOutputWithContext(ctx context.Context) CrawlerMongodbTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongodbTargetOutput)
+}
+
+// CrawlerMongodbTargetArrayInput is an input type that accepts CrawlerMongodbTargetArray and CrawlerMongodbTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerMongodbTargetArrayInput` via:
+//
+//          CrawlerMongodbTargetArray{ CrawlerMongodbTargetArgs{...} }
+type CrawlerMongodbTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerMongodbTargetArrayOutput() CrawlerMongodbTargetArrayOutput
+	ToCrawlerMongodbTargetArrayOutputWithContext(context.Context) CrawlerMongodbTargetArrayOutput
+}
+
+type CrawlerMongodbTargetArray []CrawlerMongodbTargetInput
+
+func (CrawlerMongodbTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerMongodbTarget)(nil)).Elem()
+}
+
+func (i CrawlerMongodbTargetArray) ToCrawlerMongodbTargetArrayOutput() CrawlerMongodbTargetArrayOutput {
+	return i.ToCrawlerMongodbTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerMongodbTargetArray) ToCrawlerMongodbTargetArrayOutputWithContext(ctx context.Context) CrawlerMongodbTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongodbTargetArrayOutput)
+}
+
+type CrawlerMongodbTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerMongodbTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerMongodbTarget)(nil)).Elem()
+}
+
+func (o CrawlerMongodbTargetOutput) ToCrawlerMongodbTargetOutput() CrawlerMongodbTargetOutput {
+	return o
+}
+
+func (o CrawlerMongodbTargetOutput) ToCrawlerMongodbTargetOutputWithContext(ctx context.Context) CrawlerMongodbTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+func (o CrawlerMongodbTargetOutput) ConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v CrawlerMongodbTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
+}
+
+// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+func (o CrawlerMongodbTargetOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v CrawlerMongodbTarget) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+func (o CrawlerMongodbTargetOutput) ScanAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerMongodbTarget) *bool { return v.ScanAll }).(pulumi.BoolPtrOutput)
+}
+
+type CrawlerMongodbTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerMongodbTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerMongodbTarget)(nil)).Elem()
+}
+
+func (o CrawlerMongodbTargetArrayOutput) ToCrawlerMongodbTargetArrayOutput() CrawlerMongodbTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerMongodbTargetArrayOutput) ToCrawlerMongodbTargetArrayOutputWithContext(ctx context.Context) CrawlerMongodbTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerMongodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongodbTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerMongodbTarget {
+		return vs[0].([]CrawlerMongodbTarget)[vs[1].(int)]
+	}).(CrawlerMongodbTargetOutput)
+}
+
 type CrawlerS3Target struct {
 	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName *string `pulumi:"connectionName"`
@@ -5477,6 +5592,10 @@ type TriggerAction struct {
 	CrawlerName *string `pulumi:"crawlerName"`
 	// The name of a job to be executed. Conflicts with `crawlerName`.
 	JobName *string `pulumi:"jobName"`
+	// Specifies configuration properties of a job run notification. see Notification Property details below.
+	NotificationProperty *TriggerActionNotificationProperty `pulumi:"notificationProperty"`
+	// The name of the Security Configuration structure to be used with this action.
+	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// The job run timeout in minutes. It overrides the timeout value of the job.
 	Timeout *int `pulumi:"timeout"`
 }
@@ -5499,6 +5618,10 @@ type TriggerActionArgs struct {
 	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
 	// The name of a job to be executed. Conflicts with `crawlerName`.
 	JobName pulumi.StringPtrInput `pulumi:"jobName"`
+	// Specifies configuration properties of a job run notification. see Notification Property details below.
+	NotificationProperty TriggerActionNotificationPropertyPtrInput `pulumi:"notificationProperty"`
+	// The name of the Security Configuration structure to be used with this action.
+	SecurityConfiguration pulumi.StringPtrInput `pulumi:"securityConfiguration"`
 	// The job run timeout in minutes. It overrides the timeout value of the job.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
@@ -5569,6 +5692,16 @@ func (o TriggerActionOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies configuration properties of a job run notification. see Notification Property details below.
+func (o TriggerActionOutput) NotificationProperty() TriggerActionNotificationPropertyPtrOutput {
+	return o.ApplyT(func(v TriggerAction) *TriggerActionNotificationProperty { return v.NotificationProperty }).(TriggerActionNotificationPropertyPtrOutput)
+}
+
+// The name of the Security Configuration structure to be used with this action.
+func (o TriggerActionOutput) SecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerAction) *string { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
 // The job run timeout in minutes. It overrides the timeout value of the job.
 func (o TriggerActionOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
@@ -5592,6 +5725,137 @@ func (o TriggerActionArrayOutput) Index(i pulumi.IntInput) TriggerActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerAction {
 		return vs[0].([]TriggerAction)[vs[1].(int)]
 	}).(TriggerActionOutput)
+}
+
+type TriggerActionNotificationProperty struct {
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	NotifyDelayAfter *int `pulumi:"notifyDelayAfter"`
+}
+
+// TriggerActionNotificationPropertyInput is an input type that accepts TriggerActionNotificationPropertyArgs and TriggerActionNotificationPropertyOutput values.
+// You can construct a concrete instance of `TriggerActionNotificationPropertyInput` via:
+//
+//          TriggerActionNotificationPropertyArgs{...}
+type TriggerActionNotificationPropertyInput interface {
+	pulumi.Input
+
+	ToTriggerActionNotificationPropertyOutput() TriggerActionNotificationPropertyOutput
+	ToTriggerActionNotificationPropertyOutputWithContext(context.Context) TriggerActionNotificationPropertyOutput
+}
+
+type TriggerActionNotificationPropertyArgs struct {
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	NotifyDelayAfter pulumi.IntPtrInput `pulumi:"notifyDelayAfter"`
+}
+
+func (TriggerActionNotificationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerActionNotificationProperty)(nil)).Elem()
+}
+
+func (i TriggerActionNotificationPropertyArgs) ToTriggerActionNotificationPropertyOutput() TriggerActionNotificationPropertyOutput {
+	return i.ToTriggerActionNotificationPropertyOutputWithContext(context.Background())
+}
+
+func (i TriggerActionNotificationPropertyArgs) ToTriggerActionNotificationPropertyOutputWithContext(ctx context.Context) TriggerActionNotificationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerActionNotificationPropertyOutput)
+}
+
+func (i TriggerActionNotificationPropertyArgs) ToTriggerActionNotificationPropertyPtrOutput() TriggerActionNotificationPropertyPtrOutput {
+	return i.ToTriggerActionNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i TriggerActionNotificationPropertyArgs) ToTriggerActionNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerActionNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerActionNotificationPropertyOutput).ToTriggerActionNotificationPropertyPtrOutputWithContext(ctx)
+}
+
+// TriggerActionNotificationPropertyPtrInput is an input type that accepts TriggerActionNotificationPropertyArgs, TriggerActionNotificationPropertyPtr and TriggerActionNotificationPropertyPtrOutput values.
+// You can construct a concrete instance of `TriggerActionNotificationPropertyPtrInput` via:
+//
+//          TriggerActionNotificationPropertyArgs{...}
+//
+//  or:
+//
+//          nil
+type TriggerActionNotificationPropertyPtrInput interface {
+	pulumi.Input
+
+	ToTriggerActionNotificationPropertyPtrOutput() TriggerActionNotificationPropertyPtrOutput
+	ToTriggerActionNotificationPropertyPtrOutputWithContext(context.Context) TriggerActionNotificationPropertyPtrOutput
+}
+
+type triggerActionNotificationPropertyPtrType TriggerActionNotificationPropertyArgs
+
+func TriggerActionNotificationPropertyPtr(v *TriggerActionNotificationPropertyArgs) TriggerActionNotificationPropertyPtrInput {
+	return (*triggerActionNotificationPropertyPtrType)(v)
+}
+
+func (*triggerActionNotificationPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerActionNotificationProperty)(nil)).Elem()
+}
+
+func (i *triggerActionNotificationPropertyPtrType) ToTriggerActionNotificationPropertyPtrOutput() TriggerActionNotificationPropertyPtrOutput {
+	return i.ToTriggerActionNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *triggerActionNotificationPropertyPtrType) ToTriggerActionNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerActionNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerActionNotificationPropertyPtrOutput)
+}
+
+type TriggerActionNotificationPropertyOutput struct{ *pulumi.OutputState }
+
+func (TriggerActionNotificationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerActionNotificationProperty)(nil)).Elem()
+}
+
+func (o TriggerActionNotificationPropertyOutput) ToTriggerActionNotificationPropertyOutput() TriggerActionNotificationPropertyOutput {
+	return o
+}
+
+func (o TriggerActionNotificationPropertyOutput) ToTriggerActionNotificationPropertyOutputWithContext(ctx context.Context) TriggerActionNotificationPropertyOutput {
+	return o
+}
+
+func (o TriggerActionNotificationPropertyOutput) ToTriggerActionNotificationPropertyPtrOutput() TriggerActionNotificationPropertyPtrOutput {
+	return o.ToTriggerActionNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerActionNotificationPropertyOutput) ToTriggerActionNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerActionNotificationPropertyPtrOutput {
+	return o.ApplyT(func(v TriggerActionNotificationProperty) *TriggerActionNotificationProperty {
+		return &v
+	}).(TriggerActionNotificationPropertyPtrOutput)
+}
+
+// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+func (o TriggerActionNotificationPropertyOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TriggerActionNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
+}
+
+type TriggerActionNotificationPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (TriggerActionNotificationPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerActionNotificationProperty)(nil)).Elem()
+}
+
+func (o TriggerActionNotificationPropertyPtrOutput) ToTriggerActionNotificationPropertyPtrOutput() TriggerActionNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o TriggerActionNotificationPropertyPtrOutput) ToTriggerActionNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerActionNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o TriggerActionNotificationPropertyPtrOutput) Elem() TriggerActionNotificationPropertyOutput {
+	return o.ApplyT(func(v *TriggerActionNotificationProperty) TriggerActionNotificationProperty { return *v }).(TriggerActionNotificationPropertyOutput)
+}
+
+// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+func (o TriggerActionNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TriggerActionNotificationProperty) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NotifyDelayAfter
+	}).(pulumi.IntPtrOutput)
 }
 
 type TriggerPredicate struct {
@@ -6366,6 +6630,8 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerMongodbTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerMongodbTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerS3TargetOutput{})
 	pulumi.RegisterOutputType(CrawlerS3TargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyOutput{})
@@ -6410,6 +6676,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(TriggerActionOutput{})
 	pulumi.RegisterOutputType(TriggerActionArrayOutput{})
+	pulumi.RegisterOutputType(TriggerActionNotificationPropertyOutput{})
+	pulumi.RegisterOutputType(TriggerActionNotificationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(TriggerPredicateOutput{})
 	pulumi.RegisterOutputType(TriggerPredicatePtrOutput{})
 	pulumi.RegisterOutputType(TriggerPredicateConditionOutput{})

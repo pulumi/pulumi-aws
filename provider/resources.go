@@ -1917,6 +1917,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_secretsmanager_secret":          {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version":  {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
 			"aws_secretsmanager_secret_rotation": {Tok: awsResource(secretsmanagerMod, "SecretRotation")},
+			"aws_secretsmanager_secret_policy":   {Tok: awsResource(secretsmanagerMod, "SecretPolicy")},
 			// Service Catalog
 			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
 			// Security Hub
@@ -3332,10 +3333,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_service_account":   {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
 			"aws_redshift_orderable_cluster": {Tok: awsDataSource(redshiftMod, "getOrderableCluster")},
 			// Route53
-			"aws_route53_zone":           {Tok: awsDataSource(route53Mod, "getZone")},
-			"aws_route53_delegation_set": {Tok: awsDataSource(route53Mod, "getDelegationSet")},
-			"aws_route53_resolver_rule":  {Tok: awsDataSource(route53Mod, "getResolverRule")},
-			"aws_route53_resolver_rules": {Tok: awsDataSource(route53Mod, "getResolverRules")},
+			"aws_route53_zone":              {Tok: awsDataSource(route53Mod, "getZone")},
+			"aws_route53_delegation_set":    {Tok: awsDataSource(route53Mod, "getDelegationSet")},
+			"aws_route53_resolver_rule":     {Tok: awsDataSource(route53Mod, "getResolverRule")},
+			"aws_route53_resolver_rules":    {Tok: awsDataSource(route53Mod, "getResolverRules")},
+			"aws_route53_resolver_endpoint": {Tok: awsDataSource(route53Mod, "getResolverEndpoint")},
 			// S3
 			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
@@ -3360,6 +3362,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_workspaces_bundle":    {Tok: awsDataSource(workspacesMod, "getBundle")},
 			"aws_workspaces_directory": {Tok: awsDataSource(workspacesMod, "getDirectory")},
 			"aws_workspaces_image":     {Tok: awsDataSource(workspacesMod, "getImage")},
+			"aws_workspaces_workspace": {Tok: awsDataSource(workspacesMod, "getWorkspace")},
 			// MSK
 			"aws_msk_cluster": {Tok: awsDataSource(mskMod, "getCluster")},
 			// Service Quotas
@@ -3419,6 +3422,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_neptune_engine_version":           {Tok: awsDataSource(neptuneMod, "getEngineVersion")},
 			"aws_codeartifact_authorization_token": {Tok: awsDataSource(codeartifactMod, "getAuthorizationToken")},
 			"aws_codeartifact_repository_endpoint": {Tok: awsDataSource(codeartifactMod, "getRepositoryEndpoint")},
+			"aws_sagemaker_prebuilt_ecr_image":     {Tok: awsDataSource(sagemakerMod, "getPrebuiltEcrImage")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

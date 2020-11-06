@@ -183,6 +183,8 @@ type Eip struct {
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance pulumi.StringOutput `pulumi:"instance"`
+	// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+	NetworkBorderGroup pulumi.StringOutput `pulumi:"networkBorderGroup"`
 	// Network interface ID to associate with.
 	NetworkInterface pulumi.StringOutput `pulumi:"networkInterface"`
 	// The Private DNS associated with the Elastic IP address (if in VPC).
@@ -243,6 +245,8 @@ type eipState struct {
 	Domain *string `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
+	// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+	NetworkBorderGroup *string `pulumi:"networkBorderGroup"`
 	// Network interface ID to associate with.
 	NetworkInterface *string `pulumi:"networkInterface"`
 	// The Private DNS associated with the Elastic IP address (if in VPC).
@@ -276,6 +280,8 @@ type EipState struct {
 	Domain pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
+	// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+	NetworkBorderGroup pulumi.StringPtrInput
 	// Network interface ID to associate with.
 	NetworkInterface pulumi.StringPtrInput
 	// The Private DNS associated with the Elastic IP address (if in VPC).
@@ -307,6 +313,8 @@ type eipArgs struct {
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
+	// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+	NetworkBorderGroup *string `pulumi:"networkBorderGroup"`
 	// Network interface ID to associate with.
 	NetworkInterface *string `pulumi:"networkInterface"`
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
@@ -327,6 +335,8 @@ type EipArgs struct {
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
+	// The location from which the IP address is advertised. Use this parameter to limit the address to this location.
+	NetworkBorderGroup pulumi.StringPtrInput
 	// Network interface ID to associate with.
 	NetworkInterface pulumi.StringPtrInput
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.

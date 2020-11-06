@@ -190,7 +190,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
-        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
@@ -351,7 +351,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
-        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
@@ -715,9 +715,9 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
+    def storage_encrypted(self) -> pulumi.Output[bool]:
         """
-        Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+        Specifies whether the DB cluster is encrypted
         """
         return pulumi.get(self, "storage_encrypted")
 

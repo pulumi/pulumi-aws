@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Kinesis.Inputs
         /// <summary>
         /// The Count of streams.
         /// </summary>
-        [Input("count", required: true)]
-        public Input<int> Count { get; set; } = null!;
+        [Input("count")]
+        public Input<int>? Count { get; set; }
 
         public AnalyticsApplicationInputsParallelismArgs()
         {

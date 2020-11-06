@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// <summary>
         /// The Count of streams.
         /// </summary>
-        public readonly int Count;
+        public readonly int? Count;
 
         [OutputConstructor]
-        private AnalyticsApplicationInputsParallelism(int count)
+        private AnalyticsApplicationInputsParallelism(int? count)
         {
             Count = count;
         }

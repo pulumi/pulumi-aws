@@ -1391,7 +1391,7 @@ type BucketLifecycleRule struct {
 	Enabled bool `pulumi:"enabled"`
 	// Specifies a period in the object's expire (documented below).
 	Expiration *BucketLifecycleRuleExpiration `pulumi:"expiration"`
-	// Unique identifier for the rule.
+	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id *string `pulumi:"id"`
 	// Specifies when noncurrent object versions expire (documented below).
 	NoncurrentVersionExpiration *BucketLifecycleRuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
@@ -1423,7 +1423,7 @@ type BucketLifecycleRuleArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies a period in the object's expire (documented below).
 	Expiration BucketLifecycleRuleExpirationPtrInput `pulumi:"expiration"`
-	// Unique identifier for the rule.
+	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies when noncurrent object versions expire (documented below).
 	NoncurrentVersionExpiration BucketLifecycleRuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
@@ -1503,7 +1503,7 @@ func (o BucketLifecycleRuleOutput) Expiration() BucketLifecycleRuleExpirationPtr
 	return o.ApplyT(func(v BucketLifecycleRule) *BucketLifecycleRuleExpiration { return v.Expiration }).(BucketLifecycleRuleExpirationPtrOutput)
 }
 
-// Unique identifier for the rule.
+// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 func (o BucketLifecycleRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3475,9 +3475,9 @@ type BucketReplicationConfigurationRule struct {
 	Destination BucketReplicationConfigurationRuleDestination `pulumi:"destination"`
 	// Filter that identifies subset of objects to which the replication rule applies (documented below).
 	Filter *BucketReplicationConfigurationRuleFilter `pulumi:"filter"`
-	// Unique identifier for the rule.
+	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id *string `pulumi:"id"`
-	// Object keyname prefix identifying one or more objects to which the rule applies.
+	// Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 	Prefix *string `pulumi:"prefix"`
 	// is optional (with a default value of `0`) but must be unique between multiple rules
 	Priority *int `pulumi:"priority"`
@@ -3503,9 +3503,9 @@ type BucketReplicationConfigurationRuleArgs struct {
 	Destination BucketReplicationConfigurationRuleDestinationInput `pulumi:"destination"`
 	// Filter that identifies subset of objects to which the replication rule applies (documented below).
 	Filter BucketReplicationConfigurationRuleFilterPtrInput `pulumi:"filter"`
-	// Unique identifier for the rule.
+	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Object keyname prefix identifying one or more objects to which the rule applies.
+	// Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// is optional (with a default value of `0`) but must be unique between multiple rules
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -3578,12 +3578,12 @@ func (o BucketReplicationConfigurationRuleOutput) Filter() BucketReplicationConf
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *BucketReplicationConfigurationRuleFilter { return v.Filter }).(BucketReplicationConfigurationRuleFilterPtrOutput)
 }
 
-// Unique identifier for the rule.
+// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 func (o BucketReplicationConfigurationRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Object keyname prefix identifying one or more objects to which the rule applies.
+// Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 func (o BucketReplicationConfigurationRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3852,7 +3852,7 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtr
 }
 
 type BucketReplicationConfigurationRuleFilter struct {
-	// Object keyname prefix that identifies subset of objects to which the rule applies.
+	// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 	Prefix *string `pulumi:"prefix"`
 	// A map of tags that identifies subset of objects to which the rule applies.
 	// The rule applies only to objects having all the tags in its tagset.
@@ -3871,7 +3871,7 @@ type BucketReplicationConfigurationRuleFilterInput interface {
 }
 
 type BucketReplicationConfigurationRuleFilterArgs struct {
-	// Object keyname prefix that identifies subset of objects to which the rule applies.
+	// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// A map of tags that identifies subset of objects to which the rule applies.
 	// The rule applies only to objects having all the tags in its tagset.
@@ -3955,7 +3955,7 @@ func (o BucketReplicationConfigurationRuleFilterOutput) ToBucketReplicationConfi
 	}).(BucketReplicationConfigurationRuleFilterPtrOutput)
 }
 
-// Object keyname prefix that identifies subset of objects to which the rule applies.
+// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 func (o BucketReplicationConfigurationRuleFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3984,7 +3984,7 @@ func (o BucketReplicationConfigurationRuleFilterPtrOutput) Elem() BucketReplicat
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleFilter) BucketReplicationConfigurationRuleFilter { return *v }).(BucketReplicationConfigurationRuleFilterOutput)
 }
 
-// Object keyname prefix that identifies subset of objects to which the rule applies.
+// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 func (o BucketReplicationConfigurationRuleFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleFilter) *string {
 		if v == nil {

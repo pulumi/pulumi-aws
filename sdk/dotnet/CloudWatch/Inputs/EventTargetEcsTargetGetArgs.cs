@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<string>? Group { get; set; }
 
         /// <summary>
-        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }

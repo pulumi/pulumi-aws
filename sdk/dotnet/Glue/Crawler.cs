@@ -133,6 +133,33 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
+    /// ### MongoDB Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             MongodbTargets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerMongodbTargetArgs
+    ///                 {
+    ///                     ConnectionName = aws_glue_connection.Example.Name,
+    ///                     Path = "database-name/%",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Crawler : Pulumi.CustomResource
     {
@@ -180,6 +207,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("jdbcTargets")]
         public Output<ImmutableArray<Outputs.CrawlerJdbcTarget>> JdbcTargets { get; private set; } = null!;
+
+        /// <summary>
+        /// List nested MongoDB target arguments. See below.
+        /// </summary>
+        [Output("mongodbTargets")]
+        public Output<ImmutableArray<Outputs.CrawlerMongodbTarget>> MongodbTargets { get; private set; } = null!;
 
         /// <summary>
         /// Name of the crawler.
@@ -337,6 +370,18 @@ namespace Pulumi.Aws.Glue
             set => _jdbcTargets = value;
         }
 
+        [Input("mongodbTargets")]
+        private InputList<Inputs.CrawlerMongodbTargetArgs>? _mongodbTargets;
+
+        /// <summary>
+        /// List nested MongoDB target arguments. See below.
+        /// </summary>
+        public InputList<Inputs.CrawlerMongodbTargetArgs> MongodbTargets
+        {
+            get => _mongodbTargets ?? (_mongodbTargets = new InputList<Inputs.CrawlerMongodbTargetArgs>());
+            set => _mongodbTargets = value;
+        }
+
         /// <summary>
         /// Name of the crawler.
         /// </summary>
@@ -470,6 +515,18 @@ namespace Pulumi.Aws.Glue
         {
             get => _jdbcTargets ?? (_jdbcTargets = new InputList<Inputs.CrawlerJdbcTargetGetArgs>());
             set => _jdbcTargets = value;
+        }
+
+        [Input("mongodbTargets")]
+        private InputList<Inputs.CrawlerMongodbTargetGetArgs>? _mongodbTargets;
+
+        /// <summary>
+        /// List nested MongoDB target arguments. See below.
+        /// </summary>
+        public InputList<Inputs.CrawlerMongodbTargetGetArgs> MongodbTargets
+        {
+            get => _mongodbTargets ?? (_mongodbTargets = new InputList<Inputs.CrawlerMongodbTargetGetArgs>());
+            set => _mongodbTargets = value;
         }
 
         /// <summary>
