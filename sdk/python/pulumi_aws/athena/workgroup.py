@@ -39,7 +39,7 @@ class Workgroup(pulumi.CustomResource):
             enforce_workgroup_configuration=True,
             publish_cloudwatch_metrics_enabled=True,
             result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                output_location="s3://{aws_s3_bucket.example.bucket}/output/",
+                output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
                 encryption_configuration={
                     "encryptionOption": "SSE_KMS",
                     "kms_key_arn": aws_kms_key["example"]["arn"],
