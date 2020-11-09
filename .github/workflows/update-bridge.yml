@@ -58,7 +58,7 @@ jobs:
         uses: pulumi/action-install-pulumi-cli@b811287a6e06bb7e5d8b91132b839c67e3f9c6ed
       - name: Update Bridge version
         run: |
-          cd provider && go mod -require github.com/pulumi/pulumi-terraform-bridge/v2@${{ env.BRIDGE_VERSION }} && cd ../
+          cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v2@${{ env.BRIDGE_VERSION }} && cd ../
           cd provider && go mod tidy && ../
       - name: Build tfgen & provider binaries
         run: make build_sdks
@@ -73,6 +73,17 @@ jobs:
           ref: "update-bridge/${{ env.BRIDGE_VERSION }}-${{ github.run_id }}"
           author_name: pulumi-bot
           author_email: "bot@pulumi.com"
+    strategy:
+      fail-fast: true
+      matrix:
+        dotnetversion:
+          - 3.1.301
+        goversion:
+          - 1.15.x
+        nodeversion:
+          - 13.x
+        pythonversion:
+          - "3.7"
   pull-request:
     runs-on: ubuntu-latest
     needs: update-bridge
