@@ -59,7 +59,7 @@ jobs:
       - name: Update Bridge version
         run: |
           cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v2@${{ env.BRIDGE_VERSION }} && cd ../
-          cd provider && go mod tidy && ../
+          cd provider && go mod tidy && cd ../
       - name: Build tfgen & provider binaries
         run: make build_sdks
       - name: Create changelog entry
