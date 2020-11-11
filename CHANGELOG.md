@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for the autonaming of MSK Clusters
 
 ---
 

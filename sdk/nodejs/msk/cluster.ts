@@ -64,7 +64,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example = new aws.msk.Cluster("example", {
- *     clusterName: "example",
  *     kafkaVersion: "2.4.1",
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
@@ -242,9 +241,6 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.brokerNodeGroupInfo === undefined) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
             }
-            if (!args || args.clusterName === undefined) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if (!args || args.kafkaVersion === undefined) {
                 throw new Error("Missing required property 'kafkaVersion'");
             }
@@ -365,7 +361,7 @@ export interface ClusterArgs {
     /**
      * Name of the MSK cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */

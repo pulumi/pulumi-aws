@@ -112,7 +112,6 @@ import (
 // 			return err
 // 		}
 // 		example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-// 			ClusterName:         pulumi.String("example"),
 // 			KafkaVersion:        pulumi.String("2.4.1"),
 // 			NumberOfBrokerNodes: pulumi.Int(3),
 // 			BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
@@ -213,9 +212,6 @@ func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil || args.BrokerNodeGroupInfo == nil {
 		return nil, errors.New("missing required argument 'BrokerNodeGroupInfo'")
-	}
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
 	}
 	if args == nil || args.KafkaVersion == nil {
 		return nil, errors.New("missing required argument 'KafkaVersion'")
@@ -329,7 +325,7 @@ type clusterArgs struct {
 	// Configuration block for specifying a client authentication. See below.
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// Name of the MSK cluster.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
 	// Configuration block for specifying encryption. See below.
@@ -355,7 +351,7 @@ type ClusterArgs struct {
 	// Configuration block for specifying a client authentication. See below.
 	ClientAuthentication ClusterClientAuthenticationPtrInput
 	// Name of the MSK cluster.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo ClusterConfigurationInfoPtrInput
 	// Configuration block for specifying encryption. See below.

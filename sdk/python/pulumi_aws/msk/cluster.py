@@ -82,7 +82,6 @@ class Cluster(pulumi.CustomResource):
                 "LogDeliveryEnabled": "placeholder",
             })
         example = aws.msk.Cluster("example",
-            cluster_name="example",
             kafka_version="2.4.1",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
@@ -167,8 +166,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'broker_node_group_info'")
             __props__['broker_node_group_info'] = broker_node_group_info
             __props__['client_authentication'] = client_authentication
-            if cluster_name is None:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['configuration_info'] = configuration_info
             __props__['encryption_info'] = encryption_info
