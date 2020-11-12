@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for the autonaming of MSK Clusters
+_(none)_
 
 ---
+
+## 3.12.2 (2020-11-12)
+* Add support for the autonaming of MSK Clusters
 
 ## 3.12.1 (2020-11-06)
 * Upgrade to v3.14.1 of the AWS Terraform Provider
