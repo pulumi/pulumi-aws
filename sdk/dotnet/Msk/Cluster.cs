@@ -95,7 +95,6 @@ namespace Pulumi.Aws.Msk
     ///         });
     ///         var example = new Aws.Msk.Cluster("example", new Aws.Msk.ClusterArgs
     ///         {
-    ///             ClusterName = "example",
     ///             KafkaVersion = "2.4.1",
     ///             NumberOfBrokerNodes = 3,
     ///             BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
@@ -329,8 +328,8 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Name of the MSK cluster.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.

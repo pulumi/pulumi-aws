@@ -2177,7 +2177,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_xray_encryption_config": {Tok: awsResource(xrayMod, "EncryptionConfig")},
 			"aws_xray_group":             {Tok: awsResource(xrayMod, "Group")},
 			// MSK
-			"aws_msk_cluster":       {Tok: awsResource(mskMod, "Cluster")},
+			"aws_msk_cluster": {
+				Tok: awsResource(mskMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_name": tfbridge.AutoName("clusterName", 255, "-"),
+				},
+			},
 			"aws_msk_configuration": {Tok: awsResource(mskMod, "Configuration")},
 			// Datapipeline
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
