@@ -1740,6 +1740,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_rds_cluster": {
 				Tok: awsResource(rdsMod, "Cluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_identifier": tfbridge.AutoName("clusterIdentifier", 255, "-"),
 					"engine": {
 						Type: awsResource(rdsMod, "EngineType"),
 					},
@@ -1781,7 +1782,7 @@ func Provider() tfbridge.ProviderInfo {
 								name, rand, maxlen := string(res.URN.Name()), 7, 255
 								if engine, ok := res.Properties["engine"]; ok && engine.IsString() {
 									if strings.Contains(strings.ToLower(engine.StringValue()), "sqlserver") {
-										// SQL Server identifers are capped at 15 characters.
+										// SQL Server identifiers are capped at 15 characters.
 										rand, maxlen = 3, 15
 									}
 								}

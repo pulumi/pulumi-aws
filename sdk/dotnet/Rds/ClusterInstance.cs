@@ -38,7 +38,6 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         var @default = new Aws.Rds.Cluster("default", new Aws.Rds.ClusterArgs
     ///         {
-    ///             ClusterIdentifier = "aurora-cluster-demo",
     ///             AvailabilityZones = 
     ///             {
     ///                 "us-west-2a",
