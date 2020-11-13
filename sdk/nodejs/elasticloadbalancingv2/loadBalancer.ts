@@ -174,7 +174,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly ipAddressType!: pulumi.Output<string>;
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     public readonly loadBalancerType!: pulumi.Output<string | undefined>;
     /**
@@ -338,7 +338,7 @@ export interface LoadBalancerState {
      */
     readonly ipAddressType?: pulumi.Input<string>;
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     readonly loadBalancerType?: pulumi.Input<string>;
     /**
@@ -420,7 +420,7 @@ export interface LoadBalancerArgs {
      */
     readonly ipAddressType?: pulumi.Input<string>;
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     readonly loadBalancerType?: pulumi.Input<string>;
     /**

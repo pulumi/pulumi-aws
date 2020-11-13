@@ -251,6 +251,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
+     * The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+     */
+    public /*out*/ readonly latestRestorableTime!: pulumi.Output<string>;
+    /**
      * (Optional, but required for some DB engines, i.e. Oracle
      * SE1) License model information for this DB instance.
      */
@@ -343,6 +347,10 @@ export class Instance extends pulumi.CustomResource {
      * The RDS Resource ID of this instance.
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    /**
+     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     */
+    public readonly restoreToPointInTime!: pulumi.Output<outputs.rds.InstanceRestoreToPointInTime | undefined>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
@@ -448,6 +456,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["instanceClass"] = state ? state.instanceClass : undefined;
             inputs["iops"] = state ? state.iops : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["latestRestorableTime"] = state ? state.latestRestorableTime : undefined;
             inputs["licenseModel"] = state ? state.licenseModel : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["maxAllocatedStorage"] = state ? state.maxAllocatedStorage : undefined;
@@ -466,6 +475,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["replicas"] = state ? state.replicas : undefined;
             inputs["replicateSourceDb"] = state ? state.replicateSourceDb : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
+            inputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
             inputs["s3Import"] = state ? state.s3Import : undefined;
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             inputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
@@ -523,6 +533,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["port"] = args ? args.port : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["replicateSourceDb"] = args ? args.replicateSourceDb : undefined;
+            inputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             inputs["s3Import"] = args ? args.s3Import : undefined;
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             inputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
@@ -537,6 +548,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
+            inputs["latestRestorableTime"] = undefined /*out*/;
             inputs["replicas"] = undefined /*out*/;
             inputs["resourceId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -710,6 +722,10 @@ export interface InstanceState {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
+     * The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+     */
+    readonly latestRestorableTime?: pulumi.Input<string>;
+    /**
      * (Optional, but required for some DB engines, i.e. Oracle
      * SE1) License model information for this DB instance.
      */
@@ -802,6 +818,10 @@ export interface InstanceState {
      * The RDS Resource ID of this instance.
      */
     readonly resourceId?: pulumi.Input<string>;
+    /**
+     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     */
+    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
@@ -1095,6 +1115,10 @@ export interface InstanceArgs {
      * for more information on using Replication.
      */
     readonly replicateSourceDb?: pulumi.Input<string>;
+    /**
+     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     */
+    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */

@@ -46,6 +46,8 @@ import (
 type VpcAttachmentAccepter struct {
 	pulumi.CustomResourceState
 
+	// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+	ApplianceModeSupport pulumi.StringOutput `pulumi:"applianceModeSupport"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`.
 	DnsSupport pulumi.StringOutput `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
@@ -99,6 +101,8 @@ func GetVpcAttachmentAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcAttachmentAccepter resources.
 type vpcAttachmentAccepterState struct {
+	// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+	ApplianceModeSupport *string `pulumi:"applianceModeSupport"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`.
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
@@ -122,6 +126,8 @@ type vpcAttachmentAccepterState struct {
 }
 
 type VpcAttachmentAccepterState struct {
+	// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+	ApplianceModeSupport pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`.
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.

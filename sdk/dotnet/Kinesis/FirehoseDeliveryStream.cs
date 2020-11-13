@@ -410,6 +410,59 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// }
     /// ```
+    /// ### HTTP Endpoint (e.g. New Relic) Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "http_endpoint",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferSize = 10,
+    ///                 BufferInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
+    ///             HttpEndpointConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs
+    ///             {
+    ///                 Url = "https://aws-api.newrelic.com/firehose/v1",
+    ///                 Name = "New Relic",
+    ///                 AccessKey = "my-key",
+    ///                 BufferingSize = 15,
+    ///                 BufferingInterval = 600,
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 S3BackupMode = "FailedDataOnly",
+    ///                 RequestConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs
+    ///                 {
+    ///                     ContentEncoding = "GZIP",
+    ///                     CommonAttributes = 
+    ///                     {
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs
+    ///                         {
+    ///                             Name = "testname",
+    ///                             Value = "testvalue",
+    ///                         },
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs
+    ///                         {
+    ///                             Name = "testname2",
+    ///                             Value = "testvalue2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FirehoseDeliveryStream : Pulumi.CustomResource
     {
@@ -420,7 +473,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
         /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
@@ -439,6 +492,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Output("extendedS3Configuration")]
         public Output<Outputs.FirehoseDeliveryStreamExtendedS3Configuration?> ExtendedS3Configuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        /// </summary>
+        [Output("httpEndpointConfiguration")]
+        public Output<Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration?> HttpEndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
@@ -475,6 +534,9 @@ namespace Pulumi.Aws.Kinesis
         [Output("serverSideEncryption")]
         public Output<Outputs.FirehoseDeliveryStreamServerSideEncryption?> ServerSideEncryption { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration options if splunk is the destination. More details are given below.
+        /// </summary>
         [Output("splunkConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamSplunkConfiguration?> SplunkConfiguration { get; private set; } = null!;
 
@@ -543,7 +605,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
         /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
@@ -562,6 +624,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("extendedS3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs>? ExtendedS3Configuration { get; set; }
+
+        /// <summary>
+        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        /// </summary>
+        [Input("httpEndpointConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs>? HttpEndpointConfiguration { get; set; }
 
         /// <summary>
         /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
@@ -598,6 +666,9 @@ namespace Pulumi.Aws.Kinesis
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs>? ServerSideEncryption { get; set; }
 
+        /// <summary>
+        /// Configuration options if splunk is the destination. More details are given below.
+        /// </summary>
         [Input("splunkConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs>? SplunkConfiguration { get; set; }
 
@@ -633,7 +704,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -652,6 +723,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("extendedS3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs>? ExtendedS3Configuration { get; set; }
+
+        /// <summary>
+        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        /// </summary>
+        [Input("httpEndpointConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationGetArgs>? HttpEndpointConfiguration { get; set; }
 
         /// <summary>
         /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
@@ -688,6 +765,9 @@ namespace Pulumi.Aws.Kinesis
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionGetArgs>? ServerSideEncryption { get; set; }
 
+        /// <summary>
+        /// Configuration options if splunk is the destination. More details are given below.
+        /// </summary>
         [Input("splunkConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationGetArgs>? SplunkConfiguration { get; set; }
 

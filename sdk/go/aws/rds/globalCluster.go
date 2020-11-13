@@ -47,7 +47,6 @@ import (
 // 			return err
 // 		}
 // 		primaryCluster, err := rds.NewCluster(ctx, "primaryCluster", &rds.ClusterArgs{
-// 			EngineMode:              pulumi.String("global"),
 // 			GlobalClusterIdentifier: example.ID(),
 // 		}, pulumi.Provider(aws.Primary))
 // 		if err != nil {
@@ -60,7 +59,6 @@ import (
 // 			return err
 // 		}
 // 		secondaryCluster, err := rds.NewCluster(ctx, "secondaryCluster", &rds.ClusterArgs{
-// 			EngineMode:              pulumi.String("global"),
 // 			GlobalClusterIdentifier: example.ID(),
 // 		}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
 // 			primaryClusterInstance,

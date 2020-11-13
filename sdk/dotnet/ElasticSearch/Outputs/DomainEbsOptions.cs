@@ -23,7 +23,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
-        /// The size of EBS volumes attached to data nodes (in GB).
+        /// The size of EBS volumes attached to data nodes (in GiB).
         /// **Required** if `ebs_enabled` is set to `true`.
         /// </summary>
         public readonly int? VolumeSize;

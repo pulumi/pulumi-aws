@@ -880,7 +880,7 @@ export namespace alb {
          */
         matcher?: pulumi.Input<string>;
         /**
-         * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The destination for the health check request. Applies to only HTTP/HTTPS.
          */
         path?: pulumi.Input<string>;
         /**
@@ -888,7 +888,7 @@ export namespace alb {
          */
         port?: pulumi.Input<string>;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
          */
         protocol?: pulumi.Input<string>;
         /**
@@ -1821,7 +1821,7 @@ export namespace applicationloadbalancing {
          */
         matcher?: pulumi.Input<string>;
         /**
-         * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The destination for the health check request. Applies to only HTTP/HTTPS.
          */
         path?: pulumi.Input<string>;
         /**
@@ -1829,7 +1829,7 @@ export namespace applicationloadbalancing {
          */
         port?: pulumi.Input<string>;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
          */
         protocol?: pulumi.Input<string>;
         /**
@@ -6961,6 +6961,10 @@ export namespace ec2 {
          */
         transitGatewayId?: pulumi.Input<string>;
         /**
+         * Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+         */
+        vpcEndpointId?: pulumi.Input<string>;
+        /**
          * Identifier of a VPC peering connection.
          */
         vpcPeeringConnectionId?: pulumi.Input<string>;
@@ -8177,6 +8181,10 @@ export namespace ec2 {
          * Identifier of an EC2 Transit Gateway.
          */
         transitGatewayId?: pulumi.Input<string>;
+        /**
+         * Identifier of a VPC Endpoint.
+         */
+        vpcEndpointId?: pulumi.Input<string>;
         /**
          * Identifier of a VPC peering connection.
          */
@@ -9924,7 +9932,7 @@ export namespace elasticloadbalancingv2 {
          */
         matcher?: pulumi.Input<string>;
         /**
-         * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The destination for the health check request. Applies to only HTTP/HTTPS.
          */
         path?: pulumi.Input<string>;
         /**
@@ -9932,7 +9940,7 @@ export namespace elasticloadbalancingv2 {
          */
         port?: pulumi.Input<string>;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
          */
         protocol?: pulumi.Input<string>;
         /**
@@ -10083,7 +10091,7 @@ export namespace elasticsearch {
          */
         iops?: pulumi.Input<number>;
         /**
-         * The size of EBS volumes attached to data nodes (in GB).
+         * The size of EBS volumes attached to data nodes (in GiB).
          * **Required** if `ebsEnabled` is set to `true`.
          */
         volumeSize?: pulumi.Input<number>;
@@ -13459,6 +13467,123 @@ export namespace kinesis {
         logStreamName?: pulumi.Input<string>;
     }
 
+    export interface FirehoseDeliveryStreamHttpEndpointConfiguration {
+        /**
+         * The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+         */
+        accessKey?: pulumi.Input<string>;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+         */
+        bufferingInterval?: pulumi.Input<number>;
+        /**
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         */
+        bufferingSize?: pulumi.Input<number>;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. More details are given below.
+         */
+        cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The HTTP endpoint name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The data processing configuration.  More details are given below.
+         */
+        processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration>;
+        /**
+         * The request configuration.  More details are given below.
+         */
+        requestConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration>;
+        /**
+         * Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+         */
+        retryDuration?: pulumi.Input<number>;
+        /**
+         * Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+         */
+        s3BackupMode?: pulumi.Input<string>;
+        /**
+         * The HTTP endpoint URL to which Kinesis Firehose sends your data.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
+        /**
+         * Enables or disables data processing.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Array of data processors. More details are given below
+         */
+        processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor>[]>;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
+        /**
+         * Array of processor parameters. More details are given below
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter>[]>;
+        /**
+         * The type of processor. Valid Values: `Lambda`
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter {
+        /**
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         */
+        parameterName: pulumi.Input<string>;
+        /**
+         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+         */
+        parameterValue: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
+        /**
+         * Describes the metadata sent to the HTTP endpoint destination. More details are given below
+         */
+        commonAttributes?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute>[]>;
+        /**
+         * Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
+         */
+        contentEncoding?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute {
+        /**
+         * The name of the HTTP endpoint common attribute.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the HTTP endpoint common attribute.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface FirehoseDeliveryStreamKinesisSourceConfiguration {
         /**
          * The kinesis stream used as the source of the firehose delivery stream.
@@ -14897,7 +15022,7 @@ export namespace lb {
          */
         matcher?: pulumi.Input<string>;
         /**
-         * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The destination for the health check request. Applies to only HTTP/HTTPS.
          */
         path?: pulumi.Input<string>;
         /**
@@ -14905,7 +15030,7 @@ export namespace lb {
          */
         port?: pulumi.Input<string>;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
          */
         protocol?: pulumi.Input<string>;
         /**
@@ -16254,6 +16379,26 @@ export namespace rds {
         value: pulumi.Input<string>;
     }
 
+    export interface ClusterRestoreToPointInTime {
+        /**
+         * Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+         */
+        restoreToTime?: pulumi.Input<string>;
+        /**
+         * Type of restore to be performed.
+         * Valid options are `full-copy` (default) and `copy-on-write`.
+         */
+        restoreType?: pulumi.Input<string>;
+        /**
+         * The identifier of the source database cluster from which to restore.
+         */
+        sourceClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+         */
+        useLatestRestorableTime?: pulumi.Input<boolean>;
+    }
+
     export interface ClusterS3Import {
         /**
          * The bucket name where your backup is stored
@@ -16309,6 +16454,25 @@ export namespace rds {
          * Whether the member is the primary DB Cluster
          */
         isWriter?: pulumi.Input<boolean>;
+    }
+
+    export interface InstanceRestoreToPointInTime {
+        /**
+         * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+         */
+        restoreTime?: pulumi.Input<string>;
+        /**
+         * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+         */
+        sourceDbInstanceIdentifier?: pulumi.Input<string>;
+        /**
+         * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+         */
+        sourceDbiResourceId?: pulumi.Input<string>;
+        /**
+         * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+         */
+        useLatestRestorableTime?: pulumi.Input<boolean>;
     }
 
     export interface InstanceS3Import {

@@ -80,6 +80,10 @@ export interface GetRouteTableArgs {
  */
 export interface GetRouteTableResult {
     /**
+     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     */
+    readonly arn: string;
+    /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway
      */
     readonly defaultAssociationRouteTable: boolean;

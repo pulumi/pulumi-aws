@@ -66,37 +66,6 @@ class Instance(pulumi.CustomResource):
         - `us-east-2{a,b,c}`
         - `us-west-2{a,b,c}`
 
-        ## Blueprints
-
-        Lightsail currently supports the following Blueprint IDs:
-
-        ### OS Only
-
-        - `amazon_linux_2018_03_0_2`
-        - `centos_7_1901_01`
-        - `debian_8_7`
-        - `debian_9_5`
-        - `freebsd_11_1`
-        - `opensuse_42_2`
-        - `ubuntu_16_04_2`
-        - `ubuntu_18_04`
-
-        ### Apps and OS
-
-        - `drupal_8_5_6`
-        - `gitlab_11_1_4_1`
-        - `joomla_3_8_11`
-        - `lamp_5_6_37_2`
-        - `lamp_7_1_20_1`
-        - `magento_2_2_5`
-        - `mean_4_0_1`
-        - `nginx_1_14_0_1`
-        - `nodejs_10_8_0`
-        - `plesk_ubuntu_17_8_11_1`
-        - `redmine_3_4_6`
-        - `wordpress_4_9_8`
-        - `wordpress_multisite_4_9_8`
-
         ## Bundles
 
         Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small_2_0`):
@@ -135,8 +104,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
                instance (see list below)
-        :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image
-               (see list below)
+        :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
@@ -219,8 +187,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
                instance (see list below)
-        :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image
-               (see list below)
+        :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
                * `availability_zone`
@@ -277,8 +244,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="blueprintId")
     def blueprint_id(self) -> pulumi.Output[str]:
         """
-        The ID for a virtual private server image
-        (see list below)
+        The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         """
         return pulumi.get(self, "blueprint_id")
 

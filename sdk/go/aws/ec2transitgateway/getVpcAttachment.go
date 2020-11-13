@@ -83,6 +83,8 @@ type LookupVpcAttachmentArgs struct {
 
 // A collection of values returned by getVpcAttachment.
 type LookupVpcAttachmentResult struct {
+	// Whether Appliance Mode support is enabled.
+	ApplianceModeSupport string `pulumi:"applianceModeSupport"`
 	// Whether DNS support is enabled.
 	DnsSupport string                   `pulumi:"dnsSupport"`
 	Filters    []GetVpcAttachmentFilter `pulumi:"filters"`

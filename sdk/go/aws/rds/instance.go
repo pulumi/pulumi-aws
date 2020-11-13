@@ -190,6 +190,8 @@ type Instance struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+	LatestRestorableTime pulumi.StringOutput `pulumi:"latestRestorableTime"`
 	// (Optional, but required for some DB engines, i.e. Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
@@ -249,6 +251,8 @@ type Instance struct {
 	ReplicateSourceDb pulumi.StringPtrOutput `pulumi:"replicateSourceDb"`
 	// The RDS Resource ID of this instance.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+	RestoreToPointInTime InstanceRestoreToPointInTimePtrOutput `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrOutput `pulumi:"s3Import"`
 	// List of DB Security Groups to
@@ -418,6 +422,8 @@ type instanceState struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+	LatestRestorableTime *string `pulumi:"latestRestorableTime"`
 	// (Optional, but required for some DB engines, i.e. Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel *string `pulumi:"licenseModel"`
@@ -477,6 +483,8 @@ type instanceState struct {
 	ReplicateSourceDb *string `pulumi:"replicateSourceDb"`
 	// The RDS Resource ID of this instance.
 	ResourceId *string `pulumi:"resourceId"`
+	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+	RestoreToPointInTime *InstanceRestoreToPointInTime `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import *InstanceS3Import `pulumi:"s3Import"`
 	// List of DB Security Groups to
@@ -616,6 +624,8 @@ type InstanceState struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId pulumi.StringPtrInput
+	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+	LatestRestorableTime pulumi.StringPtrInput
 	// (Optional, but required for some DB engines, i.e. Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel pulumi.StringPtrInput
@@ -675,6 +685,8 @@ type InstanceState struct {
 	ReplicateSourceDb pulumi.StringPtrInput
 	// The RDS Resource ID of this instance.
 	ResourceId pulumi.StringPtrInput
+	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+	RestoreToPointInTime InstanceRestoreToPointInTimePtrInput
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrInput
 	// List of DB Security Groups to
@@ -865,6 +877,8 @@ type instanceArgs struct {
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 	// for more information on using Replication.
 	ReplicateSourceDb *string `pulumi:"replicateSourceDb"`
+	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+	RestoreToPointInTime *InstanceRestoreToPointInTime `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import *InstanceS3Import `pulumi:"s3Import"`
 	// List of DB Security Groups to
@@ -1050,6 +1064,8 @@ type InstanceArgs struct {
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 	// for more information on using Replication.
 	ReplicateSourceDb pulumi.StringPtrInput
+	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+	RestoreToPointInTime InstanceRestoreToPointInTimePtrInput
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrInput
 	// List of DB Security Groups to

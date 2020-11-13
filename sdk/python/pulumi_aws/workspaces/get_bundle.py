@@ -135,13 +135,21 @@ def get_bundle(bundle_id: Optional[str] = None,
     Retrieve information about an AWS WorkSpaces bundle.
 
     ## Example Usage
+    ### By ID
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    by_id = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
-    by_owner_and_name = aws.workspaces.get_bundle(name="Value with Windows 10 and Office 2016",
+    example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
+    ```
+    ### By Owner & Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_bundle(name="Value with Windows 10 and Office 2016",
         owner="AMAZON")
     ```
 

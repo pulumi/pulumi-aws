@@ -58,6 +58,7 @@ class Instance(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replicate_source_db: Optional[pulumi.Input[str]] = None,
+                 restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']]] = None,
                  s3_import: Optional[pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -232,6 +233,7 @@ class Instance(pulumi.CustomResource):
                specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
                PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
                for more information on using Replication.
+        :param pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         :param pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of DB Security Groups to
                associate. Only used for [DB Instances on the _EC2-Classic_
@@ -322,6 +324,7 @@ class Instance(pulumi.CustomResource):
             __props__['port'] = port
             __props__['publicly_accessible'] = publicly_accessible
             __props__['replicate_source_db'] = replicate_source_db
+            __props__['restore_to_point_in_time'] = restore_to_point_in_time
             __props__['s3_import'] = s3_import
             __props__['security_group_names'] = security_group_names
             __props__['skip_final_snapshot'] = skip_final_snapshot
@@ -336,6 +339,7 @@ class Instance(pulumi.CustomResource):
             __props__['arn'] = None
             __props__['endpoint'] = None
             __props__['hosted_zone_id'] = None
+            __props__['latest_restorable_time'] = None
             __props__['replicas'] = None
             __props__['resource_id'] = None
             __props__['status'] = None
@@ -378,6 +382,7 @@ class Instance(pulumi.CustomResource):
             instance_class: Optional[pulumi.Input[str]] = None,
             iops: Optional[pulumi.Input[int]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
+            latest_restorable_time: Optional[pulumi.Input[str]] = None,
             license_model: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             max_allocated_storage: Optional[pulumi.Input[int]] = None,
@@ -396,6 +401,7 @@ class Instance(pulumi.CustomResource):
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             replicate_source_db: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
+            restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']]] = None,
             s3_import: Optional[pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']]] = None,
             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -480,6 +486,7 @@ class Instance(pulumi.CustomResource):
                storage_type of "io1".
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
+        :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e. Oracle
                SE1) License model information for this DB instance.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
@@ -521,6 +528,7 @@ class Instance(pulumi.CustomResource):
                PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
                for more information on using Replication.
         :param pulumi.Input[str] resource_id: The RDS Resource ID of this instance.
+        :param pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         :param pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of DB Security Groups to
                associate. Only used for [DB Instances on the _EC2-Classic_
@@ -585,6 +593,7 @@ class Instance(pulumi.CustomResource):
         __props__["instance_class"] = instance_class
         __props__["iops"] = iops
         __props__["kms_key_id"] = kms_key_id
+        __props__["latest_restorable_time"] = latest_restorable_time
         __props__["license_model"] = license_model
         __props__["maintenance_window"] = maintenance_window
         __props__["max_allocated_storage"] = max_allocated_storage
@@ -603,6 +612,7 @@ class Instance(pulumi.CustomResource):
         __props__["replicas"] = replicas
         __props__["replicate_source_db"] = replicate_source_db
         __props__["resource_id"] = resource_id
+        __props__["restore_to_point_in_time"] = restore_to_point_in_time
         __props__["s3_import"] = s3_import
         __props__["security_group_names"] = security_group_names
         __props__["skip_final_snapshot"] = skip_final_snapshot
@@ -886,6 +896,14 @@ class Instance(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="latestRestorableTime")
+    def latest_restorable_time(self) -> pulumi.Output[str]:
+        """
+        The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+        """
+        return pulumi.get(self, "latest_restorable_time")
+
+    @property
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> pulumi.Output[str]:
         """
@@ -1049,6 +1067,14 @@ class Instance(pulumi.CustomResource):
         The RDS Resource ID of this instance.
         """
         return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="restoreToPointInTime")
+    def restore_to_point_in_time(self) -> pulumi.Output[Optional['outputs.InstanceRestoreToPointInTime']]:
+        """
+        A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        """
+        return pulumi.get(self, "restore_to_point_in_time")
 
     @property
     @pulumi.getter(name="s3Import")

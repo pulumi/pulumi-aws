@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
         /// </summary>
         public readonly string? Matcher;
         /// <summary>
-        /// The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+        /// The destination for the health check request. Applies to only HTTP/HTTPS.
         /// </summary>
         public readonly string? Path;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
         /// </summary>
         public readonly string? Port;
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         public readonly string? Protocol;
         /// <summary>

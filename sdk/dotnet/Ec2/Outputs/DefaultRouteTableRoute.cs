@@ -46,6 +46,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? TransitGatewayId;
         /// <summary>
+        /// Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+        /// </summary>
+        public readonly string? VpcEndpointId;
+        /// <summary>
         /// Identifier of a VPC peering connection.
         /// </summary>
         public readonly string? VpcPeeringConnectionId;
@@ -68,6 +72,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? transitGatewayId,
 
+            string? vpcEndpointId,
+
             string? vpcPeeringConnectionId)
         {
             CidrBlock = cidrBlock;
@@ -78,6 +84,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
             TransitGatewayId = transitGatewayId;
+            VpcEndpointId = vpcEndpointId;
             VpcPeeringConnectionId = vpcPeeringConnectionId;
         }
     }

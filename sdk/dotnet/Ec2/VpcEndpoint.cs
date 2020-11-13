@@ -87,6 +87,43 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// ### Gateway Load Balancer Endpoint Type
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         {
+    ///             AcceptanceRequired = false,
+    ///             AllowedPrincipals = 
+    ///             {
+    ///                 current.Apply(current =&gt; current.Arn),
+    ///             },
+    ///             GatewayLoadBalancerArns = 
+    ///             {
+    ///                 aws_lb.Example.Arn,
+    ///             },
+    ///         });
+    ///         var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new Aws.Ec2.VpcEndpointArgs
+    ///         {
+    ///             ServiceName = exampleVpcEndpointService.ServiceName,
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             },
+    ///             VpcEndpointType = exampleVpcEndpointService.ServiceType,
+    ///             VpcId = aws_vpc.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpcEndpoint : Pulumi.CustomResource
     {
@@ -176,7 +213,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -188,7 +225,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         /// </summary>
         [Output("vpcEndpointType")]
         public Output<string?> VpcEndpointType { get; private set; } = null!;
@@ -298,7 +335,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -319,7 +356,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         /// </summary>
         [Input("vpcEndpointType")]
         public Input<string>? VpcEndpointType { get; set; }
@@ -456,7 +493,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -477,7 +514,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         /// </summary>
         [Input("vpcEndpointType")]
         public Input<string>? VpcEndpointType { get; set; }

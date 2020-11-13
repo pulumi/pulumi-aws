@@ -15,6 +15,7 @@ class VpcAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 appliance_mode_support: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  ipv6_support: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -43,6 +44,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
@@ -69,6 +71,7 @@ class VpcAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['appliance_mode_support'] = appliance_mode_support
             __props__['dns_support'] = dns_support
             __props__['ipv6_support'] = ipv6_support
             if subnet_ids is None:
@@ -94,6 +97,7 @@ class VpcAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            appliance_mode_support: Optional[pulumi.Input[str]] = None,
             dns_support: Optional[pulumi.Input[str]] = None,
             ipv6_support: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -110,6 +114,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
@@ -124,6 +129,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["appliance_mode_support"] = appliance_mode_support
         __props__["dns_support"] = dns_support
         __props__["ipv6_support"] = ipv6_support
         __props__["subnet_ids"] = subnet_ids
@@ -134,6 +140,14 @@ class VpcAttachment(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         __props__["vpc_owner_id"] = vpc_owner_id
         return VpcAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applianceModeSupport")
+    def appliance_mode_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+        """
+        return pulumi.get(self, "appliance_mode_support")
 
     @property
     @pulumi.getter(name="dnsSupport")

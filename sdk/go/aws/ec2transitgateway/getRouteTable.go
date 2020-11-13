@@ -89,6 +89,8 @@ type LookupRouteTableArgs struct {
 
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
+	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+	Arn string `pulumi:"arn"`
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway
 	DefaultAssociationRouteTable bool `pulumi:"defaultAssociationRouteTable"`
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway

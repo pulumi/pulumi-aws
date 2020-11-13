@@ -77,6 +77,23 @@ class VpcEndpoint(pulumi.CustomResource):
             security_group_ids=[aws_security_group["sg1"]["id"]],
             private_dns_enabled=True)
         ```
+        ### Gateway Load Balancer Endpoint Type
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+            acceptance_required=False,
+            allowed_principals=[current.arn],
+            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
+        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
+            service_name=example_vpc_endpoint_service.service_name,
+            subnet_ids=[aws_subnet["example"]["id"]],
+            vpc_endpoint_type=example_vpc_endpoint_service.service_type,
+            vpc_id=aws_vpc["example"]["id"])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,9 +104,9 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
         :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         """
         if __name__ is not None:
@@ -181,9 +198,9 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
         :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         :param pulumi.Input[str] state: The state of the VPC endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -327,7 +344,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -343,7 +360,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+        The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         """
         return pulumi.get(self, "vpc_endpoint_type")
 

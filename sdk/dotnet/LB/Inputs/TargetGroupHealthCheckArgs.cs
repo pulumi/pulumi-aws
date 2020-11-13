@@ -37,7 +37,7 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<string>? Matcher { get; set; }
 
         /// <summary>
-        /// The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+        /// The destination for the health check request. Applies to only HTTP/HTTPS.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<string>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

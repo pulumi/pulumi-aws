@@ -131,6 +131,198 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 	}).(ClusterParameterGroupParameterOutput)
 }
 
+type ClusterRestoreToPointInTime struct {
+	// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+	RestoreToTime *string `pulumi:"restoreToTime"`
+	// Type of restore to be performed.
+	// Valid options are `full-copy` (default) and `copy-on-write`.
+	RestoreType *string `pulumi:"restoreType"`
+	// The identifier of the source database cluster from which to restore.
+	SourceClusterIdentifier string `pulumi:"sourceClusterIdentifier"`
+	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
+}
+
+// ClusterRestoreToPointInTimeInput is an input type that accepts ClusterRestoreToPointInTimeArgs and ClusterRestoreToPointInTimeOutput values.
+// You can construct a concrete instance of `ClusterRestoreToPointInTimeInput` via:
+//
+//          ClusterRestoreToPointInTimeArgs{...}
+type ClusterRestoreToPointInTimeInput interface {
+	pulumi.Input
+
+	ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput
+	ToClusterRestoreToPointInTimeOutputWithContext(context.Context) ClusterRestoreToPointInTimeOutput
+}
+
+type ClusterRestoreToPointInTimeArgs struct {
+	// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+	RestoreToTime pulumi.StringPtrInput `pulumi:"restoreToTime"`
+	// Type of restore to be performed.
+	// Valid options are `full-copy` (default) and `copy-on-write`.
+	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
+	// The identifier of the source database cluster from which to restore.
+	SourceClusterIdentifier pulumi.StringInput `pulumi:"sourceClusterIdentifier"`
+	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
+}
+
+func (ClusterRestoreToPointInTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput {
+	return i.ToClusterRestoreToPointInTimeOutputWithContext(context.Background())
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimeOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimeOutput)
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return i.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimeOutput).ToClusterRestoreToPointInTimePtrOutputWithContext(ctx)
+}
+
+// ClusterRestoreToPointInTimePtrInput is an input type that accepts ClusterRestoreToPointInTimeArgs, ClusterRestoreToPointInTimePtr and ClusterRestoreToPointInTimePtrOutput values.
+// You can construct a concrete instance of `ClusterRestoreToPointInTimePtrInput` via:
+//
+//          ClusterRestoreToPointInTimeArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterRestoreToPointInTimePtrInput interface {
+	pulumi.Input
+
+	ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput
+	ToClusterRestoreToPointInTimePtrOutputWithContext(context.Context) ClusterRestoreToPointInTimePtrOutput
+}
+
+type clusterRestoreToPointInTimePtrType ClusterRestoreToPointInTimeArgs
+
+func ClusterRestoreToPointInTimePtr(v *ClusterRestoreToPointInTimeArgs) ClusterRestoreToPointInTimePtrInput {
+	return (*clusterRestoreToPointInTimePtrType)(v)
+}
+
+func (*clusterRestoreToPointInTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i *clusterRestoreToPointInTimePtrType) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return i.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRestoreToPointInTimePtrType) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimePtrOutput)
+}
+
+type ClusterRestoreToPointInTimeOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestoreToPointInTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimeOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return o.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *ClusterRestoreToPointInTime {
+		return &v
+	}).(ClusterRestoreToPointInTimePtrOutput)
+}
+
+// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+func (o ClusterRestoreToPointInTimeOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreToTime }).(pulumi.StringPtrOutput)
+}
+
+// Type of restore to be performed.
+// Valid options are `full-copy` (default) and `copy-on-write`.
+func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source database cluster from which to restore.
+func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) string { return v.SourceClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+func (o ClusterRestoreToPointInTimeOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *bool { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterRestoreToPointInTimePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestoreToPointInTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) Elem() ClusterRestoreToPointInTimeOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) ClusterRestoreToPointInTime { return *v }).(ClusterRestoreToPointInTimeOutput)
+}
+
+// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+func (o ClusterRestoreToPointInTimePtrOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreToTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of restore to be performed.
+// Valid options are `full-copy` (default) and `copy-on-write`.
+func (o ClusterRestoreToPointInTimePtrOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source database cluster from which to restore.
+func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLatestRestorableTime
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ClusterS3Import struct {
 	// The bucket name where your backup is stored
 	BucketName string `pulumi:"bucketName"`
@@ -649,6 +841,194 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalClusterGlobalClusterMember {
 		return vs[0].([]GlobalClusterGlobalClusterMember)[vs[1].(int)]
 	}).(GlobalClusterGlobalClusterMemberOutput)
+}
+
+type InstanceRestoreToPointInTime struct {
+	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+	RestoreTime *string `pulumi:"restoreTime"`
+	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+	SourceDbInstanceIdentifier *string `pulumi:"sourceDbInstanceIdentifier"`
+	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+	SourceDbiResourceId *string `pulumi:"sourceDbiResourceId"`
+	// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
+}
+
+// InstanceRestoreToPointInTimeInput is an input type that accepts InstanceRestoreToPointInTimeArgs and InstanceRestoreToPointInTimeOutput values.
+// You can construct a concrete instance of `InstanceRestoreToPointInTimeInput` via:
+//
+//          InstanceRestoreToPointInTimeArgs{...}
+type InstanceRestoreToPointInTimeInput interface {
+	pulumi.Input
+
+	ToInstanceRestoreToPointInTimeOutput() InstanceRestoreToPointInTimeOutput
+	ToInstanceRestoreToPointInTimeOutputWithContext(context.Context) InstanceRestoreToPointInTimeOutput
+}
+
+type InstanceRestoreToPointInTimeArgs struct {
+	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+	RestoreTime pulumi.StringPtrInput `pulumi:"restoreTime"`
+	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+	SourceDbInstanceIdentifier pulumi.StringPtrInput `pulumi:"sourceDbInstanceIdentifier"`
+	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+	SourceDbiResourceId pulumi.StringPtrInput `pulumi:"sourceDbiResourceId"`
+	// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
+}
+
+func (InstanceRestoreToPointInTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimeOutput() InstanceRestoreToPointInTimeOutput {
+	return i.ToInstanceRestoreToPointInTimeOutputWithContext(context.Background())
+}
+
+func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimeOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceRestoreToPointInTimeOutput)
+}
+
+func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
+	return i.ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i InstanceRestoreToPointInTimeArgs) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceRestoreToPointInTimeOutput).ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx)
+}
+
+// InstanceRestoreToPointInTimePtrInput is an input type that accepts InstanceRestoreToPointInTimeArgs, InstanceRestoreToPointInTimePtr and InstanceRestoreToPointInTimePtrOutput values.
+// You can construct a concrete instance of `InstanceRestoreToPointInTimePtrInput` via:
+//
+//          InstanceRestoreToPointInTimeArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceRestoreToPointInTimePtrInput interface {
+	pulumi.Input
+
+	ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput
+	ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Context) InstanceRestoreToPointInTimePtrOutput
+}
+
+type instanceRestoreToPointInTimePtrType InstanceRestoreToPointInTimeArgs
+
+func InstanceRestoreToPointInTimePtr(v *InstanceRestoreToPointInTimeArgs) InstanceRestoreToPointInTimePtrInput {
+	return (*instanceRestoreToPointInTimePtrType)(v)
+}
+
+func (*instanceRestoreToPointInTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i *instanceRestoreToPointInTimePtrType) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
+	return i.ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceRestoreToPointInTimePtrType) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceRestoreToPointInTimePtrOutput)
+}
+
+type InstanceRestoreToPointInTimeOutput struct{ *pulumi.OutputState }
+
+func (InstanceRestoreToPointInTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimeOutput() InstanceRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimeOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
+	return o.ToInstanceRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *InstanceRestoreToPointInTime {
+		return &v
+	}).(InstanceRestoreToPointInTimePtrOutput)
+}
+
+// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+func (o InstanceRestoreToPointInTimeOutput) RestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.RestoreTime }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+func (o InstanceRestoreToPointInTimeOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbInstanceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+func (o InstanceRestoreToPointInTimeOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbiResourceId }).(pulumi.StringPtrOutput)
+}
+
+// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+func (o InstanceRestoreToPointInTimeOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceRestoreToPointInTime) *bool { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceRestoreToPointInTimePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceRestoreToPointInTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o InstanceRestoreToPointInTimePtrOutput) ToInstanceRestoreToPointInTimePtrOutput() InstanceRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o InstanceRestoreToPointInTimePtrOutput) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o InstanceRestoreToPointInTimePtrOutput) Elem() InstanceRestoreToPointInTimeOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) InstanceRestoreToPointInTime { return *v }).(InstanceRestoreToPointInTimeOutput)
+}
+
+// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+func (o InstanceRestoreToPointInTimePtrOutput) RestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDbInstanceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+func (o InstanceRestoreToPointInTimePtrOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDbiResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+func (o InstanceRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLatestRestorableTime
+	}).(pulumi.BoolPtrOutput)
 }
 
 type InstanceS3Import struct {
@@ -1690,12 +2070,16 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 func init() {
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ClusterRestoreToPointInTimeOutput{})
+	pulumi.RegisterOutputType(ClusterRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(ClusterS3ImportOutput{})
 	pulumi.RegisterOutputType(ClusterS3ImportPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
+	pulumi.RegisterOutputType(InstanceRestoreToPointInTimeOutput{})
+	pulumi.RegisterOutputType(InstanceRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionOutput{})

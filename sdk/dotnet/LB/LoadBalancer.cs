@@ -217,7 +217,7 @@ namespace Pulumi.Aws.LB
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Output("loadBalancerType")]
         public Output<string?> LoadBalancerType { get; private set; } = null!;
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }
@@ -530,7 +530,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }

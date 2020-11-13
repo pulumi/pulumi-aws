@@ -299,6 +299,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+        /// </summary>
+        [Output("latestRestorableTime")]
+        public Output<string> LatestRestorableTime { get; private set; } = null!;
+
+        /// <summary>
         /// (Optional, but required for some DB engines, i.e. Oracle
         /// SE1) License model information for this DB instance.
         /// </summary>
@@ -426,6 +432,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// </summary>
+        [Output("restoreToPointInTime")]
+        public Output<Outputs.InstanceRestoreToPointInTime?> RestoreToPointInTime { get; private set; } = null!;
 
         /// <summary>
         /// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
@@ -871,6 +883,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? ReplicateSourceDb { get; set; }
 
         /// <summary>
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// </summary>
+        [Input("restoreToPointInTime")]
+        public Input<Inputs.InstanceRestoreToPointInTimeArgs>? RestoreToPointInTime { get; set; }
+
+        /// <summary>
         /// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         /// </summary>
         [Input("s3Import")]
@@ -1192,6 +1210,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
+        /// </summary>
+        [Input("latestRestorableTime")]
+        public Input<string>? LatestRestorableTime { get; set; }
+
+        /// <summary>
         /// (Optional, but required for some DB engines, i.e. Oracle
         /// SE1) License model information for this DB instance.
         /// </summary>
@@ -1324,6 +1348,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
+
+        /// <summary>
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// </summary>
+        [Input("restoreToPointInTime")]
+        public Input<Inputs.InstanceRestoreToPointInTimeGetArgs>? RestoreToPointInTime { get; set; }
 
         /// <summary>
         /// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)

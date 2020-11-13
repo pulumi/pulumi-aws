@@ -39,6 +39,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class VpcAttachment : Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Output("applianceModeSupport")]
+        public Output<string?> ApplianceModeSupport { get; private set; } = null!;
+
+        /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
         [Output("dnsSupport")]
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class VpcAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("applianceModeSupport")]
+        public Input<string>? ApplianceModeSupport { get; set; }
+
+        /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
         [Input("dnsSupport")]
@@ -205,6 +217,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class VpcAttachmentState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("applianceModeSupport")]
+        public Input<string>? ApplianceModeSupport { get; set; }
+
         /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>

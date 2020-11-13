@@ -827,6 +827,7 @@ class DefaultRouteTableRoute(dict):
                  nat_gateway_id: Optional[str] = None,
                  network_interface_id: Optional[str] = None,
                  transit_gateway_id: Optional[str] = None,
+                 vpc_endpoint_id: Optional[str] = None,
                  vpc_peering_connection_id: Optional[str] = None):
         """
         :param str cidr_block: The CIDR block of the route.
@@ -837,6 +838,7 @@ class DefaultRouteTableRoute(dict):
         :param str nat_gateway_id: Identifier of a VPC NAT gateway.
         :param str network_interface_id: Identifier of an EC2 network interface.
         :param str transit_gateway_id: Identifier of an EC2 Transit Gateway.
+        :param str vpc_endpoint_id: Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
         :param str vpc_peering_connection_id: Identifier of a VPC peering connection.
         """
         if cidr_block is not None:
@@ -855,6 +857,8 @@ class DefaultRouteTableRoute(dict):
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if vpc_peering_connection_id is not None:
             pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
@@ -921,6 +925,14 @@ class DefaultRouteTableRoute(dict):
         Identifier of an EC2 Transit Gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[str]:
+        """
+        Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
@@ -3235,6 +3247,7 @@ class RouteTableRoute(dict):
                  nat_gateway_id: Optional[str] = None,
                  network_interface_id: Optional[str] = None,
                  transit_gateway_id: Optional[str] = None,
+                 vpc_endpoint_id: Optional[str] = None,
                  vpc_peering_connection_id: Optional[str] = None):
         """
         :param str cidr_block: The CIDR block of the route.
@@ -3246,6 +3259,7 @@ class RouteTableRoute(dict):
         :param str nat_gateway_id: Identifier of a VPC NAT gateway.
         :param str network_interface_id: Identifier of an EC2 network interface.
         :param str transit_gateway_id: Identifier of an EC2 Transit Gateway.
+        :param str vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param str vpc_peering_connection_id: Identifier of a VPC peering connection.
         """
         if cidr_block is not None:
@@ -3266,6 +3280,8 @@ class RouteTableRoute(dict):
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if vpc_peering_connection_id is not None:
             pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
@@ -3340,6 +3356,14 @@ class RouteTableRoute(dict):
         Identifier of an EC2 Transit Gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[str]:
+        """
+        Identifier of a VPC Endpoint.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
@@ -6742,6 +6766,7 @@ class GetRouteTableRouteResult(dict):
                  nat_gateway_id: str,
                  network_interface_id: str,
                  transit_gateway_id: str,
+                 vpc_endpoint_id: str,
                  vpc_peering_connection_id: str):
         """
         :param str cidr_block: The CIDR block of the route.
@@ -6753,6 +6778,7 @@ class GetRouteTableRouteResult(dict):
         :param str nat_gateway_id: The NAT Gateway ID.
         :param str network_interface_id: The ID of the elastic network interface (eni) to use.
         :param str transit_gateway_id: The EC2 Transit Gateway ID.
+        :param str vpc_endpoint_id: The VPC Endpoint ID.
         :param str vpc_peering_connection_id: The VPC Peering ID.
         """
         pulumi.set(__self__, "cidr_block", cidr_block)
@@ -6764,6 +6790,7 @@ class GetRouteTableRouteResult(dict):
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
@@ -6837,6 +6864,14 @@ class GetRouteTableRouteResult(dict):
         The EC2 Transit Gateway ID.
         """
         return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> str:
+        """
+        The VPC Endpoint ID.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")

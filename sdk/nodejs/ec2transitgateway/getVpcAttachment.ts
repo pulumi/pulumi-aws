@@ -74,6 +74,10 @@ export interface GetVpcAttachmentArgs {
  */
 export interface GetVpcAttachmentResult {
     /**
+     * Whether Appliance Mode support is enabled.
+     */
+    readonly applianceModeSupport: string;
+    /**
      * Whether DNS support is enabled.
      */
     readonly dnsSupport: string;

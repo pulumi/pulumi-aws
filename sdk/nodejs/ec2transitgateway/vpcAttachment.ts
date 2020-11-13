@@ -49,6 +49,10 @@ export class VpcAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    public readonly applianceModeSupport!: pulumi.Output<string | undefined>;
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
@@ -97,6 +101,7 @@ export class VpcAttachment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpcAttachmentState | undefined;
+            inputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
             inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -117,6 +122,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             if (!args || args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            inputs["applianceModeSupport"] = args ? args.applianceModeSupport : undefined;
             inputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             inputs["ipv6Support"] = args ? args.ipv6Support : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -142,6 +148,10 @@ export class VpcAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcAttachment resources.
  */
 export interface VpcAttachmentState {
+    /**
+     * Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    readonly applianceModeSupport?: pulumi.Input<string>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
@@ -184,6 +194,10 @@ export interface VpcAttachmentState {
  * The set of arguments for constructing a VpcAttachment resource.
  */
 export interface VpcAttachmentArgs {
+    /**
+     * Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    readonly applianceModeSupport?: pulumi.Input<string>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */

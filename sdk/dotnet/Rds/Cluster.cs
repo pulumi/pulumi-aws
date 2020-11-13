@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Output("engineMode")]
         public Output<string?> EngineMode { get; private set; } = null!;
@@ -348,6 +348,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("replicationSourceIdentifier")]
         public Output<string?> ReplicationSourceIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        /// </summary>
+        [Output("restoreToPointInTime")]
+        public Output<Outputs.ClusterRestoreToPointInTime?> RestoreToPointInTime { get; private set; } = null!;
 
         [Output("s3Import")]
         public Output<Outputs.ClusterS3Import?> S3Import { get; private set; } = null!;
@@ -555,7 +561,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
         public Input<string>? EngineMode { get; set; }
@@ -637,6 +643,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
+
+        /// <summary>
+        /// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        /// </summary>
+        [Input("restoreToPointInTime")]
+        public Input<Inputs.ClusterRestoreToPointInTimeArgs>? RestoreToPointInTime { get; set; }
 
         [Input("s3Import")]
         public Input<Inputs.ClusterS3ImportArgs>? S3Import { get; set; }
@@ -835,7 +847,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
         public Input<string>? EngineMode { get; set; }
@@ -930,6 +942,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
+
+        /// <summary>
+        /// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        /// </summary>
+        [Input("restoreToPointInTime")]
+        public Input<Inputs.ClusterRestoreToPointInTimeGetArgs>? RestoreToPointInTime { get; set; }
 
         [Input("s3Import")]
         public Input<Inputs.ClusterS3ImportGetArgs>? S3Import { get; set; }
