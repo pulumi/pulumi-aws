@@ -2075,7 +2075,20 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sqs_queue": {
 				Tok: awsResource(sqsMod, "Queue"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": tfbridge.AutoName("name", 80, "-"),
+					"name": tfbridge.AutoNameWithCustomOptions("name", tfbridge.AutoNameOptions{
+						Separator: "-",
+						Maxlen:    80,
+						Randlen:   7,
+						// If this is a FIFO Queue, it's name must end with `.fifo`
+						PostTransform: func(res *tfbridge.PulumiResource, name string) (string, error) {
+							if fifo, hasfifo := res.Properties["fifo"]; hasfifo {
+								if fifo.IsBool() && fifo.BoolValue() {
+									return name + ".fifo", nil
+								}
+							}
+							return name, nil
+						},
+					}),
 				},
 			},
 			"aws_sqs_queue_policy": {
