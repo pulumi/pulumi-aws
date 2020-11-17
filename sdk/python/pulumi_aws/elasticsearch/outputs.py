@@ -376,7 +376,7 @@ class DomainEbsOptions(dict):
         :param bool ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
         :param int iops: The baseline input/output (I/O) performance of EBS volumes
                attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
-        :param int volume_size: The size of EBS volumes attached to data nodes (in GB).
+        :param int volume_size: The size of EBS volumes attached to data nodes (in GiB).
                **Required** if `ebs_enabled` is set to `true`.
         :param str volume_type: The type of EBS volumes attached to data nodes.
         """
@@ -409,7 +409,7 @@ class DomainEbsOptions(dict):
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[int]:
         """
-        The size of EBS volumes attached to data nodes (in GB).
+        The size of EBS volumes attached to data nodes (in GiB).
         **Required** if `ebs_enabled` is set to `true`.
         """
         return pulumi.get(self, "volume_size")

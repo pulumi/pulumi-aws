@@ -24,19 +24,13 @@ import * as utilities from "../utilities";
  * const example = new aws.rds.GlobalCluster("example", {globalClusterIdentifier: "example"}, {
  *     provider: aws.primary,
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
- *     engineMode: "global",
- *     globalClusterIdentifier: example.id,
- * }, {
+ * const primaryCluster = new aws.rds.Cluster("primaryCluster", {globalClusterIdentifier: example.id}, {
  *     provider: aws.primary,
  * });
  * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {clusterIdentifier: primaryCluster.id}, {
  *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
- *     engineMode: "global",
- *     globalClusterIdentifier: example.id,
- * }, {
+ * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {globalClusterIdentifier: example.id}, {
  *     provider: aws.secondary,
  *     dependsOn: [primaryClusterInstance],
  * });

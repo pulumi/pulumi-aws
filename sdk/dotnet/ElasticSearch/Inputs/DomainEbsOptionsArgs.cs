@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// The size of EBS volumes attached to data nodes (in GB).
+        /// The size of EBS volumes attached to data nodes (in GiB).
         /// **Required** if `ebs_enabled` is set to `true`.
         /// </summary>
         [Input("volumeSize")]

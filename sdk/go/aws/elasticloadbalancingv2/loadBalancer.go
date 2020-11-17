@@ -109,7 +109,7 @@ type LoadBalancer struct {
 	Internal pulumi.BoolOutput `pulumi:"internal"`
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
-	// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+	// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrOutput `pulumi:"loadBalancerType"`
 	// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
@@ -187,7 +187,7 @@ type loadBalancerState struct {
 	Internal *bool `pulumi:"internal"`
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+	// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
 	// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
@@ -238,7 +238,7 @@ type LoadBalancerState struct {
 	Internal pulumi.BoolPtrInput
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
 	IpAddressType pulumi.StringPtrInput
-	// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+	// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrInput
 	// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
@@ -287,7 +287,7 @@ type loadBalancerArgs struct {
 	Internal *bool `pulumi:"internal"`
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+	// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
 	// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
@@ -329,7 +329,7 @@ type LoadBalancerArgs struct {
 	Internal pulumi.BoolPtrInput
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
 	IpAddressType pulumi.StringPtrInput
-	// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+	// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrInput
 	// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,

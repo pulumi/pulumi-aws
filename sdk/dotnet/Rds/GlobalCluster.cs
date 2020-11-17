@@ -42,7 +42,6 @@ namespace Pulumi.Aws.Rds
     ///         });
     ///         var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new Aws.Rds.ClusterArgs
     ///         {
-    ///             EngineMode = "global",
     ///             GlobalClusterIdentifier = example.Id,
     ///         }, new CustomResourceOptions
     ///         {
@@ -57,7 +56,6 @@ namespace Pulumi.Aws.Rds
     ///         });
     ///         var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new Aws.Rds.ClusterArgs
     ///         {
-    ///             EngineMode = "global",
     ///             GlobalClusterIdentifier = example.Id,
     ///         }, new CustomResourceOptions
     ///         {

@@ -10,6 +10,7 @@ import (
 // Retrieve information about an AWS WorkSpaces bundle.
 //
 // ## Example Usage
+// ### By ID
 //
 // ```go
 // package main
@@ -28,11 +29,27 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := "Value with Windows 10 and Office 2016"
-// 		opt2 := "AMAZON"
-// 		_, err = workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
-// 			Name:  &opt1,
-// 			Owner: &opt2,
+// 		return nil
+// 	})
+// }
+// ```
+// ### By Owner & Name
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/workspaces"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "Value with Windows 10 and Office 2016"
+// 		opt1 := "AMAZON"
+// 		_, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
+// 			Name:  &opt0,
+// 			Owner: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

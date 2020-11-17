@@ -108,6 +108,8 @@ type Route struct {
 	State        pulumi.StringOutput `pulumi:"state"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId pulumi.StringPtrOutput `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringPtrOutput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -167,6 +169,8 @@ type routeState struct {
 	State        *string `pulumi:"state"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
@@ -196,6 +200,8 @@ type RouteState struct {
 	State        pulumi.StringPtrInput
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId pulumi.StringPtrInput
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringPtrInput
 }
@@ -225,6 +231,8 @@ type routeArgs struct {
 	RouteTableId string `pulumi:"routeTableId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
@@ -251,6 +259,8 @@ type RouteArgs struct {
 	RouteTableId pulumi.StringInput
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId pulumi.StringPtrInput
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringPtrInput
 }

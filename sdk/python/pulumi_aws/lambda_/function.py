@@ -105,6 +105,48 @@ class Function(pulumi.CustomResource):
             ),
             opts=ResourceOptions(depends_on=[alpha]))
         ```
+        ### CloudWatch Logging and Permissions
+
+        For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        lambda_function_name = config.get("lambdaFunctionName")
+        if lambda_function_name is None:
+            lambda_function_name = "lambda_function_name"
+        # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
+        # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
+        example = aws.cloudwatch.LogGroup("example", retention_in_days=14)
+        # See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+        lambda_logging = aws.iam.Policy("lambdaLogging",
+            path="/",
+            description="IAM policy for logging from a lambda",
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": "arn:aws:logs:*:*:*",
+              "Effect": "Allow"
+            }
+          ]
+        }
+        \"\"\")
+        lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
+            role=aws_iam_role["iam_for_lambda"]["name"],
+            policy_arn=lambda_logging.arn)
+        test_lambda = aws.lambda_.Function("testLambda", opts=ResourceOptions(depends_on=[
+                lambda_logs,
+                example,
+            ]))
+        ```
         ## Specifying the Deployment Package
 
         AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use.

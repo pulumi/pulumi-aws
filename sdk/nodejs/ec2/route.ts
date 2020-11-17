@@ -118,6 +118,10 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
+     * Identifier of a VPC Endpoint.
+     */
+    public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
+    /**
      * Identifier of a VPC peering connection.
      */
     public readonly vpcPeeringConnectionId!: pulumi.Output<string | undefined>;
@@ -148,6 +152,7 @@ export class Route extends pulumi.CustomResource {
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
             inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
@@ -164,6 +169,7 @@ export class Route extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
             inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
             inputs["destinationPrefixListId"] = undefined /*out*/;
             inputs["instanceOwnerId"] = undefined /*out*/;
@@ -230,6 +236,10 @@ export interface RouteState {
      */
     readonly transitGatewayId?: pulumi.Input<string>;
     /**
+     * Identifier of a VPC Endpoint.
+     */
+    readonly vpcEndpointId?: pulumi.Input<string>;
+    /**
      * Identifier of a VPC peering connection.
      */
     readonly vpcPeeringConnectionId?: pulumi.Input<string>;
@@ -279,6 +289,10 @@ export interface RouteArgs {
      * Identifier of an EC2 Transit Gateway.
      */
     readonly transitGatewayId?: pulumi.Input<string>;
+    /**
+     * Identifier of a VPC Endpoint.
+     */
+    readonly vpcEndpointId?: pulumi.Input<string>;
     /**
      * Identifier of a VPC peering connection.
      */

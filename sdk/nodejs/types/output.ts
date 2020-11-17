@@ -976,7 +976,7 @@ export namespace alb {
          */
         matcher: string;
         /**
-         * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The destination for the health check request. Applies to only HTTP/HTTPS.
          */
         path: string;
         /**
@@ -984,7 +984,7 @@ export namespace alb {
          */
         port?: string;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
          */
         protocol?: string;
         /**
@@ -2006,7 +2006,7 @@ export namespace applicationloadbalancing {
          */
         matcher: string;
         /**
-         * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The destination for the health check request. Applies to only HTTP/HTTPS.
          */
         path: string;
         /**
@@ -2014,7 +2014,7 @@ export namespace applicationloadbalancing {
          */
         port?: string;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
          */
         protocol?: string;
         /**
@@ -7400,6 +7400,10 @@ export namespace ec2 {
          */
         transitGatewayId?: string;
         /**
+         * Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+         */
+        vpcEndpointId?: string;
+        /**
          * Identifier of a VPC peering connection.
          */
         vpcPeeringConnectionId?: string;
@@ -8212,6 +8216,10 @@ export namespace ec2 {
          */
         transitGatewayId: string;
         /**
+         * The VPC Endpoint ID.
+         */
+        vpcEndpointId: string;
+        /**
          * The VPC Peering ID.
          */
         vpcPeeringConnectionId: string;
@@ -9023,6 +9031,10 @@ export namespace ec2 {
          * Identifier of an EC2 Transit Gateway.
          */
         transitGatewayId?: string;
+        /**
+         * Identifier of a VPC Endpoint.
+         */
+        vpcEndpointId?: string;
         /**
          * Identifier of a VPC peering connection.
          */
@@ -11029,7 +11041,7 @@ export namespace elasticloadbalancingv2 {
          */
         matcher: string;
         /**
-         * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The destination for the health check request. Applies to only HTTP/HTTPS.
          */
         path: string;
         /**
@@ -11037,7 +11049,7 @@ export namespace elasticloadbalancingv2 {
          */
         port?: string;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
          */
         protocol?: string;
         /**
@@ -11188,7 +11200,7 @@ export namespace elasticsearch {
          */
         iops?: number;
         /**
-         * The size of EBS volumes attached to data nodes (in GB).
+         * The size of EBS volumes attached to data nodes (in GiB).
          * **Required** if `ebsEnabled` is set to `true`.
          */
         volumeSize?: number;
@@ -14765,6 +14777,123 @@ export namespace kinesis {
         logStreamName?: string;
     }
 
+    export interface FirehoseDeliveryStreamHttpEndpointConfiguration {
+        /**
+         * The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+         */
+        accessKey?: string;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+         */
+        bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         */
+        bufferingSize?: number;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. More details are given below.
+         */
+        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions;
+        /**
+         * The HTTP endpoint name.
+         */
+        name?: string;
+        /**
+         * The data processing configuration.  More details are given below.
+         */
+        processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration;
+        /**
+         * The request configuration.  More details are given below.
+         */
+        requestConfiguration: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
+        /**
+         * Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+         */
+        retryDuration?: number;
+        /**
+         * Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+         */
+        roleArn?: string;
+        /**
+         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+         */
+        s3BackupMode?: string;
+        /**
+         * The HTTP endpoint URL to which Kinesis Firehose sends your data.
+         */
+        url: string;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: boolean;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: string;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: string;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
+        /**
+         * Enables or disables data processing.
+         */
+        enabled?: boolean;
+        /**
+         * Array of data processors. More details are given below
+         */
+        processors?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor[];
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
+        /**
+         * Array of processor parameters. More details are given below
+         */
+        parameters?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter[];
+        /**
+         * The type of processor. Valid Values: `Lambda`
+         */
+        type: string;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter {
+        /**
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         */
+        parameterName: string;
+        /**
+         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+         */
+        parameterValue: string;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
+        /**
+         * Describes the metadata sent to the HTTP endpoint destination. More details are given below
+         */
+        commonAttributes?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute[];
+        /**
+         * Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
+         */
+        contentEncoding?: string;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute {
+        /**
+         * The name of the HTTP endpoint common attribute.
+         */
+        name: string;
+        /**
+         * The value of the HTTP endpoint common attribute.
+         */
+        value: string;
+    }
+
     export interface FirehoseDeliveryStreamKinesisSourceConfiguration {
         /**
          * The kinesis stream used as the source of the firehose delivery stream.
@@ -16312,7 +16441,7 @@ export namespace lb {
          */
         matcher: string;
         /**
-         * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         * The destination for the health check request. Applies to only HTTP/HTTPS.
          */
         path: string;
         /**
@@ -16320,7 +16449,7 @@ export namespace lb {
          */
         port?: string;
         /**
-         * The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
+         * The protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
          */
         protocol?: string;
         /**
@@ -17789,6 +17918,26 @@ export namespace rds {
         value: string;
     }
 
+    export interface ClusterRestoreToPointInTime {
+        /**
+         * Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
+         */
+        restoreToTime?: string;
+        /**
+         * Type of restore to be performed.
+         * Valid options are `full-copy` (default) and `copy-on-write`.
+         */
+        restoreType?: string;
+        /**
+         * The identifier of the source database cluster from which to restore.
+         */
+        sourceClusterIdentifier: string;
+        /**
+         * Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
+         */
+        useLatestRestorableTime?: boolean;
+    }
+
     export interface ClusterS3Import {
         /**
          * The bucket name where your backup is stored
@@ -17844,6 +17993,25 @@ export namespace rds {
          * Whether the member is the primary DB Cluster
          */
         isWriter: boolean;
+    }
+
+    export interface InstanceRestoreToPointInTime {
+        /**
+         * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+         */
+        restoreTime?: string;
+        /**
+         * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbiResourceId` is not specified.
+         */
+        sourceDbInstanceIdentifier?: string;
+        /**
+         * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` is not specified.
+         */
+        sourceDbiResourceId?: string;
+        /**
+         * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+         */
+        useLatestRestorableTime?: boolean;
     }
 
     export interface InstanceS3Import {

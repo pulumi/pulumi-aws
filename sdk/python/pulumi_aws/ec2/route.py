@@ -25,6 +25,7 @@ class Route(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  route_table_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -78,6 +79,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
+        :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
         """
         if __name__ is not None:
@@ -109,6 +111,7 @@ class Route(pulumi.CustomResource):
                 raise TypeError("Missing required property 'route_table_id'")
             __props__['route_table_id'] = route_table_id
             __props__['transit_gateway_id'] = transit_gateway_id
+            __props__['vpc_endpoint_id'] = vpc_endpoint_id
             __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
             __props__['destination_prefix_list_id'] = None
             __props__['instance_owner_id'] = None
@@ -138,6 +141,7 @@ class Route(pulumi.CustomResource):
             route_table_id: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+            vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
             vpc_peering_connection_id: Optional[pulumi.Input[str]] = None) -> 'Route':
         """
         Get an existing Route resource's state with the given name, id, and optional extra
@@ -156,6 +160,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
+        :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -176,6 +181,7 @@ class Route(pulumi.CustomResource):
         __props__["route_table_id"] = route_table_id
         __props__["state"] = state
         __props__["transit_gateway_id"] = transit_gateway_id
+        __props__["vpc_endpoint_id"] = vpc_endpoint_id
         __props__["vpc_peering_connection_id"] = vpc_peering_connection_id
         return Route(resource_name, opts=opts, __props__=__props__)
 
@@ -278,6 +284,14 @@ class Route(pulumi.CustomResource):
         Identifier of an EC2 Transit Gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Identifier of a VPC Endpoint.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")

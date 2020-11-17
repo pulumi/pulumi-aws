@@ -123,6 +123,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class GetRouteTableResult
     {
         /// <summary>
+        /// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Boolean whether this is the default association route table for the EC2 Transit Gateway
         /// </summary>
         public readonly bool DefaultAssociationRouteTable;
@@ -146,6 +150,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [OutputConstructor]
         private GetRouteTableResult(
+            string arn,
+
             bool defaultAssociationRouteTable,
 
             bool defaultPropagationRouteTable,
@@ -158,6 +164,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string transitGatewayId)
         {
+            Arn = arn;
             DefaultAssociationRouteTable = defaultAssociationRouteTable;
             DefaultPropagationRouteTable = defaultPropagationRouteTable;
             Filters = filters;

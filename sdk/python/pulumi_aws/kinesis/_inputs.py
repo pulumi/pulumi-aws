@@ -59,6 +59,13 @@ __all__ = [
     'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationArgs',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs',
     'FirehoseDeliveryStreamKinesisSourceConfigurationArgs',
     'FirehoseDeliveryStreamRedshiftConfigurationArgs',
     'FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs',
@@ -2977,6 +2984,433 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwat
     @log_stream_name.setter
     def log_stream_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_stream_name", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 access_key: Optional[pulumi.Input[str]] = None,
+                 buffering_interval: Optional[pulumi.Input[int]] = None,
+                 buffering_size: Optional[pulumi.Input[int]] = None,
+                 cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs']] = None,
+                 request_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs']] = None,
+                 retry_duration: Optional[pulumi.Input[int]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 s3_backup_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] url: The HTTP endpoint URL to which Kinesis Firehose sends your data.
+        :param pulumi.Input[str] access_key: The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below.
+        :param pulumi.Input[str] name: The HTTP endpoint name.
+        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs'] request_configuration: The request configuration.  More details are given below.
+        :param pulumi.Input[int] retry_duration: Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        :param pulumi.Input[str] role_arn: Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        """
+        pulumi.set(__self__, "url", url)
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
+        if cloudwatch_logging_options is not None:
+            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if processing_configuration is not None:
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
+        if request_configuration is not None:
+            pulumi.set(__self__, "request_configuration", request_configuration)
+        if retry_duration is not None:
+            pulumi.set(__self__, "retry_duration", retry_duration)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if s3_backup_mode is not None:
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The HTTP endpoint URL to which Kinesis Firehose sends your data.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @buffering_interval.setter
+    def buffering_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffering_interval", value)
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        """
+        return pulumi.get(self, "buffering_size")
+
+    @buffering_size.setter
+    def buffering_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffering_size", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchLoggingOptions")
+    def cloudwatch_logging_options(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs']]:
+        """
+        The CloudWatch Logging Options for the delivery stream. More details are given below.
+        """
+        return pulumi.get(self, "cloudwatch_logging_options")
+
+    @cloudwatch_logging_options.setter
+    def cloudwatch_logging_options(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs']]):
+        pulumi.set(self, "cloudwatch_logging_options", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP endpoint name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="processingConfiguration")
+    def processing_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs']]:
+        """
+        The data processing configuration.  More details are given below.
+        """
+        return pulumi.get(self, "processing_configuration")
+
+    @processing_configuration.setter
+    def processing_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs']]):
+        pulumi.set(self, "processing_configuration", value)
+
+    @property
+    @pulumi.getter(name="requestConfiguration")
+    def request_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs']]:
+        """
+        The request configuration.  More details are given below.
+        """
+        return pulumi.get(self, "request_configuration")
+
+    @request_configuration.setter
+    def request_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs']]):
+        pulumi.set(self, "request_configuration", value)
+
+    @property
+    @pulumi.getter(name="retryDuration")
+    def retry_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        """
+        return pulumi.get(self, "retry_duration")
+
+    @retry_duration.setter
+    def retry_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retry_duration", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="s3BackupMode")
+    def s3_backup_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        """
+        return pulumi.get(self, "s3_backup_mode")
+
+    @s3_backup_mode.setter
+    def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_backup_mode", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 log_stream_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enables or disables the logging. Defaults to `false`.
+        :param pulumi.Input[str] log_group_name: The CloudWatch group name for logging. This value is required if `enabled` is true.
+        :param pulumi.Input[str] log_stream_name: The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name is not None:
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables the logging. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CloudWatch group name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="logStreamName")
+    def log_stream_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "log_stream_name")
+
+    @log_stream_name.setter
+    def log_stream_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_stream_name", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enables or disables data processing.
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables data processing.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs']]]]:
+        """
+        Array of data processors. More details are given below
+        """
+        return pulumi.get(self, "processors")
+
+    @processors.setter
+    def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs']]]]):
+        pulumi.set(self, "processors", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] type: The type of processor. Valid Values: `Lambda`
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
+        """
+        pulumi.set(__self__, "type", type)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of processor. Valid Values: `Lambda`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
+        """
+        Array of processor parameters. More details are given below
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs:
+    def __init__(__self__, *,
+                 parameter_name: pulumi.Input[str],
+                 parameter_value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> pulumi.Input[str]:
+        """
+        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> pulumi.Input[str]:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        """
+        return pulumi.get(self, "parameter_value")
+
+    @parameter_value.setter
+    def parameter_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_value", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs:
+    def __init__(__self__, *,
+                 common_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs']]]] = None,
+                 content_encoding: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs']]] common_attributes: Describes the metadata sent to the HTTP endpoint destination. More details are given below
+        :param pulumi.Input[str] content_encoding: Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
+        """
+        if common_attributes is not None:
+            pulumi.set(__self__, "common_attributes", common_attributes)
+        if content_encoding is not None:
+            pulumi.set(__self__, "content_encoding", content_encoding)
+
+    @property
+    @pulumi.getter(name="commonAttributes")
+    def common_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs']]]]:
+        """
+        Describes the metadata sent to the HTTP endpoint destination. More details are given below
+        """
+        return pulumi.get(self, "common_attributes")
+
+    @common_attributes.setter
+    def common_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs']]]]):
+        pulumi.set(self, "common_attributes", value)
+
+    @property
+    @pulumi.getter(name="contentEncoding")
+    def content_encoding(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
+        """
+        return pulumi.get(self, "content_encoding")
+
+    @content_encoding.setter
+    def content_encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_encoding", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the HTTP endpoint common attribute.
+        :param pulumi.Input[str] value: The value of the HTTP endpoint common attribute.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the HTTP endpoint common attribute.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP endpoint common attribute.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

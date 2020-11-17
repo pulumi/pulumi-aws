@@ -101,11 +101,11 @@ type VpcEndpoint struct {
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// The state of the VPC endpoint.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrOutput `pulumi:"vpcEndpointType"`
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -174,11 +174,11 @@ type vpcEndpointState struct {
 	ServiceName *string `pulumi:"serviceName"`
 	// The state of the VPC endpoint.
 	State *string `pulumi:"state"`
-	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType *string `pulumi:"vpcEndpointType"`
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId *string `pulumi:"vpcId"`
@@ -214,11 +214,11 @@ type VpcEndpointState struct {
 	ServiceName pulumi.StringPtrInput
 	// The state of the VPC endpoint.
 	State pulumi.StringPtrInput
-	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrInput
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId pulumi.StringPtrInput
@@ -242,11 +242,11 @@ type vpcEndpointArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName string `pulumi:"serviceName"`
-	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType *string `pulumi:"vpcEndpointType"`
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId string `pulumi:"vpcId"`
@@ -267,11 +267,11 @@ type VpcEndpointArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringInput
-	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrInput
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId pulumi.StringInput

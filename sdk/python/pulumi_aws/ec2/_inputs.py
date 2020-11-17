@@ -954,6 +954,7 @@ class DefaultRouteTableRouteArgs:
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cidr_block: The CIDR block of the route.
@@ -964,6 +965,7 @@ class DefaultRouteTableRouteArgs:
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
+        :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
         """
         if cidr_block is not None:
@@ -982,6 +984,8 @@ class DefaultRouteTableRouteArgs:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if vpc_peering_connection_id is not None:
             pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
@@ -1080,6 +1084,18 @@ class DefaultRouteTableRouteArgs:
     @transit_gateway_id.setter
     def transit_gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_id", value)
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
@@ -3919,6 +3935,7 @@ class RouteTableRouteArgs:
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cidr_block: The CIDR block of the route.
@@ -3930,6 +3947,7 @@ class RouteTableRouteArgs:
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
+        :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
         """
         if cidr_block is not None:
@@ -3950,6 +3968,8 @@ class RouteTableRouteArgs:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if vpc_peering_connection_id is not None:
             pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
@@ -4060,6 +4080,18 @@ class RouteTableRouteArgs:
     @transit_gateway_id.setter
     def transit_gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of a VPC Endpoint.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_id", value)
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")

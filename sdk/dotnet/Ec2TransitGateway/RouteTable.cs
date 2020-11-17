@@ -34,6 +34,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>
+        /// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean whether this is the default association route table for the EC2 Transit Gateway.
         /// </summary>
         [Output("defaultAssociationRouteTable")]
@@ -128,6 +134,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class RouteTableState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Boolean whether this is the default association route table for the EC2 Transit Gateway.
         /// </summary>

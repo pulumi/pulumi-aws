@@ -21,7 +21,10 @@ class GetVpcAttachmentResult:
     """
     A collection of values returned by getVpcAttachment.
     """
-    def __init__(__self__, dns_support=None, filters=None, id=None, ipv6_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
+    def __init__(__self__, appliance_mode_support=None, dns_support=None, filters=None, id=None, ipv6_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
+        if appliance_mode_support and not isinstance(appliance_mode_support, str):
+            raise TypeError("Expected argument 'appliance_mode_support' to be a str")
+        pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
         if dns_support and not isinstance(dns_support, str):
             raise TypeError("Expected argument 'dns_support' to be a str")
         pulumi.set(__self__, "dns_support", dns_support)
@@ -49,6 +52,14 @@ class GetVpcAttachmentResult:
         if vpc_owner_id and not isinstance(vpc_owner_id, str):
             raise TypeError("Expected argument 'vpc_owner_id' to be a str")
         pulumi.set(__self__, "vpc_owner_id", vpc_owner_id)
+
+    @property
+    @pulumi.getter(name="applianceModeSupport")
+    def appliance_mode_support(self) -> str:
+        """
+        Whether Appliance Mode support is enabled.
+        """
+        return pulumi.get(self, "appliance_mode_support")
 
     @property
     @pulumi.getter(name="dnsSupport")
@@ -126,6 +137,7 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
         if False:
             yield self
         return GetVpcAttachmentResult(
+            appliance_mode_support=self.appliance_mode_support,
             dns_support=self.dns_support,
             filters=self.filters,
             id=self.id,
@@ -181,6 +193,7 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts, typ=GetVpcAttachmentResult).value
 
     return AwaitableGetVpcAttachmentResult(
+        appliance_mode_support=__ret__.appliance_mode_support,
         dns_support=__ret__.dns_support,
         filters=__ret__.filters,
         id=__ret__.id,

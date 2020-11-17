@@ -46,6 +46,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
+                 restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']]] = None,
                  s3_import: Optional[pulumi.Input[pulumi.InputType['ClusterS3ImportArgs']]] = None,
                  scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -169,7 +170,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
-        :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
@@ -182,6 +183,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
         :param pulumi.Input[str] replication_source_identifier: ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+        :param pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
         :param pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -236,6 +238,7 @@ class Cluster(pulumi.CustomResource):
             __props__['preferred_backup_window'] = preferred_backup_window
             __props__['preferred_maintenance_window'] = preferred_maintenance_window
             __props__['replication_source_identifier'] = replication_source_identifier
+            __props__['restore_to_point_in_time'] = restore_to_point_in_time
             __props__['s3_import'] = s3_import
             __props__['scaling_configuration'] = scaling_configuration
             __props__['skip_final_snapshot'] = skip_final_snapshot
@@ -293,6 +296,7 @@ class Cluster(pulumi.CustomResource):
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             reader_endpoint: Optional[pulumi.Input[str]] = None,
             replication_source_identifier: Optional[pulumi.Input[str]] = None,
+            restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']]] = None,
             s3_import: Optional[pulumi.Input[pulumi.InputType['ClusterS3ImportArgs']]] = None,
             scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']]] = None,
             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
@@ -327,7 +331,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: The DNS address of the RDS instance
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
-        :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
@@ -343,6 +347,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] reader_endpoint: A read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
         :param pulumi.Input[str] replication_source_identifier: ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
+        :param pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
         :param pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -389,6 +394,7 @@ class Cluster(pulumi.CustomResource):
         __props__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__["reader_endpoint"] = reader_endpoint
         __props__["replication_source_identifier"] = replication_source_identifier
+        __props__["restore_to_point_in_time"] = restore_to_point_in_time
         __props__["s3_import"] = s3_import
         __props__["scaling_configuration"] = scaling_configuration
         __props__["skip_final_snapshot"] = skip_final_snapshot
@@ -555,7 +561,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         """
         return pulumi.get(self, "engine_mode")
 
@@ -671,6 +677,14 @@ class Cluster(pulumi.CustomResource):
         ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
         """
         return pulumi.get(self, "replication_source_identifier")
+
+    @property
+    @pulumi.getter(name="restoreToPointInTime")
+    def restore_to_point_in_time(self) -> pulumi.Output[Optional['outputs.ClusterRestoreToPointInTime']]:
+        """
+        Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+        """
+        return pulumi.get(self, "restore_to_point_in_time")
 
     @property
     @pulumi.getter(name="s3Import")

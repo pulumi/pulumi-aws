@@ -76,6 +76,50 @@ import {ARN} from "..";
  *     dependsOn: [alpha],
  * });
  * ```
+ * ### CloudWatch Logging and Permissions
+ *
+ * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const lambdaFunctionName = config.get("lambdaFunctionName") || "lambda_function_name";
+ * // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
+ * // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
+ * const example = new aws.cloudwatch.LogGroup("example", {retentionInDays: 14});
+ * // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+ * const lambdaLogging = new aws.iam.Policy("lambdaLogging", {
+ *     path: "/",
+ *     description: "IAM policy for logging from a lambda",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "logs:CreateLogGroup",
+ *         "logs:CreateLogStream",
+ *         "logs:PutLogEvents"
+ *       ],
+ *       "Resource": "arn:aws:logs:*:*:*",
+ *       "Effect": "Allow"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambdaLogs", {
+ *     role: aws_iam_role.iam_for_lambda.name,
+ *     policyArn: lambdaLogging.arn,
+ * });
+ * const testLambda = new aws.lambda.Function("testLambda", {}, {
+ *     dependsOn: [
+ *         lambdaLogs,
+ *         example,
+ *     ],
+ * });
+ * ```
  * ## Specifying the Deployment Package
  *
  * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use.

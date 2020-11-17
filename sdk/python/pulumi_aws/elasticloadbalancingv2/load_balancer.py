@@ -134,7 +134,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
-        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
                must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
                this provider will autogenerate a name beginning with `tf-lb`.
@@ -237,7 +237,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
-        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
                must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
                this provider will autogenerate a name beginning with `tf-lb`.
@@ -380,7 +380,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         """
         return pulumi.get(self, "load_balancer_type")
 

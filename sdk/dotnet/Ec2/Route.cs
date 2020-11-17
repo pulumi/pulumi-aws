@@ -149,6 +149,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
+        [Output("vpcEndpointId")]
+        public Output<string?> VpcEndpointId { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of a VPC peering connection.
         /// </summary>
         [Output("vpcPeeringConnectionId")]
@@ -261,6 +267,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        public Input<string>? VpcEndpointId { get; set; }
+
+        /// <summary>
         /// Identifier of a VPC peering connection.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
@@ -344,6 +356,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        public Input<string>? VpcEndpointId { get; set; }
 
         /// <summary>
         /// Identifier of a VPC peering connection.

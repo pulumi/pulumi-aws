@@ -11,15 +11,23 @@ import * as utilities from "../utilities";
  * Retrieve information about an AWS WorkSpaces bundle.
  *
  * ## Example Usage
+ * ### By ID
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byId = pulumi.output(aws.workspaces.getBundle({
+ * const example = pulumi.output(aws.workspaces.getBundle({
  *     bundleId: "wsb-b0s22j3d7",
  * }, { async: true }));
- * const byOwnerAndName = pulumi.output(aws.workspaces.getBundle({
+ * ```
+ * ### By Owner & Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.workspaces.getBundle({
  *     name: "Value with Windows 10 and Office 2016",
  *     owner: "AMAZON",
  * }, { async: true }));

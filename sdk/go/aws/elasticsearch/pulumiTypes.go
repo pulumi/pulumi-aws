@@ -1129,7 +1129,7 @@ type DomainEbsOptions struct {
 	// The baseline input/output (I/O) performance of EBS volumes
 	// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 	Iops *int `pulumi:"iops"`
-	// The size of EBS volumes attached to data nodes (in GB).
+	// The size of EBS volumes attached to data nodes (in GiB).
 	// **Required** if `ebsEnabled` is set to `true`.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of EBS volumes attached to data nodes.
@@ -1153,7 +1153,7 @@ type DomainEbsOptionsArgs struct {
 	// The baseline input/output (I/O) performance of EBS volumes
 	// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The size of EBS volumes attached to data nodes (in GB).
+	// The size of EBS volumes attached to data nodes (in GiB).
 	// **Required** if `ebsEnabled` is set to `true`.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of EBS volumes attached to data nodes.
@@ -1248,7 +1248,7 @@ func (o DomainEbsOptionsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The size of EBS volumes attached to data nodes (in GB).
+// The size of EBS volumes attached to data nodes (in GiB).
 // **Required** if `ebsEnabled` is set to `true`.
 func (o DomainEbsOptionsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
@@ -1298,7 +1298,7 @@ func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The size of EBS volumes attached to data nodes (in GB).
+// The size of EBS volumes attached to data nodes (in GiB).
 // **Required** if `ebsEnabled` is set to `true`.
 func (o DomainEbsOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainEbsOptions) *int {

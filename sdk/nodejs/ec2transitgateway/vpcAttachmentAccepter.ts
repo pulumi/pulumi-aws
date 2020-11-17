@@ -56,6 +56,10 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
     }
 
     /**
+     * Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+     */
+    public /*out*/ readonly applianceModeSupport!: pulumi.Output<string>;
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      */
     public /*out*/ readonly dnsSupport!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpcAttachmentAccepterState | undefined;
+            inputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
             inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -127,6 +132,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
             inputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
+            inputs["applianceModeSupport"] = undefined /*out*/;
             inputs["dnsSupport"] = undefined /*out*/;
             inputs["ipv6Support"] = undefined /*out*/;
             inputs["subnetIds"] = undefined /*out*/;
@@ -149,6 +155,10 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcAttachmentAccepter resources.
  */
 export interface VpcAttachmentAccepterState {
+    /**
+     * Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+     */
+    readonly applianceModeSupport?: pulumi.Input<string>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      */

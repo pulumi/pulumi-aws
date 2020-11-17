@@ -67,6 +67,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        public Input<string>? VpcEndpointId { get; set; }
+
+        /// <summary>
         /// Identifier of a VPC peering connection.
         /// </summary>
         [Input("vpcPeeringConnectionId")]

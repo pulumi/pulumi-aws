@@ -45,6 +45,10 @@ export class RouteTable extends pulumi.CustomResource {
     }
 
     /**
+     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
     public /*out*/ readonly defaultAssociationRouteTable!: pulumi.Output<boolean>;
@@ -73,6 +77,7 @@ export class RouteTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RouteTableState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultAssociationRouteTable"] = state ? state.defaultAssociationRouteTable : undefined;
             inputs["defaultPropagationRouteTable"] = state ? state.defaultPropagationRouteTable : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -84,6 +89,7 @@ export class RouteTable extends pulumi.CustomResource {
             }
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["defaultAssociationRouteTable"] = undefined /*out*/;
             inputs["defaultPropagationRouteTable"] = undefined /*out*/;
         }
@@ -102,6 +108,10 @@ export class RouteTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteTable resources.
  */
 export interface RouteTableState {
+    /**
+     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */

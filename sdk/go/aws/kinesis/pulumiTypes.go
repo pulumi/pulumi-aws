@@ -8514,6 +8514,1152 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 	}).(pulumi.StringPtrOutput)
 }
 
+type FirehoseDeliveryStreamHttpEndpointConfiguration struct {
+	// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+	AccessKey *string `pulumi:"accessKey"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. More details are given below.
+	CloudwatchLoggingOptions *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
+	// The HTTP endpoint name.
+	Name *string `pulumi:"name"`
+	// The data processing configuration.  More details are given below.
+	ProcessingConfiguration *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
+	// The request configuration.  More details are given below.
+	RequestConfiguration *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration `pulumi:"requestConfiguration"`
+	// Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+	RetryDuration *int `pulumi:"retryDuration"`
+	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+	RoleArn *string `pulumi:"roleArn"`
+	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+	S3BackupMode *string `pulumi:"s3BackupMode"`
+	// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+	Url string `pulumi:"url"`
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationArgs and FirehoseDeliveryStreamHttpEndpointConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationArgs{...}
+type FirehoseDeliveryStreamHttpEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationArgs struct {
+	// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. More details are given below.
+	CloudwatchLoggingOptions FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
+	// The HTTP endpoint name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The data processing configuration.  More details are given below.
+	ProcessingConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
+	// The request configuration.  More details are given below.
+	RequestConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrInput `pulumi:"requestConfiguration"`
+	// Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
+	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
+	// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationOutput).ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationArgs, FirehoseDeliveryStreamHttpEndpointConfigurationPtr and FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamHttpEndpointConfigurationPtrType FirehoseDeliveryStreamHttpEndpointConfigurationArgs
+
+func FirehoseDeliveryStreamHttpEndpointConfigurationPtr(v *FirehoseDeliveryStreamHttpEndpointConfigurationArgs) FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput {
+	return (*firehoseDeliveryStreamHttpEndpointConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamHttpEndpointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput)
+}
+
+// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. More details are given below.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The HTTP endpoint name.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The data processing configuration.  More details are given below.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
+		return v.ProcessingConfiguration
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
+}
+
+// The request configuration.  More details are given below.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) RequestConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
+		return v.RequestConfiguration
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput)
+}
+
+// Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
+}
+
+// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) FirehoseDeliveryStreamHttpEndpointConfiguration {
+		return *v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationOutput)
+}
+
+// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. More details are given below.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The HTTP endpoint name.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data processing configuration.  More details are given below.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingConfiguration
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
+}
+
+// The request configuration.  More details are given below.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) RequestConfiguration() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RequestConfiguration
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput)
+}
+
+// Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BackupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName *string `pulumi:"logStreamName"`
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs{...}
+type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
+}
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput
+}
+
+type firehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrType FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs
+
+func FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtr(v *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrInput {
+	return (*firehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
+		return &v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
+		return *v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration struct {
+	// Enables or disables data processing.
+	Enabled *bool `pulumi:"enabled"`
+	// Array of data processors. More details are given below
+	Processors []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs and FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs{...}
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs struct {
+	// Enables or disables data processing.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Array of data processors. More details are given below
+	Processors FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
+}
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput).ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs, FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtr and FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrType FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs
+
+func FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtr(v *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrInput {
+	return (*firehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
+}
+
+// Enables or disables data processing.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Array of data processors. More details are given below
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
+		return v.Processors
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
+		return *v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput)
+}
+
+// Enables or disables data processing.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Array of data processors. More details are given below
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
+		if v == nil {
+			return nil
+		}
+		return v.Processors
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor struct {
+	// Array of processor parameters. More details are given below
+	Parameters []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
+	// The type of processor. Valid Values: `Lambda`
+	Type string `pulumi:"type"`
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs and FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs{...}
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs struct {
+	// Array of processor parameters. More details are given below
+	Parameters FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
+	// The type of processor. Valid Values: `Lambda`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput)
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs{...} }
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArray []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorInput
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArray) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArray) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput {
+	return o
+}
+
+// Array of processor parameters. More details are given below
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter {
+		return v.Parameters
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput)
+}
+
+// The type of processor. Valid Values: `Lambda`
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
+		return vs[0].([]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter struct {
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs and FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs{...}
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs struct {
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArray []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterInput
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArray) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArray) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput {
+	return o
+}
+
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter) string {
+		return v.ParameterName
+	}).(pulumi.StringOutput)
+}
+
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter) string {
+		return v.ParameterValue
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter {
+		return vs[0].([]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration struct {
+	// Describes the metadata sent to the HTTP endpoint destination. More details are given below
+	CommonAttributes []FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute `pulumi:"commonAttributes"`
+	// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
+	ContentEncoding *string `pulumi:"contentEncoding"`
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs and FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs{...}
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs struct {
+	// Describes the metadata sent to the HTTP endpoint destination. More details are given below
+	CommonAttributes FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayInput `pulumi:"commonAttributes"`
+	// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
+	ContentEncoding pulumi.StringPtrInput `pulumi:"contentEncoding"`
+}
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput).ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs, FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtr and FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrType FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs
+
+func FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtr(v *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrInput {
+	return (*firehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrType) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput)
+}
+
+// Describes the metadata sent to the HTTP endpoint destination. More details are given below
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) CommonAttributes() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) []FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute {
+		return v.CommonAttributes
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput)
+}
+
+// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ContentEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) *string {
+		return v.ContentEncoding
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
+		return *v
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput)
+}
+
+// Describes the metadata sent to the HTTP endpoint destination. More details are given below
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) CommonAttributes() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) []FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.CommonAttributes
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput)
+}
+
+// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) ContentEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentEncoding
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute struct {
+	// The name of the HTTP endpoint common attribute.
+	Name string `pulumi:"name"`
+	// The value of the HTTP endpoint common attribute.
+	Value string `pulumi:"value"`
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs and FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs{...}
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs struct {
+	// The name of the HTTP endpoint common attribute.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the HTTP endpoint common attribute.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput)
+}
+
+// FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray and FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayInput` via:
+//
+//          FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray{ FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs{...} }
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput
+	ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutputWithContext(context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray []FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeInput
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
+	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput {
+	return o
+}
+
+// The name of the HTTP endpoint common attribute.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The value of the HTTP endpoint common attribute.
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute {
+		return vs[0].([]FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput)
+}
+
 type FirehoseDeliveryStreamKinesisSourceConfiguration struct {
 	// The kinesis stream used as the source of the firehose delivery stream.
 	KinesisStreamArn string `pulumi:"kinesisStreamArn"`
@@ -11553,6 +12699,20 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamKinesisSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationOutput{})

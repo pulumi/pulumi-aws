@@ -1220,6 +1220,8 @@ type DefaultRouteTableRoute struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
@@ -1252,6 +1254,8 @@ type DefaultRouteTableRouteArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringPtrInput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -1345,6 +1349,11 @@ func (o DefaultRouteTableRouteOutput) NetworkInterfaceId() pulumi.StringPtrOutpu
 // Identifier of an EC2 Transit Gateway.
 func (o DefaultRouteTableRouteOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+func (o DefaultRouteTableRouteOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of a VPC peering connection.
@@ -7725,6 +7734,8 @@ type RouteTableRoute struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
@@ -7759,6 +7770,8 @@ type RouteTableRouteArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
+	// Identifier of a VPC Endpoint.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
 	// Identifier of a VPC peering connection.
 	VpcPeeringConnectionId pulumi.StringPtrInput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -7857,6 +7870,11 @@ func (o RouteTableRouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 // Identifier of an EC2 Transit Gateway.
 func (o RouteTableRouteOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of a VPC Endpoint.
+func (o RouteTableRouteOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableRoute) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of a VPC peering connection.
@@ -17243,6 +17261,8 @@ type GetRouteTableRoute struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The EC2 Transit Gateway ID.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
+	// The VPC Endpoint ID.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
 	// The VPC Peering ID.
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
 }
@@ -17277,6 +17297,8 @@ type GetRouteTableRouteArgs struct {
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The EC2 Transit Gateway ID.
 	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
+	// The VPC Endpoint ID.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 	// The VPC Peering ID.
 	VpcPeeringConnectionId pulumi.StringInput `pulumi:"vpcPeeringConnectionId"`
 }
@@ -17375,6 +17397,11 @@ func (o GetRouteTableRouteOutput) NetworkInterfaceId() pulumi.StringOutput {
 // The EC2 Transit Gateway ID.
 func (o GetRouteTableRouteOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+// The VPC Endpoint ID.
+func (o GetRouteTableRouteOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoute) string { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
 // The VPC Peering ID.

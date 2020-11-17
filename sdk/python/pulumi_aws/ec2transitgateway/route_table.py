@@ -58,6 +58,7 @@ class RouteTable(pulumi.CustomResource):
             if transit_gateway_id is None:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__['transit_gateway_id'] = transit_gateway_id
+            __props__['arn'] = None
             __props__['default_association_route_table'] = None
             __props__['default_propagation_route_table'] = None
         super(RouteTable, __self__).__init__(
@@ -70,6 +71,7 @@ class RouteTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             default_association_route_table: Optional[pulumi.Input[bool]] = None,
             default_propagation_route_table: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -81,6 +83,7 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
         :param pulumi.Input[bool] default_association_route_table: Boolean whether this is the default association route table for the EC2 Transit Gateway.
         :param pulumi.Input[bool] default_propagation_route_table: Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Route Table.
@@ -90,11 +93,20 @@ class RouteTable(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["default_association_route_table"] = default_association_route_table
         __props__["default_propagation_route_table"] = default_propagation_route_table
         __props__["tags"] = tags
         __props__["transit_gateway_id"] = transit_gateway_id
         return RouteTable(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultAssociationRouteTable")

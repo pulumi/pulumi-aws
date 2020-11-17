@@ -44,6 +44,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class VpcAttachmentAccepter : Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+        /// </summary>
+        [Output("applianceModeSupport")]
+        public Output<string> ApplianceModeSupport { get; private set; } = null!;
+
+        /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`.
         /// </summary>
         [Output("dnsSupport")]
@@ -186,6 +192,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class VpcAttachmentAccepterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
+        /// </summary>
+        [Input("applianceModeSupport")]
+        public Input<string>? ApplianceModeSupport { get; set; }
+
         /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`.
         /// </summary>

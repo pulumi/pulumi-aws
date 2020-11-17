@@ -62,37 +62,6 @@ import (
 // - `us-east-2{a,b,c}`
 // - `us-west-2{a,b,c}`
 //
-// ## Blueprints
-//
-// Lightsail currently supports the following Blueprint IDs:
-//
-// ### OS Only
-//
-// - `amazonLinux20180302`
-// - `centos7190101`
-// - `debian87`
-// - `debian95`
-// - `freebsd111`
-// - `opensuse422`
-// - `ubuntu16042`
-// - `ubuntu1804`
-//
-// ### Apps and OS
-//
-// - `drupal856`
-// - `gitlab11141`
-// - `joomla3811`
-// - `lamp56372`
-// - `lamp71201`
-// - `magento225`
-// - `mean401`
-// - `nginx11401`
-// - `nodejs1080`
-// - `pleskUbuntu178111`
-// - `redmine346`
-// - `wordpress498`
-// - `wordpressMultisite498`
-//
 // ## Bundles
 //
 // Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small20`):
@@ -134,8 +103,7 @@ type Instance struct {
 	// The Availability Zone in which to create your
 	// instance (see list below)
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The ID for a virtual private server image
-	// (see list below)
+	// The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
 	BlueprintId pulumi.StringOutput `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
@@ -206,8 +174,7 @@ type instanceState struct {
 	// The Availability Zone in which to create your
 	// instance (see list below)
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The ID for a virtual private server image
-	// (see list below)
+	// The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
 	BlueprintId *string `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId *string `pulumi:"bundleId"`
@@ -242,8 +209,7 @@ type InstanceState struct {
 	// The Availability Zone in which to create your
 	// instance (see list below)
 	AvailabilityZone pulumi.StringPtrInput
-	// The ID for a virtual private server image
-	// (see list below)
+	// The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
 	BlueprintId pulumi.StringPtrInput
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringPtrInput
@@ -280,8 +246,7 @@ type instanceArgs struct {
 	// The Availability Zone in which to create your
 	// instance (see list below)
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The ID for a virtual private server image
-	// (see list below)
+	// The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
 	BlueprintId string `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId string `pulumi:"bundleId"`
@@ -301,8 +266,7 @@ type InstanceArgs struct {
 	// The Availability Zone in which to create your
 	// instance (see list below)
 	AvailabilityZone pulumi.StringInput
-	// The ID for a virtual private server image
-	// (see list below)
+	// The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
 	BlueprintId pulumi.StringInput
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringInput

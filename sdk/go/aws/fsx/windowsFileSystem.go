@@ -96,7 +96,7 @@ type WindowsFileSystem struct {
 	CopyTagsToBackups pulumi.BoolPtrOutput `pulumi:"copyTagsToBackups"`
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
 	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
-	// Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrOutput `pulumi:"deploymentType"`
 	// DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
@@ -120,7 +120,7 @@ type WindowsFileSystem struct {
 	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
 	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
-	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -181,7 +181,7 @@ type windowsFileSystemState struct {
 	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
-	// Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
 	// DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName *string `pulumi:"dnsName"`
@@ -205,7 +205,7 @@ type windowsFileSystemState struct {
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
 	StorageCapacity *int `pulumi:"storageCapacity"`
-	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -230,7 +230,7 @@ type WindowsFileSystemState struct {
 	CopyTagsToBackups pulumi.BoolPtrInput
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
-	// Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrInput
 	// DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName pulumi.StringPtrInput
@@ -254,7 +254,7 @@ type WindowsFileSystemState struct {
 	SkipFinalBackup pulumi.BoolPtrInput
 	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
 	StorageCapacity pulumi.IntPtrInput
-	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
 	SubnetIds pulumi.StringArrayInput
@@ -281,7 +281,7 @@ type windowsFileSystemArgs struct {
 	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
-	// Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -295,7 +295,7 @@ type windowsFileSystemArgs struct {
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
 	StorageCapacity int `pulumi:"storageCapacity"`
-	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -317,7 +317,7 @@ type WindowsFileSystemArgs struct {
 	CopyTagsToBackups pulumi.BoolPtrInput
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
-	// Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
@@ -331,7 +331,7 @@ type WindowsFileSystemArgs struct {
 	SkipFinalBackup pulumi.BoolPtrInput
 	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
 	StorageCapacity pulumi.IntInput
-	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
 	SubnetIds pulumi.StringArrayInput

@@ -17,6 +17,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -33,7 +34,7 @@ class VpcEndpointService(pulumi.CustomResource):
         and will overwrite the association.
 
         ## Example Usage
-        ### Basic
+        ### Network Load Balancers
 
         ```python
         import pulumi
@@ -43,7 +44,7 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             network_load_balancer_arns=[aws_lb["example"]["arn"]])
         ```
-        ### Basic w/ Tags
+        ### Gateway Load Balancers
 
         ```python
         import pulumi
@@ -51,17 +52,15 @@ class VpcEndpointService(pulumi.CustomResource):
 
         example = aws.ec2.VpcEndpointService("example",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]],
-            tags={
-                "Environment": "test",
-            })
+            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: The ARNs of one or more Network Load Balancers for the endpoint service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -85,8 +84,7 @@ class VpcEndpointService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'acceptance_required'")
             __props__['acceptance_required'] = acceptance_required
             __props__['allowed_principals'] = allowed_principals
-            if network_load_balancer_arns is None:
-                raise TypeError("Missing required property 'network_load_balancer_arns'")
+            __props__['gateway_load_balancer_arns'] = gateway_load_balancer_arns
             __props__['network_load_balancer_arns'] = network_load_balancer_arns
             __props__['tags'] = tags
             __props__['arn'] = None
@@ -112,6 +110,7 @@ class VpcEndpointService(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             base_endpoint_dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             manages_vpc_endpoints: Optional[pulumi.Input[bool]] = None,
             network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             private_dns_name: Optional[pulumi.Input[str]] = None,
@@ -131,8 +130,9 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the VPC endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The Availability Zones in which the service is available.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] base_endpoint_dns_names: The DNS names for the service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         :param pulumi.Input[bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: The ARNs of one or more Network Load Balancers for the endpoint service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
         :param pulumi.Input[str] service_name: The service name.
         :param pulumi.Input[str] service_type: The service type, `Gateway` or `Interface`.
@@ -148,6 +148,7 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["availability_zones"] = availability_zones
         __props__["base_endpoint_dns_names"] = base_endpoint_dns_names
+        __props__["gateway_load_balancer_arns"] = gateway_load_balancer_arns
         __props__["manages_vpc_endpoints"] = manages_vpc_endpoints
         __props__["network_load_balancer_arns"] = network_load_balancer_arns
         __props__["private_dns_name"] = private_dns_name
@@ -198,6 +199,14 @@ class VpcEndpointService(pulumi.CustomResource):
         return pulumi.get(self, "base_endpoint_dns_names")
 
     @property
+    @pulumi.getter(name="gatewayLoadBalancerArns")
+    def gateway_load_balancer_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        """
+        return pulumi.get(self, "gateway_load_balancer_arns")
+
+    @property
     @pulumi.getter(name="managesVpcEndpoints")
     def manages_vpc_endpoints(self) -> pulumi.Output[bool]:
         """
@@ -207,9 +216,9 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkLoadBalancerArns")
-    def network_load_balancer_arns(self) -> pulumi.Output[Sequence[str]]:
+    def network_load_balancer_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The ARNs of one or more Network Load Balancers for the endpoint service.
+        Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         """
         return pulumi.get(self, "network_load_balancer_arns")
 

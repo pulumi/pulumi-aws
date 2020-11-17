@@ -103,7 +103,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
-     * Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+     * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
     public readonly deploymentType!: pulumi.Output<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly storageCapacity!: pulumi.Output<number>;
     /**
-     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
@@ -281,7 +281,7 @@ export interface WindowsFileSystemState {
      */
     readonly dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+     * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
     readonly deploymentType?: pulumi.Input<string>;
     /**
@@ -329,7 +329,7 @@ export interface WindowsFileSystemState {
      */
     readonly storageCapacity?: pulumi.Input<number>;
     /**
-     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
     readonly storageType?: pulumi.Input<string>;
     /**
@@ -375,7 +375,7 @@ export interface WindowsFileSystemArgs {
      */
     readonly dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+     * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
     readonly deploymentType?: pulumi.Input<string>;
     /**
@@ -403,7 +403,7 @@ export interface WindowsFileSystemArgs {
      */
     readonly storageCapacity: pulumi.Input<number>;
     /**
-     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
     readonly storageType?: pulumi.Input<string>;
     /**

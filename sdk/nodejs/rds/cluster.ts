@@ -212,7 +212,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<EngineType | undefined>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<EngineMode | undefined>;
     /**
@@ -272,6 +272,10 @@ export class Cluster extends pulumi.CustomResource {
      * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     */
+    public readonly restoreToPointInTime!: pulumi.Output<outputs.rds.ClusterRestoreToPointInTime | undefined>;
     public readonly s3Import!: pulumi.Output<outputs.rds.ClusterS3Import | undefined>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -348,6 +352,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             inputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
             inputs["replicationSourceIdentifier"] = state ? state.replicationSourceIdentifier : undefined;
+            inputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
             inputs["s3Import"] = state ? state.s3Import : undefined;
             inputs["scalingConfiguration"] = state ? state.scalingConfiguration : undefined;
             inputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
@@ -387,6 +392,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             inputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
+            inputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             inputs["s3Import"] = args ? args.s3Import : undefined;
             inputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
             inputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
@@ -493,7 +499,7 @@ export interface ClusterState {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<EngineMode>;
     /**
@@ -553,6 +559,10 @@ export interface ClusterState {
      * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
+    /**
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     */
+    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.ClusterRestoreToPointInTime>;
     readonly s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -653,7 +663,7 @@ export interface ClusterArgs {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<EngineMode>;
     /**
@@ -704,6 +714,10 @@ export interface ClusterArgs {
      * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
+    /**
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     */
+    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.ClusterRestoreToPointInTime>;
     readonly s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
