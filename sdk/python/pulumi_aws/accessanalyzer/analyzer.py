@@ -46,6 +46,14 @@ class Analyzer(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[example_organization]))
         ```
 
+        ## Import
+
+        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.

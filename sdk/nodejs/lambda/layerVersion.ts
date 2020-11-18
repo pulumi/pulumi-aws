@@ -32,6 +32,18 @@ import * as utilities from "../utilities";
  *
  * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
  * large files efficiently.
+ *
+ * ## Import
+ *
+ * Lambda Layers can be imported using `arn`.
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/layerVersion:LayerVersion \
+ * ```
+ *
+ *  aws_lambda_layer_version.test_layer \
+ *
+ *  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
  */
 export class LayerVersion extends pulumi.CustomResource {
     /**

@@ -37,6 +37,14 @@ class Resource(pulumi.CustomResource):
             path_part="mydemoresource")
         ```
 
+        ## Import
+
+        `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] parent_id: The ID of the parent API resource

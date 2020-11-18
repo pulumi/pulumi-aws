@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 //
 // * You can only associate one DHCP Options Set to a given VPC ID.
 // * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
+//
+// ## Import
+//
+// DHCP associations can be imported by providing the VPC ID associated with the options
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+// ```
 type VpcDhcpOptionsAssociation struct {
 	pulumi.CustomResourceState
 
@@ -116,4 +125,43 @@ type VpcDhcpOptionsAssociationArgs struct {
 
 func (VpcDhcpOptionsAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcDhcpOptionsAssociationArgs)(nil)).Elem()
+}
+
+type VpcDhcpOptionsAssociationInput interface {
+	pulumi.Input
+
+	ToVpcDhcpOptionsAssociationOutput() VpcDhcpOptionsAssociationOutput
+	ToVpcDhcpOptionsAssociationOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationOutput
+}
+
+func (VpcDhcpOptionsAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcDhcpOptionsAssociation)(nil)).Elem()
+}
+
+func (i VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutput() VpcDhcpOptionsAssociationOutput {
+	return i.ToVpcDhcpOptionsAssociationOutputWithContext(context.Background())
+}
+
+func (i VpcDhcpOptionsAssociation) ToVpcDhcpOptionsAssociationOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsAssociationOutput)
+}
+
+type VpcDhcpOptionsAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcDhcpOptionsAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcDhcpOptionsAssociationOutput)(nil)).Elem()
+}
+
+func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationOutput() VpcDhcpOptionsAssociationOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationOutputWithContext(ctx context.Context) VpcDhcpOptionsAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcDhcpOptionsAssociationOutput{})
 }

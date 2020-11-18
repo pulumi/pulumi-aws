@@ -62,6 +62,14 @@ class UserGroup(pulumi.CustomResource):
             role_arn=group_role.arn)
         ```
 
+        ## Import
+
+        Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the user group.

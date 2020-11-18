@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -79,6 +80,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool id, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example <identity-pool-id>
 // ```
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
@@ -167,4 +176,43 @@ type IdentityPoolRoleAttachmentArgs struct {
 
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolRoleAttachmentArgs)(nil)).Elem()
+}
+
+type IdentityPoolRoleAttachmentInput interface {
+	pulumi.Input
+
+	ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput
+	ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput
+}
+
+func (IdentityPoolRoleAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachment)(nil)).Elem()
+}
+
+func (i IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput {
+	return i.ToIdentityPoolRoleAttachmentOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentOutput)
+}
+
+type IdentityPoolRoleAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityPoolRoleAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolRoleAttachmentOutput)(nil)).Elem()
+}
+
+func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutput() IdentityPoolRoleAttachmentOutput {
+	return o
+}
+
+func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentOutput{})
 }

@@ -37,6 +37,14 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+         Route 53 Resolver query logging configurations can be imported using the Route 53 Resolver query logging configuration ID, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.

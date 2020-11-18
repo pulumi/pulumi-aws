@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['SslNegotiationPolicy']
 
-warnings.warn("aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy""", DeprecationWarning)
 
 
 class SslNegotiationPolicy(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,

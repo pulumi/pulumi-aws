@@ -4,6 +4,7 @@
 package cloudformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -80,6 +81,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CloudFormation StackSets can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudformation/stackSet:StackSet example example
 // ```
 type StackSet struct {
 	pulumi.CustomResourceState
@@ -237,4 +246,43 @@ type StackSetArgs struct {
 
 func (StackSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetArgs)(nil)).Elem()
+}
+
+type StackSetInput interface {
+	pulumi.Input
+
+	ToStackSetOutput() StackSetOutput
+	ToStackSetOutputWithContext(ctx context.Context) StackSetOutput
+}
+
+func (StackSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSet)(nil)).Elem()
+}
+
+func (i StackSet) ToStackSetOutput() StackSetOutput {
+	return i.ToStackSetOutputWithContext(context.Background())
+}
+
+func (i StackSet) ToStackSetOutputWithContext(ctx context.Context) StackSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetOutput)
+}
+
+type StackSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetOutput)(nil)).Elem()
+}
+
+func (o StackSetOutput) ToStackSetOutput() StackSetOutput {
+	return o
+}
+
+func (o StackSetOutput) ToStackSetOutputWithContext(ctx context.Context) StackSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StackSetOutput{})
 }

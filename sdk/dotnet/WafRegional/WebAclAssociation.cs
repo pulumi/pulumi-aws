@@ -222,6 +222,14 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+    /// ```
     /// </summary>
     public partial class WebAclAssociation : Pulumi.CustomResource
     {

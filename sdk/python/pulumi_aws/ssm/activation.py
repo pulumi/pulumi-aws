@@ -52,6 +52,14 @@ class Activation(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[test_attach]))
         ```
 
+        ## Import
+
+        AWS SSM Activation can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the resource that you want to register.

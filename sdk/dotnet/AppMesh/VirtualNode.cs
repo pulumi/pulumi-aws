@@ -235,6 +235,16 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node's `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
+    /// ```
+    /// 
+    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     public partial class VirtualNode : Pulumi.CustomResource
     {

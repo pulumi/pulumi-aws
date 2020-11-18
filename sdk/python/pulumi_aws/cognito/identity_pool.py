@@ -61,6 +61,14 @@ class IdentityPool(pulumi.CustomResource):
             openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
         ```
 
+        ## Import
+
+        Cognito Identity Pool can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/identityPool:IdentityPool mypool <identity-pool-id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,6 +52,14 @@ import * as utilities from "../utilities";
  * const _private = new aws.route53.Zone("private", {vpcs: [{
  *     vpcId: aws_vpc.example.id,
  * }]});
+ * ```
+ *
+ * ## Import
+ *
+ * Route53 Zones can be imported using the `zone id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
  * ```
  */
 export class Zone extends pulumi.CustomResource {

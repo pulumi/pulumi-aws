@@ -4,6 +4,7 @@
 package waf
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -55,6 +56,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// WAF Rated Based Rule can be imported using the id, e.g.
+//
+// ```sh
+//  $ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type RateBasedRule struct {
 	pulumi.CustomResourceState
@@ -182,4 +191,43 @@ type RateBasedRuleArgs struct {
 
 func (RateBasedRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rateBasedRuleArgs)(nil)).Elem()
+}
+
+type RateBasedRuleInput interface {
+	pulumi.Input
+
+	ToRateBasedRuleOutput() RateBasedRuleOutput
+	ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput
+}
+
+func (RateBasedRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateBasedRule)(nil)).Elem()
+}
+
+func (i RateBasedRule) ToRateBasedRuleOutput() RateBasedRuleOutput {
+	return i.ToRateBasedRuleOutputWithContext(context.Background())
+}
+
+func (i RateBasedRule) ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleOutput)
+}
+
+type RateBasedRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (RateBasedRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateBasedRuleOutput)(nil)).Elem()
+}
+
+func (o RateBasedRuleOutput) ToRateBasedRuleOutput() RateBasedRuleOutput {
+	return o
+}
+
+func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RateBasedRuleOutput{})
 }

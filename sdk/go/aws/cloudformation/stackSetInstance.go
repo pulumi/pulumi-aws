@@ -4,6 +4,7 @@
 package cloudformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CloudFormation StackSet Instances can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
 // ```
 type StackSetInstance struct {
 	pulumi.CustomResourceState
@@ -150,4 +159,43 @@ type StackSetInstanceArgs struct {
 
 func (StackSetInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetInstanceArgs)(nil)).Elem()
+}
+
+type StackSetInstanceInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceOutput() StackSetInstanceOutput
+	ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput
+}
+
+func (StackSetInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstance)(nil)).Elem()
+}
+
+func (i StackSetInstance) ToStackSetInstanceOutput() StackSetInstanceOutput {
+	return i.ToStackSetInstanceOutputWithContext(context.Background())
+}
+
+func (i StackSetInstance) ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOutput)
+}
+
+type StackSetInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackSetInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceOutput)(nil)).Elem()
+}
+
+func (o StackSetInstanceOutput) ToStackSetInstanceOutput() StackSetInstanceOutput {
+	return o
+}
+
+func (o StackSetInstanceOutput) ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StackSetInstanceOutput{})
 }

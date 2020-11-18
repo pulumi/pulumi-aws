@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // ```
 //
 // > **Note**: Any modifications to the `dbOptionGroup` are set to happen immediately as we default to applying immediately.
+//
+// ## Import
+//
+// DB Option groups can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:rds/optionGroup:OptionGroup bar mysql-option-group
+// ```
 type OptionGroup struct {
 	pulumi.CustomResourceState
 
@@ -202,4 +211,43 @@ type OptionGroupArgs struct {
 
 func (OptionGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*optionGroupArgs)(nil)).Elem()
+}
+
+type OptionGroupInput interface {
+	pulumi.Input
+
+	ToOptionGroupOutput() OptionGroupOutput
+	ToOptionGroupOutputWithContext(ctx context.Context) OptionGroupOutput
+}
+
+func (OptionGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionGroup)(nil)).Elem()
+}
+
+func (i OptionGroup) ToOptionGroupOutput() OptionGroupOutput {
+	return i.ToOptionGroupOutputWithContext(context.Background())
+}
+
+func (i OptionGroup) ToOptionGroupOutputWithContext(ctx context.Context) OptionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOutput)
+}
+
+type OptionGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (OptionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionGroupOutput)(nil)).Elem()
+}
+
+func (o OptionGroupOutput) ToOptionGroupOutput() OptionGroupOutput {
+	return o
+}
+
+func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) OptionGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OptionGroupOutput{})
 }

@@ -4,12 +4,20 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
@@ -100,4 +108,43 @@ type TagArgs struct {
 
 func (TagArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagArgs)(nil)).Elem()
+}
+
+type TagInput interface {
+	pulumi.Input
+
+	ToTagOutput() TagOutput
+	ToTagOutputWithContext(ctx context.Context) TagOutput
+}
+
+func (Tag) ElementType() reflect.Type {
+	return reflect.TypeOf((*Tag)(nil)).Elem()
+}
+
+func (i Tag) ToTagOutput() TagOutput {
+	return i.ToTagOutputWithContext(context.Background())
+}
+
+func (i Tag) ToTagOutputWithContext(ctx context.Context) TagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagOutput)
+}
+
+type TagOutput struct {
+	*pulumi.OutputState
+}
+
+func (TagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagOutput)(nil)).Elem()
+}
+
+func (o TagOutput) ToTagOutput() TagOutput {
+	return o
+}
+
+func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TagOutput{})
 }

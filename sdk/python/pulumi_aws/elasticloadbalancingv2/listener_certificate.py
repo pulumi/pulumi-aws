@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['ListenerCertificate']
 
-warnings.warn("aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate""", DeprecationWarning)
 
 
 class ListenerCertificate(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,

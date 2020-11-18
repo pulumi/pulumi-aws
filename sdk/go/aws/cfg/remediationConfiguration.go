@@ -4,6 +4,7 @@
 package cfg
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Remediation Configurations can be imported using the name config_rule_name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
 // ```
 type RemediationConfiguration struct {
 	pulumi.CustomResourceState
@@ -193,4 +202,43 @@ type RemediationConfigurationArgs struct {
 
 func (RemediationConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*remediationConfigurationArgs)(nil)).Elem()
+}
+
+type RemediationConfigurationInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationOutput() RemediationConfigurationOutput
+	ToRemediationConfigurationOutputWithContext(ctx context.Context) RemediationConfigurationOutput
+}
+
+func (RemediationConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfiguration)(nil)).Elem()
+}
+
+func (i RemediationConfiguration) ToRemediationConfigurationOutput() RemediationConfigurationOutput {
+	return i.ToRemediationConfigurationOutputWithContext(context.Background())
+}
+
+func (i RemediationConfiguration) ToRemediationConfigurationOutputWithContext(ctx context.Context) RemediationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationOutput)
+}
+
+type RemediationConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemediationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationOutput)(nil)).Elem()
+}
+
+func (o RemediationConfigurationOutput) ToRemediationConfigurationOutput() RemediationConfigurationOutput {
+	return o
+}
+
+func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithContext(ctx context.Context) RemediationConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RemediationConfigurationOutput{})
 }

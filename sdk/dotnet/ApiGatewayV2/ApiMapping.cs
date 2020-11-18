@@ -34,6 +34,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_apigatewayv2_api_mapping` can be imported by using the API mapping identifier and domain name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+    /// ```
     /// </summary>
     public partial class ApiMapping : Pulumi.CustomResource
     {

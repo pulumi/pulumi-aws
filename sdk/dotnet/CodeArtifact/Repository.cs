@@ -99,6 +99,14 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CodeArtifact Repository can be imported using the CodeArtifact Repository ARN, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+    /// ```
     /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {

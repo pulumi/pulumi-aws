@@ -72,6 +72,14 @@ class Cluster(pulumi.CustomResource):
         > **Note:** AWS Neptune does not support user name/password–based access control.
         See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
 
+        ## Import
+
+        `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.

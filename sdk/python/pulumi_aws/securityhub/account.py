@@ -32,6 +32,14 @@ class Account(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         ```
 
+        ## Import
+
+        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.
+
+        ```sh
+         $ pulumi import aws:securityhub/account:Account example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['Listener']
 
-warnings.warn("aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener""", DeprecationWarning)
 
 
 class Listener(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -165,6 +165,14 @@ class Listener(pulumi.CustomResource):
                     target_group_arn=front_end_target_group.arn,
                 ),
             ])
+        ```
+
+        ## Import
+
+        Listeners can be imported using their ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticloadbalancingv2/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
         ```
 
         :param str resource_name: The name of the resource.

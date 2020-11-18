@@ -43,6 +43,14 @@ class NfsLocation(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['NfsLocationOnPremConfigArgs']] on_prem_config: Configuration block containing information for connecting to the NFS File System.

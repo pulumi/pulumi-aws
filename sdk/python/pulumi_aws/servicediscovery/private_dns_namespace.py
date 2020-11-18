@@ -37,6 +37,14 @@ class PrivateDnsNamespace(pulumi.CustomResource):
             vpc=example_vpc.id)
         ```
 
+        ## Import
+
+        Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.
+
+        ```sh
+         $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.

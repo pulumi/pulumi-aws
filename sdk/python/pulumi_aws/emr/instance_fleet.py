@@ -27,7 +27,14 @@ class InstanceFleet(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a InstanceFleet resource with the given unique name, props, and options.
+        ## Import
+
+        EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g. console
+
+        ```sh
+         $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.

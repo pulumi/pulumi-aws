@@ -82,6 +82,14 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Target Groups can be imported using their ARN, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:applicationloadbalancing/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+    /// ```
     /// </summary>
     [Obsolete(@"aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup")]
     public partial class TargetGroup : Pulumi.CustomResource

@@ -82,6 +82,14 @@ class Function(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.
+
+        ```sh
+         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The ID of the associated AppSync API.

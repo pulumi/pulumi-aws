@@ -48,6 +48,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Endpoints can be imported using the `endpoint_id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+    /// ```
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {

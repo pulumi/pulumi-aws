@@ -142,6 +142,16 @@ class Route(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+        ```
+
+         [1]/docs/providers/aws/index.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.

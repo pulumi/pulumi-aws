@@ -45,6 +45,14 @@ class Response(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.

@@ -119,6 +119,14 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         # no rules defined, deny all traffic in this ACL
         ```
 
+        ## Import
+
+        Default Network ACLs can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_network_acl_id: The Network ACL ID to manage. This

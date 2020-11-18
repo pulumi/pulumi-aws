@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -304,4 +305,43 @@ type AmiCopyArgs struct {
 
 func (AmiCopyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiCopyArgs)(nil)).Elem()
+}
+
+type AmiCopyInput interface {
+	pulumi.Input
+
+	ToAmiCopyOutput() AmiCopyOutput
+	ToAmiCopyOutputWithContext(ctx context.Context) AmiCopyOutput
+}
+
+func (AmiCopy) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmiCopy)(nil)).Elem()
+}
+
+func (i AmiCopy) ToAmiCopyOutput() AmiCopyOutput {
+	return i.ToAmiCopyOutputWithContext(context.Background())
+}
+
+func (i AmiCopy) ToAmiCopyOutputWithContext(ctx context.Context) AmiCopyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyOutput)
+}
+
+type AmiCopyOutput struct {
+	*pulumi.OutputState
+}
+
+func (AmiCopyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmiCopyOutput)(nil)).Elem()
+}
+
+func (o AmiCopyOutput) ToAmiCopyOutput() AmiCopyOutput {
+	return o
+}
+
+func (o AmiCopyOutput) ToAmiCopyOutputWithContext(ctx context.Context) AmiCopyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AmiCopyOutput{})
 }

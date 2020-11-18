@@ -37,6 +37,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Traffic mirror filter can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
+    /// ```
     /// </summary>
     public partial class TrafficMirrorFilter : Pulumi.CustomResource
     {

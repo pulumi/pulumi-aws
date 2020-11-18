@@ -83,6 +83,14 @@ class Target(pulumi.CustomResource):
             service_namespace="rds")
         ```
 
+        ## Import
+
+        Application AutoScaling Target can be imported using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`.
+
+        ```sh
+         $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] max_capacity: The max capacity of the scalable target.

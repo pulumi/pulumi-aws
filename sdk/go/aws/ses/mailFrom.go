@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -71,6 +72,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// MAIL FROM domain can be imported using the `domain` attribute, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
 // ```
 type MailFrom struct {
 	pulumi.CustomResourceState
@@ -159,4 +168,43 @@ type MailFromArgs struct {
 
 func (MailFromArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mailFromArgs)(nil)).Elem()
+}
+
+type MailFromInput interface {
+	pulumi.Input
+
+	ToMailFromOutput() MailFromOutput
+	ToMailFromOutputWithContext(ctx context.Context) MailFromOutput
+}
+
+func (MailFrom) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailFrom)(nil)).Elem()
+}
+
+func (i MailFrom) ToMailFromOutput() MailFromOutput {
+	return i.ToMailFromOutputWithContext(context.Background())
+}
+
+func (i MailFrom) ToMailFromOutputWithContext(ctx context.Context) MailFromOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailFromOutput)
+}
+
+type MailFromOutput struct {
+	*pulumi.OutputState
+}
+
+func (MailFromOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailFromOutput)(nil)).Elem()
+}
+
+func (o MailFromOutput) ToMailFromOutput() MailFromOutput {
+	return o
+}
+
+func (o MailFromOutput) ToMailFromOutputWithContext(ctx context.Context) MailFromOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MailFromOutput{})
 }

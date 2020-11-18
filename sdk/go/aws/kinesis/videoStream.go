@@ -4,6 +4,7 @@
 package kinesis
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -40,6 +41,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Kinesis Streams can be imported using the `arn`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975
+// ```
+//
+//  [1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
 type VideoStream struct {
 	pulumi.CustomResourceState
 
@@ -174,4 +185,43 @@ type VideoStreamArgs struct {
 
 func (VideoStreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*videoStreamArgs)(nil)).Elem()
+}
+
+type VideoStreamInput interface {
+	pulumi.Input
+
+	ToVideoStreamOutput() VideoStreamOutput
+	ToVideoStreamOutputWithContext(ctx context.Context) VideoStreamOutput
+}
+
+func (VideoStream) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoStream)(nil)).Elem()
+}
+
+func (i VideoStream) ToVideoStreamOutput() VideoStreamOutput {
+	return i.ToVideoStreamOutputWithContext(context.Background())
+}
+
+func (i VideoStream) ToVideoStreamOutputWithContext(ctx context.Context) VideoStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamOutput)
+}
+
+type VideoStreamOutput struct {
+	*pulumi.OutputState
+}
+
+func (VideoStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoStreamOutput)(nil)).Elem()
+}
+
+func (o VideoStreamOutput) ToVideoStreamOutput() VideoStreamOutput {
+	return o
+}
+
+func (o VideoStreamOutput) ToVideoStreamOutputWithContext(ctx context.Context) VideoStreamOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VideoStreamOutput{})
 }

@@ -4,6 +4,7 @@
 package applicationloadbalancing
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -98,6 +99,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Target Groups can be imported using their ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:applicationloadbalancing/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
 // ```
 //
 // Deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup
@@ -329,4 +338,43 @@ type TargetGroupArgs struct {
 
 func (TargetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupArgs)(nil)).Elem()
+}
+
+type TargetGroupInput interface {
+	pulumi.Input
+
+	ToTargetGroupOutput() TargetGroupOutput
+	ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput
+}
+
+func (TargetGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroup)(nil)).Elem()
+}
+
+func (i TargetGroup) ToTargetGroupOutput() TargetGroupOutput {
+	return i.ToTargetGroupOutputWithContext(context.Background())
+}
+
+func (i TargetGroup) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupOutput)
+}
+
+type TargetGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (TargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupOutput)(nil)).Elem()
+}
+
+func (o TargetGroupOutput) ToTargetGroupOutput() TargetGroupOutput {
+	return o
+}
+
+func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TargetGroupOutput{})
 }

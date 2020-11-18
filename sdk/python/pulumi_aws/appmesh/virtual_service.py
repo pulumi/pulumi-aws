@@ -62,6 +62,16 @@ class VirtualService(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+        ```
+
+         [1]/docs/providers/aws/index.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual service.

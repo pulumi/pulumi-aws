@@ -99,6 +99,14 @@ class CatalogTable(pulumi.CustomResource):
             table_type="EXTERNAL_TABLE")
         ```
 
+        ## Import
+
+        Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.

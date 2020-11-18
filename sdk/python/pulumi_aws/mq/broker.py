@@ -75,6 +75,14 @@ class Broker(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        MQ Brokers can be imported using their broker id, e.g.
+
+        ```sh
+         $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any broker modifications

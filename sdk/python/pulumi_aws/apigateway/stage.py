@@ -96,6 +96,14 @@ class Stage(pulumi.CustomResource):
         # ... other configuration ...
         ```
 
+        ## Import
+
+        `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']] access_log_settings: Enables access logs for the API stage. Detailed below.

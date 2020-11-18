@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -52,6 +50,14 @@ import * as utilities from "../utilities";
  *         values: ["AWS::EC2::Instance"],
  *     }],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * SSM Maintenance Window targets can be imported using `WINDOW_ID/WINDOW_TARGET_ID`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
  * ```
  */
 export class MaintenanceWindowTarget extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -82,6 +83,14 @@ import (
 // * To actually use the DHCP Options Set you need to associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`.
 // * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
 // * In most cases unless you're configuring your own DNS you'll want to set `domainNameServers` to `AmazonProvidedDNS`.
+//
+// ## Import
+//
+// VPC DHCP Options can be imported using the `dhcp options id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
+// ```
 type VpcDhcpOptions struct {
 	pulumi.CustomResourceState
 
@@ -205,4 +214,43 @@ type VpcDhcpOptionsArgs struct {
 
 func (VpcDhcpOptionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcDhcpOptionsArgs)(nil)).Elem()
+}
+
+type VpcDhcpOptionsInput interface {
+	pulumi.Input
+
+	ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput
+	ToVpcDhcpOptionsOutputWithContext(ctx context.Context) VpcDhcpOptionsOutput
+}
+
+func (VpcDhcpOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcDhcpOptions)(nil)).Elem()
+}
+
+func (i VpcDhcpOptions) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {
+	return i.ToVpcDhcpOptionsOutputWithContext(context.Background())
+}
+
+func (i VpcDhcpOptions) ToVpcDhcpOptionsOutputWithContext(ctx context.Context) VpcDhcpOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsOutput)
+}
+
+type VpcDhcpOptionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcDhcpOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcDhcpOptionsOutput)(nil)).Elem()
+}
+
+func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {
+	return o
+}
+
+func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutputWithContext(ctx context.Context) VpcDhcpOptionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcDhcpOptionsOutput{})
 }

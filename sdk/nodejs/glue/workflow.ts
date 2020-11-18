@@ -37,6 +37,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Glue Workflows can be imported using `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+ * ```
  */
 export class Workflow extends pulumi.CustomResource {
     /**

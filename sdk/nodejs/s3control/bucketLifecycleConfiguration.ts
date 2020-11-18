@@ -2,11 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+ * ```
+ */
 export class BucketLifecycleConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing BucketLifecycleConfiguration resource's state with the given name, ID, and optional extra

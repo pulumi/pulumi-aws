@@ -54,6 +54,14 @@ class ResolverEndpoint(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+         Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] direction: The direction of DNS queries to or from the Route 53 Resolver endpoint.

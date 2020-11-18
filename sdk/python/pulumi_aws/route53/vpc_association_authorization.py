@@ -53,6 +53,14 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             opts=ResourceOptions(provider="aws.alternate"))
         ```
 
+        ## Import
+
+        Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The VPC to authorize for association with the private hosted zone.

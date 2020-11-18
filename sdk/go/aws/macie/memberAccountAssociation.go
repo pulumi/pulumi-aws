@@ -4,6 +4,7 @@
 package macie
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -102,4 +103,43 @@ type MemberAccountAssociationArgs struct {
 
 func (MemberAccountAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*memberAccountAssociationArgs)(nil)).Elem()
+}
+
+type MemberAccountAssociationInput interface {
+	pulumi.Input
+
+	ToMemberAccountAssociationOutput() MemberAccountAssociationOutput
+	ToMemberAccountAssociationOutputWithContext(ctx context.Context) MemberAccountAssociationOutput
+}
+
+func (MemberAccountAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberAccountAssociation)(nil)).Elem()
+}
+
+func (i MemberAccountAssociation) ToMemberAccountAssociationOutput() MemberAccountAssociationOutput {
+	return i.ToMemberAccountAssociationOutputWithContext(context.Background())
+}
+
+func (i MemberAccountAssociation) ToMemberAccountAssociationOutputWithContext(ctx context.Context) MemberAccountAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationOutput)
+}
+
+type MemberAccountAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (MemberAccountAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberAccountAssociationOutput)(nil)).Elem()
+}
+
+func (o MemberAccountAssociationOutput) ToMemberAccountAssociationOutput() MemberAccountAssociationOutput {
+	return o
+}
+
+func (o MemberAccountAssociationOutput) ToMemberAccountAssociationOutputWithContext(ctx context.Context) MemberAccountAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MemberAccountAssociationOutput{})
 }

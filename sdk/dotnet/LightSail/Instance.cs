@@ -93,6 +93,14 @@ namespace Pulumi.Aws.LightSail
     /// - us-east-1: `2_0`
     /// - us-east-2: `2_0`
     /// - us-west-2: `2_0`
+    /// 
+    /// ## Import
+    /// 
+    /// Lightsail Instances can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+    /// ```
     /// </summary>
     public partial class Instance : Pulumi.CustomResource
     {

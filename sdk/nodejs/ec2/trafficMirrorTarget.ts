@@ -25,6 +25,14 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Traffic mirror targets can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+ * ```
  */
 export class TrafficMirrorTarget extends pulumi.CustomResource {
     /**

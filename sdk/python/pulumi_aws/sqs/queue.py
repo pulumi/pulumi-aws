@@ -75,6 +75,14 @@ class Queue(pulumi.CustomResource):
             kms_master_key_id="alias/aws/sqs")
         ```
 
+        ## Import
+
+        SQS Queues can be imported using the `queue url`, e.g.
+
+        ```sh
+         $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)

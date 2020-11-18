@@ -4,6 +4,7 @@
 package waf
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -112,6 +113,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// WAF Web ACL can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
 // ```
 type WebAcl struct {
 	pulumi.CustomResourceState
@@ -236,4 +245,43 @@ type WebAclArgs struct {
 
 func (WebAclArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclArgs)(nil)).Elem()
+}
+
+type WebAclInput interface {
+	pulumi.Input
+
+	ToWebAclOutput() WebAclOutput
+	ToWebAclOutputWithContext(ctx context.Context) WebAclOutput
+}
+
+func (WebAcl) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAcl)(nil)).Elem()
+}
+
+func (i WebAcl) ToWebAclOutput() WebAclOutput {
+	return i.ToWebAclOutputWithContext(context.Background())
+}
+
+func (i WebAcl) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclOutput)
+}
+
+type WebAclOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclOutput)(nil)).Elem()
+}
+
+func (o WebAclOutput) ToWebAclOutput() WebAclOutput {
+	return o
+}
+
+func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAclOutput{})
 }

@@ -4,6 +4,7 @@
 package storagegateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_storagegateway_cache` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
 // ```
 type Cache struct {
 	pulumi.CustomResourceState
@@ -114,4 +123,43 @@ type CacheArgs struct {
 
 func (CacheArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheArgs)(nil)).Elem()
+}
+
+type CacheInput interface {
+	pulumi.Input
+
+	ToCacheOutput() CacheOutput
+	ToCacheOutputWithContext(ctx context.Context) CacheOutput
+}
+
+func (Cache) ElementType() reflect.Type {
+	return reflect.TypeOf((*Cache)(nil)).Elem()
+}
+
+func (i Cache) ToCacheOutput() CacheOutput {
+	return i.ToCacheOutputWithContext(context.Background())
+}
+
+func (i Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
+}
+
+type CacheOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheOutput)(nil)).Elem()
+}
+
+func (o CacheOutput) ToCacheOutput() CacheOutput {
+	return o
+}
+
+func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CacheOutput{})
 }

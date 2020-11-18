@@ -41,6 +41,14 @@ class JobQueue(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Batch Job Queue can be imported using the `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: Specifies the set of compute environments

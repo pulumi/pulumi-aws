@@ -4,6 +4,7 @@
 package storagegateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -67,6 +68,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
 // ```
 type StoredIscsiVolume struct {
 	pulumi.CustomResourceState
@@ -284,4 +293,43 @@ type StoredIscsiVolumeArgs struct {
 
 func (StoredIscsiVolumeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storedIscsiVolumeArgs)(nil)).Elem()
+}
+
+type StoredIscsiVolumeInput interface {
+	pulumi.Input
+
+	ToStoredIscsiVolumeOutput() StoredIscsiVolumeOutput
+	ToStoredIscsiVolumeOutputWithContext(ctx context.Context) StoredIscsiVolumeOutput
+}
+
+func (StoredIscsiVolume) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoredIscsiVolume)(nil)).Elem()
+}
+
+func (i StoredIscsiVolume) ToStoredIscsiVolumeOutput() StoredIscsiVolumeOutput {
+	return i.ToStoredIscsiVolumeOutputWithContext(context.Background())
+}
+
+func (i StoredIscsiVolume) ToStoredIscsiVolumeOutputWithContext(ctx context.Context) StoredIscsiVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoredIscsiVolumeOutput)
+}
+
+type StoredIscsiVolumeOutput struct {
+	*pulumi.OutputState
+}
+
+func (StoredIscsiVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoredIscsiVolumeOutput)(nil)).Elem()
+}
+
+func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumeOutput() StoredIscsiVolumeOutput {
+	return o
+}
+
+func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumeOutputWithContext(ctx context.Context) StoredIscsiVolumeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StoredIscsiVolumeOutput{})
 }

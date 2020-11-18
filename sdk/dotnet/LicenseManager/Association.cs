@@ -13,6 +13,14 @@ namespace Pulumi.Aws.LicenseManager
     /// Provides a License Manager association.
     /// 
     /// &gt; **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws.ec2.LaunchTemplate`.
+    /// 
+    /// ## Import
+    /// 
+    /// License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+    /// ```
     /// </summary>
     public partial class Association : Pulumi.CustomResource
     {

@@ -63,6 +63,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Instances can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/instance:Instance web i-12345678
+    /// ```
     /// </summary>
     public partial class Instance : Pulumi.CustomResource
     {

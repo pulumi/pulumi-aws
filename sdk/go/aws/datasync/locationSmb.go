@@ -4,6 +4,7 @@
 package datasync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_datasync_location_smb` can be imported by using the Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type LocationSmb struct {
 	pulumi.CustomResourceState
@@ -197,4 +206,43 @@ type LocationSmbArgs struct {
 
 func (LocationSmbArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationSmbArgs)(nil)).Elem()
+}
+
+type LocationSmbInput interface {
+	pulumi.Input
+
+	ToLocationSmbOutput() LocationSmbOutput
+	ToLocationSmbOutputWithContext(ctx context.Context) LocationSmbOutput
+}
+
+func (LocationSmb) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmb)(nil)).Elem()
+}
+
+func (i LocationSmb) ToLocationSmbOutput() LocationSmbOutput {
+	return i.ToLocationSmbOutputWithContext(context.Background())
+}
+
+func (i LocationSmb) ToLocationSmbOutputWithContext(ctx context.Context) LocationSmbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbOutput)
+}
+
+type LocationSmbOutput struct {
+	*pulumi.OutputState
+}
+
+func (LocationSmbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbOutput)(nil)).Elem()
+}
+
+func (o LocationSmbOutput) ToLocationSmbOutput() LocationSmbOutput {
+	return o
+}
+
+func (o LocationSmbOutput) ToLocationSmbOutputWithContext(ctx context.Context) LocationSmbOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LocationSmbOutput{})
 }

@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -141,4 +142,43 @@ type VpnConnectionRouteArgs struct {
 
 func (VpnConnectionRouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnConnectionRouteArgs)(nil)).Elem()
+}
+
+type VpnConnectionRouteInput interface {
+	pulumi.Input
+
+	ToVpnConnectionRouteOutput() VpnConnectionRouteOutput
+	ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput
+}
+
+func (VpnConnectionRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionRoute)(nil)).Elem()
+}
+
+func (i VpnConnectionRoute) ToVpnConnectionRouteOutput() VpnConnectionRouteOutput {
+	return i.ToVpnConnectionRouteOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionRoute) ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteOutput)
+}
+
+type VpnConnectionRouteOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnConnectionRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionRouteOutput)(nil)).Elem()
+}
+
+func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutput() VpnConnectionRouteOutput {
+	return o
+}
+
+func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnConnectionRouteOutput{})
 }

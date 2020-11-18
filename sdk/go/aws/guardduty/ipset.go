@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GuardDuty IPSet can be imported using the the primary GuardDuty detector ID and IPSet ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
 // ```
 type IPSet struct {
 	pulumi.CustomResourceState
@@ -196,4 +205,43 @@ type IPSetArgs struct {
 
 func (IPSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipsetArgs)(nil)).Elem()
+}
+
+type IPSetInput interface {
+	pulumi.Input
+
+	ToIPSetOutput() IPSetOutput
+	ToIPSetOutputWithContext(ctx context.Context) IPSetOutput
+}
+
+func (IPSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSet)(nil)).Elem()
+}
+
+func (i IPSet) ToIPSetOutput() IPSetOutput {
+	return i.ToIPSetOutputWithContext(context.Background())
+}
+
+func (i IPSet) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSetOutput)
+}
+
+type IPSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (IPSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSetOutput)(nil)).Elem()
+}
+
+func (o IPSetOutput) ToIPSetOutput() IPSetOutput {
+	return o
+}
+
+func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IPSetOutput{})
 }

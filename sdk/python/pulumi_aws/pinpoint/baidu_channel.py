@@ -40,6 +40,14 @@ class BaiduChannel(pulumi.CustomResource):
             secret_key="")
         ```
 
+        ## Import
+
+        Pinpoint Baidu Channel can be imported using the `application-id`, e.g.
+
+        ```sh
+         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key: Platform credential API key from Baidu.

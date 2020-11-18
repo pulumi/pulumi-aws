@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,6 +52,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Default VPC Routing tables can be imported using the `vpc_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+ * ```
+ *
+ *  [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html
  */
 export class DefaultRouteTable extends pulumi.CustomResource {
     /**

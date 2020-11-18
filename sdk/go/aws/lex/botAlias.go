@@ -4,6 +4,7 @@
 package lex
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
+//
+// ```sh
+//  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
 // ```
 type BotAlias struct {
 	pulumi.CustomResourceState
@@ -169,4 +178,43 @@ type BotAliasArgs struct {
 
 func (BotAliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*botAliasArgs)(nil)).Elem()
+}
+
+type BotAliasInput interface {
+	pulumi.Input
+
+	ToBotAliasOutput() BotAliasOutput
+	ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput
+}
+
+func (BotAlias) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAlias)(nil)).Elem()
+}
+
+func (i BotAlias) ToBotAliasOutput() BotAliasOutput {
+	return i.ToBotAliasOutputWithContext(context.Background())
+}
+
+func (i BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotAliasOutput)
+}
+
+type BotAliasOutput struct {
+	*pulumi.OutputState
+}
+
+func (BotAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotAliasOutput)(nil)).Elem()
+}
+
+func (o BotAliasOutput) ToBotAliasOutput() BotAliasOutput {
+	return o
+}
+
+func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BotAliasOutput{})
 }

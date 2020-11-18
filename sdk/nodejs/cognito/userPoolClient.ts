@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -82,6 +80,14 @@ import * as utilities from "../utilities";
  *         userDataShared: true,
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client <user_pool_id>/<user_pool_client_id>
  * ```
  */
 export class UserPoolClient extends pulumi.CustomResource {

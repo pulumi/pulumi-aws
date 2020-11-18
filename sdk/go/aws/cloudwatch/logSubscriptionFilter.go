@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CloudWatch Logs subscription filter can be imported using the log group name and subscription filter name separated by `|`.
+//
+// ```sh
+//  $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
 // ```
 type LogSubscriptionFilter struct {
 	pulumi.CustomResourceState
@@ -158,4 +167,43 @@ type LogSubscriptionFilterArgs struct {
 
 func (LogSubscriptionFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logSubscriptionFilterArgs)(nil)).Elem()
+}
+
+type LogSubscriptionFilterInput interface {
+	pulumi.Input
+
+	ToLogSubscriptionFilterOutput() LogSubscriptionFilterOutput
+	ToLogSubscriptionFilterOutputWithContext(ctx context.Context) LogSubscriptionFilterOutput
+}
+
+func (LogSubscriptionFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogSubscriptionFilter)(nil)).Elem()
+}
+
+func (i LogSubscriptionFilter) ToLogSubscriptionFilterOutput() LogSubscriptionFilterOutput {
+	return i.ToLogSubscriptionFilterOutputWithContext(context.Background())
+}
+
+func (i LogSubscriptionFilter) ToLogSubscriptionFilterOutputWithContext(ctx context.Context) LogSubscriptionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogSubscriptionFilterOutput)
+}
+
+type LogSubscriptionFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogSubscriptionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogSubscriptionFilterOutput)(nil)).Elem()
+}
+
+func (o LogSubscriptionFilterOutput) ToLogSubscriptionFilterOutput() LogSubscriptionFilterOutput {
+	return o
+}
+
+func (o LogSubscriptionFilterOutput) ToLogSubscriptionFilterOutputWithContext(ctx context.Context) LogSubscriptionFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogSubscriptionFilterOutput{})
 }

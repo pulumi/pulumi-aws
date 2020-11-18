@@ -4,6 +4,7 @@
 package directconnect
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
 // ```
 type HostedTransitVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -226,4 +235,43 @@ type HostedTransitVirtualInterfaceArgs struct {
 
 func (HostedTransitVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedTransitVirtualInterfaceArgs)(nil)).Elem()
+}
+
+type HostedTransitVirtualInterfaceInput interface {
+	pulumi.Input
+
+	ToHostedTransitVirtualInterfaceOutput() HostedTransitVirtualInterfaceOutput
+	ToHostedTransitVirtualInterfaceOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceOutput
+}
+
+func (HostedTransitVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedTransitVirtualInterface)(nil)).Elem()
+}
+
+func (i HostedTransitVirtualInterface) ToHostedTransitVirtualInterfaceOutput() HostedTransitVirtualInterfaceOutput {
+	return i.ToHostedTransitVirtualInterfaceOutputWithContext(context.Background())
+}
+
+func (i HostedTransitVirtualInterface) ToHostedTransitVirtualInterfaceOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceOutput)
+}
+
+type HostedTransitVirtualInterfaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostedTransitVirtualInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedTransitVirtualInterfaceOutput)(nil)).Elem()
+}
+
+func (o HostedTransitVirtualInterfaceOutput) ToHostedTransitVirtualInterfaceOutput() HostedTransitVirtualInterfaceOutput {
+	return o
+}
+
+func (o HostedTransitVirtualInterfaceOutput) ToHostedTransitVirtualInterfaceOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostedTransitVirtualInterfaceOutput{})
 }

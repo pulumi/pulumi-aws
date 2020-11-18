@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+ * ```
+ */
 export class Tag extends pulumi.CustomResource {
     /**
      * Get an existing Tag resource's state with the given name, ID, and optional extra

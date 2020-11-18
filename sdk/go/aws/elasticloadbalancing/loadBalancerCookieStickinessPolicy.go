@@ -4,6 +4,7 @@
 package elasticloadbalancing
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -171,4 +172,43 @@ type LoadBalancerCookieStickinessPolicyArgs struct {
 
 func (LoadBalancerCookieStickinessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerCookieStickinessPolicyArgs)(nil)).Elem()
+}
+
+type LoadBalancerCookieStickinessPolicyInput interface {
+	pulumi.Input
+
+	ToLoadBalancerCookieStickinessPolicyOutput() LoadBalancerCookieStickinessPolicyOutput
+	ToLoadBalancerCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyOutput
+}
+
+func (LoadBalancerCookieStickinessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerCookieStickinessPolicy)(nil)).Elem()
+}
+
+func (i LoadBalancerCookieStickinessPolicy) ToLoadBalancerCookieStickinessPolicyOutput() LoadBalancerCookieStickinessPolicyOutput {
+	return i.ToLoadBalancerCookieStickinessPolicyOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerCookieStickinessPolicy) ToLoadBalancerCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerCookieStickinessPolicyOutput)
+}
+
+type LoadBalancerCookieStickinessPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerCookieStickinessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerCookieStickinessPolicyOutput)(nil)).Elem()
+}
+
+func (o LoadBalancerCookieStickinessPolicyOutput) ToLoadBalancerCookieStickinessPolicyOutput() LoadBalancerCookieStickinessPolicyOutput {
+	return o
+}
+
+func (o LoadBalancerCookieStickinessPolicyOutput) ToLoadBalancerCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerCookieStickinessPolicyOutput{})
 }

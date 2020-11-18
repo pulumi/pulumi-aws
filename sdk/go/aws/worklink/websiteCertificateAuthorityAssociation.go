@@ -4,12 +4,20 @@
 package worklink
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+// ```
 type WebsiteCertificateAuthorityAssociation struct {
 	pulumi.CustomResourceState
 
@@ -103,4 +111,43 @@ type WebsiteCertificateAuthorityAssociationArgs struct {
 
 func (WebsiteCertificateAuthorityAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*websiteCertificateAuthorityAssociationArgs)(nil)).Elem()
+}
+
+type WebsiteCertificateAuthorityAssociationInput interface {
+	pulumi.Input
+
+	ToWebsiteCertificateAuthorityAssociationOutput() WebsiteCertificateAuthorityAssociationOutput
+	ToWebsiteCertificateAuthorityAssociationOutputWithContext(ctx context.Context) WebsiteCertificateAuthorityAssociationOutput
+}
+
+func (WebsiteCertificateAuthorityAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebsiteCertificateAuthorityAssociation)(nil)).Elem()
+}
+
+func (i WebsiteCertificateAuthorityAssociation) ToWebsiteCertificateAuthorityAssociationOutput() WebsiteCertificateAuthorityAssociationOutput {
+	return i.ToWebsiteCertificateAuthorityAssociationOutputWithContext(context.Background())
+}
+
+func (i WebsiteCertificateAuthorityAssociation) ToWebsiteCertificateAuthorityAssociationOutputWithContext(ctx context.Context) WebsiteCertificateAuthorityAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebsiteCertificateAuthorityAssociationOutput)
+}
+
+type WebsiteCertificateAuthorityAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebsiteCertificateAuthorityAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebsiteCertificateAuthorityAssociationOutput)(nil)).Elem()
+}
+
+func (o WebsiteCertificateAuthorityAssociationOutput) ToWebsiteCertificateAuthorityAssociationOutput() WebsiteCertificateAuthorityAssociationOutput {
+	return o
+}
+
+func (o WebsiteCertificateAuthorityAssociationOutput) ToWebsiteCertificateAuthorityAssociationOutputWithContext(ctx context.Context) WebsiteCertificateAuthorityAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebsiteCertificateAuthorityAssociationOutput{})
 }

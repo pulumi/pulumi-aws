@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -116,6 +117,14 @@ import (
 // 	}
 // 	return pulumiArr
 // }
+// ```
+//
+// ## Import
+//
+// `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
 // ```
 type Method struct {
 	pulumi.CustomResourceState
@@ -295,4 +304,43 @@ type MethodArgs struct {
 
 func (MethodArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodArgs)(nil)).Elem()
+}
+
+type MethodInput interface {
+	pulumi.Input
+
+	ToMethodOutput() MethodOutput
+	ToMethodOutputWithContext(ctx context.Context) MethodOutput
+}
+
+func (Method) ElementType() reflect.Type {
+	return reflect.TypeOf((*Method)(nil)).Elem()
+}
+
+func (i Method) ToMethodOutput() MethodOutput {
+	return i.ToMethodOutputWithContext(context.Background())
+}
+
+func (i Method) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodOutput)
+}
+
+type MethodOutput struct {
+	*pulumi.OutputState
+}
+
+func (MethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodOutput)(nil)).Elem()
+}
+
+func (o MethodOutput) ToMethodOutput() MethodOutput {
+	return o
+}
+
+func (o MethodOutput) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MethodOutput{})
 }

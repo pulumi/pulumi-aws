@@ -63,6 +63,14 @@ class Subnet(pulumi.CustomResource):
             cidr_block="172.2.0.0/24")
         ```
 
+        ## Import
+
+        Subnets can be imported using the `subnet id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate

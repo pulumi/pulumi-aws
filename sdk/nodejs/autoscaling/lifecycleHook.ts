@@ -48,6 +48,14 @@ import * as utilities from "../utilities";
  *     roleArn: "arn:aws:iam::123456789012:role/S3Access",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * AutoScaling Lifecycle Hooks can be imported using the role autoscaling_group_name and name separated by `/`.
+ *
+ * ```sh
+ *  $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+ * ```
  */
 export class LifecycleHook extends pulumi.CustomResource {
     /**

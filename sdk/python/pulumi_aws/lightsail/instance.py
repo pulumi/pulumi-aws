@@ -100,6 +100,14 @@ class Instance(pulumi.CustomResource):
         - us-east-2: `2_0`
         - us-west-2: `2_0`
 
+        ## Import
+
+        Lightsail Instances can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your

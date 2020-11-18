@@ -4,6 +4,7 @@
 package storagegateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_storagegateway_smb_file_share` can be imported by using the SMB File Share Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
 // ```
 type SmbFileShare struct {
 	pulumi.CustomResourceState
@@ -335,4 +344,43 @@ type SmbFileShareArgs struct {
 
 func (SmbFileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smbFileShareArgs)(nil)).Elem()
+}
+
+type SmbFileShareInput interface {
+	pulumi.Input
+
+	ToSmbFileShareOutput() SmbFileShareOutput
+	ToSmbFileShareOutputWithContext(ctx context.Context) SmbFileShareOutput
+}
+
+func (SmbFileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShare)(nil)).Elem()
+}
+
+func (i SmbFileShare) ToSmbFileShareOutput() SmbFileShareOutput {
+	return i.ToSmbFileShareOutputWithContext(context.Background())
+}
+
+func (i SmbFileShare) ToSmbFileShareOutputWithContext(ctx context.Context) SmbFileShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareOutput)
+}
+
+type SmbFileShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (SmbFileShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmbFileShareOutput)(nil)).Elem()
+}
+
+func (o SmbFileShareOutput) ToSmbFileShareOutput() SmbFileShareOutput {
+	return o
+}
+
+func (o SmbFileShareOutput) ToSmbFileShareOutputWithContext(ctx context.Context) SmbFileShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SmbFileShareOutput{})
 }

@@ -39,6 +39,14 @@ class Template(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        SES templates can be imported using the template name, e.g.
+
+        ```sh
+         $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.

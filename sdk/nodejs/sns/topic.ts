@@ -59,6 +59,14 @@ import {ARN} from "..";
  * ## Message Delivery Status Arguments
  *
  * The `<endpoint>_success_feedback_role_arn` and `<endpoint>_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `<endpoint>_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `<endpoint>_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
+ *
+ * ## Import
+ *
+ * SNS Topics can be imported using the `topic arn`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

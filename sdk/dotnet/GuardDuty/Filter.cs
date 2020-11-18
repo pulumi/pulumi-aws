@@ -66,6 +66,14 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GuardDuty filters can be imported using the detector ID and filter's name separated by a colon, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+    /// ```
     /// </summary>
     public partial class Filter : Pulumi.CustomResource
     {

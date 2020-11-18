@@ -117,6 +117,14 @@ class LoadBalancer(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        LBs can be imported using their ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']] access_logs: An Access Logs block. Access Logs documented below.

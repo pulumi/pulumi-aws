@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -148,6 +146,14 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [aws_iam_policy_attachment["test-attach"]],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Spot Fleet Requests can be imported using `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
  * ```
  */
 export class SpotFleetRequest extends pulumi.CustomResource {

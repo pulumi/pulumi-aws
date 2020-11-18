@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GuardDuty detectors can be imported using the detector ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
 // ```
 type Detector struct {
 	pulumi.CustomResourceState
@@ -128,4 +137,43 @@ type DetectorArgs struct {
 
 func (DetectorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*detectorArgs)(nil)).Elem()
+}
+
+type DetectorInput interface {
+	pulumi.Input
+
+	ToDetectorOutput() DetectorOutput
+	ToDetectorOutputWithContext(ctx context.Context) DetectorOutput
+}
+
+func (Detector) ElementType() reflect.Type {
+	return reflect.TypeOf((*Detector)(nil)).Elem()
+}
+
+func (i Detector) ToDetectorOutput() DetectorOutput {
+	return i.ToDetectorOutputWithContext(context.Background())
+}
+
+func (i Detector) ToDetectorOutputWithContext(ctx context.Context) DetectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorOutput)
+}
+
+type DetectorOutput struct {
+	*pulumi.OutputState
+}
+
+func (DetectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorOutput)(nil)).Elem()
+}
+
+func (o DetectorOutput) ToDetectorOutput() DetectorOutput {
+	return o
+}
+
+func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) DetectorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DetectorOutput{})
 }

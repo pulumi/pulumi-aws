@@ -4,6 +4,7 @@
 package fms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -30,6 +31,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Firewall Manager administrator account association can be imported using the account ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
 // ```
 type AdminAccount struct {
 	pulumi.CustomResourceState
@@ -92,4 +101,43 @@ type AdminAccountArgs struct {
 
 func (AdminAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*adminAccountArgs)(nil)).Elem()
+}
+
+type AdminAccountInput interface {
+	pulumi.Input
+
+	ToAdminAccountOutput() AdminAccountOutput
+	ToAdminAccountOutputWithContext(ctx context.Context) AdminAccountOutput
+}
+
+func (AdminAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccount)(nil)).Elem()
+}
+
+func (i AdminAccount) ToAdminAccountOutput() AdminAccountOutput {
+	return i.ToAdminAccountOutputWithContext(context.Background())
+}
+
+func (i AdminAccount) ToAdminAccountOutputWithContext(ctx context.Context) AdminAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountOutput)
+}
+
+type AdminAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (AdminAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdminAccountOutput)(nil)).Elem()
+}
+
+func (o AdminAccountOutput) ToAdminAccountOutput() AdminAccountOutput {
+	return o
+}
+
+func (o AdminAccountOutput) ToAdminAccountOutputWithContext(ctx context.Context) AdminAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AdminAccountOutput{})
 }

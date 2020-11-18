@@ -57,6 +57,14 @@ import * as utilities from "../utilities";
  *     policyName: "route53-query-logging-policy",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * CloudWatch log resource policies can be imported using the policy name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+ * ```
  */
 export class LogResourcePolicy extends pulumi.CustomResource {
     /**

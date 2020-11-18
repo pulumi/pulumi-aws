@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -88,4 +89,43 @@ type ThingPrincipalAttachmentArgs struct {
 
 func (ThingPrincipalAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingPrincipalAttachmentArgs)(nil)).Elem()
+}
+
+type ThingPrincipalAttachmentInput interface {
+	pulumi.Input
+
+	ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput
+	ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput
+}
+
+func (ThingPrincipalAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingPrincipalAttachment)(nil)).Elem()
+}
+
+func (i ThingPrincipalAttachment) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {
+	return i.ToThingPrincipalAttachmentOutputWithContext(context.Background())
+}
+
+func (i ThingPrincipalAttachment) ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentOutput)
+}
+
+type ThingPrincipalAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ThingPrincipalAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingPrincipalAttachmentOutput)(nil)).Elem()
+}
+
+func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {
+	return o
+}
+
+func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ThingPrincipalAttachmentOutput{})
 }

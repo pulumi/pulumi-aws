@@ -4,6 +4,7 @@
 package dms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -110,6 +111,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Replication instances can be imported using the `replication_instance_id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
 // ```
 type ReplicationInstance struct {
 	pulumi.CustomResourceState
@@ -336,4 +345,43 @@ type ReplicationInstanceArgs struct {
 
 func (ReplicationInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationInstanceArgs)(nil)).Elem()
+}
+
+type ReplicationInstanceInput interface {
+	pulumi.Input
+
+	ToReplicationInstanceOutput() ReplicationInstanceOutput
+	ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput
+}
+
+func (ReplicationInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationInstance)(nil)).Elem()
+}
+
+func (i ReplicationInstance) ToReplicationInstanceOutput() ReplicationInstanceOutput {
+	return i.ToReplicationInstanceOutputWithContext(context.Background())
+}
+
+func (i ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceOutput)
+}
+
+type ReplicationInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationInstanceOutput)(nil)).Elem()
+}
+
+func (o ReplicationInstanceOutput) ToReplicationInstanceOutput() ReplicationInstanceOutput {
+	return o
+}
+
+func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationInstanceOutput{})
 }

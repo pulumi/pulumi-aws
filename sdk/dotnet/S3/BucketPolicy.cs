@@ -51,6 +51,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// S3 bucket policies can be imported using the bucket name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
+    /// ```
     /// </summary>
     public partial class BucketPolicy : Pulumi.CustomResource
     {

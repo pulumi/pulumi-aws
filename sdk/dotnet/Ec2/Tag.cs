@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+    /// ```
+    /// </summary>
     public partial class Tag : Pulumi.CustomResource
     {
         /// <summary>

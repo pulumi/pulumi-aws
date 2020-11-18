@@ -100,6 +100,14 @@ class NodeGroup(pulumi.CustomResource):
             role=example.name)
         ```
 
+        ## Import
+
+        EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`. This provider will only perform drift detection if a configuration value is provided.

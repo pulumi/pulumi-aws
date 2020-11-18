@@ -45,6 +45,14 @@ class Stage(pulumi.CustomResource):
         example = aws.apigatewayv2.Stage("example", api_id=aws_apigatewayv2_api["example"]["id"])
         ```
 
+        ## Import
+
+        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']] access_log_settings: Settings for logging access in this stage.

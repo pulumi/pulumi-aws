@@ -48,6 +48,14 @@ namespace Pulumi.Aws.Cur
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Report Definitions can be imported using the `report_name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+    /// ```
     /// </summary>
     public partial class ReportDefinition : Pulumi.CustomResource
     {

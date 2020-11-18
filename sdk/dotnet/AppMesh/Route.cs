@@ -200,6 +200,16 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+    /// ```
+    /// 
+    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {

@@ -69,6 +69,14 @@ class ConfigurationAggregator(pulumi.CustomResource):
         opts=ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
 
+        ## Import
+
+        Configuration Aggregators can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationAggregatorAccountAggregationSourceArgs']] account_aggregation_source: The account(s) to aggregate config data from as documented below.

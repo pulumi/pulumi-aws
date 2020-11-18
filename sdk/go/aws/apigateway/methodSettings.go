@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -97,6 +98,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
 // ```
 type MethodSettings struct {
 	pulumi.CustomResourceState
@@ -201,4 +210,43 @@ type MethodSettingsArgs struct {
 
 func (MethodSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodSettingsArgs)(nil)).Elem()
+}
+
+type MethodSettingsInput interface {
+	pulumi.Input
+
+	ToMethodSettingsOutput() MethodSettingsOutput
+	ToMethodSettingsOutputWithContext(ctx context.Context) MethodSettingsOutput
+}
+
+func (MethodSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodSettings)(nil)).Elem()
+}
+
+func (i MethodSettings) ToMethodSettingsOutput() MethodSettingsOutput {
+	return i.ToMethodSettingsOutputWithContext(context.Background())
+}
+
+func (i MethodSettings) ToMethodSettingsOutputWithContext(ctx context.Context) MethodSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsOutput)
+}
+
+type MethodSettingsOutput struct {
+	*pulumi.OutputState
+}
+
+func (MethodSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodSettingsOutput)(nil)).Elem()
+}
+
+func (o MethodSettingsOutput) ToMethodSettingsOutput() MethodSettingsOutput {
+	return o
+}
+
+func (o MethodSettingsOutput) ToMethodSettingsOutputWithContext(ctx context.Context) MethodSettingsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MethodSettingsOutput{})
 }

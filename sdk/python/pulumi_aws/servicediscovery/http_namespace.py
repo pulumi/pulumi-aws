@@ -31,6 +31,14 @@ class HttpNamespace(pulumi.CustomResource):
         example = aws.servicediscovery.HttpNamespace("example", description="example")
         ```
 
+        ## Import
+
+        Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.
+
+        ```sh
+         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.

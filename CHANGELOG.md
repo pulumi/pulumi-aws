@@ -4,6 +4,8 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Upgrade to v3.15.0 of the AWS Terraform Provider
 * Add support for autonaming RDS Aurora Clusters
+* Upgrade to pulumi-terraform-bridge v2.13.2  
+  * This adds support for import specific examples in documentation
 
 ---
 

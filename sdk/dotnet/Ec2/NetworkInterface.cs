@@ -46,6 +46,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Network Interfaces can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+    /// ```
     /// </summary>
     public partial class NetworkInterface : Pulumi.CustomResource
     {

@@ -69,6 +69,14 @@ class Endpoint(pulumi.CustomResource):
             username="test")
         ```
 
+        ## Import
+
+        Endpoints can be imported using the `endpoint_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.

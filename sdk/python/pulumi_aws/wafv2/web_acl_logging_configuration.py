@@ -46,6 +46,14 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        WAFv2 Web ACL Logging Configurations can be imported using the WAFv2 Web ACL ARN e.g.
+
+        ```sh
+         $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.

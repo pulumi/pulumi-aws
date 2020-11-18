@@ -4,6 +4,7 @@
 package batch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Batch Job Queue can be imported using the `arn`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
 // ```
 type JobQueue struct {
 	pulumi.CustomResourceState
@@ -175,4 +184,43 @@ type JobQueueArgs struct {
 
 func (JobQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobQueueArgs)(nil)).Elem()
+}
+
+type JobQueueInput interface {
+	pulumi.Input
+
+	ToJobQueueOutput() JobQueueOutput
+	ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput
+}
+
+func (JobQueue) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueue)(nil)).Elem()
+}
+
+func (i JobQueue) ToJobQueueOutput() JobQueueOutput {
+	return i.ToJobQueueOutputWithContext(context.Background())
+}
+
+func (i JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueOutput)
+}
+
+type JobQueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobQueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueOutput)(nil)).Elem()
+}
+
+func (o JobQueueOutput) ToJobQueueOutput() JobQueueOutput {
+	return o
+}
+
+func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobQueueOutput{})
 }

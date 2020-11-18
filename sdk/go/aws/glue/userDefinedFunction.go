@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Glue User Defined Functions can be imported using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
+//
+// ```sh
+//  $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
 // ```
 type UserDefinedFunction struct {
 	pulumi.CustomResourceState
@@ -189,4 +198,43 @@ type UserDefinedFunctionArgs struct {
 
 func (UserDefinedFunctionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userDefinedFunctionArgs)(nil)).Elem()
+}
+
+type UserDefinedFunctionInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionOutput() UserDefinedFunctionOutput
+	ToUserDefinedFunctionOutputWithContext(ctx context.Context) UserDefinedFunctionOutput
+}
+
+func (UserDefinedFunction) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunction)(nil)).Elem()
+}
+
+func (i UserDefinedFunction) ToUserDefinedFunctionOutput() UserDefinedFunctionOutput {
+	return i.ToUserDefinedFunctionOutputWithContext(context.Background())
+}
+
+func (i UserDefinedFunction) ToUserDefinedFunctionOutputWithContext(ctx context.Context) UserDefinedFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionOutput)
+}
+
+type UserDefinedFunctionOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserDefinedFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionOutput)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionOutput) ToUserDefinedFunctionOutput() UserDefinedFunctionOutput {
+	return o
+}
+
+func (o UserDefinedFunctionOutput) ToUserDefinedFunctionOutputWithContext(ctx context.Context) UserDefinedFunctionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserDefinedFunctionOutput{})
 }

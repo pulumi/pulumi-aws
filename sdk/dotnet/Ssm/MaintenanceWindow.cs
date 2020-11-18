@@ -32,6 +32,16 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SSM
+    /// 
+    /// Maintenance Windows can be imported using the `maintenance window id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+    /// ```
     /// </summary>
     public partial class MaintenanceWindow : Pulumi.CustomResource
     {

@@ -30,6 +30,14 @@ import * as utilities from "../utilities";
  *     version: 1,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * XRay Sampling Rules can be imported using the name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:xray/samplingRule:SamplingRule example example
+ * ```
  */
 export class SamplingRule extends pulumi.CustomResource {
     /**

@@ -33,6 +33,14 @@ class Vault(pulumi.CustomResource):
         example = aws.backup.Vault("example", kms_key_arn=aws_kms_key["example"]["arn"])
         ```
 
+        ## Import
+
+        Backup vault can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:backup/vault:Vault test-vault TestVault
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kms_key_arn: The server-side encryption key that is used to protect your backups.

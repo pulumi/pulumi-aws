@@ -56,6 +56,14 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
             opts=ResourceOptions(provider=aws["accepter"]))
         ```
 
+        ## Import
+
+        Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.
+
+        ```sh
+         $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.

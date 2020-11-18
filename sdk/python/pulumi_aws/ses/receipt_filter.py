@@ -35,6 +35,14 @@ class ReceiptFilter(pulumi.CustomResource):
             policy="Block")
         ```
 
+        ## Import
+
+        SES Receipt Filter can be imported using their `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation

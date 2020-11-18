@@ -23,7 +23,14 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a ProxyDefaultTargetGroup resource with the given unique name, props, and options.
+        ## Import
+
+        DB proxy default target groups can be imported using the `db_proxy_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.

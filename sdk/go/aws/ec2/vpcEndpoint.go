@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -68,6 +69,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// VPC Endpoints can be imported using the `vpc endpoint id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
 // ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
@@ -279,4 +288,43 @@ type VpcEndpointArgs struct {
 
 func (VpcEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointArgs)(nil)).Elem()
+}
+
+type VpcEndpointInput interface {
+	pulumi.Input
+
+	ToVpcEndpointOutput() VpcEndpointOutput
+	ToVpcEndpointOutputWithContext(ctx context.Context) VpcEndpointOutput
+}
+
+func (VpcEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpoint)(nil)).Elem()
+}
+
+func (i VpcEndpoint) ToVpcEndpointOutput() VpcEndpointOutput {
+	return i.ToVpcEndpointOutputWithContext(context.Background())
+}
+
+func (i VpcEndpoint) ToVpcEndpointOutputWithContext(ctx context.Context) VpcEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointOutput)
+}
+
+type VpcEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointOutput)(nil)).Elem()
+}
+
+func (o VpcEndpointOutput) ToVpcEndpointOutput() VpcEndpointOutput {
+	return o
+}
+
+func (o VpcEndpointOutput) ToVpcEndpointOutputWithContext(ctx context.Context) VpcEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcEndpointOutput{})
 }

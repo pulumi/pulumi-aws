@@ -58,6 +58,14 @@ class FileSystemPolicy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        The EFS file system policies can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.

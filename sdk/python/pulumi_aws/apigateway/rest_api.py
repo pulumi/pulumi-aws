@@ -54,6 +54,14 @@ class RestApi(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key_source: The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.

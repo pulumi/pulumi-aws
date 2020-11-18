@@ -44,6 +44,14 @@ class DocumentationVersion(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[example_documentation_part]))
         ```
 
+        ## Import
+
+        API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the API documentation version.

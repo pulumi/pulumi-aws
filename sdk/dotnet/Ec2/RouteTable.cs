@@ -66,6 +66,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Route Tables can be imported using the route table `id`. For example, to import route table `rtb-4e616f6d69`, use this command
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+    /// ```
     /// </summary>
     public partial class RouteTable : Pulumi.CustomResource
     {

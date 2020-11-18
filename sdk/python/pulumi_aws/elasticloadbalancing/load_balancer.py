@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['LoadBalancer']
 
-warnings.warn("aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer""", DeprecationWarning)
 
 
 class LoadBalancer(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -108,6 +108,14 @@ class LoadBalancer(pulumi.CustomResource):
         P256 and P384 curves.  Using a certificate signed by a key using a different
         curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
         browser.
+
+        ## Import
+
+        ELBs can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticloadbalancing/loadBalancer:LoadBalancer bar elb-production-12345
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

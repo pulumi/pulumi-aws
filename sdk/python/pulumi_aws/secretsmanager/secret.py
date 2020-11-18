@@ -60,6 +60,14 @@ class Secret(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_secretsmanager_secret` can be imported by using the secret Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the secret.
@@ -96,11 +104,11 @@ class Secret(pulumi.CustomResource):
             __props__['policy'] = policy
             __props__['recovery_window_in_days'] = recovery_window_in_days
             if rotation_lambda_arn is not None:
-                warnings.warn("Use the aws_secretsmanager_secret_rotation resource instead", DeprecationWarning)
+                warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
                 pulumi.log.warn("rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation resource instead")
             __props__['rotation_lambda_arn'] = rotation_lambda_arn
             if rotation_rules is not None:
-                warnings.warn("Use the aws_secretsmanager_secret_rotation resource instead", DeprecationWarning)
+                warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
                 pulumi.log.warn("rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation resource instead")
             __props__['rotation_rules'] = rotation_rules
             __props__['tags'] = tags

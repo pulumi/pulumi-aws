@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -20,6 +21,14 @@ import (
 // and will overwrite the association.
 //
 // ## Example Usage
+//
+// ## Import
+//
+// VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+// ```
 type VpcEndpointService struct {
 	pulumi.CustomResourceState
 
@@ -172,4 +181,43 @@ type VpcEndpointServiceArgs struct {
 
 func (VpcEndpointServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointServiceArgs)(nil)).Elem()
+}
+
+type VpcEndpointServiceInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServiceOutput() VpcEndpointServiceOutput
+	ToVpcEndpointServiceOutputWithContext(ctx context.Context) VpcEndpointServiceOutput
+}
+
+func (VpcEndpointService) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointService)(nil)).Elem()
+}
+
+func (i VpcEndpointService) ToVpcEndpointServiceOutput() VpcEndpointServiceOutput {
+	return i.ToVpcEndpointServiceOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointService) ToVpcEndpointServiceOutputWithContext(ctx context.Context) VpcEndpointServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceOutput)
+}
+
+type VpcEndpointServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcEndpointServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointServiceOutput)(nil)).Elem()
+}
+
+func (o VpcEndpointServiceOutput) ToVpcEndpointServiceOutput() VpcEndpointServiceOutput {
+	return o
+}
+
+func (o VpcEndpointServiceOutput) ToVpcEndpointServiceOutputWithContext(ctx context.Context) VpcEndpointServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcEndpointServiceOutput{})
 }

@@ -4,6 +4,7 @@
 package servicequotas
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ~> *NOTE* This resource does not require explicit import and will assume management of an existing service quota on resource creation. `aws_servicequotas_service_quota` can be imported by using the service code and quota code, separated by a front slash (`/`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
 // ```
 type ServiceQuota struct {
 	pulumi.CustomResourceState
@@ -162,4 +171,43 @@ type ServiceQuotaArgs struct {
 
 func (ServiceQuotaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceQuotaArgs)(nil)).Elem()
+}
+
+type ServiceQuotaInput interface {
+	pulumi.Input
+
+	ToServiceQuotaOutput() ServiceQuotaOutput
+	ToServiceQuotaOutputWithContext(ctx context.Context) ServiceQuotaOutput
+}
+
+func (ServiceQuota) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceQuota)(nil)).Elem()
+}
+
+func (i ServiceQuota) ToServiceQuotaOutput() ServiceQuotaOutput {
+	return i.ToServiceQuotaOutputWithContext(context.Background())
+}
+
+func (i ServiceQuota) ToServiceQuotaOutputWithContext(ctx context.Context) ServiceQuotaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaOutput)
+}
+
+type ServiceQuotaOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceQuotaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceQuotaOutput)(nil)).Elem()
+}
+
+func (o ServiceQuotaOutput) ToServiceQuotaOutput() ServiceQuotaOutput {
+	return o
+}
+
+func (o ServiceQuotaOutput) ToServiceQuotaOutputWithContext(ctx context.Context) ServiceQuotaOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceQuotaOutput{})
 }

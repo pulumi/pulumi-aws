@@ -53,6 +53,14 @@ class StaticWebLayer(pulumi.CustomResource):
         web = aws.opsworks.StaticWebLayer("web", stack_id=aws_opsworks_stack["main"]["id"])
         ```
 
+        ## Import
+
+        OpsWorks static web server Layers can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:opsworks/staticWebLayer:StaticWebLayer bar 00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.

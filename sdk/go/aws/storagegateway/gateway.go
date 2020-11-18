@@ -4,6 +4,7 @@
 package storagegateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,6 +118,28 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+// ```
+//
+//  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Terraform configuration or use [`ignore_changes`](/docs/configuration/resources.html#ignore_changes) to hide the difference, e.g. hcl resource "aws_storagegateway_gateway" "example" {
+//
+// # ... other configuration ...
+//
+//  gateway_ip_address = aws_instance.sgw.private_ip
+//
+// # There is no Storage Gateway API for reading gateway_ip_address
+//
+//  lifecycle {
+//
+//  ignore_changes = ["gateway_ip_address"]
+//
+//  } }
 type Gateway struct {
 	pulumi.CustomResourceState
 
@@ -336,4 +359,43 @@ type GatewayArgs struct {
 
 func (GatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayArgs)(nil)).Elem()
+}
+
+type GatewayInput interface {
+	pulumi.Input
+
+	ToGatewayOutput() GatewayOutput
+	ToGatewayOutputWithContext(ctx context.Context) GatewayOutput
+}
+
+func (Gateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*Gateway)(nil)).Elem()
+}
+
+func (i Gateway) ToGatewayOutput() GatewayOutput {
+	return i.ToGatewayOutputWithContext(context.Background())
+}
+
+func (i Gateway) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayOutput)
+}
+
+type GatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (GatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayOutput)(nil)).Elem()
+}
+
+func (o GatewayOutput) ToGatewayOutput() GatewayOutput {
+	return o
+}
+
+func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GatewayOutput{})
 }

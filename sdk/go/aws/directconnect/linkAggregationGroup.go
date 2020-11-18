@@ -4,6 +4,7 @@
 package directconnect
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Direct Connect LAGs can be imported using the `lag id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
 // ```
 type LinkAggregationGroup struct {
 	pulumi.CustomResourceState
@@ -163,4 +172,43 @@ type LinkAggregationGroupArgs struct {
 
 func (LinkAggregationGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkAggregationGroupArgs)(nil)).Elem()
+}
+
+type LinkAggregationGroupInput interface {
+	pulumi.Input
+
+	ToLinkAggregationGroupOutput() LinkAggregationGroupOutput
+	ToLinkAggregationGroupOutputWithContext(ctx context.Context) LinkAggregationGroupOutput
+}
+
+func (LinkAggregationGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkAggregationGroup)(nil)).Elem()
+}
+
+func (i LinkAggregationGroup) ToLinkAggregationGroupOutput() LinkAggregationGroupOutput {
+	return i.ToLinkAggregationGroupOutputWithContext(context.Background())
+}
+
+func (i LinkAggregationGroup) ToLinkAggregationGroupOutputWithContext(ctx context.Context) LinkAggregationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupOutput)
+}
+
+type LinkAggregationGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkAggregationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkAggregationGroupOutput)(nil)).Elem()
+}
+
+func (o LinkAggregationGroupOutput) ToLinkAggregationGroupOutput() LinkAggregationGroupOutput {
+	return o
+}
+
+func (o LinkAggregationGroupOutput) ToLinkAggregationGroupOutputWithContext(ctx context.Context) LinkAggregationGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkAggregationGroupOutput{})
 }

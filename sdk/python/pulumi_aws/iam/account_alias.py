@@ -33,6 +33,14 @@ class AccountAlias(pulumi.CustomResource):
         alias = aws.iam.AccountAlias("alias", account_alias="my-account-alias")
         ```
 
+        ## Import
+
+        The current Account Alias can be imported using the `account_alias`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_alias: The account alias

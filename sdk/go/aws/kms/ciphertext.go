@@ -4,6 +4,7 @@
 package kms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -142,4 +143,43 @@ type CiphertextArgs struct {
 
 func (CiphertextArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ciphertextArgs)(nil)).Elem()
+}
+
+type CiphertextInput interface {
+	pulumi.Input
+
+	ToCiphertextOutput() CiphertextOutput
+	ToCiphertextOutputWithContext(ctx context.Context) CiphertextOutput
+}
+
+func (Ciphertext) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ciphertext)(nil)).Elem()
+}
+
+func (i Ciphertext) ToCiphertextOutput() CiphertextOutput {
+	return i.ToCiphertextOutputWithContext(context.Background())
+}
+
+func (i Ciphertext) ToCiphertextOutputWithContext(ctx context.Context) CiphertextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CiphertextOutput)
+}
+
+type CiphertextOutput struct {
+	*pulumi.OutputState
+}
+
+func (CiphertextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CiphertextOutput)(nil)).Elem()
+}
+
+func (o CiphertextOutput) ToCiphertextOutput() CiphertextOutput {
+	return o
+}
+
+func (o CiphertextOutput) ToCiphertextOutputWithContext(ctx context.Context) CiphertextOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CiphertextOutput{})
 }

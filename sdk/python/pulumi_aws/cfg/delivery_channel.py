@@ -74,6 +74,14 @@ class DeliveryChannel(pulumi.CustomResource):
         \"\"\"))
         ```
 
+        ## Import
+
+        Delivery Channel can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.

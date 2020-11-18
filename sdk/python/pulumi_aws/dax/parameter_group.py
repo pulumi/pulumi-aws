@@ -44,6 +44,14 @@ class ParameterGroup(pulumi.CustomResource):
         ])
         ```
 
+        ## Import
+
+        DAX Parameter Group can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.

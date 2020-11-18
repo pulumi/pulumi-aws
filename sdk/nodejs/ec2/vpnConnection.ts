@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -53,6 +51,14 @@ import * as utilities from "../utilities";
  *     type: "ipsec.1",
  *     staticRoutesOnly: true,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * VPN Connections can be imported using the `vpn connection id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
  * ```
  */
 export class VpnConnection extends pulumi.CustomResource {

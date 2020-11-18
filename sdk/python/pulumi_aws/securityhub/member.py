@@ -38,6 +38,14 @@ class Member(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[example_account]))
         ```
 
+        ## Import
+
+        Security Hub members can be imported using their account ID, e.g.
+
+        ```sh
+         $ pulumi import aws:securityhub/member:Member example 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the member AWS account.

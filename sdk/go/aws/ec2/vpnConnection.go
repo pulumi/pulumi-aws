@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -99,6 +100,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// VPN Connections can be imported using the `vpn connection id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
 // ```
 type VpnConnection struct {
 	pulumi.CustomResourceState
@@ -341,4 +350,43 @@ type VpnConnectionArgs struct {
 
 func (VpnConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnConnectionArgs)(nil)).Elem()
+}
+
+type VpnConnectionInput interface {
+	pulumi.Input
+
+	ToVpnConnectionOutput() VpnConnectionOutput
+	ToVpnConnectionOutputWithContext(ctx context.Context) VpnConnectionOutput
+}
+
+func (VpnConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnection)(nil)).Elem()
+}
+
+func (i VpnConnection) ToVpnConnectionOutput() VpnConnectionOutput {
+	return i.ToVpnConnectionOutputWithContext(context.Background())
+}
+
+func (i VpnConnection) ToVpnConnectionOutputWithContext(ctx context.Context) VpnConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionOutput)
+}
+
+type VpnConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionOutput)(nil)).Elem()
+}
+
+func (o VpnConnectionOutput) ToVpnConnectionOutput() VpnConnectionOutput {
+	return o
+}
+
+func (o VpnConnectionOutput) ToVpnConnectionOutputWithContext(ctx context.Context) VpnConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnConnectionOutput{})
 }

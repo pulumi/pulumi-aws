@@ -202,6 +202,14 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+
+        ```sh
+         $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.

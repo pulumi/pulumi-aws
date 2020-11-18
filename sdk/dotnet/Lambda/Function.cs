@@ -195,6 +195,14 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
     /// large files efficiently.
+    /// 
+    /// ## Import
+    /// 
+    /// Lambda Functions can be imported using the `function_name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+    /// ```
     /// </summary>
     public partial class Function : Pulumi.CustomResource
     {

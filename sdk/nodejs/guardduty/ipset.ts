@@ -30,6 +30,14 @@ import * as utilities from "../utilities";
  *     location: pulumi.interpolate`https://s3.amazonaws.com/${myIPSet.bucket}/${myIPSet.key}`,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * GuardDuty IPSet can be imported using the the primary GuardDuty detector ID and IPSet ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * ```
  */
 export class IPSet extends pulumi.CustomResource {
     /**

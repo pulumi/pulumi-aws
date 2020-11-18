@@ -4,6 +4,7 @@
 package autoscaling
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -156,4 +157,43 @@ type NotificationArgs struct {
 
 func (NotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationArgs)(nil)).Elem()
+}
+
+type NotificationInput interface {
+	pulumi.Input
+
+	ToNotificationOutput() NotificationOutput
+	ToNotificationOutputWithContext(ctx context.Context) NotificationOutput
+}
+
+func (Notification) ElementType() reflect.Type {
+	return reflect.TypeOf((*Notification)(nil)).Elem()
+}
+
+func (i Notification) ToNotificationOutput() NotificationOutput {
+	return i.ToNotificationOutputWithContext(context.Background())
+}
+
+func (i Notification) ToNotificationOutputWithContext(ctx context.Context) NotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationOutput)
+}
+
+type NotificationOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationOutput)(nil)).Elem()
+}
+
+func (o NotificationOutput) ToNotificationOutput() NotificationOutput {
+	return o
+}
+
+func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context) NotificationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotificationOutput{})
 }

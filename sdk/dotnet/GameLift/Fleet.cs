@@ -43,6 +43,10 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Gamelift Fleets cannot be imported at this time.
     /// </summary>
     public partial class Fleet : Pulumi.CustomResource
     {

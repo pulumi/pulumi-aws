@@ -4,6 +4,7 @@
 package elasticloadbalancingv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -77,6 +78,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// LBs can be imported using their ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:elasticloadbalancingv2/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 // ```
 //
 // Deprecated: aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer
@@ -351,4 +360,43 @@ type LoadBalancerArgs struct {
 
 func (LoadBalancerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerArgs)(nil)).Elem()
+}
+
+type LoadBalancerInput interface {
+	pulumi.Input
+
+	ToLoadBalancerOutput() LoadBalancerOutput
+	ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput
+}
+
+func (LoadBalancer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancer)(nil)).Elem()
+}
+
+func (i LoadBalancer) ToLoadBalancerOutput() LoadBalancerOutput {
+	return i.ToLoadBalancerOutputWithContext(context.Background())
+}
+
+func (i LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerOutput)
+}
+
+type LoadBalancerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerOutput)(nil)).Elem()
+}
+
+func (o LoadBalancerOutput) ToLoadBalancerOutput() LoadBalancerOutput {
+	return o
+}
+
+func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerOutput{})
 }

@@ -288,6 +288,14 @@ namespace Pulumi.Aws.Sns
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+    /// ```
     /// </summary>
     public partial class TopicSubscription : Pulumi.CustomResource
     {

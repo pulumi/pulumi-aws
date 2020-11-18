@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     secretKey: "",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Pinpoint Baidu Channel can be imported using the `application-id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+ * ```
  */
 export class BaiduChannel extends pulumi.CustomResource {
     /**

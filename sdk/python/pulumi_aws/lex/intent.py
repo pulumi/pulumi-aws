@@ -117,6 +117,14 @@ class Intent(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Intents can be imported using their name.
+
+        ```sh
+         $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IntentConclusionStatementArgs']] conclusion_statement: The statement that you want Amazon Lex to convey to the user

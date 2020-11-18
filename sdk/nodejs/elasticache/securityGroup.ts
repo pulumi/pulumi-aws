@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  * const barSecurityGroup = new aws.ec2.SecurityGroup("barSecurityGroup", {});
  * const barElasticache_securityGroupSecurityGroup = new aws.elasticache.SecurityGroup("barElasticache/securityGroupSecurityGroup", {securityGroupNames: [barSecurityGroup.name]});
  * ```
+ *
+ * ## Import
+ *
+ * ElastiCache Security Groups can be imported by name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:elasticache/securityGroup:SecurityGroup my_ec_security_group ec-security-group-1
+ * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package elasticache
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -139,6 +140,14 @@ import (
 // > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
 // and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
 // for full details on using Replication Groups.
+//
+// ## Import
+//
+// ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+// ```
 type ReplicationGroup struct {
 	pulumi.CustomResourceState
 
@@ -536,4 +545,43 @@ type ReplicationGroupArgs struct {
 
 func (ReplicationGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationGroupArgs)(nil)).Elem()
+}
+
+type ReplicationGroupInput interface {
+	pulumi.Input
+
+	ToReplicationGroupOutput() ReplicationGroupOutput
+	ToReplicationGroupOutputWithContext(ctx context.Context) ReplicationGroupOutput
+}
+
+func (ReplicationGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroup)(nil)).Elem()
+}
+
+func (i ReplicationGroup) ToReplicationGroupOutput() ReplicationGroupOutput {
+	return i.ToReplicationGroupOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroup) ToReplicationGroupOutputWithContext(ctx context.Context) ReplicationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupOutput)
+}
+
+type ReplicationGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupOutput)(nil)).Elem()
+}
+
+func (o ReplicationGroupOutput) ToReplicationGroupOutput() ReplicationGroupOutput {
+	return o
+}
+
+func (o ReplicationGroupOutput) ToReplicationGroupOutputWithContext(ctx context.Context) ReplicationGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicationGroupOutput{})
 }

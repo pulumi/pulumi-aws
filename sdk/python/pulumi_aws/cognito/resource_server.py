@@ -55,6 +55,14 @@ class ResourceServer(pulumi.CustomResource):
             user_pool_id=pool.id)
         ```
 
+        ## Import
+
+        `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/resourceServer:ResourceServer example xxx_yyyyy|https://example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.

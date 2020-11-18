@@ -4,6 +4,7 @@
 package s3
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -77,6 +78,20 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+// ```
+//
+//  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
 // ```
 type AccessPoint struct {
 	pulumi.CustomResourceState
@@ -219,4 +234,43 @@ type AccessPointArgs struct {
 
 func (AccessPointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPointArgs)(nil)).Elem()
+}
+
+type AccessPointInput interface {
+	pulumi.Input
+
+	ToAccessPointOutput() AccessPointOutput
+	ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput
+}
+
+func (AccessPoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPoint)(nil)).Elem()
+}
+
+func (i AccessPoint) ToAccessPointOutput() AccessPointOutput {
+	return i.ToAccessPointOutputWithContext(context.Background())
+}
+
+func (i AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointOutput)
+}
+
+type AccessPointOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointOutput)(nil)).Elem()
+}
+
+func (o AccessPointOutput) ToAccessPointOutput() AccessPointOutput {
+	return o
+}
+
+func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccessPointOutput{})
 }

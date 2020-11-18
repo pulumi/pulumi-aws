@@ -70,6 +70,14 @@ namespace Pulumi.Aws.Rds
     /// * `id` - The name of the RDS event notification subscription
     /// * `arn` - The Amazon Resource Name of the RDS event notification subscription
     /// * `customer_aws_id` - The AWS customer account associated with the RDS event notification subscription
+    /// 
+    /// ## Import
+    /// 
+    /// DB Event Subscriptions can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+    /// ```
     /// </summary>
     public partial class EventSubscription : Pulumi.CustomResource
     {

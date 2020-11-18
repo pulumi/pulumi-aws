@@ -36,6 +36,14 @@ class Repository(pulumi.CustomResource):
             repository_name="MyTestRepository")
         ```
 
+        ## Import
+
+        Codecommit repository can be imported using repository name, e.g.
+
+        ```sh
+         $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.

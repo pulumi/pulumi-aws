@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SES receipt rule sets can be imported using the rule set name.
+//
+// ```sh
+//  $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
 // ```
 type ReceiptRuleSet struct {
 	pulumi.CustomResourceState
@@ -98,4 +107,43 @@ type ReceiptRuleSetArgs struct {
 
 func (ReceiptRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptRuleSetArgs)(nil)).Elem()
+}
+
+type ReceiptRuleSetInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSetOutput() ReceiptRuleSetOutput
+	ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput
+}
+
+func (ReceiptRuleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSet)(nil)).Elem()
+}
+
+func (i ReceiptRuleSet) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
+	return i.ToReceiptRuleSetOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleSet) ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetOutput)
+}
+
+type ReceiptRuleSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReceiptRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSetOutput)(nil)).Elem()
+}
+
+func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
+	return o
+}
+
+func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReceiptRuleSetOutput{})
 }

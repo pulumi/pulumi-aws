@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
 // ```
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
@@ -120,4 +129,43 @@ type OrganizationConfigurationArgs struct {
 
 func (OrganizationConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationConfigurationArgs)(nil)).Elem()
+}
+
+type OrganizationConfigurationInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationOutput() OrganizationConfigurationOutput
+	ToOrganizationConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationOutput
+}
+
+func (OrganizationConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfiguration)(nil)).Elem()
+}
+
+func (i OrganizationConfiguration) ToOrganizationConfigurationOutput() OrganizationConfigurationOutput {
+	return i.ToOrganizationConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfiguration) ToOrganizationConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationOutput)
+}
+
+type OrganizationConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationOutput)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutput() OrganizationConfigurationOutput {
+	return o
+}
+
+func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationConfigurationOutput{})
 }

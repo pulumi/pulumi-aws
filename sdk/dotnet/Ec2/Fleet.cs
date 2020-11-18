@@ -42,6 +42,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+    /// ```
     /// </summary>
     public partial class Fleet : Pulumi.CustomResource
     {

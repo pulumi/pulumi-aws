@@ -36,6 +36,14 @@ class Connection(pulumi.CustomResource):
             location="EqDC2")
         ```
 
+        ## Import
+
+        Direct Connect connections can be imported using the `connection id`, e.g.
+
+        ```sh
+         $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.

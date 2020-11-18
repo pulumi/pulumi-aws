@@ -132,6 +132,14 @@ class ReplicationGroup(pulumi.CustomResource):
         and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
         for full details on using Replication Groups.
 
+        ## Import
+
+        ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.

@@ -21,6 +21,14 @@ import * as utilities from "../utilities";
  *     networkServices: ["amazon-dns"],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Traffic mirror filter can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
+ * ```
  */
 export class TrafficMirrorFilter extends pulumi.CustomResource {
     /**

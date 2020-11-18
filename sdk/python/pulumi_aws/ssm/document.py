@@ -74,6 +74,40 @@ class Document(pulumi.CustomResource):
         * `type` - The permission type for the document. The permission type can be `Share`.
         * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
 
+        ## Import
+
+        SSM Documents can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/document:Document example example
+        ```
+
+         The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. hcl resource "aws_ssm_document" "test" {
+
+         name
+
+        = "test_document"
+
+         document_type = "Package"
+
+         attachments_source {
+
+         key
+
+        = "SourceUrl"
+
+         values = ["s3://${aws_s3_bucket.object_bucket.bucket}/test.zip"]
+
+         }
+
+        # There is no AWS SSM API for reading attachments_source info directly
+
+         lifecycle {
+
+         ignore_changes = [attachments_source]
+
+         } }
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. Defined below.

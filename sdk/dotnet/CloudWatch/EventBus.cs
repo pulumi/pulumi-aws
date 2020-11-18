@@ -31,6 +31,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EventBridge event buses can be imported using the `name`, e.g. console
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+    /// ```
     /// </summary>
     public partial class EventBus : Pulumi.CustomResource
     {

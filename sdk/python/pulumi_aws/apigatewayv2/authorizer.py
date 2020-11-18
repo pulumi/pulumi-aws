@@ -63,6 +63,14 @@ class Authorizer(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_apigatewayv2_authorizer` can be imported by using the API identifier and authorizer identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.

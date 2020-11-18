@@ -77,6 +77,14 @@ class EventSubscription(pulumi.CustomResource):
         * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
         * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
 
+        ## Import
+
+        `aws_neptune_event_subscription` can be imported by using the event subscription name, e.g.
+
+        ```sh
+         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.

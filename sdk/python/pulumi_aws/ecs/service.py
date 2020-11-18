@@ -111,6 +111,14 @@ class Service(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        ECS services can be imported using the `name` together with ecs cluster `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.

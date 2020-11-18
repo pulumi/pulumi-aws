@@ -35,6 +35,14 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Gamelift Aliases can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/alias:Alias example &lt;alias-id&gt;
+    /// ```
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {

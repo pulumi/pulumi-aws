@@ -40,6 +40,14 @@ class CustomerGateway(pulumi.CustomResource):
             type="ipsec.1")
         ```
 
+        ## Import
+
+        Customer Gateways can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).

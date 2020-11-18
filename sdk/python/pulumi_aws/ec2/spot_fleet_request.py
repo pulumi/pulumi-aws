@@ -171,6 +171,14 @@ class SpotFleetRequest(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[aws_iam_policy_attachment["test-attach"]]))
         ```
 
+        ## Import
+
+        Spot Fleet Requests can be imported using `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across

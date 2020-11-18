@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
 // ```
 type DomainName struct {
 	pulumi.CustomResourceState
@@ -143,4 +152,43 @@ type DomainNameArgs struct {
 
 func (DomainNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameArgs)(nil)).Elem()
+}
+
+type DomainNameInput interface {
+	pulumi.Input
+
+	ToDomainNameOutput() DomainNameOutput
+	ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput
+}
+
+func (DomainName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainName)(nil)).Elem()
+}
+
+func (i DomainName) ToDomainNameOutput() DomainNameOutput {
+	return i.ToDomainNameOutputWithContext(context.Background())
+}
+
+func (i DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameOutput)
+}
+
+type DomainNameOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameOutput)(nil)).Elem()
+}
+
+func (o DomainNameOutput) ToDomainNameOutput() DomainNameOutput {
+	return o
+}
+
+func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainNameOutput{})
 }

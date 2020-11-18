@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.fms.AdminAccount("example", {});
  * ```
+ *
+ * ## Import
+ *
+ * Firewall Manager administrator account association can be imported using the account ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
+ * ```
  */
 export class AdminAccount extends pulumi.CustomResource {
     /**

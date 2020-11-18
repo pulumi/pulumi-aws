@@ -80,6 +80,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+    /// ```
     /// </summary>
     public partial class AnalyticsConfiguration : Pulumi.CustomResource
     {

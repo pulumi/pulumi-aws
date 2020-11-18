@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Provides a Pinpoint APNs VoIP Sandbox Channel resource.
 //
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
+//
+// ## Import
+//
+// Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+// ```
 type ApnsVoipSandboxChannel struct {
 	pulumi.CustomResourceState
 
@@ -172,4 +181,43 @@ type ApnsVoipSandboxChannelArgs struct {
 
 func (ApnsVoipSandboxChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apnsVoipSandboxChannelArgs)(nil)).Elem()
+}
+
+type ApnsVoipSandboxChannelInput interface {
+	pulumi.Input
+
+	ToApnsVoipSandboxChannelOutput() ApnsVoipSandboxChannelOutput
+	ToApnsVoipSandboxChannelOutputWithContext(ctx context.Context) ApnsVoipSandboxChannelOutput
+}
+
+func (ApnsVoipSandboxChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsVoipSandboxChannel)(nil)).Elem()
+}
+
+func (i ApnsVoipSandboxChannel) ToApnsVoipSandboxChannelOutput() ApnsVoipSandboxChannelOutput {
+	return i.ToApnsVoipSandboxChannelOutputWithContext(context.Background())
+}
+
+func (i ApnsVoipSandboxChannel) ToApnsVoipSandboxChannelOutputWithContext(ctx context.Context) ApnsVoipSandboxChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipSandboxChannelOutput)
+}
+
+type ApnsVoipSandboxChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApnsVoipSandboxChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsVoipSandboxChannelOutput)(nil)).Elem()
+}
+
+func (o ApnsVoipSandboxChannelOutput) ToApnsVoipSandboxChannelOutput() ApnsVoipSandboxChannelOutput {
+	return o
+}
+
+func (o ApnsVoipSandboxChannelOutput) ToApnsVoipSandboxChannelOutputWithContext(ctx context.Context) ApnsVoipSandboxChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApnsVoipSandboxChannelOutput{})
 }

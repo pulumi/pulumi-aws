@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.backup.Vault("example", {kmsKeyArn: aws_kms_key.example.arn});
  * ```
+ *
+ * ## Import
+ *
+ * Backup vault can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:backup/vault:Vault test-vault TestVault
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

@@ -20,6 +20,14 @@ import * as utilities from "../utilities";
  * Your favorite animal is {{favoriteanimal}}.`,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SES templates can be imported using the template name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+ * ```
  */
 export class Template extends pulumi.CustomResource {
     /**

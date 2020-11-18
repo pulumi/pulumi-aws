@@ -4,6 +4,7 @@
 package cognito
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cognito User Pools can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cognito/userPool:UserPool pool <id>
 // ```
 type UserPool struct {
 	pulumi.CustomResourceState
@@ -347,4 +356,43 @@ type UserPoolArgs struct {
 
 func (UserPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolArgs)(nil)).Elem()
+}
+
+type UserPoolInput interface {
+	pulumi.Input
+
+	ToUserPoolOutput() UserPoolOutput
+	ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput
+}
+
+func (UserPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPool)(nil)).Elem()
+}
+
+func (i UserPool) ToUserPoolOutput() UserPoolOutput {
+	return i.ToUserPoolOutputWithContext(context.Background())
+}
+
+func (i UserPool) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolOutput)
+}
+
+type UserPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolOutput)(nil)).Elem()
+}
+
+func (o UserPoolOutput) ToUserPoolOutput() UserPoolOutput {
+	return o
+}
+
+func (o UserPoolOutput) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserPoolOutput{})
 }

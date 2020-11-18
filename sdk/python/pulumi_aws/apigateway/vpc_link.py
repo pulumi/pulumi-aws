@@ -45,6 +45,14 @@ class VpcLink(pulumi.CustomResource):
             target_arn=[example_load_balancer.arn])
         ```
 
+        ## Import
+
+        API Gateway VPC Link can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/vpcLink:VpcLink example <vpc_link_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the VPC link.

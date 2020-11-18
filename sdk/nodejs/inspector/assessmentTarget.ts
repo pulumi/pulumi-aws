@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  * }});
  * const foo = new aws.inspector.AssessmentTarget("foo", {resourceGroupArn: bar.arn});
  * ```
+ *
+ * ## Import
+ *
+ * Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+ * ```
  */
 export class AssessmentTarget extends pulumi.CustomResource {
     /**

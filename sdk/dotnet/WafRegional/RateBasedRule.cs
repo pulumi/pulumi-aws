@@ -58,6 +58,14 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF Regional Rate Based Rule can be imported using the id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
     /// </summary>
     public partial class RateBasedRule : Pulumi.CustomResource
     {

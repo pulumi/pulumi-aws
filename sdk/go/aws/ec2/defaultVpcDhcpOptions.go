@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -148,4 +149,43 @@ type DefaultVpcDhcpOptionsArgs struct {
 
 func (DefaultVpcDhcpOptionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultVpcDhcpOptionsArgs)(nil)).Elem()
+}
+
+type DefaultVpcDhcpOptionsInput interface {
+	pulumi.Input
+
+	ToDefaultVpcDhcpOptionsOutput() DefaultVpcDhcpOptionsOutput
+	ToDefaultVpcDhcpOptionsOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsOutput
+}
+
+func (DefaultVpcDhcpOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultVpcDhcpOptions)(nil)).Elem()
+}
+
+func (i DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsOutput() DefaultVpcDhcpOptionsOutput {
+	return i.ToDefaultVpcDhcpOptionsOutputWithContext(context.Background())
+}
+
+func (i DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcDhcpOptionsOutput)
+}
+
+type DefaultVpcDhcpOptionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultVpcDhcpOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultVpcDhcpOptionsOutput)(nil)).Elem()
+}
+
+func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsOutput() DefaultVpcDhcpOptionsOutput {
+	return o
+}
+
+func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DefaultVpcDhcpOptionsOutput{})
 }

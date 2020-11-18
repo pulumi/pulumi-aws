@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -58,6 +56,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const replica = new aws.elasticache.Cluster("replica", {replicationGroupId: aws_elasticache_replication_group.example.id});
+ * ```
+ *
+ * ## Import
+ *
+ * ElastiCache Clusters can be imported using the `cluster_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

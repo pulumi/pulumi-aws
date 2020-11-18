@@ -51,6 +51,10 @@ namespace Pulumi.Aws.Ec2
     /// See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
     /// and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
     /// guides for more information.
+    /// 
+    /// ## Import
+    /// 
+    /// This resource does not support importing.
     /// </summary>
     public partial class VpnGatewayAttachment : Pulumi.CustomResource
     {

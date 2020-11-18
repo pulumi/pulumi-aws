@@ -33,6 +33,14 @@ import * as utilities from "../utilities";
  *     accessPolicy: testDestinationPolicyPolicyDocument.json,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+ * ```
  */
 export class LogDestinationPolicy extends pulumi.CustomResource {
     /**

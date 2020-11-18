@@ -142,6 +142,14 @@ class Pipeline(pulumi.CustomResource):
         \"\"\"))
         ```
 
+        ## Import
+
+        CodePipelines can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.

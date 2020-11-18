@@ -35,6 +35,14 @@ class Detector(pulumi.CustomResource):
         my_detector = aws.guardduty.Detector("myDetector", enable=True)
         ```
 
+        ## Import
+
+        GuardDuty detectors can be imported using the detector ID, e.g.
+
+        ```sh
+         $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.

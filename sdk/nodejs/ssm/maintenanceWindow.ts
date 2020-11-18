@@ -19,6 +19,16 @@ import * as utilities from "../utilities";
  *     schedule: "cron(0 16 ? * TUE *)",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SSM
+ *
+ * Maintenance Windows can be imported using the `maintenance window id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+ * ```
  */
 export class MaintenanceWindow extends pulumi.CustomResource {
     /**

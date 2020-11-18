@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Provides a Pinpoint APNs Channel resource.
 //
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
+//
+// ## Import
+//
+// Pinpoint APNs Channel can be imported using the `application-id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
+// ```
 type ApnsChannel struct {
 	pulumi.CustomResourceState
 
@@ -172,4 +181,43 @@ type ApnsChannelArgs struct {
 
 func (ApnsChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apnsChannelArgs)(nil)).Elem()
+}
+
+type ApnsChannelInput interface {
+	pulumi.Input
+
+	ToApnsChannelOutput() ApnsChannelOutput
+	ToApnsChannelOutputWithContext(ctx context.Context) ApnsChannelOutput
+}
+
+func (ApnsChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsChannel)(nil)).Elem()
+}
+
+func (i ApnsChannel) ToApnsChannelOutput() ApnsChannelOutput {
+	return i.ToApnsChannelOutputWithContext(context.Background())
+}
+
+func (i ApnsChannel) ToApnsChannelOutputWithContext(ctx context.Context) ApnsChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsChannelOutput)
+}
+
+type ApnsChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApnsChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsChannelOutput)(nil)).Elem()
+}
+
+func (o ApnsChannelOutput) ToApnsChannelOutput() ApnsChannelOutput {
+	return o
+}
+
+func (o ApnsChannelOutput) ToApnsChannelOutputWithContext(ctx context.Context) ApnsChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApnsChannelOutput{})
 }

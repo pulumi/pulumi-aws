@@ -36,6 +36,14 @@ class SnapshotSchedule(pulumi.CustomResource):
             identifier="tf-redshift-snapshot-schedule")
         ```
 
+        ## Import
+
+        Redshift Snapshot Schedule can be imported using the `identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.

@@ -4,6 +4,7 @@
 package lightsail
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -112,4 +113,43 @@ type StaticIpArgs struct {
 
 func (StaticIpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticIpArgs)(nil)).Elem()
+}
+
+type StaticIpInput interface {
+	pulumi.Input
+
+	ToStaticIpOutput() StaticIpOutput
+	ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutput
+}
+
+func (StaticIp) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticIp)(nil)).Elem()
+}
+
+func (i StaticIp) ToStaticIpOutput() StaticIpOutput {
+	return i.ToStaticIpOutputWithContext(context.Background())
+}
+
+func (i StaticIp) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticIpOutput)
+}
+
+type StaticIpOutput struct {
+	*pulumi.OutputState
+}
+
+func (StaticIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticIpOutput)(nil)).Elem()
+}
+
+func (o StaticIpOutput) ToStaticIpOutput() StaticIpOutput {
+	return o
+}
+
+func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StaticIpOutput{})
 }

@@ -75,6 +75,14 @@ class SshKey(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
+
+        ```sh
+         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.

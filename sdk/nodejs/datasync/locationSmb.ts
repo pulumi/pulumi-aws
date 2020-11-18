@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -25,6 +23,14 @@ import * as utilities from "../utilities";
  *     password: "ANotGreatPassword",
  *     agentArns: [aws_datasync_agent.example.arn],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_datasync_location_smb` can be imported by using the Amazon Resource Name (ARN), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  * ```
  */
 export class LocationSmb extends pulumi.CustomResource {

@@ -36,6 +36,14 @@ class Portfolio(pulumi.CustomResource):
             provider_name="Brett")
         ```
 
+        ## Import
+
+        Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.
+
+        ```sh
+         $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the portfolio

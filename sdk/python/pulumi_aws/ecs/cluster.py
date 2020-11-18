@@ -37,6 +37,14 @@ class Cluster(pulumi.CustomResource):
         foo = aws.ecs.Cluster("foo")
         ```
 
+        ## Import
+
+        ECS clusters can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.

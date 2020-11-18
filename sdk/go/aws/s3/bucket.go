@@ -4,6 +4,7 @@
 package s3
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -382,6 +383,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// S3 bucket can be imported using the `bucket`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
+// ```
+//
+//  The `policy` argument is not imported and will be deprecated in a future version 3.x of the Terraform AWS Provider for removal in version 4.0. Use the [`aws_s3_bucket_policy` resource](/docs/providers/aws/r/s3_bucket_policy.html) to manage the S3 Bucket Policy instead.
 type Bucket struct {
 	pulumi.CustomResourceState
 
@@ -676,4 +687,43 @@ type BucketArgs struct {
 
 func (BucketArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketArgs)(nil)).Elem()
+}
+
+type BucketInput interface {
+	pulumi.Input
+
+	ToBucketOutput() BucketOutput
+	ToBucketOutputWithContext(ctx context.Context) BucketOutput
+}
+
+func (Bucket) ElementType() reflect.Type {
+	return reflect.TypeOf((*Bucket)(nil)).Elem()
+}
+
+func (i Bucket) ToBucketOutput() BucketOutput {
+	return i.ToBucketOutputWithContext(context.Background())
+}
+
+func (i Bucket) ToBucketOutputWithContext(ctx context.Context) BucketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOutput)
+}
+
+type BucketOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOutput)(nil)).Elem()
+}
+
+func (o BucketOutput) ToBucketOutput() BucketOutput {
+	return o
+}
+
+func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BucketOutput{})
 }

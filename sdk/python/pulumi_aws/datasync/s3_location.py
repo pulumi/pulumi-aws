@@ -41,6 +41,14 @@ class S3Location(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_datasync_location_s3` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.

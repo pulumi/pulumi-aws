@@ -4,6 +4,7 @@
 package ssm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -120,4 +121,43 @@ type PatchGroupArgs struct {
 
 func (PatchGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*patchGroupArgs)(nil)).Elem()
+}
+
+type PatchGroupInput interface {
+	pulumi.Input
+
+	ToPatchGroupOutput() PatchGroupOutput
+	ToPatchGroupOutputWithContext(ctx context.Context) PatchGroupOutput
+}
+
+func (PatchGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchGroup)(nil)).Elem()
+}
+
+func (i PatchGroup) ToPatchGroupOutput() PatchGroupOutput {
+	return i.ToPatchGroupOutputWithContext(context.Background())
+}
+
+func (i PatchGroup) ToPatchGroupOutputWithContext(ctx context.Context) PatchGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupOutput)
+}
+
+type PatchGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (PatchGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchGroupOutput)(nil)).Elem()
+}
+
+func (o PatchGroupOutput) ToPatchGroupOutput() PatchGroupOutput {
+	return o
+}
+
+func (o PatchGroupOutput) ToPatchGroupOutputWithContext(ctx context.Context) PatchGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PatchGroupOutput{})
 }

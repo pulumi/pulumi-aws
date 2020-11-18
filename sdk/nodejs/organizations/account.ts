@@ -21,6 +21,34 @@ import * as utilities from "../utilities";
  *     email: "john@doe.org",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * The AWS member account can be imported by using the `account_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:organizations/account:Account my_org 111111111111
+ * ```
+ *
+ *  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. hcl resource "aws_organizations_account" "account" {
+ *
+ *  name
+ *
+ * = "my_new_account"
+ *
+ *  email
+ *
+ *  = "john@doe.org"
+ *
+ *  role_name = "myOrganizationRole"
+ *
+ * # There is no AWS Organizations API for reading role_name
+ *
+ *  lifecycle {
+ *
+ *  ignore_changes = [role_name]
+ *
+ *  } }
  */
 export class Account extends pulumi.CustomResource {
     /**

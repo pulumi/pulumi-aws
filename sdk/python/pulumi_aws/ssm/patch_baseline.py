@@ -159,6 +159,14 @@ class PatchBaseline(pulumi.CustomResource):
             operating_system="WINDOWS")
         ```
 
+        ## Import
+
+        SSM Patch Baselines can be imported by their baseline ID, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineApprovalRuleArgs']]]] approval_rules: A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.

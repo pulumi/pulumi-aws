@@ -4,6 +4,7 @@
 package cloudfront
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -116,4 +117,43 @@ type PublicKeyArgs struct {
 
 func (PublicKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicKeyArgs)(nil)).Elem()
+}
+
+type PublicKeyInput interface {
+	pulumi.Input
+
+	ToPublicKeyOutput() PublicKeyOutput
+	ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput
+}
+
+func (PublicKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKey)(nil)).Elem()
+}
+
+func (i PublicKey) ToPublicKeyOutput() PublicKeyOutput {
+	return i.ToPublicKeyOutputWithContext(context.Background())
+}
+
+func (i PublicKey) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyOutput)
+}
+
+type PublicKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyOutput)(nil)).Elem()
+}
+
+func (o PublicKeyOutput) ToPublicKeyOutput() PublicKeyOutput {
+	return o
+}
+
+func (o PublicKeyOutput) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PublicKeyOutput{})
 }

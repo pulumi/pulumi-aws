@@ -77,6 +77,14 @@ class Repository(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        CodeArtifact Repository can be imported using the CodeArtifact Repository ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the repository.

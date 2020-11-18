@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Default VPCs can be imported using the `vpc id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
 // ```
 type DefaultVpc struct {
 	pulumi.CustomResourceState
@@ -230,4 +239,43 @@ type DefaultVpcArgs struct {
 
 func (DefaultVpcArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultVpcArgs)(nil)).Elem()
+}
+
+type DefaultVpcInput interface {
+	pulumi.Input
+
+	ToDefaultVpcOutput() DefaultVpcOutput
+	ToDefaultVpcOutputWithContext(ctx context.Context) DefaultVpcOutput
+}
+
+func (DefaultVpc) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultVpc)(nil)).Elem()
+}
+
+func (i DefaultVpc) ToDefaultVpcOutput() DefaultVpcOutput {
+	return i.ToDefaultVpcOutputWithContext(context.Background())
+}
+
+func (i DefaultVpc) ToDefaultVpcOutputWithContext(ctx context.Context) DefaultVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcOutput)
+}
+
+type DefaultVpcOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultVpcOutput)(nil)).Elem()
+}
+
+func (o DefaultVpcOutput) ToDefaultVpcOutput() DefaultVpcOutput {
+	return o
+}
+
+func (o DefaultVpcOutput) ToDefaultVpcOutputWithContext(ctx context.Context) DefaultVpcOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DefaultVpcOutput{})
 }

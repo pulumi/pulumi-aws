@@ -39,6 +39,14 @@ class Endpoint(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Endpoints can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.

@@ -55,6 +55,14 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ElastiCache Subnet Groups can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+    /// ```
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource
     {

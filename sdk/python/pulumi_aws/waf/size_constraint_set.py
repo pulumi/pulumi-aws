@@ -41,6 +41,14 @@ class SizeConstraintSet(pulumi.CustomResource):
         )])
         ```
 
+        ## Import
+
+        AWS WAF Size Constraint Set can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import aws:waf/sizeConstraintSet:SizeConstraintSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Size Constraint Set.

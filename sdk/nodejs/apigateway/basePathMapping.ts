@@ -35,6 +35,20 @@ import {RestApi} from "./index";
  *     domainName: exampleDomainName.domainName,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g. For empty `base_path` (e.g. root path (`/`))
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+ * ```
+ *
+ *  Otherwise
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+ * ```
  */
 export class BasePathMapping extends pulumi.CustomResource {
     /**

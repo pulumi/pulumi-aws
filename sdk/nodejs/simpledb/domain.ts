@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const users = new aws.simpledb.Domain("users", {});
  * ```
+ *
+ * ## Import
+ *
+ * SimpleDB Domains can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:simpledb/domain:Domain users users
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

@@ -39,6 +39,14 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
             block_public_policy=True)
         ```
 
+        ## Import
+
+        `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:

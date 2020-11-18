@@ -29,6 +29,14 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Activities can be imported using the `arn`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+    /// ```
     /// </summary>
     public partial class Activity : Pulumi.CustomResource
     {

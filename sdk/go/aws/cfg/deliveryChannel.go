@@ -4,6 +4,7 @@
 package cfg
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -70,6 +71,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Delivery Channel can be imported using the name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
 // ```
 type DeliveryChannel struct {
 	pulumi.CustomResourceState
@@ -175,4 +184,43 @@ type DeliveryChannelArgs struct {
 
 func (DeliveryChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deliveryChannelArgs)(nil)).Elem()
+}
+
+type DeliveryChannelInput interface {
+	pulumi.Input
+
+	ToDeliveryChannelOutput() DeliveryChannelOutput
+	ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput
+}
+
+func (DeliveryChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryChannel)(nil)).Elem()
+}
+
+func (i DeliveryChannel) ToDeliveryChannelOutput() DeliveryChannelOutput {
+	return i.ToDeliveryChannelOutputWithContext(context.Background())
+}
+
+func (i DeliveryChannel) ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelOutput)
+}
+
+type DeliveryChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeliveryChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryChannelOutput)(nil)).Elem()
+}
+
+func (o DeliveryChannelOutput) ToDeliveryChannelOutput() DeliveryChannelOutput {
+	return o
+}
+
+func (o DeliveryChannelOutput) ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeliveryChannelOutput{})
 }

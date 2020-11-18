@@ -4,6 +4,7 @@
 package codeartifact
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Provides a CodeArtifact Repostory Permissions Policy Resource.
+//
+// ## Import
+//
+// CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+// ```
 type RepositoryPermissionsPolicy struct {
 	pulumi.CustomResourceState
 
@@ -127,4 +136,43 @@ type RepositoryPermissionsPolicyArgs struct {
 
 func (RepositoryPermissionsPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPermissionsPolicyArgs)(nil)).Elem()
+}
+
+type RepositoryPermissionsPolicyInput interface {
+	pulumi.Input
+
+	ToRepositoryPermissionsPolicyOutput() RepositoryPermissionsPolicyOutput
+	ToRepositoryPermissionsPolicyOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyOutput
+}
+
+func (RepositoryPermissionsPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPermissionsPolicy)(nil)).Elem()
+}
+
+func (i RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyOutput() RepositoryPermissionsPolicyOutput {
+	return i.ToRepositoryPermissionsPolicyOutputWithContext(context.Background())
+}
+
+func (i RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPermissionsPolicyOutput)
+}
+
+type RepositoryPermissionsPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (RepositoryPermissionsPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPermissionsPolicyOutput)(nil)).Elem()
+}
+
+func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyOutput() RepositoryPermissionsPolicyOutput {
+	return o
+}
+
+func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RepositoryPermissionsPolicyOutput{})
 }

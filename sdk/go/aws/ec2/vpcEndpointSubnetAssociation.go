@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -120,4 +121,43 @@ type VpcEndpointSubnetAssociationArgs struct {
 
 func (VpcEndpointSubnetAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointSubnetAssociationArgs)(nil)).Elem()
+}
+
+type VpcEndpointSubnetAssociationInput interface {
+	pulumi.Input
+
+	ToVpcEndpointSubnetAssociationOutput() VpcEndpointSubnetAssociationOutput
+	ToVpcEndpointSubnetAssociationOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationOutput
+}
+
+func (VpcEndpointSubnetAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointSubnetAssociation)(nil)).Elem()
+}
+
+func (i VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutput() VpcEndpointSubnetAssociationOutput {
+	return i.ToVpcEndpointSubnetAssociationOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetAssociationOutput)
+}
+
+type VpcEndpointSubnetAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcEndpointSubnetAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointSubnetAssociationOutput)(nil)).Elem()
+}
+
+func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationOutput() VpcEndpointSubnetAssociationOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationOutputWithContext(ctx context.Context) VpcEndpointSubnetAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcEndpointSubnetAssociationOutput{})
 }

@@ -4,6 +4,7 @@
 package cloudhsmv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// HSM modules can be imported using their HSM ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
 // ```
 type Hsm struct {
 	pulumi.CustomResourceState
@@ -155,4 +164,43 @@ type HsmArgs struct {
 
 func (HsmArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hsmArgs)(nil)).Elem()
+}
+
+type HsmInput interface {
+	pulumi.Input
+
+	ToHsmOutput() HsmOutput
+	ToHsmOutputWithContext(ctx context.Context) HsmOutput
+}
+
+func (Hsm) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hsm)(nil)).Elem()
+}
+
+func (i Hsm) ToHsmOutput() HsmOutput {
+	return i.ToHsmOutputWithContext(context.Background())
+}
+
+func (i Hsm) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HsmOutput)
+}
+
+type HsmOutput struct {
+	*pulumi.OutputState
+}
+
+func (HsmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HsmOutput)(nil)).Elem()
+}
+
+func (o HsmOutput) ToHsmOutput() HsmOutput {
+	return o
+}
+
+func (o HsmOutput) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HsmOutput{})
 }

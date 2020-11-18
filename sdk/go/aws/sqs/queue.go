@@ -4,6 +4,7 @@
 package sqs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -94,6 +95,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SQS Queues can be imported using the `queue url`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
 // ```
 type Queue struct {
 	pulumi.CustomResourceState
@@ -292,4 +301,43 @@ type QueueArgs struct {
 
 func (QueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueArgs)(nil)).Elem()
+}
+
+type QueueInput interface {
+	pulumi.Input
+
+	ToQueueOutput() QueueOutput
+	ToQueueOutputWithContext(ctx context.Context) QueueOutput
+}
+
+func (Queue) ElementType() reflect.Type {
+	return reflect.TypeOf((*Queue)(nil)).Elem()
+}
+
+func (i Queue) ToQueueOutput() QueueOutput {
+	return i.ToQueueOutputWithContext(context.Background())
+}
+
+func (i Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
+}
+
+type QueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueOutput)(nil)).Elem()
+}
+
+func (o QueueOutput) ToQueueOutput() QueueOutput {
+	return o
+}
+
+func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueueOutput{})
 }

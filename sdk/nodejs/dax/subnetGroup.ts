@@ -18,6 +18,14 @@ import * as utilities from "../utilities";
  *     aws_subnet.example2.id,
  * ]});
  * ```
+ *
+ * ## Import
+ *
+ * DAX Subnet Group can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+ * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

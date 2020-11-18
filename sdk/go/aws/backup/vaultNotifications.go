@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Backup vault notifications can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
 // ```
 type VaultNotifications struct {
 	pulumi.CustomResourceState
@@ -150,4 +159,43 @@ type VaultNotificationsArgs struct {
 
 func (VaultNotificationsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultNotificationsArgs)(nil)).Elem()
+}
+
+type VaultNotificationsInput interface {
+	pulumi.Input
+
+	ToVaultNotificationsOutput() VaultNotificationsOutput
+	ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput
+}
+
+func (VaultNotifications) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultNotifications)(nil)).Elem()
+}
+
+func (i VaultNotifications) ToVaultNotificationsOutput() VaultNotificationsOutput {
+	return i.ToVaultNotificationsOutputWithContext(context.Background())
+}
+
+func (i VaultNotifications) ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsOutput)
+}
+
+type VaultNotificationsOutput struct {
+	*pulumi.OutputState
+}
+
+func (VaultNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultNotificationsOutput)(nil)).Elem()
+}
+
+func (o VaultNotificationsOutput) ToVaultNotificationsOutput() VaultNotificationsOutput {
+	return o
+}
+
+func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VaultNotificationsOutput{})
 }

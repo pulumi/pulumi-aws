@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['ConfgurationSet']
 
-warnings.warn("aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet", DeprecationWarning)
+warnings.warn("""aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet""", DeprecationWarning)
 
 
 class ConfgurationSet(pulumi.CustomResource):
-    warnings.warn("aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet", DeprecationWarning)
+    warnings.warn("""aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,

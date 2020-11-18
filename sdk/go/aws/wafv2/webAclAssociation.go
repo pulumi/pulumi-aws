@@ -4,6 +4,7 @@
 package wafv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -101,6 +102,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.
+//
+// ```sh
+//  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+// ```
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 
@@ -178,4 +187,43 @@ type WebAclAssociationArgs struct {
 
 func (WebAclAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAclAssociationArgs)(nil)).Elem()
+}
+
+type WebAclAssociationInput interface {
+	pulumi.Input
+
+	ToWebAclAssociationOutput() WebAclAssociationOutput
+	ToWebAclAssociationOutputWithContext(ctx context.Context) WebAclAssociationOutput
+}
+
+func (WebAclAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAssociation)(nil)).Elem()
+}
+
+func (i WebAclAssociation) ToWebAclAssociationOutput() WebAclAssociationOutput {
+	return i.ToWebAclAssociationOutputWithContext(context.Background())
+}
+
+func (i WebAclAssociation) ToWebAclAssociationOutputWithContext(ctx context.Context) WebAclAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationOutput)
+}
+
+type WebAclAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAclAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAssociationOutput)(nil)).Elem()
+}
+
+func (o WebAclAssociationOutput) ToWebAclAssociationOutput() WebAclAssociationOutput {
+	return o
+}
+
+func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx context.Context) WebAclAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAclAssociationOutput{})
 }

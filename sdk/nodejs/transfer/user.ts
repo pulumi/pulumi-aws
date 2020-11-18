@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -55,6 +53,14 @@ import * as utilities from "../utilities";
  *     userName: "tftestuser",
  *     role: fooRole.arn,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Transfer Users can be imported using the `server_id` and `user_name` separated by `/`.
+ *
+ * ```sh
+ *  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
  * ```
  */
 export class User extends pulumi.CustomResource {

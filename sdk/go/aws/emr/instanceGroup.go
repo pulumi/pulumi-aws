@@ -4,6 +4,7 @@
 package emr
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_greoup j-123456ABCDEF/ig-15EK4O09RZLNR
 // ```
 type InstanceGroup struct {
 	pulumi.CustomResourceState
@@ -194,4 +203,43 @@ type InstanceGroupArgs struct {
 
 func (InstanceGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceGroupArgs)(nil)).Elem()
+}
+
+type InstanceGroupInput interface {
+	pulumi.Input
+
+	ToInstanceGroupOutput() InstanceGroupOutput
+	ToInstanceGroupOutputWithContext(ctx context.Context) InstanceGroupOutput
+}
+
+func (InstanceGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroup)(nil)).Elem()
+}
+
+func (i InstanceGroup) ToInstanceGroupOutput() InstanceGroupOutput {
+	return i.ToInstanceGroupOutputWithContext(context.Background())
+}
+
+func (i InstanceGroup) ToInstanceGroupOutputWithContext(ctx context.Context) InstanceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupOutput)
+}
+
+type InstanceGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (InstanceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupOutput)(nil)).Elem()
+}
+
+func (o InstanceGroupOutput) ToInstanceGroupOutput() InstanceGroupOutput {
+	return o
+}
+
+func (o InstanceGroupOutput) ToInstanceGroupOutputWithContext(ctx context.Context) InstanceGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstanceGroupOutput{})
 }

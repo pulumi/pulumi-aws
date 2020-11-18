@@ -36,6 +36,14 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_datasync_location_fsx_windows_file_system` can be imported by using the `DataSync-ARN#FSx-Windows-ARN`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+    /// ```
     /// </summary>
     public partial class LocationFsxWindows : Pulumi.CustomResource
     {

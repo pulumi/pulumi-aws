@@ -18,6 +18,14 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
     /// 
     /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// Auto Scaling scaling plans can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+    /// ```
     /// </summary>
     public partial class ScalingPlan : Pulumi.CustomResource
     {

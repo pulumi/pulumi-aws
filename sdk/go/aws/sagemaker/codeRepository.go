@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -80,4 +81,43 @@ type CodeRepositoryArgs struct {
 
 func (CodeRepositoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*codeRepositoryArgs)(nil)).Elem()
+}
+
+type CodeRepositoryInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryOutput() CodeRepositoryOutput
+	ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput
+}
+
+func (CodeRepository) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepository)(nil)).Elem()
+}
+
+func (i CodeRepository) ToCodeRepositoryOutput() CodeRepositoryOutput {
+	return i.ToCodeRepositoryOutputWithContext(context.Background())
+}
+
+func (i CodeRepository) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryOutput)
+}
+
+type CodeRepositoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (CodeRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepositoryOutput)(nil)).Elem()
+}
+
+func (o CodeRepositoryOutput) ToCodeRepositoryOutput() CodeRepositoryOutput {
+	return o
+}
+
+func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CodeRepositoryOutput{})
 }

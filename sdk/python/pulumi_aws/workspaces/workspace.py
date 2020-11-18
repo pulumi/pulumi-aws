@@ -60,6 +60,14 @@ class Workspace(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Workspaces can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bundle_id: The ID of the bundle for the WorkSpace.

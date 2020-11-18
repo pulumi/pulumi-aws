@@ -4,6 +4,7 @@
 package mediapackage
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Media Package Channels can be imported via the channel ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
 // ```
 type Channel struct {
 	pulumi.CustomResourceState
@@ -134,4 +143,43 @@ type ChannelArgs struct {
 
 func (ChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelArgs)(nil)).Elem()
+}
+
+type ChannelInput interface {
+	pulumi.Input
+
+	ToChannelOutput() ChannelOutput
+	ToChannelOutputWithContext(ctx context.Context) ChannelOutput
+}
+
+func (Channel) ElementType() reflect.Type {
+	return reflect.TypeOf((*Channel)(nil)).Elem()
+}
+
+func (i Channel) ToChannelOutput() ChannelOutput {
+	return i.ToChannelOutputWithContext(context.Background())
+}
+
+func (i Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutput)
+}
+
+type ChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelOutput)(nil)).Elem()
+}
+
+func (o ChannelOutput) ToChannelOutput() ChannelOutput {
+	return o
+}
+
+func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ChannelOutput{})
 }

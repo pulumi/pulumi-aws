@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -732,4 +733,43 @@ type SpotInstanceRequestArgs struct {
 
 func (SpotInstanceRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotInstanceRequestArgs)(nil)).Elem()
+}
+
+type SpotInstanceRequestInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestOutput() SpotInstanceRequestOutput
+	ToSpotInstanceRequestOutputWithContext(ctx context.Context) SpotInstanceRequestOutput
+}
+
+func (SpotInstanceRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequest)(nil)).Elem()
+}
+
+func (i SpotInstanceRequest) ToSpotInstanceRequestOutput() SpotInstanceRequestOutput {
+	return i.ToSpotInstanceRequestOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequest) ToSpotInstanceRequestOutputWithContext(ctx context.Context) SpotInstanceRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestOutput)
+}
+
+type SpotInstanceRequestOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpotInstanceRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestOutput)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutput() SpotInstanceRequestOutput {
+	return o
+}
+
+func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutputWithContext(ctx context.Context) SpotInstanceRequestOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SpotInstanceRequestOutput{})
 }

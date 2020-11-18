@@ -90,6 +90,14 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Elastic Transcoder presets can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+    /// ```
     /// </summary>
     public partial class Preset : Pulumi.CustomResource
     {

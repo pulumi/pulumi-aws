@@ -52,6 +52,14 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+    /// ```
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {

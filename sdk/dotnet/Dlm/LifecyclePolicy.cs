@@ -112,6 +112,14 @@ namespace Pulumi.Aws.Dlm
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DLM lifecyle policies can be imported by their policy ID
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+    /// ```
     /// </summary>
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {

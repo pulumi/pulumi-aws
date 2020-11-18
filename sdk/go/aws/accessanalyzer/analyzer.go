@@ -4,6 +4,7 @@
 package accessanalyzer
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -68,6 +69,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
 // ```
 type Analyzer struct {
 	pulumi.CustomResourceState
@@ -156,4 +165,43 @@ type AnalyzerArgs struct {
 
 func (AnalyzerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyzerArgs)(nil)).Elem()
+}
+
+type AnalyzerInput interface {
+	pulumi.Input
+
+	ToAnalyzerOutput() AnalyzerOutput
+	ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput
+}
+
+func (Analyzer) ElementType() reflect.Type {
+	return reflect.TypeOf((*Analyzer)(nil)).Elem()
+}
+
+func (i Analyzer) ToAnalyzerOutput() AnalyzerOutput {
+	return i.ToAnalyzerOutputWithContext(context.Background())
+}
+
+func (i Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerOutput)
+}
+
+type AnalyzerOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyzerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerOutput)(nil)).Elem()
+}
+
+func (o AnalyzerOutput) ToAnalyzerOutput() AnalyzerOutput {
+	return o
+}
+
+func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnalyzerOutput{})
 }

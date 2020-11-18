@@ -67,6 +67,14 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAFv2 Rule Group can be imported using `ID/name/scope` e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+    /// ```
     /// </summary>
     public partial class RuleGroup : Pulumi.CustomResource
     {

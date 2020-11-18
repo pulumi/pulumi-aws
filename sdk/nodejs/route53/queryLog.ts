@@ -54,6 +54,14 @@ import * as utilities from "../utilities";
  *     dependsOn: [route53_query_logging_policyLogResourcePolicy],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Route53 query logging configurations can be imported using their ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+ * ```
  */
 export class QueryLog extends pulumi.CustomResource {
     /**

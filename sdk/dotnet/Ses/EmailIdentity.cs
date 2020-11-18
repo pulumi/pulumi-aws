@@ -30,6 +30,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SES email identities can be imported using the email address.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+    /// ```
     /// </summary>
     public partial class EmailIdentity : Pulumi.CustomResource
     {

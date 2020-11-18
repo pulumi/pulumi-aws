@@ -31,6 +31,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Placement groups can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+    /// ```
     /// </summary>
     public partial class PlacementGroup : Pulumi.CustomResource
     {

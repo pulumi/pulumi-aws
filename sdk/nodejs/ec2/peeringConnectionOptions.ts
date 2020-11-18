@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -105,6 +103,14 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.accepter,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * VPC Peering Connection Options can be imported using the `vpc peering id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
  * ```
  */
 export class PeeringConnectionOptions extends pulumi.CustomResource {

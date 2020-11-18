@@ -2,11 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * DB proxy default target groups can be imported using the `db_proxy_name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+ * ```
+ */
 export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
     /**
      * Get an existing ProxyDefaultTargetGroup resource's state with the given name, ID, and optional extra

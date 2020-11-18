@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *
  * * You can only associate one DHCP Options Set to a given VPC ID.
  * * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
+ *
+ * ## Import
+ *
+ * DHCP associations can be imported by providing the VPC ID associated with the options
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+ * ```
  */
 export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     /**

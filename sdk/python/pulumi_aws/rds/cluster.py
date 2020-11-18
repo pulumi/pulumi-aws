@@ -152,6 +152,14 @@ class Cluster(pulumi.CustomResource):
             skip_final_snapshot=True)
         ```
 
+        ## Import
+
+        RDS Clusters can be imported using the `cluster_identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.

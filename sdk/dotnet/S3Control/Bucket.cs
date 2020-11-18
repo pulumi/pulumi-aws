@@ -33,6 +33,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// S3 Control Buckets can be imported using Amazon Resource Name (ARN), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+    /// ```
     /// </summary>
     public partial class Bucket : Pulumi.CustomResource
     {

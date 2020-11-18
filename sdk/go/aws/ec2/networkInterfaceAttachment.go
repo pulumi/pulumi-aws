@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -138,4 +139,43 @@ type NetworkInterfaceAttachmentArgs struct {
 
 func (NetworkInterfaceAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceAttachmentArgs)(nil)).Elem()
+}
+
+type NetworkInterfaceAttachmentInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput
+	ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput
+}
+
+func (NetworkInterfaceAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachment)(nil)).Elem()
+}
+
+func (i NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput {
+	return i.ToNetworkInterfaceAttachmentOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentOutput)
+}
+
+type NetworkInterfaceAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkInterfaceAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachmentOutput)(nil)).Elem()
+}
+
+func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentOutput{})
 }

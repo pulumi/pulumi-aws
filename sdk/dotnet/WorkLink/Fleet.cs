@@ -84,6 +84,14 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WorkLink can be imported using the ARN, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+    /// ```
     /// </summary>
     public partial class Fleet : Pulumi.CustomResource
     {

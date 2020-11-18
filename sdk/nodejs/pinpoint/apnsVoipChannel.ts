@@ -23,6 +23,14 @@ import * as utilities from "../utilities";
  *     privateKey: fs.readFileSync("./private_key.key"),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Pinpoint APNs VoIP Channel can be imported using the `application-id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
+ * ```
  */
 export class ApnsVoipChannel extends pulumi.CustomResource {
     /**

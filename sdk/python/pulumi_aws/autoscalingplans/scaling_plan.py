@@ -33,6 +33,14 @@ class ScalingPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        ## Import
+
+        Auto Scaling scaling plans can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']] application_source: A CloudFormation stack or set of tags. You can create one scaling plan per application source.

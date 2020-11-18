@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -70,6 +71,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Default VPC Routing tables can be imported using the `vpc_id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+// ```
+//
+//  [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 
@@ -173,4 +184,43 @@ type DefaultRouteTableArgs struct {
 
 func (DefaultRouteTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultRouteTableArgs)(nil)).Elem()
+}
+
+type DefaultRouteTableInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTableOutput() DefaultRouteTableOutput
+	ToDefaultRouteTableOutputWithContext(ctx context.Context) DefaultRouteTableOutput
+}
+
+func (DefaultRouteTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRouteTable)(nil)).Elem()
+}
+
+func (i DefaultRouteTable) ToDefaultRouteTableOutput() DefaultRouteTableOutput {
+	return i.ToDefaultRouteTableOutputWithContext(context.Background())
+}
+
+func (i DefaultRouteTable) ToDefaultRouteTableOutputWithContext(ctx context.Context) DefaultRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableOutput)
+}
+
+type DefaultRouteTableOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRouteTableOutput)(nil)).Elem()
+}
+
+func (o DefaultRouteTableOutput) ToDefaultRouteTableOutput() DefaultRouteTableOutput {
+	return o
+}
+
+func (o DefaultRouteTableOutput) ToDefaultRouteTableOutputWithContext(ctx context.Context) DefaultRouteTableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DefaultRouteTableOutput{})
 }

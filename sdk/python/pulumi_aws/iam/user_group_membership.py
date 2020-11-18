@@ -49,6 +49,14 @@ class UserGroupMembership(pulumi.CustomResource):
             groups=[group3.name])
         ```
 
+        ## Import
+
+        IAM user group membership can be imported using the user name and group names separated by `/`.
+
+        ```sh
+         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of [IAM Groups](https://www.terraform.io/docs/providers/aws/r/iam_group.html) to add the user to

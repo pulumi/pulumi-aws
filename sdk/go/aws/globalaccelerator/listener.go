@@ -4,6 +4,7 @@
 package globalaccelerator
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Global Accelerator listeners can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 // ```
 type Listener struct {
 	pulumi.CustomResourceState
@@ -154,4 +163,43 @@ type ListenerArgs struct {
 
 func (ListenerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerArgs)(nil)).Elem()
+}
+
+type ListenerInput interface {
+	pulumi.Input
+
+	ToListenerOutput() ListenerOutput
+	ToListenerOutputWithContext(ctx context.Context) ListenerOutput
+}
+
+func (Listener) ElementType() reflect.Type {
+	return reflect.TypeOf((*Listener)(nil)).Elem()
+}
+
+func (i Listener) ToListenerOutput() ListenerOutput {
+	return i.ToListenerOutputWithContext(context.Background())
+}
+
+func (i Listener) ToListenerOutputWithContext(ctx context.Context) ListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerOutput)
+}
+
+type ListenerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerOutput)(nil)).Elem()
+}
+
+func (o ListenerOutput) ToListenerOutput() ListenerOutput {
+	return o
+}
+
+func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) ListenerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListenerOutput{})
 }

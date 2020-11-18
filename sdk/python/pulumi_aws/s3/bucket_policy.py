@@ -52,6 +52,14 @@ class BucketPolicy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        S3 bucket policies can be imported using the bucket name, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.

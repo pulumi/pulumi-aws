@@ -4,6 +4,7 @@
 package ram
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Resource share accepters can be imported using the resource share ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
 // ```
 type ResourceShareAccepter struct {
 	pulumi.CustomResourceState
@@ -172,4 +181,43 @@ type ResourceShareAccepterArgs struct {
 
 func (ResourceShareAccepterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceShareAccepterArgs)(nil)).Elem()
+}
+
+type ResourceShareAccepterInput interface {
+	pulumi.Input
+
+	ToResourceShareAccepterOutput() ResourceShareAccepterOutput
+	ToResourceShareAccepterOutputWithContext(ctx context.Context) ResourceShareAccepterOutput
+}
+
+func (ResourceShareAccepter) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShareAccepter)(nil)).Elem()
+}
+
+func (i ResourceShareAccepter) ToResourceShareAccepterOutput() ResourceShareAccepterOutput {
+	return i.ToResourceShareAccepterOutputWithContext(context.Background())
+}
+
+func (i ResourceShareAccepter) ToResourceShareAccepterOutputWithContext(ctx context.Context) ResourceShareAccepterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterOutput)
+}
+
+type ResourceShareAccepterOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceShareAccepterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShareAccepterOutput)(nil)).Elem()
+}
+
+func (o ResourceShareAccepterOutput) ToResourceShareAccepterOutput() ResourceShareAccepterOutput {
+	return o
+}
+
+func (o ResourceShareAccepterOutput) ToResourceShareAccepterOutputWithContext(ctx context.Context) ResourceShareAccepterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceShareAccepterOutput{})
 }

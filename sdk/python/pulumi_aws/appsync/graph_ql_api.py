@@ -133,6 +133,14 @@ class GraphQLApi(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+
+        ```sh
+         $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.

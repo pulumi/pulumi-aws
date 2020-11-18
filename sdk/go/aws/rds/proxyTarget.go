@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,20 @@ import (
 )
 
 // Provides an RDS DB proxy target resource.
+//
+// ## Import
+//
+// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g. Instances
+//
+// ```sh
+//  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+// ```
+//
+//  Provisioned Clusters
+//
+// ```sh
+//  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+// ```
 type ProxyTarget struct {
 	pulumi.CustomResourceState
 
@@ -144,4 +159,43 @@ type ProxyTargetArgs struct {
 
 func (ProxyTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyTargetArgs)(nil)).Elem()
+}
+
+type ProxyTargetInput interface {
+	pulumi.Input
+
+	ToProxyTargetOutput() ProxyTargetOutput
+	ToProxyTargetOutputWithContext(ctx context.Context) ProxyTargetOutput
+}
+
+func (ProxyTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyTarget)(nil)).Elem()
+}
+
+func (i ProxyTarget) ToProxyTargetOutput() ProxyTargetOutput {
+	return i.ToProxyTargetOutputWithContext(context.Background())
+}
+
+func (i ProxyTarget) ToProxyTargetOutputWithContext(ctx context.Context) ProxyTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyTargetOutput)
+}
+
+type ProxyTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProxyTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyTargetOutput)(nil)).Elem()
+}
+
+func (o ProxyTargetOutput) ToProxyTargetOutput() ProxyTargetOutput {
+	return o
+}
+
+func (o ProxyTargetOutput) ToProxyTargetOutputWithContext(ctx context.Context) ProxyTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProxyTargetOutput{})
 }

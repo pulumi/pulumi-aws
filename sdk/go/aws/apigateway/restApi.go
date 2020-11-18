@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
 // ```
 type RestApi struct {
 	pulumi.CustomResourceState
@@ -231,4 +240,43 @@ type RestApiArgs struct {
 
 func (RestApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*restApiArgs)(nil)).Elem()
+}
+
+type RestApiInput interface {
+	pulumi.Input
+
+	ToRestApiOutput() RestApiOutput
+	ToRestApiOutputWithContext(ctx context.Context) RestApiOutput
+}
+
+func (RestApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApi)(nil)).Elem()
+}
+
+func (i RestApi) ToRestApiOutput() RestApiOutput {
+	return i.ToRestApiOutputWithContext(context.Background())
+}
+
+func (i RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiOutput)
+}
+
+type RestApiOutput struct {
+	*pulumi.OutputState
+}
+
+func (RestApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiOutput)(nil)).Elem()
+}
+
+func (o RestApiOutput) ToRestApiOutput() RestApiOutput {
+	return o
+}
+
+func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RestApiOutput{})
 }

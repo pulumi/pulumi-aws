@@ -33,6 +33,14 @@ class Pipeline(pulumi.CustomResource):
         default = aws.datapipeline.Pipeline("default")
         ```
 
+        ## Import
+
+        `aws_datapipeline_pipeline` can be imported by using the id (Pipeline ID), e.g.
+
+        ```sh
+         $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of Pipeline.

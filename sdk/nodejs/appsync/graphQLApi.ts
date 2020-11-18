@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -117,6 +115,14 @@ import * as utilities from "../utilities";
  *     cloudwatchLogsRoleArn: exampleRole.arn,
  *     fieldLogLevel: "ERROR",
  * }});
+ * ```
+ *
+ * ## Import
+ *
+ * AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
  * ```
  */
 export class GraphQLApi extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -105,6 +106,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Glue Jobs can be imported using `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:glue/job:Job MyJob MyJob
 // ```
 type Job struct {
 	pulumi.CustomResourceState
@@ -339,4 +348,43 @@ type JobArgs struct {
 
 func (JobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobArgs)(nil)).Elem()
+}
+
+type JobInput interface {
+	pulumi.Input
+
+	ToJobOutput() JobOutput
+	ToJobOutputWithContext(ctx context.Context) JobOutput
+}
+
+func (Job) ElementType() reflect.Type {
+	return reflect.TypeOf((*Job)(nil)).Elem()
+}
+
+func (i Job) ToJobOutput() JobOutput {
+	return i.ToJobOutputWithContext(context.Background())
+}
+
+func (i Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
+}
+
+type JobOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutput)(nil)).Elem()
+}
+
+func (o JobOutput) ToJobOutput() JobOutput {
+	return o
+}
+
+func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobOutput{})
 }

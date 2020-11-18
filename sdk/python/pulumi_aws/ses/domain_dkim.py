@@ -42,6 +42,14 @@ class DomainDkim(pulumi.CustomResource):
                 records=[example_domain_dkim.dkim_tokens[range["value"]].apply(lambda dkim_tokens: f"{dkim_tokens}.dkim.amazonses.com")]))
         ```
 
+        ## Import
+
+        DKIM tokens can be imported using the `domain` attribute, e.g.
+
+        ```sh
+         $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.

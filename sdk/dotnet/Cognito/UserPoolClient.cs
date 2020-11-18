@@ -132,6 +132,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client &lt;user_pool_id&gt;/&lt;user_pool_client_id&gt;
+    /// ```
     /// </summary>
     public partial class UserPoolClient : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -58,6 +59,10 @@ import (
 // See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
 // and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
 // guides for more information.
+//
+// ## Import
+//
+// This resource does not support importing.
 type VpnGatewayAttachment struct {
 	pulumi.CustomResourceState
 
@@ -135,4 +140,43 @@ type VpnGatewayAttachmentArgs struct {
 
 func (VpnGatewayAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayAttachmentArgs)(nil)).Elem()
+}
+
+type VpnGatewayAttachmentInput interface {
+	pulumi.Input
+
+	ToVpnGatewayAttachmentOutput() VpnGatewayAttachmentOutput
+	ToVpnGatewayAttachmentOutputWithContext(ctx context.Context) VpnGatewayAttachmentOutput
+}
+
+func (VpnGatewayAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayAttachment)(nil)).Elem()
+}
+
+func (i VpnGatewayAttachment) ToVpnGatewayAttachmentOutput() VpnGatewayAttachmentOutput {
+	return i.ToVpnGatewayAttachmentOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayAttachment) ToVpnGatewayAttachmentOutputWithContext(ctx context.Context) VpnGatewayAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayAttachmentOutput)
+}
+
+type VpnGatewayAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnGatewayAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayAttachmentOutput)(nil)).Elem()
+}
+
+func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutput() VpnGatewayAttachmentOutput {
+	return o
+}
+
+func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutputWithContext(ctx context.Context) VpnGatewayAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnGatewayAttachmentOutput{})
 }

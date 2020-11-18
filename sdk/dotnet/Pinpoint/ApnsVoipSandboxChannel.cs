@@ -38,6 +38,14 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+    /// ```
     /// </summary>
     public partial class ApnsVoipSandboxChannel : Pulumi.CustomResource
     {

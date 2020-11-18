@@ -39,6 +39,14 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * IAM Users can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/user:User lb loadbalancer
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

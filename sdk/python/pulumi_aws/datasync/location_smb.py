@@ -47,6 +47,14 @@ class LocationSmb(pulumi.CustomResource):
             agent_arns=[aws_datasync_agent["example"]["arn"]])
         ```
 
+        ## Import
+
+        `aws_datasync_location_smb` can be imported by using the Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.

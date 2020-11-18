@@ -38,6 +38,14 @@ class Certificate(pulumi.CustomResource):
             certificate_pem="...")
         ```
 
+        ## Import
+
+        Certificates can be imported using the `certificate_arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:dms/certificate:Certificate test arn:aws:dms:us-west-2:123456789:cert:xxxxxxxxxx
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: The certificate identifier.

@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *     path: "/users/",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * IAM Groups can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/group:Group developers developers
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

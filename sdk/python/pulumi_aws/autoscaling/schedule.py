@@ -53,6 +53,14 @@ class Schedule(pulumi.CustomResource):
             autoscaling_group_name=foobar_group.name)
         ```
 
+        ## Import
+
+        AutoScaling ScheduledAction can be imported using the `auto-scaling-group-name` and `scheduled-action-name`, e.g.
+
+        ```sh
+         $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name or Amazon Resource Name (ARN) of the Auto Scaling group.

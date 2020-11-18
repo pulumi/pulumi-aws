@@ -4,6 +4,7 @@
 package alb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -135,4 +136,43 @@ type ListenerCertificateArgs struct {
 
 func (ListenerCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerCertificateArgs)(nil)).Elem()
+}
+
+type ListenerCertificateInput interface {
+	pulumi.Input
+
+	ToListenerCertificateOutput() ListenerCertificateOutput
+	ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput
+}
+
+func (ListenerCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerCertificate)(nil)).Elem()
+}
+
+func (i ListenerCertificate) ToListenerCertificateOutput() ListenerCertificateOutput {
+	return i.ToListenerCertificateOutputWithContext(context.Background())
+}
+
+func (i ListenerCertificate) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateOutput)
+}
+
+type ListenerCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ListenerCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerCertificateOutput)(nil)).Elem()
+}
+
+func (o ListenerCertificateOutput) ToListenerCertificateOutput() ListenerCertificateOutput {
+	return o
+}
+
+func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListenerCertificateOutput{})
 }

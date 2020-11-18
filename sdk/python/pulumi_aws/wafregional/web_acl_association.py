@@ -142,6 +142,14 @@ class WebAclAssociation(pulumi.CustomResource):
             web_acl_id=foo_web_acl.id)
         ```
 
+        ## Import
+
+        WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_arn: ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.

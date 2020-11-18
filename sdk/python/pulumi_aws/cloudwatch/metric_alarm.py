@@ -197,6 +197,14 @@ class MetricAlarm(pulumi.CustomResource):
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other
 
+        ## Import
+
+        Cloud Metric Alarms can be imported using the `alarm_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.

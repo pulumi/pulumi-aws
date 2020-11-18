@@ -183,6 +183,14 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// CodePipelines can be imported using the name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+    /// ```
     /// </summary>
     public partial class Pipeline : Pulumi.CustomResource
     {

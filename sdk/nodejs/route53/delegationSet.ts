@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  * const primary = new aws.route53.Zone("primary", {delegationSetId: main.id});
  * const secondary = new aws.route53.Zone("secondary", {delegationSetId: main.id});
  * ```
+ *
+ * ## Import
+ *
+ * Route53 Delegation Sets can be imported using the `delegation set id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+ * ```
  */
 export class DelegationSet extends pulumi.CustomResource {
     /**

@@ -28,6 +28,14 @@ import {Group} from "./index";
  *     policyArn: policy.arn,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * IAM group policy attachments can be imported using the group name and policy arn separated by `/`.
+ *
+ * ```sh
+ *  $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * ```
  */
 export class GroupPolicyAttachment extends pulumi.CustomResource {
     /**

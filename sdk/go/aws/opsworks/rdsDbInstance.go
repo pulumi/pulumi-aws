@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -142,4 +143,43 @@ type RdsDbInstanceArgs struct {
 
 func (RdsDbInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rdsDbInstanceArgs)(nil)).Elem()
+}
+
+type RdsDbInstanceInput interface {
+	pulumi.Input
+
+	ToRdsDbInstanceOutput() RdsDbInstanceOutput
+	ToRdsDbInstanceOutputWithContext(ctx context.Context) RdsDbInstanceOutput
+}
+
+func (RdsDbInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*RdsDbInstance)(nil)).Elem()
+}
+
+func (i RdsDbInstance) ToRdsDbInstanceOutput() RdsDbInstanceOutput {
+	return i.ToRdsDbInstanceOutputWithContext(context.Background())
+}
+
+func (i RdsDbInstance) ToRdsDbInstanceOutputWithContext(ctx context.Context) RdsDbInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RdsDbInstanceOutput)
+}
+
+type RdsDbInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (RdsDbInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RdsDbInstanceOutput)(nil)).Elem()
+}
+
+func (o RdsDbInstanceOutput) ToRdsDbInstanceOutput() RdsDbInstanceOutput {
+	return o
+}
+
+func (o RdsDbInstanceOutput) ToRdsDbInstanceOutputWithContext(ctx context.Context) RdsDbInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RdsDbInstanceOutput{})
 }

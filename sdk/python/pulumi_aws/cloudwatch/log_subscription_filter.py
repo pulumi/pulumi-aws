@@ -41,6 +41,14 @@ class LogSubscriptionFilter(pulumi.CustomResource):
             distribution="Random")
         ```
 
+        ## Import
+
+        CloudWatch Logs subscription filter can be imported using the log group name and subscription filter name separated by `|`.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.

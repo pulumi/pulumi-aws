@@ -57,6 +57,20 @@ namespace Pulumi.Aws.Route53
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Route 53 Hosted Zone Associations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+    /// ```
+    /// 
+    ///  If the VPC is in a different region than the Terraform AWS Provider region configuration, the VPC Region can be added to the end. e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+    /// ```
     /// </summary>
     public partial class ZoneAssociation : Pulumi.CustomResource
     {

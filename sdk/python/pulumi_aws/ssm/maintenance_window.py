@@ -44,6 +44,16 @@ class MaintenanceWindow(pulumi.CustomResource):
             schedule="cron(0 16 ? * TUE *)")
         ```
 
+        ## Import
+
+        SSM
+
+        Maintenance Windows can be imported using the `maintenance window id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.

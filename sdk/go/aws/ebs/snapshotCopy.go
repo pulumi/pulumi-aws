@@ -4,6 +4,7 @@
 package ebs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -213,4 +214,43 @@ type SnapshotCopyArgs struct {
 
 func (SnapshotCopyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyArgs)(nil)).Elem()
+}
+
+type SnapshotCopyInput interface {
+	pulumi.Input
+
+	ToSnapshotCopyOutput() SnapshotCopyOutput
+	ToSnapshotCopyOutputWithContext(ctx context.Context) SnapshotCopyOutput
+}
+
+func (SnapshotCopy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCopy)(nil)).Elem()
+}
+
+func (i SnapshotCopy) ToSnapshotCopyOutput() SnapshotCopyOutput {
+	return i.ToSnapshotCopyOutputWithContext(context.Background())
+}
+
+func (i SnapshotCopy) ToSnapshotCopyOutputWithContext(ctx context.Context) SnapshotCopyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyOutput)
+}
+
+type SnapshotCopyOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnapshotCopyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCopyOutput)(nil)).Elem()
+}
+
+func (o SnapshotCopyOutput) ToSnapshotCopyOutput() SnapshotCopyOutput {
+	return o
+}
+
+func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context) SnapshotCopyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SnapshotCopyOutput{})
 }

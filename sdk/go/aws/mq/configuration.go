@@ -4,6 +4,7 @@
 package mq
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// MQ Configurations can be imported using the configuration ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
 // ```
 type Configuration struct {
 	pulumi.CustomResourceState
@@ -183,4 +192,43 @@ type ConfigurationArgs struct {
 
 func (ConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationArgs)(nil)).Elem()
+}
+
+type ConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigurationOutput() ConfigurationOutput
+	ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput
+}
+
+func (Configuration) ElementType() reflect.Type {
+	return reflect.TypeOf((*Configuration)(nil)).Elem()
+}
+
+func (i Configuration) ToConfigurationOutput() ConfigurationOutput {
+	return i.ToConfigurationOutputWithContext(context.Background())
+}
+
+func (i Configuration) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationOutput)
+}
+
+type ConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationOutput)(nil)).Elem()
+}
+
+func (o ConfigurationOutput) ToConfigurationOutput() ConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationOutput{})
 }

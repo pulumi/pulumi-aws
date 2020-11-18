@@ -34,6 +34,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Internet Gateways can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+    /// ```
     /// </summary>
     public partial class InternetGateway : Pulumi.CustomResource
     {

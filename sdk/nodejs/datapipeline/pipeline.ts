@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const defaultPipeline = new aws.datapipeline.Pipeline("default", {});
  * ```
+ *
+ * ## Import
+ *
+ * `aws_datapipeline_pipeline` can be imported by using the id (Pipeline ID), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+ * ```
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package redshift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Redshift security groups can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:redshift/securityGroup:SecurityGroup testgroup1 redshift_test_group
 // ```
 type SecurityGroup struct {
 	pulumi.CustomResourceState
@@ -125,4 +134,43 @@ type SecurityGroupArgs struct {
 
 func (SecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupArgs)(nil)).Elem()
+}
+
+type SecurityGroupInput interface {
+	pulumi.Input
+
+	ToSecurityGroupOutput() SecurityGroupOutput
+	ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput
+}
+
+func (SecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroup)(nil)).Elem()
+}
+
+func (i SecurityGroup) ToSecurityGroupOutput() SecurityGroupOutput {
+	return i.ToSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i SecurityGroup) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupOutput)
+}
+
+type SecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupOutput)(nil)).Elem()
+}
+
+func (o SecurityGroupOutput) ToSecurityGroupOutput() SecurityGroupOutput {
+	return o
+}
+
+func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurityGroupOutput{})
 }

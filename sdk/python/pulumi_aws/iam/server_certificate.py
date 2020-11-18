@@ -100,6 +100,16 @@ class ServerCertificate(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        IAM Server Certificates can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+        ```
+
+         [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the server certificate.

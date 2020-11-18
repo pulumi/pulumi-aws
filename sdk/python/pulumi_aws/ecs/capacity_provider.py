@@ -51,6 +51,14 @@ class CapacityProvider(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        ECS Capacity Providers can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -91,6 +89,14 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Intents can be imported using their name.
+ *
+ * ```sh
+ *  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
  * ```
  */
 export class Intent extends pulumi.CustomResource {

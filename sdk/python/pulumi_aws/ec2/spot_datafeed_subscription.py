@@ -38,6 +38,14 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
             prefix="my_subdirectory")
         ```
 
+        ## Import
+
+        A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.

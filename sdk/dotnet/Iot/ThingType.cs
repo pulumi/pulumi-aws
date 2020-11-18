@@ -29,6 +29,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IOT Thing Types can be imported using the name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iot/thingType:ThingType example example
+    /// ```
     /// </summary>
     public partial class ThingType : Pulumi.CustomResource
     {

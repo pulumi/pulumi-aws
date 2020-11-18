@@ -64,6 +64,14 @@ class NetworkAcl(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Network ACLs can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]] egress: Specifies an egress rule. Parameters defined below.

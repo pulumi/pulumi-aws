@@ -228,6 +228,14 @@ class Application(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']] application_configuration: The application's configuration

@@ -16,6 +16,14 @@ import * as utilities from "../utilities";
  * const app = new aws.pinpoint.App("app", {});
  * const sms = new aws.pinpoint.SmsChannel("sms", {applicationId: app.applicationId});
  * ```
+ *
+ * ## Import
+ *
+ * Pinpoint SMS Channel can be imported using the `application-id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+ * ```
  */
 export class SmsChannel extends pulumi.CustomResource {
     /**

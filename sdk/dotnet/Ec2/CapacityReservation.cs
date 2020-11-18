@@ -33,6 +33,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Capacity Reservations can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+    /// ```
     /// </summary>
     public partial class CapacityReservation : Pulumi.CustomResource
     {

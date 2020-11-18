@@ -38,6 +38,14 @@ class Protection(pulumi.CustomResource):
         example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
         ```
 
+        ## Import
+
+        Shield protection resources can be imported by specifying their ID e.g.
+
+        ```sh
+         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A friendly name for the Protection you are creating.

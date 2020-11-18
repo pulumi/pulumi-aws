@@ -37,6 +37,14 @@ import * as utilities from "../utilities";
  *     logGroupName: exampleLogGroup.name,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Directory Service Log Subscriptions can be imported using the directory id, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+ * ```
  */
 export class LogService extends pulumi.CustomResource {
     /**

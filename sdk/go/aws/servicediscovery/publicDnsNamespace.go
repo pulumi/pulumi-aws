@@ -4,6 +4,7 @@
 package servicediscovery
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -32,6 +33,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Discovery Public DNS Namespace can be imported using the namespace ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
 // ```
 type PublicDnsNamespace struct {
 	pulumi.CustomResourceState
@@ -126,4 +135,43 @@ type PublicDnsNamespaceArgs struct {
 
 func (PublicDnsNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicDnsNamespaceArgs)(nil)).Elem()
+}
+
+type PublicDnsNamespaceInput interface {
+	pulumi.Input
+
+	ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput
+	ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput
+}
+
+func (PublicDnsNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicDnsNamespace)(nil)).Elem()
+}
+
+func (i PublicDnsNamespace) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
+	return i.ToPublicDnsNamespaceOutputWithContext(context.Background())
+}
+
+func (i PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceOutput)
+}
+
+type PublicDnsNamespaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicDnsNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicDnsNamespaceOutput)(nil)).Elem()
+}
+
+func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutput() PublicDnsNamespaceOutput {
+	return o
+}
+
+func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PublicDnsNamespaceOutput{})
 }

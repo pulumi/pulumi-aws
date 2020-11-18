@@ -14,7 +14,7 @@ __all__ = [
     'get_hosted_zone_id',
 ]
 
-warnings.warn("aws.elasticloadbalancing.getHostedZoneId has been deprecated in favor of aws.elb.getHostedZoneId", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.getHostedZoneId has been deprecated in favor of aws.elb.getHostedZoneId""", DeprecationWarning)
 
 @pulumi.output_type
 class GetHostedZoneIdResult:

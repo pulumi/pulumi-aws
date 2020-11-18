@@ -40,6 +40,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SSM associations can be imported using the `association_id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+    /// ```
     /// </summary>
     public partial class Association : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// OpsWorks stacks can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
 // ```
 type Stack struct {
 	pulumi.CustomResourceState
@@ -363,4 +372,43 @@ type StackArgs struct {
 
 func (StackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackArgs)(nil)).Elem()
+}
+
+type StackInput interface {
+	pulumi.Input
+
+	ToStackOutput() StackOutput
+	ToStackOutputWithContext(ctx context.Context) StackOutput
+}
+
+func (Stack) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stack)(nil)).Elem()
+}
+
+func (i Stack) ToStackOutput() StackOutput {
+	return i.ToStackOutputWithContext(context.Background())
+}
+
+func (i Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackOutput)
+}
+
+type StackOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackOutput)(nil)).Elem()
+}
+
+func (o StackOutput) ToStackOutput() StackOutput {
+	return o
+}
+
+func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StackOutput{})
 }

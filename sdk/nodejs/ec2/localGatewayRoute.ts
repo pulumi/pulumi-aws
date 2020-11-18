@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     localGatewayVirtualInterfaceGroupId: data.aws_ec2_local_gateway_virtual_interface_group.example.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_ec2_local_gateway_route` can be imported by using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
+ * ```
  */
 export class LocalGatewayRoute extends pulumi.CustomResource {
     /**

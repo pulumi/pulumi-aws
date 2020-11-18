@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -26,6 +24,14 @@ import * as utilities from "../utilities";
  *     properties: "{\"description\":\"Example description\"}",
  *     restApiId: exampleRestApi.id,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * API Gateway documentation_parts can be imported using `REST-API-ID/DOC-PART-ID`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
  * ```
  */
 export class DocumentationPart extends pulumi.CustomResource {

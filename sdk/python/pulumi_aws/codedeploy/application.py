@@ -50,6 +50,14 @@ class Application(pulumi.CustomResource):
         example = aws.codedeploy.Application("example", compute_platform="Server")
         ```
 
+        ## Import
+
+        CodeDeploy Applications can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:codedeploy/application:Application example my-application
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.

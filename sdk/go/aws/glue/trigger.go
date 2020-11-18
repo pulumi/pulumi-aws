@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -177,6 +178,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Glue Triggers can be imported using `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+// ```
 type Trigger struct {
 	pulumi.CustomResourceState
 
@@ -330,4 +339,43 @@ type TriggerArgs struct {
 
 func (TriggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerArgs)(nil)).Elem()
+}
+
+type TriggerInput interface {
+	pulumi.Input
+
+	ToTriggerOutput() TriggerOutput
+	ToTriggerOutputWithContext(ctx context.Context) TriggerOutput
+}
+
+func (Trigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*Trigger)(nil)).Elem()
+}
+
+func (i Trigger) ToTriggerOutput() TriggerOutput {
+	return i.ToTriggerOutputWithContext(context.Background())
+}
+
+func (i Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
+}
+
+type TriggerOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerOutput)(nil)).Elem()
+}
+
+func (o TriggerOutput) ToTriggerOutput() TriggerOutput {
+	return o
+}
+
+func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TriggerOutput{})
 }

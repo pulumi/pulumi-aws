@@ -233,6 +233,14 @@ class Distribution(pulumi.CustomResource):
         # ... other configuration ...
         ```
 
+        ## Import
+
+        Cloudfront Distributions can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for

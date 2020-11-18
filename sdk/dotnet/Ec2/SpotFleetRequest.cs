@@ -219,6 +219,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Spot Fleet Requests can be imported using `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
+    /// ```
     /// </summary>
     public partial class SpotFleetRequest : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package wafregional
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// WAF Regional Regex Pattern Set can be imported using the id, e.g.
+//
+// ```sh
+//  $ pulumi import aws:wafregional/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
@@ -107,4 +116,43 @@ type RegexPatternSetArgs struct {
 
 func (RegexPatternSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*regexPatternSetArgs)(nil)).Elem()
+}
+
+type RegexPatternSetInput interface {
+	pulumi.Input
+
+	ToRegexPatternSetOutput() RegexPatternSetOutput
+	ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput
+}
+
+func (RegexPatternSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegexPatternSet)(nil)).Elem()
+}
+
+func (i RegexPatternSet) ToRegexPatternSetOutput() RegexPatternSetOutput {
+	return i.ToRegexPatternSetOutputWithContext(context.Background())
+}
+
+func (i RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetOutput)
+}
+
+type RegexPatternSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegexPatternSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegexPatternSetOutput)(nil)).Elem()
+}
+
+func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {
+	return o
+}
+
+func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegexPatternSetOutput{})
 }

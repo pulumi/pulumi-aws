@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Models can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sagemaker/model:Model test_model model-foo
 // ```
 type Model struct {
 	pulumi.CustomResourceState
@@ -196,4 +205,43 @@ type ModelArgs struct {
 
 func (ModelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelArgs)(nil)).Elem()
+}
+
+type ModelInput interface {
+	pulumi.Input
+
+	ToModelOutput() ModelOutput
+	ToModelOutputWithContext(ctx context.Context) ModelOutput
+}
+
+func (Model) ElementType() reflect.Type {
+	return reflect.TypeOf((*Model)(nil)).Elem()
+}
+
+func (i Model) ToModelOutput() ModelOutput {
+	return i.ToModelOutputWithContext(context.Background())
+}
+
+func (i Model) ToModelOutputWithContext(ctx context.Context) ModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelOutput)
+}
+
+type ModelOutput struct {
+	*pulumi.OutputState
+}
+
+func (ModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelOutput)(nil)).Elem()
+}
+
+func (o ModelOutput) ToModelOutput() ModelOutput {
+	return o
+}
+
+func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ModelOutput{})
 }

@@ -104,6 +104,18 @@ import {Function} from "./index";
  *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
+ * ```
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
+ * ```
  */
 export class Permission extends pulumi.CustomResource {
     /**

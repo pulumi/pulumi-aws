@@ -110,6 +110,14 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             opts=ResourceOptions(provider=aws["accepter"]))
         ```
 
+        ## Import
+
+        VPC Peering Connection Options can be imported using the `vpc peering id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsAccepterArgs']] accepter: An optional configuration block that allows for [VPC Peering Connection]

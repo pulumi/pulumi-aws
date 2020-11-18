@@ -69,6 +69,16 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+    /// ```
+    /// 
+    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     public partial class VirtualService : Pulumi.CustomResource
     {

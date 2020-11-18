@@ -4,6 +4,7 @@
 package mq
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// MQ Brokers can be imported using their broker id, e.g.
+//
+// ```sh
+//  $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type Broker struct {
 	pulumi.CustomResourceState
@@ -334,4 +343,43 @@ type BrokerArgs struct {
 
 func (BrokerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*brokerArgs)(nil)).Elem()
+}
+
+type BrokerInput interface {
+	pulumi.Input
+
+	ToBrokerOutput() BrokerOutput
+	ToBrokerOutputWithContext(ctx context.Context) BrokerOutput
+}
+
+func (Broker) ElementType() reflect.Type {
+	return reflect.TypeOf((*Broker)(nil)).Elem()
+}
+
+func (i Broker) ToBrokerOutput() BrokerOutput {
+	return i.ToBrokerOutputWithContext(context.Background())
+}
+
+func (i Broker) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerOutput)
+}
+
+type BrokerOutput struct {
+	*pulumi.OutputState
+}
+
+func (BrokerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokerOutput)(nil)).Elem()
+}
+
+func (o BrokerOutput) ToBrokerOutput() BrokerOutput {
+	return o
+}
+
+func (o BrokerOutput) ToBrokerOutputWithContext(ctx context.Context) BrokerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BrokerOutput{})
 }

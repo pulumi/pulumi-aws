@@ -4,6 +4,7 @@
 package cloudfront
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -21,6 +22,14 @@ import (
 // after creation or modification. During this time, deletes to resources will be
 // blocked. If you need to delete a distribution that is enabled and you do not
 // want to wait, you need to use the `retainOnDelete` flag.
+//
+// ## Import
+//
+// Cloudfront Distributions can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+// ```
 type Distribution struct {
 	pulumi.CustomResourceState
 
@@ -493,4 +502,43 @@ type DistributionArgs struct {
 
 func (DistributionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionArgs)(nil)).Elem()
+}
+
+type DistributionInput interface {
+	pulumi.Input
+
+	ToDistributionOutput() DistributionOutput
+	ToDistributionOutputWithContext(ctx context.Context) DistributionOutput
+}
+
+func (Distribution) ElementType() reflect.Type {
+	return reflect.TypeOf((*Distribution)(nil)).Elem()
+}
+
+func (i Distribution) ToDistributionOutput() DistributionOutput {
+	return i.ToDistributionOutputWithContext(context.Background())
+}
+
+func (i Distribution) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOutput)
+}
+
+type DistributionOutput struct {
+	*pulumi.OutputState
+}
+
+func (DistributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOutput)(nil)).Elem()
+}
+
+func (o DistributionOutput) ToDistributionOutput() DistributionOutput {
+	return o
+}
+
+func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DistributionOutput{})
 }

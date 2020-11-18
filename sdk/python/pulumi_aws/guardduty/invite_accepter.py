@@ -47,6 +47,14 @@ class InviteAccepter(pulumi.CustomResource):
                 depends_on=[member_member]))
         ```
 
+        ## Import
+
+        `aws_guardduty_invite_accepter` can be imported using the the member GuardDuty detector ID, e.g.
+
+        ```sh
+         $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] detector_id: The detector ID of the member GuardDuty account.

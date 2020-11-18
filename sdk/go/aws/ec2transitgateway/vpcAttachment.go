@@ -4,6 +4,7 @@
 package ec2transitgateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_ec2_transit_gateway_vpc_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
 // ```
 type VpcAttachment struct {
 	pulumi.CustomResourceState
@@ -194,4 +203,43 @@ type VpcAttachmentArgs struct {
 
 func (VpcAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcAttachmentArgs)(nil)).Elem()
+}
+
+type VpcAttachmentInput interface {
+	pulumi.Input
+
+	ToVpcAttachmentOutput() VpcAttachmentOutput
+	ToVpcAttachmentOutputWithContext(ctx context.Context) VpcAttachmentOutput
+}
+
+func (VpcAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachment)(nil)).Elem()
+}
+
+func (i VpcAttachment) ToVpcAttachmentOutput() VpcAttachmentOutput {
+	return i.ToVpcAttachmentOutputWithContext(context.Background())
+}
+
+func (i VpcAttachment) ToVpcAttachmentOutputWithContext(ctx context.Context) VpcAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOutput)
+}
+
+type VpcAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcAttachmentOutput)(nil)).Elem()
+}
+
+func (o VpcAttachmentOutput) ToVpcAttachmentOutput() VpcAttachmentOutput {
+	return o
+}
+
+func (o VpcAttachmentOutput) ToVpcAttachmentOutputWithContext(ctx context.Context) VpcAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcAttachmentOutput{})
 }

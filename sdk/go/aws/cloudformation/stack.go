@@ -4,6 +4,7 @@
 package cloudformation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -37,6 +38,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cloudformation Stacks can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
 // ```
 type Stack struct {
 	pulumi.CustomResourceState
@@ -250,4 +259,43 @@ type StackArgs struct {
 
 func (StackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackArgs)(nil)).Elem()
+}
+
+type StackInput interface {
+	pulumi.Input
+
+	ToStackOutput() StackOutput
+	ToStackOutputWithContext(ctx context.Context) StackOutput
+}
+
+func (Stack) ElementType() reflect.Type {
+	return reflect.TypeOf((*Stack)(nil)).Elem()
+}
+
+func (i Stack) ToStackOutput() StackOutput {
+	return i.ToStackOutputWithContext(context.Background())
+}
+
+func (i Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackOutput)
+}
+
+type StackOutput struct {
+	*pulumi.OutputState
+}
+
+func (StackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackOutput)(nil)).Elem()
+}
+
+func (o StackOutput) ToStackOutput() StackOutput {
+	return o
+}
+
+func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StackOutput{})
 }

@@ -4,6 +4,7 @@
 package elasticloadbalancingv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -238,6 +239,14 @@ import (
 // }
 // ```
 //
+// ## Import
+//
+// Rules can be imported using their ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:elasticloadbalancingv2/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
+// ```
+//
 // Deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule
 type ListenerRule struct {
 	pulumi.CustomResourceState
@@ -345,4 +354,43 @@ type ListenerRuleArgs struct {
 
 func (ListenerRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerRuleArgs)(nil)).Elem()
+}
+
+type ListenerRuleInput interface {
+	pulumi.Input
+
+	ToListenerRuleOutput() ListenerRuleOutput
+	ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput
+}
+
+func (ListenerRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRule)(nil)).Elem()
+}
+
+func (i ListenerRule) ToListenerRuleOutput() ListenerRuleOutput {
+	return i.ToListenerRuleOutputWithContext(context.Background())
+}
+
+func (i ListenerRule) ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleOutput)
+}
+
+type ListenerRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ListenerRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleOutput)(nil)).Elem()
+}
+
+func (o ListenerRuleOutput) ToListenerRuleOutput() ListenerRuleOutput {
+	return o
+}
+
+func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context) ListenerRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ListenerRuleOutput{})
 }

@@ -117,6 +117,18 @@ class Permission(pulumi.CustomResource):
             source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*/*/*"))
         ```
 
+        ## Import
+
+        Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.
+
+        ```sh
+         $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
+        ```
+
+        ```sh
+         $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)

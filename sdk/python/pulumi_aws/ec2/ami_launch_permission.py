@@ -34,6 +34,14 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678")
         ```
 
+        ## Import
+
+        AWS AMI Launch Permission can be imported using the `ACCOUNT-ID/IMAGE-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: An AWS Account ID to add launch permissions.

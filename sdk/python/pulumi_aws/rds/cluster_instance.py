@@ -81,6 +81,14 @@ class ClusterInstance(pulumi.CustomResource):
                 engine_version=default.engine_version))
         ```
 
+        ## Import
+
+        RDS Cluster Instances can be imported using the `identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications

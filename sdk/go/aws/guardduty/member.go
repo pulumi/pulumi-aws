@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GuardDuty members can be imported using the the primary GuardDuty detector ID and member AWS account ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
 // ```
 type Member struct {
 	pulumi.CustomResourceState
@@ -176,4 +185,43 @@ type MemberArgs struct {
 
 func (MemberArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*memberArgs)(nil)).Elem()
+}
+
+type MemberInput interface {
+	pulumi.Input
+
+	ToMemberOutput() MemberOutput
+	ToMemberOutputWithContext(ctx context.Context) MemberOutput
+}
+
+func (Member) ElementType() reflect.Type {
+	return reflect.TypeOf((*Member)(nil)).Elem()
+}
+
+func (i Member) ToMemberOutput() MemberOutput {
+	return i.ToMemberOutputWithContext(context.Background())
+}
+
+func (i Member) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberOutput)
+}
+
+type MemberOutput struct {
+	*pulumi.OutputState
+}
+
+func (MemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberOutput)(nil)).Elem()
+}
+
+func (o MemberOutput) ToMemberOutput() MemberOutput {
+	return o
+}
+
+func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MemberOutput{})
 }

@@ -31,6 +31,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SES Receipt Filter can be imported using their `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+    /// ```
     /// </summary>
     public partial class ReceiptFilter : Pulumi.CustomResource
     {

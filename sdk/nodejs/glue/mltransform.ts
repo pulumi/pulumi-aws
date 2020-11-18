@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -98,6 +96,14 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [aws_iam_role_policy_attachment.test],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Glue ML Transforms can be imported using `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
  * ```
  */
 export class MLTransform extends pulumi.CustomResource {

@@ -18,6 +18,14 @@ import * as utilities from "../utilities";
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_docdb_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * ```
  */
 export class ClusterSnapshot extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package eks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
 // ```
 type FargateProfile struct {
 	pulumi.CustomResourceState
@@ -192,4 +201,43 @@ type FargateProfileArgs struct {
 
 func (FargateProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fargateProfileArgs)(nil)).Elem()
+}
+
+type FargateProfileInput interface {
+	pulumi.Input
+
+	ToFargateProfileOutput() FargateProfileOutput
+	ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput
+}
+
+func (FargateProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfile)(nil)).Elem()
+}
+
+func (i FargateProfile) ToFargateProfileOutput() FargateProfileOutput {
+	return i.ToFargateProfileOutputWithContext(context.Background())
+}
+
+func (i FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileOutput)
+}
+
+type FargateProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (FargateProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileOutput)(nil)).Elem()
+}
+
+func (o FargateProfileOutput) ToFargateProfileOutput() FargateProfileOutput {
+	return o
+}
+
+func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FargateProfileOutput{})
 }

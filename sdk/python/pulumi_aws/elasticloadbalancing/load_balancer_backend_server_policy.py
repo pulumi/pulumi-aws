@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['LoadBalancerBackendServerPolicy']
 
-warnings.warn("aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy""", DeprecationWarning)
 
 
 class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,

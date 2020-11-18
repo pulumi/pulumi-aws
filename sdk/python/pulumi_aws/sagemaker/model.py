@@ -53,6 +53,14 @@ class Model(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Models can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/model:Model test_model model-foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelContainerArgs']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.

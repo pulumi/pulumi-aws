@@ -23,6 +23,14 @@ import * as utilities from "../utilities";
  *     privateKey: fs.readFileSync("./private_key.key"),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Pinpoint APNs Channel can be imported using the `application-id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
+ * ```
  */
 export class ApnsChannel extends pulumi.CustomResource {
     /**

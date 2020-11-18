@@ -18,6 +18,14 @@ import * as utilities from "../utilities";
  *     description: "KMS key 1",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * KMS Keys can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
+ * ```
  */
 export class Key extends pulumi.CustomResource {
     /**

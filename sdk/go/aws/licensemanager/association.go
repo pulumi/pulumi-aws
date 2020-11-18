@@ -4,6 +4,7 @@
 package licensemanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Provides a License Manager association.
 //
 // > **Note:** License configurations can also be associated with launch templates by specifying the `licenseSpecifications` block for an `ec2.LaunchTemplate`.
+//
+// ## Import
+//
+// License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+// ```
 type Association struct {
 	pulumi.CustomResourceState
 
@@ -90,4 +99,43 @@ type AssociationArgs struct {
 
 func (AssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationArgs)(nil)).Elem()
+}
+
+type AssociationInput interface {
+	pulumi.Input
+
+	ToAssociationOutput() AssociationOutput
+	ToAssociationOutputWithContext(ctx context.Context) AssociationOutput
+}
+
+func (Association) ElementType() reflect.Type {
+	return reflect.TypeOf((*Association)(nil)).Elem()
+}
+
+func (i Association) ToAssociationOutput() AssociationOutput {
+	return i.ToAssociationOutputWithContext(context.Background())
+}
+
+func (i Association) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
+}
+
+type AssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationOutput)(nil)).Elem()
+}
+
+func (o AssociationOutput) ToAssociationOutput() AssociationOutput {
+	return o
+}
+
+func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssociationOutput{})
 }

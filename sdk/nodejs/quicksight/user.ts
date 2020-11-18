@@ -20,6 +20,10 @@ import * as utilities from "../utilities";
  *     userRole: "AUTHOR",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Importing is currently not supported on this resource.
  */
 export class User extends pulumi.CustomResource {
     /**

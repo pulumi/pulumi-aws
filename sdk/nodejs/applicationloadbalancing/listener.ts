@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -147,6 +145,14 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Listeners can be imported using their ARN, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:applicationloadbalancing/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
  * ```
  *
  * @deprecated aws.applicationloadbalancing.Listener has been deprecated in favor of aws.alb.Listener

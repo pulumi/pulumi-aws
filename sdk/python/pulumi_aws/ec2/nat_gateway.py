@@ -49,6 +49,14 @@ class NatGateway(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        NAT Gateways can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway.

@@ -4,6 +4,7 @@
 package kms
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// KMS Keys can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
 // ```
 type Key struct {
 	pulumi.CustomResourceState
@@ -197,4 +206,43 @@ type KeyArgs struct {
 
 func (KeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyArgs)(nil)).Elem()
+}
+
+type KeyInput interface {
+	pulumi.Input
+
+	ToKeyOutput() KeyOutput
+	ToKeyOutputWithContext(ctx context.Context) KeyOutput
+}
+
+func (Key) ElementType() reflect.Type {
+	return reflect.TypeOf((*Key)(nil)).Elem()
+}
+
+func (i Key) ToKeyOutput() KeyOutput {
+	return i.ToKeyOutputWithContext(context.Background())
+}
+
+func (i Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
+}
+
+type KeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (KeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyOutput)(nil)).Elem()
+}
+
+func (o KeyOutput) ToKeyOutput() KeyOutput {
+	return o
+}
+
+func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(KeyOutput{})
 }

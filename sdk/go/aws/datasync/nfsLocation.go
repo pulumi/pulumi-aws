@@ -4,6 +4,7 @@
 package datasync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type NfsLocation struct {
 	pulumi.CustomResourceState
@@ -151,4 +160,43 @@ type NfsLocationArgs struct {
 
 func (NfsLocationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nfsLocationArgs)(nil)).Elem()
+}
+
+type NfsLocationInput interface {
+	pulumi.Input
+
+	ToNfsLocationOutput() NfsLocationOutput
+	ToNfsLocationOutputWithContext(ctx context.Context) NfsLocationOutput
+}
+
+func (NfsLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsLocation)(nil)).Elem()
+}
+
+func (i NfsLocation) ToNfsLocationOutput() NfsLocationOutput {
+	return i.ToNfsLocationOutputWithContext(context.Background())
+}
+
+func (i NfsLocation) ToNfsLocationOutputWithContext(ctx context.Context) NfsLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationOutput)
+}
+
+type NfsLocationOutput struct {
+	*pulumi.OutputState
+}
+
+func (NfsLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsLocationOutput)(nil)).Elem()
+}
+
+func (o NfsLocationOutput) ToNfsLocationOutput() NfsLocationOutput {
+	return o
+}
+
+func (o NfsLocationOutput) ToNfsLocationOutputWithContext(ctx context.Context) NfsLocationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NfsLocationOutput{})
 }

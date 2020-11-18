@@ -4,6 +4,7 @@
 package securityhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Security Hub custom action can be imported using the action target ARN e.g.
+//
+// ```sh
+//  $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
 // ```
 type ActionTarget struct {
 	pulumi.CustomResourceState
@@ -134,4 +143,43 @@ type ActionTargetArgs struct {
 
 func (ActionTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionTargetArgs)(nil)).Elem()
+}
+
+type ActionTargetInput interface {
+	pulumi.Input
+
+	ToActionTargetOutput() ActionTargetOutput
+	ToActionTargetOutputWithContext(ctx context.Context) ActionTargetOutput
+}
+
+func (ActionTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionTarget)(nil)).Elem()
+}
+
+func (i ActionTarget) ToActionTargetOutput() ActionTargetOutput {
+	return i.ToActionTargetOutputWithContext(context.Background())
+}
+
+func (i ActionTarget) ToActionTargetOutputWithContext(ctx context.Context) ActionTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetOutput)
+}
+
+type ActionTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionTargetOutput)(nil)).Elem()
+}
+
+func (o ActionTargetOutput) ToActionTargetOutput() ActionTargetOutput {
+	return o
+}
+
+func (o ActionTargetOutput) ToActionTargetOutputWithContext(ctx context.Context) ActionTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionTargetOutput{})
 }

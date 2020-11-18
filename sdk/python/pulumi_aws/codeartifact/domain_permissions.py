@@ -51,6 +51,14 @@ class DomainPermissions(pulumi.CustomResource):
         \"\"\"))
         ```
 
+        ## Import
+
+        CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The name of the domain on which to set the resource policy.

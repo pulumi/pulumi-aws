@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GuardDuty Organization Admin Account can be imported using the AWS account ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
 // ```
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
@@ -114,4 +123,43 @@ type OrganizationAdminAccountArgs struct {
 
 func (OrganizationAdminAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationAdminAccountArgs)(nil)).Elem()
+}
+
+type OrganizationAdminAccountInput interface {
+	pulumi.Input
+
+	ToOrganizationAdminAccountOutput() OrganizationAdminAccountOutput
+	ToOrganizationAdminAccountOutputWithContext(ctx context.Context) OrganizationAdminAccountOutput
+}
+
+func (OrganizationAdminAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationAdminAccount)(nil)).Elem()
+}
+
+func (i OrganizationAdminAccount) ToOrganizationAdminAccountOutput() OrganizationAdminAccountOutput {
+	return i.ToOrganizationAdminAccountOutputWithContext(context.Background())
+}
+
+func (i OrganizationAdminAccount) ToOrganizationAdminAccountOutputWithContext(ctx context.Context) OrganizationAdminAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountOutput)
+}
+
+type OrganizationAdminAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationAdminAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationAdminAccountOutput)(nil)).Elem()
+}
+
+func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutput() OrganizationAdminAccountOutput {
+	return o
+}
+
+func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithContext(ctx context.Context) OrganizationAdminAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationAdminAccountOutput{})
 }

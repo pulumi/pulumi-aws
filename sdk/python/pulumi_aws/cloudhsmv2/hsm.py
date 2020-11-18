@@ -39,6 +39,14 @@ class Hsm(pulumi.CustomResource):
             cluster_id=cluster.cluster_id)
         ```
 
+        ## Import
+
+        HSM modules can be imported using their HSM ID, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.

@@ -66,6 +66,14 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket this analytics configuration is associated with.

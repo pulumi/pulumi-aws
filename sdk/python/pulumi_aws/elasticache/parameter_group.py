@@ -49,6 +49,14 @@ class ParameterGroup(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        ElastiCache Parameter Groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".

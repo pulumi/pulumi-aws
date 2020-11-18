@@ -4,6 +4,7 @@
 package appmesh
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -71,6 +72,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+// ```
+//
+//  [1]/docs/providers/aws/index.html
 type VirtualService struct {
 	pulumi.CustomResourceState
 
@@ -202,4 +213,43 @@ type VirtualServiceArgs struct {
 
 func (VirtualServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualServiceArgs)(nil)).Elem()
+}
+
+type VirtualServiceInput interface {
+	pulumi.Input
+
+	ToVirtualServiceOutput() VirtualServiceOutput
+	ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput
+}
+
+func (VirtualService) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualService)(nil)).Elem()
+}
+
+func (i VirtualService) ToVirtualServiceOutput() VirtualServiceOutput {
+	return i.ToVirtualServiceOutputWithContext(context.Background())
+}
+
+func (i VirtualService) ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceOutput)
+}
+
+type VirtualServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualServiceOutput)(nil)).Elem()
+}
+
+func (o VirtualServiceOutput) ToVirtualServiceOutput() VirtualServiceOutput {
+	return o
+}
+
+func (o VirtualServiceOutput) ToVirtualServiceOutputWithContext(ctx context.Context) VirtualServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualServiceOutput{})
 }

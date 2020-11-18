@@ -35,6 +35,14 @@ class Thing(pulumi.CustomResource):
         })
         ```
 
+        ## Import
+
+        IOT Things can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:iot/thing:Thing example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Map of attributes of the thing.

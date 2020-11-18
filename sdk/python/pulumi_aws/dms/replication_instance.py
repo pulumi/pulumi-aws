@@ -81,6 +81,14 @@ class ReplicationInstance(pulumi.CustomResource):
             vpc_security_group_ids=["sg-12345678"])
         ```
 
+        ## Import
+
+        Replication instances can be imported using the `replication_instance_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.

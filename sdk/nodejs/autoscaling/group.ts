@@ -2,14 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {LaunchConfiguration, PlacementGroup} from "../ec2";
 import {Metric, MetricsGranularity} from "./index";
 
+/**
+ * ## Import
+ *
+ * AutoScaling Groups can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:autoscaling/group:Group web web-asg
+ * ```
+ */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra

@@ -30,6 +30,14 @@ import * as utilities from "../utilities";
  *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSetBucketObject.bucket}/${myThreatIntelSetBucketObject.key}`,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * GuardDuty ThreatIntelSet can be imported using the the primary GuardDuty detector ID and ThreatIntelSetID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * ```
  */
 export class ThreatIntelSet extends pulumi.CustomResource {
     /**

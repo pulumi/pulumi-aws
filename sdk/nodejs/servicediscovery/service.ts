@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -59,6 +57,14 @@ import * as utilities from "../utilities";
  *         type: "HTTP",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Service Discovery Service can be imported using the service ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:servicediscovery/service:Service example 0123456789
  * ```
  */
 export class Service extends pulumi.CustomResource {

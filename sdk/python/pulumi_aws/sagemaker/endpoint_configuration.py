@@ -48,6 +48,14 @@ class EndpointConfiguration(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Endpoint configurations can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']] data_capture_config: Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.

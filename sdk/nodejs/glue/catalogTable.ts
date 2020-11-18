@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -74,6 +72,14 @@ import * as utilities from "../utilities";
  *     },
  *     tableType: "EXTERNAL_TABLE",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
  * ```
  */
 export class CatalogTable extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -47,6 +48,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
 // ```
 type Response struct {
 	pulumi.CustomResourceState
@@ -155,4 +164,43 @@ type ResponseArgs struct {
 
 func (ResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*responseArgs)(nil)).Elem()
+}
+
+type ResponseInput interface {
+	pulumi.Input
+
+	ToResponseOutput() ResponseOutput
+	ToResponseOutputWithContext(ctx context.Context) ResponseOutput
+}
+
+func (Response) ElementType() reflect.Type {
+	return reflect.TypeOf((*Response)(nil)).Elem()
+}
+
+func (i Response) ToResponseOutput() ResponseOutput {
+	return i.ToResponseOutputWithContext(context.Background())
+}
+
+func (i Response) ToResponseOutputWithContext(ctx context.Context) ResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseOutput)
+}
+
+type ResponseOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseOutput)(nil)).Elem()
+}
+
+func (o ResponseOutput) ToResponseOutput() ResponseOutput {
+	return o
+}
+
+func (o ResponseOutput) ToResponseOutputWithContext(ctx context.Context) ResponseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResponseOutput{})
 }

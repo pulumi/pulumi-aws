@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -187,6 +185,14 @@ import * as utilities from "../utilities";
  *         inputTemplate: "\"<instance> is in state <status>\"",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
  * ```
  */
 export class EventTarget extends pulumi.CustomResource {

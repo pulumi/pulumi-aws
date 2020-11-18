@@ -43,6 +43,14 @@ class Snapshot(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        EBS Snapshot can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of what the snapshot is.

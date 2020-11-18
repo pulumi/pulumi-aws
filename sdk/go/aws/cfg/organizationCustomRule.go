@@ -4,6 +4,7 @@
 package cfg
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Config Organization Custom Rules can be imported using the name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
 // ```
 type OrganizationCustomRule struct {
 	pulumi.CustomResourceState
@@ -236,4 +245,43 @@ type OrganizationCustomRuleArgs struct {
 
 func (OrganizationCustomRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationCustomRuleArgs)(nil)).Elem()
+}
+
+type OrganizationCustomRuleInput interface {
+	pulumi.Input
+
+	ToOrganizationCustomRuleOutput() OrganizationCustomRuleOutput
+	ToOrganizationCustomRuleOutputWithContext(ctx context.Context) OrganizationCustomRuleOutput
+}
+
+func (OrganizationCustomRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationCustomRule)(nil)).Elem()
+}
+
+func (i OrganizationCustomRule) ToOrganizationCustomRuleOutput() OrganizationCustomRuleOutput {
+	return i.ToOrganizationCustomRuleOutputWithContext(context.Background())
+}
+
+func (i OrganizationCustomRule) ToOrganizationCustomRuleOutputWithContext(ctx context.Context) OrganizationCustomRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomRuleOutput)
+}
+
+type OrganizationCustomRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrganizationCustomRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationCustomRuleOutput)(nil)).Elem()
+}
+
+func (o OrganizationCustomRuleOutput) ToOrganizationCustomRuleOutput() OrganizationCustomRuleOutput {
+	return o
+}
+
+func (o OrganizationCustomRuleOutput) ToOrganizationCustomRuleOutputWithContext(ctx context.Context) OrganizationCustomRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrganizationCustomRuleOutput{})
 }

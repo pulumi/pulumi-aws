@@ -15,7 +15,7 @@ __all__ = [
     'get_listener',
 ]
 
-warnings.warn("aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener", DeprecationWarning)
+warnings.warn("""aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener""", DeprecationWarning)
 
 @pulumi.output_type
 class GetListenerResult:

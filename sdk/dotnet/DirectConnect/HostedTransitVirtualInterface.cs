@@ -35,6 +35,14 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
+    /// ```
     /// </summary>
     public partial class HostedTransitVirtualInterface : Pulumi.CustomResource
     {

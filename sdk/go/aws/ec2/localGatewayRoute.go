@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_ec2_local_gateway_route` can be imported by using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
 // ```
 type LocalGatewayRoute struct {
 	pulumi.CustomResourceState
@@ -126,4 +135,43 @@ type LocalGatewayRouteArgs struct {
 
 func (LocalGatewayRouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*localGatewayRouteArgs)(nil)).Elem()
+}
+
+type LocalGatewayRouteInput interface {
+	pulumi.Input
+
+	ToLocalGatewayRouteOutput() LocalGatewayRouteOutput
+	ToLocalGatewayRouteOutputWithContext(ctx context.Context) LocalGatewayRouteOutput
+}
+
+func (LocalGatewayRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRoute)(nil)).Elem()
+}
+
+func (i LocalGatewayRoute) ToLocalGatewayRouteOutput() LocalGatewayRouteOutput {
+	return i.ToLocalGatewayRouteOutputWithContext(context.Background())
+}
+
+func (i LocalGatewayRoute) ToLocalGatewayRouteOutputWithContext(ctx context.Context) LocalGatewayRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteOutput)
+}
+
+type LocalGatewayRouteOutput struct {
+	*pulumi.OutputState
+}
+
+func (LocalGatewayRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalGatewayRouteOutput)(nil)).Elem()
+}
+
+func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutput() LocalGatewayRouteOutput {
+	return o
+}
+
+func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutputWithContext(ctx context.Context) LocalGatewayRouteOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LocalGatewayRouteOutput{})
 }

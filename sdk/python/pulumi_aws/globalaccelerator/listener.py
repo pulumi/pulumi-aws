@@ -51,6 +51,14 @@ class Listener(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Global Accelerator listeners can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of your accelerator.

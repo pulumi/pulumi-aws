@@ -72,6 +72,14 @@ class Bot(pulumi.CustomResource):
             voice_id="Salli")
         ```
 
+        ## Import
+
+        Bots can be imported using their name.
+
+        ```sh
+         $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BotAbortStatementArgs']] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.

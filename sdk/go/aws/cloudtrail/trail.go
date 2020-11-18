@@ -4,6 +4,7 @@
 package cloudtrail
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -206,6 +207,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cloudtrails can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
 // ```
 type Trail struct {
 	pulumi.CustomResourceState
@@ -463,4 +472,43 @@ type TrailArgs struct {
 
 func (TrailArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trailArgs)(nil)).Elem()
+}
+
+type TrailInput interface {
+	pulumi.Input
+
+	ToTrailOutput() TrailOutput
+	ToTrailOutputWithContext(ctx context.Context) TrailOutput
+}
+
+func (Trail) ElementType() reflect.Type {
+	return reflect.TypeOf((*Trail)(nil)).Elem()
+}
+
+func (i Trail) ToTrailOutput() TrailOutput {
+	return i.ToTrailOutputWithContext(context.Background())
+}
+
+func (i Trail) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailOutput)
+}
+
+type TrailOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailOutput)(nil)).Elem()
+}
+
+func (o TrailOutput) ToTrailOutput() TrailOutput {
+	return o
+}
+
+func (o TrailOutput) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrailOutput{})
 }

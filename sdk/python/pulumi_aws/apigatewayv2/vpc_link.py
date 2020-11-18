@@ -42,6 +42,14 @@ class VpcLink(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the VPC Link.

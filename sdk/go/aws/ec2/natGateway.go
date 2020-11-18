@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// NAT Gateways can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
 // ```
 type NatGateway struct {
 	pulumi.CustomResourceState
@@ -167,4 +176,43 @@ type NatGatewayArgs struct {
 
 func (NatGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayArgs)(nil)).Elem()
+}
+
+type NatGatewayInput interface {
+	pulumi.Input
+
+	ToNatGatewayOutput() NatGatewayOutput
+	ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput
+}
+
+func (NatGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGateway)(nil)).Elem()
+}
+
+func (i NatGateway) ToNatGatewayOutput() NatGatewayOutput {
+	return i.ToNatGatewayOutputWithContext(context.Background())
+}
+
+func (i NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
+}
+
+type NatGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayOutput)(nil)).Elem()
+}
+
+func (o NatGatewayOutput) ToNatGatewayOutput() NatGatewayOutput {
+	return o
+}
+
+func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NatGatewayOutput{})
 }

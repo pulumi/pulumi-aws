@@ -211,6 +211,14 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Cloudtrails can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+    /// ```
     /// </summary>
     public partial class Trail : Pulumi.CustomResource
     {

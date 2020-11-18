@@ -4,6 +4,7 @@
 package iam
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Provides an IAM SAML provider.
+//
+// ## Import
+//
+// IAM SAML Providers can be imported using the `arn`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+// ```
 type SamlProvider struct {
 	pulumi.CustomResourceState
 
@@ -97,4 +106,43 @@ type SamlProviderArgs struct {
 
 func (SamlProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlProviderArgs)(nil)).Elem()
+}
+
+type SamlProviderInput interface {
+	pulumi.Input
+
+	ToSamlProviderOutput() SamlProviderOutput
+	ToSamlProviderOutputWithContext(ctx context.Context) SamlProviderOutput
+}
+
+func (SamlProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlProvider)(nil)).Elem()
+}
+
+func (i SamlProvider) ToSamlProviderOutput() SamlProviderOutput {
+	return i.ToSamlProviderOutputWithContext(context.Background())
+}
+
+func (i SamlProvider) ToSamlProviderOutputWithContext(ctx context.Context) SamlProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlProviderOutput)
+}
+
+type SamlProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (SamlProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlProviderOutput)(nil)).Elem()
+}
+
+func (o SamlProviderOutput) ToSamlProviderOutput() SamlProviderOutput {
+	return o
+}
+
+func (o SamlProviderOutput) ToSamlProviderOutputWithContext(ctx context.Context) SamlProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SamlProviderOutput{})
 }

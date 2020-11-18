@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {Topic} from "../sns";
@@ -169,6 +167,14 @@ import {Topic} from "../sns";
  *
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
  * You must choose one or the other
+ *
+ * ## Import
+ *
+ * Cloud Metric Alarms can be imported using the `alarm_name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+ * ```
  */
 export class MetricAlarm extends pulumi.CustomResource {
     /**

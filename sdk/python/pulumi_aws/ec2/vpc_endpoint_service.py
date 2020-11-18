@@ -55,6 +55,14 @@ class VpcEndpointService(pulumi.CustomResource):
             gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
         ```
 
+        ## Import
+
+        VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.

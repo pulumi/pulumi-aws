@@ -65,6 +65,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Subnets can be imported using the `subnet id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+    /// ```
     /// </summary>
     public partial class Subnet : Pulumi.CustomResource
     {

@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * EBS Snapshot can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

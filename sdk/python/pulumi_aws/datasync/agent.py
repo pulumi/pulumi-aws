@@ -36,6 +36,14 @@ class Agent(pulumi.CustomResource):
         example = aws.datasync.Agent("example", ip_address="1.2.3.4")
         ```
 
+        ## Import
+
+        `aws_datasync_agent` can be imported by using the DataSync Agent Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.

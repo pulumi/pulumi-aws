@@ -4,6 +4,7 @@
 package gamelift
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,10 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Gamelift Fleets cannot be imported at this time.
 type Fleet struct {
 	pulumi.CustomResourceState
 
@@ -236,4 +241,43 @@ type FleetArgs struct {
 
 func (FleetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetArgs)(nil)).Elem()
+}
+
+type FleetInput interface {
+	pulumi.Input
+
+	ToFleetOutput() FleetOutput
+	ToFleetOutputWithContext(ctx context.Context) FleetOutput
+}
+
+func (Fleet) ElementType() reflect.Type {
+	return reflect.TypeOf((*Fleet)(nil)).Elem()
+}
+
+func (i Fleet) ToFleetOutput() FleetOutput {
+	return i.ToFleetOutputWithContext(context.Background())
+}
+
+func (i Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetOutput)
+}
+
+type FleetOutput struct {
+	*pulumi.OutputState
+}
+
+func (FleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetOutput)(nil)).Elem()
+}
+
+func (o FleetOutput) ToFleetOutput() FleetOutput {
+	return o
+}
+
+func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FleetOutput{})
 }

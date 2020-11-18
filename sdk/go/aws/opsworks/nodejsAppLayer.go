@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -289,4 +290,43 @@ type NodejsAppLayerArgs struct {
 
 func (NodejsAppLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodejsAppLayerArgs)(nil)).Elem()
+}
+
+type NodejsAppLayerInput interface {
+	pulumi.Input
+
+	ToNodejsAppLayerOutput() NodejsAppLayerOutput
+	ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput
+}
+
+func (NodejsAppLayer) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayer)(nil)).Elem()
+}
+
+func (i NodejsAppLayer) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
+	return i.ToNodejsAppLayerOutputWithContext(context.Background())
+}
+
+func (i NodejsAppLayer) ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerOutput)
+}
+
+type NodejsAppLayerOutput struct {
+	*pulumi.OutputState
+}
+
+func (NodejsAppLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodejsAppLayerOutput)(nil)).Elem()
+}
+
+func (o NodejsAppLayerOutput) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
+	return o
+}
+
+func (o NodejsAppLayerOutput) ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NodejsAppLayerOutput{})
 }

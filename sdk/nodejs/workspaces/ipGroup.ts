@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -19,6 +17,14 @@ import * as utilities from "../utilities";
  * const contractors = new aws.workspaces.IpGroup("contractors", {
  *     description: "Contractors IP access control group",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * WorkSpaces IP groups can be imported using their GroupID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
  * ```
  */
 export class IpGroup extends pulumi.CustomResource {

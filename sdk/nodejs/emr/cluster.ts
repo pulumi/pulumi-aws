@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -528,6 +526,24 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * EMR clusters can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+ * ```
+ *
+ *  Since the API does not return the actual values for Kerberos configurations, environments with those this provider configurations will need to use the [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) available to all this provider resources to prevent perpetual differences, e.g. hcl resource "aws_emr_cluster" "example" {
+ *
+ * # ... other configuration ...
+ *
+ *  lifecycle {
+ *
+ *  ignore_changes = [kerberos_attributes]
+ *
+ *  } }
  */
 export class Cluster extends pulumi.CustomResource {
     /**

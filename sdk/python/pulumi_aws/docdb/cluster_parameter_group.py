@@ -44,6 +44,14 @@ class ClusterParameterGroup(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        DocumentDB Cluster Parameter Groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".

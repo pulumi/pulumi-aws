@@ -4,6 +4,7 @@
 package s3
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -447,4 +448,43 @@ type BucketObjectArgs struct {
 
 func (BucketObjectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketObjectArgs)(nil)).Elem()
+}
+
+type BucketObjectInput interface {
+	pulumi.Input
+
+	ToBucketObjectOutput() BucketObjectOutput
+	ToBucketObjectOutputWithContext(ctx context.Context) BucketObjectOutput
+}
+
+func (BucketObject) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObject)(nil)).Elem()
+}
+
+func (i BucketObject) ToBucketObjectOutput() BucketObjectOutput {
+	return i.ToBucketObjectOutputWithContext(context.Background())
+}
+
+func (i BucketObject) ToBucketObjectOutputWithContext(ctx context.Context) BucketObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectOutput)
+}
+
+type BucketObjectOutput struct {
+	*pulumi.OutputState
+}
+
+func (BucketObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectOutput)(nil)).Elem()
+}
+
+func (o BucketObjectOutput) ToBucketObjectOutput() BucketObjectOutput {
+	return o
+}
+
+func (o BucketObjectOutput) ToBucketObjectOutputWithContext(ctx context.Context) BucketObjectOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BucketObjectOutput{})
 }

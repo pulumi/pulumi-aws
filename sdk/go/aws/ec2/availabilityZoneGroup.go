@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EC2 Availability Zone Groups can be imported using the group name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
 // ```
 type AvailabilityZoneGroup struct {
 	pulumi.CustomResourceState
@@ -114,4 +123,43 @@ type AvailabilityZoneGroupArgs struct {
 
 func (AvailabilityZoneGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*availabilityZoneGroupArgs)(nil)).Elem()
+}
+
+type AvailabilityZoneGroupInput interface {
+	pulumi.Input
+
+	ToAvailabilityZoneGroupOutput() AvailabilityZoneGroupOutput
+	ToAvailabilityZoneGroupOutputWithContext(ctx context.Context) AvailabilityZoneGroupOutput
+}
+
+func (AvailabilityZoneGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityZoneGroup)(nil)).Elem()
+}
+
+func (i AvailabilityZoneGroup) ToAvailabilityZoneGroupOutput() AvailabilityZoneGroupOutput {
+	return i.ToAvailabilityZoneGroupOutputWithContext(context.Background())
+}
+
+func (i AvailabilityZoneGroup) ToAvailabilityZoneGroupOutputWithContext(ctx context.Context) AvailabilityZoneGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupOutput)
+}
+
+type AvailabilityZoneGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (AvailabilityZoneGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilityZoneGroupOutput)(nil)).Elem()
+}
+
+func (o AvailabilityZoneGroupOutput) ToAvailabilityZoneGroupOutput() AvailabilityZoneGroupOutput {
+	return o
+}
+
+func (o AvailabilityZoneGroupOutput) ToAvailabilityZoneGroupOutputWithContext(ctx context.Context) AvailabilityZoneGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AvailabilityZoneGroupOutput{})
 }

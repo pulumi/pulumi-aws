@@ -51,6 +51,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+    /// ```
     /// </summary>
     public partial class UserPolicy : Pulumi.CustomResource
     {

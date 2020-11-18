@@ -22,7 +22,14 @@ class Tag(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Tag resource with the given unique name, props, and options.
+        ## Import
+
+        `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: The tag name.

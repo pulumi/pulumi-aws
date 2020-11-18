@@ -450,6 +450,16 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// S3 bucket can be imported using the `bucket`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
+    /// ```
+    /// 
+    ///  The `policy` argument is not imported and will be deprecated in a future version 3.x of the Terraform AWS Provider for removal in version 4.0. Use the [`aws_s3_bucket_policy` resource](/docs/providers/aws/r/s3_bucket_policy.html) to manage the S3 Bucket Policy instead.
     /// </summary>
     public partial class Bucket : Pulumi.CustomResource
     {

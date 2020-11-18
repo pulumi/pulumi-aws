@@ -44,6 +44,10 @@ class Build(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[aws_iam_role_policy["test"]]))
         ```
 
+        ## Import
+
+        Gamelift Builds cannot be imported at this time.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the build

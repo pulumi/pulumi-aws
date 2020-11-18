@@ -75,6 +75,14 @@ class Application(pulumi.CustomResource):
             rails_env="staging")
         ```
 
+        ## Import
+
+        Opsworks Application can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:opsworks/application:Application test <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]] app_sources: SCM configuration of the app as described below.

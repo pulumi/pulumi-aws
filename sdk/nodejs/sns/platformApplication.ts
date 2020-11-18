@@ -31,6 +31,14 @@ import * as utilities from "../utilities";
  *     platformCredential: "<GCM API KEY>",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SNS platform applications can be imported using the ARN, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+ * ```
  */
 export class PlatformApplication extends pulumi.CustomResource {
     /**

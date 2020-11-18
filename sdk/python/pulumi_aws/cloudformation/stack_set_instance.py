@@ -70,6 +70,14 @@ class StackSetInstance(pulumi.CustomResource):
             role=a_ws_cloud_formation_stack_set_execution_role.name)
         ```
 
+        ## Import
+
+        CloudFormation StackSet Instances can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+
+        ```sh
+         $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.

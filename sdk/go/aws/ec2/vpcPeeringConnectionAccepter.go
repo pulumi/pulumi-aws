@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -82,6 +83,26 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+// ```
+//
+//  Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the provider configuration on an imported resource, this provder will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. hcl resource "aws_vpc_peering_connection_accepter" "example" {
+//
+// # ... other configuration ...
+//
+// # There is no AWS EC2 API for reading auto_accept
+//
+//  lifecycle {
+//
+//  ignore_changes = [auto_accept]
+//
+//  } }
 type VpcPeeringConnectionAccepter struct {
 	pulumi.CustomResourceState
 
@@ -226,4 +247,43 @@ type VpcPeeringConnectionAccepterArgs struct {
 
 func (VpcPeeringConnectionAccepterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcPeeringConnectionAccepterArgs)(nil)).Elem()
+}
+
+type VpcPeeringConnectionAccepterInput interface {
+	pulumi.Input
+
+	ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput
+	ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput
+}
+
+func (VpcPeeringConnectionAccepter) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionAccepter)(nil)).Elem()
+}
+
+func (i VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {
+	return i.ToVpcPeeringConnectionAccepterOutputWithContext(context.Background())
+}
+
+func (i VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterOutput)
+}
+
+type VpcPeeringConnectionAccepterOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpcPeeringConnectionAccepterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionAccepterOutput)(nil)).Elem()
+}
+
+func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {
+	return o
+}
+
+func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterOutput{})
 }

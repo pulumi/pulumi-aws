@@ -4,6 +4,7 @@
 package mediastore
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.
+//
+// ```sh
+//  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
 // ```
 type ContainerPolicy struct {
 	pulumi.CustomResourceState
@@ -129,4 +138,43 @@ type ContainerPolicyArgs struct {
 
 func (ContainerPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerPolicyArgs)(nil)).Elem()
+}
+
+type ContainerPolicyInput interface {
+	pulumi.Input
+
+	ToContainerPolicyOutput() ContainerPolicyOutput
+	ToContainerPolicyOutputWithContext(ctx context.Context) ContainerPolicyOutput
+}
+
+func (ContainerPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPolicy)(nil)).Elem()
+}
+
+func (i ContainerPolicy) ToContainerPolicyOutput() ContainerPolicyOutput {
+	return i.ToContainerPolicyOutputWithContext(context.Background())
+}
+
+func (i ContainerPolicy) ToContainerPolicyOutputWithContext(ctx context.Context) ContainerPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyOutput)
+}
+
+type ContainerPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPolicyOutput)(nil)).Elem()
+}
+
+func (o ContainerPolicyOutput) ToContainerPolicyOutput() ContainerPolicyOutput {
+	return o
+}
+
+func (o ContainerPolicyOutput) ToContainerPolicyOutputWithContext(ctx context.Context) ContainerPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerPolicyOutput{})
 }

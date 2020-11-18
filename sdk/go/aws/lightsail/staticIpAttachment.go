@@ -4,6 +4,7 @@
 package lightsail
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -133,4 +134,43 @@ type StaticIpAttachmentArgs struct {
 
 func (StaticIpAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticIpAttachmentArgs)(nil)).Elem()
+}
+
+type StaticIpAttachmentInput interface {
+	pulumi.Input
+
+	ToStaticIpAttachmentOutput() StaticIpAttachmentOutput
+	ToStaticIpAttachmentOutputWithContext(ctx context.Context) StaticIpAttachmentOutput
+}
+
+func (StaticIpAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticIpAttachment)(nil)).Elem()
+}
+
+func (i StaticIpAttachment) ToStaticIpAttachmentOutput() StaticIpAttachmentOutput {
+	return i.ToStaticIpAttachmentOutputWithContext(context.Background())
+}
+
+func (i StaticIpAttachment) ToStaticIpAttachmentOutputWithContext(ctx context.Context) StaticIpAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticIpAttachmentOutput)
+}
+
+type StaticIpAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (StaticIpAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticIpAttachmentOutput)(nil)).Elem()
+}
+
+func (o StaticIpAttachmentOutput) ToStaticIpAttachmentOutput() StaticIpAttachmentOutput {
+	return o
+}
+
+func (o StaticIpAttachmentOutput) ToStaticIpAttachmentOutputWithContext(ctx context.Context) StaticIpAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StaticIpAttachmentOutput{})
 }

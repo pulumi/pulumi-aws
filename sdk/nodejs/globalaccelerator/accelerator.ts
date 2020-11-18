@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -25,6 +23,14 @@ import * as utilities from "../utilities";
  *     enabled: true,
  *     ipAddressType: "IPV4",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Global Accelerator accelerators can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  * ```
  */
 export class Accelerator extends pulumi.CustomResource {

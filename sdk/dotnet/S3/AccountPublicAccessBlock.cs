@@ -35,6 +35,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_s3_account_public_access_block` can be imported by using the AWS account ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+    /// ```
     /// </summary>
     public partial class AccountPublicAccessBlock : Pulumi.CustomResource
     {

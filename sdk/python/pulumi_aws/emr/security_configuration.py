@@ -49,6 +49,14 @@ class SecurityConfiguration(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        EMR Security Configurations can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration: A JSON formatted Security Configuration

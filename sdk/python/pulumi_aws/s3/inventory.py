@@ -79,6 +79,14 @@ class Inventory(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.

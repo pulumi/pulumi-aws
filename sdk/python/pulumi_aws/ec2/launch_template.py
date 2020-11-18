@@ -55,6 +55,14 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
+        ## Import
+
+        Launch Templates can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateBlockDeviceMappingArgs']]]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.

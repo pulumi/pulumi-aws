@@ -4,6 +4,7 @@
 package glue
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Glue Security Configurations can be imported using `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
 // ```
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
@@ -119,4 +128,43 @@ type SecurityConfigurationArgs struct {
 
 func (SecurityConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityConfigurationArgs)(nil)).Elem()
+}
+
+type SecurityConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationOutput() SecurityConfigurationOutput
+	ToSecurityConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationOutput
+}
+
+func (SecurityConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfiguration) ToSecurityConfigurationOutput() SecurityConfigurationOutput {
+	return i.ToSecurityConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfiguration) ToSecurityConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationOutput)
+}
+
+type SecurityConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationOutput)(nil)).Elem()
+}
+
+func (o SecurityConfigurationOutput) ToSecurityConfigurationOutput() SecurityConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurityConfigurationOutput{})
 }

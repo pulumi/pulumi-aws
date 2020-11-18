@@ -46,6 +46,14 @@ class RoleAlias(pulumi.CustomResource):
             role_arn=role.arn)
         ```
 
+        ## Import
+
+        IOT Role Alias can be imported via the alias, e.g.
+
+        ```sh
+         $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The name of the role alias.

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -45,6 +43,14 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * KMS Grants can be imported using the Key ID and Grant ID separated by a colon (`:`), e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:kms/grant:Grant test 1234abcd-12ab-34cd-56ef-1234567890ababcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
  * ```
  */
 export class Grant extends pulumi.CustomResource {

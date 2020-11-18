@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -82,6 +80,14 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * DLM lifecyle policies can be imported by their policy ID
+ *
+ * ```sh
+ *  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
  * ```
  */
 export class LifecyclePolicy extends pulumi.CustomResource {

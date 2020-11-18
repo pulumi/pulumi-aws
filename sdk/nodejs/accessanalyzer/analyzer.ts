@@ -32,6 +32,14 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleOrganization],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+ * ```
  */
 export class Analyzer extends pulumi.CustomResource {
     /**

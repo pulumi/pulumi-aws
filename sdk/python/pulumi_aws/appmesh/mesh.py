@@ -48,6 +48,14 @@ class Mesh(pulumi.CustomResource):
         ))
         ```
 
+        ## Import
+
+        App Mesh service meshes can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name to use for the service mesh.

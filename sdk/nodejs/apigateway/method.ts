@@ -61,6 +61,14 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+ * ```
  */
 export class Method extends pulumi.CustomResource {
     /**

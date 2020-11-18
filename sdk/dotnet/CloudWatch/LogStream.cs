@@ -33,6 +33,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+    /// ```
     /// </summary>
     public partial class LogStream : Pulumi.CustomResource
     {

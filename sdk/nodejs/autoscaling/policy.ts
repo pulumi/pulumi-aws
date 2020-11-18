@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -37,6 +35,14 @@ import * as utilities from "../utilities";
  *     cooldown: 300,
  *     autoscalingGroupName: bar.name,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+ *
+ * ```sh
+ *  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
  * ```
  */
 export class Policy extends pulumi.CustomResource {

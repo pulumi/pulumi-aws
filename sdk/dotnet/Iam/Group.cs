@@ -30,6 +30,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IAM Groups can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:iam/group:Group developers developers
+    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {

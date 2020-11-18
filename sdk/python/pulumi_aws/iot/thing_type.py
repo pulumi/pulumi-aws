@@ -35,6 +35,14 @@ class ThingType(pulumi.CustomResource):
         foo = aws.iot.ThingType("foo")
         ```
 
+        ## Import
+
+        IOT Thing Types can be imported using the name, e.g.
+
+        ```sh
+         $ pulumi import aws:iot/thingType:ThingType example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.

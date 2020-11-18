@@ -4,6 +4,7 @@
 package rds
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
+//
+// ## Import
+//
+// DB proxies can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:rds/proxy:Proxy example example
+// ```
 type Proxy struct {
 	pulumi.CustomResourceState
 
@@ -186,4 +195,43 @@ type ProxyArgs struct {
 
 func (ProxyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyArgs)(nil)).Elem()
+}
+
+type ProxyInput interface {
+	pulumi.Input
+
+	ToProxyOutput() ProxyOutput
+	ToProxyOutputWithContext(ctx context.Context) ProxyOutput
+}
+
+func (Proxy) ElementType() reflect.Type {
+	return reflect.TypeOf((*Proxy)(nil)).Elem()
+}
+
+func (i Proxy) ToProxyOutput() ProxyOutput {
+	return i.ToProxyOutputWithContext(context.Background())
+}
+
+func (i Proxy) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyOutput)
+}
+
+type ProxyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyOutput)(nil)).Elem()
+}
+
+func (o ProxyOutput) ToProxyOutput() ProxyOutput {
+	return o
+}
+
+func (o ProxyOutput) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProxyOutput{})
 }

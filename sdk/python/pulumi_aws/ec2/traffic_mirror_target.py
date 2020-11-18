@@ -42,6 +42,14 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             network_interface_id=aws_instance["test"]["primary_network_interface_id"])
         ```
 
+        ## Import
+
+        Traffic mirror targets can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the traffic mirror session.

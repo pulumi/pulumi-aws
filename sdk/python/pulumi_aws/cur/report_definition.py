@@ -56,6 +56,14 @@ class ReportDefinition(pulumi.CustomResource):
             time_unit="HOURLY")
         ```
 
+        ## Import
+
+        Report Definitions can be imported using the `report_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.

@@ -37,6 +37,14 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Global Accelerator accelerators can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    /// ```
     /// </summary>
     public partial class Accelerator : Pulumi.CustomResource
     {

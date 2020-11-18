@@ -117,6 +117,14 @@ class Trigger(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Glue Triggers can be imported using `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. Defined below.

@@ -75,6 +75,16 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+    /// ```
+    /// 
+    ///  [3]https://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html
     /// </summary>
     public partial class EventSourceMapping : Pulumi.CustomResource
     {

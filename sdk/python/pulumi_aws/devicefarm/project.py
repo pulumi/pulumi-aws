@@ -36,6 +36,14 @@ class Project(pulumi.CustomResource):
         awesome_devices = aws.devicefarm.Project("awesomeDevices")
         ```
 
+        ## Import
+
+        DeviceFarm Projects can be imported by their arn
+
+        ```sh
+         $ pulumi import aws:devicefarm/project:Project example arn:aws:devicefarm:us-west-2:123456789012:project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the project

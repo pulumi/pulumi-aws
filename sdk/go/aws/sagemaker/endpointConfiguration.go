@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Endpoint configurations can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
 // ```
 type EndpointConfiguration struct {
 	pulumi.CustomResourceState
@@ -156,4 +165,43 @@ type EndpointConfigurationArgs struct {
 
 func (EndpointConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointConfigurationArgs)(nil)).Elem()
+}
+
+type EndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationOutput() EndpointConfigurationOutput
+	ToEndpointConfigurationOutputWithContext(ctx context.Context) EndpointConfigurationOutput
+}
+
+func (EndpointConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfiguration)(nil)).Elem()
+}
+
+func (i EndpointConfiguration) ToEndpointConfigurationOutput() EndpointConfigurationOutput {
+	return i.ToEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointConfiguration) ToEndpointConfigurationOutputWithContext(ctx context.Context) EndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationOutput)
+}
+
+type EndpointConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationOutput)(nil)).Elem()
+}
+
+func (o EndpointConfigurationOutput) ToEndpointConfigurationOutput() EndpointConfigurationOutput {
+	return o
+}
+
+func (o EndpointConfigurationOutput) ToEndpointConfigurationOutputWithContext(ctx context.Context) EndpointConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EndpointConfigurationOutput{})
 }

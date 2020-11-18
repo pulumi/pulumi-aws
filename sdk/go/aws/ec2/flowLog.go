@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -89,6 +90,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Flow Logs can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
 // ```
 type FlowLog struct {
 	pulumi.CustomResourceState
@@ -285,4 +294,43 @@ type FlowLogArgs struct {
 
 func (FlowLogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowLogArgs)(nil)).Elem()
+}
+
+type FlowLogInput interface {
+	pulumi.Input
+
+	ToFlowLogOutput() FlowLogOutput
+	ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput
+}
+
+func (FlowLog) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLog)(nil)).Elem()
+}
+
+func (i FlowLog) ToFlowLogOutput() FlowLogOutput {
+	return i.ToFlowLogOutputWithContext(context.Background())
+}
+
+func (i FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogOutput)
+}
+
+type FlowLogOutput struct {
+	*pulumi.OutputState
+}
+
+func (FlowLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLogOutput)(nil)).Elem()
+}
+
+func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {
+	return o
+}
+
+func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FlowLogOutput{})
 }

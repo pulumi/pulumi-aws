@@ -6,6 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a lifecycle configuration for SageMaker Notebook Instances.
+ *
+ * ## Import
+ *
+ * Models can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+ * ```
  */
 export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResource {
     /**

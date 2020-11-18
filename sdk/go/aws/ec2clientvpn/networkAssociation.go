@@ -4,6 +4,7 @@
 package ec2clientvpn
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AWS Client VPN network associations can be imported using the endpoint ID and the association ID. Values are separated by a `,`.
+//
+// ```sh
+//  $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
 // ```
 type NetworkAssociation struct {
 	pulumi.CustomResourceState
@@ -142,4 +151,43 @@ type NetworkAssociationArgs struct {
 
 func (NetworkAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAssociationArgs)(nil)).Elem()
+}
+
+type NetworkAssociationInput interface {
+	pulumi.Input
+
+	ToNetworkAssociationOutput() NetworkAssociationOutput
+	ToNetworkAssociationOutputWithContext(ctx context.Context) NetworkAssociationOutput
+}
+
+func (NetworkAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAssociation)(nil)).Elem()
+}
+
+func (i NetworkAssociation) ToNetworkAssociationOutput() NetworkAssociationOutput {
+	return i.ToNetworkAssociationOutputWithContext(context.Background())
+}
+
+func (i NetworkAssociation) ToNetworkAssociationOutputWithContext(ctx context.Context) NetworkAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAssociationOutput)
+}
+
+type NetworkAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAssociationOutput)(nil)).Elem()
+}
+
+func (o NetworkAssociationOutput) ToNetworkAssociationOutput() NetworkAssociationOutput {
+	return o
+}
+
+func (o NetworkAssociationOutput) ToNetworkAssociationOutputWithContext(ctx context.Context) NetworkAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkAssociationOutput{})
 }

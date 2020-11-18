@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
@@ -62,6 +60,14 @@ import {RestApi} from "./index";
  *         loggingLevel: "INFO",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
  * ```
  */
 export class MethodSettings extends pulumi.CustomResource {

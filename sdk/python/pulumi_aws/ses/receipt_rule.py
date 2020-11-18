@@ -60,6 +60,14 @@ class ReceiptRule(pulumi.CustomResource):
             scan_enabled=True)
         ```
 
+        ## Import
+
+        SES receipt rules can be imported using the ruleset name and rule name separated by `:`.
+
+        ```sh
+         $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleAddHeaderActionArgs']]]] add_header_actions: A list of Add Header Action blocks. Documented below.

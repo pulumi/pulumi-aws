@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -49,6 +47,14 @@ import * as utilities from "../utilities";
  * const lambda_example = new aws.lb.TargetGroup("lambda-example", {
  *     targetType: "lambda",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Target Groups can be imported using their ARN, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:elasticloadbalancingv2/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
  * ```
  *
  * @deprecated aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup

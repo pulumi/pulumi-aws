@@ -103,6 +103,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+    /// ```
     /// </summary>
     public partial class EventDestination : Pulumi.CustomResource
     {

@@ -48,6 +48,14 @@ import * as utilities from "../utilities";
  *     kmsMasterKeyId: "alias/aws/sqs",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SQS Queues can be imported using the `queue url`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+ * ```
  */
 export class Queue extends pulumi.CustomResource {
     /**

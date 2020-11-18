@@ -144,6 +144,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_api_gateway_integration` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
+    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {

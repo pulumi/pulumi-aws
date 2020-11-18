@@ -32,6 +32,14 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// `aws_datasync_agent` can be imported by using the DataSync Agent Amazon Resource Name (ARN), e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+    /// ```
     /// </summary>
     public partial class Agent : Pulumi.CustomResource
     {

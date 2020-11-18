@@ -4,6 +4,7 @@
 package sns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SNS Topic Policy can be imported using the topic ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
 // ```
 type TopicPolicy struct {
 	pulumi.CustomResourceState
@@ -121,4 +130,43 @@ type TopicPolicyArgs struct {
 
 func (TopicPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicPolicyArgs)(nil)).Elem()
+}
+
+type TopicPolicyInput interface {
+	pulumi.Input
+
+	ToTopicPolicyOutput() TopicPolicyOutput
+	ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput
+}
+
+func (TopicPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPolicy)(nil)).Elem()
+}
+
+func (i TopicPolicy) ToTopicPolicyOutput() TopicPolicyOutput {
+	return i.ToTopicPolicyOutputWithContext(context.Background())
+}
+
+func (i TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyOutput)
+}
+
+type TopicPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (TopicPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicPolicyOutput)(nil)).Elem()
+}
+
+func (o TopicPolicyOutput) ToTopicPolicyOutput() TopicPolicyOutput {
+	return o
+}
+
+func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TopicPolicyOutput{})
 }

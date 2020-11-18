@@ -4,6 +4,7 @@
 package guardduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// GuardDuty ThreatIntelSet can be imported using the the primary GuardDuty detector ID and ThreatIntelSetID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
 // ```
 type ThreatIntelSet struct {
 	pulumi.CustomResourceState
@@ -196,4 +205,43 @@ type ThreatIntelSetArgs struct {
 
 func (ThreatIntelSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*threatIntelSetArgs)(nil)).Elem()
+}
+
+type ThreatIntelSetInput interface {
+	pulumi.Input
+
+	ToThreatIntelSetOutput() ThreatIntelSetOutput
+	ToThreatIntelSetOutputWithContext(ctx context.Context) ThreatIntelSetOutput
+}
+
+func (ThreatIntelSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelSet)(nil)).Elem()
+}
+
+func (i ThreatIntelSet) ToThreatIntelSetOutput() ThreatIntelSetOutput {
+	return i.ToThreatIntelSetOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelSet) ToThreatIntelSetOutputWithContext(ctx context.Context) ThreatIntelSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetOutput)
+}
+
+type ThreatIntelSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ThreatIntelSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelSetOutput)(nil)).Elem()
+}
+
+func (o ThreatIntelSetOutput) ToThreatIntelSetOutput() ThreatIntelSetOutput {
+	return o
+}
+
+func (o ThreatIntelSetOutput) ToThreatIntelSetOutputWithContext(ctx context.Context) ThreatIntelSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ThreatIntelSetOutput{})
 }

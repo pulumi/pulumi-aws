@@ -179,6 +179,14 @@ namespace Pulumi.Aws.GuardDuty
     /// ```
     /// 
     /// &gt; **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
+    /// 
+    /// ## Import
+    /// 
+    /// GuardDuty PublishingDestination can be imported using the the master GuardDuty detector ID and PublishingDestinationID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
+    /// ```
     /// </summary>
     public partial class PublishingDestination : Pulumi.CustomResource
     {

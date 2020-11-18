@@ -41,6 +41,14 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.

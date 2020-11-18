@@ -110,6 +110,14 @@ class UserPoolClient(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client <user_pool_id>/<user_pool_client_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).

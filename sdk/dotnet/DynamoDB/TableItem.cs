@@ -56,6 +56,10 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DynamoDB table items cannot be imported.
     /// </summary>
     public partial class TableItem : Pulumi.CustomResource
     {

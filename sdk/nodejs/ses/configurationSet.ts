@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.ses.ConfigurationSet("test", {});
  * ```
+ *
+ * ## Import
+ *
+ * SES Configuration Sets can be imported using their `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+ * ```
  */
 export class ConfigurationSet extends pulumi.CustomResource {
     /**

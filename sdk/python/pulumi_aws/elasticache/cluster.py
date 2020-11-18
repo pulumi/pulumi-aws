@@ -93,6 +93,14 @@ class Cluster(pulumi.CustomResource):
         replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
         ```
 
+        ## Import
+
+        ElastiCache Clusters can be imported using the `cluster_id`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications

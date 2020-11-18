@@ -57,6 +57,14 @@ class User(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        IAM Users can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/user:User lb loadbalancer
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] force_destroy: When destroying this user, destroy even if it

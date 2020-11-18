@@ -4,6 +4,7 @@
 package appsync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -78,6 +79,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
 // ```
 type DataSource struct {
 	pulumi.CustomResourceState
@@ -232,4 +241,43 @@ type DataSourceArgs struct {
 
 func (DataSourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceArgs)(nil)).Elem()
+}
+
+type DataSourceInput interface {
+	pulumi.Input
+
+	ToDataSourceOutput() DataSourceOutput
+	ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput
+}
+
+func (DataSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSource)(nil)).Elem()
+}
+
+func (i DataSource) ToDataSourceOutput() DataSourceOutput {
+	return i.ToDataSourceOutputWithContext(context.Background())
+}
+
+func (i DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
+}
+
+type DataSourceOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOutput)(nil)).Elem()
+}
+
+func (o DataSourceOutput) ToDataSourceOutput() DataSourceOutput {
+	return o
+}
+
+func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataSourceOutput{})
 }

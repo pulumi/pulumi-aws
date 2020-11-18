@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+//  Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
 // ```
 type ResolverEndpoint struct {
 	pulumi.CustomResourceState
@@ -187,4 +196,43 @@ type ResolverEndpointArgs struct {
 
 func (ResolverEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverEndpointArgs)(nil)).Elem()
+}
+
+type ResolverEndpointInput interface {
+	pulumi.Input
+
+	ToResolverEndpointOutput() ResolverEndpointOutput
+	ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput
+}
+
+func (ResolverEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpoint)(nil)).Elem()
+}
+
+func (i ResolverEndpoint) ToResolverEndpointOutput() ResolverEndpointOutput {
+	return i.ToResolverEndpointOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpoint) ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointOutput)
+}
+
+type ResolverEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointOutput)(nil)).Elem()
+}
+
+func (o ResolverEndpointOutput) ToResolverEndpointOutput() ResolverEndpointOutput {
+	return o
+}
+
+func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResolverEndpointOutput{})
 }

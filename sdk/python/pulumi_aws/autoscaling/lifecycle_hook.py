@@ -69,6 +69,14 @@ class LifecycleHook(pulumi.CustomResource):
             role_arn="arn:aws:iam::123456789012:role/S3Access")
         ```
 
+        ## Import
+
+        AutoScaling Lifecycle Hooks can be imported using the role autoscaling_group_name and name separated by `/`.
+
+        ```sh
+         $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group to which you want to assign the lifecycle hook

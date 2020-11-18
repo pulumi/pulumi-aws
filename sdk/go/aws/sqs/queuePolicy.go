@@ -4,6 +4,7 @@
 package sqs
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SQS Queue Policies can be imported using the queue URL, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
 // ```
 type QueuePolicy struct {
 	pulumi.CustomResourceState
@@ -121,4 +130,43 @@ type QueuePolicyArgs struct {
 
 func (QueuePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queuePolicyArgs)(nil)).Elem()
+}
+
+type QueuePolicyInput interface {
+	pulumi.Input
+
+	ToQueuePolicyOutput() QueuePolicyOutput
+	ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput
+}
+
+func (QueuePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueuePolicy)(nil)).Elem()
+}
+
+func (i QueuePolicy) ToQueuePolicyOutput() QueuePolicyOutput {
+	return i.ToQueuePolicyOutputWithContext(context.Background())
+}
+
+func (i QueuePolicy) ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyOutput)
+}
+
+type QueuePolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueuePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueuePolicyOutput)(nil)).Elem()
+}
+
+func (o QueuePolicyOutput) ToQueuePolicyOutput() QueuePolicyOutput {
+	return o
+}
+
+func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueuePolicyOutput{})
 }

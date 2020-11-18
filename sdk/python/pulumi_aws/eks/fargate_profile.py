@@ -65,6 +65,14 @@ class FargateProfile(pulumi.CustomResource):
             role=example.name)
         ```
 
+        ## Import
+
+        EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.
+
+        ```sh
+         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.

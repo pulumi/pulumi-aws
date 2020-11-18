@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -126,4 +127,43 @@ type SnapshotCreateVolumePermissionArgs struct {
 
 func (SnapshotCreateVolumePermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCreateVolumePermissionArgs)(nil)).Elem()
+}
+
+type SnapshotCreateVolumePermissionInput interface {
+	pulumi.Input
+
+	ToSnapshotCreateVolumePermissionOutput() SnapshotCreateVolumePermissionOutput
+	ToSnapshotCreateVolumePermissionOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionOutput
+}
+
+func (SnapshotCreateVolumePermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCreateVolumePermission)(nil)).Elem()
+}
+
+func (i SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutput() SnapshotCreateVolumePermissionOutput {
+	return i.ToSnapshotCreateVolumePermissionOutputWithContext(context.Background())
+}
+
+func (i SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCreateVolumePermissionOutput)
+}
+
+type SnapshotCreateVolumePermissionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnapshotCreateVolumePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotCreateVolumePermissionOutput)(nil)).Elem()
+}
+
+func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOutput() SnapshotCreateVolumePermissionOutput {
+	return o
+}
+
+func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SnapshotCreateVolumePermissionOutput{})
 }

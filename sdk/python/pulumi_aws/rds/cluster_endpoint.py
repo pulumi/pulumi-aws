@@ -84,6 +84,16 @@ class ClusterEndpoint(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        RDS Clusters Endpoint can be imported using the `cluster_endpoint_identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+        ```
+
+         [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.

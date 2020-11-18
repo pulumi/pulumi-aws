@@ -55,6 +55,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Slot types can be imported using their name.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+    /// ```
     /// </summary>
     public partial class SlotType : Pulumi.CustomResource
     {

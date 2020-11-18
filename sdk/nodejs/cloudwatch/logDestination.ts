@@ -18,6 +18,14 @@ import * as utilities from "../utilities";
  *     targetArn: aws_kinesis_stream.kinesis_for_cloudwatch.arn,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * CloudWatch Logs destinations can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+ * ```
  */
 export class LogDestination extends pulumi.CustomResource {
     /**

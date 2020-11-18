@@ -43,6 +43,14 @@ class GeoMatchSet(pulumi.CustomResource):
         ])
         ```
 
+        ## Import
+
+        WAF Geo Match Set can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import aws:waf/geoMatchSet:GeoMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArgs']]]] geo_match_constraints: The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.

@@ -74,6 +74,14 @@ class Cluster(pulumi.CustomResource):
             node_type="dc1.large")
         ```
 
+        ## Import
+
+        Redshift Clusters can be imported using the `cluster_identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true

@@ -66,6 +66,14 @@ class Stack(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        OpsWorks stacks can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_version: If set to `"LATEST"`, OpsWorks will automatically install the latest version.

@@ -63,6 +63,14 @@ class ClusterInstance(pulumi.CustomResource):
                 instance_class="db.r5.large"))
         ```
 
+        ## Import
+
+        DocDB Cluster Instances can be imported using the `identifier`, e.g.
+
+        ```sh
+         $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications

@@ -4,6 +4,7 @@
 package directconnect
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface test dxvif-33cc44dd
 // ```
 type HostedPublicVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -228,4 +237,43 @@ type HostedPublicVirtualInterfaceArgs struct {
 
 func (HostedPublicVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedPublicVirtualInterfaceArgs)(nil)).Elem()
+}
+
+type HostedPublicVirtualInterfaceInput interface {
+	pulumi.Input
+
+	ToHostedPublicVirtualInterfaceOutput() HostedPublicVirtualInterfaceOutput
+	ToHostedPublicVirtualInterfaceOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceOutput
+}
+
+func (HostedPublicVirtualInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedPublicVirtualInterface)(nil)).Elem()
+}
+
+func (i HostedPublicVirtualInterface) ToHostedPublicVirtualInterfaceOutput() HostedPublicVirtualInterfaceOutput {
+	return i.ToHostedPublicVirtualInterfaceOutputWithContext(context.Background())
+}
+
+func (i HostedPublicVirtualInterface) ToHostedPublicVirtualInterfaceOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceOutput)
+}
+
+type HostedPublicVirtualInterfaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostedPublicVirtualInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedPublicVirtualInterfaceOutput)(nil)).Elem()
+}
+
+func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfaceOutput() HostedPublicVirtualInterfaceOutput {
+	return o
+}
+
+func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfaceOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HostedPublicVirtualInterfaceOutput{})
 }

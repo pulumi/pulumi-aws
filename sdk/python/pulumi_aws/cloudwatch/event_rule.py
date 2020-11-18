@@ -64,6 +64,14 @@ class EventRule(pulumi.CustomResource):
             policy=sns_topic_policy.json)
         ```
 
+        ## Import
+
+        EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.
+
+        ```sh
+         $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the rule.

@@ -40,6 +40,14 @@ class GroupPolicyAttachment(pulumi.CustomResource):
             policy_arn=policy.arn)
         ```
 
+        ## Import
+
+        IAM group policy attachments can be imported using the group name and policy arn separated by `/`.
+
+        ```sh
+         $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The group the policy should be applied to

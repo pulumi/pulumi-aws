@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['LoadBalancerCookieStickinessPolicy']
 
-warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy""", DeprecationWarning)
 
 
 class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,

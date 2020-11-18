@@ -43,6 +43,14 @@ class DocumentationPart(pulumi.CustomResource):
             rest_api_id=example_rest_api.id)
         ```
 
+        ## Import
+
+        API Gateway documentation_parts can be imported using `REST-API-ID/DOC-PART-ID`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']] location: The location of the targeted API entity of the to-be-created documentation part. See below.

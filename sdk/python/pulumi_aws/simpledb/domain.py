@@ -31,6 +31,14 @@ class Domain(pulumi.CustomResource):
         users = aws.simpledb.Domain("users")
         ```
 
+        ## Import
+
+        SimpleDB Domains can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:simpledb/domain:Domain users users
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the SimpleDB domain

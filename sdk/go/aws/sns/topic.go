@@ -4,6 +4,7 @@
 package sns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -82,6 +83,14 @@ import (
 // ## Message Delivery Status Arguments
 //
 // The `<endpoint>_success_feedback_role_arn` and `<endpoint>_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `<endpoint>_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `<endpoint>_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
+//
+// ## Import
+//
+// SNS Topics can be imported using the `topic arn`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+// ```
 type Topic struct {
 	pulumi.CustomResourceState
 
@@ -329,4 +338,43 @@ type TopicArgs struct {
 
 func (TopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicArgs)(nil)).Elem()
+}
+
+type TopicInput interface {
+	pulumi.Input
+
+	ToTopicOutput() TopicOutput
+	ToTopicOutputWithContext(ctx context.Context) TopicOutput
+}
+
+func (Topic) ElementType() reflect.Type {
+	return reflect.TypeOf((*Topic)(nil)).Elem()
+}
+
+func (i Topic) ToTopicOutput() TopicOutput {
+	return i.ToTopicOutputWithContext(context.Background())
+}
+
+func (i Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
+}
+
+type TopicOutput struct {
+	*pulumi.OutputState
+}
+
+func (TopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicOutput)(nil)).Elem()
+}
+
+func (o TopicOutput) ToTopicOutput() TopicOutput {
+	return o
+}
+
+func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TopicOutput{})
 }

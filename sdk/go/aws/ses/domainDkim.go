@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Provides an SES domain DKIM generation resource.
 //
 // Domain ownership needs to be confirmed first using `ses.DomainIdentity` resource.
+//
+// ## Import
+//
+// DKIM tokens can be imported using the `domain` attribute, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+// ```
 type DomainDkim struct {
 	pulumi.CustomResourceState
 
@@ -98,4 +107,43 @@ type DomainDkimArgs struct {
 
 func (DomainDkimArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainDkimArgs)(nil)).Elem()
+}
+
+type DomainDkimInput interface {
+	pulumi.Input
+
+	ToDomainDkimOutput() DomainDkimOutput
+	ToDomainDkimOutputWithContext(ctx context.Context) DomainDkimOutput
+}
+
+func (DomainDkim) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDkim)(nil)).Elem()
+}
+
+func (i DomainDkim) ToDomainDkimOutput() DomainDkimOutput {
+	return i.ToDomainDkimOutputWithContext(context.Background())
+}
+
+func (i DomainDkim) ToDomainDkimOutputWithContext(ctx context.Context) DomainDkimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDkimOutput)
+}
+
+type DomainDkimOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainDkimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDkimOutput)(nil)).Elem()
+}
+
+func (o DomainDkimOutput) ToDomainDkimOutput() DomainDkimOutput {
+	return o
+}
+
+func (o DomainDkimOutput) ToDomainDkimOutputWithContext(ctx context.Context) DomainDkimOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainDkimOutput{})
 }

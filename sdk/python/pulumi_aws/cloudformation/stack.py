@@ -68,6 +68,14 @@ class Stack(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        Cloudformation Stacks can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities.

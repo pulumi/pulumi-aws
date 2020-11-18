@@ -50,6 +50,14 @@ class UserPolicy(pulumi.CustomResource):
         lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
         ```
 
+        ## Import
+
+        IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.

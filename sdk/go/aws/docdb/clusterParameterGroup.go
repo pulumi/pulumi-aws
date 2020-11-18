@@ -4,6 +4,7 @@
 package docdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// DocumentDB Cluster Parameter Groups can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
 // ```
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
@@ -161,4 +170,43 @@ type ClusterParameterGroupArgs struct {
 
 func (ClusterParameterGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterParameterGroupArgs)(nil)).Elem()
+}
+
+type ClusterParameterGroupInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupOutput() ClusterParameterGroupOutput
+	ToClusterParameterGroupOutputWithContext(ctx context.Context) ClusterParameterGroupOutput
+}
+
+func (ClusterParameterGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroup)(nil)).Elem()
+}
+
+func (i ClusterParameterGroup) ToClusterParameterGroupOutput() ClusterParameterGroupOutput {
+	return i.ToClusterParameterGroupOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroup) ToClusterParameterGroupOutputWithContext(ctx context.Context) ClusterParameterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupOutput)
+}
+
+type ClusterParameterGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterParameterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroupOutput)(nil)).Elem()
+}
+
+func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutput() ClusterParameterGroupOutput {
+	return o
+}
+
+func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ctx context.Context) ClusterParameterGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterParameterGroupOutput{})
 }

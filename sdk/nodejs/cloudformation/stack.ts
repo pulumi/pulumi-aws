@@ -40,6 +40,14 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Cloudformation Stacks can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+ * ```
  */
 export class Stack extends pulumi.CustomResource {
     /**

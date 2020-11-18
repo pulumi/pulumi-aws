@@ -72,6 +72,14 @@ class MethodSettings(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.

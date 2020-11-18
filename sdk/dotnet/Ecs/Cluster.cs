@@ -29,6 +29,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ECS clusters can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

@@ -103,6 +103,16 @@ class ComputeEnvironment(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
         ```
 
+        ## Import
+
+        AWS Batch compute can be imported using the `compute_environment_name`, e.g.
+
+        ```sh
+         $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+        ```
+
+         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.

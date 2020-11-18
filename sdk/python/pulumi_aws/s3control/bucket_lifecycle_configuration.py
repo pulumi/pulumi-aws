@@ -23,7 +23,14 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a BucketLifecycleConfiguration resource with the given unique name, props, and options.
+        ## Import
+
+        S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.

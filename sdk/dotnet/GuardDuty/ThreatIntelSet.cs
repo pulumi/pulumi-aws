@@ -56,6 +56,14 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GuardDuty ThreatIntelSet can be imported using the the primary GuardDuty detector ID and ThreatIntelSetID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+    /// ```
     /// </summary>
     public partial class ThreatIntelSet : Pulumi.CustomResource
     {

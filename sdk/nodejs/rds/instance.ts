@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 import {InstanceType, StorageType} from "./index";
@@ -67,6 +65,14 @@ import {InstanceType, StorageType} from "./index";
  *     allocatedStorage: 50,
  *     maxAllocatedStorage: 100,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * DB Instances can be imported using the `identifier`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
  * ```
  */
 export class Instance extends pulumi.CustomResource {

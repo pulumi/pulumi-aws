@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -24,6 +22,14 @@ import * as utilities from "../utilities";
  *         textTransformation: "URL_DECODE",
  *     }],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * WAF Regional Sql Injection Match Set can be imported using the id, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  */
 export class SqlInjectionMatchSet extends pulumi.CustomResource {

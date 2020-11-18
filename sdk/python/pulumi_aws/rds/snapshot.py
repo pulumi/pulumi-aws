@@ -46,6 +46,14 @@ class Snapshot(pulumi.CustomResource):
             db_snapshot_identifier="testsnapshot1234")
         ```
 
+        ## Import
+
+        `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.

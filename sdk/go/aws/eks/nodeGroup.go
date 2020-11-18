@@ -4,6 +4,7 @@
 package eks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -99,6 +100,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.
+//
+// ```sh
+//  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
 // ```
 type NodeGroup struct {
 	pulumi.CustomResourceState
@@ -326,4 +335,43 @@ type NodeGroupArgs struct {
 
 func (NodeGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodeGroupArgs)(nil)).Elem()
+}
+
+type NodeGroupInput interface {
+	pulumi.Input
+
+	ToNodeGroupOutput() NodeGroupOutput
+	ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupOutput
+}
+
+func (NodeGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroup)(nil)).Elem()
+}
+
+func (i NodeGroup) ToNodeGroupOutput() NodeGroupOutput {
+	return i.ToNodeGroupOutputWithContext(context.Background())
+}
+
+func (i NodeGroup) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupOutput)
+}
+
+type NodeGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (NodeGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupOutput)(nil)).Elem()
+}
+
+func (o NodeGroupOutput) ToNodeGroupOutput() NodeGroupOutput {
+	return o
+}
+
+func (o NodeGroupOutput) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NodeGroupOutput{})
 }

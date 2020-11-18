@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['LoadBalancer']
 
-warnings.warn("aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer""", DeprecationWarning)
 
 
 class LoadBalancer(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -119,6 +119,14 @@ class LoadBalancer(pulumi.CustomResource):
                     private_ipv4_address="10.0.2.15",
                 ),
             ])
+        ```
+
+        ## Import
+
+        LBs can be imported using their ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticloadbalancingv2/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
         ```
 
         :param str resource_name: The name of the resource.

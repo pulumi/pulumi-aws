@@ -4,6 +4,7 @@
 package codedeploy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -151,6 +152,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+// ```
+//
+//  [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
 type DeploymentGroup struct {
 	pulumi.CustomResourceState
 
@@ -361,4 +372,43 @@ type DeploymentGroupArgs struct {
 
 func (DeploymentGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentGroupArgs)(nil)).Elem()
+}
+
+type DeploymentGroupInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupOutput() DeploymentGroupOutput
+	ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput
+}
+
+func (DeploymentGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroup)(nil)).Elem()
+}
+
+func (i DeploymentGroup) ToDeploymentGroupOutput() DeploymentGroupOutput {
+	return i.ToDeploymentGroupOutputWithContext(context.Background())
+}
+
+func (i DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOutput)
+}
+
+type DeploymentGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGroupOutput)(nil)).Elem()
+}
+
+func (o DeploymentGroupOutput) ToDeploymentGroupOutput() DeploymentGroupOutput {
+	return o
+}
+
+func (o DeploymentGroupOutput) ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentGroupOutput{})
 }

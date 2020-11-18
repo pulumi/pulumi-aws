@@ -56,6 +56,14 @@ namespace Pulumi.Aws.Waf
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// WAF rules can be imported using the id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
     /// </summary>
     public partial class Rule : Pulumi.CustomResource
     {

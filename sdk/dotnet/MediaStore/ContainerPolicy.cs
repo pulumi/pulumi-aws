@@ -56,6 +56,14 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+    /// ```
     /// </summary>
     public partial class ContainerPolicy : Pulumi.CustomResource
     {

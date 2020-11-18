@@ -57,6 +57,10 @@ class KeyPair(pulumi.CustomResource):
         lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
         ```
 
+        ## Import
+
+        Lightsail Key Pairs cannot be imported, because the private and public key are only available on initial creation.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Lightsail Key Pair. If omitted, a unique

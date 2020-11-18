@@ -15,7 +15,7 @@ __all__ = [
     'get_load_balancer',
 ]
 
-warnings.warn("aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer", DeprecationWarning)
+warnings.warn("""aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLoadBalancerResult:

@@ -4,6 +4,7 @@
 package sagemaker
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -74,6 +75,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Sagemaker Notebook Instances can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
 // ```
 type NotebookInstance struct {
 	pulumi.CustomResourceState
@@ -285,4 +294,43 @@ type NotebookInstanceArgs struct {
 
 func (NotebookInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookInstanceArgs)(nil)).Elem()
+}
+
+type NotebookInstanceInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceOutput() NotebookInstanceOutput
+	ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput
+}
+
+func (NotebookInstance) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstance)(nil)).Elem()
+}
+
+func (i NotebookInstance) ToNotebookInstanceOutput() NotebookInstanceOutput {
+	return i.ToNotebookInstanceOutputWithContext(context.Background())
+}
+
+func (i NotebookInstance) ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceOutput)
+}
+
+type NotebookInstanceOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotebookInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceOutput)(nil)).Elem()
+}
+
+func (o NotebookInstanceOutput) ToNotebookInstanceOutput() NotebookInstanceOutput {
+	return o
+}
+
+func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotebookInstanceOutput{})
 }

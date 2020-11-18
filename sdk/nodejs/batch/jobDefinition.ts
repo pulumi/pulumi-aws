@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -51,6 +49,14 @@ import * as utilities from "../utilities";
  * `,
  *     type: "container",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Batch Job Definition can be imported using the `arn`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
  * ```
  */
 export class JobDefinition extends pulumi.CustomResource {

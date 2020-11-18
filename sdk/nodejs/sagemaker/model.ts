@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -34,6 +32,14 @@ import * as utilities from "../utilities";
  *         image: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Models can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:sagemaker/model:Model test_model model-foo
  * ```
  */
 export class Model extends pulumi.CustomResource {

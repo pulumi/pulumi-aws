@@ -63,6 +63,14 @@ class TopicPolicy(pulumi.CustomResource):
             policy=sns_topic_policy.json)
         ```
 
+        ## Import
+
+        SNS Topic Policy can be imported using the topic ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the SNS topic

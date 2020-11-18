@@ -4,6 +4,7 @@
 package apigateway
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -70,6 +71,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AWS API Gateway Usage Plan can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
 // ```
 type UsagePlan struct {
 	pulumi.CustomResourceState
@@ -198,4 +207,43 @@ type UsagePlanArgs struct {
 
 func (UsagePlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*usagePlanArgs)(nil)).Elem()
+}
+
+type UsagePlanInput interface {
+	pulumi.Input
+
+	ToUsagePlanOutput() UsagePlanOutput
+	ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput
+}
+
+func (UsagePlan) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlan)(nil)).Elem()
+}
+
+func (i UsagePlan) ToUsagePlanOutput() UsagePlanOutput {
+	return i.ToUsagePlanOutputWithContext(context.Background())
+}
+
+func (i UsagePlan) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanOutput)
+}
+
+type UsagePlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (UsagePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanOutput)(nil)).Elem()
+}
+
+func (o UsagePlanOutput) ToUsagePlanOutput() UsagePlanOutput {
+	return o
+}
+
+func (o UsagePlanOutput) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UsagePlanOutput{})
 }

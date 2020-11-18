@@ -4,6 +4,7 @@
 package sns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -142,4 +143,43 @@ type SmsPreferencesArgs struct {
 
 func (SmsPreferencesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsPreferencesArgs)(nil)).Elem()
+}
+
+type SmsPreferencesInput interface {
+	pulumi.Input
+
+	ToSmsPreferencesOutput() SmsPreferencesOutput
+	ToSmsPreferencesOutputWithContext(ctx context.Context) SmsPreferencesOutput
+}
+
+func (SmsPreferences) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsPreferences)(nil)).Elem()
+}
+
+func (i SmsPreferences) ToSmsPreferencesOutput() SmsPreferencesOutput {
+	return i.ToSmsPreferencesOutputWithContext(context.Background())
+}
+
+func (i SmsPreferences) ToSmsPreferencesOutputWithContext(ctx context.Context) SmsPreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesOutput)
+}
+
+type SmsPreferencesOutput struct {
+	*pulumi.OutputState
+}
+
+func (SmsPreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsPreferencesOutput)(nil)).Elem()
+}
+
+func (o SmsPreferencesOutput) ToSmsPreferencesOutput() SmsPreferencesOutput {
+	return o
+}
+
+func (o SmsPreferencesOutput) ToSmsPreferencesOutputWithContext(ctx context.Context) SmsPreferencesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SmsPreferencesOutput{})
 }

@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -93,6 +94,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Route53 query logging configurations can be imported using their ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+// ```
 type QueryLog struct {
 	pulumi.CustomResourceState
 
@@ -170,4 +179,43 @@ type QueryLogArgs struct {
 
 func (QueryLogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryLogArgs)(nil)).Elem()
+}
+
+type QueryLogInput interface {
+	pulumi.Input
+
+	ToQueryLogOutput() QueryLogOutput
+	ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutput
+}
+
+func (QueryLog) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLog)(nil)).Elem()
+}
+
+func (i QueryLog) ToQueryLogOutput() QueryLogOutput {
+	return i.ToQueryLogOutputWithContext(context.Background())
+}
+
+func (i QueryLog) ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLogOutput)
+}
+
+type QueryLogOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueryLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLogOutput)(nil)).Elem()
+}
+
+func (o QueryLogOutput) ToQueryLogOutput() QueryLogOutput {
+	return o
+}
+
+func (o QueryLogOutput) ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueryLogOutput{})
 }

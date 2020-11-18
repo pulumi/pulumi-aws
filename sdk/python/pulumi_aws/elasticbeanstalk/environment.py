@@ -88,6 +88,14 @@ class Environment(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Elastic Beanstalk Environments can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the application that contains the version

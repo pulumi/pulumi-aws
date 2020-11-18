@@ -4,6 +4,7 @@
 package budgets
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -179,6 +180,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Budgets can be imported using `AccountID:BudgetName`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget`
 // ```
 type Budget struct {
 	pulumi.CustomResourceState
@@ -366,4 +375,43 @@ type BudgetArgs struct {
 
 func (BudgetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*budgetArgs)(nil)).Elem()
+}
+
+type BudgetInput interface {
+	pulumi.Input
+
+	ToBudgetOutput() BudgetOutput
+	ToBudgetOutputWithContext(ctx context.Context) BudgetOutput
+}
+
+func (Budget) ElementType() reflect.Type {
+	return reflect.TypeOf((*Budget)(nil)).Elem()
+}
+
+func (i Budget) ToBudgetOutput() BudgetOutput {
+	return i.ToBudgetOutputWithContext(context.Background())
+}
+
+func (i Budget) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetOutput)
+}
+
+type BudgetOutput struct {
+	*pulumi.OutputState
+}
+
+func (BudgetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetOutput)(nil)).Elem()
+}
+
+func (o BudgetOutput) ToBudgetOutput() BudgetOutput {
+	return o
+}
+
+func (o BudgetOutput) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BudgetOutput{})
 }

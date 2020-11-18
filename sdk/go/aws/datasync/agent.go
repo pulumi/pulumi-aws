@@ -4,6 +4,7 @@
 package datasync
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_datasync_agent` can be imported by using the DataSync Agent Amazon Resource Name (ARN), e.g.
+//
+// ```sh
+//  $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
 // ```
 type Agent struct {
 	pulumi.CustomResourceState
@@ -132,4 +141,43 @@ type AgentArgs struct {
 
 func (AgentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentArgs)(nil)).Elem()
+}
+
+type AgentInput interface {
+	pulumi.Input
+
+	ToAgentOutput() AgentOutput
+	ToAgentOutputWithContext(ctx context.Context) AgentOutput
+}
+
+func (Agent) ElementType() reflect.Type {
+	return reflect.TypeOf((*Agent)(nil)).Elem()
+}
+
+func (i Agent) ToAgentOutput() AgentOutput {
+	return i.ToAgentOutputWithContext(context.Background())
+}
+
+func (i Agent) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentOutput)
+}
+
+type AgentOutput struct {
+	*pulumi.OutputState
+}
+
+func (AgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentOutput)(nil)).Elem()
+}
+
+func (o AgentOutput) ToAgentOutput() AgentOutput {
+	return o
+}
+
+func (o AgentOutput) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AgentOutput{})
 }

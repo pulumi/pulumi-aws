@@ -4,6 +4,7 @@
 package fsx
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -83,6 +84,28 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// FSx File Systems can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
+// ```
+//
+//  Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the provider configuration on an imported resource, the povider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. hcl resource "aws_fsx_windows_file_system" "example" {
+//
+// # ... other configuration ...
+//
+//  security_group_ids = [aws_security_group.example.id]
+//
+// # There is no FSx API for reading security_group_ids
+//
+//  lifecycle {
+//
+//  ignore_changes = [security_group_ids]
+//
+//  } }
 type WindowsFileSystem struct {
 	pulumi.CustomResourceState
 
@@ -345,4 +368,43 @@ type WindowsFileSystemArgs struct {
 
 func (WindowsFileSystemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsFileSystemArgs)(nil)).Elem()
+}
+
+type WindowsFileSystemInput interface {
+	pulumi.Input
+
+	ToWindowsFileSystemOutput() WindowsFileSystemOutput
+	ToWindowsFileSystemOutputWithContext(ctx context.Context) WindowsFileSystemOutput
+}
+
+func (WindowsFileSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsFileSystem)(nil)).Elem()
+}
+
+func (i WindowsFileSystem) ToWindowsFileSystemOutput() WindowsFileSystemOutput {
+	return i.ToWindowsFileSystemOutputWithContext(context.Background())
+}
+
+func (i WindowsFileSystem) ToWindowsFileSystemOutputWithContext(ctx context.Context) WindowsFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemOutput)
+}
+
+type WindowsFileSystemOutput struct {
+	*pulumi.OutputState
+}
+
+func (WindowsFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsFileSystemOutput)(nil)).Elem()
+}
+
+func (o WindowsFileSystemOutput) ToWindowsFileSystemOutput() WindowsFileSystemOutput {
+	return o
+}
+
+func (o WindowsFileSystemOutput) ToWindowsFileSystemOutputWithContext(ctx context.Context) WindowsFileSystemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WindowsFileSystemOutput{})
 }

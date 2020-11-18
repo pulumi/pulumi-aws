@@ -41,6 +41,14 @@ class SecurityGroup(pulumi.CustomResource):
         )])
         ```
 
+        ## Import
+
+        DB Security groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/securityGroup:SecurityGroup default aws_rds_sg-1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the DB security group. Defaults to "Managed by Pulumi".

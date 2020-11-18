@@ -18,6 +18,14 @@ import * as utilities from "../utilities";
  *     vpcEndpointId: aws_vpc_endpoint.example.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * VPC Endpoint Route Table Associations can be imported using `vpc_endpoint_id` together with `route_table_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rt-bbbbbbbb
+ * ```
  */
 export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     /**

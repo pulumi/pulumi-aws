@@ -20,6 +20,14 @@ import * as utilities from "../utilities";
  *     workflowExecutionRetentionPeriodInDays: "30",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * SWF Domains can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:swf/domain:Domain foo test-domain
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

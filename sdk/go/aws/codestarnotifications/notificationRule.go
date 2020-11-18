@@ -4,6 +4,7 @@
 package codestarnotifications
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CodeStar notification rule can be imported using the ARN, e.g.
+//
+// ```sh
+//  $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 // ```
 type NotificationRule struct {
 	pulumi.CustomResourceState
@@ -206,4 +215,43 @@ type NotificationRuleArgs struct {
 
 func (NotificationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationRuleArgs)(nil)).Elem()
+}
+
+type NotificationRuleInput interface {
+	pulumi.Input
+
+	ToNotificationRuleOutput() NotificationRuleOutput
+	ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput
+}
+
+func (NotificationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationRule)(nil)).Elem()
+}
+
+func (i NotificationRule) ToNotificationRuleOutput() NotificationRuleOutput {
+	return i.ToNotificationRuleOutputWithContext(context.Background())
+}
+
+func (i NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleOutput)
+}
+
+type NotificationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotificationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationRuleOutput)(nil)).Elem()
+}
+
+func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutput {
+	return o
+}
+
+func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotificationRuleOutput{})
 }

@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Route53 Resolver rule associations can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
 // ```
 type ResolverRuleAssociation struct {
 	pulumi.CustomResourceState
@@ -122,4 +131,43 @@ type ResolverRuleAssociationArgs struct {
 
 func (ResolverRuleAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverRuleAssociationArgs)(nil)).Elem()
+}
+
+type ResolverRuleAssociationInput interface {
+	pulumi.Input
+
+	ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput
+	ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput
+}
+
+func (ResolverRuleAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleAssociation)(nil)).Elem()
+}
+
+func (i ResolverRuleAssociation) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
+	return i.ToResolverRuleAssociationOutputWithContext(context.Background())
+}
+
+func (i ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationOutput)
+}
+
+type ResolverRuleAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResolverRuleAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleAssociationOutput)(nil)).Elem()
+}
+
+func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
+	return o
+}
+
+func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResolverRuleAssociationOutput{})
 }

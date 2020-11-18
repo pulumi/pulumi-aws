@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
 // ```
 type EventRule struct {
 	pulumi.CustomResourceState
@@ -217,4 +226,43 @@ type EventRuleArgs struct {
 
 func (EventRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventRuleArgs)(nil)).Elem()
+}
+
+type EventRuleInput interface {
+	pulumi.Input
+
+	ToEventRuleOutput() EventRuleOutput
+	ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput
+}
+
+func (EventRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventRule)(nil)).Elem()
+}
+
+func (i EventRule) ToEventRuleOutput() EventRuleOutput {
+	return i.ToEventRuleOutputWithContext(context.Background())
+}
+
+func (i EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventRuleOutput)
+}
+
+type EventRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventRuleOutput)(nil)).Elem()
+}
+
+func (o EventRuleOutput) ToEventRuleOutput() EventRuleOutput {
+	return o
+}
+
+func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventRuleOutput{})
 }

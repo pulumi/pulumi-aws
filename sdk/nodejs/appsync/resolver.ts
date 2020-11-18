@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -90,6 +88,14 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
  * ```
  */
 export class Resolver extends pulumi.CustomResource {

@@ -51,6 +51,14 @@ class NetworkAssociation(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        AWS Client VPN network associations can be imported using the endpoint ID and the association ID. Values are separated by a `,`.
+
+        ```sh
+         $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.

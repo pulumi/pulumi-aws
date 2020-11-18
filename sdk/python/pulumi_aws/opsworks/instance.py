@@ -134,6 +134,14 @@ class Instance(pulumi.CustomResource):
         to block device configuration, resource recreation can be manually triggered by
         using the [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
 
+        ## Import
+
+        Opsworks Instances can be imported using the `instance id`, e.g.
+
+        ```sh
+         $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_version: The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.

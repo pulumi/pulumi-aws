@@ -312,6 +312,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
+    /// ```
     /// </summary>
     public partial class EventTarget : Pulumi.CustomResource
     {

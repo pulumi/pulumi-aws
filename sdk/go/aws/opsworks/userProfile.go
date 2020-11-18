@@ -4,6 +4,7 @@
 package opsworks
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -132,4 +133,43 @@ type UserProfileArgs struct {
 
 func (UserProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userProfileArgs)(nil)).Elem()
+}
+
+type UserProfileInput interface {
+	pulumi.Input
+
+	ToUserProfileOutput() UserProfileOutput
+	ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput
+}
+
+func (UserProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfile)(nil)).Elem()
+}
+
+func (i UserProfile) ToUserProfileOutput() UserProfileOutput {
+	return i.ToUserProfileOutputWithContext(context.Background())
+}
+
+func (i UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileOutput)
+}
+
+type UserProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileOutput)(nil)).Elem()
+}
+
+func (o UserProfileOutput) ToUserProfileOutput() UserProfileOutput {
+	return o
+}
+
+func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserProfileOutput{})
 }

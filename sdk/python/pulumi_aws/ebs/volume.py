@@ -47,6 +47,14 @@ class Volume(pulumi.CustomResource):
 
         > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume
 
+        ## Import
+
+        EBS Volumes can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.

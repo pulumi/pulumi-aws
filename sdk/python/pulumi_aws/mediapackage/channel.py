@@ -37,6 +37,14 @@ class Channel(pulumi.CustomResource):
             description="A channel dedicated to amusing videos of kittens.")
         ```
 
+        ## Import
+
+        Media Package Channels can be imported via the channel ID, e.g.
+
+        ```sh
+         $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_id: A unique identifier describing the channel

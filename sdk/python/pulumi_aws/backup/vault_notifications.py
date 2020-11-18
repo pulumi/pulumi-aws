@@ -54,6 +54,14 @@ class VaultNotifications(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Backup vault notifications can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.

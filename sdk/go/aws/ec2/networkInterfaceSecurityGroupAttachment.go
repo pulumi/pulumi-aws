@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -211,4 +212,43 @@ type NetworkInterfaceSecurityGroupAttachmentArgs struct {
 
 func (NetworkInterfaceSecurityGroupAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceSecurityGroupAttachmentArgs)(nil)).Elem()
+}
+
+type NetworkInterfaceSecurityGroupAttachmentInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceSecurityGroupAttachmentOutput() NetworkInterfaceSecurityGroupAttachmentOutput
+	ToNetworkInterfaceSecurityGroupAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAttachmentOutput
+}
+
+func (NetworkInterfaceSecurityGroupAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceSecurityGroupAttachment)(nil)).Elem()
+}
+
+func (i NetworkInterfaceSecurityGroupAttachment) ToNetworkInterfaceSecurityGroupAttachmentOutput() NetworkInterfaceSecurityGroupAttachmentOutput {
+	return i.ToNetworkInterfaceSecurityGroupAttachmentOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceSecurityGroupAttachment) ToNetworkInterfaceSecurityGroupAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceSecurityGroupAttachmentOutput)
+}
+
+type NetworkInterfaceSecurityGroupAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkInterfaceSecurityGroupAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceSecurityGroupAttachmentOutput)(nil)).Elem()
+}
+
+func (o NetworkInterfaceSecurityGroupAttachmentOutput) ToNetworkInterfaceSecurityGroupAttachmentOutput() NetworkInterfaceSecurityGroupAttachmentOutput {
+	return o
+}
+
+func (o NetworkInterfaceSecurityGroupAttachmentOutput) ToNetworkInterfaceSecurityGroupAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkInterfaceSecurityGroupAttachmentOutput{})
 }

@@ -31,6 +31,14 @@ class ReceiptRuleSet(pulumi.CustomResource):
         main = aws.ses.ReceiptRuleSet("main", rule_set_name="primary-rules")
         ```
 
+        ## Import
+
+        SES receipt rule sets can be imported using the rule set name.
+
+        ```sh
+         $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] rule_set_name: The name of the rule set

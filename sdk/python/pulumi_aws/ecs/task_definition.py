@@ -61,6 +61,14 @@ class TaskDefinition(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
+
+        ```sh
+         $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_definitions: A list of valid [container

@@ -51,6 +51,14 @@ class Policy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        IAM Policies can be imported using the `arn`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the IAM policy.

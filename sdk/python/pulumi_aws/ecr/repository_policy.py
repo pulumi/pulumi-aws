@@ -63,6 +63,14 @@ class RepositoryPolicy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        ECR Repository Policy can be imported using the repository name, e.g.
+
+        ```sh
+         $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.

@@ -74,6 +74,14 @@ class TargetGroup(pulumi.CustomResource):
         lambda_example = aws.lb.TargetGroup("lambda-example", target_type="lambda")
         ```
 
+        ## Import
+
+        Target Groups can be imported using their ARN, e.g.
+
+        ```sh
+         $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.

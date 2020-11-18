@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,6 +36,14 @@ import * as utilities from "../utilities";
  *     }],
  *     userPoolId: pool.id,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:cognito/resourceServer:ResourceServer example xxx_yyyyy|https://example.com
  * ```
  */
 export class ResourceServer extends pulumi.CustomResource {

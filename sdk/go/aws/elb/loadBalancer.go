@@ -4,6 +4,7 @@
 package elb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -28,6 +29,14 @@ import (
 // P256 and P384 curves.  Using a certificate signed by a key using a different
 // curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
 // browser.
+//
+// ## Import
+//
+// ELBs can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+// ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
@@ -298,4 +307,43 @@ type LoadBalancerArgs struct {
 
 func (LoadBalancerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerArgs)(nil)).Elem()
+}
+
+type LoadBalancerInput interface {
+	pulumi.Input
+
+	ToLoadBalancerOutput() LoadBalancerOutput
+	ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput
+}
+
+func (LoadBalancer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancer)(nil)).Elem()
+}
+
+func (i LoadBalancer) ToLoadBalancerOutput() LoadBalancerOutput {
+	return i.ToLoadBalancerOutputWithContext(context.Background())
+}
+
+func (i LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerOutput)
+}
+
+type LoadBalancerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoadBalancerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerOutput)(nil)).Elem()
+}
+
+func (o LoadBalancerOutput) ToLoadBalancerOutput() LoadBalancerOutput {
+	return o
+}
+
+func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoadBalancerOutput{})
 }

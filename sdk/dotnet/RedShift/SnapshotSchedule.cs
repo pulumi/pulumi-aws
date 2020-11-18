@@ -32,6 +32,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Redshift Snapshot Schedule can be imported using the `identifier`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+    /// ```
     /// </summary>
     public partial class SnapshotSchedule : Pulumi.CustomResource
     {

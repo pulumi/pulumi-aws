@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
 // ```
 type SpotDatafeedSubscription struct {
 	pulumi.CustomResourceState
@@ -117,4 +126,43 @@ type SpotDatafeedSubscriptionArgs struct {
 
 func (SpotDatafeedSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotDatafeedSubscriptionArgs)(nil)).Elem()
+}
+
+type SpotDatafeedSubscriptionInput interface {
+	pulumi.Input
+
+	ToSpotDatafeedSubscriptionOutput() SpotDatafeedSubscriptionOutput
+	ToSpotDatafeedSubscriptionOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionOutput
+}
+
+func (SpotDatafeedSubscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotDatafeedSubscription)(nil)).Elem()
+}
+
+func (i SpotDatafeedSubscription) ToSpotDatafeedSubscriptionOutput() SpotDatafeedSubscriptionOutput {
+	return i.ToSpotDatafeedSubscriptionOutputWithContext(context.Background())
+}
+
+func (i SpotDatafeedSubscription) ToSpotDatafeedSubscriptionOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionOutput)
+}
+
+type SpotDatafeedSubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpotDatafeedSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotDatafeedSubscriptionOutput)(nil)).Elem()
+}
+
+func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutput() SpotDatafeedSubscriptionOutput {
+	return o
+}
+
+func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SpotDatafeedSubscriptionOutput{})
 }

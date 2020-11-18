@@ -4,6 +4,7 @@
 package route53
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Route53 Delegation Sets can be imported using the `delegation set id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
 // ```
 type DelegationSet struct {
 	pulumi.CustomResourceState
@@ -120,4 +129,43 @@ type DelegationSetArgs struct {
 
 func (DelegationSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*delegationSetArgs)(nil)).Elem()
+}
+
+type DelegationSetInput interface {
+	pulumi.Input
+
+	ToDelegationSetOutput() DelegationSetOutput
+	ToDelegationSetOutputWithContext(ctx context.Context) DelegationSetOutput
+}
+
+func (DelegationSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegationSet)(nil)).Elem()
+}
+
+func (i DelegationSet) ToDelegationSetOutput() DelegationSetOutput {
+	return i.ToDelegationSetOutputWithContext(context.Background())
+}
+
+func (i DelegationSet) ToDelegationSetOutputWithContext(ctx context.Context) DelegationSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetOutput)
+}
+
+type DelegationSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (DelegationSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegationSetOutput)(nil)).Elem()
+}
+
+func (o DelegationSetOutput) ToDelegationSetOutput() DelegationSetOutput {
+	return o
+}
+
+func (o DelegationSetOutput) ToDelegationSetOutputWithContext(ctx context.Context) DelegationSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DelegationSetOutput{})
 }

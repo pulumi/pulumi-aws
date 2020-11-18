@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -243,6 +241,14 @@ import * as utilities from "../utilities";
  *         Code: "123456",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * WAFv2 Rule Group can be imported using `ID/name/scope` e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
  * ```
  */
 export class RuleGroup extends pulumi.CustomResource {

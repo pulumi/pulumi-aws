@@ -80,6 +80,14 @@ namespace Pulumi.Aws.Ec2
     /// * To actually use the DHCP Options Set you need to associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`.
     /// * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
     /// * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
+    /// 
+    /// ## Import
+    /// 
+    /// VPC DHCP Options can be imported using the `dhcp options id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
+    /// ```
     /// </summary>
     public partial class VpcDhcpOptions : Pulumi.CustomResource
     {

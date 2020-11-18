@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -68,6 +69,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// `aws_apigatewayv2_integration` can be imported by using the API identifier and integration identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
 // ```
 type Integration struct {
 	pulumi.CustomResourceState
@@ -317,4 +326,43 @@ type IntegrationArgs struct {
 
 func (IntegrationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationArgs)(nil)).Elem()
+}
+
+type IntegrationInput interface {
+	pulumi.Input
+
+	ToIntegrationOutput() IntegrationOutput
+	ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput
+}
+
+func (Integration) ElementType() reflect.Type {
+	return reflect.TypeOf((*Integration)(nil)).Elem()
+}
+
+func (i Integration) ToIntegrationOutput() IntegrationOutput {
+	return i.ToIntegrationOutputWithContext(context.Background())
+}
+
+func (i Integration) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOutput)
+}
+
+type IntegrationOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationOutput)(nil)).Elem()
+}
+
+func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {
+	return o
+}
+
+func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationOutput{})
 }

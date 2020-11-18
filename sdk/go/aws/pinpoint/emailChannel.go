@@ -4,6 +4,7 @@
 package pinpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Pinpoint Email Channel can be imported using the `application-id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
 // ```
 type EmailChannel struct {
 	pulumi.CustomResourceState
@@ -183,4 +192,43 @@ type EmailChannelArgs struct {
 
 func (EmailChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailChannelArgs)(nil)).Elem()
+}
+
+type EmailChannelInput interface {
+	pulumi.Input
+
+	ToEmailChannelOutput() EmailChannelOutput
+	ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput
+}
+
+func (EmailChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannel)(nil)).Elem()
+}
+
+func (i EmailChannel) ToEmailChannelOutput() EmailChannelOutput {
+	return i.ToEmailChannelOutputWithContext(context.Background())
+}
+
+func (i EmailChannel) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelOutput)
+}
+
+type EmailChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmailChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannelOutput)(nil)).Elem()
+}
+
+func (o EmailChannelOutput) ToEmailChannelOutput() EmailChannelOutput {
+	return o
+}
+
+func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EmailChannelOutput{})
 }

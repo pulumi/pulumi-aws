@@ -31,6 +31,14 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Codecommit repository can be imported using repository name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+    /// ```
     /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {

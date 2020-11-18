@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     blockPublicPolicy: true,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_s3_account_public_access_block` can be imported by using the AWS account ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+ * ```
  */
 export class AccountPublicAccessBlock extends pulumi.CustomResource {
     /**

@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.securityhub.Account("example", {});
  * ```
+ *
+ * ## Import
+ *
+ * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:securityhub/account:Account example 123456789012
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

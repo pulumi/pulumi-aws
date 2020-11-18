@@ -4,6 +4,7 @@
 package sfn
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -30,6 +31,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Activities can be imported using the `arn`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
 // ```
 type Activity struct {
 	pulumi.CustomResourceState
@@ -108,4 +117,43 @@ type ActivityArgs struct {
 
 func (ActivityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityArgs)(nil)).Elem()
+}
+
+type ActivityInput interface {
+	pulumi.Input
+
+	ToActivityOutput() ActivityOutput
+	ToActivityOutputWithContext(ctx context.Context) ActivityOutput
+}
+
+func (Activity) ElementType() reflect.Type {
+	return reflect.TypeOf((*Activity)(nil)).Elem()
+}
+
+func (i Activity) ToActivityOutput() ActivityOutput {
+	return i.ToActivityOutputWithContext(context.Background())
+}
+
+func (i Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityOutput)
+}
+
+type ActivityOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityOutput)(nil)).Elem()
+}
+
+func (o ActivityOutput) ToActivityOutput() ActivityOutput {
+	return o
+}
+
+func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActivityOutput{})
 }

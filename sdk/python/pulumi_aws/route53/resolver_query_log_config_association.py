@@ -34,6 +34,14 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
             resource_id=aws_vpc["example"]["id"])
         ```
 
+        ## Import
+
+         Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.
+
+        ```sh
+         $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.

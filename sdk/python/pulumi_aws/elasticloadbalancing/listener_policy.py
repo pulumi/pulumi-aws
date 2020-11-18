@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['ListenerPolicy']
 
-warnings.warn("aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy", DeprecationWarning)
+warnings.warn("""aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy""", DeprecationWarning)
 
 
 class ListenerPolicy(pulumi.CustomResource):
-    warnings.warn("aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy", DeprecationWarning)
+    warnings.warn("""aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,

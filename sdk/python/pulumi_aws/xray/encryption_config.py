@@ -21,7 +21,14 @@ class EncryptionConfig(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a EncryptionConfig resource with the given unique name, props, and options.
+        ## Import
+
+        XRay Encryption Config can be imported using the region name, e.g.
+
+        ```sh
+         $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_id: An AWS KMS customer master key (CMK) ARN.

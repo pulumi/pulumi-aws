@@ -72,6 +72,14 @@ class UserPool(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Cognito User Pools can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/userPool:UserPool pool <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']] admin_create_user_config: The configuration for AdminCreateUser requests.

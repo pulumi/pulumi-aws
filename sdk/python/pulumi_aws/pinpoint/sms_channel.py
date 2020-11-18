@@ -35,6 +35,14 @@ class SmsChannel(pulumi.CustomResource):
         sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
         ```
 
+        ## Import
+
+        Pinpoint SMS Channel can be imported using the `application-id`, e.g.
+
+        ```sh
+         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.

@@ -44,6 +44,14 @@ class Member(pulumi.CustomResource):
             invitation_message="please accept guardduty invitation")
         ```
 
+        ## Import
+
+        GuardDuty members can be imported using the the primary GuardDuty detector ID and member AWS account ID, e.g.
+
+        ```sh
+         $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: AWS account ID for member account.

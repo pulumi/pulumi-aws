@@ -4,6 +4,7 @@
 package cloudwatch
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,6 +151,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cloud Metric Alarms can be imported using the `alarm_name`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
 // ```
 type MetricAlarm struct {
 	pulumi.CustomResourceState
@@ -474,4 +483,43 @@ type MetricAlarmArgs struct {
 
 func (MetricAlarmArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricAlarmArgs)(nil)).Elem()
+}
+
+type MetricAlarmInput interface {
+	pulumi.Input
+
+	ToMetricAlarmOutput() MetricAlarmOutput
+	ToMetricAlarmOutputWithContext(ctx context.Context) MetricAlarmOutput
+}
+
+func (MetricAlarm) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarm)(nil)).Elem()
+}
+
+func (i MetricAlarm) ToMetricAlarmOutput() MetricAlarmOutput {
+	return i.ToMetricAlarmOutputWithContext(context.Background())
+}
+
+func (i MetricAlarm) ToMetricAlarmOutputWithContext(ctx context.Context) MetricAlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmOutput)
+}
+
+type MetricAlarmOutput struct {
+	*pulumi.OutputState
+}
+
+func (MetricAlarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmOutput)(nil)).Elem()
+}
+
+func (o MetricAlarmOutput) ToMetricAlarmOutput() MetricAlarmOutput {
+	return o
+}
+
+func (o MetricAlarmOutput) ToMetricAlarmOutputWithContext(ctx context.Context) MetricAlarmOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MetricAlarmOutput{})
 }

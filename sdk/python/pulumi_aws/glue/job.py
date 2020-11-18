@@ -86,6 +86,14 @@ class Job(pulumi.CustomResource):
         })
         ```
 
+        ## Import
+
+        Glue Jobs can be imported using `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:glue/job:Job MyJob MyJob
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobCommandArgs']] command: The command of the job. Defined below.

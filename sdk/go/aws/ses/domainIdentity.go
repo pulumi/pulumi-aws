@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -46,6 +47,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SES domain identities can be imported using the domain name.
+//
+// ```sh
+//  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
 // ```
 type DomainIdentity struct {
 	pulumi.CustomResourceState
@@ -141,4 +150,43 @@ type DomainIdentityArgs struct {
 
 func (DomainIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainIdentityArgs)(nil)).Elem()
+}
+
+type DomainIdentityInput interface {
+	pulumi.Input
+
+	ToDomainIdentityOutput() DomainIdentityOutput
+	ToDomainIdentityOutputWithContext(ctx context.Context) DomainIdentityOutput
+}
+
+func (DomainIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentity)(nil)).Elem()
+}
+
+func (i DomainIdentity) ToDomainIdentityOutput() DomainIdentityOutput {
+	return i.ToDomainIdentityOutputWithContext(context.Background())
+}
+
+func (i DomainIdentity) ToDomainIdentityOutputWithContext(ctx context.Context) DomainIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityOutput)
+}
+
+type DomainIdentityOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityOutput)(nil)).Elem()
+}
+
+func (o DomainIdentityOutput) ToDomainIdentityOutput() DomainIdentityOutput {
+	return o
+}
+
+func (o DomainIdentityOutput) ToDomainIdentityOutputWithContext(ctx context.Context) DomainIdentityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainIdentityOutput{})
 }

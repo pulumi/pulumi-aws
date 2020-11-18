@@ -65,6 +65,14 @@ class RemediationConfiguration(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Remediation Configurations can be imported using the name config_rule_name, e.g.
+
+        ```sh
+         $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_rule_name: The name of the AWS Config rule

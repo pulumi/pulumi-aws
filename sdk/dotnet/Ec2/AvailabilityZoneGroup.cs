@@ -33,6 +33,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EC2 Availability Zone Groups can be imported using the group name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+    /// ```
     /// </summary>
     public partial class AvailabilityZoneGroup : Pulumi.CustomResource
     {

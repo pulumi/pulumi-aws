@@ -70,6 +70,14 @@ class Account(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.
+
+        ```sh
+         $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring).

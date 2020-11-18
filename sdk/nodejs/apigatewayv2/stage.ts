@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -19,6 +17,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Stage("example", {apiId: aws_apigatewayv2_api.example.id});
+ * ```
+ *
+ * ## Import
+ *
+ * `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
  * ```
  */
 export class Stage extends pulumi.CustomResource {

@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -72,6 +70,14 @@ import * as utilities from "../utilities";
  *         aws_efs_file_system.example.arn,
  *     ],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Backup selection can be imported using the role plan_id and id separated by `|`.
+ *
+ * ```sh
+ *  $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
  * ```
  */
 export class Selection extends pulumi.CustomResource {

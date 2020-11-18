@@ -4,6 +4,7 @@
 package apigatewayv2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// `aws_apigatewayv2_deployment` can be imported by using the API identifier and deployment identifier, e.g.
+//
+// ```sh
+//  $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+// ```
+//
+//  The `triggers` argument cannot be imported.
 type Deployment struct {
 	pulumi.CustomResourceState
 
@@ -129,4 +140,43 @@ type DeploymentArgs struct {
 
 func (DeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentArgs)(nil)).Elem()
+}
+
+type DeploymentInput interface {
+	pulumi.Input
+
+	ToDeploymentOutput() DeploymentOutput
+	ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput
+}
+
+func (Deployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Deployment)(nil)).Elem()
+}
+
+func (i Deployment) ToDeploymentOutput() DeploymentOutput {
+	return i.ToDeploymentOutputWithContext(context.Background())
+}
+
+func (i Deployment) ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentOutput)
+}
+
+type DeploymentOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentOutput)(nil)).Elem()
+}
+
+func (o DeploymentOutput) ToDeploymentOutput() DeploymentOutput {
+	return o
+}
+
+func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeploymentOutput{})
 }

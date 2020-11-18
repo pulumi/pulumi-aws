@@ -4,6 +4,7 @@
 package wafregional
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// WAF Regional Byte Match Set can be imported using the id, e.g.
+//
+// ```sh
+//  $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type ByteMatchSet struct {
 	pulumi.CustomResourceState
@@ -114,4 +123,43 @@ type ByteMatchSetArgs struct {
 
 func (ByteMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*byteMatchSetArgs)(nil)).Elem()
+}
+
+type ByteMatchSetInput interface {
+	pulumi.Input
+
+	ToByteMatchSetOutput() ByteMatchSetOutput
+	ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput
+}
+
+func (ByteMatchSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByteMatchSet)(nil)).Elem()
+}
+
+func (i ByteMatchSet) ToByteMatchSetOutput() ByteMatchSetOutput {
+	return i.ToByteMatchSetOutputWithContext(context.Background())
+}
+
+func (i ByteMatchSet) ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetOutput)
+}
+
+type ByteMatchSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ByteMatchSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByteMatchSetOutput)(nil)).Elem()
+}
+
+func (o ByteMatchSetOutput) ToByteMatchSetOutput() ByteMatchSetOutput {
+	return o
+}
+
+func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ByteMatchSetOutput{})
 }

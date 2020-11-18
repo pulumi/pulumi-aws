@@ -45,6 +45,14 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// GuardDuty members can be imported using the the primary GuardDuty detector ID and member AWS account ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
+    /// ```
     /// </summary>
     public partial class Member : Pulumi.CustomResource
     {

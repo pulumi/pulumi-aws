@@ -19,6 +19,14 @@ import {ARN} from "..";
  *     description: "example",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
+ * ```
  */
 export class TransitGateway extends pulumi.CustomResource {
     /**

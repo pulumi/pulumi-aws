@@ -4,6 +4,7 @@
 package ec2
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -260,4 +261,43 @@ type DefaultSecurityGroupArgs struct {
 
 func (DefaultSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultSecurityGroupArgs)(nil)).Elem()
+}
+
+type DefaultSecurityGroupInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupOutput() DefaultSecurityGroupOutput
+	ToDefaultSecurityGroupOutputWithContext(ctx context.Context) DefaultSecurityGroupOutput
+}
+
+func (DefaultSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultSecurityGroup)(nil)).Elem()
+}
+
+func (i DefaultSecurityGroup) ToDefaultSecurityGroupOutput() DefaultSecurityGroupOutput {
+	return i.ToDefaultSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i DefaultSecurityGroup) ToDefaultSecurityGroupOutputWithContext(ctx context.Context) DefaultSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupOutput)
+}
+
+type DefaultSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefaultSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultSecurityGroupOutput)(nil)).Elem()
+}
+
+func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupOutput() DefaultSecurityGroupOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupOutputWithContext(ctx context.Context) DefaultSecurityGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DefaultSecurityGroupOutput{})
 }

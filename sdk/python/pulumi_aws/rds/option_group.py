@@ -68,6 +68,14 @@ class OptionGroup(pulumi.CustomResource):
 
         > **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.
 
+        ## Import
+
+        DB Option groups can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import aws:rds/optionGroup:OptionGroup bar mysql-option-group
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] engine_name: Specifies the name of the engine that this option group should be associated with.

@@ -64,6 +64,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Cognito Identity Pool can be imported using the name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cognito/identityPool:IdentityPool mypool &lt;identity-pool-id&gt;
+    /// ```
     /// </summary>
     public partial class IdentityPool : Pulumi.CustomResource
     {

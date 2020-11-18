@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,6 +33,14 @@ import * as utilities from "../utilities";
  *         Environment: "Prod",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ *  Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
  * ```
  */
 export class ResolverEndpoint extends pulumi.CustomResource {

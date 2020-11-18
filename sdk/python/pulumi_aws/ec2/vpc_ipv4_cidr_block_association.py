@@ -38,6 +38,14 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
             cidr_block="172.2.0.0/16")
         ```
 
+        ## Import
+
+        `aws_vpc_ipv4_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.
+
+        ```sh
+         $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.

@@ -51,6 +51,14 @@ class NfsFileShare(pulumi.CustomResource):
             role_arn=aws_iam_role["example"]["arn"])
         ```
 
+        ## Import
+
+        `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.
+
+        ```sh
+         $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.

@@ -92,6 +92,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Glue Jobs can be imported using `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:glue/job:Job MyJob MyJob
+    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

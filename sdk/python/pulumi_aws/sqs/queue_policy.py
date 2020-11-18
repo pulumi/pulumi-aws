@@ -54,6 +54,14 @@ class QueuePolicy(pulumi.CustomResource):
         \"\"\"))
         ```
 
+        ## Import
+
+        SQS Queue Policies can be imported using the queue URL, e.g.
+
+        ```sh
+         $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.

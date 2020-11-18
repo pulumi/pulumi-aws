@@ -49,6 +49,14 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             require_uppercase_characters=True)
         ```
 
+        ## Import
+
+        IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.
+
+        ```sh
+         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_users_to_change_password: Whether to allow users to change their own password

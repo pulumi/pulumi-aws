@@ -49,6 +49,14 @@ import {PolicyDocument} from "../iam";
  * `,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * ECR Repository Policy can be imported using the repository name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
+ * ```
  */
 export class RepositoryPolicy extends pulumi.CustomResource {
     /**

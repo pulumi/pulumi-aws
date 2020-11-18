@@ -4,6 +4,7 @@
 package directconnect
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Direct Connect Gateway Association Proposals can be imported using the proposal ID, e.g.
+//
+// ```sh
+//  $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
 // ```
 type GatewayAssociationProposal struct {
 	pulumi.CustomResourceState
@@ -148,4 +157,43 @@ type GatewayAssociationProposalArgs struct {
 
 func (GatewayAssociationProposalArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayAssociationProposalArgs)(nil)).Elem()
+}
+
+type GatewayAssociationProposalInput interface {
+	pulumi.Input
+
+	ToGatewayAssociationProposalOutput() GatewayAssociationProposalOutput
+	ToGatewayAssociationProposalOutputWithContext(ctx context.Context) GatewayAssociationProposalOutput
+}
+
+func (GatewayAssociationProposal) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAssociationProposal)(nil)).Elem()
+}
+
+func (i GatewayAssociationProposal) ToGatewayAssociationProposalOutput() GatewayAssociationProposalOutput {
+	return i.ToGatewayAssociationProposalOutputWithContext(context.Background())
+}
+
+func (i GatewayAssociationProposal) ToGatewayAssociationProposalOutputWithContext(ctx context.Context) GatewayAssociationProposalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationProposalOutput)
+}
+
+type GatewayAssociationProposalOutput struct {
+	*pulumi.OutputState
+}
+
+func (GatewayAssociationProposalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAssociationProposalOutput)(nil)).Elem()
+}
+
+func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalOutput() GatewayAssociationProposalOutput {
+	return o
+}
+
+func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalOutputWithContext(ctx context.Context) GatewayAssociationProposalOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GatewayAssociationProposalOutput{})
 }

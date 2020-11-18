@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -135,4 +136,43 @@ type DomainIdentityVerificationArgs struct {
 
 func (DomainIdentityVerificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainIdentityVerificationArgs)(nil)).Elem()
+}
+
+type DomainIdentityVerificationInput interface {
+	pulumi.Input
+
+	ToDomainIdentityVerificationOutput() DomainIdentityVerificationOutput
+	ToDomainIdentityVerificationOutputWithContext(ctx context.Context) DomainIdentityVerificationOutput
+}
+
+func (DomainIdentityVerification) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityVerification)(nil)).Elem()
+}
+
+func (i DomainIdentityVerification) ToDomainIdentityVerificationOutput() DomainIdentityVerificationOutput {
+	return i.ToDomainIdentityVerificationOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityVerification) ToDomainIdentityVerificationOutputWithContext(ctx context.Context) DomainIdentityVerificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationOutput)
+}
+
+type DomainIdentityVerificationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainIdentityVerificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityVerificationOutput)(nil)).Elem()
+}
+
+func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationOutput() DomainIdentityVerificationOutput {
+	return o
+}
+
+func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationOutputWithContext(ctx context.Context) DomainIdentityVerificationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainIdentityVerificationOutput{})
 }

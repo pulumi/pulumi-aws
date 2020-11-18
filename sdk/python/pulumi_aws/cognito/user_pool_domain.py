@@ -59,6 +59,14 @@ class UserPoolDomain(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Cognito User Pool Domains can be imported using the `domain`, e.g.
+
+        ```sh
+         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main <domain>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
